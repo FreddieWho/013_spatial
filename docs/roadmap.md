@@ -47,7 +47,7 @@
 
 **冻结结果：** GSE274557 为 discovery，HTAN Vanderbilt CRC 为 training，GSE274103 与 GSE226997 为 internal validation，GSE211956 为 external validation，10x Breast Block A 为 serial-section validation。角色只使用身份、来源、平台、本地资产和预注册 capability；未使用 TLS、结构结果或模型表现。机器 gate 为 `COMPLETE_WITH_EXCLUSIONS`，R-01 对 plan.md 各假设仍无直接影响；R-02 的结构 GT 审计可开始，但不得把 R-01 的 specimen equivalence 当成结构 GT。
 
-## R-02｜结构本体、GT 重叠和切分规则冻结 `[基础设施]`
+## R-02｜结构本体、GT 重叠和切分规则冻结 `[基础设施｜HARD_BLOCKED_NO_AUDITABLE_GT]`
 
 1. **要做什么：** 为已讨论的 TLS、血管、坏死和肿瘤—基质边界建立结构实例注册，记录几何类型、证据等级、GT 定义模态、需要排除的直接输入通道、边界不确定性、同一物理结构在相邻切片中的对应关系和用途场景；按 `block_id` 冻结外层切分。
 2. **服务的假设：** `[基础设施]`，不直接检验科学假设。
@@ -55,6 +55,17 @@
 4. **对假设信心的影响：** 不直接提高假设可信度；若 GT 与输入无法形成可审计边界，则该结构只保留发现性用途。
 
 **投入上限：** 在第二结构确定前，仅处理上述四类已讨论结构，不扩展新的结构本体；人工标注上限为 `[待定]`，需要病理方可用工时确定。
+
+**R-02 GT 与切分规则：**
+
+- 确认性 GT 必须关联 R-01 physical unit，并提供内容寻址、可重放的 mask、polygon、centroid 或等价空间 locator；presence/count、结构 ID、类别、面积或样本级阳性不能替代空间几何。
+- GT 生成模态、方法、坐标系、分辨率、边界不确定性和输入依赖必须闭合。表达或同一拟用输入派生的标签只能用于 discovery；来源未知时 fail closed。GT 本身、到 GT 的距离、GT 决定的遮蔽形状及生成依赖的传递闭包全部禁止进入预测输入。
+- outer group 是同患者、同真实 block、重复/重处理、serial-section、显式跨切片同结构关系和 R-01 leakage edge 的保守连通分量。真实 block 优先；block 未知的 E2 specimen-equivalent 只按患者级 envelope 冻结，`block_id` 保持空，不声明 block-level holdout。
+- 同一 block 不自动证明切片相邻或同一结构跨切片；只有 metadata 明确给出对应关系时才建立 cross-section structure link。未标注区域保持 unknown，不能静默当作 negative。
+
+**2026-07-31 审计结果：** 6 个冻结逻辑单元中共识别 57 条 Table S4 真实 TLS ID 候选，但均缺少可重放空间几何，且现有上游流程包含 marker scoring、phenotype inference 与 TLS segmentation，无法建立独立 GT—输入边界。本地另有 19 个文件名含 `TLS_annotation` 的非核心候选资产，但 provenance 与 physical-unit 映射未闭合。血管、坏死和肿瘤—基质边界的可审计实例均为 0，第二结构不能冻结。四个 specimen-equivalent GEO lineage 的 72 条 physical rows 只形成 30 个患者级保守 envelope；加上 HTAN 与 10x 后，所有 121 条合格 physical rows 共冻结为 61 个 patient-wide outer groups，并单独保留 32 个真实 block groups。
+
+**门禁与假设影响：** 机器状态为 `HARD_BLOCKED_NO_AUDITABLE_GT`，确认性结构实例为 0。R-02 是基础设施节点，本结果不直接支持或否定 PLAN.md 的任何假设，但说明当前 metadata 无法让 H-01 至 H-05 获得可解释的确认性检验；R-04 及其后主关键路径不得启动。H-04 所需第二结构也因 I-003 单独硬阻塞。解除阻塞需要用户批准补充可审计 annotation/provenance，或批准收缩科学主张。
 
 ## R-03｜相邻切片与配准可测性普查 `[基础设施]`
 

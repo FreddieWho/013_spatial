@@ -1,0 +1,20 @@
+{
+  "claim_rule": "presence/count/summary alone never creates confirmatory structure instances",
+  "expression_matrix_reads_allowed": false,
+  "gpu_allowed": false,
+  "image_pixel_reads_allowed": false,
+  "minimum_auditable_gt": {
+    "independent_from_model_input": true,
+    "known_annotation_provenance": true,
+    "known_overlap_boundary": true,
+    "replayable_geometry_locator": true,
+    "verified_r01_physical_link": true,
+    "verified_source_checksum": true
+  },
+  "mode": "metadata_schema_only",
+  "network_allowed": false,
+  "phase": "R-02",
+  "second_structure_status": "NOT_FROZEN",
+  "specimen_equivalent_split_rule": "patient_envelope; block_id remains empty; not block-level",
+  "supported_confirmatory_gt_verifiers": []
+}

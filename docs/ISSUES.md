@@ -4,15 +4,16 @@
 
 允许状态：`OPEN`、`RESOLVED`、`HARD_BLOCKED`、`WONT_FIX`。
 
-## I-001｜数据自带 metadata 能否支持结构 GT 尚未知
+## I-001｜数据自带 metadata 无法建立可审计的结构 GT—输入边界
 
-- **状态：** `OPEN`
+- **状态：** `HARD_BLOCKED`
 - **发现日期：** 2026-07-31
 - **影响节点：** R-01、R-02，并可能限制 R-04 至 R-11 的确认性证据等级。
-- **当前事实：** 当前只能使用各数据集自带 metadata 中明确提供的信息建立样本身份、结构标签和 GT。尚未完成字段级普查，不确定 metadata 是否包含结构类型、标注模态、病理判读、结构实例、切片关系或可审计的 GT 来源。
-- **当前影响：** 不阻塞 R-01 的 metadata 普查和注册表建设；在证据来源确认前，不允许把文件名、表达模式、外部论文常识或模型推断升级为确认性 GT。
-- **下一判定点：** R-01 完成各数据源 metadata 字段和缺失率盘点后，按结构与数据集报告可承担的证据角色。
-- **硬阻塞条件：** 若没有任何数据源能仅凭自带 metadata 建立至少一个结构的可审计 GT—输入边界，则 R-02 及后续确认性结构反演形成硬阻塞；届时统一审核补充外部数据或收缩科学主张。
+- **当前事实：** 已对 6 个冻结逻辑单元完成 metadata/schema-only 普查。TLS 有 57 条实例汇总候选：HTAN 44、GSE226997 4、GSE274103 8、GSE274557 1；它们只有 presence/count、TLS ID、成熟度、位置类别或面积，没有可重放的 mask、polygon、centroid 或坐标 locator。上游流程明确包含 marker scoring、phenotype inference 和 TLS segmentation，因此这些 summary 不能作为表达输入之外的独立 GT。19 个本地 `*_TLS_annotation.csv.gz` 资产不属于 R-01 冻结核心，且标注 provenance 与 physical-unit 映射未闭合。血管、坏死和肿瘤—基质边界均无结构级 annotation 证据。
+- **污染与泄漏：** Table S2 的 TLS presence/count、Table S4 的 TLS ID/maturation/location/size 和 `repo/data/ST_*_maturation_location.csv` 的 Cluster/Location 都是目标或目标派生字段，进入输入会造成直接 target leakage；表达派生标签反过来验证表达模型会造成循环验证。GSE211956 的 sample title 编码 treatment response，属于 outcome leakage；patient/site/treatment/TNM/sample/file identifiers 均是 shortcut 风险。GSE274103/GSE274557 的官方 metadata 说明预处理已删除 acellular stromal-interface spots，因此肿瘤—基质边界还存在选择偏差。上述字段全部禁止作为普通模型输入。
+- **当前影响：** R-02 机器门禁为硬阻塞，确认性结构实例为 0；R-04 及之后的结构反演、遮蔽和 benchmark 不得启动。R-01 的身份 gate 仍有效，但 patient-linked specimen equivalence 不能补足 block、结构实例或 GT 独立性。
+- **下一判定点：** 统一审核是否允许针对冻结 lineage 获取官方 annotation mask/polygon/spot-label、physical-unit crosswalk 和标注 provenance；至少需要一个独立于拟用分子输入的 TLS GT，并需要另一类结构的独立 GT 才能恢复当前方法级主张。
+- **解除条件：** 至少一个结构在 training 与独立 validation lineage 中具有内容寻址、可重放空间几何、physical-unit 映射、已知标注模态与生成方法、可执行输入排除规则；第二结构仍需单独通过 I-003。
 
 ## I-002｜serial-section 与配准相关 metadata 覆盖未知
 
@@ -26,13 +27,13 @@
 
 ## I-003｜第二个 claim-bearing 结构尚未确定
 
-- **状态：** `OPEN`
+- **状态：** `HARD_BLOCKED`
 - **发现日期：** 2026-07-31
 - **影响节点：** R-02、R-08、R-09，以及 H-04/H-05 的方法级通用性。
-- **当前事实：** TLS 是主起点；血管、坏死和肿瘤—基质边界是候选，但当前尚无基于自带 metadata 的患者数、结构实例数、分辨率和独立 GT 覆盖比较。
-- **当前影响：** 不阻塞 TLS 相关的 R-01 元数据注册；在比较完成前不得按主观偏好冻结第二结构。
-- **下一判定点：** R-01/R-02 完成结构级证据盘点后选择，或明确没有候选达标。
-- **硬阻塞条件：** 若没有第二结构具备足够的独立患者或组织块及可审计 GT，H-04 的当前形式无法检验，方法级通用 claim 必须收缩。
+- **当前事实：** R-02 metadata 普查后，血管、坏死和肿瘤—基质边界的可审计结构实例、空间几何、标注 provenance 和独立 validation 覆盖均为 0。GSE274103/GSE274557 还预先删除了 acellular stromal-interface spots，不能把剩余组织边缘静默当作无偏的肿瘤—基质边界。
+- **当前影响：** 第二结构不能冻结，H-04、R-08 与 R-09 形成硬阻塞；不得用 TLS 一种结构代表通用框架，也不得按结果事后挑选其他结构。当前主路径同时受 I-001 的 TLS GT 阻塞。
+- **下一判定点：** 若获批补充外部 annotation，按血管、坏死和肿瘤—基质边界逐项比较真实 patient/block 数、实例数、空间分辨率、标注误差、输入独立性和 validation lineage 后再选择。
+- **解除条件：** 至少一类非 TLS 结构在独立患者或真实 block 中具有可审计空间 GT，并能执行与拟用输入的隔离；否则 PLAN.md 的方法级通用主张需要用户批准后收缩。
 
 ## I-004｜聚合来源之间的物理样本重复范围未知
 
@@ -50,7 +51,7 @@
 - **状态：** `OPEN`
 - **发现日期：** 2026-07-31
 - **影响节点：** 所有需要解包、复制或生成派生数据的节点。
-- **当前事实：** 2026-07-31 检查项目所在文件系统约有 2.9 TB 可用空间，满足至少保留 2 TB 的要求，但安全余量约 0.9 TB。
+- **当前事实：** 2026-07-31 在 R-02 结束前复查，项目所在文件系统有 3,098,826,780,672 bytes（约 3.10 TB）可用，满足至少保留 2 TB 的要求，安全余量约 1.10 TB。
 - **当前影响：** 不阻塞小型 metadata 扫描和注册表输出；禁止无估算的大包解压、全量复制或大规模派生物落盘。
 - **下一判定点：** 每个预计产生显著落盘的新任务开始前检查可用空间，并记录预计峰值。
 - **硬阻塞条件：** 任务预计峰值会使可用空间低于 2 TB，或运行中实际余量接近该阈值时，升级为 `BLOCKED_STORAGE` 并停止新增落盘。

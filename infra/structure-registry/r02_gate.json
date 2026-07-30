@@ -1,0 +1,30 @@
+{
+  "auditable_gt_source_count": 0,
+  "blockers": [
+    "NO_AUDITABLE_INSTANCE_LEVEL_GT",
+    "SECOND_CLAIM_BEARING_STRUCTURE_NOT_FROZEN"
+  ],
+  "conclusion_impact": "R-02 remains incomplete: no structure has auditable instance-level GT, so no distance field, model training, confirmatory validation, or second-structure claim may start.",
+  "confirmatory_instance_count": 0,
+  "explicit_block_group_count": 32,
+  "expression_or_image_content_read": false,
+  "gpu_used": false,
+  "integrity_errors": [],
+  "metadata_schema_only": true,
+  "network_used": false,
+  "ontology_structure_count": 4,
+  "outer_patient_group_count": 61,
+  "outer_split_row_count": 121,
+  "phase": "R-02",
+  "r01_eligible_physical_count": 121,
+  "second_structure_frozen": false,
+  "status": "HARD_BLOCKED_NO_AUDITABLE_GT",
+  "stomics_candidate_source_count": 19,
+  "tls_candidate_breakdown": {
+    "GEO::GSE226997": 4,
+    "GEO::GSE274103": 8,
+    "GEO::GSE274557": 1,
+    "HTAN_VANDERBILT_CRC": 44
+  },
+  "tls_candidate_count": 57
+}

@@ -209,3 +209,19 @@
 - 代价: gate 会读取并校验小型 metadata 文件，表间任一缺失、校验和变化或 lineage 漂移都会使相关行 fail closed；构建和测试夹具更复杂。
 - 复查条件: schema 或来源体系变化时，应提供等价的来源认证、identity normalization 与 canonical lineage 规则，不能退回只信任 physical row 自报。
 - 影响: D-025 的机器执行强度；roadmap.md 的 R-01；`r01_gate.json` 的 integrity errors。
+
+### D-030 | 2026-07-31 | 只有来源闭合且具有可重放空间几何的结构标签可作为确认性 GT
+
+- 背景: 当前 metadata 中存在 TLS presence/count、TLS ID、成熟度、位置类别和面积等结果汇总，上游代码还明确包含 marker scoring、phenotype inference、TLS segmentation 和 H&E YOLO 流程。仅凭标签名称或实例编号，无法证明它是独立于拟用输入的空间 GT。
+- 理由: 确认性 GT 必须能关联 R-01 physical unit，具有可重放的 mask、polygon、centroid 或等价坐标 locator，并闭合标注模态、生成方法、坐标系、分辨率、边界不确定性和来源校验和。GT 生成依赖的输入及其派生特征按传递闭包禁用；同一表达 assay 派生、来源未知或只有样本/实例汇总的标签只能用于 discovery 或直接排除。
+- 代价: 现有 57 条 TLS 实例汇总不能因有唯一 TLS ID 而进入定位 benchmark；本地 19 个文件名含 `TLS_annotation` 的资产在 provenance 和物理映射闭合前也不能升格。当前可用样本量因此可能降为零。
+- 复查条件: 获得内容寻址的空间 annotation、physical-unit crosswalk 和明确的独立生成 provenance 后重审；若 GT 来自 H&E，仅在分子-only 输入且完全排除该图像及其派生特征时考虑确认性使用。
+- 影响: roadmap.md 的 R-02；后续 R-04 至 R-10 的 GT、遮蔽、输入 allowlist 和 benchmark 有效性。
+
+### D-031 | 2026-07-31 | 外层切分采用身份关系图；block 未知时只冻结患者级保守 envelope
+
+- 背景: R-01 的 HTAN 与 10x 单元有真实 block，四个 GEO 单元只有 patient-linked physical specimen。把 GSM、BioSample、specimen 或文件名当 block 会伪造 block-level 独立性；只按单行切分还可能让同患者多 specimen 跨折。
+- 理由: outer group 取同患者、同真实 block、重复/重处理、serial-section、显式跨切片同结构关系和 R-01 leakage edge 的保守连通分量。真实 block 保持可审计；block 未知时把同患者全部 specimen 放入 `PATIENT_ENVELOPE_BLOCK_UNKNOWN`，`block_id` 继续为空，不计 block-level 样本量。
+- 代价: 四个 specimen-equivalent GEO lineage 的 72 条 physical rows 最多只形成 30 个患者级 envelope，不能声称 72 个独立 block；GSE274557 的 55 条 specimen 收缩为 13 个患者级 envelope。此规则保证不跨患者泄漏，但不能证明未知 block 之间独立。
+- 复查条件: 获得真实 patient—block—section crosswalk 后，以真实 block 替换 patient envelope 并重跑 duplicate、cross-section 和 role gate；发现跨患者别名或跨 lineage 物理复用时合并相应连通分量。
+- 影响: roadmap.md 的 R-02；`outer_split_units.tsv`；所有患者/组织块级外层验证和有效样本量报告。

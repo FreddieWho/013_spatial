@@ -1,0 +1,7 @@
+channel_class	policy	scope	reason
+data-carried metadata and schema	ALLOWED_R02_AUDIT	identity, provenance, annotation schema/header, checksums	Required to audit GT-input separation without scientific computation.
+expression matrix or derived expression	FORBIDDEN_R02	X, counts, normalized expression, embeddings, programs	R-02 is metadata/schema-only and must not inspect model inputs.
+image pixels or derived morphology	FORBIDDEN_R02	WSI, H&E pixels, masks, embeddings	Only file/schema provenance may be inventoried.
+GT-defining annotation	FORBIDDEN_AS_MODEL_INPUT	TLS/structure labels, raster/vector geometry, defining marker panels	Prevents circular GT and direct-label leakage.
+outcome or response metadata	FORBIDDEN_FOR_SELECTION_SPLIT_MODEL	response tokens in sample titles and any clinical outcome	Outcome-blind role and fold freeze.
+identity, site, treatment, stage, sample and file metadata	FORBIDDEN_AS_PREDICTIVE_INPUT	patient/sample IDs, filenames, section labels, tissue site, treatment and TNM/stage	Prevents identity, acquisition and clinical shortcut leakage.

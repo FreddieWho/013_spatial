@@ -4,12 +4,12 @@
 
 ## 目前知道了什么
 
-项目仍没有支持或否定核心科学假设的新结果。身份基础设施现在达到最低门槛：956 条记录中有 121 条合格，折叠为 6 个逻辑数据单元并冻结角色，其中 GSE211956 是独立外部验证来源。四个新增 GEO 队列没有字面组织块编号，只达到“患者关联实体组织 specimen”的 E2 证据，因此可信度低于真实 patient—block crosswalk，后续发现映射冲突会使 R-01 回退。
+项目仍没有支持或否定核心科学假设的新结果。身份基础设施已经达到最低门槛，但结构 GT 没有：6 个冻结数据单元里的 57 条 TLS 候选只有阳性、数量、实例编号、类别或面积汇总，没有能重放位置的 mask、polygon 或坐标；血管、坏死和肿瘤—基质边界没有可审计实例。部分 TLS 标签还来自 marker scoring 和表达分割流程，若反过来验证表达模型会形成循环，因此当前确认性结构实例数为 0。
 
 ## 今天做了什么
 
-用户批准后，今天按 P1 顺序获取了小型官方 GEO metadata、provenance metadata 和一个 patient—GSM crosswalk，没有保留表达矩阵、图像或结果表，也没有使用 GPU。GSE211956、GSE226997、GSE274103、GSE274557 各增加一个 canonical 单元；Atlas/GEO 镜像没有重复计数，PDX、scRNA 和同患者多 specimen 没有拆成独立单元。还发现 GSE242311 与 GSE246011 的 Atlas 记录和官方 GEO 在患者数、论文或癌种上冲突，已排除；一次混合补充包越界事件已清除并记录校验和。
+今天只读取了本地自带 metadata、表结构、归档清单和 h5ad schema，没有读取表达值或图像像素，也没有使用 GPU。我们冻结了四类结构本体、GT—输入隔离规则和患者级保守外层分组：四个缺少真实 block 的 GEO lineage 不能把 72 条 specimen 伪装成 72 个 block，只能形成 30 个患者 envelope。审计还发现 GSE211956 的样本标题含治疗响应，GSE274103/GSE274557 预处理删除了无细胞基质交界 spot；这些 outcome/selection 信息均不得作为普通输入。
 
 ## 接下来做什么
 
-R-01 机器 gate 为 `COMPLETE_WITH_EXCLUSIONS`，下一步进入 R-02：只依据数据自带 metadata 审计哪些结构标签能形成不循环的 GT—输入边界，并冻结结构本体与外层切分规则。若找不到至少一个可审计结构 GT，R-02 会形成新的科学硬阻塞；在此之前不启动模型训练，也不把 specimen equivalence 当成结构证据。
+R-02 已到 `HARD_BLOCKED_NO_AUDITABLE_GT`：在补足独立空间 annotation、physical-unit crosswalk 和标注 provenance 前，不启动 R-04 的模型或 benchmark。下一步需要统一决定，是批准针对冻结队列获取官方 mask/polygon/spot-label 并为 TLS 和第二类结构建立独立 GT，还是收缩 PLAN.md 的多结构确认性主张；在用户决定前保持硬阻塞。
