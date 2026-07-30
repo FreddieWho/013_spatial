@@ -44,6 +44,8 @@
 
 **2026-07-31 阻塞证据：** 已穷尽当前本地小型 bundled metadata、Atlas Table S2、HEST JSON、全部 `repo/data_meta` 表、来源 manifest 与优先 GEO filelist。884 条注册记录中只有 HTAN Vanderbilt CRC 与 10x Breast Block A 两个逻辑单元同时具有可审计 patient+block；不足 6 个最低门槛，`role_freeze.tsv` 保持空。R-01 因此为 `BLOCKED_IDENTITY`，不得进入 R-02。机器判定见 `infra/sample-registry/r01_gate.json`。
 
+**解阻准备：** 现有 patient-known/block-missing 记录已 outcome-blind 汇总为 50 个请求候选，经 bundled accession、PMID 和 DOI 别名合并为 44 个 provenance group；其中 1 个已知属于当前 HTAN 合格谱系，不产生新增单元，其余 43 个仍需外部 metadata 与物理独立性审核，当前全部计为 0。请求清单不改变 blocker 或角色冻结。
+
 ## R-02｜结构本体、GT 重叠和切分规则冻结 `[基础设施]`
 
 1. **要做什么：** 为已讨论的 TLS、血管、坏死和肿瘤—基质边界建立结构实例注册，记录几何类型、证据等级、GT 定义模态、需要排除的直接输入通道、边界不确定性、同一物理结构在相邻切片中的对应关系和用途场景；按 `block_id` 冻结外层切分。

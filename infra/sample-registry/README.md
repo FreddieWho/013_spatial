@@ -69,6 +69,7 @@ python scripts/r01_summarize_units.py
 python scripts/r01_extract_tenx_explicit.py
 python scripts/r01_build_registry.py
 python scripts/r01_validate_gate.py
+python scripts/r01_prepare_metadata_request.py
 python -m unittest discover -s tests -p 'test_r01_*.py'
 ```
 
@@ -80,3 +81,10 @@ available. The validator returns zero when it successfully writes a gate
 artifact, including a blocked artifact; automation must inspect
 `r01_gate.json::status` rather than treating process exit alone as scientific
 success.
+
+`r01_metadata_request.tsv` is a proposed metadata-only acquisition queue, not
+a role freeze. Its ranking uses bundled identity coverage, provenance
+locators, and conflict counts; it excludes TLS/structure outcomes and model
+results. Shared accession, PMID, or DOI aliases are grouped conservatively,
+and every proposed group contributes zero eligible units until an acquired
+patient/block crosswalk passes duplicate and independence audit.

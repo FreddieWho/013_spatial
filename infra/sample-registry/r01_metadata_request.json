@@ -1,0 +1,30 @@
+{
+  "approval_status": "NOT_APPROVED",
+  "current_claim_eligible_logical_units": 2,
+  "current_gate_status": "BLOCKED_IDENTITY",
+  "excluded_scope": [
+    "expression matrices",
+    "images",
+    "structure labels selected by outcome",
+    "model-derived annotations"
+  ],
+  "independence_policy": "Every candidate remains unresolved and contributes zero units until cross-source duplicate and patient/block lineage audit passes.",
+  "known_current_lineage_groups_no_increment": 1,
+  "minimum_additional_independent_logical_units": 4,
+  "node": "R-01",
+  "priority_tier_counts": {
+    "P1_PUBLIC_HIGH_COVERAGE": 31,
+    "P2_PUBLIC_LOWER_COVERAGE": 16,
+    "P3_ACCESS_OR_CONFLICT_REVIEW": 2,
+    "P4_KNOWN_CURRENT_LINEAGE": 1
+  },
+  "proposed_provenance_groups_requiring_audit": 43,
+  "provenance_groups_before_independence_audit": 44,
+  "ranking_inputs": [
+    "bundled patient identity coverage",
+    "bundled provenance locator availability",
+    "bundled metadata conflict count"
+  ],
+  "request_candidates": 50,
+  "request_scope": "official metadata mapping patient, tissue block, sample and section"
+}

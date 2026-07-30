@@ -42,7 +42,7 @@
 - **当前事实：** HEST、论文 atlas、GEO、10x、HTAN/OSF、STOmicsDB 和 SpatialDB 可能收录同一患者、组织块、切片或其重处理版本。相同校验和只能确认资产级重复；不同校验和不能证明物理样本独立。
 - **已确认或冲突证据：** `repo/data_meta/ST_CRC_cohort_meta2.csv` 的 48 行中有 12 行自带 `duplicated=Yes`；本地 HTAN 49 个 h5ad 与该表 48 个资产名之间存在两个本地独有和一个 metadata 独有文件。HEST 有 6 条 `patient` 与 `subseries` 的显式 P 编号冲突。HEST 与本地 10x manifest 之间有 90 条记录共享 35 个数据源页面：47 条仅确认同一来源数据集谱系，15 条保留为可能物理相关并保守同组，28 条经显式映射审计后没有逐条关系证据且不建立 leakage edge。
 - **当前影响：** 不阻塞 metadata 来源盘点；在物理身份澄清前，不得因来源数据库、目录或文件格式不同而把样本分配到相互独立的 claim-bearing 角色。
-- **下一判定点：** R-01 建立来源映射、身份依据和 duplicate/leakage group 后，报告已确认、可能和冲突重复。
+- **下一判定点：** 针对性外部 metadata 获批后，用 patient↔block crosswalk 复核 `r01_metadata_request.tsv` 的 provenance group；同一 PMID、accession 或 DOI 目前只代表来源重叠，不自动证明或否定物理独立。
 - **硬阻塞条件：** 若候选核心队列无法形成彼此物理独立且身份可审计的训练与验证组，则 R-01 升级为 `BLOCKED_INDEPENDENCE`，后续确认性 benchmark 不得启动。
 
 ## I-005｜存储安全余量有限
@@ -62,8 +62,8 @@
 - **影响节点：** R-01 的完成判定和角色冻结，并影响 R-02、R-05、R-10 的独立性。
 - **当前事实：** 本地 metadata 审计已穷尽。884 条 physical-unit 记录中，49 条资产来自两个 patient+block 可追溯逻辑单元：HTAN Vanderbilt CRC 的 47 个 matched 资产，以及 10x Breast Block A 的两个显式 section。另有 574 条记录有 patient 但缺 block，250 条缺 patient 或 block，10 条存在 metadata 冲突。满足门槛的逻辑单元为 2，低于 roadmap 要求的 6。
 - **当前影响：** R-01 为 `BLOCKED_IDENTITY`，`role_freeze.tsv` 保持空，R-02 及后续节点不得启动。35 个 Atlas namespace、聚合数据库名称、sample alias 和文件名均未用于凑数。
-- **解除阻塞的最小申请：** 先申请只补充现有本地候选的官方 sample sheet、GEO/SRA/论文补充 metadata 或作者提供的 patient↔block↔sample crosswalk，不新增表达矩阵。目标是至少新增 4 个彼此独立、patient+block 可追溯的逻辑单元，并保留至少一个可冻结为 external validation 的独立来源谱系。若公开 metadata 仍不足，再单独审核受控数据或作者联系；任何新数据在交付前更新 `infra/bioinf-data-index/`。
-- **下一判定点：** 用户是否批准上述针对性外部 metadata 获取；批准后按来源逐项登记 provenance、规模、许可证和身份覆盖，再重跑 R-01 gate。
+- **解除阻塞的最小申请：** 先申请只补充现有本地候选的官方 sample sheet、GEO/SRA/论文补充 metadata 或作者提供的 patient↔block↔sample crosswalk，不新增表达矩阵。目标是至少新增 4 个彼此独立、patient+block 可追溯的逻辑单元，并保留至少一个可冻结为 external validation 的独立来源谱系。现有 50 个请求候选按 bundled patient coverage、provenance locator 和冲突数排序，合并为 44 个 provenance group；1 个已确认属于当前 HTAN 谱系，剩余 43 个都保持 `UNRESOLVED_DO_NOT_COUNT`，不能预先当作新增独立单元。若公开 metadata 仍不足，再单独审核受控数据或作者联系；任何新数据在交付前更新 `infra/bioinf-data-index/`。
+- **下一判定点：** 用户是否批准 `infra/sample-registry/r01_metadata_request.tsv` 所定义的 metadata-only 获取范围；批准后按 provenance group 逐项登记来源、规模、许可证和身份覆盖，再重跑 duplicate audit 与 R-01 gate。
 - **硬阻塞条件：** 已满足；机器 gate 为 `BLOCKED_IDENTITY`。不得通过把 sample/section/file name 等同 block、按 TLS 阳性率换队列或拆分同一来源谱系解除。
 
 ## I-007｜三个 metadata extractor 的可选输出路径未统一加固

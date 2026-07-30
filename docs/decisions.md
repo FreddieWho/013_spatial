@@ -177,3 +177,11 @@
 - 代价:未来不完整的 role freeze 会明确停在 `BLOCKED_INDEPENDENCE`，即使已有足够行数；gate 命令写出阻塞产物时仍返回零，自动化必须解析 JSON status
 - 复查条件:若 roadmap 改变允许的证据等级、角色集合或 leakage 独立性标准，必须同步修改 gate policy、回归测试和 completion requirements
 - 影响:roadmap.md 的 R-01；infra/sample-registry/r01_gate.json；后续 CI/自动化
+
+### D-026 | 2026-07-31 | 外部 metadata 请求按身份缺口排序且不预支独立性
+
+- 背景:R-01 已因仅有两个合格逻辑单元硬阻塞，但 574 条记录已有 patient、缺 block；泛化申请“更多数据”无法说明哪些 metadata 能直接解阻，也容易按 TLS 结果挑队列
+- 理由:请求队列只使用 bundled patient coverage、provenance locator 和 metadata 冲突数排序，不读取 TLS/结构结果或模型性能；相同 accession、PMID 或 DOI 先并为 provenance group，每组在 patient↔block crosswalk 和跨来源重复审计通过前贡献 0 个新增单元
+- 代价:同一论文下真实独立的多个队列会被暂时保守合并；50 个请求候选目前只形成 44 个 provenance group，且仍不能保证其中任意 4 个最终独立合格
+- 复查条件:用户批准 metadata-only 获取并得到官方 crosswalk 后，按物理身份拆分或继续合并 provenance group；若新增证据改变现有 HTAN/10x 谱系关系，追加决策并重跑 gate
+- 影响:roadmap.md 的 R-01；ISSUES.md 的 I-004、I-006；infra/sample-registry/r01_metadata_request.tsv
