@@ -9,8 +9,11 @@ model.
 
 ## Evidence boundary
 
-Only metadata bundled with the local data may support identity or structure
-facts. Every normalized patient, block, section, serial relationship, or
+Only metadata bundled with the local data, plus user-approved official
+metadata/crosswalks indexed under `infra/bioinf-data-index/`, may support
+identity facts. Structure facts remain limited to data-carried metadata and
+are audited separately in R-02. Every normalized patient, block, specimen,
+section, serial relationship, or
 structure field must retain its raw value, metadata location and evidence
 grade:
 
@@ -23,6 +26,22 @@ grade:
 E1/E0/EC records cannot enter claim-bearing validation. Different checksums do
 not prove physical independence. A possible cross-source match remains in one
 conservative leakage group or outside confirmation until resolved.
+
+R-01 also permits one fail-closed `patient_linked_physical_specimen` identity
+granularity at E2: official patient mapping, explicit physical-tissue
+description, and a stable specimen locator must corroborate one another.
+`block_id` remains empty. GSM, BioSample, sample, slide, capture area, section,
+directory and filename values cannot be promoted to block. Discovery of a
+multi-block specimen, repeated block sections, mapping conflict or cross-study
+reuse revokes the equivalence and requires a gate rebuild.
+
+The gate does not trust either explicit patient/block rows or specimen
+equivalences by themselves. It checks patient/block or
+patient/specimen/basis evidence values, raw keys and values, active checksummed
+source assets, actual small-file SHA-256 values, canonical source-lineage
+duplicate-group membership, and role-to-lineage leakage-group agreement.
+Missing or mismatched references remove the row from eligibility and are listed under
+`identity_integrity_errors`, `source_asset_errors`, or `role_freeze_errors`.
 
 ## Registry tables
 
@@ -67,15 +86,22 @@ python scripts/r01_extract_htan.py
 python scripts/r01_cross_source_duplicates.py
 python scripts/r01_summarize_units.py
 python scripts/r01_extract_tenx_explicit.py
+python scripts/r01_extract_external_geo.py
 python scripts/r01_build_registry.py
+python scripts/r01_freeze_roles.py --freeze-date 2026-07-31
 python scripts/r01_validate_gate.py
-python scripts/r01_prepare_metadata_request.py
+python scripts/r01_prepare_metadata_request.py --approval-status APPROVED_METADATA_ONLY
+python scripts/update_bioinf_data_index.py --generated-at 2026-07-31T06:16:28+08:00
 python -m unittest discover -s tests -p 'test_r01_*.py'
+env PYTHONPATH=. pytest -q tests
 ```
 
-The current machine gate is `BLOCKED_IDENTITY`: only two independent logical
-units have auditable patient and block identity, below the minimum of six.
-`role_freeze.tsv` therefore remains empty and R-02 must not start. Before any
+The current machine gate is `COMPLETE_WITH_EXCLUSIONS`: six canonical logical
+units pass identity eligibility and have one frozen role each. Four GEO units
+use the documented E2 specimen equivalence; HTAN CRC and 10x Breast Block A
+retain explicit patient-block identity. GSE211956 is the locked independent
+external lineage. This completes identity infrastructure only and does not
+validate any structure ground truth. Before any
 later unpacking or derived-data task, recheck that at least 2 TB remains
 available. The validator returns zero when it successfully writes a gate
 artifact, including a blocked artifact; automation must inspect

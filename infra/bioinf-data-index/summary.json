@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-31T06:16:28+08:00",
+  "indexed_file_count": 25,
+  "indexed_bytes": 1408305,
+  "retained_metadata_files": 24,
+  "retained_identity_crosswalk_files": 1,
+  "retained_expression_files": 0,
+  "retained_image_files": 0,
+  "retained_result_files": 0,
+  "deleted_scope_contamination_incidents": 5
+}

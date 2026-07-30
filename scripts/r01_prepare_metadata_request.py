@@ -84,8 +84,10 @@ def build_candidates(
     physical_units: Iterable[Mapping[str, str]],
     atlas_units: Iterable[Mapping[str, str]],
     hest_evidence: Iterable[Mapping[str, str]],
+    official_conflicts: Mapping[str, Mapping[str, str]] | None = None,
 ) -> list[dict[str, str]]:
     """Summarize identity gaps without using structure labels or outcomes."""
+    official_conflicts = official_conflicts or {}
     atlas = {row["logical_unit_id"]: row for row in atlas_units}
     hest: dict[str, list[Mapping[str, str]]] = {}
     for row in hest_evidence:
@@ -101,11 +103,53 @@ def build_candidates(
 
     output: list[dict[str, str]] = []
     for (namespace, study), rows in grouped.items():
+        official_conflict = official_conflicts.get(study)
+        if official_conflict:
+            accession = official_conflict.get("accession", "")
+            reference = official_conflict.get("official_reference", "")
+            output.append(
+                {
+                    "request_candidate_id": (
+                        f"R01META::{_hash(namespace + '|' + study)}"
+                    ),
+                    "priority_tier": "P5_SCREENED_CONFLICT",
+                    "source_namespace": namespace,
+                    "logical_unit_id": study,
+                    "provenance_group_id": "",
+                    "provenance_aliases": ";".join(
+                        _provenance_aliases(accession, reference)
+                    ),
+                    "provenance_group_size": "",
+                    "known_current_eligible_unit": "",
+                    "public_locator": accession,
+                    "reference_or_title": reference,
+                    "local_metadata_status": "OFFICIAL_CONFLICT_QUARANTINED",
+                    "physical_records": official_conflict.get(
+                        "official_record_count",
+                        "0",
+                    ),
+                    "patient_known_records": "0",
+                    "distinct_patient_ids": official_conflict.get(
+                        "official_patient_count",
+                        "",
+                    ),
+                    "conflict_records": str(len(rows)),
+                    "missing_required_fields": "official_metadata_conflict",
+                    "requested_artifact": "none; screened conflict excluded",
+                    "independence_status": (
+                        "OFFICIAL_METADATA_CONFLICT_QUARANTINED"
+                    ),
+                    "request_status": "SCREENED_CONFLICT_EXCLUDED",
+                }
+            )
+            continue
         patient_rows = [
             row
             for row in rows
             if row.get("patient_id")
             and not row.get("block_id")
+            and row.get("block_equivalent_status")
+            != "ACCEPTED_BLOCK_EQUIVALENT"
             and row.get("evidence_grade") in {"E3_explicit", "E2_corroborated"}
             and row.get("record_status") != "QUARANTINED_METADATA_CONFLICT"
         ]
@@ -238,12 +282,13 @@ def build_candidates(
         "P2_PUBLIC_LOWER_COVERAGE": 2,
         "P3_ACCESS_OR_CONFLICT_REVIEW": 3,
         "P4_KNOWN_CURRENT_LINEAGE": 4,
+        "P5_SCREENED_CONFLICT": 5,
     }
     return sorted(
         output,
         key=lambda row: (
             tier_order[row["priority_tier"]],
-            -int(row["distinct_patient_ids"]),
+            -int(row["distinct_patient_ids"] or 0),
             row["source_namespace"],
             row["logical_unit_id"],
         ),
@@ -253,6 +298,7 @@ def build_candidates(
 def build_summary(
     candidates: list[Mapping[str, str]],
     gate: Mapping[str, object],
+    approval_status: str = "NOT_APPROVED",
 ) -> dict[str, object]:
     tiers = Counter(row["priority_tier"] for row in candidates)
     provenance_groups = {
@@ -264,6 +310,12 @@ def build_summary(
         row["provenance_group_id"]
         for row in candidates
         if row.get("known_current_eligible_unit")
+    }
+    screened_conflict_groups = {
+        row["provenance_group_id"]
+        for row in candidates
+        if row.get("request_status") == "SCREENED_CONFLICT_EXCLUDED"
+        and row.get("provenance_group_id")
     }
     return {
         "node": "R-01",
@@ -277,8 +329,9 @@ def build_summary(
         "request_candidates": len(candidates),
         "provenance_groups_before_independence_audit": len(provenance_groups),
         "known_current_lineage_groups_no_increment": len(known_groups),
+        "screened_conflict_groups_excluded": len(screened_conflict_groups),
         "proposed_provenance_groups_requiring_audit": len(
-            provenance_groups - known_groups
+            provenance_groups - known_groups - screened_conflict_groups
         ),
         "priority_tier_counts": dict(sorted(tiers.items())),
         "request_scope": (
@@ -299,7 +352,7 @@ def build_summary(
             "Every candidate remains unresolved and contributes zero units until "
             "cross-source duplicate and patient/block lineage audit passes."
         ),
-        "approval_status": "NOT_APPROVED",
+        "approval_status": approval_status,
     }
 
 
@@ -340,6 +393,14 @@ def main() -> None:
         default=root / "infra/sample-registry/staging/hest_identity_evidence.tsv",
     )
     parser.add_argument(
+        "--official-conflicts",
+        type=Path,
+        default=(
+            root
+            / "infra/sample-registry/staging/official_metadata_conflicts.tsv"
+        ),
+    )
+    parser.add_argument(
         "--gate",
         type=Path,
         default=root / "infra/sample-registry/r01_gate.json",
@@ -354,6 +415,15 @@ def main() -> None:
         type=Path,
         default=root / "infra/sample-registry/r01_metadata_request.json",
     )
+    parser.add_argument(
+        "--approval-status",
+        default="NOT_APPROVED",
+        choices=[
+            "NOT_APPROVED",
+            "APPROVED_METADATA_ONLY",
+            "APPROVED_METADATA_ONLY_COMPLETED",
+        ],
+    )
     args = parser.parse_args()
 
     for output in (args.output_tsv, args.output_json):
@@ -366,9 +436,21 @@ def main() -> None:
         _read_tsv(args.physical_units),
         _read_tsv(args.atlas_units),
         _read_tsv(args.hest_evidence),
+        official_conflicts={
+            row["study_id"]: row
+            for row in _read_tsv(args.official_conflicts)
+        },
     )
+    if args.approval_status != "NOT_APPROVED":
+        for candidate in candidates:
+            if candidate["request_status"] == "PROPOSED_REQUIRES_APPROVAL":
+                candidate["request_status"] = args.approval_status
     with args.gate.open(encoding="utf-8") as handle:
-        summary = build_summary(candidates, json.load(handle))
+        summary = build_summary(
+            candidates,
+            json.load(handle),
+            approval_status=args.approval_status,
+        )
 
     buffer = io.StringIO(newline="")
     writer = csv.DictWriter(buffer, fieldnames=FIELDS, delimiter="\t")

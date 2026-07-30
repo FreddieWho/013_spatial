@@ -1,0 +1,769 @@
+{
+  "header": {
+    "type": "esummary",
+    "version": "0.3"
+  },
+  "result": {
+    "uids": [
+      "35231421",
+      "36674951",
+      "37596273",
+      "38570491"
+    ],
+    "35231421": {
+      "uid": "35231421",
+      "pubdate": "2022 Mar 8",
+      "epubdate": "2022 Feb 28",
+      "source": "Immunity",
+      "authors": [
+        {
+          "name": "Meylan M",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Petitprez F",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Becht E",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Bougo\u00fcin A",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Pupier G",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Calvez A",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Giglioli I",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Verkarre V",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Lacroix G",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Verneau J",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Sun CM",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Laurent-Puig P",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Vano YA",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Ela\u00efdi R",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "M\u00e9jean A",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Sanchez-Salas R",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Barret E",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Cathelineau X",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Oudard S",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Reynaud CA",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "de Reyni\u00e8s A",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Saut\u00e8s-Fridman C",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Fridman WH",
+          "authtype": "Author",
+          "clusterid": ""
+        }
+      ],
+      "lastauthor": "Fridman WH",
+      "title": "Tertiary lymphoid structures generate and propagate anti-tumor antibody-producing plasma cells in renal cell cancer.",
+      "sorttitle": "tertiary lymphoid structures generate and propagate anti tumor antibody producing plasma cells in renal cell cancer",
+      "volume": "55",
+      "issue": "3",
+      "pages": "527-541.e5",
+      "lang": [
+        "eng"
+      ],
+      "nlmuniqueid": "9432918",
+      "issn": "1074-7613",
+      "essn": "1097-4180",
+      "pubtype": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "recordstatus": "PubMed - indexed for MEDLINE",
+      "pubstatus": "256",
+      "articleids": [
+        {
+          "idtype": "pubmed",
+          "idtypen": 1,
+          "value": "35231421"
+        },
+        {
+          "idtype": "doi",
+          "idtypen": 3,
+          "value": "10.1016/j.immuni.2022.02.001"
+        },
+        {
+          "idtype": "pii",
+          "idtypen": 4,
+          "value": "S1074-7613(22)00081-4"
+        }
+      ],
+      "history": [
+        {
+          "pubstatus": "received",
+          "date": "2021/05/17 00:00"
+        },
+        {
+          "pubstatus": "revised",
+          "date": "2021/12/09 00:00"
+        },
+        {
+          "pubstatus": "accepted",
+          "date": "2022/02/02 00:00"
+        },
+        {
+          "pubstatus": "pubmed",
+          "date": "2022/03/02 06:00"
+        },
+        {
+          "pubstatus": "medline",
+          "date": "2022/05/06 06:00"
+        },
+        {
+          "pubstatus": "entrez",
+          "date": "2022/03/01 20:13"
+        }
+      ],
+      "references": [
+        {
+          "refsource": "Immunity. 2022 Mar 8;55(3):387-389. doi: 10.1016/j.immuni.2022.02.009.",
+          "reftype": "Comment in",
+          "pmid": 35263565,
+          "note": ""
+        }
+      ],
+      "attributes": [
+        "Has Abstract"
+      ],
+      "pmcrefcount": "",
+      "fulljournalname": "Immunity",
+      "elocationid": "doi: 10.1016/j.immuni.2022.02.001",
+      "doctype": "citation",
+      "srccontriblist": [],
+      "booktitle": "",
+      "medium": "",
+      "edition": "",
+      "publisherlocation": "",
+      "publishername": "",
+      "srcdate": "",
+      "reportnumber": "",
+      "availablefromurl": "",
+      "locationlabel": "",
+      "doccontriblist": [],
+      "docdate": "",
+      "bookname": "",
+      "chapter": "",
+      "sortpubdate": "2022/03/08 00:00",
+      "sortfirstauthor": "Meylan M",
+      "vernaculartitle": ""
+    },
+    "36674951": {
+      "uid": "36674951",
+      "pubdate": "2023 Jan 11",
+      "epubdate": "2023 Jan 11",
+      "source": "Int J Mol Sci",
+      "authors": [
+        {
+          "name": "Tashireva LA",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Kalinchuk AY",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Gerashchenko TS",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Menyailo M",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Khozyainova A",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Denisov EV",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Perelmuter VM",
+          "authtype": "Author",
+          "clusterid": ""
+        }
+      ],
+      "lastauthor": "Perelmuter VM",
+      "title": "Spatial Profile of Tumor Microenvironment in PD-L1-Negative and PD-L1-Positive Triple-Negative Breast Cancer.",
+      "sorttitle": "spatial profile of tumor microenvironment in pd l1 negative and pd l1 positive triple negative breast cancer",
+      "volume": "24",
+      "issue": "2",
+      "pages": "",
+      "lang": [
+        "eng"
+      ],
+      "nlmuniqueid": "101092791",
+      "issn": "",
+      "essn": "1422-0067",
+      "pubtype": [
+        "Journal Article"
+      ],
+      "recordstatus": "PubMed - indexed for MEDLINE",
+      "pubstatus": "3",
+      "articleids": [
+        {
+          "idtype": "pubmed",
+          "idtypen": 1,
+          "value": "36674951"
+        },
+        {
+          "idtype": "pmc",
+          "idtypen": 8,
+          "value": "PMC9862087"
+        },
+        {
+          "idtype": "pmcid",
+          "idtypen": 5,
+          "value": "pmc-id: PMC9862087;"
+        },
+        {
+          "idtype": "doi",
+          "idtypen": 3,
+          "value": "10.3390/ijms24021433"
+        },
+        {
+          "idtype": "pii",
+          "idtypen": 4,
+          "value": "ijms24021433"
+        }
+      ],
+      "history": [
+        {
+          "pubstatus": "received",
+          "date": "2022/11/29 00:00"
+        },
+        {
+          "pubstatus": "revised",
+          "date": "2022/12/20 00:00"
+        },
+        {
+          "pubstatus": "accepted",
+          "date": "2023/01/10 00:00"
+        },
+        {
+          "pubstatus": "entrez",
+          "date": "2023/01/21 01:27"
+        },
+        {
+          "pubstatus": "pubmed",
+          "date": "2023/01/22 06:00"
+        },
+        {
+          "pubstatus": "medline",
+          "date": "2023/01/25 06:00"
+        },
+        {
+          "pubstatus": "pmc-release",
+          "date": "2023/01/11 00:00"
+        }
+      ],
+      "references": [],
+      "attributes": [
+        "Has Abstract"
+      ],
+      "pmcrefcount": 18,
+      "fulljournalname": "International journal of molecular sciences",
+      "elocationid": "doi: 10.3390/ijms24021433",
+      "doctype": "citation",
+      "srccontriblist": [],
+      "booktitle": "",
+      "medium": "",
+      "edition": "",
+      "publisherlocation": "",
+      "publishername": "",
+      "srcdate": "",
+      "reportnumber": "",
+      "availablefromurl": "",
+      "locationlabel": "",
+      "doccontriblist": [],
+      "docdate": "",
+      "bookname": "",
+      "chapter": "",
+      "sortpubdate": "2023/01/11 00:00",
+      "sortfirstauthor": "Tashireva LA",
+      "vernaculartitle": ""
+    },
+    "37596273": {
+      "uid": "37596273",
+      "pubdate": "2023 Aug 18",
+      "epubdate": "2023 Aug 18",
+      "source": "Nat Commun",
+      "authors": [
+        {
+          "name": "Arora R",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Cao C",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Kumar M",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Sinha S",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Chanda A",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "McNeil R",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Samuel D",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Arora RK",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Matthews TW",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Chandarana S",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Hart R",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Dort JC",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Biernaskie J",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Neri P",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Hyrcza MD",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Bose P",
+          "authtype": "Author",
+          "clusterid": ""
+        }
+      ],
+      "lastauthor": "Bose P",
+      "title": "Spatial transcriptomics reveals distinct and conserved tumor core and edge architectures that predict survival and targeted therapy response.",
+      "sorttitle": "spatial transcriptomics reveals distinct and conserved tumor core and edge architectures that predict survival and targeted therapy response",
+      "volume": "14",
+      "issue": "1",
+      "pages": "5029",
+      "lang": [
+        "eng"
+      ],
+      "nlmuniqueid": "101528555",
+      "issn": "",
+      "essn": "2041-1723",
+      "pubtype": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "recordstatus": "PubMed - indexed for MEDLINE",
+      "pubstatus": "3",
+      "articleids": [
+        {
+          "idtype": "pubmed",
+          "idtypen": 1,
+          "value": "37596273"
+        },
+        {
+          "idtype": "pmc",
+          "idtypen": 8,
+          "value": "PMC10439131"
+        },
+        {
+          "idtype": "pmcid",
+          "idtypen": 5,
+          "value": "pmc-id: PMC10439131;"
+        },
+        {
+          "idtype": "doi",
+          "idtypen": 3,
+          "value": "10.1038/s41467-023-40271-4"
+        },
+        {
+          "idtype": "pii",
+          "idtypen": 4,
+          "value": "10.1038/s41467-023-40271-4"
+        }
+      ],
+      "history": [
+        {
+          "pubstatus": "received",
+          "date": "2022/10/31 00:00"
+        },
+        {
+          "pubstatus": "accepted",
+          "date": "2023/07/19 00:00"
+        },
+        {
+          "pubstatus": "medline",
+          "date": "2023/08/21 06:42"
+        },
+        {
+          "pubstatus": "pubmed",
+          "date": "2023/08/19 11:42"
+        },
+        {
+          "pubstatus": "entrez",
+          "date": "2023/08/18 23:17"
+        },
+        {
+          "pubstatus": "pmc-release",
+          "date": "2023/08/18 00:00"
+        }
+      ],
+      "references": [],
+      "attributes": [
+        "Has Abstract"
+      ],
+      "pmcrefcount": 112,
+      "fulljournalname": "Nature communications",
+      "elocationid": "doi: 10.1038/s41467-023-40271-4",
+      "doctype": "citation",
+      "srccontriblist": [],
+      "booktitle": "",
+      "medium": "",
+      "edition": "",
+      "publisherlocation": "",
+      "publishername": "",
+      "srcdate": "",
+      "reportnumber": "",
+      "availablefromurl": "",
+      "locationlabel": "",
+      "doccontriblist": [],
+      "docdate": "",
+      "bookname": "",
+      "chapter": "",
+      "sortpubdate": "2023/08/18 00:00",
+      "sortfirstauthor": "Arora R",
+      "vernaculartitle": ""
+    },
+    "38570491": {
+      "uid": "38570491",
+      "pubdate": "2024 Apr 3",
+      "epubdate": "2024 Apr 3",
+      "source": "Nat Commun",
+      "authors": [
+        {
+          "name": "Denisenko E",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "de Kock L",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Tan A",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Beasley AB",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Beilin M",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Jones ME",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Hou R",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Muir\u00ed D\u00d3",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Bilic S",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Mohan GRKA",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Salfinger S",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Fox S",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Hmon KPW",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Yeow Y",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Kim Y",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "John R",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Gilderman TS",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Killingbeck E",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Gray ES",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Cohen PA",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Yu Y",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Forrest ARR",
+          "authtype": "Author",
+          "clusterid": ""
+        }
+      ],
+      "lastauthor": "Forrest ARR",
+      "title": "Spatial transcriptomics reveals discrete tumour microenvironments and autocrine loops within ovarian cancer subclones.",
+      "sorttitle": "spatial transcriptomics reveals discrete tumour microenvironments and autocrine loops within ovarian cancer subclones",
+      "volume": "15",
+      "issue": "1",
+      "pages": "2860",
+      "lang": [
+        "eng"
+      ],
+      "nlmuniqueid": "101528555",
+      "issn": "",
+      "essn": "2041-1723",
+      "pubtype": [
+        "Journal Article"
+      ],
+      "recordstatus": "PubMed - indexed for MEDLINE",
+      "pubstatus": "3",
+      "articleids": [
+        {
+          "idtype": "pubmed",
+          "idtypen": 1,
+          "value": "38570491"
+        },
+        {
+          "idtype": "pmc",
+          "idtypen": 8,
+          "value": "PMC10991508"
+        },
+        {
+          "idtype": "pmcid",
+          "idtypen": 5,
+          "value": "pmc-id: PMC10991508;"
+        },
+        {
+          "idtype": "doi",
+          "idtypen": 3,
+          "value": "10.1038/s41467-024-47271-y"
+        },
+        {
+          "idtype": "pii",
+          "idtypen": 4,
+          "value": "10.1038/s41467-024-47271-y"
+        }
+      ],
+      "history": [
+        {
+          "pubstatus": "received",
+          "date": "2022/10/05 00:00"
+        },
+        {
+          "pubstatus": "accepted",
+          "date": "2024/03/26 00:00"
+        },
+        {
+          "pubstatus": "medline",
+          "date": "2024/04/05 06:44"
+        },
+        {
+          "pubstatus": "pubmed",
+          "date": "2024/04/04 00:43"
+        },
+        {
+          "pubstatus": "entrez",
+          "date": "2024/04/03 23:24"
+        },
+        {
+          "pubstatus": "pmc-release",
+          "date": "2024/04/03 00:00"
+        }
+      ],
+      "references": [],
+      "attributes": [
+        "Has Abstract"
+      ],
+      "pmcrefcount": 74,
+      "fulljournalname": "Nature communications",
+      "elocationid": "doi: 10.1038/s41467-024-47271-y",
+      "doctype": "citation",
+      "srccontriblist": [],
+      "booktitle": "",
+      "medium": "",
+      "edition": "",
+      "publisherlocation": "",
+      "publishername": "",
+      "srcdate": "",
+      "reportnumber": "",
+      "availablefromurl": "",
+      "locationlabel": "",
+      "doccontriblist": [],
+      "docdate": "",
+      "bookname": "",
+      "chapter": "",
+      "sortpubdate": "2024/04/03 00:00",
+      "sortfirstauthor": "Denisenko E",
+      "vernaculartitle": ""
+    }
+  }
+}

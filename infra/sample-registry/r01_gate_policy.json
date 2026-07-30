@@ -1,5 +1,5 @@
 {
   "metadata_audit_exhausted": true,
-  "role_freeze_attempted": false,
-  "notes": "Targeted audit exhausted the current bundled small metadata, all repo/data_meta tables, HEST JSON, Atlas Table S2, source manifests and priority GEO filelists. Only HTAN CRC and the explicitly cross-walked 10x Breast Block A lineage satisfy patient+block identity; raw sample aliases and filenames were not promoted to block."
+  "role_freeze_attempted": true,
+  "notes": "The local audit plus the user-approved official GEO metadata-only audit is exhausted for the R-01 minimum. HTAN CRC and 10x Breast Block A retain explicit patient-block identity. GSE211956, GSE226997, GSE274103 and GSE274557 satisfy the fail-closed patient-linked physical-specimen exception at E2_corroborated; their block_id remains empty, and GSM, BioSample, slide, section and filenames were not promoted to block."
 }

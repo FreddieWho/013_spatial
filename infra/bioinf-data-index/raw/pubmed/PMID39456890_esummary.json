@@ -1,0 +1,188 @@
+{
+  "header": {
+    "type": "esummary",
+    "version": "0.3"
+  },
+  "result": {
+    "uids": [
+      "39456890"
+    ],
+    "39456890": {
+      "uid": "39456890",
+      "pubdate": "2024 Oct 16",
+      "epubdate": "2024 Oct 16",
+      "source": "Int J Mol Sci",
+      "authors": [
+        {
+          "name": "Perelmuter VM",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Grigoryeva ES",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Alifanov VV",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Kalinchuk AY",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Andryuhova ES",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Savelieva OE",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Patskan IA",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Bragina OD",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Garbukov EY",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Vostrikova MA",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Zavyalova MV",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Denisov EV",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Cherdyntseva NV",
+          "authtype": "Author",
+          "clusterid": ""
+        },
+        {
+          "name": "Tashireva LA",
+          "authtype": "Author",
+          "clusterid": ""
+        }
+      ],
+      "lastauthor": "Tashireva LA",
+      "title": "Characterization of EpCAM-Positive and EpCAM-Negative Tumor Cells in Early-Stage Breast Cancer.",
+      "sorttitle": "characterization of epcam positive and epcam negative tumor cells in early stage breast cancer",
+      "volume": "25",
+      "issue": "20",
+      "pages": "",
+      "lang": [
+        "eng"
+      ],
+      "nlmuniqueid": "101092791",
+      "issn": "",
+      "essn": "1422-0067",
+      "pubtype": [
+        "Journal Article"
+      ],
+      "recordstatus": "PubMed - indexed for MEDLINE",
+      "pubstatus": "3",
+      "articleids": [
+        {
+          "idtype": "pubmed",
+          "idtypen": 1,
+          "value": "39456890"
+        },
+        {
+          "idtype": "pmc",
+          "idtypen": 8,
+          "value": "PMC11508537"
+        },
+        {
+          "idtype": "pmcid",
+          "idtypen": 5,
+          "value": "pmc-id: PMC11508537;"
+        },
+        {
+          "idtype": "doi",
+          "idtypen": 3,
+          "value": "10.3390/ijms252011109"
+        },
+        {
+          "idtype": "pii",
+          "idtypen": 4,
+          "value": "ijms252011109"
+        }
+      ],
+      "history": [
+        {
+          "pubstatus": "received",
+          "date": "2024/09/07 00:00"
+        },
+        {
+          "pubstatus": "revised",
+          "date": "2024/10/02 00:00"
+        },
+        {
+          "pubstatus": "accepted",
+          "date": "2024/10/03 00:00"
+        },
+        {
+          "pubstatus": "medline",
+          "date": "2024/10/26 19:25"
+        },
+        {
+          "pubstatus": "pubmed",
+          "date": "2024/10/26 19:24"
+        },
+        {
+          "pubstatus": "entrez",
+          "date": "2024/10/26 01:05"
+        },
+        {
+          "pubstatus": "pmc-release",
+          "date": "2024/10/16 00:00"
+        }
+      ],
+      "references": [],
+      "attributes": [
+        "Has Abstract"
+      ],
+      "pmcrefcount": 56,
+      "fulljournalname": "International journal of molecular sciences",
+      "elocationid": "doi: 10.3390/ijms252011109",
+      "doctype": "citation",
+      "srccontriblist": [],
+      "booktitle": "",
+      "medium": "",
+      "edition": "",
+      "publisherlocation": "",
+      "publishername": "",
+      "srcdate": "",
+      "reportnumber": "",
+      "availablefromurl": "",
+      "locationlabel": "",
+      "doccontriblist": [],
+      "docdate": "",
+      "bookname": "",
+      "chapter": "",
+      "sortpubdate": "2024/10/16 00:00",
+      "sortfirstauthor": "Perelmuter VM",
+      "vernaculartitle": ""
+    }
+  }
+}

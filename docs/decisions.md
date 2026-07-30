@@ -185,3 +185,27 @@
 - 代价:同一论文下真实独立的多个队列会被暂时保守合并；50 个请求候选目前只形成 44 个 provenance group，且仍不能保证其中任意 4 个最终独立合格
 - 复查条件:用户批准 metadata-only 获取并得到官方 crosswalk 后，按物理身份拆分或继续合并 provenance group；若新增证据改变现有 HTAN/10x 谱系关系，追加决策并重跑 gate
 - 影响:roadmap.md 的 R-01；ISSUES.md 的 I-004、I-006；infra/sample-registry/r01_metadata_request.tsv
+
+### D-027 | 2026-07-31 | R-01 接受窄定义的 patient-linked physical specimen 作为 block-equivalent
+
+- 背景: 经用户批准获取官方 metadata 后，GSE211956、GSE226997、GSE274103 和 GSE274557 均有 patient 映射、实体组织描述与稳定 BioSample locator，但没有字面 block_id；继续要求字面 block 会保持 R-01 硬阻塞，把 GSM 或 BioSample 直接写成 block 又会违反 D-024。
+- 理由: 对 R-01 的泄漏控制，最低充分证据是能把同患者的实体组织 specimen 保守同组，而不是伪造 block 字段。仅当官方 patient 映射、实体组织描述与稳定 specimen locator 至少形成 E2 互证时，允许登记 `patient_linked_physical_specimen`；`block_id` 保持空。
+- 代价: 该证据弱于真实 patient—block crosswalk，不能证明一个 specimen locator 内只含一个组织块，也不能支持精细 block-level 独立性主张。
+- 复查条件: 获得真实 block crosswalk 时以真实 block 替换；发现一个 BioSample/GSM 含多个组织块、多个 GSM 是同一 block 的切片、患者映射冲突或跨研究复用 specimen 时，撤销 equivalence、重建 leakage group 并重跑 gate。
+- 影响: 替代 D-024 的“只接受字面 block”完成门槛，但保留其“禁止 sample/section/file name 代理 block”纪律；roadmap.md 的 R-01；sample registry schema 与 gate。
+
+### D-028 | 2026-07-31 | 冻结六个 R-01 逻辑单元的 outcome-blind 角色
+
+- 背景: 四个新增 GEO lineage 通过身份审计后，核心集达到 6 个逻辑单元，需要在读取结构结果或模型表现前完成角色冻结。
+- 理由: 按身份完整性、独立 BioProject/source lineage、本地资产和预注册 capability 冻结：GSE274557=discovery，HTAN Vanderbilt CRC=training，GSE274103/GSE226997=internal validation，GSE211956=external validation，10x Breast Block A=serial-section validation。
+- 代价: 冻结后不能因 TLS 丰度、结构覆盖或模型结果不理想而替换 external；GSE274103 与 GSE274557 虽有不同 BioProject 和论文，仍保留共享团队这一 provenance 风险。
+- 复查条件: 发现 lineage/患者/实体 specimen 重叠、角色 capability 不成立或本地分析资产不可用时，相关角色退回 archive/in-progress，状态改为 `BLOCKED_INDEPENDENCE` 或 `BLOCKED_IDENTITY`；不得按结果换队列。
+- 影响: roadmap.md 的 R-01；infra/sample-registry/role_freeze.tsv；后续所有外层切分与验证。
+
+### D-029 | 2026-07-31 | 所有 claim-bearing 身份必须通过跨表引用与来源文件完整性 gate
+
+- 背景: 只检查 `physical_units.tsv` 自报的 E2/E3、patient、block 或 specimen basis，会允许任意 schema-compatible 行伪造六个 study 形成 false green，即使没有 identity evidence、source asset 或 canonical lineage。
+- 理由: 真实 patient/block 路径必须核验 patient 与 block evidence；specimen-equivalent 还必须核验 physical specimen 与 block-unknown basis。所有 evidence 的 normalized value、raw key/value、冲突状态和 source path 必须闭合；引用的 metadata asset 必须 active/PRESENT、SHA-256 与实际文件一致；canonical source lineage 与冻结角色 leakage group 必须一致。
+- 代价: gate 会读取并校验小型 metadata 文件，表间任一缺失、校验和变化或 lineage 漂移都会使相关行 fail closed；构建和测试夹具更复杂。
+- 复查条件: schema 或来源体系变化时，应提供等价的来源认证、identity normalization 与 canonical lineage 规则，不能退回只信任 physical row 自报。
+- 影响: D-025 的机器执行强度；roadmap.md 的 R-01；`r01_gate.json` 的 integrity errors。

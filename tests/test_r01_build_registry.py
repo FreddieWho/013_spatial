@@ -1,7 +1,9 @@
 import unittest
 
 from scripts.r01_build_registry import (
+    PHYSICAL_UNIT_FIELDS,
     build_duplicate_groups,
+    merge_external_rows,
     physical_units_from_atlas,
     physical_units_from_hest,
     physical_units_from_htan,
@@ -10,6 +12,37 @@ from scripts.r01_build_registry import (
 
 
 class BuildRegistryTests(unittest.TestCase):
+    def test_physical_schema_preserves_specimen_equivalence_without_fake_block(self):
+        self.assertIn("physical_specimen_id", PHYSICAL_UNIT_FIELDS)
+        self.assertIn("identity_granularity", PHYSICAL_UNIT_FIELDS)
+        self.assertIn("block_equivalent_status", PHYSICAL_UNIT_FIELDS)
+        self.assertIn("block_equivalent_basis", PHYSICAL_UNIT_FIELDS)
+
+        external = [
+            {
+                field: ""
+                for field in PHYSICAL_UNIT_FIELDS
+            }
+        ]
+        external[0].update(
+            {
+                "physical_unit_id": "GEO::GSM1",
+                "study_id": "GEO::GSE1",
+                "patient_id": "GEO::GSE1::PATIENT::P1",
+                "physical_specimen_id": "GEO::GSE1::SPECIMEN::SAMN1",
+                "identity_granularity": "patient_linked_physical_specimen",
+                "block_equivalent_status": "ACCEPTED_BLOCK_EQUIVALENT",
+                "block_equivalent_basis": "corroborated official metadata",
+            }
+        )
+
+        merged = merge_external_rows([], external, PHYSICAL_UNIT_FIELDS)
+        self.assertEqual(merged[0]["block_id"], "")
+        self.assertEqual(
+            merged[0]["block_equivalent_status"],
+            "ACCEPTED_BLOCK_EQUIVALENT",
+        )
+
     def test_atlas_patient_is_namespaced_but_block_is_not_invented(self):
         rows = [
             {
@@ -38,6 +71,29 @@ class BuildRegistryTests(unittest.TestCase):
         self.assertEqual(by_record["B"]["patient_id"], "")
         self.assertEqual(
             by_record["B"]["record_status"],
+            "QUARANTINED_METADATA_CONFLICT",
+        )
+
+    def test_official_geo_conflict_quarantines_bundled_atlas_identity(self):
+        rows = [
+            {
+                "record_id": "A",
+                "study_namespace": "atlas::conflict",
+                "patient_id_raw": "P16",
+                "sample_id_raw": "S16",
+                "platform_raw": "Visium",
+            }
+        ]
+
+        units = physical_units_from_atlas(
+            rows,
+            conflict_studies={"atlas::conflict"},
+        )
+
+        self.assertEqual(units[0]["patient_id"], "")
+        self.assertEqual(units[0]["evidence_grade"], "EC_conflict")
+        self.assertEqual(
+            units[0]["record_status"],
             "QUARANTINED_METADATA_CONFLICT",
         )
 

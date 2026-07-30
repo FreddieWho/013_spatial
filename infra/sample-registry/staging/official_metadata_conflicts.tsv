@@ -1,0 +1,3 @@
+study_id	accession	official_record_count	official_patient_count	official_reference	conflict_reason
+atlas_s2::brca::f43bd8bcc2b2	GSE242311	16	5	PMID:39456890	Official GEO reports five patients/six breast tumour specimens and cites PMID 39456890; bundled Atlas treats 16 rows as patients and cites PMID 36674951.
+atlas_s2::stad::698c46f02346	GSE246011	7			Official GEO currently has seven GSM across STAD, BLCA and LUAD; bundled Atlas records twenty STAD rows.

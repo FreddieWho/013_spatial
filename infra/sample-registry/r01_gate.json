@@ -1,31 +1,44 @@
 {
-  "blockers": [
-    "fewer_than_6_identity_complete_units"
-  ],
+  "blockers": [],
   "claim_eligible_logical_unit_ids": [
+    "GEO::GSE211956",
+    "GEO::GSE226997",
+    "GEO::GSE274103",
+    "GEO::GSE274557",
     "HTAN_VANDERBILT_CRC",
     "TENX_V1_BREAST_CANCER_BLOCK_A"
   ],
-  "claim_eligible_logical_units": 2,
-  "claim_eligible_physical_units": 49,
+  "claim_eligible_logical_units": 6,
+  "claim_eligible_physical_units": 121,
   "completion_requirements": {
+    "accepted_identity_granularities": [
+      "patient_block",
+      "patient_linked_physical_specimen"
+    ],
+    "canonical_source_lineage_required": true,
     "identity_evidence_grades_allowed": [
       "E3_explicit",
       "E2_corroborated"
     ],
+    "identity_evidence_referential_integrity_required": true,
     "independent_external_lineage_required": true,
     "logical_unit_max": 10,
     "logical_unit_min": 6,
     "outcome_blind_role_freeze_required": true,
-    "patient_block_required": true,
+    "patient_block_or_accepted_specimen_required": true,
+    "patient_block_required": false,
     "section_identity_required_by_r01": false
   },
-  "frozen_logical_units": 0,
-  "independent_external_leakage_groups": [],
+  "frozen_logical_units": 6,
+  "identity_integrity_errors": [],
+  "independent_external_leakage_groups": [
+    "lineage::PRJNA873051"
+  ],
   "metadata_audit_exhausted": true,
   "node": "R-01",
-  "physical_unit_records": 884,
-  "role_freeze_attempted": false,
+  "physical_unit_records": 956,
+  "role_freeze_attempted": true,
   "role_freeze_errors": [],
-  "status": "BLOCKED_IDENTITY"
+  "source_asset_errors": {},
+  "status": "COMPLETE_WITH_EXCLUSIONS"
 }

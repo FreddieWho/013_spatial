@@ -35,6 +35,10 @@ PHYSICAL_UNIT_FIELDS = [
     "study_id",
     "patient_id",
     "block_id",
+    "physical_specimen_id",
+    "identity_granularity",
+    "block_equivalent_status",
+    "block_equivalent_basis",
     "section_id",
     "z_position",
     "section_order",
@@ -93,16 +97,42 @@ def _composite_patient(raw: str) -> bool:
     return "\n" in raw or "&" in raw
 
 
+def merge_external_rows(
+    current: Iterable[Mapping[str, str]],
+    external: Iterable[Mapping[str, str]],
+    fields: list[str],
+) -> list[dict[str, str]]:
+    """Merge a schema-compatible external staging table fail-closed."""
+    allowed = set(fields)
+    merged: list[dict[str, str]] = []
+    for row in [*current, *external]:
+        unexpected = set(row) - allowed
+        if unexpected:
+            raise ValueError(
+                "external staging has unexpected fields: "
+                + ", ".join(sorted(unexpected))
+            )
+        merged.append({field: row.get(field, "") for field in fields})
+    return merged
+
+
 def physical_units_from_atlas(
     rows: Iterable[Mapping[str, str]],
+    conflict_studies: Iterable[str] = (),
 ) -> list[dict[str, str]]:
+    conflict_study_ids = set(conflict_studies)
     output = []
     for row in rows:
         record_id = row["record_id"].strip()
         study = row["study_namespace"].strip()
         raw_patient = row.get("patient_id_raw", "").strip()
         conflict = _composite_patient(raw_patient)
-        if conflict:
+        if study in conflict_study_ids:
+            patient_id = ""
+            grade = "EC_conflict"
+            status = "QUARANTINED_METADATA_CONFLICT"
+            identity = "OFFICIAL_SOURCE_CONFLICT_PATIENT_BLOCK_UNKNOWN"
+        elif conflict:
             patient_id = ""
             grade = "EC_conflict"
             status = "QUARANTINED_METADATA_CONFLICT"
@@ -293,6 +323,19 @@ def build_source_assets(
     output = []
     for row in inventory_rows:
         source_id = row["source_id"]
+        metadata_path = root / row["path_pattern"]
+        if metadata_path.is_file():
+            digest = hashlib.sha256()
+            with metadata_path.open("rb") as handle:
+                for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+                    digest.update(chunk)
+            metadata_bytes = str(metadata_path.stat().st_size)
+            checksum_status = "sha256_verified"
+            checksum = digest.hexdigest()
+        else:
+            metadata_bytes = row["bytes_total"]
+            checksum_status = "AGGREGATE_SHA256"
+            checksum = row["sha256"]
         output.append(
             {
                 "asset_id": f"META::{source_id}",
@@ -302,9 +345,9 @@ def build_source_assets(
                 "path": row["path_pattern"],
                 "asset_type": "metadata_source",
                 "format": row["kind"],
-                "bytes": row["bytes_total"],
-                "checksum_status": "AGGREGATE_SHA256",
-                "checksum": row["sha256"],
+                "bytes": metadata_bytes,
+                "checksum_status": checksum_status,
+                "checksum": checksum,
                 "processing_level": "bundled_metadata",
                 "parent_asset_id": "",
                 "record_status": row["status"],
@@ -364,11 +407,14 @@ def build_identity_evidence(
     hest_rows: Iterable[Mapping[str, str]],
     htan_rows: Iterable[Mapping[str, str]],
     tenx_rows: Iterable[Mapping[str, str]] = (),
+    conflict_atlas_records: Iterable[str] = (),
 ) -> list[dict[str, str]]:
+    conflict_record_ids = set(conflict_atlas_records)
     output = []
     for row in atlas_rows:
         record_id = row["record_id"]
         field = row["field"]
+        official_conflict = record_id in conflict_record_ids
         output.append(
             {
                 "evidence_id": row["evidence_id"],
@@ -382,10 +428,22 @@ def build_identity_evidence(
                 "metadata_key": field,
                 "raw_value": row["raw_value"],
                 "normalized_value": "",
-                "evidence_grade": row["evidence_grade"],
-                "interpretation": row["interpretation"],
+                "evidence_grade": (
+                    "EC_conflict"
+                    if official_conflict
+                    else row["evidence_grade"]
+                ),
+                "interpretation": (
+                    "Quarantined because official GEO metadata conflicts "
+                    "with bundled Atlas identity/provenance."
+                    if official_conflict
+                    else row["interpretation"]
+                ),
                 "conflict_flag": (
-                    "yes" if row["evidence_grade"] == "EC_conflict" else "no"
+                    "yes"
+                    if official_conflict
+                    or row["evidence_grade"] == "EC_conflict"
+                    else "no"
                 ),
             }
         )
@@ -433,6 +491,7 @@ def build_identity_evidence(
 
     for row in htan_rows:
         entity_id = f"HTAN::{row['asset_name']}"
+        study = "HTAN_VANDERBILT_CRC"
         for field in ["raw_sample_key", "raw_patient_id", "raw_block_id"]:
             raw = row.get(field, "")
             if not raw:
@@ -441,6 +500,16 @@ def build_identity_evidence(
                 grade = "E1_weak"
             else:
                 grade = row.get("evidence_grade", "E0_unknown")
+            if field == "raw_patient_id" and raw:
+                normalized = _namespaced("PATIENT", study, raw)
+            elif field == "raw_block_id" and raw:
+                normalized = _namespaced(
+                    "BLOCK",
+                    study,
+                    f"{row.get('raw_patient_id', '')}|{raw}",
+                )
+            else:
+                normalized = ""
             output.append(
                 {
                     "evidence_id": f"{entity_id}::{field}",
@@ -451,7 +520,7 @@ def build_identity_evidence(
                     "metadata_path": "repo/data_meta/ST_CRC_cohort_meta2.csv",
                     "metadata_key": field.removeprefix("raw_"),
                     "raw_value": raw,
-                    "normalized_value": "",
+                    "normalized_value": normalized,
                     "evidence_grade": grade,
                     "interpretation": "Bundled upstream HTAN CRC metadata.",
                     "conflict_flag": (
@@ -461,8 +530,28 @@ def build_identity_evidence(
             )
     for row in tenx_rows:
         entity_id = f"TENX::{row['dataset_id']}"
+        study = "TENX_V1_BREAST_CANCER_BLOCK_A"
         for field in ["raw_patient_id", "raw_block_id", "raw_section_id"]:
             raw = row.get(field, "")
+            if field == "raw_patient_id" and raw:
+                normalized = _namespaced("PATIENT", study, raw)
+            elif field == "raw_block_id" and raw:
+                normalized = _namespaced(
+                    "BLOCK",
+                    study,
+                    f"{row.get('raw_patient_id', '')}|{raw}",
+                )
+            elif field == "raw_section_id" and raw:
+                normalized = _namespaced(
+                    "SECTION",
+                    study,
+                    (
+                        f"{row.get('raw_patient_id', '')}|"
+                        f"{row.get('raw_block_id', '')}|{raw}"
+                    ),
+                )
+            else:
+                normalized = ""
             output.append(
                 {
                     "evidence_id": f"{entity_id}::{field}",
@@ -473,7 +562,7 @@ def build_identity_evidence(
                     "metadata_path": "data/other_sources/sources_manifest.tsv",
                     "metadata_key": field.removeprefix("raw_"),
                     "raw_value": raw,
-                    "normalized_value": "",
+                    "normalized_value": normalized,
                     "evidence_grade": (
                         row.get("evidence_grade", "E0_unknown")
                         if raw
@@ -599,6 +688,30 @@ def build_duplicate_groups(
                 "resolution": "CONFIRMED_METADATA_RELATION",
                 "leakage_group_id": leakage,
             }
+    if matched:
+        group = "SOURCE_LINEAGE::HTAN_VANDERBILT_CRC"
+        output[(group, "HTAN_VANDERBILT_CRC")] = {
+            "duplicate_group_id": group,
+            "member_type": "study",
+            "member_id": "HTAN_VANDERBILT_CRC",
+            "relation_type": "canonical_source_lineage",
+            "evidence_grade": "E3_explicit",
+            "resolution": "canonical_study",
+            "leakage_group_id": "LINEAGE::HTAN_VANDERBILT_CRC",
+        }
+    if tenx_by_block:
+        group = "SOURCE_LINEAGE::TENX_V1_BREAST_CANCER_BLOCK_A"
+        output[(group, "TENX_V1_BREAST_CANCER_BLOCK_A")] = {
+            "duplicate_group_id": group,
+            "member_type": "study",
+            "member_id": "TENX_V1_BREAST_CANCER_BLOCK_A",
+            "relation_type": "canonical_source_lineage",
+            "evidence_grade": "E2_corroborated",
+            "resolution": "canonical_study",
+            "leakage_group_id": (
+                "LINEAGE::TENX_V1_BREAST_CANCER_BLOCK_A"
+            ),
+        }
     return sorted(
         output.values(),
         key=lambda row: (row["duplicate_group_id"], row["member_id"]),
@@ -608,6 +721,10 @@ def build_duplicate_groups(
 def _read_tsv(path: Path) -> list[dict[str, str]]:
     with path.open(newline="", encoding="utf-8") as handle:
         return list(csv.DictReader(handle, delimiter="\t"))
+
+
+def _read_optional_tsv(path: Path) -> list[dict[str, str]]:
+    return _read_tsv(path) if path.is_file() else []
 
 
 def _write_tsv(
@@ -666,17 +783,56 @@ def main() -> int:
     inventory = _read_tsv(
         root / "infra/sample-registry/source_metadata_inventory.tsv"
     )
+    official_conflicts = _read_optional_tsv(
+        args.staging / "official_metadata_conflicts.tsv"
+    )
+    conflict_studies = {
+        row["study_id"] for row in official_conflicts if row.get("study_id")
+    }
+    conflict_atlas_records = {
+        row["record_id"]
+        for row in atlas_samples
+        if row.get("study_namespace") in conflict_studies
+    }
 
     physical = (
-        physical_units_from_atlas(atlas_samples)
+        physical_units_from_atlas(atlas_samples, conflict_studies)
         + physical_units_from_hest(hest)
         + physical_units_from_htan(htan)
         + physical_units_from_tenx(tenx)
     )
+    physical = merge_external_rows(
+        physical,
+        _read_optional_tsv(args.staging / "external_geo_physical_units.tsv"),
+        PHYSICAL_UNIT_FIELDS,
+    )
     physical.sort(key=lambda row: row["physical_unit_id"])
-    assets = build_source_assets(inventory, htan, root, tenx)
-    evidence = build_identity_evidence(atlas_evidence, hest, htan, tenx)
-    duplicates = build_duplicate_groups(cross, htan, tenx)
+    assets = merge_external_rows(
+        build_source_assets(inventory, htan, root, tenx),
+        _read_optional_tsv(args.staging / "external_geo_source_assets.tsv"),
+        SOURCE_ASSET_FIELDS,
+    )
+    assets.sort(key=lambda row: row["asset_id"])
+    evidence = merge_external_rows(
+        build_identity_evidence(
+            atlas_evidence,
+            hest,
+            htan,
+            tenx,
+            conflict_atlas_records,
+        ),
+        _read_optional_tsv(args.staging / "external_geo_identity_evidence.tsv"),
+        IDENTITY_EVIDENCE_FIELDS,
+    )
+    evidence.sort(key=lambda row: row["evidence_id"])
+    duplicates = merge_external_rows(
+        build_duplicate_groups(cross, htan, tenx),
+        _read_optional_tsv(args.staging / "external_geo_duplicate_groups.tsv"),
+        DUPLICATE_GROUP_FIELDS,
+    )
+    duplicates.sort(
+        key=lambda row: (row["duplicate_group_id"], row["member_id"])
+    )
 
     _write_tsv(assets, SOURCE_ASSET_FIELDS, output_dir / "source_assets.tsv")
     _write_tsv(

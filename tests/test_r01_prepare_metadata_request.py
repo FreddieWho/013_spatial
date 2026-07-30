@@ -23,6 +23,68 @@ def physical(
 
 
 class PrepareMetadataRequestTests(unittest.TestCase):
+    def test_accepted_specimen_equivalent_is_not_requested_again(self):
+        rows = [
+            {
+                "source_namespace": "external_geo",
+                "study_id": "GEO::GSE1",
+                "patient_id": "GEO::GSE1::P1",
+                "block_id": "",
+                "physical_specimen_id": "SAMN1",
+                "identity_granularity": "patient_linked_physical_specimen",
+                "block_equivalent_status": "ACCEPTED_BLOCK_EQUIVALENT",
+                "evidence_grade": "E2_corroborated",
+                "record_status": "RESOLVED_INCLUDED_CANDIDATE",
+            }
+        ]
+
+        self.assertEqual(build_candidates(rows, [], []), [])
+
+    def test_known_official_conflict_is_retained_only_as_screened_exclusion(self):
+        rows = [
+            {
+                "source_namespace": "ATLAS_TABLE_S2",
+                "study_id": "atlas::conflict",
+                "patient_id": "",
+                "block_id": "",
+                "evidence_grade": "EC_conflict",
+                "record_status": "QUARANTINED_METADATA_CONFLICT",
+            }
+        ]
+        atlas = [
+            {
+                "logical_unit_id": "atlas::conflict",
+                "data_availability": "GSE242311",
+                "references": "PMID: 36674951",
+                "local_data_status": "LOCAL_DIRECTORY_PRESENT",
+            }
+        ]
+        conflicts = {
+            "atlas::conflict": {
+                "accession": "GSE242311",
+                "official_record_count": "16",
+                "official_patient_count": "5",
+                "official_reference": "PMID:39456890",
+                "conflict_reason": "Atlas patient count and PMID conflict with GEO",
+            }
+        }
+
+        result = build_candidates(
+            rows,
+            atlas,
+            [],
+            official_conflicts=conflicts,
+        )
+
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0]["request_status"], "SCREENED_CONFLICT_EXCLUDED")
+        self.assertEqual(
+            result[0]["independence_status"],
+            "OFFICIAL_METADATA_CONFLICT_QUARANTINED",
+        )
+        self.assertEqual(result[0]["distinct_patient_ids"], "5")
+        self.assertEqual(result[0]["reference_or_title"], "PMID:39456890")
+
     def test_only_patient_known_block_missing_lineages_are_requested(self):
         rows = [
             physical("atlas1", f"p{i}") for i in range(4)
@@ -147,6 +209,19 @@ class PrepareMetadataRequestTests(unittest.TestCase):
         self.assertEqual(summary["minimum_additional_independent_logical_units"], 4)
         self.assertEqual(summary["approval_status"], "NOT_APPROVED")
         self.assertIn("zero units", summary["independence_policy"])
+
+    def test_summary_can_record_the_user_approved_metadata_only_scope(self):
+        summary = build_summary(
+            [],
+            {"claim_eligible_logical_units": 6, "status": "COMPLETE_WITH_EXCLUSIONS"},
+            approval_status="APPROVED_METADATA_ONLY",
+        )
+
+        self.assertEqual(
+            summary["approval_status"],
+            "APPROVED_METADATA_ONLY",
+        )
+        self.assertEqual(summary["minimum_additional_independent_logical_units"], 0)
 
 
 if __name__ == "__main__":

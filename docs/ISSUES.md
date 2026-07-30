@@ -40,7 +40,7 @@
 - **发现日期：** 2026-07-31
 - **影响节点：** R-01、R-02 及所有患者或组织块级外层验证。
 - **当前事实：** HEST、论文 atlas、GEO、10x、HTAN/OSF、STOmicsDB 和 SpatialDB 可能收录同一患者、组织块、切片或其重处理版本。相同校验和只能确认资产级重复；不同校验和不能证明物理样本独立。
-- **已确认或冲突证据：** `repo/data_meta/ST_CRC_cohort_meta2.csv` 的 48 行中有 12 行自带 `duplicated=Yes`；本地 HTAN 49 个 h5ad 与该表 48 个资产名之间存在两个本地独有和一个 metadata 独有文件。HEST 有 6 条 `patient` 与 `subseries` 的显式 P 编号冲突。HEST 与本地 10x manifest 之间有 90 条记录共享 35 个数据源页面：47 条仅确认同一来源数据集谱系，15 条保留为可能物理相关并保守同组，28 条经显式映射审计后没有逐条关系证据且不建立 leakage edge。
+- **已确认或冲突证据：** `repo/data_meta/ST_CRC_cohort_meta2.csv` 的 48 行中有 12 行自带 `duplicated=Yes`；本地 HTAN 49 个 h5ad 与该表 48 个资产名之间存在两个本地独有和一个 metadata 独有文件。HEST 有 6 条 `patient` 与 `subseries` 的显式 P 编号冲突。HEST 与本地 10x manifest 之间有 90 条记录共享 35 个数据源页面：47 条仅确认同一来源数据集谱系，15 条保留为可能物理相关并保守同组，28 条经显式映射审计后没有逐条关系证据且不建立 leakage edge。四个新增 GEO accession 均与既有 Atlas 行及本地镜像合并为同一 canonical source lineage，未重复计数；GSE274103 与 GSE274557 共享研究团队，但因 BioProject、论文与队列均不同，当前不合并患者，保留 provenance 风险。
 - **当前影响：** 不阻塞 metadata 来源盘点；在物理身份澄清前，不得因来源数据库、目录或文件格式不同而把样本分配到相互独立的 claim-bearing 角色。
 - **下一判定点：** 针对性外部 metadata 获批后，用 patient↔block crosswalk 复核 `r01_metadata_request.tsv` 的 provenance group；同一 PMID、accession 或 DOI 目前只代表来源重叠，不自动证明或否定物理独立。
 - **硬阻塞条件：** 若候选核心队列无法形成彼此物理独立且身份可审计的训练与验证组，则 R-01 升级为 `BLOCKED_INDEPENDENCE`，后续确认性 benchmark 不得启动。
@@ -57,14 +57,14 @@
 
 ## I-006｜patient/block 可追溯核心单元不足
 
-- **状态：** `HARD_BLOCKED`
+- **状态：** `RESOLVED`
 - **发现日期：** 2026-07-31
 - **影响节点：** R-01 的完成判定和角色冻结，并影响 R-02、R-05、R-10 的独立性。
-- **当前事实：** 本地 metadata 审计已穷尽。884 条 physical-unit 记录中，49 条资产来自两个 patient+block 可追溯逻辑单元：HTAN Vanderbilt CRC 的 47 个 matched 资产，以及 10x Breast Block A 的两个显式 section。另有 574 条记录有 patient 但缺 block，250 条缺 patient 或 block，10 条存在 metadata 冲突。满足门槛的逻辑单元为 2，低于 roadmap 要求的 6。
-- **当前影响：** R-01 为 `BLOCKED_IDENTITY`，`role_freeze.tsv` 保持空，R-02 及后续节点不得启动。35 个 Atlas namespace、聚合数据库名称、sample alias 和文件名均未用于凑数。
-- **解除阻塞的最小申请：** 先申请只补充现有本地候选的官方 sample sheet、GEO/SRA/论文补充 metadata 或作者提供的 patient↔block↔sample crosswalk，不新增表达矩阵。目标是至少新增 4 个彼此独立、patient+block 可追溯的逻辑单元，并保留至少一个可冻结为 external validation 的独立来源谱系。现有 50 个请求候选按 bundled patient coverage、provenance locator 和冲突数排序，合并为 44 个 provenance group；1 个已确认属于当前 HTAN 谱系，剩余 43 个都保持 `UNRESOLVED_DO_NOT_COUNT`，不能预先当作新增独立单元。若公开 metadata 仍不足，再单独审核受控数据或作者联系；任何新数据在交付前更新 `infra/bioinf-data-index/`。
-- **下一判定点：** 用户是否批准 `infra/sample-registry/r01_metadata_request.tsv` 所定义的 metadata-only 获取范围；批准后按 provenance group 逐项登记来源、规模、许可证和身份覆盖，再重跑 duplicate audit 与 R-01 gate。
-- **硬阻塞条件：** 已满足；机器 gate 为 `BLOCKED_IDENTITY`。不得通过把 sample/section/file name 等同 block、按 TLS 阳性率换队列或拆分同一来源谱系解除。
+- **当前事实：** 用户已批准 metadata-only 获取。956 条 physical-unit 记录中，121 条来自 6 个合格逻辑单元：HTAN Vanderbilt CRC 与 10x Breast Block A 有真实 patient+block；GSE211956、GSE226997、GSE274103、GSE274557 以 E2 patient-linked physical specimen 条件计入，`block_id` 全部保持空。四个 GEO 研究各只计 1 个单元，PDX、scRNA、Atlas/GEO 镜像和同患者多 specimen 未增加逻辑计数。
+- **当前影响：** 6 个 outcome-blind 角色已冻结，独立 external lineage 为 GSE211956，机器 gate 为 `COMPLETE_WITH_EXCLUSIONS`。R-01 身份阻塞解除，但这不证明任何结构 GT，也不提高 plan.md 假设可信度。
+- **解除方式：** 使用官方 GEO sample/series metadata、稳定 BioSample locator 和一个官方 patient—GSM supplement crosswalk建立 E2 互证；没有下载或保留表达矩阵、图像、结果表，也没有联系作者或访问受控/付费数据。
+- **下一判定点：** R-02 审计结构 GT；若真实 block crosswalk 后续出现，替换 specimen equivalence 并重跑 leakage audit。
+- **再次硬阻塞条件：** 任一 equivalence 的 patient、实体组织或 locator 证据失效，发现跨 study specimen 复用，或 external lineage 与其他 claim-bearing 角色共享 leakage group 时，R-01 回退为 `BLOCKED_IDENTITY`/`BLOCKED_INDEPENDENCE`。
 
 ## I-007｜三个 metadata extractor 的可选输出路径未统一加固
 
@@ -75,3 +75,33 @@
 - **当前影响：** 不影响当前注册表、机器 gate 或科学结论；默认路径已通过两次确定性构建。未加固前不得把自定义输出指向不可重建资产或项目外路径。
 - **下一判定点：** R-01 解阻后、首次修改 extractor 或使用非默认输出路径前，统一复用已有的根目录校验与原子写入实现。
 - **硬阻塞条件：** 后续任务必须覆盖不可重建文件、写到项目边界之外，或多文件原子性成为交付前提时，先修复再运行。
+
+## I-008｜Atlas 与官方 GEO metadata 存在来源污染和错误归因
+
+- **状态：** `OPEN`
+- **发现日期：** 2026-07-31
+- **影响节点：** R-01、R-02 及任何依赖 Atlas 患者数、论文或 accession 的队列选择。
+- **当前事实：** GSE242311 的官方 GEO metadata 对应 5 位患者、6 份乳腺肿瘤 specimen 和 16 个 GSM，并引用 PMID 39456890；bundled Atlas 将 16 行近似当作 16 位患者，且关联 PMID 36674951。GSE246011 的官方 GEO 当前包含 7 个 GSM（4 STAD、2 BLCA、1 LUAD），而 Atlas 记录为 20 条 STAD。两组均未进入 R-01 核心集。
+- **当前影响：** 这是明确的 metadata provenance 污染风险：若直接信任 Atlas，会夸大独立患者数、错配论文/癌种并制造虚假验证独立性。当前 gate 未受污染，因为这两组保持排除。
+- **下一判定点：** 任何后续节点尝试使用 GSE242311 或 GSE246011 前，必须以官方 accession metadata 重建行级 crosswalk并解释 Atlas 差异。
+- **硬阻塞条件：** 若计划中的核心/验证 lineage 只能依赖无法解释的 Atlas—官方来源冲突，则相关 lineage 先排除，核心集不足时 R-01 回退为 `BLOCKED_IDENTITY`。
+
+## I-009｜外部补充包曾短暂越过 metadata-only 范围
+
+- **状态：** `RESOLVED`
+- **发现日期：** 2026-07-31
+- **影响节点：** R-01 的数据边界、外部数据索引与污染审计。
+- **当前事实：** Europe PMC 的 PMC11508537 `supplementaryFiles` 端点曾返回一个含 7 JPG、7 GIF 和嵌套 ZIP 的混合包；未解读图像，发现后立即删除。随后仅解包无图像 supplement，发现两份 XLSX 都是表达结果表而非身份 crosswalk，也立即删除。另有 4 份核验来源时下载的 PMC 全文 XML 超出交付边界，已删除。保留的 PMC10991508 官方 crosswalk 工作簿含未使用的测序统计列；提取器只读取 `Sample matrix` 中 patient 与 Visium GSM 两列，未将统计列写入证据或角色选择。混合包和两份结果表的 SHA-256 已记录；四份全文 XML 删除前没有计算 SHA-256，manifest 诚实记录路径、删除状态和 `not_computed_before_deletion`，不补造校验和。
+- **当前影响：** 保留索引中表达文件、图像文件和结果文件均为 0；这些内容未进入注册表、角色选择或科学判断。污染已清除，但事件作为范围防护回归证据保留。
+- **下一判定点：** 下次调用返回混合 supplement 的端点前先检查清单和 MIME/成员列表，仅提取 allowlisted metadata/crosswalk。
+- **再次硬阻塞条件：** 若无法在不读取表达或图像内容的情况下提取所需身份信息，则停止并重新申请范围，不得静默扩大。
+
+## I-010｜会话上下文含与本项目无关的 WSDM 标签
+
+- **状态：** `RESOLVED`
+- **发现日期：** 2026-07-31
+- **影响节点：** 全项目的任务边界和上下文污染审计。
+- **当前事实：** 本次会话注入的 agent context 中出现 `$CMEM wsdm2027` 标签，同时明确写着没有历史 session；该标签与本项目无关。项目工作区排除大型 data 和独立上游 repo 后检索不到 WSDM 字符串。
+- **当前影响：** 这是会话级上下文污染，不是样本或训练/验证泄漏。该标签未用于来源选择、角色冻结、代码、文档内容或科学判断，本项目也不与 WSDM 建立任何关系。
+- **下一判定点：** 后续会话初始化时继续忽略不属于 `/home/huyudi/013_spatial` 的竞赛/项目标签，并以本仓库 `STATUS.md`、`docs/plan.md` 和 `docs/roadmap.md` 为控制面。
+- **再次硬阻塞条件：** 若外部上下文开始改变数据选择、指标、角色或科学问题，立即停止并清除污染后重审相关产物。
