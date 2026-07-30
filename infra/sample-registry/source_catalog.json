@@ -1,0 +1,98 @@
+[
+  {
+    "source_id": "access_control_manifest",
+    "kind": "table",
+    "path": "data/access_control_needed/access_control_datasets.tsv",
+    "notes": "HOLD; access inventory only, not a local analysis cohort"
+  },
+  {
+    "source_id": "atlas_non_geo_manifest",
+    "kind": "table",
+    "path": "data/other_sources/sources_manifest.tsv",
+    "notes": "Cross-source mappings and paper-sample notes; requires duplicate audit"
+  },
+  {
+    "source_id": "atlas_supplement_tables",
+    "kind": "file",
+    "path": "paper/tables/science.adz2742_tables_s1_to_s8.xlsx",
+    "notes": "Bundled paper tables; field extraction is a later explicit step"
+  },
+  {
+    "source_id": "geo_filelists",
+    "kind": "text_collection",
+    "glob": "data/GEO/*/filelist.txt",
+    "notes": "Asset listings only; filenames are weak identity evidence"
+  },
+  {
+    "source_id": "hest_metadata_json",
+    "kind": "json_collection",
+    "glob": "data/other_sources/hest1k/metadata/*.json",
+    "notes": "Bundled per-sample HEST metadata; aggregated source may duplicate GEO/10x"
+  },
+  {
+    "source_id": "hest_selected_samples",
+    "kind": "table",
+    "path": "data/other_sources/hest1k/selected_samples.tsv",
+    "notes": "Selection manifest; not sufficient by itself for patient/block identity"
+  },
+  {
+    "source_id": "spatialdb_manifest",
+    "kind": "table",
+    "path": "data/other_sources/spatialdb/manifest.tsv",
+    "notes": "Dataset/asset-level manifest"
+  },
+  {
+    "source_id": "stomicsdb_manifest",
+    "kind": "table",
+    "path": "data/other_sources/stomicsdb/manifest.tsv",
+    "notes": "Dataset-level manifest; includes non-human/non-tumor rows that require filtering"
+  },
+  {
+    "source_id": "supplementary_resource_manifest",
+    "kind": "table",
+    "path": "data/other_sources/supplementary_tumor_ST_resources.tsv",
+    "notes": "Resource discovery inventory; not physical-sample metadata"
+  },
+  {
+    "source_id": "tenx_recent_manifest",
+    "kind": "table",
+    "path": "data/other_sources/10x_genomics/manifest_3yr.tsv",
+    "notes": "Dataset-level 10x inventory; dataset title may encode weak section relationships"
+  },
+  {
+    "source_id": "upstream_blca_cohort_metadata",
+    "kind": "file",
+    "path": "repo/data_meta/ST_BLCA_cohort_meta.xlsx",
+    "notes": "Bundled upstream cohort metadata; explicit field extraction remains"
+  },
+  {
+    "source_id": "upstream_blca_tls_summary",
+    "kind": "table",
+    "path": "repo/data/ST_BLCA_maturation_location.csv",
+    "notes": "Derived TLS instance summary; not spatial-coordinate GT"
+  },
+  {
+    "source_id": "upstream_crc_cohort_metadata",
+    "kind": "table",
+    "path": "repo/data_meta/ST_CRC_cohort_meta2.csv",
+    "notes": "Bundled HTAN CRC identity mapping with explicit duplicate flags"
+  },
+  {
+    "source_id": "upstream_crc_tls_summary",
+    "kind": "table",
+    "path": "repo/data/ST_CRC_maturation_location.csv",
+    "notes": "Derived TLS instance summary; not spatial-coordinate GT"
+  },
+  {
+    "source_id": "upstream_lihc_cohort_metadata",
+    "kind": "file",
+    "path": "repo/data_meta/ST_LIHC_cohort_meta.xlsx",
+    "notes": "Bundled upstream cohort metadata; explicit field extraction remains"
+  },
+  {
+    "source_id": "upstream_lihc_tls_summary",
+    "kind": "table",
+    "path": "repo/data/ST_LIHC_maturation_location.csv",
+    "notes": "Derived TLS instance summary; not spatial-coordinate GT"
+  }
+]

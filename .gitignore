@@ -1,0 +1,21 @@
+# Local agent/runtime state
+/.agents/
+/.codex/
+/.ipynb_checkpoints/
+/.venv_hest/
+**/.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+
+# Large local data: track only the human-readable inventory at this level.
+/data/*
+!/data/README.md
+!/data/DATA_BRIEFING.md
+
+# Upstream paper code remains an independent Git repository.
+/repo/
+
+# Local scratch and generated outputs.
+/scratch/
+/tmp/
+*.log
