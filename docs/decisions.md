@@ -155,3 +155,25 @@
 - 代价:问题状态变化需要同步维护；ISSUES.md 不能替代 roadmap
 - 复查条件:如果问题日志与 roadmap 出现持续重复或状态漂移，应重新设计治理边界
 - 影响:AGENTS.md、ISSUES.md 和项目状态报告纪律
+
+### D-023 | 2026-07-31 | R-01 采用 outcome-blind 角色冻结和保守 leakage group
+- 背景:Atlas、HEST、GEO、10x、HTAN、STOmicsDB 等来源存在聚合镜像、同患者多切片和重处理版本；同时 Table S2 已暴露 TLS 阳性与数量，若据此挑验证队列会形成 outcome-guided selection
+- 理由:数据角色应由可审计物理身份、来源谱系、本地可用性和预注册 capability 冻结，而不是由结构结果或模型表现决定；未解决的 possible match 在切分上同组可防止跨折污染
+- 代价:可能过度合并尚未确认的独立样本，且 metadata 不足会显著缩小可承担确认性结论的核心集
+- 复查条件:用户批准独立身份核验或新增自带 patient/block 映射的数据后，可拆分被证实独立的 possible-match group；若 roadmap 正式放宽 block 要求，应追加新决策而不是静默使用 sample 代理
+- 影响:roadmap.md 的 R-01、R-02、R-05、R-10；ISSUES.md 的 I-004、I-006
+
+### D-024 | 2026-07-31 | R-01 在两个合格逻辑单元处停止，不以 sample 代理 block
+- 背景:穷尽当前本地 bundled metadata 后，只有 HTAN Vanderbilt CRC 与 10x Breast Block A 同时具备可审计 patient+block；roadmap 要求 6–10 个逻辑单元
+- 理由:把 Table S2 Sample ID、HEST id、slide_id、sample_key、文件名或目录静默当作 block 会隐藏同组织块跨折风险，并制造虚假的独立验证
+- 代价:R-01 进入 BLOCKED_IDENTITY，R-02 和模型工作暂停；需要额外 metadata 才能恢复关键路径
+- 复查条件:至少新增 4 个彼此独立且自带 patient↔block 映射的逻辑单元，并能保留独立 external validation lineage 时重跑 gate；若用户决定修改科学证据门槛，应先修改 roadmap 并追加替代决策
+- 影响:roadmap.md 的 R-01 至 R-02；ISSUES.md 的 I-006；infra/sample-registry/r01_gate.json
+
+### D-025 | 2026-07-31 | R-01 gate 对证据等级和角色冻结 fail closed
+
+- 背景:只按 patient、block 和状态计数会让未来误标为 candidate 的 E1/E0/冲突记录进入确认性集合；只统计冻结行数量也可能允许无关单元、重复角色或 leakage 冲突制造 false green
+- 理由:机器 gate 必须直接执行注册表已经声明的证据纪律，而不能依赖上游人工保证；claim-eligible 身份仅接受 E3/E2，冻结行必须引用合格逻辑单元、具有唯一有效主角色和非空 leakage group，且 external 不得与其他 claim-bearing 角色共享 leakage group
+- 代价:未来不完整的 role freeze 会明确停在 `BLOCKED_INDEPENDENCE`，即使已有足够行数；gate 命令写出阻塞产物时仍返回零，自动化必须解析 JSON status
+- 复查条件:若 roadmap 改变允许的证据等级、角色集合或 leakage 独立性标准，必须同步修改 gate policy、回归测试和 completion requirements
+- 影响:roadmap.md 的 R-01；infra/sample-registry/r01_gate.json；后续 CI/自动化

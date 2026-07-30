@@ -19,7 +19,7 @@
 - **状态：** `OPEN`
 - **发现日期：** 2026-07-31
 - **影响节点：** R-03、R-11、R-12，以及 H-06/H-07 的可测性。
-- **当前事实：** 数据库存量大，但尚未确认自带 metadata 是否足以恢复同一组织块的切片顺序、切片间距、厚度、相邻关系和配准依据。
+- **当前事实：** 数据库存量大，但尚未确认自带 metadata 是否足以恢复同一组织块的切片顺序、切片间距、厚度、相邻关系和配准依据。HEST 中 29/492 条记录包含统一为 3.0 的 `z_step_size`，主要来自 Xenium；该字段描述采集或分割的 z-step，不能污染性地解释为组织切片间距或顺序。
 - **当前影响：** 不阻塞主关键路径 R-01；H-06/H-07 保持未判定，不得因字段缺失提前判为失败或默认可测。
 - **下一判定点：** R-03 形成组织块级 serial-section 清单。
 - **硬阻塞条件：** 若现有数据均无法建立可审计的相邻切片关系，R-11 的邻近平面检验不可执行；届时提出针对性外部数据申请或取消三维相关叙事。
@@ -40,7 +40,7 @@
 - **发现日期：** 2026-07-31
 - **影响节点：** R-01、R-02 及所有患者或组织块级外层验证。
 - **当前事实：** HEST、论文 atlas、GEO、10x、HTAN/OSF、STOmicsDB 和 SpatialDB 可能收录同一患者、组织块、切片或其重处理版本。相同校验和只能确认资产级重复；不同校验和不能证明物理样本独立。
-- **已确认或冲突证据：** `repo/data_meta/ST_CRC_cohort_meta2.csv` 的 48 行中有 12 行自带 `duplicated=Yes`；本地 HTAN 49 个 h5ad 与该表 48 个资产名之间存在两个本地独有和一个 metadata 独有文件。HEST 的 TENX147–TENX156 中，`patient` 统一为 `Patient 1`，而 `subseries` 编码 P1/P2/P3/P5，属于自带字段冲突。10x 官方样本跨 HEST、STOmicsDB 和论文表的镜像关系目前仍是待逐项确认的重复候选。
+- **已确认或冲突证据：** `repo/data_meta/ST_CRC_cohort_meta2.csv` 的 48 行中有 12 行自带 `duplicated=Yes`；本地 HTAN 49 个 h5ad 与该表 48 个资产名之间存在两个本地独有和一个 metadata 独有文件。HEST 有 6 条 `patient` 与 `subseries` 的显式 P 编号冲突。HEST 与本地 10x manifest 之间有 90 条记录共享 35 个数据源页面：47 条仅确认同一来源数据集谱系，15 条保留为可能物理相关并保守同组，28 条经显式映射审计后没有逐条关系证据且不建立 leakage edge。
 - **当前影响：** 不阻塞 metadata 来源盘点；在物理身份澄清前，不得因来源数据库、目录或文件格式不同而把样本分配到相互独立的 claim-bearing 角色。
 - **下一判定点：** R-01 建立来源映射、身份依据和 duplicate/leakage group 后，报告已确认、可能和冲突重复。
 - **硬阻塞条件：** 若候选核心队列无法形成彼此物理独立且身份可审计的训练与验证组，则 R-01 升级为 `BLOCKED_INDEPENDENCE`，后续确认性 benchmark 不得启动。
@@ -54,3 +54,24 @@
 - **当前影响：** 不阻塞小型 metadata 扫描和注册表输出；禁止无估算的大包解压、全量复制或大规模派生物落盘。
 - **下一判定点：** 每个预计产生显著落盘的新任务开始前检查可用空间，并记录预计峰值。
 - **硬阻塞条件：** 任务预计峰值会使可用空间低于 2 TB，或运行中实际余量接近该阈值时，升级为 `BLOCKED_STORAGE` 并停止新增落盘。
+
+## I-006｜patient/block 可追溯核心单元不足
+
+- **状态：** `HARD_BLOCKED`
+- **发现日期：** 2026-07-31
+- **影响节点：** R-01 的完成判定和角色冻结，并影响 R-02、R-05、R-10 的独立性。
+- **当前事实：** 本地 metadata 审计已穷尽。884 条 physical-unit 记录中，49 条资产来自两个 patient+block 可追溯逻辑单元：HTAN Vanderbilt CRC 的 47 个 matched 资产，以及 10x Breast Block A 的两个显式 section。另有 574 条记录有 patient 但缺 block，250 条缺 patient 或 block，10 条存在 metadata 冲突。满足门槛的逻辑单元为 2，低于 roadmap 要求的 6。
+- **当前影响：** R-01 为 `BLOCKED_IDENTITY`，`role_freeze.tsv` 保持空，R-02 及后续节点不得启动。35 个 Atlas namespace、聚合数据库名称、sample alias 和文件名均未用于凑数。
+- **解除阻塞的最小申请：** 先申请只补充现有本地候选的官方 sample sheet、GEO/SRA/论文补充 metadata 或作者提供的 patient↔block↔sample crosswalk，不新增表达矩阵。目标是至少新增 4 个彼此独立、patient+block 可追溯的逻辑单元，并保留至少一个可冻结为 external validation 的独立来源谱系。若公开 metadata 仍不足，再单独审核受控数据或作者联系；任何新数据在交付前更新 `infra/bioinf-data-index/`。
+- **下一判定点：** 用户是否批准上述针对性外部 metadata 获取；批准后按来源逐项登记 provenance、规模、许可证和身份覆盖，再重跑 R-01 gate。
+- **硬阻塞条件：** 已满足；机器 gate 为 `BLOCKED_IDENTITY`。不得通过把 sample/section/file name 等同 block、按 TLS 阳性率换队列或拆分同一来源谱系解除。
+
+## I-007｜三个 metadata extractor 的可选输出路径未统一加固
+
+- **状态：** `OPEN`
+- **发现日期：** 2026-07-31
+- **影响节点：** R-01 的非默认复跑和未来复用这些 extractor 的工程安全性。
+- **当前事实：** Atlas、HEST、HTAN extractor 的默认输出均位于可重建的 `infra/sample-registry/staging/`，但自定义 CLI 输出路径尚未统一采用项目根边界和原子替换；中断时可能留下部分多文件输出。
+- **当前影响：** 不影响当前注册表、机器 gate 或科学结论；默认路径已通过两次确定性构建。未加固前不得把自定义输出指向不可重建资产或项目外路径。
+- **下一判定点：** R-01 解阻后、首次修改 extractor 或使用非默认输出路径前，统一复用已有的根目录校验与原子写入实现。
+- **硬阻塞条件：** 后续任务必须覆盖不可重建文件、写到项目边界之外，或多文件原子性成为交付前提时，先修复再运行。

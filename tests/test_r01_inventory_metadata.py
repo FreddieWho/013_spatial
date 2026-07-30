@@ -3,6 +3,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from scripts.r01_inventory_metadata import inspect_source, run_inventory
 
@@ -44,11 +45,25 @@ class InventoryMetadataTests(unittest.TestCase):
             metadata = root / "metadata"
             metadata.mkdir()
             (metadata / "a.json").write_text(
-                json.dumps({"id": "A", "patient": "P1", "tls_score": 0.2}),
+                json.dumps(
+                    {
+                        "id": "A",
+                        "patient": "P1",
+                        "tls_score": 0.2,
+                        "z_step_size": 5,
+                    }
+                ),
                 encoding="utf-8",
             )
             (metadata / "b.json").write_text(
-                json.dumps({"id": "B", "section_order": 2, "annotation": "x"}),
+                json.dumps(
+                    {
+                        "id": "B",
+                        "section_order": 2,
+                        "annotation": "x",
+                        "location": "tumor",
+                    }
+                ),
                 encoding="utf-8",
             )
 
@@ -66,9 +81,12 @@ class InventoryMetadataTests(unittest.TestCase):
             self.assertEqual(record["row_count"], 2)
             self.assertEqual(
                 record["gt_risk_fields"],
-                "annotation;tls_score",
+                "annotation;location;tls_score",
             )
-            self.assertEqual(record["section_fields"], "section_order")
+            self.assertEqual(
+                record["section_fields"],
+                "section_order;z_step_size",
+            )
 
     def test_inventory_is_deterministic_and_marks_missing_sources(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -98,6 +116,99 @@ class InventoryMetadataTests(unittest.TestCase):
             with output.open(newline="", encoding="utf-8") as handle:
                 rows = list(csv.DictReader(handle, delimiter="\t"))
             self.assertEqual(rows[0]["status"], "MISSING")
+
+    def test_disallowed_metadata_suffix_is_rejected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            unsafe = root / "expression.h5ad"
+            unsafe.write_bytes(b"not opened")
+
+            with self.assertRaisesRegex(ValueError, "disallowed suffix"):
+                inspect_source(
+                    root,
+                    {
+                        "source_id": "unsafe",
+                        "kind": "file",
+                        "path": "expression.h5ad",
+                    },
+                )
+
+    def test_oversized_metadata_is_rejected_before_hashing(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            table = root / "large.tsv"
+            table.write_text("id\nA\n", encoding="utf-8")
+
+            with patch(
+                "scripts.r01_inventory_metadata.MAX_METADATA_BYTES",
+                1,
+            ):
+                with self.assertRaisesRegex(ValueError, "metadata file too large"):
+                    inspect_source(
+                        root,
+                        {
+                            "source_id": "large",
+                            "kind": "table",
+                            "path": "large.tsv",
+                        },
+                    )
+
+    def test_output_must_remain_inside_project_root(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "root"
+            root.mkdir()
+            config = root / "catalog.json"
+            config.write_text("[]", encoding="utf-8")
+            outside = root.parent / "outside.tsv"
+
+            with self.assertRaisesRegex(ValueError, "output escapes project root"):
+                run_inventory(root, config, outside)
+
+    def test_output_cannot_overwrite_catalog_or_metadata_input(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            table = root / "source.tsv"
+            table.write_text("id\nA\n", encoding="utf-8")
+            config = root / "catalog.json"
+            config.write_text(
+                json.dumps(
+                    [
+                        {
+                            "source_id": "source",
+                            "kind": "table",
+                            "path": "source.tsv",
+                        }
+                    ]
+                ),
+                encoding="utf-8",
+            )
+
+            with self.assertRaisesRegex(ValueError, "output collides"):
+                run_inventory(root, config, table)
+            with self.assertRaisesRegex(ValueError, "output collides"):
+                run_inventory(root, config, config)
+
+    def test_collection_total_size_is_limited(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            metadata = root / "metadata"
+            metadata.mkdir()
+            (metadata / "a.json").write_text('{"id":"A"}', encoding="utf-8")
+            (metadata / "b.json").write_text('{"id":"B"}', encoding="utf-8")
+
+            with patch(
+                "scripts.r01_inventory_metadata.MAX_COLLECTION_BYTES",
+                1,
+            ):
+                with self.assertRaisesRegex(ValueError, "metadata collection too large"):
+                    inspect_source(
+                        root,
+                        {
+                            "source_id": "collection",
+                            "kind": "json_collection",
+                            "glob": "metadata/*.json",
+                        },
+                    )
 
 
 if __name__ == "__main__":

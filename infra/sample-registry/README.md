@@ -15,7 +15,7 @@ structure field must retain its raw value, metadata location and evidence
 grade:
 
 - `E3_explicit`: bundled metadata explicitly states the relationship.
-- `E2_corborated`: at least two consistent bundled metadata fields support it.
+- `E2_corroborated`: at least two consistent bundled metadata fields support it.
 - `E1_weak`: filename, directory, isolated alias or incomplete mapping only.
 - `E0_unknown`: no auditable evidence.
 - `EC_conflict`: bundled metadata sources conflict.
@@ -54,12 +54,29 @@ it does not accept those fields as truth.
 | Similar filenames or aliases are merged without sufficient bundled evidence | False merging reduces effective sample size and can invent leakage groups | Preserve raw values; use E1/E0/EC and quarantine rather than force a match |
 | Different checksums are treated as proof of independence | Reformatting, cropping and reprocessing change bytes without changing the physical sample | Use checksums only for exact assets; resolve physical identity from metadata |
 
-## Commands
+## Reproducible build
+
+Run the stages in this order. All stages are CPU-only, inspect only allowlisted
+small bundled metadata, and write versioned TSV/JSON control artifacts:
 
 ```bash
-python -m unittest discover -s tests -p 'test_*.py'
 python scripts/r01_inventory_metadata.py
+python scripts/r01_extract_atlas.py
+python scripts/r01_extract_hest.py
+python scripts/r01_extract_htan.py
+python scripts/r01_cross_source_duplicates.py
+python scripts/r01_summarize_units.py
+python scripts/r01_extract_tenx_explicit.py
+python scripts/r01_build_registry.py
+python scripts/r01_validate_gate.py
+python -m unittest discover -s tests -p 'test_r01_*.py'
 ```
 
-Both commands are CPU-only and write only a small TSV. Before any later
-unpacking or derived-data task, recheck that at least 2 TB remains available.
+The current machine gate is `BLOCKED_IDENTITY`: only two independent logical
+units have auditable patient and block identity, below the minimum of six.
+`role_freeze.tsv` therefore remains empty and R-02 must not start. Before any
+later unpacking or derived-data task, recheck that at least 2 TB remains
+available. The validator returns zero when it successfully writes a gate
+artifact, including a blocked artifact; automation must inspect
+`r01_gate.json::status` rather than treating process exit alone as scientific
+success.

@@ -1,0 +1,4 @@
+conflict_type	record_count	record_ids
+any_EC_conflict	6	TENX147|TENX148|TENX152|TENX153|TENX154|TENX155
+metadata_filename_id_conflict	0	
+patient_subseries_p_number_conflict	6	TENX147|TENX148|TENX152|TENX153|TENX154|TENX155

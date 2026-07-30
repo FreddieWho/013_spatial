@@ -1,0 +1,31 @@
+{
+  "blockers": [
+    "fewer_than_6_identity_complete_units"
+  ],
+  "claim_eligible_logical_unit_ids": [
+    "HTAN_VANDERBILT_CRC",
+    "TENX_V1_BREAST_CANCER_BLOCK_A"
+  ],
+  "claim_eligible_logical_units": 2,
+  "claim_eligible_physical_units": 49,
+  "completion_requirements": {
+    "identity_evidence_grades_allowed": [
+      "E3_explicit",
+      "E2_corroborated"
+    ],
+    "independent_external_lineage_required": true,
+    "logical_unit_max": 10,
+    "logical_unit_min": 6,
+    "outcome_blind_role_freeze_required": true,
+    "patient_block_required": true,
+    "section_identity_required_by_r01": false
+  },
+  "frozen_logical_units": 0,
+  "independent_external_leakage_groups": [],
+  "metadata_audit_exhausted": true,
+  "node": "R-01",
+  "physical_unit_records": 884,
+  "role_freeze_attempted": false,
+  "role_freeze_errors": [],
+  "status": "BLOCKED_IDENTITY"
+}

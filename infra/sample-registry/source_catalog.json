@@ -13,7 +13,7 @@
   },
   {
     "source_id": "atlas_supplement_tables",
-    "kind": "file",
+    "kind": "metadata_workbook",
     "path": "paper/tables/science.adz2742_tables_s1_to_s8.xlsx",
     "notes": "Bundled paper tables; field extraction is a later explicit step"
   },
@@ -61,7 +61,7 @@
   },
   {
     "source_id": "upstream_blca_cohort_metadata",
-    "kind": "file",
+    "kind": "metadata_workbook",
     "path": "repo/data_meta/ST_BLCA_cohort_meta.xlsx",
     "notes": "Bundled upstream cohort metadata; explicit field extraction remains"
   },
@@ -85,7 +85,7 @@
   },
   {
     "source_id": "upstream_lihc_cohort_metadata",
-    "kind": "file",
+    "kind": "metadata_workbook",
     "path": "repo/data_meta/ST_LIHC_cohort_meta.xlsx",
     "notes": "Bundled upstream cohort metadata; explicit field extraction remains"
   },

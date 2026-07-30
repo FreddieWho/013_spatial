@@ -15,6 +15,14 @@ __pycache__/
 # Upstream paper code remains an independent Git repository.
 /repo/
 
+# Only the current small, reviewed paper metadata assets are versioned.
+/paper/*
+!/paper/pancan_spatial_atlas_data.png
+!/paper/science.adz2742_tables_s1_to_s8.zip
+!/paper/tables/
+/paper/tables/*
+!/paper/tables/science.adz2742_tables_s1_to_s8.xlsx
+
 # Local scratch and generated outputs.
 /scratch/
 /tmp/

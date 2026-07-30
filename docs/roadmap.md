@@ -25,7 +25,7 @@
 - **允许并行探索：R-08、R-09、R-14；但不得越过各自依赖节点。**
 - **当前数据范围约束：仅使用已经收录的数据；CROST、Synapse/HTAN 原始数据与受控数据维持 HOLD。确切核心队列名单为 `[待定]`，需要完成 R-01 后依据独立患者/组织块、重复收录、结构 GT 和专用验证价值确定。**
 
-## R-01｜现有数据去重、注册与角色冻结 `[基础设施｜IN_PROGRESS]`
+## R-01｜现有数据去重、注册与角色冻结 `[基础设施｜BLOCKED_IDENTITY]`
 
 1. **要做什么：** 对当前已收录肿瘤空间数据建立唯一物理样本注册表，恢复 `study_id / patient_id / block_id / section_id / z_position`，识别跨 HEST、GEO、10x、HTAN、STOmicsDB 等来源的重复样本，并把数据标记为 discovery、training、internal validation、external validation、high-resolution validation、serial-section validation 或 archive。
 2. **服务的假设：** `[基础设施]`，不直接检验科学假设。
@@ -33,6 +33,16 @@
 4. **对假设信心的影响：** 不直接改变任何假设的可信度；若无法恢复患者或组织块身份，则相关数据不能承担确认性证据。
 
 **投入上限：** 不恢复当前 HOLD 的数据，不进行全量 RAW 重处理；人工投入上限为 `[待定]`，需要项目可用人力和可接受延迟才能确定。
+
+**R-01 注册与冻结规则：**
+
+- 一个逻辑数据单元定义为 `canonical source study lineage × acquisition/platform protocol × 可审计物理身份层级`。同一 study 的不同下载入口、聚合镜像、同一 block 的不同 section 或同一 section 的重处理版本不得拆成独立单元。
+- 任何进入 claim-bearing 核心集的单元都必须由数据自带 metadata 支持 patient 与 block 身份；不得把 sample、section、目录或文件名静默等同于 block。
+- patient、block、serial、重处理或 possible-match 任一关系可能相同时，在切分和角色分配上采用保守 leakage group；不同 checksum 不能证明物理独立。
+- 角色冻结只使用身份完整性、本地资产存在性、来源谱系、平台、癌种和预注册 capability 等 outcome-blind 信息。TLS 阳性率、结构数量、场强或任何模型性能不得用于挑选或更换 validation 单元。
+- 节点允许 `COMPLETE_WITH_EXCLUSIONS`：核心 6–10 个逻辑单元满足全部判据，其余库存明确退出确认性用途。若穷尽本地自带 metadata 后仍不足 6 个 patient/block 可追溯单元，状态为 `BLOCKED_IDENTITY`；若去除镜像和保守 leakage group 后无法形成独立 external validation lineage，状态为 `BLOCKED_INDEPENDENCE`。
+
+**2026-07-31 阻塞证据：** 已穷尽当前本地小型 bundled metadata、Atlas Table S2、HEST JSON、全部 `repo/data_meta` 表、来源 manifest 与优先 GEO filelist。884 条注册记录中只有 HTAN Vanderbilt CRC 与 10x Breast Block A 两个逻辑单元同时具有可审计 patient+block；不足 6 个最低门槛，`role_freeze.tsv` 保持空。R-01 因此为 `BLOCKED_IDENTITY`，不得进入 R-02。机器判定见 `infra/sample-registry/r01_gate.json`。
 
 ## R-02｜结构本体、GT 重叠和切分规则冻结 `[基础设施]`
 

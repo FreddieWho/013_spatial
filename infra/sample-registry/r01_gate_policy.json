@@ -1,0 +1,5 @@
+{
+  "metadata_audit_exhausted": true,
+  "role_freeze_attempted": false,
+  "notes": "Targeted audit exhausted the current bundled small metadata, all repo/data_meta tables, HEST JSON, Atlas Table S2, source manifests and priority GEO filelists. Only HTAN CRC and the explicitly cross-walked 10x Breast Block A lineage satisfy patient+block identity; raw sample aliases and filenames were not promoted to block."
+}

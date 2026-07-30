@@ -1,0 +1,19 @@
+{
+  "evidence_record_count": 3740,
+  "excluded_total_row_count": 1,
+  "extractor": "scripts/r01_extract_atlas.py",
+  "ground_truth_policy": "TLS fields are potential provenance only; no GT is accepted by R-01.",
+  "merged_cell_policy": "Use the value and source range of the containing merged cell; do not forward-fill ordinary blanks.",
+  "outputs": [
+    "atlas_samples.tsv",
+    "atlas_evidence.tsv"
+  ],
+  "sample_record_count": 340,
+  "sheets_read": [
+    "Table S2"
+  ],
+  "source_asset": "paper/tables/science.adz2742_tables_s1_to_s8.xlsx",
+  "source_sha256": "5978cba8314ff76953d339011c75691bad305dbff195ccc40abdf0bd0e51105d",
+  "total_row_policy": "Exclude rows whose Sample size metadata is Total or Total:.",
+  "unknown_geometry_policy": "Do not create or infer block, z-position, section order, spacing, or thickness fields."
+}

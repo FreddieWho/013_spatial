@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Inventory small, bundled metadata surfaces for roadmap node R-01.
+"""Inventory allowlisted, small, bundled metadata for roadmap node R-01.
 
-This script never opens expression matrices, images, archives, or HDF5 files.
-It reports only file-level facts and field names from explicitly configured
-small metadata sources.
+The script rejects expression matrices, images, generic archives, HDF5 files,
+oversized inputs and paths outside the project root. Configured ``.xlsx``
+metadata workbooks may be hashed as OOXML bytes, but are not parsed here.
 """
 
 from __future__ import annotations
@@ -12,9 +12,21 @@ import argparse
 import csv
 import hashlib
 import json
+import os
+import tempfile
 from pathlib import Path
 from typing import Any, Iterable
 
+
+MAX_METADATA_BYTES = 20 * 1024 * 1024
+MAX_COLLECTION_BYTES = 100 * 1024 * 1024
+ALLOWED_SUFFIXES = {
+    "table": {".csv", ".tsv"},
+    "file": {".md", ".txt"},
+    "metadata_workbook": {".xlsx"},
+    "json_collection": {".json"},
+    "text_collection": {".md", ".txt"},
+}
 
 OUTPUT_FIELDS = [
     "source_id",
@@ -46,7 +58,10 @@ IDENTITY_TOKENS = {
     "subject",
 }
 SECTION_TOKENS = {
+    "z",
+    "z_step_size",
     "section",
+    "section_order",
     "slice",
     "z_position",
     "zposition",
@@ -58,10 +73,14 @@ GT_RISK_TOKENS = {
     "annotation",
     "class",
     "cluster",
+    "count",
     "gt",
     "label",
+    "location",
     "mask",
+    "maturation",
     "pathology",
+    "presence",
     "region",
     "score",
     "segmentation",
@@ -85,6 +104,20 @@ def _sha256_file(path: Path) -> str:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def _validate_member(path: Path, kind: str) -> None:
+    suffix = path.suffix.lower()
+    allowed = ALLOWED_SUFFIXES[kind]
+    if suffix not in allowed:
+        raise ValueError(
+            f"disallowed suffix for {kind}: {path.name} ({suffix or 'none'})"
+        )
+    size = path.stat().st_size
+    if size > MAX_METADATA_BYTES:
+        raise ValueError(
+            f"metadata file too large: {path} ({size} > {MAX_METADATA_BYTES})"
+        )
 
 
 def _collection_sha256(root: Path, members: Iterable[Path]) -> str:
@@ -147,7 +180,7 @@ def inspect_source(root: Path, source: dict[str, Any]) -> dict[str, Any]:
     record = _base_record(source)
     kind = source["kind"]
 
-    if kind in {"table", "file"}:
+    if kind in {"table", "file", "metadata_workbook"}:
         path = _safe_path(root, source["path"])
         if not path.is_file():
             return record
@@ -163,6 +196,15 @@ def inspect_source(root: Path, source: dict[str, Any]) -> dict[str, Any]:
             member.relative_to(root)
     else:
         raise ValueError(f"unsupported source kind: {kind}")
+
+    for member in members:
+        _validate_member(member, kind)
+    total_bytes = sum(member.stat().st_size for member in members)
+    if total_bytes > MAX_COLLECTION_BYTES:
+        raise ValueError(
+            "metadata collection too large: "
+            f"{source['source_id']} ({total_bytes} > {MAX_COLLECTION_BYTES})"
+        )
 
     fields: set[str] = set()
     if kind == "table":
@@ -184,7 +226,7 @@ def inspect_source(root: Path, source: dict[str, Any]) -> dict[str, Any]:
             sum(1 for line in member.open(encoding="utf-8", errors="replace") if line.strip())
             for member in members
         )
-    elif kind == "file":
+    elif kind in {"file", "metadata_workbook"}:
         record["row_count"] = 1
 
     return _finish_record(record, fields, members, root)
@@ -196,6 +238,19 @@ def run_inventory(
     output_path: Path,
 ) -> list[dict[str, Any]]:
     root = root.resolve()
+    config_path = config_path.resolve()
+    try:
+        config_path.relative_to(root)
+    except ValueError as exc:
+        raise ValueError("catalog escapes project root") from exc
+    output_path = output_path.resolve()
+    try:
+        output_path.relative_to(root)
+    except ValueError as exc:
+        raise ValueError("output escapes project root") from exc
+    if output_path == config_path:
+        raise ValueError("output collides with catalog input")
+
     with config_path.open(encoding="utf-8") as handle:
         sources = json.load(handle)
     if not isinstance(sources, list):
@@ -207,14 +262,45 @@ def run_inventory(
     if len(source_ids) != len(set(source_ids)):
         raise ValueError("source_id values must be unique")
 
+    for source in sources:
+        if "path" in source:
+            configured = _safe_path(root, source["path"])
+            if configured == output_path:
+                raise ValueError("output collides with metadata input")
+        elif "glob" in source:
+            pattern = source["glob"]
+            if Path(pattern).is_absolute() or ".." in Path(pattern).parts:
+                raise ValueError(f"unsafe glob: {pattern}")
+            if any(path.resolve() == output_path for path in root.glob(pattern)):
+                raise ValueError("output collides with metadata input")
+
     records = [inspect_source(root, source) for source in sources]
     records.sort(key=lambda row: row["source_id"])
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    with output_path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=OUTPUT_FIELDS, delimiter="\t")
-        writer.writeheader()
-        writer.writerows(records)
+    temp_name = ""
+    try:
+        with tempfile.NamedTemporaryFile(
+            mode="w",
+            newline="",
+            encoding="utf-8",
+            dir=output_path.parent,
+            prefix=f".{output_path.name}.",
+            suffix=".tmp",
+            delete=False,
+        ) as handle:
+            temp_name = handle.name
+            writer = csv.DictWriter(
+                handle,
+                fieldnames=OUTPUT_FIELDS,
+                delimiter="\t",
+            )
+            writer.writeheader()
+            writer.writerows(records)
+        os.replace(temp_name, output_path)
+    finally:
+        if temp_name:
+            Path(temp_name).unlink(missing_ok=True)
     return records
 
 
