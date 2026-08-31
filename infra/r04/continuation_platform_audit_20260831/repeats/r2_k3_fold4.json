@@ -1,0 +1,77 @@
+{
+  "checkpoints": [
+    {
+      "checkpoint": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-8400",
+      "global_step": 8400,
+      "mc_draws": 4,
+      "n_genes": 4000,
+      "n_spots": 90812,
+      "nuisance_gauge": {
+        "baseline_v_projection": [
+          0.15794196456937296
+        ],
+        "h_max": [
+          0.6776565845935092
+        ],
+        "h_mean": [
+          0.21687914238657757
+        ],
+        "h_min": [
+          1.8296254492235956e-05
+        ],
+        "rank": 1
+      },
+      "objective_draws": [
+        5497.7646484375,
+        5497.7626953125,
+        5497.7578125,
+        5497.77001953125
+      ],
+      "objective_mean": 5497.7637939453125,
+      "objective_sd": 0.005048853310301465,
+      "seed": 250869059
+    },
+    {
+      "checkpoint": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-8400",
+      "global_step": 8400,
+      "mc_draws": 4,
+      "n_genes": 4000,
+      "n_spots": 90812,
+      "nuisance_gauge": {
+        "baseline_v_projection": [
+          0.15794196456937296
+        ],
+        "h_max": [
+          0.6776565845935092
+        ],
+        "h_mean": [
+          0.21687914238657757
+        ],
+        "h_min": [
+          1.8296254492235956e-05
+        ],
+        "rank": 1
+      },
+      "objective_draws": [
+        5497.76513671875,
+        5497.7626953125,
+        5497.7578125,
+        5497.77001953125
+      ],
+      "objective_mean": 5497.763916015625,
+      "objective_sd": 0.005082192381509113,
+      "seed": 250869059
+    }
+  ],
+  "factors": 3,
+  "fold": 4,
+  "folds": 5,
+  "gene_count": 4000,
+  "group_seed": 20260807,
+  "inducing_points": 16,
+  "lengthscale": 3.0,
+  "manifest_hash": "5a0dc1de6066847cfba613a41cb78d01e25cfc42a48ad75f1b18cf3d03da7d51",
+  "mc_draws": 4,
+  "schema": "r04.checkpoint_audit.v1",
+  "status": "DIAGNOSTIC_ONLY"
+}

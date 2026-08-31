@@ -218,9 +218,13 @@ HTAN::PATIENT::c591c5e150910f33	asset	HTAN_VANDERBILT_CRC::8899_AS_3_filtered_tr
 HTAN::PATIENT::c591c5e150910f33	asset	HTAN_VANDERBILT_CRC::8899_AS_4_filtered_trimmed.h5ad	same_patient_other_block	E3_explicit	CONFIRMED_METADATA_RELATION	HTAN::PATIENT::c591c5e150910f33
 HTAN::PATIENT::e52fa79982a9ecea	asset	HTAN_VANDERBILT_CRC::7003_AS_8_filtered_trimmed.h5ad	same_patient_other_block	E3_explicit	CONFIRMED_METADATA_RELATION	HTAN::PATIENT::e52fa79982a9ecea
 SOURCE_LINEAGE::HTAN_VANDERBILT_CRC	study	HTAN_VANDERBILT_CRC	canonical_source_lineage	E3_explicit	canonical_study	LINEAGE::HTAN_VANDERBILT_CRC
+SOURCE_LINEAGE::ST_CRC_CMS	study	ST_CRC_CMS	canonical_source_lineage	E2_corroborated	canonical_study	LINEAGE::ST_CRC_CMS
 SOURCE_LINEAGE::TENX_V1_BREAST_CANCER_BLOCK_A	study	TENX_V1_BREAST_CANCER_BLOCK_A	canonical_source_lineage	E2_corroborated	canonical_study	LINEAGE::TENX_V1_BREAST_CANCER_BLOCK_A
+SOURCE_LINEAGE::TLS_VISIUM_USZ	study	TLS_VISIUM_USZ	canonical_source_lineage	E3_explicit	canonical_study	LINEAGE::TLS_VISIUM_USZ
 TENX::BLOCK::8b7aa042f862ebb4	dataset_directory	TENX::V1_Breast_Cancer_Block_A_Section_1	same_block	E2_corroborated	CONFIRMED_METADATA_RELATION	TENX::BLOCK::8b7aa042f862ebb4
 TENX::BLOCK::8b7aa042f862ebb4	dataset_directory	TENX::V1_Breast_Cancer_Block_A_Section_2	same_block	E2_corroborated	CONFIRMED_METADATA_RELATION	TENX::BLOCK::8b7aa042f862ebb4
+same_source::GSE175540	study	GEO::GSE175540	same_accession_same_source_lineage	E3_explicit	canonical_geo_study; do_not_count_atlas_separately	lineage::PRJNA732692
+same_source::GSE175540	study	atlas_s2::kirc::1713c35ce741	same_accession_same_source_lineage	E3_explicit	canonical_geo_study; do_not_count_atlas_separately	lineage::PRJNA732692
 same_source::GSE211956	study	GEO::GSE211956	same_accession_same_source_lineage	E3_explicit	canonical_geo_study; do_not_count_atlas_separately	lineage::PRJNA873051
 same_source::GSE211956	study	atlas_s2::ovca::1096a62ee6fb	same_accession_same_source_lineage	E3_explicit	canonical_geo_study; do_not_count_atlas_separately	lineage::PRJNA873051
 same_source::GSE226997	study	GEO::GSE226997	same_accession_same_source_lineage	E3_explicit	canonical_geo_study; do_not_count_atlas_separately	lineage::PRJNA942633

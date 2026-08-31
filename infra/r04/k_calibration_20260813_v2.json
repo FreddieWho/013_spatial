@@ -1,0 +1,54 @@
+{
+  "added_signal_by_k": {
+    "1": 0.20516904443502426,
+    "2": 0.012482457794249058,
+    "4": 0.009141618385910988
+  },
+  "final_k_status": "K_NOT_IDENTIFIABLE",
+  "formal_restart_authorized": false,
+  "heldout_score_mean_by_k": {
+    "1": -499.8206220165206,
+    "2": -450.67843290898446,
+    "4": -384.4625381208046
+  },
+  "heldout_score_se_by_k": {
+    "1": 0.17093994599920848,
+    "2": 0.07401664720970302,
+    "4": 0.0059840150329364405
+  },
+  "one_se_candidate": {
+    "best_predictive_k": 4,
+    "eligible_k": [
+      4
+    ],
+    "one_se_tolerance": 0.0059840150329364405,
+    "selected_k": 4,
+    "status": "K_CALIBRATION_CANDIDATE"
+  },
+  "schema": "r04.k_calibration.v1",
+  "scores_by_k": {
+    "1": [
+      -499.64968207052135,
+      -499.99156196251977
+    ],
+    "2": [
+      -450.60441626177476,
+      -450.75244955619416
+    ],
+    "4": [
+      -384.46852213583753,
+      -384.45655410577166
+    ]
+  },
+  "seed": 20260813,
+  "stability_scope": "section_fold_only_one_seed",
+  "status": "K_CALIBRATION_ONLY_NOT_VALIDATED",
+  "steps": 20,
+  "truth": {
+    "domain": "disconnected",
+    "field_definition": "smooth continuous coordinate functions on an irregular support",
+    "generator": "mnsf_correct",
+    "k_true": 2,
+    "mode": "two_independent"
+  }
+}

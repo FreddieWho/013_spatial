@@ -1,0 +1,15 @@
+{
+  "completed_cells": [
+    "r4_k0_f0",
+    "r4_k3_f0",
+    "r4_k0_f4",
+    "r4_k3_f4"
+  ],
+  "failed_cells": {},
+  "inference_authority": "PRACTICAL_POSTHOC_ACCEPTANCE",
+  "restart_index": 4,
+  "schema": "r04.frozen_inference_panel_progress.v1",
+  "selected_k": null,
+  "status": "ALL_CELLS_COMPLETE",
+  "strict_audit_status": "STOPPED_OFF_PLATFORM"
+}

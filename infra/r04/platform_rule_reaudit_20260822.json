@@ -1,0 +1,27 @@
+{
+  "schema": "r04.deterministic_platform_rule_reaudit.v1",
+  "status": "DIAGNOSTIC_ONLY",
+  "rule": "absolute_signed_relative_improvement",
+  "threshold": 0.001,
+  "note": "Raw artifacts remain unchanged; this record reapplies the corrected two-sided platform rule to their stored traces.",
+  "sources": {
+    "k0": "infra/r04/k0_continuation_eval_20260821/cell.json",
+    "k3": "infra/r04/k3_continuation_eval_20260820/cell.json"
+  },
+  "audits": {
+    "k0": {
+      "steps": [7201, 7500, 7800],
+      "objective_means": [5422.765625, 5422.78076171875, 5422.6904296875],
+      "signed_relative_improvements": [-2.7913282256228806e-06, 1.6657880010138795e-05],
+      "previous_rule_converged": false,
+      "current_rule_converged": true
+    },
+    "k3": {
+      "steps": [6600, 6900, 7200],
+      "objective_means": [5303.0333251953125, 5301.4522705078125, 5300.021728515625],
+      "signed_relative_improvements": [0.000298141571162344, 0.0002698396437794341],
+      "previous_rule_converged": true,
+      "current_rule_converged": true
+    }
+  }
+}

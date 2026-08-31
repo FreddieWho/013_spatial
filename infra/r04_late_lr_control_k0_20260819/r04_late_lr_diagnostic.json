@@ -1,0 +1,18 @@
+{
+  "cell_count": 1,
+  "expected_start_step": 4800,
+  "fit_converged": false,
+  "fold": 0,
+  "gene_batch_size": 512,
+  "k_model": 0,
+  "learning_rate": 0.01,
+  "learning_rate_decay_steps": null,
+  "learning_rate_final": null,
+  "optimizer_state_inherited": true,
+  "schema": "r04.late_lr_diagnostic.v1",
+  "selected_k": null,
+  "source_checkpoint_dir": "/home/huyudi/013_spatial/infra/r04/real_k_4800_b512_fixed_20260818/checkpoints/k0/fold0",
+  "status": "WIRING_ONLY_NOT_SCIENTIFIC",
+  "steps": 7200,
+  "wiring_only": true
+}

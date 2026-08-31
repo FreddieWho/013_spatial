@@ -1,10 +1,12 @@
 {
-  "schema_version": 1,
-  "generated_at": "2026-07-31T06:16:28+08:00",
+  "schema_version": 3,
+  "generated_at": "2026-08-10T08:33:12+08:00",
   "policy": {
     "allowed": [
       "official metadata",
-      "official identity crosswalk"
+      "official identity crosswalk",
+      "R-04 official source metadata",
+      "approved local reference pointer read without repository copy"
     ],
     "forbidden": [
       "expression matrix",
@@ -338,6 +340,84 @@
       "retention_scope": "identity_crosswalk",
       "status": "retained",
       "notes": "official patient-to-GSM identity crosswalk; biological result columns were not used"
+    },
+    {
+      "source_id": "zenodo:7760264:record",
+      "accession": "ZENODO:7760264",
+      "official_url": "https://zenodo.org/records/7760264",
+      "local_path": "data/other_sources/zenodo_st_crc_cms/zenodo_record_7760264.json",
+      "bytes": "17799",
+      "sha256": "6540a162fe7eb1a7d7cda8cc1ddf3ab4b766135a78960ca592ccc2a4b2528b7a",
+      "license": "NOT_ASSERTED_IN_RETRIEVED_METADATA",
+      "identity_coverage": "spatial_cohort_section",
+      "retention_scope": "r04_source_metadata_pointer",
+      "status": "retained_local_metadata",
+      "notes": "R04 ST-CRC-CMS source metadata; only the official record JSON is indexed, while pre-existing local matrices remain outside this metadata index"
+    },
+    {
+      "source_id": "zenodo:14620362:record",
+      "accession": "ZENODO:14620362",
+      "official_url": "https://zenodo.org/records/14620362",
+      "local_path": "data/other_sources/zenodo_usz_tls_visium/zenodo_record_14620362.json",
+      "bytes": "7545",
+      "sha256": "bce3520720746bf6e4cfcfa7acc789b1136e4eebdca280352430c57deff4ffe3",
+      "license": "NOT_ASSERTED_IN_RETRIEVED_METADATA",
+      "identity_coverage": "spatial_cohort_section",
+      "retention_scope": "r04_source_metadata_pointer",
+      "status": "retained_local_metadata",
+      "notes": "R04 USZ TLS Visium source metadata; only the official record JSON is indexed, while pre-existing local matrices remain outside this metadata index"
+    },
+    {
+      "source_id": "local:005_preCan:GSE132465_counts",
+      "accession": "GSE132465",
+      "official_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE132465",
+      "local_path": "/home/huyudi/005_preCan/data/downloaded/CIT_CRC_005/GSE132465_GEO_processed_CRC_10X_raw_UMI_count_matrix.txt.gz",
+      "bytes": "128941455",
+      "sha256": "deff856c7fe1d2c845af5b31e1c65a1dd95ea29541772a66c89bda3aaa8c0666",
+      "license": "LOCAL_USER_APPROVED_SOURCE",
+      "identity_coverage": "donor_cell_type",
+      "retention_scope": "approved_local_reference_pointer",
+      "status": "not_copied_external",
+      "notes": "R04 CRC reference; read in place, capped and never copied into this repository"
+    },
+    {
+      "source_id": "local:005_preCan:GSE132465_annotation",
+      "accession": "GSE132465",
+      "official_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE132465",
+      "local_path": "/home/huyudi/005_preCan/data/downloaded/CIT_CRC_005/GSE132465_GEO_processed_CRC_10X_cell_annotation.txt.gz",
+      "bytes": "434022",
+      "sha256": "4bf2ebdadc88da53b0c46e654a6576e841925addc25c981d7cdbc0d988b4677c",
+      "license": "LOCAL_USER_APPROVED_SOURCE",
+      "identity_coverage": "donor_cell_type",
+      "retention_scope": "approved_local_reference_pointer",
+      "status": "not_copied_external",
+      "notes": "R04 annotation; only Index/Patient/Cell_type are allowlisted"
+    },
+    {
+      "source_id": "local:006:gse115978",
+      "accession": "GSE115978",
+      "official_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE115978",
+      "local_path": "/home/huyudi/006/data/processed/srt/raw/gse115978.h5ad",
+      "bytes": "181482934",
+      "sha256": "a1cae4988b8250fe8d0a905f624d7c4f4f3fd0328001f2c3c3ce3d071d7425d1",
+      "license": "LOCAL_USER_APPROVED_SOURCE",
+      "identity_coverage": "donor_cell_type",
+      "retention_scope": "approved_local_reference_pointer",
+      "status": "not_copied_external",
+      "notes": "R04 h5ad reference; counts and patient_id/anno_orig allowlist only"
+    },
+    {
+      "source_id": "local:006:gse232240",
+      "accession": "GSE232240",
+      "official_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE232240",
+      "local_path": "/home/huyudi/006/data/processed/srt/raw/gse232240.h5ad",
+      "bytes": "110202622",
+      "sha256": "6c70299aa8509d908f3ab63ba5741c835219382533bef78d18f7ec56f9a79f6f",
+      "license": "LOCAL_USER_APPROVED_SOURCE",
+      "identity_coverage": "donor_cell_type",
+      "retention_scope": "approved_local_reference_pointer",
+      "status": "not_copied_external",
+      "notes": "R04 h5ad reference; X and patient_id/cell_type allowlist only"
     }
   ],
   "scope_contamination_incidents": [

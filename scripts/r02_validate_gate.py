@@ -13,10 +13,42 @@ from typing import Mapping
 
 from openpyxl import load_workbook
 
+try:
+    from scripts.r02_heiser_gt import (
+        VERIFIER_CLASS,
+        build_heiser_records,
+        verify_annotation_source,
+    )
+    from scripts.r02_validation_gt import (
+        VALIDATION_VERIFIER_CLASSES,
+        VERIFIER_FUNCTIONS,
+        VERIFIER_KIRC,
+        VERIFIER_STCRC,
+        VERIFIER_USZ,
+        build_validation_records,
+    )
+except ModuleNotFoundError:
+    # Direct ``python scripts/r02_validate_gate.py`` execution places the
+    # scripts directory, rather than the repository root, on sys.path.
+    from r02_heiser_gt import (
+        VERIFIER_CLASS,
+        build_heiser_records,
+        verify_annotation_source,
+    )
+    from r02_validation_gt import (
+        VALIDATION_VERIFIER_CLASSES,
+        VERIFIER_FUNCTIONS,
+        VERIFIER_KIRC,
+        VERIFIER_STCRC,
+        VERIFIER_USZ,
+        build_validation_records,
+    )
+
 
 ATLAS_PATH = Path("paper/tables/science.adz2742_tables_s1_to_s8.xlsx")
 EXPECTED_TLS_COUNTS = {
     "HTAN_VANDERBILT_CRC": 44,
+    "GEO::GSE175540": 30,
     "GEO::GSE226997": 4,
     "GEO::GSE274103": 8,
     "GEO::GSE274557": 1,
@@ -61,6 +93,7 @@ def _official_tls_inventory(
     summary_sheet = workbook["Table S2"]
     lookup = {
         HTAN_AVAILABILITY: "HTAN_VANDERBILT_CRC",
+        "GSE175540": "GEO::GSE175540",
         "GSE226997": "GEO::GSE226997",
         "GSE274103": "GEO::GSE274103",
         "GSE274557": "GEO::GSE274557",
@@ -173,6 +206,14 @@ def _source_errors(
             source_claim_errors.append(f"circular_same_assay_gt:{source_id}")
         if row["source_class"] in {"ATLAS_TLS_COUNT_SUMMARY"}:
             source_claim_errors.append(f"summary_only_not_geometry:{source_id}")
+        if row["source_class"] == VERIFIER_CLASS:
+            source_claim_errors.extend(
+                verify_annotation_source(root, row, eligible_physical)
+            )
+        else:
+            verifier = VERIFIER_FUNCTIONS.get(row["source_class"])
+            if verifier is not None:
+                source_claim_errors.extend(verifier(root, row, eligible_physical))
         if source_claim_errors:
             errors.extend(source_claim_errors)
         else:
@@ -376,8 +417,16 @@ def evaluate_gate(root: Path, registry: Path) -> dict[str, object]:
     input_policy = _read_tsv(registry / "input_policy.tsv")
     policy = json.loads((registry / "r02_policy.json").read_text(encoding="utf-8"))
 
-    # Verifiers are executable code, not a table assertion. R-02 implements none.
-    implemented_verifiers: set[str] = set()
+    # Verifiers are executable code, not a table assertion. R-02 implements
+    # the Heiser spot-barcode pathology-annotation CSV verifier plus the three
+    # validation-lineage verifiers (KIRC TLS CSV, USZ h5ad obs labels,
+    # ST_CRC_CMS pathology category CSV).
+    implemented_verifiers: set[str] = {
+        VERIFIER_CLASS,
+        VERIFIER_KIRC,
+        VERIFIER_USZ,
+        VERIFIER_STCRC,
+    }
     declared_verifiers = set(policy.get("supported_confirmatory_gt_verifiers", []))
     if declared_verifiers != implemented_verifiers:
         integrity_errors = [
@@ -423,7 +472,7 @@ def evaluate_gate(root: Path, registry: Path) -> dict[str, object]:
         integrity_errors.append(
             f"source_tls_count_mismatch:expected={EXPECTED_TLS_COUNTS}:observed={official_counts}"
         )
-    if dict(candidate_counts) != EXPECTED_TLS_COUNTS or len(candidates) != 57:
+    if dict(candidate_counts) != EXPECTED_TLS_COUNTS or len(candidates) != 87:
         integrity_errors.append(
             f"candidate_tls_count_mismatch:expected={EXPECTED_TLS_COUNTS}:observed={dict(candidate_counts)}"
         )
@@ -496,8 +545,115 @@ def evaluate_gate(root: Path, registry: Path) -> dict[str, object]:
             valid_confirmatory.append(row)
 
     candidate_ids = {row["candidate_id"] for row in candidates}
-    if instance_ids != candidate_ids:
+    if not candidate_ids <= instance_ids:
         integrity_errors.append("candidate_instance_id_set_mismatch")
+
+    # The registry's Heiser rows must equal an independent recompute from the
+    # raw annotation CSVs, the crosswalk files, the R-01 physical rows, and
+    # the h5ad spot indexes. The same holds for the three validation lineages
+    # against their deposited annotation files and replay geometry assets.
+    heiser_expected = build_heiser_records(root, physical_rows)
+    validation_expected = build_validation_records(root, physical_rows)
+    expected_sources = {
+        row["gt_source_id"]: row for row in heiser_expected["gt_sources"]
+    }
+    registry_sources = {
+        row["gt_source_id"]: row
+        for row in audits
+        if row["source_class"] == VERIFIER_CLASS
+    }
+    if set(registry_sources) != set(expected_sources):
+        integrity_errors.append("heiser_gt_source_set_mismatch")
+    else:
+        for source_id, expected in expected_sources.items():
+            observed = registry_sources[source_id]
+            for field, value in expected.items():
+                if observed.get(field, "") != value:
+                    integrity_errors.append(
+                        f"heiser_gt_source_mismatch:{source_id}:{field}"
+                    )
+    expected_validation_sources = {
+        row["gt_source_id"]: row for row in validation_expected["gt_sources"]
+    }
+    registry_validation_sources = {
+        row["gt_source_id"]: row
+        for row in audits
+        if row["source_class"] in VALIDATION_VERIFIER_CLASSES
+    }
+    if set(registry_validation_sources) != set(expected_validation_sources):
+        integrity_errors.append("validation_gt_source_set_mismatch")
+    else:
+        for source_id, expected in expected_validation_sources.items():
+            observed = registry_validation_sources[source_id]
+            for field, value in expected.items():
+                if observed.get(field, "") != value:
+                    integrity_errors.append(
+                        f"validation_gt_source_mismatch:{source_id}:{field}"
+                    )
+    expected_instances = {
+        row["instance_id"]: row for row in heiser_expected["instances"]
+    }
+    expected_validation_instances = {
+        row["instance_id"]: row for row in validation_expected["instances"]
+    }
+    heiser_extra: dict[str, dict[str, str]] = {}
+    validation_extra: dict[str, dict[str, str]] = {}
+    for row in instances:
+        instance_id = row["instance_id"]
+        if instance_id in candidate_ids:
+            continue
+        source_audit = audit_by_id.get(row["gt_source_id"])
+        source_class = source_audit["source_class"] if source_audit else ""
+        if source_class == VERIFIER_CLASS:
+            heiser_extra[instance_id] = row
+        elif source_class in VALIDATION_VERIFIER_CLASSES:
+            validation_extra[instance_id] = row
+        else:
+            integrity_errors.append(f"unknown_instance_source_class:{instance_id}")
+    if set(heiser_extra) != set(expected_instances):
+        integrity_errors.append("heiser_instance_set_mismatch")
+    else:
+        for instance_id, expected in expected_instances.items():
+            observed = heiser_extra[instance_id]
+            for field, value in expected.items():
+                if observed.get(field, "") != value:
+                    integrity_errors.append(
+                        f"heiser_instance_mismatch:{instance_id}:{field}"
+                    )
+    if set(validation_extra) != set(expected_validation_instances):
+        integrity_errors.append("validation_instance_set_mismatch")
+    else:
+        for instance_id, expected in expected_validation_instances.items():
+            observed = validation_extra[instance_id]
+            for field, value in expected.items():
+                if observed.get(field, "") != value:
+                    integrity_errors.append(
+                        f"validation_instance_mismatch:{instance_id}:{field}"
+                    )
+    replay_path = registry / "h5ad_replay_index.tsv"
+    if not replay_path.is_file():
+        integrity_errors.append("missing_replay_index")
+    else:
+        replay_rows = _read_tsv(replay_path)
+        registry_replay = {row["physical_unit_id"]: row for row in replay_rows}
+        if len(registry_replay) != len(replay_rows):
+            integrity_errors.append("duplicate_replay_index_row")
+        expected_replay = {
+            row["physical_unit_id"]: row
+            for row in (
+                heiser_expected["replay_index"] + validation_expected["replay_index"]
+            )
+        }
+        if set(registry_replay) != set(expected_replay):
+            integrity_errors.append("replay_index_set_mismatch")
+        else:
+            for physical_id, expected in expected_replay.items():
+                observed = registry_replay[physical_id]
+                for field, value in expected.items():
+                    if observed.get(field, "") != value:
+                        integrity_errors.append(
+                            f"replay_index_mismatch:{physical_id}:{field}"
+                        )
 
     second_structure_frozen = any(
         row["structure_id"] != "TLS"
@@ -537,6 +693,10 @@ def evaluate_gate(root: Path, registry: Path) -> dict[str, object]:
         row["block_group_id"] for row in splits if row["block_group_id"]
     }
 
+    confirmatory_breakdown = dict(
+        sorted(Counter(row["structure_id"] for row in valid_confirmatory).items())
+    )
+
     return {
         "phase": "R-02",
         "status": status,
@@ -553,14 +713,22 @@ def evaluate_gate(root: Path, registry: Path) -> dict[str, object]:
         "outer_patient_group_count": len(outer_patient_groups),
         "explicit_block_group_count": len(explicit_block_groups),
         "confirmatory_instance_count": confirmatory_count,
+        "confirmatory_instance_breakdown": confirmatory_breakdown,
         "auditable_gt_source_count": len(auditable_sources),
         "second_structure_frozen": second_structure_frozen,
         "integrity_errors": sorted(set(integrity_errors + split_errors)),
         "blockers": list(dict.fromkeys(blockers)),
         "conclusion_impact": (
-            "R-02 remains incomplete: no structure has auditable instance-level GT, "
-            "so no distance field, model training, confirmatory validation, or "
-            "second-structure claim may start."
+            "Auditable instance-level GT now covers the training-lineage HTAN "
+            "Vanderbilt CRC unit and three public-deposit validation lineages "
+            "(GSE175540 KIRC, TLS_VISIUM_USZ, ST_CRC_CMS): TLS and "
+            "TUMOR_STROMA_BOUNDARY are frozen claim-bearing for those "
+            "lineages, so training-fold distance fields, core masking, "
+            "localization benchmarks and the R-04 cross-cohort validation "
+            "criterion may proceed within frozen outer splits. GSE226997, "
+            "GSE274103 and GSE274557 still have no auditable GT and carry no "
+            "confirmatory claims; vasculature and necrosis have no public GT "
+            "in any examined source."
         ),
     }
 

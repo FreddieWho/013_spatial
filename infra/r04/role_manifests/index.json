@@ -1,0 +1,37 @@
+{
+  "parent_manifest_hash": "abeaed77bb68ea0aaa1411da020790216718434c6f1b709622677b201aa17d6a",
+  "partitions": {
+    "external_validation": {
+      "n_patients": 8,
+      "n_rows": 8,
+      "partition_hash": "7f79018f482cc638c2093f5105145750e31dbb61442422880c18e954709d5354",
+      "path": "external_validation_manifest.json"
+    },
+    "internal_validation": {
+      "n_patients": 7,
+      "n_rows": 14,
+      "partition_hash": "f7a39ff115fef7f677766140debd0d998c79b84e886dbb7acb1c6e80a5989b67",
+      "path": "internal_validation_manifest.json"
+    },
+    "serial_section_validation": {
+      "n_patients": 1,
+      "n_rows": 2,
+      "partition_hash": "0e19aadd1087d395460305075c92414b1886ff7f055ae7069a7e806cfb971206",
+      "path": "serial_section_validation_manifest.json"
+    },
+    "training": {
+      "n_patients": 30,
+      "n_rows": 47,
+      "partition_hash": "f2a2b7296104e80f0d1be5e0d178dba4612f58285bedd91a2ebf7ab41684d3ea",
+      "path": "training_manifest.json"
+    }
+  },
+  "role_counts": {
+    "external_validation": 8,
+    "internal_validation": 14,
+    "serial_section_validation": 2,
+    "training": 47
+  },
+  "schema": "r04.role_manifest_index.v1",
+  "status": "READY"
+}

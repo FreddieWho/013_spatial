@@ -1,0 +1,334 @@
+{
+  "calibrations": [
+    {
+      "canonical_correlations": [
+        0.9335295514317478,
+        0.80546968006803
+      ],
+      "direction_matched_null_95": [
+        0.2387323148354303,
+        0.09697920470739328
+      ],
+      "domain": "disconnected",
+      "k_eff_true": 2,
+      "k_true": 2,
+      "mode": "two_independent",
+      "model": "mnsf",
+      "null_95_cutoff": null,
+      "platform_converged": true,
+      "seed": 20260807
+    },
+    {
+      "canonical_correlations": [
+        0.9511889968504135,
+        0.8177319875099012
+      ],
+      "direction_matched_null_95": [
+        0.20825649324324538,
+        0.10087106747494332
+      ],
+      "domain": "disconnected",
+      "k_eff_true": 2,
+      "k_true": 2,
+      "mode": "two_independent",
+      "model": "mnsf",
+      "null_95_cutoff": null,
+      "platform_converged": true,
+      "seed": 20260817
+    },
+    {
+      "canonical_correlations": [
+        0.9306918724521566,
+        0.7209264297984563
+      ],
+      "direction_matched_null_95": [
+        0.21689227089160604,
+        0.08920720236939435
+      ],
+      "domain": "disconnected",
+      "k_eff_true": 2,
+      "k_true": 2,
+      "mode": "two_independent",
+      "model": "mnsf",
+      "null_95_cutoff": null,
+      "platform_converged": true,
+      "seed": 20260827
+    },
+    {
+      "canonical_correlations": [
+        0.9420873520838188,
+        0.8718770649344144
+      ],
+      "direction_matched_null_95": [
+        0.2169945740515801,
+        0.1001167973543695
+      ],
+      "domain": "crescent",
+      "k_eff_true": 2,
+      "k_true": 2,
+      "mode": "two_independent",
+      "model": "mnsf",
+      "null_95_cutoff": null,
+      "platform_converged": true,
+      "seed": 20260807
+    },
+    {
+      "canonical_correlations": [
+        0.9544838459186535,
+        0.7697399548358866
+      ],
+      "direction_matched_null_95": [
+        0.22544170557774587,
+        0.09570506952144996
+      ],
+      "domain": "crescent",
+      "k_eff_true": 2,
+      "k_true": 2,
+      "mode": "two_independent",
+      "model": "mnsf",
+      "null_95_cutoff": null,
+      "platform_converged": true,
+      "seed": 20260817
+    },
+    {
+      "canonical_correlations": [
+        0.9511986205678892,
+        0.8359786359318937
+      ],
+      "direction_matched_null_95": [
+        0.23048691574868266,
+        0.11169848054136386
+      ],
+      "domain": "crescent",
+      "k_eff_true": 2,
+      "k_true": 2,
+      "mode": "two_independent",
+      "model": "mnsf",
+      "null_95_cutoff": null,
+      "platform_converged": true,
+      "seed": 20260827
+    },
+    {
+      "canonical_correlations": [
+        0.9305295607400117,
+        0.8953325170506174
+      ],
+      "direction_matched_null_95": [
+        0.19866732120462072,
+        0.0926417697069971
+      ],
+      "domain": "branch",
+      "k_eff_true": 2,
+      "k_true": 2,
+      "mode": "two_independent",
+      "model": "mnsf",
+      "null_95_cutoff": null,
+      "platform_converged": true,
+      "seed": 20260807
+    },
+    {
+      "canonical_correlations": [
+        0.9438062820011786,
+        0.8474727801629319
+      ],
+      "direction_matched_null_95": [
+        0.22027125263494415,
+        0.09582075749163137
+      ],
+      "domain": "branch",
+      "k_eff_true": 2,
+      "k_true": 2,
+      "mode": "two_independent",
+      "model": "mnsf",
+      "null_95_cutoff": null,
+      "platform_converged": true,
+      "seed": 20260817
+    },
+    {
+      "canonical_correlations": [
+        0.9197240426033808,
+        0.8688551709130332
+      ],
+      "direction_matched_null_95": [
+        0.2220716801800878,
+        0.11168163701104912
+      ],
+      "domain": "branch",
+      "k_eff_true": 2,
+      "k_true": 2,
+      "mode": "two_independent",
+      "model": "mnsf",
+      "null_95_cutoff": null,
+      "platform_converged": true,
+      "seed": 20260827
+    },
+    {
+      "canonical_correlations": [],
+      "direction_matched_null_95": [],
+      "domain": "disconnected",
+      "k_eff_true": 0,
+      "k_true": 0,
+      "mode": "no_field",
+      "model": "mnsf",
+      "null_95_cutoff": null,
+      "platform_converged": true,
+      "seed": 20260807
+    },
+    {
+      "canonical_correlations": [],
+      "direction_matched_null_95": [],
+      "domain": "disconnected",
+      "k_eff_true": 0,
+      "k_true": 0,
+      "mode": "no_field",
+      "model": "mnsf",
+      "null_95_cutoff": null,
+      "platform_converged": true,
+      "seed": 20260817
+    },
+    {
+      "canonical_correlations": [],
+      "direction_matched_null_95": [],
+      "domain": "disconnected",
+      "k_eff_true": 0,
+      "k_true": 0,
+      "mode": "no_field",
+      "model": "mnsf",
+      "null_95_cutoff": null,
+      "platform_converged": true,
+      "seed": 20260827
+    },
+    {
+      "canonical_correlations": [
+        0.9288990912224702
+      ],
+      "direction_matched_null_95": [
+        0.1879253029846026
+      ],
+      "domain": "disconnected",
+      "k_eff_true": 1,
+      "k_true": 1,
+      "mode": "one_disconnected",
+      "model": "mnsf",
+      "null_95_cutoff": null,
+      "platform_converged": true,
+      "seed": 20260807
+    },
+    {
+      "canonical_correlations": [
+        0.8745389562094543
+      ],
+      "direction_matched_null_95": [
+        0.18860642946001102
+      ],
+      "domain": "disconnected",
+      "k_eff_true": 1,
+      "k_true": 1,
+      "mode": "one_disconnected",
+      "model": "mnsf",
+      "null_95_cutoff": null,
+      "platform_converged": true,
+      "seed": 20260817
+    },
+    {
+      "canonical_correlations": [
+        0.9260551570322987
+      ],
+      "direction_matched_null_95": [
+        0.1960002615653901
+      ],
+      "domain": "disconnected",
+      "k_eff_true": 1,
+      "k_true": 1,
+      "mode": "one_disconnected",
+      "model": "mnsf",
+      "null_95_cutoff": null,
+      "platform_converged": true,
+      "seed": 20260827
+    },
+    {
+      "canonical_correlations": [
+        0.9540284725195372
+      ],
+      "direction_matched_null_95": [
+        0.18400982291101034
+      ],
+      "domain": "disconnected",
+      "k_eff_true": 1,
+      "k_true": 2,
+      "mode": "two_collinear",
+      "model": "mnsf",
+      "null_95_cutoff": null,
+      "platform_converged": true,
+      "seed": 20260807
+    },
+    {
+      "canonical_correlations": [
+        0.938550521359609
+      ],
+      "direction_matched_null_95": [
+        0.17042101425229092
+      ],
+      "domain": "disconnected",
+      "k_eff_true": 1,
+      "k_true": 2,
+      "mode": "two_collinear",
+      "model": "mnsf",
+      "null_95_cutoff": null,
+      "platform_converged": true,
+      "seed": 20260817
+    },
+    {
+      "canonical_correlations": [
+        0.8880700740732704
+      ],
+      "direction_matched_null_95": [
+        0.2053942452668728
+      ],
+      "domain": "disconnected",
+      "k_eff_true": 1,
+      "k_true": 2,
+      "mode": "two_collinear",
+      "model": "mnsf",
+      "null_95_cutoff": null,
+      "platform_converged": true,
+      "seed": 20260827
+    }
+  ],
+  "formal_restart_authorized": false,
+  "gpu_used": false,
+  "k0_gate": {
+    "one_se_candidate": {
+      "best_predictive_k": 0,
+      "eligible_k": [
+        0
+      ],
+      "predictive_eligible_k": [
+        0
+      ],
+      "selected_k": 0
+    },
+    "status": "K0_SELECTED"
+  },
+  "k_calibration": {
+    "final_k_status": "K_SELECTED",
+    "one_se_candidate": {
+      "best_predictive_k": 2,
+      "eligible_k": [
+        2
+      ],
+      "predictive_eligible_k": [
+        2
+      ],
+      "search_boundary": false,
+      "selected_k": 2
+    },
+    "status": "K_CALIBRATION_AGGREGATED"
+  },
+  "k_status": "SYNTHETIC_K_RULE_CALIBRATED",
+  "next_gate": "RESOURCE_RECALIBRATION_AFTER_MODEL_PARAMETERIZATION_CHANGE",
+  "objective_oracle": "PASS_OBJECTIVE_ORACLE",
+  "reasons": [],
+  "schema": "r04.scientific_gate.v2",
+  "status": "PASS_SCIENTIFIC_CALIBRATION"
+}

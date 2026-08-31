@@ -1,0 +1,155 @@
+{
+  "checkpoints": [
+    {
+      "checkpoint": "infra/r04/real_k_4800_b512_fixed_20260818/checkpoints/k0/fold0/ckpt-3600",
+      "global_step": 3600,
+      "mc_draws": 8,
+      "n_genes": 4000,
+      "n_spots": 77526,
+      "nuisance_gauge": {
+        "baseline_v_projection": [
+          0.16200722283352822
+        ],
+        "h_max": [
+          0.5338616846017752
+        ],
+        "h_mean": [
+          0.22272777733694119
+        ],
+        "h_min": [
+          6.181872895623047e-05
+        ],
+        "rank": 1
+      },
+      "objective_draws": [
+        5650.283203125,
+        5650.283203125,
+        5650.283203125,
+        5650.283203125,
+        5650.283203125,
+        5650.283203125,
+        5650.283203125,
+        5650.283203125
+      ],
+      "objective_mean": 5650.283203125,
+      "objective_sd": 0.0,
+      "seed": 20260820
+    },
+    {
+      "checkpoint": "infra/r04/real_k_4800_b512_fixed_20260818/checkpoints/k0/fold0/ckpt-4800",
+      "global_step": 4800,
+      "mc_draws": 8,
+      "n_genes": 4000,
+      "n_spots": 77526,
+      "nuisance_gauge": {
+        "baseline_v_projection": [
+          0.15762790152945744
+        ],
+        "h_max": [
+          0.5608192531210628
+        ],
+        "h_mean": [
+          0.22926324163267373
+        ],
+        "h_min": [
+          4.411461706478964e-05
+        ],
+        "rank": 1
+      },
+      "objective_draws": [
+        5481.11669921875,
+        5481.11669921875,
+        5481.11669921875,
+        5481.11669921875,
+        5481.11669921875,
+        5481.11669921875,
+        5481.11669921875,
+        5481.11669921875
+      ],
+      "objective_mean": 5481.11669921875,
+      "objective_sd": 0.0,
+      "seed": 20260820
+    },
+    {
+      "checkpoint": "infra/r04_late_lr_control_k0_20260819/checkpoints/k0/fold0/ckpt-6600",
+      "global_step": 6600,
+      "mc_draws": 8,
+      "n_genes": 4000,
+      "n_spots": 77526,
+      "nuisance_gauge": {
+        "baseline_v_projection": [
+          0.149516771948229
+        ],
+        "h_max": [
+          0.5906518333660087
+        ],
+        "h_mean": [
+          0.24053059770980167
+        ],
+        "h_min": [
+          2.1481297349346697e-05
+        ],
+        "rank": 1
+      },
+      "objective_draws": [
+        5422.89111328125,
+        5422.89111328125,
+        5422.89111328125,
+        5422.89111328125,
+        5422.89111328125,
+        5422.89111328125,
+        5422.89111328125,
+        5422.89111328125
+      ],
+      "objective_mean": 5422.89111328125,
+      "objective_sd": 0.0,
+      "seed": 20260820
+    },
+    {
+      "checkpoint": "infra/r04_late_lr_control_k0_20260819/checkpoints/k0/fold0/ckpt-7200",
+      "global_step": 7200,
+      "mc_draws": 8,
+      "n_genes": 4000,
+      "n_spots": 77526,
+      "nuisance_gauge": {
+        "baseline_v_projection": [
+          0.14907256731396862
+        ],
+        "h_max": [
+          0.5827712229163033
+        ],
+        "h_mean": [
+          0.2423998830199517
+        ],
+        "h_min": [
+          1.9323944991842025e-05
+        ],
+        "rank": 1
+      },
+      "objective_draws": [
+        5422.765625,
+        5422.765625,
+        5422.765625,
+        5422.765625,
+        5422.765625,
+        5422.765625,
+        5422.765625,
+        5422.765625
+      ],
+      "objective_mean": 5422.765625,
+      "objective_sd": 0.0,
+      "seed": 20260820
+    }
+  ],
+  "factors": 0,
+  "fold": 0,
+  "folds": 5,
+  "gene_count": 4000,
+  "group_seed": 20260807,
+  "inducing_points": 16,
+  "lengthscale": 3.0,
+  "manifest_hash": "",
+  "mc_draws": 8,
+  "schema": "r04.checkpoint_audit.v1",
+  "status": "DIAGNOSTIC_ONLY"
+}

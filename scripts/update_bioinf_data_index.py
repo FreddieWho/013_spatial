@@ -75,6 +75,58 @@ ACCEPTED_GEO_ACCESSIONS = {
     "GSE274103",
     "GSE274557",
 }
+R04_REFERENCE_SOURCES = (
+    {
+        "source_id": "local:005_preCan:GSE132465_counts",
+        "accession": "GSE132465",
+        "local_path": "/home/huyudi/005_preCan/data/downloaded/CIT_CRC_005/GSE132465_GEO_processed_CRC_10X_raw_UMI_count_matrix.txt.gz",
+        "identity_coverage": "donor_cell_type",
+        "notes": "R04 CRC reference; read in place, capped and never copied into this repository",
+    },
+    {
+        "source_id": "local:005_preCan:GSE132465_annotation",
+        "accession": "GSE132465",
+        "local_path": "/home/huyudi/005_preCan/data/downloaded/CIT_CRC_005/GSE132465_GEO_processed_CRC_10X_cell_annotation.txt.gz",
+        "identity_coverage": "donor_cell_type",
+        "notes": "R04 annotation; only Index/Patient/Cell_type are allowlisted",
+    },
+    {
+        "source_id": "local:006:gse115978",
+        "accession": "GSE115978",
+        "local_path": "/home/huyudi/006/data/processed/srt/raw/gse115978.h5ad",
+        "identity_coverage": "donor_cell_type",
+        "notes": "R04 h5ad reference; counts and patient_id/anno_orig allowlist only",
+    },
+    {
+        "source_id": "local:006:gse232240",
+        "accession": "GSE232240",
+        "local_path": "/home/huyudi/006/data/processed/srt/raw/gse232240.h5ad",
+        "identity_coverage": "donor_cell_type",
+        "notes": "R04 h5ad reference; X and patient_id/cell_type allowlist only",
+    },
+)
+R04_SOURCE_METADATA = (
+    {
+        "source_id": "zenodo:7760264:record",
+        "accession": "ZENODO:7760264",
+        "local_path": "data/other_sources/zenodo_st_crc_cms/zenodo_record_7760264.json",
+        "identity_coverage": "spatial_cohort_section",
+        "notes": (
+            "R04 ST-CRC-CMS source metadata; only the official record JSON is indexed, "
+            "while pre-existing local matrices remain outside this metadata index"
+        ),
+    },
+    {
+        "source_id": "zenodo:14620362:record",
+        "accession": "ZENODO:14620362",
+        "local_path": "data/other_sources/zenodo_usz_tls_visium/zenodo_record_14620362.json",
+        "identity_coverage": "spatial_cohort_section",
+        "notes": (
+            "R04 USZ TLS Visium source metadata; only the official record JSON is indexed, "
+            "while pre-existing local matrices remain outside this metadata index"
+        ),
+    },
+)
 
 
 def sha256(path: Path) -> str:
@@ -103,6 +155,8 @@ def official_url(accession: str) -> str:
         return f"https://pmc.ncbi.nlm.nih.gov/articles/{accession}/"
     if accession.startswith("PMID"):
         return f"https://pubmed.ncbi.nlm.nih.gov/{accession.removeprefix('PMID')}/"
+    if accession.startswith("ZENODO:"):
+        return f"https://zenodo.org/records/{accession.removeprefix('ZENODO:')}"
     return "https://pubmed.ncbi.nlm.nih.gov/"
 
 
@@ -149,6 +203,7 @@ def build_index(
     raw_root: Path,
     *,
     generated_at: str | None = None,
+    include_r04_references: bool = False,
 ) -> list[dict[str, object]]:
     rows: list[dict[str, str]] = []
     for path in sorted(raw_root.rglob("*")):
@@ -191,6 +246,45 @@ def build_index(
                 ),
             }
         )
+    if include_r04_references:
+        for source in R04_SOURCE_METADATA:
+            path = repo_root / source["local_path"]
+            if not path.is_file():
+                raise FileNotFoundError(f"R04 source metadata is unavailable: {path}")
+            rows.append(
+                {
+                    "source_id": source["source_id"],
+                    "accession": source["accession"],
+                    "official_url": official_url(source["accession"]),
+                    "local_path": source["local_path"],
+                    "bytes": str(path.stat().st_size),
+                    "sha256": sha256(path),
+                    "license": "NOT_ASSERTED_IN_RETRIEVED_METADATA",
+                    "identity_coverage": source["identity_coverage"],
+                    "retention_scope": "r04_source_metadata_pointer",
+                    "status": "retained_local_metadata",
+                    "notes": source["notes"],
+                }
+            )
+        for source in R04_REFERENCE_SOURCES:
+            path = Path(source["local_path"])
+            if not path.is_file():
+                raise FileNotFoundError(f"R04 reference pointer is unavailable: {path}")
+            rows.append(
+                {
+                    "source_id": source["source_id"],
+                    "accession": source["accession"],
+                    "official_url": official_url(source["accession"]),
+                    "local_path": str(path),
+                    "bytes": str(path.stat().st_size),
+                    "sha256": sha256(path),
+                    "license": "LOCAL_USER_APPROVED_SOURCE",
+                    "identity_coverage": source["identity_coverage"],
+                    "retention_scope": "approved_local_reference_pointer",
+                    "status": "not_copied_external",
+                    "notes": source["notes"],
+                }
+            )
 
     index_root.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile(
@@ -204,10 +298,15 @@ def build_index(
 
     generated_at = generated_at or datetime.now(timezone.utc).isoformat()
     manifest: dict[str, object] = {
-        "schema_version": 1,
+        "schema_version": 3 if include_r04_references else 1,
         "generated_at": generated_at,
         "policy": {
-            "allowed": ["official metadata", "official identity crosswalk"],
+            "allowed": [
+                "official metadata",
+                "official identity crosswalk",
+                *( ["R-04 official source metadata"] if include_r04_references else []),
+                *( ["approved local reference pointer read without repository copy"] if include_r04_references else []),
+            ],
             "forbidden": ["expression matrix", "image", "biological result table"],
             "image_content_opened": False,
         },
@@ -215,7 +314,7 @@ def build_index(
         "scope_contamination_incidents": [INCIDENT, *FULL_TEXT_INCIDENTS],
     }
     summary: dict[str, object] = {
-        "schema_version": 1,
+        "schema_version": 3 if include_r04_references else 1,
         "generated_at": generated_at,
         "indexed_file_count": len(rows),
         "indexed_bytes": sum(int(row["bytes"]) for row in rows),
@@ -226,6 +325,22 @@ def build_index(
         "retained_expression_files": 0,
         "retained_image_files": 0,
         "retained_result_files": 0,
+        "external_reference_pointer_count": sum(
+            row["retention_scope"] == "approved_local_reference_pointer" for row in rows
+        ),
+        "external_reference_pointer_bytes": sum(
+            int(row["bytes"])
+            for row in rows
+            if row["retention_scope"] == "approved_local_reference_pointer"
+        ),
+        "r04_source_metadata_pointer_count": sum(
+            row["retention_scope"] == "r04_source_metadata_pointer" for row in rows
+        ),
+        "r04_source_metadata_pointer_bytes": sum(
+            int(row["bytes"])
+            for row in rows
+            if row["retention_scope"] == "r04_source_metadata_pointer"
+        ),
         "deleted_scope_contamination_incidents": 1 + len(
             FULL_TEXT_INCIDENTS
         ),
@@ -242,9 +357,12 @@ R-01 identity resolution. `index.tsv` is the checksum inventory,
 provides machine-readable retention totals.
 
 Only official metadata and an official patient-to-GSM identity crosswalk are
-retained here. No expression matrix, image, or biological result file is
-retained. Local GEO raw archives outside this directory are used only as
-header-level GSM locators; their members are not opened by the R-01 extractor.
+retained here. When explicitly requested, R-04 also records official Zenodo
+source metadata JSON and hashed pointers to existing local reference files;
+the latter are read in place with an allowlist and are never copied into this
+repository. No image, expression matrix or biological result file is retained.
+Local GEO raw archives outside this directory are used only as header-level
+GSM locators.
 """,
     )
     return list(manifest["sources"])
@@ -259,6 +377,11 @@ def main() -> int:
         "--generated-at",
         help="Stable ISO-8601 acquisition timestamp for versioned rebuilds.",
     )
+    parser.add_argument(
+        "--include-r04-references",
+        action="store_true",
+        help="Record hashed pointers to the approved local 005/006 reference files.",
+    )
     args = parser.parse_args()
     repo_root = args.repo_root.resolve()
     index_root = args.index_root or repo_root / "infra" / "bioinf-data-index"
@@ -269,6 +392,7 @@ def main() -> int:
             index_root.resolve(),
             raw_root.resolve(),
             generated_at=args.generated_at,
+            include_r04_references=args.include_r04_references,
         )
     except (OSError, ValueError) as error:
         print(f"ERROR: {error}")

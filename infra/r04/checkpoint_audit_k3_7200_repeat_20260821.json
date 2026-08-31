@@ -1,0 +1,85 @@
+{
+  "checkpoints": [
+    {
+      "checkpoint": "infra/r04/k3_continuation_eval_20260820/checkpoints/k3/fold0/ckpt-7200",
+      "global_step": 7200,
+      "mc_draws": 8,
+      "n_genes": 4000,
+      "n_spots": 77526,
+      "nuisance_gauge": {
+        "baseline_v_projection": [
+          0.10006867596796012
+        ],
+        "h_max": [
+          0.6931646128909562
+        ],
+        "h_mean": [
+          0.23731714429849324
+        ],
+        "h_min": [
+          1.7527738018953154e-05
+        ],
+        "rank": 1
+      },
+      "objective_draws": [
+        5301.1318359375,
+        5301.1162109375,
+        5301.12158203125,
+        5301.13037109375,
+        5301.1240234375,
+        5301.1220703125,
+        5301.12939453125,
+        5301.13232421875
+      ],
+      "objective_mean": 5301.1259765625,
+      "objective_sd": 0.005847737699535348,
+      "seed": 20260820
+    },
+    {
+      "checkpoint": "infra/r04/k3_continuation_eval_20260820/checkpoints/k3/fold0/ckpt-7200",
+      "global_step": 7200,
+      "mc_draws": 8,
+      "n_genes": 4000,
+      "n_spots": 77526,
+      "nuisance_gauge": {
+        "baseline_v_projection": [
+          0.10006867596796012
+        ],
+        "h_max": [
+          0.6931646128909562
+        ],
+        "h_mean": [
+          0.23731714429849324
+        ],
+        "h_min": [
+          1.7527738018953154e-05
+        ],
+        "rank": 1
+      },
+      "objective_draws": [
+        5301.1318359375,
+        5301.1162109375,
+        5301.12158203125,
+        5301.13037109375,
+        5301.1240234375,
+        5301.1220703125,
+        5301.12939453125,
+        5301.13232421875
+      ],
+      "objective_mean": 5301.1259765625,
+      "objective_sd": 0.005847737699535348,
+      "seed": 20260820
+    }
+  ],
+  "factors": 3,
+  "fold": 0,
+  "folds": 5,
+  "gene_count": 4000,
+  "group_seed": 20260807,
+  "inducing_points": 16,
+  "lengthscale": 3.0,
+  "manifest_hash": "",
+  "mc_draws": 8,
+  "schema": "r04.checkpoint_audit.v1",
+  "status": "DIAGNOSTIC_ONLY"
+}

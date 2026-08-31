@@ -1,0 +1,17 @@
+{
+  "schema": "r04.environment.v1",
+  "python": "3.11",
+  "environment_path": "/home/huyudi/.venvs/013_spatial-r04-tf",
+  "backend": "cpu",
+  "packages": {
+    "numpy": "2.0.2",
+    "scipy": "1.14.1",
+    "pytest": "8.3.5",
+    "tensorflow": "2.18.1",
+    "tensorflow-cpu": "2.18.1",
+    "tensorflow-probability": "0.25.0",
+    "tf-keras": "2.18.0"
+  },
+  "gpu_devices_at_capture": [],
+  "note": "tensorflow-cpu was installed for the CPU pilot; tf-keras pins the tensorflow 2.18 API. Do not use a floating environment for formal runs."
+}

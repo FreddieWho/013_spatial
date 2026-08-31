@@ -1,0 +1,81 @@
+{
+  "schema": "r04.restart_diagnostic_fold_extremes.v1",
+  "status": "RESTART_DIAGNOSTIC_COMPLETE_NOT_FORMAL",
+  "created_at": "2026-08-27",
+  "purpose": "Distinguish initialization sensitivity from fold/patient heterogeneity before spatial null and formal K comparison.",
+  "protocol": {
+    "fit_steps": 7200,
+    "inference_steps": 2400,
+    "learning_rate": 0.01,
+    "gene_batch_size": 512,
+    "gene_folds": 2,
+    "inducing_points": 16,
+    "lengthscale": 3.0,
+    "split_seed": 20260817,
+    "fold_seed": 20260807,
+    "restart_index": 1,
+    "k_values": [0, 3]
+  },
+  "comparisons": [
+    {
+      "fold": 0,
+      "patients": 6,
+      "baseline": {
+        "mean_k0": -3386.8333005920017,
+        "mean_k3": -3414.871412349615,
+        "delta_k3_minus_k0": -28.03811175761325,
+        "k3_better_patients": 2
+      },
+      "restart": {
+        "mean_k0": -3387.0602697992254,
+        "mean_k3": -3420.419225171648,
+        "delta_k3_minus_k0": -33.35895537242277,
+        "k3_better_patients": 2
+      },
+      "change_in_delta": -5.320843614809519,
+      "direction_preserved": true
+    },
+    {
+      "fold": 4,
+      "patients": 6,
+      "baseline": {
+        "mean_k0": -2812.2796184624535,
+        "mean_k3": -2752.9177722488034,
+        "delta_k3_minus_k0": 59.361846213650814,
+        "k3_better_patients": 5
+      },
+      "restart": {
+        "mean_k0": -2767.1779824248115,
+        "mean_k3": -2760.457654445443,
+        "delta_k3_minus_k0": 6.7203279793684105,
+        "k3_better_patients": 4
+      },
+      "change_in_delta": -52.6415182342824,
+      "direction_preserved": true
+    }
+  ],
+  "gates": {
+    "dense_objective_platform": "4/4 pass",
+    "inference_platform": "4/4 pass",
+    "legacy_minibatch_fit_gate": "0/4 pass; warning retained",
+    "factor_collapse_warning": "false for both K=3 restart cells",
+    "formal_restart_stability": "NOT_ESTABLISHED",
+    "formal_k_selection": "NOT_AUTHORIZED"
+  },
+  "interpretation": {
+    "primary": "The K3-K0 direction is preserved within both extreme folds, supporting fold/patient heterogeneity over a pure initialization explanation for the sign reversal.",
+    "qualification": "The effect magnitude changes substantially, especially in fold 4; one alternate restart does not establish formal restart stability.",
+    "next_gate": "Decide whether to complete a formal multi-restart stability panel before spatial permutation null and formal candidate-K comparison."
+  },
+  "sources": {
+    "cross_fold_baseline": "infra/r04/cross_fold_k0_k3_diagnostic_20260825.json",
+    "fold0_baseline_k0": "infra/r04/dual_gate_infer_k0_fold0_2400_20260822/cell.json",
+    "fold0_baseline_k3": "infra/r04/dual_gate_infer_k3_fold0_2400_20260821/cell.json",
+    "fold4_baseline_k0": "infra/r04/dual_gate_infer_k0_fold4_2400_20260823/cell.json",
+    "fold4_baseline_k3": "infra/r04/dual_gate_infer_k3_fold4_2400_20260823/cell.json",
+    "fold0_restart_k0": "infra/r04/restart_diag_fold0_r1_20260825/cells/k0/fold0/cell.json",
+    "fold0_restart_k3": "infra/r04/restart_diag_fold0_r1_20260825/cells/k3/fold0/cell.json",
+    "fold4_restart_k0": "infra/r04/restart_diag_fold4_r1_20260825/cells/k0/fold4/cell.json",
+    "fold4_restart_k3": "infra/r04/restart_diag_fold4_r1_20260825/cells/k3/fold4/cell.json"
+  }
+}

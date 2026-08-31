@@ -1,0 +1,96 @@
+{
+  "schema": "r04.restart_panel_manifest.v1",
+  "status": "READY_FOR_DIAGNOSTIC_AGGREGATION",
+  "created_at": "2026-08-31",
+  "purpose": "Aggregate combined optimization-randomness stability for the canonical run and restart indices 1-4 at folds 0 and 4 without authorizing formal K selection.",
+  "training_manifest": "infra/r04/panel_cache_training/training_panel_manifest.json",
+  "platform_rule_reaudit": "infra/r04/platform_rule_reaudit_20260822.json",
+  "group_seed": 20260807,
+  "restart_indices": [0, 1, 2, 3, 4],
+  "fold_values": [0, 4],
+  "k_values": [0, 3],
+  "allowed_protocol_exceptions": [
+    {
+      "restart_index": 0,
+      "fold": 0,
+      "k_model": 0,
+      "field": "steps",
+      "reference": 7200,
+      "observed": 7800,
+      "reason": "The canonical fold-0 K=0 diagnostic received the documented 7200-to-7800 objective continuation before matched 2400-step inference."
+    }
+  ],
+  "entries": [
+    {
+      "restart_index": 0,
+      "fold": 0,
+      "k0_cell": "infra/r04/dual_gate_infer_k0_fold0_2400_20260822/cell.json",
+      "k3_cell": "infra/r04/dual_gate_infer_k3_fold0_2400_20260821/cell.json",
+      "k3_checkpoint_dir": "infra/r04/dual_gate_infer_k3_fold0_2400_20260821/checkpoints/k3/fold0"
+    },
+    {
+      "restart_index": 0,
+      "fold": 4,
+      "k0_cell": "infra/r04/dual_gate_infer_k0_fold4_2400_20260823/cell.json",
+      "k3_cell": "infra/r04/dual_gate_infer_k3_fold4_2400_20260823/cell.json",
+      "k3_checkpoint_dir": "infra/r04/dual_gate_infer_k3_fold4_2400_20260823/checkpoints/k3/fold4"
+    },
+    {
+      "restart_index": 1,
+      "fold": 0,
+      "k0_cell": "infra/r04/restart_diag_fold0_r1_20260825/cells/k0/fold0/cell.json",
+      "k3_cell": "infra/r04/restart_diag_fold0_r1_20260825/cells/k3/fold0/cell.json",
+      "k3_checkpoint_dir": "infra/r04/restart_diag_fold0_r1_20260825/checkpoints/k3/fold0"
+    },
+    {
+      "restart_index": 1,
+      "fold": 4,
+      "k0_cell": "infra/r04/restart_diag_fold4_r1_20260825/cells/k0/fold4/cell.json",
+      "k3_cell": "infra/r04/restart_diag_fold4_r1_20260825/cells/k3/fold4/cell.json",
+      "k3_checkpoint_dir": "infra/r04/restart_diag_fold4_r1_20260825/checkpoints/k3/fold4"
+    },
+    {
+      "restart_index": 2,
+      "fold": 0,
+      "k0_cell": "infra/r04/restart_diag_extremes_r2_fastdiag_20260827/cells/k0/fold0/cell.json",
+      "k3_cell": "infra/r04/restart_diag_extremes_r2_fastdiag_20260827/cells/k3/fold0/cell.json",
+      "k3_checkpoint_dir": "infra/r04/restart_diag_extremes_r2_fastdiag_20260827/checkpoints/k3/fold0"
+    },
+    {
+      "restart_index": 2,
+      "fold": 4,
+      "k0_cell": "infra/r04/restart_diag_extremes_r2_fastdiag_20260827/cells/k0/fold4/cell.json",
+      "k3_cell": "infra/r04/restart_diag_extremes_r2_fastdiag_20260827/cells/k3/fold4/cell.json",
+      "k3_checkpoint_dir": "infra/r04/restart_diag_extremes_r2_fastdiag_20260827/checkpoints/k3/fold4"
+    },
+    {
+      "restart_index": 3,
+      "fold": 0,
+      "k0_cell": "infra/r04/restart_diag_extremes_r3_fastdiag_20260827/cells/k0/fold0/cell.json",
+      "k3_cell": "infra/r04/restart_diag_extremes_r3_fastdiag_20260827/cells/k3/fold0/cell.json",
+      "k3_checkpoint_dir": "infra/r04/restart_diag_extremes_r3_fastdiag_20260827/checkpoints/k3/fold0"
+    },
+    {
+      "restart_index": 3,
+      "fold": 4,
+      "k0_cell": "infra/r04/restart_diag_extremes_r3_fastdiag_20260827/cells/k0/fold4/cell.json",
+      "k3_cell": "infra/r04/restart_diag_extremes_r3_fastdiag_20260827/cells/k3/fold4/cell.json",
+      "k3_checkpoint_dir": "infra/r04/restart_diag_extremes_r3_fastdiag_20260827/checkpoints/k3/fold4"
+    },
+    {
+      "restart_index": 4,
+      "fold": 0,
+      "k0_cell": "infra/r04/restart_diag_extremes_r4_fastdiag_20260827/cells/k0/fold0/cell.json",
+      "k3_cell": "infra/r04/restart_diag_extremes_r4_fastdiag_20260827/cells/k3/fold0/cell.json",
+      "k3_checkpoint_dir": "infra/r04/restart_diag_extremes_r4_fastdiag_20260827/checkpoints/k3/fold0"
+    },
+    {
+      "restart_index": 4,
+      "fold": 4,
+      "k0_cell": "infra/r04/restart_diag_extremes_r4_fastdiag_20260827/cells/k0/fold4/cell.json",
+      "k3_cell": "infra/r04/restart_diag_extremes_r4_fastdiag_20260827/cells/k3/fold4/cell.json",
+      "k3_checkpoint_dir": "infra/r04/restart_diag_extremes_r4_fastdiag_20260827/checkpoints/k3/fold4"
+    }
+  ],
+  "provenance_note": "Restart indices 2-4 retain WIRING_ONLY_NOT_SCIENTIFIC source status; all entries are used only for initialization-stability diagnostics."
+}

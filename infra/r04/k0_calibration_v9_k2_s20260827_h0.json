@@ -1,0 +1,229 @@
+{
+  "baseline_scores_by_k": {
+    "2": [
+      -21.708823089490885,
+      -21.725767900428238
+    ]
+  },
+  "final_k_status": "K_SEARCH_BOUNDARY",
+  "formal_restart_authorized": false,
+  "gene_folds": 2,
+  "generator_contract": {
+    "domain": "disconnected",
+    "generator": "mnsf_correct",
+    "genes": 24,
+    "sections": 3,
+    "spots_per_section": 50
+  },
+  "heldout_score_mean_by_k": {
+    "2": -22.37448126300009
+  },
+  "heldout_score_se_by_k": {
+    "2": 0.2334879527909592
+  },
+  "holdouts": [
+    0
+  ],
+  "inference_steps": 250,
+  "input_data_hash": "37142c0804dfb6b0374cd80afe36a0cae4909ccd20a4cb4bb6716e9f6ea456e9",
+  "k_values": [
+    2
+  ],
+  "leakage_control": "heldout_section_fields_adapted_on_disjoint_gene_folds",
+  "null_draws": 50,
+  "one_se_candidate": {
+    "best_predictive_k": 2,
+    "eligible_k": [
+      2
+    ],
+    "predictive_eligible_k": [
+      2
+    ],
+    "search_boundary": true,
+    "selected_k": 2
+  },
+  "runs": [
+    {
+      "baseline_scores": [
+        -21.708823089490885,
+        -21.725767900428238
+      ],
+      "data_seed": 20260827,
+      "fit_platform": {
+        "block_means": [
+          43.22981735229492,
+          43.22088554382324,
+          43.21130638122558
+        ],
+        "converged": true,
+        "net_relative_improvement": 0.0004281991505651584,
+        "observed_steps": 600,
+        "relative_improvements": [
+          0.0002066122185733742,
+          0.0002216327240206026
+        ],
+        "required_steps": 150
+      },
+      "holdout": 0,
+      "k_model": 2,
+      "optimization_seed": 20261027,
+      "recovery": [
+        {
+          "adaptation_genes": [
+            1,
+            9,
+            10,
+            12,
+            14,
+            15,
+            16,
+            17,
+            18,
+            21,
+            22,
+            23
+          ],
+          "canonical_correlations": [],
+          "direction_matched_null_95": [],
+          "evaluation_genes": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            11,
+            13,
+            19,
+            20
+          ],
+          "inference_platform": {
+            "block_means": [
+              21.462540550231935,
+              21.459482955932618,
+              21.458414306640623
+            ],
+            "converged": true,
+            "net_relative_improvement": 0.00019225326944191944,
+            "observed_steps": 250,
+            "relative_improvements": [
+              0.00014246189970666632,
+              4.9798464119053993e-05
+            ],
+            "required_steps": 150
+          }
+        },
+        {
+          "adaptation_genes": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            11,
+            13,
+            19,
+            20
+          ],
+          "canonical_correlations": [],
+          "direction_matched_null_95": [],
+          "evaluation_genes": [
+            1,
+            9,
+            10,
+            12,
+            14,
+            15,
+            16,
+            17,
+            18,
+            21,
+            22,
+            23
+          ],
+          "inference_platform": {
+            "block_means": [
+              21.513555030822754,
+              21.5024458694458,
+              21.495386962890624
+            ],
+            "converged": true,
+            "net_relative_improvement": 0.0008444939902354909,
+            "observed_steps": 250,
+            "relative_improvements": [
+              0.0005163796202458215,
+              0.00032828388909965557
+            ],
+            "required_steps": 150
+          }
+        }
+      ],
+      "recovery_pass": true,
+      "required_recovered_directions": 0,
+      "scores": [
+        -22.14099331020913,
+        -22.607969215791048
+      ],
+      "split_seed": 20260827
+    }
+  ],
+  "schema": "r04.k_calibration.v2",
+  "scores_by_k": {
+    "2": [
+      -22.14099331020913,
+      -22.607969215791048
+    ]
+  },
+  "section_folds": 2,
+  "seeds": [
+    20260827
+  ],
+  "status": "K_CALIBRATION_COMPLETE",
+  "steps": 600,
+  "support_by_k": {
+    "2": true
+  },
+  "truth": {
+    "domain": "disconnected",
+    "field_definition": "smooth continuous coordinate functions on an irregular support",
+    "field_standard_deviation": [],
+    "generator": "mnsf_correct",
+    "generator_version": "independent_gene_effects_v2",
+    "k_eff_true": 0,
+    "k_true": 0,
+    "mode": "no_field",
+    "true_amplitude": [],
+    "true_baseline": 2.5,
+    "true_loading": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      []
+    ]
+  }
+}

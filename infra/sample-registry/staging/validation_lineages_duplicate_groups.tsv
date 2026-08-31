@@ -1,0 +1,5 @@
+duplicate_group_id	member_type	member_id	relation_type	evidence_grade	resolution	leakage_group_id
+same_source::GSE175540	study	GEO::GSE175540	same_accession_same_source_lineage	E3_explicit	canonical_geo_study; do_not_count_atlas_separately	lineage::PRJNA732692
+same_source::GSE175540	study	atlas_s2::kirc::1713c35ce741	same_accession_same_source_lineage	E3_explicit	canonical_geo_study; do_not_count_atlas_separately	lineage::PRJNA732692
+SOURCE_LINEAGE::ST_CRC_CMS	study	ST_CRC_CMS	canonical_source_lineage	E2_corroborated	canonical_study	LINEAGE::ST_CRC_CMS
+SOURCE_LINEAGE::TLS_VISIUM_USZ	study	TLS_VISIUM_USZ	canonical_source_lineage	E3_explicit	canonical_study	LINEAGE::TLS_VISIUM_USZ

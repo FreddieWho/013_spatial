@@ -1,0 +1,51 @@
+{
+  "schema": "r04.cross_fold_k0_k3_diagnostic.v1",
+  "status": "CROSS_FOLD_DIAGNOSTIC_COMPLETE_NOT_SCIENTIFIC",
+  "folds": 5,
+  "patients": 30,
+  "protocol": {
+    "fit_steps": 7200,
+    "inference_steps": 2400,
+    "learning_rate": 0.01,
+    "gene_batch_size": 512,
+    "gene_folds": 2,
+    "inducing_points": 16,
+    "lengthscale": 3.0,
+    "split_seed": 20260817,
+    "fold_seed": 20260807
+  },
+  "platform_summary": {
+    "dense_objective_current_rule": "10/10 diagnostic cells pass; fold-0 K0 uses the explicit rule re-audit",
+    "inference_platform": "10/10 diagnostic cells pass",
+    "legacy_minibatch_fit_gate": "0/10 pass; retained as warning"
+  },
+  "fold_summary": [
+    {"fold": 0, "mean_k0": -3386.8333005920017, "mean_k3": -3414.871412349615, "mean_delta_k3_minus_k0": -28.03811175761325, "k3_better_patients": 2, "patients": 6},
+    {"fold": 1, "mean_k0": -2293.3027820134007, "mean_k3": -2256.5931722541413, "mean_delta_k3_minus_k0": 36.70960975925865, "k3_better_patients": 6, "patients": 6},
+    {"fold": 2, "mean_k0": -2435.5147011438185, "mean_k3": -2429.021638074764, "mean_delta_k3_minus_k0": 6.493063069054472, "k3_better_patients": 5, "patients": 6},
+    {"fold": 3, "mean_k0": -1954.328788685025, "mean_k3": -1914.8740382419007, "mean_delta_k3_minus_k0": 39.454750443124304, "k3_better_patients": 6, "patients": 6},
+    {"fold": 4, "mean_k0": -2812.2796184624535, "mean_k3": -2752.9177722488034, "mean_delta_k3_minus_k0": 59.361846213650814, "k3_better_patients": 5, "patients": 6}
+  ],
+  "overall_patient_weighted_mean_k0": -2576.45183817934,
+  "overall_patient_weighted_mean_k3": -2553.655606633845,
+  "overall_patient_weighted_mean_delta_k3_minus_k0": 22.796231545495,
+  "k3_better_patients": 24,
+  "k3_better_patient_fraction": 0.8,
+  "positive_delta_folds": 4,
+  "negative_delta_folds": 1,
+  "selected_k": null,
+  "null_status": "NOT_RUN",
+  "restart_status": "NOT_RUN",
+  "sources": [
+    "infra/r04/dual_gate_infer_k0_fold0_2400_20260822/cell.json",
+    "infra/r04/dual_gate_infer_k3_fold0_2400_20260821/cell.json",
+    "infra/r04/real_k_current_protocol_fold1_20260823/cells/k0/fold1/cell.json",
+    "infra/r04/real_k_current_protocol_fold1_20260823/cells/k3/fold1/cell.json",
+    "infra/r04/real_k_current_protocol_fold2_20260823/cells/k0/fold2/cell.json",
+    "infra/r04/real_k_current_protocol_fold2_20260823/cells/k3/fold2/cell.json",
+    "infra/r04/real_k_current_protocol_fold3_20260823/cells/k0/fold3/cell.json",
+    "infra/r04/real_k_current_protocol_fold3_20260823/cells/k3/fold3/cell.json",
+    "infra/r04/dual_gate_infer_k0_fold4_2400_20260823/cell.json",
+    "infra/r04/dual_gate_infer_k3_fold4_2400_20260823/cell.json"
+  ]
+}

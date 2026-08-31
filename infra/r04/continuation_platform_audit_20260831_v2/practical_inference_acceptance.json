@@ -1,0 +1,38 @@
+{
+  "schema": "r04.practical_inference_acceptance.v1",
+  "status": "PRACTICAL_PLATFORM_ACCEPTED_WITH_ONE_MARGINAL_EXCEPTION",
+  "decision_id": "D-084",
+  "created_at": "2026-08-31",
+  "strict_audit_sha256": "92b63473d303eb34e35158e038335075e115d98bc73aac5ce700c30805b64e29",
+  "strict_audit_status": "STOPPED_OFF_PLATFORM",
+  "panel_source_hash": "a836fb5f2e5d861c0af7f47726518123f56a3793131b2a7532ec263c5f076f04",
+  "accepted_exception": {
+    "cell_id": "r3_k3_f0",
+    "identity": {
+      "restart_index": 3,
+      "k_model": 3,
+      "fold": 0
+    },
+    "reason": "MARGINAL_FIRST_WINDOW_OVERRUN",
+    "threshold": 0.001,
+    "first_window": 0.0010065261463332008,
+    "net_7600_8400": 0.0006992480369416418,
+    "final_window_abs": 0.000307587704458387,
+    "exact_repeat": true
+  },
+  "scope": {
+    "checkpoint_step": 8400,
+    "allowed": [
+      "held_out_inference",
+      "held_out_nb_scoring"
+    ],
+    "fit_updates_allowed": false
+  },
+  "claim_boundary": {
+    "strict_audit_rewritten": false,
+    "k_selected": false,
+    "spatial_field_named": false,
+    "partial_panel_aggregation_allowed": false
+  },
+  "selected_k": null
+}

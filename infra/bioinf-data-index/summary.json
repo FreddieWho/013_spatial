@@ -1,12 +1,16 @@
 {
-  "schema_version": 1,
-  "generated_at": "2026-07-31T06:16:28+08:00",
-  "indexed_file_count": 25,
-  "indexed_bytes": 1408305,
+  "schema_version": 3,
+  "generated_at": "2026-08-10T08:33:12+08:00",
+  "indexed_file_count": 31,
+  "indexed_bytes": 422494682,
   "retained_metadata_files": 24,
   "retained_identity_crosswalk_files": 1,
   "retained_expression_files": 0,
   "retained_image_files": 0,
   "retained_result_files": 0,
+  "external_reference_pointer_count": 4,
+  "external_reference_pointer_bytes": 421061033,
+  "r04_source_metadata_pointer_count": 2,
+  "r04_source_metadata_pointer_bytes": 25344,
   "deleted_scope_contamination_incidents": 5
 }

@@ -3,5 +3,6 @@ data-carried metadata and schema	ALLOWED_R02_AUDIT	identity, provenance, annotat
 expression matrix or derived expression	FORBIDDEN_R02	X, counts, normalized expression, embeddings, programs	R-02 is metadata/schema-only and must not inspect model inputs.
 image pixels or derived morphology	FORBIDDEN_R02	WSI, H&E pixels, masks, embeddings	Only file/schema provenance may be inventoried.
 GT-defining annotation	FORBIDDEN_AS_MODEL_INPUT	TLS/structure labels, raster/vector geometry, defining marker panels	Prevents circular GT and direct-label leakage.
+H&E image and image-derived features	FORBIDDEN_AS_MODEL_INPUT	WSI pixels, stains and morphology embeddings on tasks whose ground truth is H&E pathology annotation (anchor he-annotation-gt-input-exclusion)	The auditable Heiser GT is defined by manual annotation on the H&E image; H&E-derived model inputs on those tasks would be same-modality circular (KNOWN_OVERLAP).
 outcome or response metadata	FORBIDDEN_FOR_SELECTION_SPLIT_MODEL	response tokens in sample titles and any clinical outcome	Outcome-blind role and fold freeze.
 identity, site, treatment, stage, sample and file metadata	FORBIDDEN_AS_PREDICTIVE_INPUT	patient/sample IDs, filenames, section labels, tissue site, treatment and TNM/stage	Prevents identity, acquisition and clinical shortcut leakage.

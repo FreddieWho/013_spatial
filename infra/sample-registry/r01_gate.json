@@ -1,15 +1,18 @@
 {
   "blockers": [],
   "claim_eligible_logical_unit_ids": [
+    "GEO::GSE175540",
     "GEO::GSE211956",
     "GEO::GSE226997",
     "GEO::GSE274103",
     "GEO::GSE274557",
     "HTAN_VANDERBILT_CRC",
-    "TENX_V1_BREAST_CANCER_BLOCK_A"
+    "ST_CRC_CMS",
+    "TENX_V1_BREAST_CANCER_BLOCK_A",
+    "TLS_VISIUM_USZ"
   ],
-  "claim_eligible_logical_units": 6,
-  "claim_eligible_physical_units": 121,
+  "claim_eligible_logical_units": 9,
+  "claim_eligible_physical_units": 167,
   "completion_requirements": {
     "accepted_identity_granularities": [
       "patient_block",
@@ -29,14 +32,16 @@
     "patient_block_required": false,
     "section_identity_required_by_r01": false
   },
-  "frozen_logical_units": 6,
+  "frozen_logical_units": 9,
   "identity_integrity_errors": [],
   "independent_external_leakage_groups": [
+    "LINEAGE::TLS_VISIUM_USZ",
+    "lineage::PRJNA732692",
     "lineage::PRJNA873051"
   ],
   "metadata_audit_exhausted": true,
   "node": "R-01",
-  "physical_unit_records": 956,
+  "physical_unit_records": 1002,
   "role_freeze_attempted": true,
   "role_freeze_errors": [],
   "source_asset_errors": {},

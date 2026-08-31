@@ -100,3 +100,36 @@ def test_manifest_records_deleted_scope_contamination_incident(tmp_path: Path) -
         and incident["retained"] is False
         for incident in full_text_incidents
     )
+
+
+def test_r04_include_indexes_source_metadata_without_expression_files(tmp_path: Path) -> None:
+    subprocess.run(
+        [
+            sys.executable,
+            str(SCRIPT),
+            "--repo-root",
+            str(ROOT),
+            "--index-root",
+            str(tmp_path),
+            "--raw-root",
+            str(ROOT / "infra" / "bioinf-data-index" / "raw"),
+            "--include-r04-references",
+            "--generated-at",
+            "2026-08-10T08:30:09+08:00",
+        ],
+        check=True,
+    )
+    with (tmp_path / "index.tsv").open(newline="", encoding="utf-8") as handle:
+        rows = list(csv.DictReader(handle, delimiter="\t"))
+    metadata_rows = {
+        row["accession"]: row
+        for row in rows
+        if row["retention_scope"] == "r04_source_metadata_pointer"
+    }
+    assert set(metadata_rows) == {"ZENODO:7760264", "ZENODO:14620362"}
+    assert all(row["official_url"].startswith("https://zenodo.org/records/") for row in metadata_rows.values())
+    assert all(row["status"] == "retained_local_metadata" for row in metadata_rows.values())
+    assert all(Path(row["local_path"]).suffix == ".json" for row in metadata_rows.values())
+    summary = json.loads((tmp_path / "summary.json").read_text())
+    assert summary["schema_version"] == 3
+    assert summary["r04_source_metadata_pointer_count"] == 2

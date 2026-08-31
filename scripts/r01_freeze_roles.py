@@ -68,6 +68,30 @@ ROLE_PLAN = {
         "allowed_use": "serial-section capability validation",
         "forbidden_use": "independent patient-level external confirmation",
     },
+    "GEO::GSE175540": {
+        "leakage_group_id": "lineage::PRJNA732692",
+        "primary_role": "external_validation",
+        "special_capability": "24-sample ccRCC cohort with author-deposited spot annotations",
+        "rationale": "Independent BioProject lineage and the largest external cohort with replayable lymphoid-structure labels.",
+        "allowed_use": "locked external validation only",
+        "forbidden_use": "selection, tuning, threshold choice, or role replacement",
+    },
+    "ST_CRC_CMS": {
+        "leakage_group_id": "LINEAGE::ST_CRC_CMS",
+        "primary_role": "internal_validation",
+        "special_capability": "seven-patient CRC serial-section cohort with pathologist spot categories",
+        "rationale": "Independent serial-section colorectal lineage with replayable pathologist boundary labels.",
+        "allowed_use": "predeclared internal validation",
+        "forbidden_use": "external confirmation, tuning, or role replacement",
+    },
+    "TLS_VISIUM_USZ": {
+        "leakage_group_id": "LINEAGE::TLS_VISIUM_USZ",
+        "primary_role": "external_validation",
+        "special_capability": "eight-tumor kidney and lung cohort with expert spot annotations",
+        "rationale": "Independent external lineage spanning two organs with replayable expert lymphoid labels.",
+        "allowed_use": "locked external validation only",
+        "forbidden_use": "selection, tuning, threshold choice, or role replacement",
+    },
 }
 
 

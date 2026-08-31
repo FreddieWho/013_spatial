@@ -1,0 +1,48 @@
+{
+  "schema": "r04.config.v1",
+  "master_seed": 20260807,
+  "models": {
+    "mnsf": {
+      "factors": [4, 8, 12],
+      "inducing_points": [64, 128, 256],
+      "lengthscale": [0.75, 8.0],
+      "restarts": 5,
+      "posterior_draws": 200,
+      "gene_batch_size": 256
+    },
+    "signed_residual_gp": {
+      "factors": [4, 8, 12],
+      "inducing_points": [64, 128, 256],
+      "lengthscale": [0.75, 8.0],
+      "restarts": 5,
+      "posterior_draws": 200,
+      "gene_batch_size": 256
+    }
+  },
+  "candidate_matching": {
+    "loading_cosine": 0.6,
+    "field_correlation": 0.5,
+    "assignment_margin": 0.05,
+    "factor_warning_loading_cosine": 0.98,
+    "factor_warning_field_cosine": 0.98,
+    "single_model_validation_lineages": 3,
+    "both_model_validation_lineages": 2
+  },
+  "composition": {
+    "gene_crossfit_folds": 5,
+    "reference_per_donor_type": 200,
+    "reference_max_cells": 50000,
+    "reference_max_genes": 5000
+  },
+  "resources": {
+    "max_physical_cores": 16,
+    "rss_limit_bytes": 137438953472,
+    "hard_free_storage_bytes": 1200000000000,
+    "soft_free_storage_bytes": 1400000000000,
+    "checkpoint_steps": 500
+  },
+  "gt": {
+    "discovery_can_import_anchor_eval": false,
+    "unknown_is_negative": false
+  }
+}

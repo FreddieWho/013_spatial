@@ -1,0 +1,319 @@
+{
+  "baseline_scores_by_k": {
+    "3": [
+      -29.448986073894783,
+      -30.566078349244158
+    ]
+  },
+  "final_k_status": "K_SEARCH_BOUNDARY",
+  "formal_restart_authorized": false,
+  "gene_folds": 2,
+  "generator_contract": {
+    "domain": "disconnected",
+    "generator": "mnsf_correct",
+    "genes": 24,
+    "sections": 3,
+    "spots_per_section": 50
+  },
+  "heldout_score_mean_by_k": {
+    "3": -28.95282217580621
+  },
+  "heldout_score_se_by_k": {
+    "3": 0.2682169885655447
+  },
+  "holdouts": [
+    0
+  ],
+  "inference_steps": 250,
+  "input_data_hash": "b9e50701e11988c199ae127be0e6af8d1ccf45c680093f0a27d77f621d63c143",
+  "k_values": [
+    3
+  ],
+  "leakage_control": "heldout_section_fields_adapted_on_disjoint_gene_folds",
+  "null_draws": 50,
+  "one_se_candidate": {
+    "best_predictive_k": 3,
+    "eligible_k": [
+      3
+    ],
+    "predictive_eligible_k": [
+      3
+    ],
+    "search_boundary": true,
+    "selected_k": 3
+  },
+  "runs": [
+    {
+      "baseline_scores": [
+        -29.448986073894783,
+        -30.566078349244158
+      ],
+      "data_seed": 20260833,
+      "fit_platform": {
+        "block_means": [
+          55.727805557250974,
+          55.70094451904297,
+          55.67786262512207
+        ],
+        "converged": true,
+        "net_relative_improvement": 0.0008961941283978805,
+        "observed_steps": 600,
+        "relative_improvements": [
+          0.0004820042336030782,
+          0.00041438963235195723
+        ],
+        "required_steps": 150
+      },
+      "holdout": 0,
+      "k_model": 3,
+      "optimization_seed": 20261133,
+      "recovery": [
+        {
+          "adaptation_genes": [
+            3,
+            4,
+            5,
+            7,
+            9,
+            11,
+            13,
+            15,
+            18,
+            19,
+            20,
+            23
+          ],
+          "canonical_correlations": [
+            0.9830428112907069,
+            0.8499031041261712
+          ],
+          "direction_matched_null_95": [
+            0.4018154530291431,
+            0.24257988912815284
+          ],
+          "evaluation_genes": [
+            0,
+            1,
+            2,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            17,
+            21,
+            22
+          ],
+          "inference_platform": {
+            "block_means": [
+              28.418598136901856,
+              28.39840328216553,
+              28.38649711608887
+            ],
+            "converged": true,
+            "net_relative_improvement": 0.0011295779143765782,
+            "observed_steps": 250,
+            "relative_improvements": [
+              0.0007106210742360563,
+              0.0004192547714165647
+            ],
+            "required_steps": 150
+          }
+        },
+        {
+          "adaptation_genes": [
+            0,
+            1,
+            2,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            17,
+            21,
+            22
+          ],
+          "canonical_correlations": [
+            0.961900141143665,
+            0.7875519128004943
+          ],
+          "direction_matched_null_95": [
+            0.4809450568625224,
+            0.25646281872759036
+          ],
+          "evaluation_genes": [
+            3,
+            4,
+            5,
+            7,
+            9,
+            11,
+            13,
+            15,
+            18,
+            19,
+            20,
+            23
+          ],
+          "inference_platform": {
+            "block_means": [
+              27.99823455810547,
+              27.988520851135252,
+              27.98447635650635
+            ],
+            "converged": true,
+            "net_relative_improvement": 0.0004913953260362868,
+            "observed_steps": 250,
+            "relative_improvements": [
+              0.0003469399811640983,
+              0.00014450547960055915
+            ],
+            "required_steps": 150
+          }
+        }
+      ],
+      "recovery_pass": true,
+      "required_recovered_directions": 2,
+      "scores": [
+        -28.684605187240667,
+        -29.221039164371756
+      ],
+      "split_seed": 20260833
+    }
+  ],
+  "schema": "r04.k_calibration.v2",
+  "scores_by_k": {
+    "3": [
+      -28.684605187240667,
+      -29.221039164371756
+    ]
+  },
+  "section_folds": 2,
+  "seeds": [
+    20260833
+  ],
+  "status": "K_CALIBRATION_COMPLETE",
+  "steps": 600,
+  "support_by_k": {
+    "3": true
+  },
+  "truth": {
+    "domain": "disconnected",
+    "field_definition": "smooth continuous coordinate functions on an irregular support",
+    "field_standard_deviation": [
+      0.2798293243891234,
+      0.29731856040448473
+    ],
+    "generator": "mnsf_correct",
+    "generator_version": "independent_gene_effects_v2",
+    "k_eff_true": 2,
+    "k_true": 2,
+    "mode": "two_independent",
+    "true_amplitude": [
+      60.0,
+      45.0
+    ],
+    "true_baseline": 2.5,
+    "true_loading": [
+      [
+        0.01907037050457934,
+        0.003461057526597306
+      ],
+      [
+        0.03405302363590231,
+        0.003461829670797796
+      ],
+      [
+        0.05652710692449014,
+        0.0034650394713889327
+      ],
+      [
+        0.08449386231517361,
+        0.003477110829827268
+      ],
+      [
+        0.11216410006464543,
+        0.0035181551620911506
+      ],
+      [
+        0.13145804081115106,
+        0.0036442280447210895
+      ],
+      [
+        0.1357114999705591,
+        0.003993708208872397
+      ],
+      [
+        0.12335867084579805,
+        0.0048668612449585
+      ],
+      [
+        0.09885351641568518,
+        0.006829681681796936
+      ],
+      [
+        0.07010097175484042,
+        0.010790502556959115
+      ],
+      [
+        0.04439070205171977,
+        0.01794193415134211
+      ],
+      [
+        0.025636228378485355,
+        0.02944044631071693
+      ],
+      [
+        0.014154303429347195,
+        0.04578393915235817
+      ],
+      [
+        0.008167700248273431,
+        0.06606973401547932
+      ],
+      [
+        0.00548670447607793,
+        0.0875632152859068
+      ],
+      [
+        0.00444989049907948,
+        0.1060482685944946
+      ],
+      [
+        0.004102379685726429,
+        0.11709101526099648
+      ],
+      [
+        0.004001173563066432,
+        0.11775047812590274
+      ],
+      [
+        0.003975515436812594,
+        0.10784478047078216
+      ],
+      [
+        0.003969844824858009,
+        0.09003218537085435
+      ],
+      [
+        0.003968751149932846,
+        0.06865794300883873
+      ],
+      [
+        0.003968566917860738,
+        0.04804659124834457
+      ],
+      [
+        0.00396853979399725,
+        0.031147945165428383
+      ],
+      [
+        0.003968536301938086,
+        0.01907334944054421
+      ]
+    ]
+  }
+}

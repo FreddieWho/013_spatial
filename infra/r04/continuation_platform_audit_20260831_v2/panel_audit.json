@@ -1,0 +1,1211 @@
+{
+  "artifact_errors": {},
+  "cell_count": 12,
+  "cells": [
+    {
+      "cell_id": "r2_k0_f0",
+      "checkpoint_bundle": {
+        "files": [
+          {
+            "name": "checkpoint",
+            "sha256": "882352e80948d8a8cf9c7ebfb23e0222b0bd78689d08451e52ff905c97c71265"
+          },
+          {
+            "name": "checkpoint_metadata.json",
+            "sha256": "4874facd2f2d78064dd7db7fe0ce1b6551abbcf8424cc7eb44b757c604d3a707"
+          },
+          {
+            "name": "ckpt-8400.index",
+            "sha256": "4715608e78f6b147abded240ee057afe7bf84d920028ae4b73a0cf720560ae45"
+          },
+          {
+            "name": "ckpt-8400.data-00000-of-00001",
+            "sha256": "e9a8a50754d687fef3693709c03f42f1e75e785dcc45c6f8beb80227506dbec8"
+          }
+        ],
+        "sha256": "6dcfe478612a9f79b627fc6b0e947083580d66d2744463f8f6f7523d86fbb8c6",
+        "step": 8400
+      },
+      "checkpoint_repeat_audit_path": "/home/huyudi/013_spatial/infra/r04/continuation_platform_audit_20260831_v2/repeats/r2_k0_fold0.json",
+      "checkpoint_repeat_audit_sha256": "a3659bfa2f5261afa0b0fe304319bbd7b4b796cdf320b52b9e9b76796f1069e7",
+      "dense": {
+        "converged": true,
+        "criterion": "dense_full_panel_fixed_stateless_mc",
+        "objective_means": [
+          5423.03076171875,
+          5422.91796875,
+          5427.07470703125
+        ],
+        "observed_evaluations": 4,
+        "relative_improvement_threshold": 0.001,
+        "relative_improvements": [
+          2.0798880498006235e-05,
+          -0.0007665132139566813
+        ],
+        "required_evaluations": 3,
+        "steps": [
+          7600,
+          8000,
+          8400
+        ]
+      },
+      "exact_repeat": true,
+      "identity": {
+        "fold": 0,
+        "k_model": 0,
+        "restart_index": 2
+      },
+      "input_hash": "044d28c564759a4175f7fda5a22974917eebde7c8e2aa2eed84080b75af25947",
+      "legacy": {
+        "block_means": [
+          5418.20181640625,
+          5432.07771484375,
+          5411.298310546875
+        ],
+        "converged": false,
+        "net_relative_improvement": 0.0012741322847132912,
+        "observed_steps": 1200,
+        "relative_improvements": [
+          -0.0025609785142155232,
+          0.003825314251321059
+        ],
+        "required_steps": 150
+      },
+      "manifest_hash": "5a0dc1de6066847cfba613a41cb78d01e25cfc42a48ad75f1b18cf3d03da7d51",
+      "optimization_seed": 650202980,
+      "source_sha256": "113bd6abe58f2b590689f59de60350f32eb06c319fb61f6c8922778f03e5d65e",
+      "training_patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::07dc676d92f9d153",
+        "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+        "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545",
+        "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870",
+        "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e",
+        "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf",
+        "HTAN_VANDERBILT_CRC::PATIENT::306c7a068bf4965f",
+        "HTAN_VANDERBILT_CRC::PATIENT::42db69b0c0fe9511",
+        "HTAN_VANDERBILT_CRC::PATIENT::46cd4bcce25745d5",
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20",
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63",
+        "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6",
+        "HTAN_VANDERBILT_CRC::PATIENT::6aea40a35e6c4335",
+        "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13",
+        "HTAN_VANDERBILT_CRC::PATIENT::772733d53add12a2",
+        "HTAN_VANDERBILT_CRC::PATIENT::82a1eb08b47e14fe",
+        "HTAN_VANDERBILT_CRC::PATIENT::8abcbad99198901e",
+        "HTAN_VANDERBILT_CRC::PATIENT::94567531ae08aa59",
+        "HTAN_VANDERBILT_CRC::PATIENT::9af051af377d9c81",
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508",
+        "HTAN_VANDERBILT_CRC::PATIENT::b279c0a0ecf76890",
+        "HTAN_VANDERBILT_CRC::PATIENT::bbd41350b0c0bd3c",
+        "HTAN_VANDERBILT_CRC::PATIENT::c0b1b19d533645cb",
+        "HTAN_VANDERBILT_CRC::PATIENT::e52fa79982a9ecea"
+      ]
+    },
+    {
+      "cell_id": "r2_k3_f0",
+      "checkpoint_bundle": {
+        "files": [
+          {
+            "name": "checkpoint",
+            "sha256": "927c0754a185d996bc8ce9e1dce99703544476dff0dbdfebe26439e31e203c19"
+          },
+          {
+            "name": "checkpoint_metadata.json",
+            "sha256": "ed8237fb54c33ae2d9b629b9fb442677284287f79a21d2a34966b68672102e3b"
+          },
+          {
+            "name": "ckpt-8400.index",
+            "sha256": "013c8f42a21bdf053069fa4ff53c8c5410d10c2f84c1625246ea3324d8b48286"
+          },
+          {
+            "name": "ckpt-8400.data-00000-of-00001",
+            "sha256": "826b9b661fb2e37eb93072064f6c5da3a48da7495c8804363c66066619602fdb"
+          }
+        ],
+        "sha256": "85d6d902f544edbca42e2ecc1b7c67dbb5cc8011449ba883a9d08169a34dbdc2",
+        "step": 8400
+      },
+      "checkpoint_repeat_audit_path": "/home/huyudi/013_spatial/infra/r04/continuation_platform_audit_20260831_v2/repeats/r2_k3_fold0.json",
+      "checkpoint_repeat_audit_sha256": "3d72febfa94f101cb642036cd0aba766362a19925c8e3ee0774580586f9f3ce3",
+      "dense": {
+        "converged": true,
+        "criterion": "dense_full_panel_fixed_stateless_mc",
+        "objective_means": [
+          5299.7591552734375,
+          5298.1446533203125,
+          5301.0963134765625
+        ],
+        "observed_evaluations": 4,
+        "relative_improvement_threshold": 0.001,
+        "relative_improvements": [
+          0.0003046368534537115,
+          -0.0005571120362673023
+        ],
+        "required_evaluations": 3,
+        "steps": [
+          7600,
+          8000,
+          8400
+        ]
+      },
+      "exact_repeat": true,
+      "identity": {
+        "fold": 0,
+        "k_model": 3,
+        "restart_index": 2
+      },
+      "input_hash": "044d28c564759a4175f7fda5a22974917eebde7c8e2aa2eed84080b75af25947",
+      "legacy": {
+        "block_means": [
+          5302.71451171875,
+          5316.160771484375,
+          5291.55119140625
+        ],
+        "converged": false,
+        "net_relative_improvement": 0.0021052086224573855,
+        "observed_steps": 1200,
+        "relative_improvements": [
+          -0.0025357314137710303,
+          0.0046292016242491275
+        ],
+        "required_steps": 150
+      },
+      "manifest_hash": "5a0dc1de6066847cfba613a41cb78d01e25cfc42a48ad75f1b18cf3d03da7d51",
+      "optimization_seed": 975577294,
+      "source_sha256": "202158e0f00e9b01d851d3892b3ac486fd78d4a5b85943422b9e46bc84b68d2a",
+      "training_patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::07dc676d92f9d153",
+        "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+        "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545",
+        "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870",
+        "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e",
+        "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf",
+        "HTAN_VANDERBILT_CRC::PATIENT::306c7a068bf4965f",
+        "HTAN_VANDERBILT_CRC::PATIENT::42db69b0c0fe9511",
+        "HTAN_VANDERBILT_CRC::PATIENT::46cd4bcce25745d5",
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20",
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63",
+        "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6",
+        "HTAN_VANDERBILT_CRC::PATIENT::6aea40a35e6c4335",
+        "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13",
+        "HTAN_VANDERBILT_CRC::PATIENT::772733d53add12a2",
+        "HTAN_VANDERBILT_CRC::PATIENT::82a1eb08b47e14fe",
+        "HTAN_VANDERBILT_CRC::PATIENT::8abcbad99198901e",
+        "HTAN_VANDERBILT_CRC::PATIENT::94567531ae08aa59",
+        "HTAN_VANDERBILT_CRC::PATIENT::9af051af377d9c81",
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508",
+        "HTAN_VANDERBILT_CRC::PATIENT::b279c0a0ecf76890",
+        "HTAN_VANDERBILT_CRC::PATIENT::bbd41350b0c0bd3c",
+        "HTAN_VANDERBILT_CRC::PATIENT::c0b1b19d533645cb",
+        "HTAN_VANDERBILT_CRC::PATIENT::e52fa79982a9ecea"
+      ]
+    },
+    {
+      "cell_id": "r2_k0_f4",
+      "checkpoint_bundle": {
+        "files": [
+          {
+            "name": "checkpoint",
+            "sha256": "b85d73f60d094c7c0c5672bad834d1eb7d205a6708d3e4426e9cdca60d391151"
+          },
+          {
+            "name": "checkpoint_metadata.json",
+            "sha256": "dc133f87256c5e0ac5bc0428cf1d950d9133fae0fd92e38e957fc7caaf4c0c07"
+          },
+          {
+            "name": "ckpt-8400.index",
+            "sha256": "2fbe3b73295403534352df7165fb6d4a63963a023f0f205ac7849456a49f29dc"
+          },
+          {
+            "name": "ckpt-8400.data-00000-of-00001",
+            "sha256": "3f642711fd40cc21c699efa450b26143161d9f33ca7e3e5eacff7272d95ebc92"
+          }
+        ],
+        "sha256": "4c438c9aa0e631e927701c6beaf696165dd1281631157052513bd2e303f795c0",
+        "step": 8400
+      },
+      "checkpoint_repeat_audit_path": "/home/huyudi/013_spatial/infra/r04/continuation_platform_audit_20260831_v2/repeats/r2_k0_fold4.json",
+      "checkpoint_repeat_audit_sha256": "ba54aef1ff9e643cc600c36a5dbb372129e57a9f1f6ef256514086a437ea7b28",
+      "dense": {
+        "converged": true,
+        "criterion": "dense_full_panel_fixed_stateless_mc",
+        "objective_means": [
+          5625.5478515625,
+          5625.10986328125,
+          5625.095703125
+        ],
+        "observed_evaluations": 4,
+        "relative_improvement_threshold": 0.001,
+        "relative_improvements": [
+          7.785700038589991e-05,
+          2.517311944862188e-06
+        ],
+        "required_evaluations": 3,
+        "steps": [
+          7600,
+          8000,
+          8400
+        ]
+      },
+      "exact_repeat": true,
+      "identity": {
+        "fold": 4,
+        "k_model": 0,
+        "restart_index": 2
+      },
+      "input_hash": "0595b0ae27160969e7d606cf7c185254f3c7954d47d9c942c76c92ee83c2d52e",
+      "legacy": {
+        "block_means": [
+          5619.12009765625,
+          5632.83189453125,
+          5632.202509765625
+        ],
+        "converged": false,
+        "net_relative_improvement": -0.0023281958530894154,
+        "observed_steps": 1200,
+        "relative_improvements": [
+          -0.0024402035615361055,
+          0.00011173505217442568
+        ],
+        "required_steps": 150
+      },
+      "manifest_hash": "5a0dc1de6066847cfba613a41cb78d01e25cfc42a48ad75f1b18cf3d03da7d51",
+      "optimization_seed": 1843503620,
+      "source_sha256": "b2e6b33c6ea08df1d8a8460cd0c51f924bbd6d15a12819a9ab901adfdcb680b0",
+      "training_patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::07dc676d92f9d153",
+        "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545",
+        "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870",
+        "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51",
+        "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a",
+        "HTAN_VANDERBILT_CRC::PATIENT::306c7a068bf4965f",
+        "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48",
+        "HTAN_VANDERBILT_CRC::PATIENT::42db69b0c0fe9511",
+        "HTAN_VANDERBILT_CRC::PATIENT::46cd4bcce25745d5",
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20",
+        "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464",
+        "HTAN_VANDERBILT_CRC::PATIENT::6aea40a35e6c4335",
+        "HTAN_VANDERBILT_CRC::PATIENT::772733d53add12a2",
+        "HTAN_VANDERBILT_CRC::PATIENT::82a1eb08b47e14fe",
+        "HTAN_VANDERBILT_CRC::PATIENT::8abcbad99198901e",
+        "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b",
+        "HTAN_VANDERBILT_CRC::PATIENT::94567531ae08aa59",
+        "HTAN_VANDERBILT_CRC::PATIENT::9af051af377d9c81",
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508",
+        "HTAN_VANDERBILT_CRC::PATIENT::b279c0a0ecf76890",
+        "HTAN_VANDERBILT_CRC::PATIENT::bbd41350b0c0bd3c",
+        "HTAN_VANDERBILT_CRC::PATIENT::c0b1b19d533645cb",
+        "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33",
+        "HTAN_VANDERBILT_CRC::PATIENT::e52fa79982a9ecea"
+      ]
+    },
+    {
+      "cell_id": "r2_k3_f4",
+      "checkpoint_bundle": {
+        "files": [
+          {
+            "name": "checkpoint",
+            "sha256": "bfba80c7821d0d1ae293b9ef10630a4dd95bd6b5a5d380d9bf06b7ea5dc55f67"
+          },
+          {
+            "name": "checkpoint_metadata.json",
+            "sha256": "b665d3fe3819f3a5b9f4b11a25dd2404362a53e0843789151b64cde3de536434"
+          },
+          {
+            "name": "ckpt-8400.index",
+            "sha256": "4e29b314eabc1f8e3758ec70f355cbf098596ce2da0d5e4b42d2e7fda0e182cd"
+          },
+          {
+            "name": "ckpt-8400.data-00000-of-00001",
+            "sha256": "0ed920804da8bcc011783955b42607dfe28e39f83c70a900291e4de16aee96bb"
+          }
+        ],
+        "sha256": "de4e1128cdc8db1abc8b623ce4cc2152acc0ff1d13dc25e452c5c37c6b1b5a49",
+        "step": 8400
+      },
+      "checkpoint_repeat_audit_path": "/home/huyudi/013_spatial/infra/r04/continuation_platform_audit_20260831_v2/repeats/r2_k3_fold4.json",
+      "checkpoint_repeat_audit_sha256": "f07a178aedeac9013c9e25ce3e30ff6a8d911c4407f06c82b425461257456f55",
+      "dense": {
+        "converged": true,
+        "criterion": "dense_full_panel_fixed_stateless_mc",
+        "objective_means": [
+          5499.867431640625,
+          5497.4154052734375,
+          5497.7637939453125
+        ],
+        "observed_evaluations": 4,
+        "relative_improvement_threshold": 0.001,
+        "relative_improvements": [
+          0.0004458337219331947,
+          -6.337317560917909e-05
+        ],
+        "required_evaluations": 3,
+        "steps": [
+          7600,
+          8000,
+          8400
+        ]
+      },
+      "exact_repeat": true,
+      "identity": {
+        "fold": 4,
+        "k_model": 3,
+        "restart_index": 2
+      },
+      "input_hash": "0595b0ae27160969e7d606cf7c185254f3c7954d47d9c942c76c92ee83c2d52e",
+      "legacy": {
+        "block_means": [
+          5496.786748046875,
+          5505.141669921875,
+          5498.22265625
+        ],
+        "converged": false,
+        "net_relative_improvement": -0.0002612268346839757,
+        "observed_steps": 1200,
+        "relative_improvements": [
+          -0.0015199647099224073,
+          0.0012568275417285456
+        ],
+        "required_steps": 150
+      },
+      "manifest_hash": "5a0dc1de6066847cfba613a41cb78d01e25cfc42a48ad75f1b18cf3d03da7d51",
+      "optimization_seed": 250862059,
+      "source_sha256": "c5c3ec1ec12237d955cb1093b34db6b2a574f512e2307327a35cb4333879d4e0",
+      "training_patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::07dc676d92f9d153",
+        "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545",
+        "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870",
+        "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51",
+        "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a",
+        "HTAN_VANDERBILT_CRC::PATIENT::306c7a068bf4965f",
+        "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48",
+        "HTAN_VANDERBILT_CRC::PATIENT::42db69b0c0fe9511",
+        "HTAN_VANDERBILT_CRC::PATIENT::46cd4bcce25745d5",
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20",
+        "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464",
+        "HTAN_VANDERBILT_CRC::PATIENT::6aea40a35e6c4335",
+        "HTAN_VANDERBILT_CRC::PATIENT::772733d53add12a2",
+        "HTAN_VANDERBILT_CRC::PATIENT::82a1eb08b47e14fe",
+        "HTAN_VANDERBILT_CRC::PATIENT::8abcbad99198901e",
+        "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b",
+        "HTAN_VANDERBILT_CRC::PATIENT::94567531ae08aa59",
+        "HTAN_VANDERBILT_CRC::PATIENT::9af051af377d9c81",
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508",
+        "HTAN_VANDERBILT_CRC::PATIENT::b279c0a0ecf76890",
+        "HTAN_VANDERBILT_CRC::PATIENT::bbd41350b0c0bd3c",
+        "HTAN_VANDERBILT_CRC::PATIENT::c0b1b19d533645cb",
+        "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33",
+        "HTAN_VANDERBILT_CRC::PATIENT::e52fa79982a9ecea"
+      ]
+    },
+    {
+      "cell_id": "r3_k0_f0",
+      "checkpoint_bundle": {
+        "files": [
+          {
+            "name": "checkpoint",
+            "sha256": "caf2704afbe60f85a676057cf6522684195e6ee6e6c1b18daf4f7219946b45c1"
+          },
+          {
+            "name": "checkpoint_metadata.json",
+            "sha256": "d9fa5d222bb8ad826d0ba6a649606814b807871bd00c3fe9673a6d46e16f7a55"
+          },
+          {
+            "name": "ckpt-8400.index",
+            "sha256": "d9a78e5add296b608590fa97cc6ae5e001b45540a2919f93dbac185643bed80c"
+          },
+          {
+            "name": "ckpt-8400.data-00000-of-00001",
+            "sha256": "0e9e6d478280abb1bb5d18c3934a735ca7ad5a710df2263222a5f5dcaf769439"
+          }
+        ],
+        "sha256": "1eade55001b2c724b691b7c51bf8eeb896be90ab1017d02b8a1e35546dd34437",
+        "step": 8400
+      },
+      "checkpoint_repeat_audit_path": "/home/huyudi/013_spatial/infra/r04/continuation_platform_audit_20260831_v2/repeats/r3_k0_fold0.json",
+      "checkpoint_repeat_audit_sha256": "5310d56f66291d2acec975b0f859f4ea2e673667d9c4b15a278ba0a1249fb06f",
+      "dense": {
+        "converged": true,
+        "criterion": "dense_full_panel_fixed_stateless_mc",
+        "objective_means": [
+          5422.92919921875,
+          5422.76318359375,
+          5422.8857421875
+        ],
+        "observed_evaluations": 4,
+        "relative_improvement_threshold": 0.001,
+        "relative_improvements": [
+          3.0613644195081305e-05,
+          -2.260076451813234e-05
+        ],
+        "required_evaluations": 3,
+        "steps": [
+          7600,
+          8000,
+          8400
+        ]
+      },
+      "exact_repeat": true,
+      "identity": {
+        "fold": 0,
+        "k_model": 0,
+        "restart_index": 3
+      },
+      "input_hash": "044d28c564759a4175f7fda5a22974917eebde7c8e2aa2eed84080b75af25947",
+      "legacy": {
+        "block_means": [
+          5423.763701171875,
+          5418.004169921875,
+          5417.61841796875
+        ],
+        "converged": false,
+        "net_relative_improvement": 0.0011330293024745352,
+        "observed_steps": 1200,
+        "relative_improvements": [
+          0.0010619067436061548,
+          7.119816467958608e-05
+        ],
+        "required_steps": 150
+      },
+      "manifest_hash": "5a0dc1de6066847cfba613a41cb78d01e25cfc42a48ad75f1b18cf3d03da7d51",
+      "optimization_seed": 1065753563,
+      "source_sha256": "196f7dc7d7960e3d9fb9e19ee1333981a585bd1db16cc5c962633265e7da895e",
+      "training_patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::07dc676d92f9d153",
+        "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+        "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545",
+        "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870",
+        "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e",
+        "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf",
+        "HTAN_VANDERBILT_CRC::PATIENT::306c7a068bf4965f",
+        "HTAN_VANDERBILT_CRC::PATIENT::42db69b0c0fe9511",
+        "HTAN_VANDERBILT_CRC::PATIENT::46cd4bcce25745d5",
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20",
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63",
+        "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6",
+        "HTAN_VANDERBILT_CRC::PATIENT::6aea40a35e6c4335",
+        "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13",
+        "HTAN_VANDERBILT_CRC::PATIENT::772733d53add12a2",
+        "HTAN_VANDERBILT_CRC::PATIENT::82a1eb08b47e14fe",
+        "HTAN_VANDERBILT_CRC::PATIENT::8abcbad99198901e",
+        "HTAN_VANDERBILT_CRC::PATIENT::94567531ae08aa59",
+        "HTAN_VANDERBILT_CRC::PATIENT::9af051af377d9c81",
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508",
+        "HTAN_VANDERBILT_CRC::PATIENT::b279c0a0ecf76890",
+        "HTAN_VANDERBILT_CRC::PATIENT::bbd41350b0c0bd3c",
+        "HTAN_VANDERBILT_CRC::PATIENT::c0b1b19d533645cb",
+        "HTAN_VANDERBILT_CRC::PATIENT::e52fa79982a9ecea"
+      ]
+    },
+    {
+      "cell_id": "r3_k3_f0",
+      "checkpoint_bundle": {
+        "files": [
+          {
+            "name": "checkpoint",
+            "sha256": "d9e15bc194a5b467384eff80dc454b594270eee1c28f18111b01d02d891d3603"
+          },
+          {
+            "name": "checkpoint_metadata.json",
+            "sha256": "ae5926fdf96c332420d80496db17546ef379bfa041c68ad34f48e2390bacadb2"
+          },
+          {
+            "name": "ckpt-8400.index",
+            "sha256": "30de8c7f97f4668bb8e4b680ab1e087d73348c4255aca988956d61b8bccf3b3b"
+          },
+          {
+            "name": "ckpt-8400.data-00000-of-00001",
+            "sha256": "57572df5f664be7da7cc963bad2862f8606d9fc5ba5ff4664c8eee790da573c8"
+          }
+        ],
+        "sha256": "e565689e34387a54b1f6036b0e78738fe4ea5a83512d7821202ed7f3c7bb18fd",
+        "step": 8400
+      },
+      "checkpoint_repeat_audit_path": "/home/huyudi/013_spatial/infra/r04/continuation_platform_audit_20260831_v2/repeats/r3_k3_fold0.json",
+      "checkpoint_repeat_audit_sha256": "d302c6bcb6fcd23f0b85018b8702a4479d1f55d8838ea9b6610887e59a7c5180",
+      "dense": {
+        "converged": false,
+        "criterion": "dense_full_panel_fixed_stateless_mc",
+        "objective_means": [
+          5307.040283203125,
+          5301.6986083984375,
+          5303.329345703125
+        ],
+        "observed_evaluations": 4,
+        "relative_improvement_threshold": 0.001,
+        "relative_improvements": [
+          0.0010065261463332008,
+          -0.000307587704458387
+        ],
+        "required_evaluations": 3,
+        "steps": [
+          7600,
+          8000,
+          8400
+        ]
+      },
+      "exact_repeat": true,
+      "identity": {
+        "fold": 0,
+        "k_model": 3,
+        "restart_index": 3
+      },
+      "input_hash": "044d28c564759a4175f7fda5a22974917eebde7c8e2aa2eed84080b75af25947",
+      "legacy": {
+        "block_means": [
+          5306.574521484375,
+          5311.54880859375,
+          5278.4904296875
+        ],
+        "converged": false,
+        "net_relative_improvement": 0.005292320249752873,
+        "observed_steps": 1200,
+        "relative_improvements": [
+          -0.0009373819380537806,
+          0.006223868046315207
+        ],
+        "required_steps": 150
+      },
+      "manifest_hash": "5a0dc1de6066847cfba613a41cb78d01e25cfc42a48ad75f1b18cf3d03da7d51",
+      "optimization_seed": 743696281,
+      "source_sha256": "3ae53ba5ca9483dde7b79bcc8a5ae5f06f1759ee3d982537d029b0fdc663eb28",
+      "training_patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::07dc676d92f9d153",
+        "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+        "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545",
+        "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870",
+        "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e",
+        "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf",
+        "HTAN_VANDERBILT_CRC::PATIENT::306c7a068bf4965f",
+        "HTAN_VANDERBILT_CRC::PATIENT::42db69b0c0fe9511",
+        "HTAN_VANDERBILT_CRC::PATIENT::46cd4bcce25745d5",
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20",
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63",
+        "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6",
+        "HTAN_VANDERBILT_CRC::PATIENT::6aea40a35e6c4335",
+        "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13",
+        "HTAN_VANDERBILT_CRC::PATIENT::772733d53add12a2",
+        "HTAN_VANDERBILT_CRC::PATIENT::82a1eb08b47e14fe",
+        "HTAN_VANDERBILT_CRC::PATIENT::8abcbad99198901e",
+        "HTAN_VANDERBILT_CRC::PATIENT::94567531ae08aa59",
+        "HTAN_VANDERBILT_CRC::PATIENT::9af051af377d9c81",
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508",
+        "HTAN_VANDERBILT_CRC::PATIENT::b279c0a0ecf76890",
+        "HTAN_VANDERBILT_CRC::PATIENT::bbd41350b0c0bd3c",
+        "HTAN_VANDERBILT_CRC::PATIENT::c0b1b19d533645cb",
+        "HTAN_VANDERBILT_CRC::PATIENT::e52fa79982a9ecea"
+      ]
+    },
+    {
+      "cell_id": "r3_k0_f4",
+      "checkpoint_bundle": {
+        "files": [
+          {
+            "name": "checkpoint",
+            "sha256": "46c0ff9cec93ea6080d1356a8d2f337edce280dc33bcef21f76e336e4e461f95"
+          },
+          {
+            "name": "checkpoint_metadata.json",
+            "sha256": "25b790b1ea8105fdef7954e077a440e9db6b311e38b46acec4dfbbc30a7e3de6"
+          },
+          {
+            "name": "ckpt-8400.index",
+            "sha256": "713c8b41b383e767eb10510ad73a263cd4daa67543e43b1c6c4b8dbc9f3700c0"
+          },
+          {
+            "name": "ckpt-8400.data-00000-of-00001",
+            "sha256": "e9d7f16e68ebfe3b91cc6de67018974e933a749567649f2a59646c2aa419fb43"
+          }
+        ],
+        "sha256": "90824b6ea1c7db0e87b73c80705578c41654ff1751ad4a33120097a6011db9dc",
+        "step": 8400
+      },
+      "checkpoint_repeat_audit_path": "/home/huyudi/013_spatial/infra/r04/continuation_platform_audit_20260831_v2/repeats/r3_k0_fold4.json",
+      "checkpoint_repeat_audit_sha256": "703a21dcfa23da1707ee6c43789da2ac62fcc2683817b7ac6e94e25e95086169",
+      "dense": {
+        "converged": true,
+        "criterion": "dense_full_panel_fixed_stateless_mc",
+        "objective_means": [
+          5624.85400390625,
+          5624.65576171875,
+          5625.03466796875
+        ],
+        "observed_evaluations": 4,
+        "relative_improvement_threshold": 0.001,
+        "relative_improvements": [
+          3.52439703079099e-05,
+          -6.736523372307073e-05
+        ],
+        "required_evaluations": 3,
+        "steps": [
+          7600,
+          8000,
+          8400
+        ]
+      },
+      "exact_repeat": true,
+      "identity": {
+        "fold": 4,
+        "k_model": 0,
+        "restart_index": 3
+      },
+      "input_hash": "0595b0ae27160969e7d606cf7c185254f3c7954d47d9c942c76c92ee83c2d52e",
+      "legacy": {
+        "block_means": [
+          5616.188935546875,
+          5621.887294921875,
+          5622.030625
+        ],
+        "converged": false,
+        "net_relative_improvement": -0.0010401518752603627,
+        "observed_steps": 1200,
+        "relative_improvements": [
+          -0.0010146309962852475,
+          -2.5495010946758e-05
+        ],
+        "required_steps": 150
+      },
+      "manifest_hash": "5a0dc1de6066847cfba613a41cb78d01e25cfc42a48ad75f1b18cf3d03da7d51",
+      "optimization_seed": 28097659,
+      "source_sha256": "8fdc349029d12eeb41467ef012baf94ec09c07bb352fb1b695c67406a4d295cf",
+      "training_patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::07dc676d92f9d153",
+        "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545",
+        "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870",
+        "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51",
+        "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a",
+        "HTAN_VANDERBILT_CRC::PATIENT::306c7a068bf4965f",
+        "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48",
+        "HTAN_VANDERBILT_CRC::PATIENT::42db69b0c0fe9511",
+        "HTAN_VANDERBILT_CRC::PATIENT::46cd4bcce25745d5",
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20",
+        "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464",
+        "HTAN_VANDERBILT_CRC::PATIENT::6aea40a35e6c4335",
+        "HTAN_VANDERBILT_CRC::PATIENT::772733d53add12a2",
+        "HTAN_VANDERBILT_CRC::PATIENT::82a1eb08b47e14fe",
+        "HTAN_VANDERBILT_CRC::PATIENT::8abcbad99198901e",
+        "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b",
+        "HTAN_VANDERBILT_CRC::PATIENT::94567531ae08aa59",
+        "HTAN_VANDERBILT_CRC::PATIENT::9af051af377d9c81",
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508",
+        "HTAN_VANDERBILT_CRC::PATIENT::b279c0a0ecf76890",
+        "HTAN_VANDERBILT_CRC::PATIENT::bbd41350b0c0bd3c",
+        "HTAN_VANDERBILT_CRC::PATIENT::c0b1b19d533645cb",
+        "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33",
+        "HTAN_VANDERBILT_CRC::PATIENT::e52fa79982a9ecea"
+      ]
+    },
+    {
+      "cell_id": "r3_k3_f4",
+      "checkpoint_bundle": {
+        "files": [
+          {
+            "name": "checkpoint",
+            "sha256": "03255ad6ed835e410d7f9dc932daa7a065083994f35a63a7a985630a5baa82cc"
+          },
+          {
+            "name": "checkpoint_metadata.json",
+            "sha256": "a71d24ce8ff5e9fa904a4cf24ad5cbbeff25bec1d743313274cc29c6a33efb58"
+          },
+          {
+            "name": "ckpt-8400.index",
+            "sha256": "23114f2c4085511f47e6acca8295301f45fa4c8633fd45daa56a853a9c72103b"
+          },
+          {
+            "name": "ckpt-8400.data-00000-of-00001",
+            "sha256": "76b0609524e82af8ccf1d8054b268b3ea09be6a8476274fca97ef1d44f6838f1"
+          }
+        ],
+        "sha256": "a7d04252818581a311b6a616ed339779e898b48159a6da03befd5a135965d7d3",
+        "step": 8400
+      },
+      "checkpoint_repeat_audit_path": "/home/huyudi/013_spatial/infra/r04/continuation_platform_audit_20260831_v2/repeats/r3_k3_fold4.json",
+      "checkpoint_repeat_audit_sha256": "d0e3687d105716355e4c4e58eeb395dcfcc4b8edf6f4e2ac6d81b38d3f6bbcda",
+      "dense": {
+        "converged": true,
+        "criterion": "dense_full_panel_fixed_stateless_mc",
+        "objective_means": [
+          5499.394287109375,
+          5497.7467041015625,
+          5502.375244140625
+        ],
+        "observed_evaluations": 4,
+        "relative_improvement_threshold": 0.001,
+        "relative_improvements": [
+          0.00029959354099676905,
+          -0.0008418976515613941
+        ],
+        "required_evaluations": 3,
+        "steps": [
+          7600,
+          8000,
+          8400
+        ]
+      },
+      "exact_repeat": true,
+      "identity": {
+        "fold": 4,
+        "k_model": 3,
+        "restart_index": 3
+      },
+      "input_hash": "0595b0ae27160969e7d606cf7c185254f3c7954d47d9c942c76c92ee83c2d52e",
+      "legacy": {
+        "block_means": [
+          5513.489580078125,
+          5500.750625,
+          5498.504130859375
+        ],
+        "converged": false,
+        "net_relative_improvement": 0.002717960921318599,
+        "observed_steps": 1200,
+        "relative_improvements": [
+          0.002310506783971267,
+          0.0004083977431033308
+        ],
+        "required_steps": 150
+      },
+      "manifest_hash": "5a0dc1de6066847cfba613a41cb78d01e25cfc42a48ad75f1b18cf3d03da7d51",
+      "optimization_seed": 820769526,
+      "source_sha256": "540268a3bedf0bae11661e15649f5c2e31d6981b5f7bd1ccff000952b37f45fe",
+      "training_patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::07dc676d92f9d153",
+        "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545",
+        "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870",
+        "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51",
+        "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a",
+        "HTAN_VANDERBILT_CRC::PATIENT::306c7a068bf4965f",
+        "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48",
+        "HTAN_VANDERBILT_CRC::PATIENT::42db69b0c0fe9511",
+        "HTAN_VANDERBILT_CRC::PATIENT::46cd4bcce25745d5",
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20",
+        "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464",
+        "HTAN_VANDERBILT_CRC::PATIENT::6aea40a35e6c4335",
+        "HTAN_VANDERBILT_CRC::PATIENT::772733d53add12a2",
+        "HTAN_VANDERBILT_CRC::PATIENT::82a1eb08b47e14fe",
+        "HTAN_VANDERBILT_CRC::PATIENT::8abcbad99198901e",
+        "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b",
+        "HTAN_VANDERBILT_CRC::PATIENT::94567531ae08aa59",
+        "HTAN_VANDERBILT_CRC::PATIENT::9af051af377d9c81",
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508",
+        "HTAN_VANDERBILT_CRC::PATIENT::b279c0a0ecf76890",
+        "HTAN_VANDERBILT_CRC::PATIENT::bbd41350b0c0bd3c",
+        "HTAN_VANDERBILT_CRC::PATIENT::c0b1b19d533645cb",
+        "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33",
+        "HTAN_VANDERBILT_CRC::PATIENT::e52fa79982a9ecea"
+      ]
+    },
+    {
+      "cell_id": "r4_k0_f0",
+      "checkpoint_bundle": {
+        "files": [
+          {
+            "name": "checkpoint",
+            "sha256": "65ed27165c6a88567ba730e2d206fead31e93201058d699d2a643deffa2e0a15"
+          },
+          {
+            "name": "checkpoint_metadata.json",
+            "sha256": "46a4770c59b733effa0d7a1c822a4b7333af78f4994154decbef7f3b53de1b86"
+          },
+          {
+            "name": "ckpt-8400.index",
+            "sha256": "4ce180f6018d9c1c9767a1e9dd4054b9723c776382d212d4cb41d705c4099fd7"
+          },
+          {
+            "name": "ckpt-8400.data-00000-of-00001",
+            "sha256": "eb594fd7f0e79ca82d35537e62b53b3b01a8560d968ad1497e3dd6c11017b63b"
+          }
+        ],
+        "sha256": "68fe28a5095d2e449229c2fcad1ab4ff149e3c1e96f2ab1b476780e7f02a5363",
+        "step": 8400
+      },
+      "checkpoint_repeat_audit_path": "/home/huyudi/013_spatial/infra/r04/continuation_platform_audit_20260831_v2/repeats/r4_k0_fold0.json",
+      "checkpoint_repeat_audit_sha256": "2ca10f2953c46a1cff1e1b74c9dec791b97d6af57dbd28c7cc771478cde82179",
+      "dense": {
+        "converged": true,
+        "criterion": "dense_full_panel_fixed_stateless_mc",
+        "objective_means": [
+          5422.87353515625,
+          5422.82421875,
+          5422.79052734375
+        ],
+        "observed_evaluations": 4,
+        "relative_improvement_threshold": 0.001,
+        "relative_improvements": [
+          9.094146476085772e-06,
+          6.212889242013106e-06
+        ],
+        "required_evaluations": 3,
+        "steps": [
+          7600,
+          8000,
+          8400
+        ]
+      },
+      "exact_repeat": true,
+      "identity": {
+        "fold": 0,
+        "k_model": 0,
+        "restart_index": 4
+      },
+      "input_hash": "044d28c564759a4175f7fda5a22974917eebde7c8e2aa2eed84080b75af25947",
+      "legacy": {
+        "block_means": [
+          5419.493046875,
+          5427.190771484375,
+          5430.759853515625
+        ],
+        "converged": false,
+        "net_relative_improvement": -0.002078941063891881,
+        "observed_steps": 1200,
+        "relative_improvements": [
+          -0.0014203772461362275,
+          -0.0006576297354430476
+        ],
+        "required_steps": 150
+      },
+      "manifest_hash": "5a0dc1de6066847cfba613a41cb78d01e25cfc42a48ad75f1b18cf3d03da7d51",
+      "optimization_seed": 1215909954,
+      "source_sha256": "4984f530f84c60c78768e7ce4b6031ee1524ec9bc582e5f1aac87614a4976e82",
+      "training_patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::07dc676d92f9d153",
+        "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+        "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545",
+        "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870",
+        "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e",
+        "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf",
+        "HTAN_VANDERBILT_CRC::PATIENT::306c7a068bf4965f",
+        "HTAN_VANDERBILT_CRC::PATIENT::42db69b0c0fe9511",
+        "HTAN_VANDERBILT_CRC::PATIENT::46cd4bcce25745d5",
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20",
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63",
+        "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6",
+        "HTAN_VANDERBILT_CRC::PATIENT::6aea40a35e6c4335",
+        "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13",
+        "HTAN_VANDERBILT_CRC::PATIENT::772733d53add12a2",
+        "HTAN_VANDERBILT_CRC::PATIENT::82a1eb08b47e14fe",
+        "HTAN_VANDERBILT_CRC::PATIENT::8abcbad99198901e",
+        "HTAN_VANDERBILT_CRC::PATIENT::94567531ae08aa59",
+        "HTAN_VANDERBILT_CRC::PATIENT::9af051af377d9c81",
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508",
+        "HTAN_VANDERBILT_CRC::PATIENT::b279c0a0ecf76890",
+        "HTAN_VANDERBILT_CRC::PATIENT::bbd41350b0c0bd3c",
+        "HTAN_VANDERBILT_CRC::PATIENT::c0b1b19d533645cb",
+        "HTAN_VANDERBILT_CRC::PATIENT::e52fa79982a9ecea"
+      ]
+    },
+    {
+      "cell_id": "r4_k3_f0",
+      "checkpoint_bundle": {
+        "files": [
+          {
+            "name": "checkpoint",
+            "sha256": "1297beac22a32a1c374f8709da4fca4aa78955ca0b9459fe11b9f95662e5ffb8"
+          },
+          {
+            "name": "checkpoint_metadata.json",
+            "sha256": "18bf79fb1c3b4b30530e24d8cfff8be856d134147f6a9193f48abd2fb82c3498"
+          },
+          {
+            "name": "ckpt-8400.index",
+            "sha256": "940c8e5870fa460643f8dc24b6880a13205a151d06a1a5e7678a3f7fac03d29f"
+          },
+          {
+            "name": "ckpt-8400.data-00000-of-00001",
+            "sha256": "67399bdd7bca4561b52e4da9771deaf27f272b983ed4498c02d2625503afb78b"
+          }
+        ],
+        "sha256": "4136b8577c945a53e9805efb0c1ac4ba1466885ec615d40b74ece0e0d1fca100",
+        "step": 8400
+      },
+      "checkpoint_repeat_audit_path": "/home/huyudi/013_spatial/infra/r04/continuation_platform_audit_20260831_v2/repeats/r4_k3_fold0.json",
+      "checkpoint_repeat_audit_sha256": "b0c224166ee400a93081be8b14e4ecefa6fbde082023c2db0ddcb66dbf2a08f4",
+      "dense": {
+        "converged": true,
+        "criterion": "dense_full_panel_fixed_stateless_mc",
+        "objective_means": [
+          5298.6973876953125,
+          5297.0643310546875,
+          5300.974853515625
+        ],
+        "observed_evaluations": 4,
+        "relative_improvement_threshold": 0.001,
+        "relative_improvements": [
+          0.00030819964250408037,
+          -0.0007382433394307831
+        ],
+        "required_evaluations": 3,
+        "steps": [
+          7600,
+          8000,
+          8400
+        ]
+      },
+      "exact_repeat": true,
+      "identity": {
+        "fold": 0,
+        "k_model": 3,
+        "restart_index": 4
+      },
+      "input_hash": "044d28c564759a4175f7fda5a22974917eebde7c8e2aa2eed84080b75af25947",
+      "legacy": {
+        "block_means": [
+          5284.898349609375,
+          5308.419873046875,
+          5293.853056640625
+        ],
+        "converged": false,
+        "net_relative_improvement": -0.0016943953201885107,
+        "observed_steps": 1200,
+        "relative_improvements": [
+          -0.004450704986452311,
+          0.0027440965022778063
+        ],
+        "required_steps": 150
+      },
+      "manifest_hash": "5a0dc1de6066847cfba613a41cb78d01e25cfc42a48ad75f1b18cf3d03da7d51",
+      "optimization_seed": 237886753,
+      "source_sha256": "5a6c10cf202cbe231721b0c3692a94ca2bf5f528e4e7d9dc9dc38786e33f25f5",
+      "training_patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::07dc676d92f9d153",
+        "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+        "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545",
+        "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870",
+        "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e",
+        "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf",
+        "HTAN_VANDERBILT_CRC::PATIENT::306c7a068bf4965f",
+        "HTAN_VANDERBILT_CRC::PATIENT::42db69b0c0fe9511",
+        "HTAN_VANDERBILT_CRC::PATIENT::46cd4bcce25745d5",
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20",
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63",
+        "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6",
+        "HTAN_VANDERBILT_CRC::PATIENT::6aea40a35e6c4335",
+        "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13",
+        "HTAN_VANDERBILT_CRC::PATIENT::772733d53add12a2",
+        "HTAN_VANDERBILT_CRC::PATIENT::82a1eb08b47e14fe",
+        "HTAN_VANDERBILT_CRC::PATIENT::8abcbad99198901e",
+        "HTAN_VANDERBILT_CRC::PATIENT::94567531ae08aa59",
+        "HTAN_VANDERBILT_CRC::PATIENT::9af051af377d9c81",
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508",
+        "HTAN_VANDERBILT_CRC::PATIENT::b279c0a0ecf76890",
+        "HTAN_VANDERBILT_CRC::PATIENT::bbd41350b0c0bd3c",
+        "HTAN_VANDERBILT_CRC::PATIENT::c0b1b19d533645cb",
+        "HTAN_VANDERBILT_CRC::PATIENT::e52fa79982a9ecea"
+      ]
+    },
+    {
+      "cell_id": "r4_k0_f4",
+      "checkpoint_bundle": {
+        "files": [
+          {
+            "name": "checkpoint",
+            "sha256": "056eb173e87e1e2d00e760a84813cb755f2ac1e343b0659eb90e39fa7ebeafb4"
+          },
+          {
+            "name": "checkpoint_metadata.json",
+            "sha256": "c7033d63476bc07b8a00b53024defa077cc5801e83eb2d13083fa646dc03e86e"
+          },
+          {
+            "name": "ckpt-8400.index",
+            "sha256": "10c5f0d1f3f58b3f50a87b4a51751ff21dd06b9f8cb6a14de406a89a367e8070"
+          },
+          {
+            "name": "ckpt-8400.data-00000-of-00001",
+            "sha256": "70b1d37c6b5b1ed844a29f5672b2d325540b4c278adede01d963893416688404"
+          }
+        ],
+        "sha256": "31d0dfc3225d570fd36edfd405c683cb4be6b564c89f89f7c7ba46c7ba38cc52",
+        "step": 8400
+      },
+      "checkpoint_repeat_audit_path": "/home/huyudi/013_spatial/infra/r04/continuation_platform_audit_20260831_v2/repeats/r4_k0_fold4.json",
+      "checkpoint_repeat_audit_sha256": "3f826072c273569094e4d47593fd713beb46a8bc22aed2016d9ef710e4a63c86",
+      "dense": {
+        "converged": true,
+        "criterion": "dense_full_panel_fixed_stateless_mc",
+        "objective_means": [
+          5625.7998046875,
+          5625.42041015625,
+          5625.79052734375
+        ],
+        "observed_evaluations": 4,
+        "relative_improvement_threshold": 0.001,
+        "relative_improvements": [
+          6.743832777943553e-05,
+          -6.579369371785668e-05
+        ],
+        "required_evaluations": 3,
+        "steps": [
+          7600,
+          8000,
+          8400
+        ]
+      },
+      "exact_repeat": true,
+      "identity": {
+        "fold": 4,
+        "k_model": 0,
+        "restart_index": 4
+      },
+      "input_hash": "0595b0ae27160969e7d606cf7c185254f3c7954d47d9c942c76c92ee83c2d52e",
+      "legacy": {
+        "block_means": [
+          5614.581181640625,
+          5593.585126953125,
+          5616.73134765625
+        ],
+        "converged": false,
+        "net_relative_improvement": -0.00038296106976890796,
+        "observed_steps": 1200,
+        "relative_improvements": [
+          0.0037395584832143705,
+          -0.004137993822887145
+        ],
+        "required_steps": 150
+      },
+      "manifest_hash": "5a0dc1de6066847cfba613a41cb78d01e25cfc42a48ad75f1b18cf3d03da7d51",
+      "optimization_seed": 1874651139,
+      "source_sha256": "0b7d297f380010d15fc7f4241cdd9fec8c44d0a1c39ac62e1e5151f607d56b2c",
+      "training_patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::07dc676d92f9d153",
+        "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545",
+        "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870",
+        "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51",
+        "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a",
+        "HTAN_VANDERBILT_CRC::PATIENT::306c7a068bf4965f",
+        "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48",
+        "HTAN_VANDERBILT_CRC::PATIENT::42db69b0c0fe9511",
+        "HTAN_VANDERBILT_CRC::PATIENT::46cd4bcce25745d5",
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20",
+        "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464",
+        "HTAN_VANDERBILT_CRC::PATIENT::6aea40a35e6c4335",
+        "HTAN_VANDERBILT_CRC::PATIENT::772733d53add12a2",
+        "HTAN_VANDERBILT_CRC::PATIENT::82a1eb08b47e14fe",
+        "HTAN_VANDERBILT_CRC::PATIENT::8abcbad99198901e",
+        "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b",
+        "HTAN_VANDERBILT_CRC::PATIENT::94567531ae08aa59",
+        "HTAN_VANDERBILT_CRC::PATIENT::9af051af377d9c81",
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508",
+        "HTAN_VANDERBILT_CRC::PATIENT::b279c0a0ecf76890",
+        "HTAN_VANDERBILT_CRC::PATIENT::bbd41350b0c0bd3c",
+        "HTAN_VANDERBILT_CRC::PATIENT::c0b1b19d533645cb",
+        "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33",
+        "HTAN_VANDERBILT_CRC::PATIENT::e52fa79982a9ecea"
+      ]
+    },
+    {
+      "cell_id": "r4_k3_f4",
+      "checkpoint_bundle": {
+        "files": [
+          {
+            "name": "checkpoint",
+            "sha256": "46c1ce27182d4324eb713b4e6ffec59954d04562416354fda27de781fccd8ff1"
+          },
+          {
+            "name": "checkpoint_metadata.json",
+            "sha256": "e01f3237e62c494cc9b8b0165363d4f2c36abdbeb26909eabb3ea70f9734f2dd"
+          },
+          {
+            "name": "ckpt-8400.index",
+            "sha256": "58f6c9da435d6198c1c289538adaf3280e5e2de0a39fb210834764ecb0f692b6"
+          },
+          {
+            "name": "ckpt-8400.data-00000-of-00001",
+            "sha256": "57eced00cc4d70d06e7512c872cdccef2106c2564f94b08a710184996be699f3"
+          }
+        ],
+        "sha256": "fbb2f09aa185de514d907d64a560d86d5cc7c02154fa7c33c741419b21f0c7aa",
+        "step": 8400
+      },
+      "checkpoint_repeat_audit_path": "/home/huyudi/013_spatial/infra/r04/continuation_platform_audit_20260831_v2/repeats/r4_k3_fold4.json",
+      "checkpoint_repeat_audit_sha256": "873bc02531b10c3c37fe727fca36f204b4442afe2e2b7f035c59b4ec145ae690",
+      "dense": {
+        "converged": true,
+        "criterion": "dense_full_panel_fixed_stateless_mc",
+        "objective_means": [
+          5498.1077880859375,
+          5496.99072265625,
+          5497.0184326171875
+        ],
+        "observed_evaluations": 4,
+        "relative_improvement_threshold": 0.001,
+        "relative_improvements": [
+          0.00020317270463633184,
+          -5.040932818622263e-06
+        ],
+        "required_evaluations": 3,
+        "steps": [
+          7600,
+          8000,
+          8400
+        ]
+      },
+      "exact_repeat": true,
+      "identity": {
+        "fold": 4,
+        "k_model": 3,
+        "restart_index": 4
+      },
+      "input_hash": "0595b0ae27160969e7d606cf7c185254f3c7954d47d9c942c76c92ee83c2d52e",
+      "legacy": {
+        "block_means": [
+          5514.229814453125,
+          5498.737509765625,
+          5481.960732421875
+        ],
+        "converged": false,
+        "net_relative_improvement": 0.005851965390827718,
+        "observed_steps": 1200,
+        "relative_improvements": [
+          0.0028095137868381645,
+          0.003051023496567126
+        ],
+        "required_steps": 150
+      },
+      "manifest_hash": "5a0dc1de6066847cfba613a41cb78d01e25cfc42a48ad75f1b18cf3d03da7d51",
+      "optimization_seed": 737221812,
+      "source_sha256": "3b528b2cb95adc6dc85977c0cbbd226feabbf181363876ed195bc7131f71db85",
+      "training_patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::07dc676d92f9d153",
+        "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545",
+        "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870",
+        "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51",
+        "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a",
+        "HTAN_VANDERBILT_CRC::PATIENT::306c7a068bf4965f",
+        "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48",
+        "HTAN_VANDERBILT_CRC::PATIENT::42db69b0c0fe9511",
+        "HTAN_VANDERBILT_CRC::PATIENT::46cd4bcce25745d5",
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20",
+        "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464",
+        "HTAN_VANDERBILT_CRC::PATIENT::6aea40a35e6c4335",
+        "HTAN_VANDERBILT_CRC::PATIENT::772733d53add12a2",
+        "HTAN_VANDERBILT_CRC::PATIENT::82a1eb08b47e14fe",
+        "HTAN_VANDERBILT_CRC::PATIENT::8abcbad99198901e",
+        "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b",
+        "HTAN_VANDERBILT_CRC::PATIENT::94567531ae08aa59",
+        "HTAN_VANDERBILT_CRC::PATIENT::9af051af377d9c81",
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508",
+        "HTAN_VANDERBILT_CRC::PATIENT::b279c0a0ecf76890",
+        "HTAN_VANDERBILT_CRC::PATIENT::bbd41350b0c0bd3c",
+        "HTAN_VANDERBILT_CRC::PATIENT::c0b1b19d533645cb",
+        "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33",
+        "HTAN_VANDERBILT_CRC::PATIENT::e52fa79982a9ecea"
+      ]
+    }
+  ],
+  "failing_cells": {
+    "r3_k3_f0": [
+      "dense_objective_off_platform"
+    ]
+  },
+  "inference_authorized": false,
+  "off_platform_cells": {
+    "r3_k3_f0": [
+      "dense_objective_off_platform"
+    ]
+  },
+  "paired_gate": false,
+  "panel_source_hash": "a836fb5f2e5d861c0af7f47726518123f56a3793131b2a7532ec263c5f076f04",
+  "passed_cell_count": 11,
+  "provenance_errors": {},
+  "schema": "r04.continuation_platform_audit.v2",
+  "status": "STOPPED_OFF_PLATFORM"
+}

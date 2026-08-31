@@ -1,0 +1,30 @@
+{
+  "schema": "r04.resource_calibration.v2",
+  "status": "FORMAL_RESTART_BLOCKED",
+  "scientific_result_status": "NOT_RUN",
+  "gpu_used": false,
+  "objective_oracle": "infra/r04/objective_oracle_v2.json",
+  "training_role": {
+    "sections": 47,
+    "panel_genes": 4000,
+    "panel_cache_manifest": "infra/r04/panel_cache_training/training_panel_manifest.json"
+  },
+  "measurements": {
+    "corrected_cached_mnsf_one_step": {
+      "factors": 2,
+      "inducing_points": 16,
+      "gene_batch_size": 256,
+      "steps": 1,
+      "wall_seconds": 93.63,
+      "max_rss_kib": 14713848,
+      "artifact": "infra/r04/resource_calibration_corrected_mnsf_s1/r04_run.json",
+      "status": "FIT_COMPLETE_NOT_VALIDATED"
+    }
+  },
+  "interpretation": {
+    "formal_restart_estimate": "not_authorized_from_one_step",
+    "cpu_time_gate": "REQUIRES_RECALIBRATION_OR_GPU_REVIEW",
+    "factor_warning": "one_step_loading_collapse_is_diagnostic_only"
+  },
+  "next_gate": "resolve_scientific_calibration_before_formal_restart"
+}

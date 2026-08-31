@@ -44,8 +44,8 @@ def test_builds_metadata_only_fail_closed_control_plane(built: Path) -> None:
         "NECROSIS",
         "TUMOR_STROMA_BOUNDARY",
     }
-    assert len(candidates) == 57
-    assert len({row["source_tls_id"] for row in candidates}) == 57
+    assert len(candidates) == 87
+    assert len({row["source_tls_id"] for row in candidates}) == 87
     assert "P10_8" in {row["source_tls_id"] for row in candidates}
     assert all(row["source_record_id"].startswith("Table S4!") for row in candidates)
     assert {row["gt_source_id"] for row in candidates} == {"ATLAS_TABLE_S4_TLS_IDS"}
@@ -54,20 +54,66 @@ def test_builds_metadata_only_fail_closed_control_plane(built: Path) -> None:
         breakdown[row["logical_unit_id"]] = breakdown.get(row["logical_unit_id"], 0) + 1
     assert breakdown == {
         "HTAN_VANDERBILT_CRC": 44,
+        "GEO::GSE175540": 30,
         "GEO::GSE226997": 4,
         "GEO::GSE274103": 8,
         "GEO::GSE274557": 1,
     }
-    assert len(instances) == 57
-    assert {row["confirmation_status"] for row in instances} == {
+    assert len(instances) == 1004
+    candidate_instances = [
+        row for row in instances if row["instance_id"].startswith("TLS_SOURCE::")
+    ]
+    assert len(candidate_instances) == 87
+    assert {row["confirmation_status"] for row in candidate_instances} == {
         "NONCONFIRMATORY_SOURCE_REPORTED_ID"
     }
-    assert not any(row["gt_geometry_locator"] for row in instances)
+    assert not any(row["gt_geometry_locator"] for row in candidate_instances)
+    heiser_instances = [row for row in instances if "::HEISER::" in row["instance_id"]]
+    assert len(heiser_instances) == 223
+    role_counts = Counter(row["confirmation_status"] for row in heiser_instances)
+    assert role_counts == {
+        "CONFIRMATORY": 195,
+        "NONCONFIRMATORY_CONTEXT_PRENEOPLASTIC": 23,
+        "NONCONFIRMATORY_CONTEXT_NORMAL_MUCOSA": 5,
+    }
     assert sum(row["source_class"] == "STOMICS_TLS_ANNOTATION_CANDIDATE" for row in audits) == 19
     assert {"ATLAS_TABLE_S4_TLS_IDS", "UPSTREAM_CRC_TLS_ID_SUMMARY"} <= {
         row["gt_source_id"] for row in audits
     }
-    assert not any(row["audit_status"] == "AUDITABLE_GT" for row in audits)
+    assert sum(row["audit_status"] == "AUDITABLE_GT" for row in audits) == 80
+    assert sum(
+        row["source_class"] == "SPOT_BARCODE_PATHOLOGY_ANNOTATION_CSV" for row in audits
+    ) == 44
+    assert sum(
+        row["source_class"] == "SPOT_BARCODE_TLS_ANNOTATION_CSV" for row in audits
+    ) == 21
+    assert sum(
+        row["source_class"] == "H5AD_OBS_GROUND_TRUTH_LABELS" for row in audits
+    ) == 8
+    assert sum(
+        row["source_class"] == "SPOT_BARCODE_PATHOLOGY_CATEGORY_CSV" for row in audits
+    ) == 12
+    validation_instances = [
+        row
+        for row in instances
+        if row["instance_id"].startswith(("TLS::GSE175540::", "TLS::TLS_VISIUM_USZ::", "TSB::ST_CRC_CMS::"))
+    ]
+    assert Counter(row["logical_unit_id"] for row in validation_instances) == {
+        "GEO::GSE175540": 35,
+        "TLS_VISIUM_USZ": 108,
+        "ST_CRC_CMS": 551,
+    }
+    assert {row["confirmation_status"] for row in validation_instances} == {"CONFIRMATORY"}
+    replay = read_tsv(built / "h5ad_replay_index.tsv")
+    assert len(replay) == 92
+    assert {row["fingerprint_status"] for row in replay} == {"INDEX_VALUE_PINNED"}
+    claim_status = {row["structure_id"]: row["claim_status"] for row in ontology}
+    assert claim_status == {
+        "TLS": "FROZEN_CLAIM_BEARING",
+        "TUMOR_STROMA_BOUNDARY": "FROZEN_CLAIM_BEARING",
+        "BLOOD_VESSEL": "NOT_FROZEN_NO_SCOPED_GT",
+        "NECROSIS": "NOT_FROZEN_NO_SCOPED_GT",
+    }
     assert {row["risk_type"] for row in leakage} == {
         "OUTCOME_IN_SAMPLE_TITLE",
         "PREPROCESSING_SELECTION_BIAS",
@@ -76,9 +122,9 @@ def test_builds_metadata_only_fail_closed_control_plane(built: Path) -> None:
         "identity, site, treatment, stage, sample and file metadata",
         "FORBIDDEN_AS_PREDICTIVE_INPUT",
     ) in {(row["channel_class"], row["policy"]) for row in input_policy}
-    assert len(splits) == 121
-    assert len({row["identity_envelope_id"] for row in splits}) == 61
-    assert len({row["block_group_id"] for row in splits if row["block_group_id"]}) == 32
+    assert len(splits) == 167
+    assert len({row["identity_envelope_id"] for row in splits}) == 100
+    assert len({row["block_group_id"] for row in splits if row["block_group_id"]}) == 47
     assert all(
         not row["block_id"]
         for row in splits
@@ -86,13 +132,20 @@ def test_builds_metadata_only_fail_closed_control_plane(built: Path) -> None:
     )
 
     gate = evaluate_gate(ROOT, built)
-    assert gate["status"] == "HARD_BLOCKED_NO_AUDITABLE_GT"
-    assert gate["confirmatory_instance_count"] == 0
-    assert gate["second_structure_frozen"] is False
-    assert gate["tls_candidate_count"] == 57
+    assert gate["status"] == "PARTIAL_GT_READY"
+    assert gate["confirmatory_instance_count"] == 889
+    assert gate["confirmatory_instance_breakdown"] == {
+        "TLS": 147,
+        "TUMOR_STROMA_BOUNDARY": 742,
+    }
+    assert gate["auditable_gt_source_count"] == 80
+    assert gate["second_structure_frozen"] is True
+    assert gate["blockers"] == []
+    assert gate["integrity_errors"] == []
+    assert gate["tls_candidate_count"] == 87
     assert gate["stomics_candidate_source_count"] == 19
-    assert gate["outer_patient_group_count"] == 61
-    assert gate["explicit_block_group_count"] == 32
+    assert gate["outer_patient_group_count"] == 100
+    assert gate["explicit_block_group_count"] == 47
 
 
 def test_false_green_instance_self_report_is_rejected(built: Path) -> None:
@@ -106,7 +159,7 @@ def test_false_green_instance_self_report_is_rejected(built: Path) -> None:
     gate = evaluate_gate(ROOT, built)
     assert gate["status"] == "HARD_BLOCKED_GT_INTEGRITY"
     assert any("unverified_gt_source" in item for item in gate["integrity_errors"])
-    assert gate["confirmatory_instance_count"] == 0
+    assert gate["confirmatory_instance_count"] == 889
 
 
 @pytest.mark.parametrize(
@@ -174,7 +227,7 @@ def test_fully_self_reported_gt_has_no_supported_verifier(built: Path) -> None:
         "policy_declares_unimplemented_gt_verifier" in item
         for item in gate["integrity_errors"]
     )
-    assert gate["auditable_gt_source_count"] == 0
+    assert gate["auditable_gt_source_count"] == 80
 
 
 def test_specimen_locator_cannot_be_promoted_to_block(built: Path) -> None:
@@ -238,6 +291,154 @@ def test_table_s4_source_id_cannot_be_replaced_by_count_ordinal(built: Path) -> 
     assert "table_s4_candidate_id_set_mismatch" in gate["integrity_errors"]
 
 
+def test_heiser_instance_cannot_be_dropped(built: Path) -> None:
+    path = built / "structure_instances.tsv"
+    rows = read_tsv(path)
+    rows.remove(next(row for row in rows if "::HEISER::" in row["instance_id"]))
+    _write_tsv(path, rows)
+
+    gate = evaluate_gate(ROOT, built)
+    assert gate["status"] == "HARD_BLOCKED_GT_INTEGRITY"
+    assert "heiser_instance_set_mismatch" in gate["integrity_errors"]
+
+
+def test_heiser_instance_field_cannot_be_rewritten(built: Path) -> None:
+    path = built / "structure_instances.tsv"
+    rows = read_tsv(path)
+    target = next(
+        row
+        for row in rows
+        if "::HEISER::" in row["instance_id"]
+        and row["confirmation_status"] == "CONFIRMATORY"
+    )
+    target["confirmation_status"] = "NONCONFIRMATORY_CONTEXT_PRENEOPLASTIC"
+    _write_tsv(path, rows)
+
+    gate = evaluate_gate(ROOT, built)
+    assert gate["status"] == "HARD_BLOCKED_GT_INTEGRITY"
+    assert any(
+        item.startswith("heiser_instance_mismatch:" + target["instance_id"])
+        for item in gate["integrity_errors"]
+    )
+
+
+def test_heiser_source_geometry_cannot_be_rewritten(built: Path) -> None:
+    path = built / "gt_source_audit.tsv"
+    rows = read_tsv(path)
+    target = next(
+        row
+        for row in rows
+        if row["source_class"] == "SPOT_BARCODE_PATHOLOGY_ANNOTATION_CSV"
+        and row["audit_status"] == "AUDITABLE_GT"
+    )
+    target["geometry_locator"] = target["path"] + "#pathology_annotation=forged"
+    _write_tsv(path, rows)
+
+    gate = evaluate_gate(ROOT, built)
+    assert gate["status"] == "HARD_BLOCKED_GT_INTEGRITY"
+    assert any(
+        "verifier_geometry_labels_mismatch" in item for item in gate["integrity_errors"]
+    )
+    assert any(
+        "heiser_gt_source_mismatch" in item for item in gate["integrity_errors"]
+    )
+
+
+def test_heiser_source_checksum_cannot_be_rewritten(built: Path) -> None:
+    path = built / "gt_source_audit.tsv"
+    rows = read_tsv(path)
+    target = next(
+        row
+        for row in rows
+        if row["source_class"] == "SPOT_BARCODE_PATHOLOGY_ANNOTATION_CSV"
+        and row["audit_status"] == "AUDITABLE_GT"
+    )
+    target["sha256"] = "0" * 64
+    _write_tsv(path, rows)
+
+    gate = evaluate_gate(ROOT, built)
+    assert gate["status"] == "HARD_BLOCKED_GT_INTEGRITY"
+    assert any(
+        "source_checksum_mismatch" in item for item in gate["integrity_errors"]
+    )
+
+
+def test_validation_instance_cannot_be_dropped(built: Path) -> None:
+    path = built / "structure_instances.tsv"
+    rows = read_tsv(path)
+    rows.remove(
+        next(row for row in rows if row["instance_id"].startswith("TLS::TLS_VISIUM_USZ::"))
+    )
+    _write_tsv(path, rows)
+
+    gate = evaluate_gate(ROOT, built)
+    assert gate["status"] == "HARD_BLOCKED_GT_INTEGRITY"
+    assert "validation_instance_set_mismatch" in gate["integrity_errors"]
+
+
+def test_validation_instance_field_cannot_be_rewritten(built: Path) -> None:
+    path = built / "structure_instances.tsv"
+    rows = read_tsv(path)
+    target = next(
+        row for row in rows if row["instance_id"].startswith("TSB::ST_CRC_CMS::")
+    )
+    target["patient_id"] = "FORGED_PATIENT"
+    _write_tsv(path, rows)
+
+    gate = evaluate_gate(ROOT, built)
+    assert gate["status"] == "HARD_BLOCKED_GT_INTEGRITY"
+    assert any(
+        item.startswith("validation_instance_mismatch:" + target["instance_id"])
+        for item in gate["integrity_errors"]
+    )
+
+
+def test_validation_source_cannot_be_dropped(built: Path) -> None:
+    path = built / "gt_source_audit.tsv"
+    rows = read_tsv(path)
+    rows.remove(
+        next(row for row in rows if row["gt_source_id"].startswith("STCRC_PATHOLOGY::"))
+    )
+    _write_tsv(path, rows)
+
+    gate = evaluate_gate(ROOT, built)
+    assert gate["status"] == "HARD_BLOCKED_GT_INTEGRITY"
+    assert "validation_gt_source_set_mismatch" in gate["integrity_errors"]
+
+
+def test_validation_source_geometry_cannot_be_rewritten(built: Path) -> None:
+    path = built / "gt_source_audit.tsv"
+    rows = read_tsv(path)
+    target = next(
+        row
+        for row in rows
+        if row["source_class"] == "SPOT_BARCODE_PATHOLOGY_CATEGORY_CSV"
+        and row["audit_status"] == "AUDITABLE_GT"
+    )
+    target["geometry_locator"] = target["path"] + "#tsb_label_family=forged"
+    _write_tsv(path, rows)
+
+    gate = evaluate_gate(ROOT, built)
+    assert gate["status"] == "HARD_BLOCKED_GT_INTEGRITY"
+    assert any(
+        "verifier_geometry_labels_mismatch" in item for item in gate["integrity_errors"]
+    )
+    assert any(
+        "validation_gt_source_mismatch" in item for item in gate["integrity_errors"]
+    )
+
+
+def test_replay_index_cannot_be_rewritten(built: Path) -> None:
+    path = built / "h5ad_replay_index.tsv"
+    rows = read_tsv(path)
+    rows[0]["spot_count"] = "1"
+    _write_tsv(path, rows)
+
+    gate = evaluate_gate(ROOT, built)
+    assert gate["status"] == "HARD_BLOCKED_GT_INTEGRITY"
+    assert any("replay_index_mismatch" in item for item in gate["integrity_errors"])
+
+
 def test_build_is_byte_deterministic_and_stored_gate_recomputes(tmp_path: Path) -> None:
     first = tmp_path / "first"
     second = tmp_path / "second"
@@ -273,7 +474,7 @@ def test_build_cli_runs_without_pythonpath_override(tmp_path: Path) -> None:
     assert completed.returncode == 0, completed.stderr
     assert json.loads((output / "r02_gate.json").read_text(encoding="utf-8"))[
         "status"
-    ] == "HARD_BLOCKED_NO_AUDITABLE_GT"
+    ] == "PARTIAL_GT_READY"
 
 
 def _write_tsv(path: Path, rows: list[dict[str, str]]) -> None:

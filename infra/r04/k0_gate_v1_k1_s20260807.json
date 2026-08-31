@@ -1,0 +1,341 @@
+{
+  "baseline_scores_by_k": {
+    "1": [
+      -22.152984777007564,
+      -21.472650211632608,
+      -21.88810277057094,
+      -21.73187808321633
+    ]
+  },
+  "final_k_status": "K_SEARCH_BOUNDARY",
+  "formal_restart_authorized": false,
+  "heldout_score_mean_by_k": {
+    "1": -21.95482116331544
+  },
+  "heldout_score_se_by_k": {
+    "1": 0.1466030651553336
+  },
+  "holdouts": [
+    0,
+    1
+  ],
+  "inference_steps": 150,
+  "k_values": [
+    1
+  ],
+  "leakage_control": "heldout_section_fields_adapted_on_disjoint_gene_folds",
+  "one_se_candidate": {
+    "best_predictive_k": 1,
+    "eligible_k": [
+      1
+    ],
+    "predictive_eligible_k": [
+      1
+    ],
+    "search_boundary": true,
+    "selected_k": 1
+  },
+  "runs": [
+    {
+      "baseline_scores": [
+        -22.152984777007564,
+        -21.472650211632608
+      ],
+      "fit_platform": {
+        "block_means": [
+          43.251188354492186,
+          43.21967178344727,
+          43.19256172180176
+        ],
+        "converged": true,
+        "observed_steps": 300,
+        "relative_improvements": [
+          0.0007286868232753309,
+          0.0006272620898498255
+        ],
+        "required_steps": 150
+      },
+      "holdout": 0,
+      "k_model": 1,
+      "recovery": [
+        {
+          "adaptation_genes": [
+            3,
+            4,
+            8,
+            9,
+            10,
+            12,
+            13,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "canonical_correlations": [],
+          "direction_matched_null_95": [],
+          "evaluation_genes": [
+            0,
+            1,
+            2,
+            5,
+            6,
+            7,
+            11,
+            14,
+            20,
+            21,
+            22,
+            23
+          ],
+          "inference_platform": {
+            "block_means": [
+              21.4561633682251,
+              21.40114387512207,
+              21.39833293914795
+            ],
+            "converged": false,
+            "observed_steps": 150,
+            "relative_improvements": [
+              0.002564274523771939,
+              0.0001313451276494204
+            ],
+            "required_steps": 150
+          }
+        },
+        {
+          "adaptation_genes": [
+            0,
+            1,
+            2,
+            5,
+            6,
+            7,
+            11,
+            14,
+            20,
+            21,
+            22,
+            23
+          ],
+          "canonical_correlations": [],
+          "direction_matched_null_95": [],
+          "evaluation_genes": [
+            3,
+            4,
+            8,
+            9,
+            10,
+            12,
+            13,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "inference_platform": {
+            "block_means": [
+              22.095021018981935,
+              21.99352611541748,
+              21.976816253662108
+            ],
+            "converged": false,
+            "observed_steps": 150,
+            "relative_improvements": [
+              0.0045935644721613695,
+              0.0007597627441676912
+            ],
+            "required_steps": 150
+          }
+        }
+      ],
+      "recovery_pass": true,
+      "required_recovered_directions": 0,
+      "scores": [
+        -22.317763133479957,
+        -21.601106109050303
+      ],
+      "seed": 20260907
+    },
+    {
+      "baseline_scores": [
+        -21.88810277057094,
+        -21.73187808321633
+      ],
+      "fit_platform": {
+        "block_means": [
+          43.21586585998535,
+          43.184922485351564,
+          43.16933746337891
+        ],
+        "converged": true,
+        "observed_steps": 300,
+        "relative_improvements": [
+          0.0007160188513644286,
+          0.0003608903542189065
+        ],
+        "required_steps": 150
+      },
+      "holdout": 1,
+      "k_model": 1,
+      "recovery": [
+        {
+          "adaptation_genes": [
+            1,
+            2,
+            3,
+            5,
+            7,
+            8,
+            10,
+            15,
+            16,
+            19,
+            21,
+            22
+          ],
+          "canonical_correlations": [],
+          "direction_matched_null_95": [],
+          "evaluation_genes": [
+            0,
+            4,
+            6,
+            9,
+            11,
+            12,
+            13,
+            14,
+            17,
+            18,
+            20,
+            23
+          ],
+          "inference_platform": {
+            "block_means": [
+              21.769814071655272,
+              21.729892654418947,
+              21.726126289367677
+            ],
+            "converged": false,
+            "observed_steps": 150,
+            "relative_improvements": [
+              0.0018337968852156442,
+              0.00017332644533353897
+            ],
+            "required_steps": 150
+          }
+        },
+        {
+          "adaptation_genes": [
+            0,
+            4,
+            6,
+            9,
+            11,
+            12,
+            13,
+            14,
+            17,
+            18,
+            20,
+            23
+          ],
+          "canonical_correlations": [],
+          "direction_matched_null_95": [],
+          "evaluation_genes": [
+            1,
+            2,
+            3,
+            5,
+            7,
+            8,
+            10,
+            15,
+            16,
+            19,
+            21,
+            22
+          ],
+          "inference_platform": {
+            "block_means": [
+              21.749276008605957,
+              21.697188949584962,
+              21.692779235839843
+            ],
+            "converged": false,
+            "observed_steps": 150,
+            "relative_improvements": [
+              0.0023948870298204058,
+              0.00020323894285868976
+            ],
+            "required_steps": 150
+          }
+        }
+      ],
+      "recovery_pass": true,
+      "required_recovered_directions": 0,
+      "scores": [
+        -21.927561257012083,
+        -21.972854153719414
+      ],
+      "seed": 20260908
+    }
+  ],
+  "schema": "r04.k_calibration.v2",
+  "scores_by_k": {
+    "1": [
+      -22.317763133479957,
+      -21.601106109050303,
+      -21.927561257012083,
+      -21.972854153719414
+    ]
+  },
+  "seeds": [
+    20260807
+  ],
+  "status": "K_CALIBRATION_COMPLETE",
+  "steps": 300,
+  "support_by_k": {
+    "1": true
+  },
+  "truth": {
+    "domain": "disconnected",
+    "field_definition": "smooth continuous coordinate functions on an irregular support",
+    "field_standard_deviation": [],
+    "generator": "mnsf_correct",
+    "generator_version": "independent_gene_effects_v2",
+    "k_eff_true": 0,
+    "k_true": 0,
+    "mode": "no_field",
+    "true_amplitude": [],
+    "true_baseline": 2.5,
+    "true_loading": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      []
+    ]
+  }
+}

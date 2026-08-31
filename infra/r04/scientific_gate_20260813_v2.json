@@ -1,0 +1,87 @@
+{
+  "calibrations": [
+    {
+      "canonical_correlations": [
+        0.5577723164999772,
+        0.018697282142478424
+      ],
+      "domain": "disconnected",
+      "k_true": 2,
+      "mode": "two_independent",
+      "model": "mnsf",
+      "null_95_cutoff": 0.19732362929153757,
+      "platform_converged": false,
+      "seed": 20260807
+    },
+    {
+      "canonical_correlations": [
+        0.50054062911774,
+        0.1003338333757353
+      ],
+      "domain": "crescent",
+      "k_true": 2,
+      "mode": "two_independent",
+      "model": "mnsf",
+      "null_95_cutoff": 0.19284307075586876,
+      "platform_converged": false,
+      "seed": 20260817
+    },
+    {
+      "canonical_correlations": [
+        0.507111339287931,
+        0.19748785341323505
+      ],
+      "domain": "branch",
+      "k_true": 2,
+      "mode": "two_independent",
+      "model": "mnsf",
+      "null_95_cutoff": 0.24285703100893885,
+      "platform_converged": false,
+      "seed": 20260827
+    },
+    {
+      "canonical_correlations": [],
+      "domain": "disconnected",
+      "k_true": 0,
+      "mode": "no_field",
+      "model": "mnsf",
+      "null_95_cutoff": null,
+      "platform_converged": false,
+      "seed": 20260807
+    },
+    {
+      "canonical_correlations": [
+        0.5394845333101397
+      ],
+      "domain": "disconnected",
+      "k_true": 1,
+      "mode": "one_disconnected",
+      "model": "mnsf",
+      "null_95_cutoff": 0.13891283860847162,
+      "platform_converged": false,
+      "seed": 20260817
+    },
+    {
+      "canonical_correlations": [
+        0.5730554106309135
+      ],
+      "domain": "disconnected",
+      "k_true": 2,
+      "mode": "two_collinear",
+      "model": "mnsf",
+      "null_95_cutoff": 0.1606524931617105,
+      "platform_converged": false,
+      "seed": 20260827
+    }
+  ],
+  "formal_restart_authorized": false,
+  "gpu_used": false,
+  "k_status": "K_NOT_IDENTIFIABLE",
+  "objective_oracle": "PASS_OBJECTIVE_ORACLE",
+  "reasons": [
+    "planted_effect_subspace_not_recovered_above_null",
+    "platform_not_reached"
+  ],
+  "schema": "r04.scientific_gate.v1",
+  "status": "BLOCKED_SCIENTIFIC_CALIBRATION"
+}

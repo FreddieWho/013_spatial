@@ -1,0 +1,52 @@
+{
+  "schema": "r04.resource_calibration.v5",
+  "status": "CPU_FORMAL_MNSF_FEASIBLE_PENDING_REAL_K_ORCHESTRATION",
+  "scientific_calibration": "PASS_SCIENTIFIC_CALIBRATION",
+  "scientific_gate": "infra/r04/scientific_gate_20260813_v10.json",
+  "scientific_result_status": "NOT_RUN",
+  "gpu_used": false,
+  "cpu_time_hard_blocker": false,
+  "training_role": {
+    "sections": 47,
+    "panel_genes": 4000,
+    "panel_cache_manifest": "infra/r04/panel_cache_training/training_panel_manifest.json"
+  },
+  "measurement": {
+    "artifact": "infra/r04/resource_calibration_v5_mnsf_s20/r04_run.json",
+    "model": "mnsf",
+    "factors": 2,
+    "inducing_points": 16,
+    "lengthscale": 3.0,
+    "gene_batch_size": 256,
+    "steps": 20,
+    "threads": {
+      "tensorflow_intraop": 16,
+      "tensorflow_interop": 2,
+      "openmp": 16
+    },
+    "wall_seconds_total": 272.31,
+    "wall_seconds_optimizer": 92.80062209069729,
+    "wall_seconds_non_optimizer": 179.5093779093027,
+    "wall_seconds_per_optimizer_step": 4.640031104534864,
+    "max_rss_kib": 16264992,
+    "status": "FIT_COMPLETE_NOT_VALIDATED"
+  },
+  "short_run_wall_seconds": {
+    "1_step_cold_cache": 82.67,
+    "2_steps_warm_cache": 82.85,
+    "5_steps_warm_cache": 103.87,
+    "10_steps_warm_cache": 94.99,
+    "interpretation": "external short-run totals are noisy and mix fixed I/O with optimizer work"
+  },
+  "linear_planning_estimate": {
+    "single_600_step_restart_seconds": 2963.528040630221,
+    "single_600_step_restart_hours": 0.8232022335083947,
+    "five_mnsf_restarts_hours": 4.116011167541974,
+    "includes_signed_model": false,
+    "includes_real_k_search": false,
+    "includes_validation": false,
+    "interpretation": "planning estimate from measured fixed cost plus 20-step optimizer slope; not a runtime guarantee"
+  },
+  "formal_restart_authorized": false,
+  "next_gate": "WIRE_AND_TEST_REAL_DATA_K0_UPWARD_SEARCH_WITH_DURABLE_CHECKPOINTS"
+}

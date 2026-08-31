@@ -1,0 +1,176 @@
+{
+  "formal_restart_authorized": false,
+  "n_factors": 2,
+  "results": [
+    {
+      "diagnostics": {
+        "backend": "tensorflow_probability",
+        "config_hash": "4df26760bf406f324d4927e7e4b8de41582a9379c253316b7347e98754e9478d",
+        "effective_rank_entropy": 1.0132682746026247,
+        "effective_rank_participation": 1.0036086083917939,
+        "environment_hash": "2539df5724debcfc691f7d1defddeeaaa6938116df9c623f3ccb59843c944c59",
+        "factor_collapse_warning": true,
+        "factor_energy": [
+          0.5009674601725428,
+          0.4990325398274571
+        ],
+        "field_collapse_warning": false,
+        "field_cosine": [
+          [
+            1.0,
+            0.46506281997933924
+          ],
+          [
+            0.46506281997933924,
+            1.0
+          ]
+        ],
+        "gene_batch_scaling": "uniform_without_replacement_ht",
+        "gene_batch_size": null,
+        "gene_sampler": "stateless_per_step_seeded_by_seed_plus_step",
+        "global_spatial_kl_scaling": "unscaled_once_per_step",
+        "inactive_factor_ids": [],
+        "lengthscale_status": "FIXED_CONFIG_NOT_LEARNED",
+        "loading_collapse_warning": true,
+        "loading_cosine": [
+          [
+            1.0,
+            0.9963978656926145
+          ],
+          [
+            0.9963978656926145,
+            1.0
+          ]
+        ],
+        "loss_best": 2.8933873176574707,
+        "loss_final": 2.8933873176574707,
+        "max_offdiagonal_field_cosine": 0.46506281997933924,
+        "max_offdiagonal_loading_cosine": 0.9963978656926145,
+        "n_factors": 2,
+        "steps": 20,
+        "uncertainty_status": "INDUCING_WEIGHTS_ONLY"
+      },
+      "matched_field_absolute_correlation": [
+        0.24780719489801603,
+        0.3961282579053996
+      ],
+      "seed": 20260807
+    },
+    {
+      "diagnostics": {
+        "backend": "tensorflow_probability",
+        "config_hash": "bbd6c149675d0548487eab2f93d763a00b940e76d12b45a5682b6a59f4f934e7",
+        "effective_rank_entropy": 1.009255852058883,
+        "effective_rank_participation": 1.002386037442464,
+        "environment_hash": "2539df5724debcfc691f7d1defddeeaaa6938116df9c623f3ccb59843c944c59",
+        "factor_collapse_warning": true,
+        "factor_energy": [
+          0.49879928237968213,
+          0.5012007176203179
+        ],
+        "field_collapse_warning": false,
+        "field_cosine": [
+          [
+            1.0,
+            0.002669664613308321
+          ],
+          [
+            0.002669664613308321,
+            1.0
+          ]
+        ],
+        "gene_batch_scaling": "uniform_without_replacement_ht",
+        "gene_batch_size": null,
+        "gene_sampler": "stateless_per_step_seeded_by_seed_plus_step",
+        "global_spatial_kl_scaling": "unscaled_once_per_step",
+        "inactive_factor_ids": [],
+        "lengthscale_status": "FIXED_CONFIG_NOT_LEARNED",
+        "loading_collapse_warning": true,
+        "loading_cosine": [
+          [
+            1.0,
+            0.9976167886047992
+          ],
+          [
+            0.9976167886047992,
+            1.0
+          ]
+        ],
+        "loss_best": 2.8801796436309814,
+        "loss_final": 2.8801796436309814,
+        "max_offdiagonal_field_cosine": 0.002669664613308321,
+        "max_offdiagonal_loading_cosine": 0.9976167886047992,
+        "n_factors": 2,
+        "steps": 20,
+        "uncertainty_status": "INDUCING_WEIGHTS_ONLY"
+      },
+      "matched_field_absolute_correlation": [
+        0.48738708952426096,
+        0.21411483862108555
+      ],
+      "seed": 20260817
+    },
+    {
+      "diagnostics": {
+        "backend": "tensorflow_probability",
+        "config_hash": "7a25d5ed913fda26dbf279d89cb8796765932b4a715abcdaa1b6c1e4d915141b",
+        "effective_rank_entropy": 1.0085577087303264,
+        "effective_rank_participation": 1.0021813105939439,
+        "environment_hash": "2539df5724debcfc691f7d1defddeeaaa6938116df9c623f3ccb59843c944c59",
+        "factor_collapse_warning": true,
+        "factor_energy": [
+          0.5008262515646955,
+          0.4991737484353045
+        ],
+        "field_collapse_warning": false,
+        "field_cosine": [
+          [
+            1.0,
+            0.4554998609675588
+          ],
+          [
+            0.4554998609675588,
+            1.0
+          ]
+        ],
+        "gene_batch_scaling": "uniform_without_replacement_ht",
+        "gene_batch_size": null,
+        "gene_sampler": "stateless_per_step_seeded_by_seed_plus_step",
+        "global_spatial_kl_scaling": "unscaled_once_per_step",
+        "inactive_factor_ids": [],
+        "lengthscale_status": "FIXED_CONFIG_NOT_LEARNED",
+        "loading_collapse_warning": true,
+        "loading_cosine": [
+          [
+            1.0,
+            0.9978210573263361
+          ],
+          [
+            0.9978210573263361,
+            1.0
+          ]
+        ],
+        "loss_best": 2.8521296977996826,
+        "loss_final": 2.8521296977996826,
+        "max_offdiagonal_field_cosine": 0.4554998609675588,
+        "max_offdiagonal_loading_cosine": 0.9978210573263361,
+        "n_factors": 2,
+        "steps": 20,
+        "uncertainty_status": "INDUCING_WEIGHTS_ONLY"
+      },
+      "matched_field_absolute_correlation": [
+        0.566916576804383,
+        0.10284378839688792
+      ],
+      "seed": 20260827
+    }
+  ],
+  "schema": "r04.planted_calibration.v1",
+  "seeds": [
+    20260807,
+    20260817,
+    20260827
+  ],
+  "status": "CALIBRATION_COMPLETE_NOT_VALIDATED",
+  "steps": 20
+}

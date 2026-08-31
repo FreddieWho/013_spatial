@@ -2,6 +2,8 @@
   "claim_rule": "presence/count/summary alone never creates confirmatory structure instances",
   "expression_matrix_reads_allowed": false,
   "gpu_allowed": false,
+  "h5ad_obs_ground_truth_label_reads_allowed": true,
+  "h5ad_obs_index_coordinate_reads_allowed": true,
   "image_pixel_reads_allowed": false,
   "minimum_auditable_gt": {
     "independent_from_model_input": true,
@@ -14,7 +16,12 @@
   "mode": "metadata_schema_only",
   "network_allowed": false,
   "phase": "R-02",
-  "second_structure_status": "NOT_FROZEN",
+  "second_structure_status": "FROZEN:TUMOR_STROMA_BOUNDARY",
   "specimen_equivalent_split_rule": "patient_envelope; block_id remains empty; not block-level",
-  "supported_confirmatory_gt_verifiers": []
+  "supported_confirmatory_gt_verifiers": [
+    "SPOT_BARCODE_PATHOLOGY_ANNOTATION_CSV",
+    "SPOT_BARCODE_TLS_ANNOTATION_CSV",
+    "H5AD_OBS_GROUND_TRUTH_LABELS",
+    "SPOT_BARCODE_PATHOLOGY_CATEGORY_CSV"
+  ]
 }

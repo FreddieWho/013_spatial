@@ -1,0 +1,120 @@
+{
+  "checkpoints": [
+    {
+      "checkpoint": "infra/r04/real_k_4800_b512_fixed_20260818/checkpoints/k3/fold0/ckpt-3600",
+      "global_step": 3600,
+      "mc_draws": 8,
+      "n_genes": 4000,
+      "n_spots": 77526,
+      "nuisance_gauge": {
+        "baseline_v_projection": [
+          0.1810663443533391
+        ],
+        "h_max": [
+          0.5823331726610658
+        ],
+        "h_mean": [
+          0.2088386180203873
+        ],
+        "h_min": [
+          4.9775203845098763e-05
+        ],
+        "rank": 1
+      },
+      "objective_draws": [
+        5525.5771484375,
+        5525.65869140625,
+        5525.70458984375,
+        5525.48046875,
+        5525.6513671875,
+        5525.54638671875,
+        5525.21630859375,
+        5525.63623046875
+      ],
+      "objective_mean": 5525.558898925781,
+      "objective_sd": 0.1557121693459824,
+      "seed": 20260820
+    },
+    {
+      "checkpoint": "infra/r04/real_k_4800_b512_fixed_20260818/checkpoints/k3/fold0/ckpt-4800",
+      "global_step": 4800,
+      "mc_draws": 8,
+      "n_genes": 4000,
+      "n_spots": 77526,
+      "nuisance_gauge": {
+        "baseline_v_projection": [
+          0.15011335547054344
+        ],
+        "h_max": [
+          0.6590084494141835
+        ],
+        "h_mean": [
+          0.22122112675649624
+        ],
+        "h_min": [
+          3.133948049892183e-05
+        ],
+        "rank": 1
+      },
+      "objective_draws": [
+        5352.2509765625,
+        5352.2412109375,
+        5352.24609375,
+        5352.2470703125,
+        5352.2373046875,
+        5352.236328125,
+        5352.2490234375,
+        5352.259765625
+      ],
+      "objective_mean": 5352.2459716796875,
+      "objective_sd": 0.007714887898268798,
+      "seed": 20260820
+    },
+    {
+      "checkpoint": "infra/r04/real_k_2400_b512_staged_shared600_20260820/checkpoints/k3/fold0/ckpt-2400",
+      "global_step": 2400,
+      "mc_draws": 8,
+      "n_genes": 4000,
+      "n_spots": 77526,
+      "nuisance_gauge": {
+        "baseline_v_projection": [
+          0.25476591885305067
+        ],
+        "h_max": [
+          0.5141798484881579
+        ],
+        "h_mean": [
+          0.17626597054498394
+        ],
+        "h_min": [
+          0.00019374363025588453
+        ],
+        "rank": 1
+      },
+      "objective_draws": [
+        5770.97607421875,
+        5771.0078125,
+        5770.9853515625,
+        5770.9599609375,
+        5770.77294921875,
+        5771.04541015625,
+        5770.8515625,
+        5770.8564453125
+      ],
+      "objective_mean": 5770.931945800781,
+      "objective_sd": 0.09385092162395338,
+      "seed": 20260820
+    }
+  ],
+  "factors": 3,
+  "fold": 0,
+  "folds": 5,
+  "gene_count": 4000,
+  "group_seed": 20260807,
+  "inducing_points": 16,
+  "lengthscale": 3.0,
+  "manifest_hash": "",
+  "mc_draws": 8,
+  "schema": "r04.checkpoint_audit.v1",
+  "status": "DIAGNOSTIC_ONLY"
+}

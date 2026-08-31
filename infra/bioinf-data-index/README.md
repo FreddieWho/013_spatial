@@ -6,6 +6,9 @@ R-01 identity resolution. `index.tsv` is the checksum inventory,
 provides machine-readable retention totals.
 
 Only official metadata and an official patient-to-GSM identity crosswalk are
-retained here. No expression matrix, image, or biological result file is
-retained. Local GEO raw archives outside this directory are used only as
-header-level GSM locators; their members are not opened by the R-01 extractor.
+retained here. When explicitly requested, R-04 also records official Zenodo
+source metadata JSON and hashed pointers to existing local reference files;
+the latter are read in place with an allowlist and are never copied into this
+repository. No image, expression matrix or biological result file is retained.
+Local GEO raw archives outside this directory are used only as header-level
+GSM locators.

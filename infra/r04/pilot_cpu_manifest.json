@@ -1,0 +1,92 @@
+{
+  "input_manifest_hash": "abeaed77bb68ea0aaa1411da020790216718434c6f1b709622677b201aa17d6a::CPU_PILOT6",
+  "pilot_policy": "two sections from each of the low, middle and high spot-count patient strata",
+  "rows": [
+    {
+      "block_id": "HTAN_VANDERBILT_CRC::BLOCK::31cb9c4d65cb7362",
+      "coordinate_locator": "IN_H5AD:obsm/spatial",
+      "count_key": "X",
+      "leakage_group_id": "LINEAGE::HTAN_VANDERBILT_CRC",
+      "lineage": "HTAN_VANDERBILT_CRC",
+      "matrix_kind": "h5ad_counts",
+      "matrix_locator": "/home/huyudi/013_spatial/data/other_sources/htan/HTAN_Vanderbilt_CRC_Visium_OSF_hftq2/8578_AS_1_filtered_trimmed_WD33473.h5ad",
+      "outer_fold": "training::070083bf2c55",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e",
+      "primary_role": "training",
+      "read_authorization": "HTAN_COUNTS_AND_COORDINATES",
+      "section_id": "HTAN::8578_AS_1_filtered_trimmed_WD33473.h5ad"
+    },
+    {
+      "block_id": "HTAN_VANDERBILT_CRC::BLOCK::2b02e347e714b565",
+      "coordinate_locator": "IN_H5AD:obsm/spatial",
+      "count_key": "X",
+      "leakage_group_id": "LINEAGE::HTAN_VANDERBILT_CRC",
+      "lineage": "HTAN_VANDERBILT_CRC",
+      "matrix_kind": "h5ad_counts",
+      "matrix_locator": "/home/huyudi/013_spatial/data/other_sources/htan/HTAN_Vanderbilt_CRC_Visium_OSF_hftq2/8270_AS_5_filtered_trimmed.h5ad",
+      "outer_fold": "training::2865689ab84c",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::b279c0a0ecf76890",
+      "primary_role": "training",
+      "read_authorization": "HTAN_COUNTS_AND_COORDINATES",
+      "section_id": "HTAN::8270_AS_5_filtered_trimmed.h5ad"
+    },
+    {
+      "block_id": "HTAN_VANDERBILT_CRC::BLOCK::5d8692c0b033416e",
+      "coordinate_locator": "IN_H5AD:obsm/spatial",
+      "count_key": "X",
+      "leakage_group_id": "LINEAGE::HTAN_VANDERBILT_CRC",
+      "lineage": "HTAN_VANDERBILT_CRC",
+      "matrix_kind": "h5ad_counts",
+      "matrix_locator": "/home/huyudi/013_spatial/data/other_sources/htan/HTAN_Vanderbilt_CRC_Visium_OSF_hftq2/7003_AS_5_filtered_trimmed.h5ad",
+      "outer_fold": "training::e45380892b7e",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+      "primary_role": "training",
+      "read_authorization": "HTAN_COUNTS_AND_COORDINATES",
+      "section_id": "HTAN::7003_AS_5_filtered_trimmed.h5ad"
+    },
+    {
+      "block_id": "HTAN_VANDERBILT_CRC::BLOCK::c4a27621ce00a66e",
+      "coordinate_locator": "IN_H5AD:obsm/spatial",
+      "count_key": "X",
+      "leakage_group_id": "LINEAGE::HTAN_VANDERBILT_CRC",
+      "lineage": "HTAN_VANDERBILT_CRC",
+      "matrix_kind": "h5ad_counts",
+      "matrix_locator": "/home/huyudi/013_spatial/data/other_sources/htan/HTAN_Vanderbilt_CRC_Visium_OSF_hftq2/7794_AS_3_filtered_trimmed.h5ad",
+      "outer_fold": "training::2216f913f42c",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::306c7a068bf4965f",
+      "primary_role": "training",
+      "read_authorization": "HTAN_COUNTS_AND_COORDINATES",
+      "section_id": "HTAN::7794_AS_3_filtered_trimmed.h5ad"
+    },
+    {
+      "block_id": "HTAN_VANDERBILT_CRC::BLOCK::c17a41778d9af602",
+      "coordinate_locator": "IN_H5AD:obsm/spatial",
+      "count_key": "X",
+      "leakage_group_id": "LINEAGE::HTAN_VANDERBILT_CRC",
+      "lineage": "HTAN_VANDERBILT_CRC",
+      "matrix_kind": "h5ad_counts",
+      "matrix_locator": "/home/huyudi/013_spatial/data/other_sources/htan/HTAN_Vanderbilt_CRC_Visium_OSF_hftq2/8270_AS_8_filtered_trimmed.h5ad",
+      "outer_fold": "training::5c348bcdbde8",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::46cd4bcce25745d5",
+      "primary_role": "training",
+      "read_authorization": "HTAN_COUNTS_AND_COORDINATES",
+      "section_id": "HTAN::8270_AS_8_filtered_trimmed.h5ad"
+    },
+    {
+      "block_id": "HTAN_VANDERBILT_CRC::BLOCK::f98b9c45e22b0189",
+      "coordinate_locator": "IN_H5AD:obsm/spatial",
+      "count_key": "X",
+      "leakage_group_id": "LINEAGE::HTAN_VANDERBILT_CRC",
+      "lineage": "HTAN_VANDERBILT_CRC",
+      "matrix_kind": "h5ad_counts",
+      "matrix_locator": "/home/huyudi/013_spatial/data/other_sources/htan/HTAN_Vanderbilt_CRC_Visium_OSF_hftq2/8270_AS_10_filtered_trimmed.h5ad",
+      "outer_fold": "training::51390c8a3069",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870",
+      "primary_role": "training",
+      "read_authorization": "HTAN_COUNTS_AND_COORDINATES",
+      "section_id": "HTAN::8270_AS_10_filtered_trimmed.h5ad"
+    }
+  ],
+  "schema": "r04.locator_manifest.v1",
+  "status": "READY"
+}

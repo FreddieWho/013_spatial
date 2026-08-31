@@ -806,10 +806,20 @@ def main() -> int:
         _read_optional_tsv(args.staging / "external_geo_physical_units.tsv"),
         PHYSICAL_UNIT_FIELDS,
     )
+    physical = merge_external_rows(
+        physical,
+        _read_optional_tsv(args.staging / "validation_lineages_physical_units.tsv"),
+        PHYSICAL_UNIT_FIELDS,
+    )
     physical.sort(key=lambda row: row["physical_unit_id"])
     assets = merge_external_rows(
         build_source_assets(inventory, htan, root, tenx),
         _read_optional_tsv(args.staging / "external_geo_source_assets.tsv"),
+        SOURCE_ASSET_FIELDS,
+    )
+    assets = merge_external_rows(
+        assets,
+        _read_optional_tsv(args.staging / "validation_lineages_source_assets.tsv"),
         SOURCE_ASSET_FIELDS,
     )
     assets.sort(key=lambda row: row["asset_id"])
@@ -824,10 +834,20 @@ def main() -> int:
         _read_optional_tsv(args.staging / "external_geo_identity_evidence.tsv"),
         IDENTITY_EVIDENCE_FIELDS,
     )
+    evidence = merge_external_rows(
+        evidence,
+        _read_optional_tsv(args.staging / "validation_lineages_identity_evidence.tsv"),
+        IDENTITY_EVIDENCE_FIELDS,
+    )
     evidence.sort(key=lambda row: row["evidence_id"])
     duplicates = merge_external_rows(
         build_duplicate_groups(cross, htan, tenx),
         _read_optional_tsv(args.staging / "external_geo_duplicate_groups.tsv"),
+        DUPLICATE_GROUP_FIELDS,
+    )
+    duplicates = merge_external_rows(
+        duplicates,
+        _read_optional_tsv(args.staging / "validation_lineages_duplicate_groups.tsv"),
         DUPLICATE_GROUP_FIELDS,
     )
     duplicates.sort(

@@ -1,0 +1,39 @@
+{
+  "n_patients": 1,
+  "n_rows": 2,
+  "parent_manifest_hash": "abeaed77bb68ea0aaa1411da020790216718434c6f1b709622677b201aa17d6a",
+  "partition_hash": "0e19aadd1087d395460305075c92414b1886ff7f055ae7069a7e806cfb971206",
+  "role": "serial_section_validation",
+  "rows": [
+    {
+      "block_id": "TENX_V1_BREAST_CANCER_BLOCK_A::BLOCK::8b7aa042f862ebb4",
+      "coordinate_locator": "/home/huyudi/013_spatial/data/derived/r04/breast/V1_Breast_Cancer_Block_A_Section_1/spatial/tissue_positions_list.csv",
+      "count_key": "X",
+      "leakage_group_id": "LINEAGE::TENX_V1_BREAST_CANCER_BLOCK_A",
+      "lineage": "TENX_V1_BREAST_CANCER_BLOCK_A",
+      "matrix_kind": "10x_h5",
+      "matrix_locator": "/home/huyudi/013_spatial/data/other_sources/10x_genomics/V1_Breast_Cancer_Block_A_Section_1/V1_Breast_Cancer_Block_A_Section_1_filtered_feature_bc_matrix.h5",
+      "outer_fold": "serial_section_validation::d8e6899d4aad",
+      "patient_id": "TENX_V1_BREAST_CANCER_BLOCK_A::PATIENT::575bdd5279729260",
+      "primary_role": "serial_section_validation",
+      "read_authorization": "MOLECULES_AND_COORDINATES",
+      "section_id": "TENX::V1_Breast_Cancer_Block_A_Section_1"
+    },
+    {
+      "block_id": "TENX_V1_BREAST_CANCER_BLOCK_A::BLOCK::8b7aa042f862ebb4",
+      "coordinate_locator": "/home/huyudi/013_spatial/data/derived/r04/breast/V1_Breast_Cancer_Block_A_Section_2/spatial/tissue_positions_list.csv",
+      "count_key": "X",
+      "leakage_group_id": "LINEAGE::TENX_V1_BREAST_CANCER_BLOCK_A",
+      "lineage": "TENX_V1_BREAST_CANCER_BLOCK_A",
+      "matrix_kind": "10x_h5",
+      "matrix_locator": "/home/huyudi/013_spatial/data/other_sources/10x_genomics/V1_Breast_Cancer_Block_A_Section_2/V1_Breast_Cancer_Block_A_Section_2_filtered_feature_bc_matrix.h5",
+      "outer_fold": "serial_section_validation::d8e6899d4aad",
+      "patient_id": "TENX_V1_BREAST_CANCER_BLOCK_A::PATIENT::575bdd5279729260",
+      "primary_role": "serial_section_validation",
+      "read_authorization": "MOLECULES_AND_COORDINATES",
+      "section_id": "TENX::V1_Breast_Cancer_Block_A_Section_2"
+    }
+  ],
+  "schema": "r04.role_manifest.v1",
+  "status": "READY"
+}

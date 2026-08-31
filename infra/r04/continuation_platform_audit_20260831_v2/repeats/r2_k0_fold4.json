@@ -1,0 +1,78 @@
+{
+  "checkpoints": [
+    {
+      "checkpoint": "infra/r04/restart_cont_r2_fit8400_20260831/k0_fold4/checkpoints/k0/fold4/ckpt-8400",
+      "global_step": 8400,
+      "mc_draws": 4,
+      "n_genes": 4000,
+      "n_spots": 90812,
+      "nuisance_gauge": {
+        "baseline_v_projection": [
+          0.22507660102480107
+        ],
+        "h_max": [
+          0.48831892795482706
+        ],
+        "h_mean": [
+          0.1429480151025354
+        ],
+        "h_min": [
+          1.676777621406489e-05
+        ],
+        "rank": 1
+      },
+      "objective_draws": [
+        5625.095703125,
+        5625.095703125,
+        5625.095703125,
+        5625.095703125
+      ],
+      "objective_mean": 5625.095703125,
+      "objective_sd": 0.0,
+      "seed": 1843510620
+    },
+    {
+      "checkpoint": "infra/r04/restart_cont_r2_fit8400_20260831/k0_fold4/checkpoints/k0/fold4/ckpt-8400",
+      "global_step": 8400,
+      "mc_draws": 4,
+      "n_genes": 4000,
+      "n_spots": 90812,
+      "nuisance_gauge": {
+        "baseline_v_projection": [
+          0.22507660102480107
+        ],
+        "h_max": [
+          0.48831892795482706
+        ],
+        "h_mean": [
+          0.1429480151025354
+        ],
+        "h_min": [
+          1.676777621406489e-05
+        ],
+        "rank": 1
+      },
+      "objective_draws": [
+        5625.095703125,
+        5625.095703125,
+        5625.095703125,
+        5625.095703125
+      ],
+      "objective_mean": 5625.095703125,
+      "objective_sd": 0.0,
+      "seed": 1843510620
+    }
+  ],
+  "factors": 0,
+  "fold": 4,
+  "folds": 5,
+  "gene_count": 4000,
+  "group_seed": 20260807,
+  "inducing_points": 16,
+  "lengthscale": 3.0,
+  "manifest_hash": "5a0dc1de6066847cfba613a41cb78d01e25cfc42a48ad75f1b18cf3d03da7d51",
+  "mc_draws": 4,
+  "ridge": 1e-05,
+  "schema": "r04.checkpoint_audit.v1",
+  "status": "DIAGNOSTIC_ONLY"
+}

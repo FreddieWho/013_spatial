@@ -1,0 +1,79 @@
+{
+  "candidate_k": [
+    0,
+    1,
+    2
+  ],
+  "formal_restart_authorized": false,
+  "heldout_score_mean_by_k": {
+    "0": -21.975252807717784,
+    "1": -22.14033428599635,
+    "2": -22.462647356318417
+  },
+  "heldout_score_se_by_k": {
+    "0": 0.09982015830333406,
+    "1": 0.10144755094338694,
+    "2": 0.08724104552911482
+  },
+  "input_provenance": [
+    {
+      "bytes": 7403,
+      "path": "infra/r04/k0_gate_v4_k1_s20260807.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "bd071ef851557ce5b10ea19ad64aa7f651feefd92a4dfa6088a11c2c8adc6335"
+    },
+    {
+      "bytes": 7036,
+      "path": "infra/r04/k0_gate_v2_k2_s20260807.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "ae857eb45ef204dc08a8505500940a2bea0ba73b932ff7436431492521da3c68"
+    },
+    {
+      "bytes": 7033,
+      "path": "infra/r04/k0_gate_v2_k1_s20260817.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "826257d7ad25a3972874a7ae5271f9310ecef0f904dadd73d2e63a81b0d0a029"
+    },
+    {
+      "bytes": 7030,
+      "path": "infra/r04/k0_gate_v2_k2_s20260817.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "2a278ed7d47e3b12ce881919cfdb2e1dd7c617336d469428393c02d7f98214ae"
+    },
+    {
+      "bytes": 7027,
+      "path": "infra/r04/k0_gate_v2_k1_s20260827.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "1e368f2ba56eeb11a37f9d47c02166bdfe6e3d3546d4a8536b1bab50e60d117c"
+    },
+    {
+      "bytes": 7025,
+      "path": "infra/r04/k0_gate_v2_k2_s20260827.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "27180239dfe2581da817c4cf3f1429b8cd8f60962e5639c2d290073714a7735c"
+    }
+  ],
+  "leakage_control": "heldout_section_fields_adapted_on_disjoint_gene_folds",
+  "one_se_candidate": {
+    "best_predictive_k": 0,
+    "eligible_k": [
+      0
+    ],
+    "predictive_eligible_k": [
+      0
+    ],
+    "selected_k": 0
+  },
+  "schema": "r04.k0_gate.v1",
+  "seeds": [
+    20260807,
+    20260817,
+    20260827
+  ],
+  "status": "K0_SELECTED",
+  "support_fraction_by_k": {
+    "0": 1.0,
+    "1": 1.0,
+    "2": 1.0
+  }
+}

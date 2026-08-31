@@ -15,12 +15,12 @@ def eligible(study: str) -> dict[str, str]:
 
 
 class FreezeRolesTests(unittest.TestCase):
-    def test_freeze_is_outcome_blind_and_covers_exactly_six_units(self):
+    def test_freeze_is_outcome_blind_and_covers_exactly_nine_units(self):
         rows = [eligible(study) for study in ROLE_PLAN]
 
         frozen = freeze_roles(rows, freeze_date="2026-07-31")
 
-        self.assertEqual(len(frozen), 6)
+        self.assertEqual(len(frozen), 9)
         self.assertEqual(
             {row["logical_unit_id"] for row in frozen},
             set(ROLE_PLAN),
@@ -31,7 +31,7 @@ class FreezeRolesTests(unittest.TestCase):
                 for row in frozen
                 if row["primary_role"] == "external_validation"
             ],
-            ["GEO::GSE211956"],
+            ["GEO::GSE211956", "GEO::GSE175540", "TLS_VISIUM_USZ"],
         )
         forbidden_selection_terms = {"tls", "crs", "model", "performance", "outcome"}
         selection_text = " ".join(

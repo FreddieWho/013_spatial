@@ -1,0 +1,42 @@
+{
+  "schema": "r04.resource_calibration.v1",
+  "status": "FORMAL_RESTART_BLOCKED",
+  "scientific_result_status": "NOT_RUN",
+  "gpu_used": false,
+  "environment": "013_spatial-r04-tf",
+  "training_role": {
+    "sections": 47,
+    "patients": 30,
+    "spots_from_raw_loader": 113344,
+    "panel_genes": 4000,
+    "panel_cache_manifest": "panel_cache_training/training_panel_manifest.json"
+  },
+  "measurements": {
+    "raw_loader_only": {
+      "wall_seconds": 68.09,
+      "max_rss_kib": 6891052,
+      "status": "COMPLETE_NOT_MODEL_FIT"
+    },
+    "cached_mnsf_one_step": {
+      "factors": 2,
+      "inducing_points": 16,
+      "gene_batch_size": 256,
+      "steps": 1,
+      "wall_seconds": 69.54,
+      "max_rss_kib": 14103928,
+      "artifact": "resource_calibration_cached_mnsf_s1_v2/r04_run.json",
+      "status": "FIT_COMPLETE_NOT_VALIDATED"
+    },
+    "raw_dual_three_step": {
+      "status": "BLOCKED_TIMEOUT",
+      "outer_timeout_seconds": 120,
+      "scientific_result": "NOT_RUN"
+    }
+  },
+  "factor_warning": {
+    "cached_mnsf_one_step_loading_cosine": 0.9973708124294473,
+    "cached_mnsf_one_step_effective_rank_participation": 1.002632643872206,
+    "interpretation": "diagnostic_warning_only"
+  },
+  "next_gate": "complete_dense_oracle_planted_factor_and_multi_seed_diagnostics_before_restart"
+}

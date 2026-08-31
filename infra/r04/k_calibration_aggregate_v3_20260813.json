@@ -1,0 +1,299 @@
+{
+  "calibration_cell_count": 24,
+  "data_optimisation_seeds": [
+    20260813,
+    20260823,
+    20260833
+  ],
+  "data_seeds": [
+    20260813,
+    20260823,
+    20260833
+  ],
+  "execution_contract": {
+    "gene_folds": 2,
+    "inference_steps": 250,
+    "null_draws": 50,
+    "section_folds": 2,
+    "steps": 600
+  },
+  "final_k_status": "K_SELECTED",
+  "formal_restart_authorized": false,
+  "generator_contract": {
+    "domain": "disconnected",
+    "generator": "mnsf_correct",
+    "genes": 24,
+    "sections": 3,
+    "spots_per_section": 50
+  },
+  "generator_replay_verified": true,
+  "heldout_score_mean_by_k": {
+    "1": -29.272661628356207,
+    "2": -28.688425289146608,
+    "3": -28.912018785571977,
+    "4": -29.177386836435286
+  },
+  "heldout_score_mean_by_seed_and_k": {
+    "1": {
+      "20260813": -28.936794292767527,
+      "20260823": -29.608919225194423,
+      "20260833": -29.272271367106676
+    },
+    "2": {
+      "20260813": -28.343613389581297,
+      "20260823": -29.080052468646702,
+      "20260833": -28.64161000921183
+    },
+    "3": {
+      "20260813": -28.56867894083216,
+      "20260823": -29.290731209752924,
+      "20260833": -28.87664620613085
+    },
+    "4": {
+      "20260813": -28.764772615273092,
+      "20260823": -29.695472650484923,
+      "20260833": -29.07191524354783
+    }
+  },
+  "heldout_score_se_by_k": {
+    "1": 0.19402585345373205,
+    "2": 0.21387643014928387,
+    "3": 0.20918754288567995,
+    "4": 0.2737966590771871
+  },
+  "independent_resampling_unit": "data_seed",
+  "input_data_hash_by_seed": {
+    "20260813": "0ec201508ccbd8d1185d0871a8907fc56ca57905e26344dd829535e231828610",
+    "20260823": "8176279d4b770cf2028985dcf4dfd368fe8b8d38b0d9ed19b5627a2c7990459d",
+    "20260833": "b9e50701e11988c199ae127be0e6af8d1ccf45c680093f0a27d77f621d63c143"
+  },
+  "input_provenance": [
+    {
+      "bytes": 9826,
+      "path": "infra/r04/k_calibration_v7_k1_s20260813.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "daf7ba954956354a46c7ee139ee1378282085db5ab887157fcf7da530edb03b3"
+    },
+    {
+      "bytes": 9831,
+      "path": "infra/r04/k_calibration_v7_k1_s20260823.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "d58c9f507248b0df7d6091f80454053903deeb2199e0db798999cb33153d9762"
+    },
+    {
+      "bytes": 9828,
+      "path": "infra/r04/k_calibration_v7_k1_s20260833.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "df12d39f141050ceace4238028665bb858ec0af925c6ef5a7cdad70f0513d8ca"
+    },
+    {
+      "bytes": 10099,
+      "path": "infra/r04/k_calibration_v7_k2_s20260813.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "77ccae33770bf8c60efefdbaa89101681db50162e03e84c3db5bd0672a77a646"
+    },
+    {
+      "bytes": 6753,
+      "path": "infra/r04/k_calibration_v7_k2_s20260823_h0.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "2479c475f1f50de6edc653abfd5793e31b2c0bfd9635a01bc77603b6ae81f670"
+    },
+    {
+      "bytes": 6751,
+      "path": "infra/r04/k_calibration_v7_k2_s20260823_h1.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "bb838d498ed54b492c4dfbbedef6d65fce1a1b98a90eeee4f4484f30772ed134"
+    },
+    {
+      "bytes": 6756,
+      "path": "infra/r04/k_calibration_v7_k2_s20260833_h0.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "d902fadbc5a0f56cfb706bfc5643fade8a8e7ddd72ff745fb013b3b856dbb46b"
+    },
+    {
+      "bytes": 6747,
+      "path": "infra/r04/k_calibration_v7_k2_s20260833_h1.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "db1bfdc6a075a64e09e9b91934a36bea800d8fd9e9acb35461741bf9667e7e4e"
+    },
+    {
+      "bytes": 6750,
+      "path": "infra/r04/k_calibration_v7_k3_s20260813_h0.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "17234b2a1a12e9375399038108b7db1209a5870ea5f134ce0ae6340cf25815c7"
+    },
+    {
+      "bytes": 6747,
+      "path": "infra/r04/k_calibration_v7_k3_s20260813_h1.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "c54b282720556c5e1067c909339acd9811e88cae1c46c79a34c45f7dfbe1c95f"
+    },
+    {
+      "bytes": 6750,
+      "path": "infra/r04/k_calibration_v7_k3_s20260823_h0.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "894e8e1e7a021bafb3114781245f45a6db8f57a99bf019f0642a9c942f47adde"
+    },
+    {
+      "bytes": 6747,
+      "path": "infra/r04/k_calibration_v7_k3_s20260823_h1.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "736ba0c854533c04d00a84e8bcdb9d2a6bc0595362fce511a5058978bc7bb130"
+    },
+    {
+      "bytes": 6754,
+      "path": "infra/r04/k_calibration_v7_k3_s20260833_h0.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "b396d52c2865d98b2f5f374b65bc0f954935f11cdfec6711974f098c21ececb3"
+    },
+    {
+      "bytes": 6749,
+      "path": "infra/r04/k_calibration_v7_k3_s20260833_h1.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "40e3c9c54c68a9e79f8d348632bcda34fbdef74e32e50a5e63869ce1d3ee7036"
+    },
+    {
+      "bytes": 6755,
+      "path": "infra/r04/k_calibration_v7_k4_s20260813_h0.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "b0380bad74d1fda17c8e76b85f3fb8db96ee6ca57125cbca91bd2305de892add"
+    },
+    {
+      "bytes": 6749,
+      "path": "infra/r04/k_calibration_v7_k4_s20260813_h1.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "098875c3055d66fcda9e3b70a9e4b55f63eb0f2cfbec8ac08e74fe37d082efb6"
+    },
+    {
+      "bytes": 6752,
+      "path": "infra/r04/k_calibration_v7_k4_s20260823_h0.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "77fecedc85c75cf4b7d2666ddc6c820490df7467b8a776417c7819788aa047f0"
+    },
+    {
+      "bytes": 6750,
+      "path": "infra/r04/k_calibration_v7_k4_s20260823_h1.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "5da8090a839e28b4ebcc197560c73c1f9d6edbe337cfe0bc8672633471ca62f1"
+    },
+    {
+      "bytes": 6745,
+      "path": "infra/r04/k_calibration_v7_k4_s20260833_h0.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "a11b7afbc5d16c5b06ab497331e491dfcf98c10ef5af29b2925ec7fc6b293c4b"
+    },
+    {
+      "bytes": 6753,
+      "path": "infra/r04/k_calibration_v7_k4_s20260833_h1.json",
+      "schema": "r04.k_calibration.v2",
+      "sha256": "8f8a94a74994f1e71bf91e0e5028837b1d6fdaa2ad89472999dcf169390b9d03"
+    }
+  ],
+  "k_eff_calibration_truth": 2,
+  "k_values": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "leakage_control": "heldout_section_fields_adapted_on_disjoint_gene_folds",
+  "one_se_candidate": {
+    "best_predictive_k": 2,
+    "eligible_k": [
+      2
+    ],
+    "predictive_eligible_k": [
+      2
+    ],
+    "search_boundary": false,
+    "selected_k": 2
+  },
+  "paired_difference_to_best_by_k": {
+    "1": [
+      -0.5931809031862301,
+      -0.5288667565477212,
+      -0.6306613578948443
+    ],
+    "2": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "3": [
+      -0.22506555125086436,
+      -0.21067874110622142,
+      -0.2350361969190189
+    ],
+    "4": [
+      -0.4211592256917953,
+      -0.6154201818382212,
+      -0.4303052343360001
+    ]
+  },
+  "schema": "r04.k_calibration_aggregate.v1",
+  "scores_by_k": {
+    "1": [
+      -29.460986823350463,
+      -28.95507559801019,
+      -28.59781513999743,
+      -28.733299609712038,
+      -30.150859646774503,
+      -28.815534912994625,
+      -29.3101470249901,
+      -30.159135316018467,
+      -29.308132312296255,
+      -30.092855964275454,
+      -29.535103199867585,
+      -28.15299399198742
+    ],
+    "2": [
+      -29.09491200658691,
+      -28.337253947473297,
+      -27.99613119518925,
+      -27.946156409075726,
+      -29.50928161747592,
+      -28.00906525325828,
+      -29.042313026614302,
+      -29.759549977238304,
+      -28.516102132960636,
+      -29.18727948749214,
+      -28.90608054424194,
+      -27.95697787215261
+    ],
+    "3": [
+      -29.229537613930948,
+      -28.627156191743257,
+      -28.116685233425994,
+      -28.30133672422845,
+      -29.72815984073405,
+      -28.1939892089258,
+      -29.141467612741447,
+      -30.099308176610393,
+      -28.68535887415029,
+      -29.219835922637966,
+      -29.273494375104335,
+      -28.32789565263082
+    ],
+    "4": [
+      -29.291111766462667,
+      -28.94621885788699,
+      -28.278647123969062,
+      -28.543112712773645,
+      -30.151759101028084,
+      -28.494711225163815,
+      -29.549843705740066,
+      -30.585576570007728,
+      -28.745155083167006,
+      -29.34875734734744,
+      -29.447528582400327,
+      -28.746219961276548
+    ]
+  },
+  "status": "K_CALIBRATION_AGGREGATED",
+  "support_fraction_by_k": {
+    "1": 0.6666666666666666,
+    "2": 1.0,
+    "3": 0.6666666666666666,
+    "4": 0.0
+  }
+}

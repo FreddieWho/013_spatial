@@ -1,0 +1,11 @@
+{
+  "batch_count": 20,
+  "dense_objective": 119.63279724121094,
+  "full_batch_objective": 119.63279724121094,
+  "gradient_finite": true,
+  "gradient_max_abs": 2.9695358276367188,
+  "mean_gene_batch_objective": 119.6327953338623,
+  "objective_abs_error": 1.9073486328125e-06,
+  "schema": "r04.objective_oracle.v1",
+  "status": "PASS_OBJECTIVE_ORACLE"
+}

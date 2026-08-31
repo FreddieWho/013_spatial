@@ -2,7 +2,9 @@
 """Build the R-02 metadata-only structure control plane.
 
 The builder reads tabular metadata, workbook cells, compressed annotation headers,
-and checksums only. It never opens expression matrices or image pixels.
+checksums, and — via ``r02_heiser_gt`` — h5ad per-spot barcode/array-index
+coordinate columns only (D-033). It never opens expression matrices or image
+pixels.
 """
 
 from __future__ import annotations
@@ -18,6 +20,25 @@ from typing import Iterable, Mapping
 
 from openpyxl import load_workbook
 
+try:
+    from scripts.r02_heiser_gt import VERIFIER_CLASS, build_heiser_records
+    from scripts.r02_validation_gt import (
+        VERIFIER_KIRC,
+        VERIFIER_STCRC,
+        VERIFIER_USZ,
+        build_validation_records,
+    )
+except ModuleNotFoundError:
+    # Direct ``python scripts/r02_build_registry.py`` execution places the
+    # scripts directory, rather than the repository root, on sys.path.
+    from r02_heiser_gt import VERIFIER_CLASS, build_heiser_records
+    from r02_validation_gt import (
+        VERIFIER_KIRC,
+        VERIFIER_STCRC,
+        VERIFIER_USZ,
+        build_validation_records,
+    )
+
 
 ATLAS_PATH = Path("paper/tables/science.adz2742_tables_s1_to_s8.xlsx")
 STOMICS_GLOB = (
@@ -26,6 +47,7 @@ STOMICS_GLOB = (
 )
 EXPECTED_TLS_COUNTS = {
     "HTAN_VANDERBILT_CRC": 44,
+    "GEO::GSE175540": 30,
     "GEO::GSE226997": 4,
     "GEO::GSE274103": 8,
     "GEO::GSE274557": 1,
@@ -63,6 +85,7 @@ def _atlas_tls_candidates(root: Path) -> list[dict[str, str]]:
     summary_sheet = workbook["Table S2"]
     availability_to_unit = {
         HTAN_AVAILABILITY: "HTAN_VANDERBILT_CRC",
+        "GSE175540": "GEO::GSE175540",
         "GSE226997": "GEO::GSE226997",
         "GSE274103": "GEO::GSE274103",
         "GSE274557": "GEO::GSE274557",
@@ -164,8 +187,8 @@ def _atlas_tls_candidates(root: Path) -> list[dict[str, str]]:
             f"scoped Table S4 TLS ID mismatch: expected={EXPECTED_TLS_COUNTS}, "
             f"observed={dict(observed)}"
         )
-    if len(rows) != 57:
-        raise ValueError(f"expected 57 source-reported TLS IDs, observed {len(rows)}")
+    if len(rows) != 87:
+        raise ValueError(f"expected 87 source-reported TLS IDs, observed {len(rows)}")
     return rows
 
 
@@ -251,8 +274,8 @@ def _build_outer_splits(root: Path) -> list[dict[str, str]]:
             }
         )
     rows.sort(key=lambda row: row["physical_unit_id"])
-    if len(rows) != 121:
-        raise ValueError(f"expected 121 R-01 eligible physical units, observed {len(rows)}")
+    if len(rows) != 167:
+        raise ValueError(f"expected 167 R-01 eligible physical units, observed {len(rows)}")
     return rows
 
 
@@ -288,6 +311,9 @@ def build_registry(root: Path, output: Path) -> None:
     candidates = _atlas_tls_candidates(root)
     splits = _build_outer_splits(root)
     atlas_path = root / ATLAS_PATH
+    physical_rows = _read_tsv(root / "infra/sample-registry/physical_units.tsv")
+    heiser = build_heiser_records(root, physical_rows)
+    validation = build_validation_records(root, physical_rows)
 
     ontology = [
         {
@@ -297,7 +323,7 @@ def build_registry(root: Path, output: Path) -> None:
             "minimum_gt_requirement": "auditable instance geometry with independent provenance and overlap boundary",
             "direct_channels_to_exclude": "TLS annotation; defining TLS marker panel; source GT raster/vector",
             "boundary_uncertainty_policy": "source-specific uncertainty required",
-            "claim_status": "NOT_FROZEN_NO_AUDITABLE_GT",
+            "claim_status": "FROZEN_CLAIM_BEARING",
         },
         {
             "structure_id": "BLOOD_VESSEL",
@@ -324,7 +350,7 @@ def build_registry(root: Path, output: Path) -> None:
             "minimum_gt_requirement": "auditable tumor and stroma geometry with boundary derivation",
             "direct_channels_to_exclude": "compartment annotation; source boundary raster/vector",
             "boundary_uncertainty_policy": "source-specific uncertainty required",
-            "claim_status": "NOT_FROZEN_NO_SCOPED_GT",
+            "claim_status": "FROZEN_CLAIM_BEARING",
         },
     ]
     _write_tsv(
@@ -409,6 +435,8 @@ def build_registry(root: Path, output: Path) -> None:
             ),
         },
         *_stomics_audits(root),
+        *heiser["gt_sources"],
+        *validation["gt_sources"],
     ]
     audit_fields = [
         "gt_source_id",
@@ -468,6 +496,8 @@ def build_registry(root: Path, output: Path) -> None:
         }
         for candidate in candidates
     ]
+    instances.extend(heiser["instances"])
+    instances.extend(validation["instances"])
     _write_tsv(
         output / "structure_instances.tsv",
         instances,
@@ -486,6 +516,19 @@ def build_registry(root: Path, output: Path) -> None:
             "confirmation_status",
             "allowed_use",
             "forbidden_use",
+        ],
+    )
+    replay_rows = heiser["replay_index"] + validation["replay_index"]
+    replay_rows.sort(key=lambda row: row["physical_unit_id"])
+    _write_tsv(
+        output / "h5ad_replay_index.tsv",
+        replay_rows,
+        [
+            "physical_unit_id",
+            "path",
+            "spot_count",
+            "index_fingerprint_sha256",
+            "fingerprint_status",
         ],
     )
 
@@ -513,6 +556,20 @@ def build_registry(root: Path, output: Path) -> None:
             "policy": "FORBIDDEN_AS_MODEL_INPUT",
             "scope": "TLS/structure labels, raster/vector geometry, defining marker panels",
             "reason": "Prevents circular GT and direct-label leakage.",
+        },
+        {
+            "channel_class": "H&E image and image-derived features",
+            "policy": "FORBIDDEN_AS_MODEL_INPUT",
+            "scope": (
+                "WSI pixels, stains and morphology embeddings on tasks whose "
+                "ground truth is H&E pathology annotation "
+                "(anchor he-annotation-gt-input-exclusion)"
+            ),
+            "reason": (
+                "The auditable Heiser GT is defined by manual annotation on the "
+                "H&E image; H&E-derived model inputs on those tasks would be "
+                "same-modality circular (KNOWN_OVERLAP)."
+            ),
         },
         {
             "channel_class": "outcome or response metadata",
@@ -629,10 +686,17 @@ def build_registry(root: Path, output: Path) -> None:
             "known_overlap_boundary": True,
             "independent_from_model_input": True,
         },
-        "supported_confirmatory_gt_verifiers": [],
+        "h5ad_obs_index_coordinate_reads_allowed": True,
+        "h5ad_obs_ground_truth_label_reads_allowed": True,
+        "supported_confirmatory_gt_verifiers": [
+            VERIFIER_CLASS,
+            VERIFIER_KIRC,
+            VERIFIER_USZ,
+            VERIFIER_STCRC,
+        ],
         "specimen_equivalent_split_rule": "patient_envelope; block_id remains empty; not block-level",
         "claim_rule": "presence/count/summary alone never creates confirmatory structure instances",
-        "second_structure_status": "NOT_FROZEN",
+        "second_structure_status": "FROZEN:TUMOR_STROMA_BOUNDARY",
     }
     (output / "r02_policy.json").write_text(
         json.dumps(policy, indent=2, sort_keys=True) + "\n", encoding="utf-8"
@@ -653,19 +717,53 @@ def build_registry(root: Path, output: Path) -> None:
         """# R-02 structure registry
 
 This is a metadata/schema-only, fail-closed control plane. It does not read
-expression matrices, image pixels, use the network, or use a GPU.
+expression matrices or image pixels, does not use the network, and does not
+use a GPU. The only h5ad access is the per-spot barcode/index coordinate
+columns (`obs/_index`, `obs/array_row`, `obs/array_col`) needed to replay
+annotation geometry (D-033) plus the per-spot human `ground_truth` label
+column of the eight USZ Zenodo 14620362 h5ad files (D-038).
 
-The scoped TLS inventory contains 57 source-reported Table S4 TLS IDs:
-HTAN Vanderbilt CRC 44, GSE226997 4, GSE274103 8, and GSE274557 1. These are
-cross-checked against Table S2 counts rather than expanded from count ordinals.
-All 57 structure rows remain
-non-confirmatory because replayable instance geometry and the full
-physical/provenance/overlap boundary are not closed.
+The scoped TLS inventory contains 87 source-reported TLS IDs: HTAN
+Vanderbilt CRC 44, GSE226997 4, GSE274103 8, GSE274557 1 (Atlas Table S4)
+and GSE175540 30 (Meylan 2022 Table S4 R-IDs). These are cross-checked
+against Table S2 counts rather than expanded from count ordinals and remain
+non-confirmatory inventory rows.
+
+Auditable instance-level GT now exists for the training-lineage HTAN
+Vanderbilt CRC unit and for three public-deposit validation lineages
+(D-036/D-037/D-038):
+
+- HTAN Vanderbilt CRC: Heiser et al. 2023 (PMC10756562) commit-pinned
+  per-spot pathology annotations, crosswalked piece-by-piece through the
+  GitHub sample key and the R-01 meta2 evidence asset, replayed to array
+  coordinates through the local OSF h5ad spot indexes. 42 piece/rule GT
+  sources are auditable; one piece is replay-blocked (missing local h5ad)
+  and one annotation capture is unlinked (its R-01 unit is excluded).
+- GSE175540 (Meylan et al. 2022, Immunity, PMID 35231421): author-deposited
+  per-spot TLS annotation CSVs in the GEO raw data, replayed through the
+  local Space Ranger tissue positions. 18 sample-level sources are
+  auditable (35 TLS components, 18 patients); three T_agg-only files are
+  registered NOT_AUDITABLE, one sample has no deposited annotation file,
+  and two zero-TLS samples yield no audit rows.
+- TLS_VISIUM_USZ (Zenodo 14620362): per-spot human `ground_truth` labels
+  inside the eight deposited h5ad files. 8 sources are auditable (108 TLS
+  components, 8 patients).
+- ST_CRC_CMS (Zenodo 7760264, Valdeolivas et al. 2024): pathologist
+  per-spot category CSVs for 14 sections from 7 CRC patients. 12 sources
+  are auditable (551 tumor-stroma boundary components); two replicate
+  sections without boundary labels yield no audit rows.
+
+Together these give 889 confirmatory structure instances: 147 TLS (HTAN 4,
+GSE175540 35, USZ 108) and 742 tumor-stroma boundary components (HTAN 191,
+ST_CRC_CMS 551). Instances in preneoplastic or normal-mucosa context remain
+registered as non-confirmatory context only. GSE226997, GSE274103 and
+GSE274557 still have no auditable GT; vasculature and necrosis have no
+public GT in any examined source.
 
 Nineteen local STOmicsDB TLS annotation files are inventoried by path,
 checksum, and compressed CSV header only. They are outside the R-01 frozen
-core and are excluded from the 57 scoped summaries. No STOmics row is accepted
-as confirmatory GT.
+core and are excluded from the 87 scoped summaries. No STOmics row is
+accepted as confirmatory GT.
 
 Outer splits use a conservative patient-wide envelope, including all explicit
 blocks from the same patient. Explicit blocks remain separately registered for
@@ -674,8 +772,11 @@ block-empty and are not block-level evidence. The one
 explicit TENX section pair is registered as an identity link, not a confirmed
 cross-section structure correspondence.
 
-The stored gate is expected to be `HARD_BLOCKED_NO_AUDITABLE_GT`, with zero
-confirmatory instances and no second claim-bearing structure frozen.
+The stored gate is expected to be `PARTIAL_GT_READY`, with TLS and
+TUMOR_STROMA_BOUNDARY frozen as claim-bearing structures for the training
+lineage and the three public-deposit validation lineages. The
+`SECOND_CLAIM_BEARING_STRUCTURE_NOT_FROZEN` blocker is cleared; the
+remaining validation-lineage GT gaps are tracked in `docs/ISSUES.md`.
 """,
         encoding="utf-8",
     )

@@ -1,0 +1,21 @@
+{
+  "schema": "r04.locator_manifest.v1",
+  "status": "READY",
+  "input_manifest_hash": "PILOT_MANIFEST_HTAN_8270_AS_2",
+  "rows": [
+    {
+      "section_id": "HTAN::8270_AS_2_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::07dc676d92f9d153",
+      "block_id": "HTAN_VANDERBILT_CRC::BLOCK::001325fc9c03672f",
+      "lineage": "HTAN_VANDERBILT_CRC",
+      "matrix_locator": "/home/huyudi/013_spatial/data/other_sources/htan/HTAN_Vanderbilt_CRC_Visium_OSF_hftq2/8270_AS_2_filtered_trimmed.h5ad",
+      "coordinate_locator": "IN_H5AD:obsm/spatial",
+      "matrix_kind": "h5ad_counts",
+      "read_authorization": "HTAN_COUNTS_AND_COORDINATES",
+      "count_key": "X",
+      "outer_fold": "training::6b8142ad2935",
+      "leakage_group_id": "LINEAGE::HTAN_VANDERBILT_CRC",
+      "primary_role": "training"
+    }
+  ]
+}

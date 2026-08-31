@@ -1,0 +1,89 @@
+{
+  "schema": "r04.continuation_platform_audit_manifest.v1",
+  "cells": [
+    {
+      "restart_index": 2,
+      "k_model": 0,
+      "fold": 0,
+      "source_cell": "infra/r04/restart_cont_r2_fit8400_20260831/k0_fold0/cell.json",
+      "checkpoint_repeat_audit": "infra/r04/continuation_platform_audit_20260831/repeats/r2_k0_fold0.json"
+    },
+    {
+      "restart_index": 2,
+      "k_model": 3,
+      "fold": 0,
+      "source_cell": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold0/cell.json",
+      "checkpoint_repeat_audit": "infra/r04/continuation_platform_audit_20260831/repeats/r2_k3_fold0.json"
+    },
+    {
+      "restart_index": 2,
+      "k_model": 0,
+      "fold": 4,
+      "source_cell": "infra/r04/restart_cont_r2_fit8400_20260831/k0_fold4/cell.json",
+      "checkpoint_repeat_audit": "infra/r04/continuation_platform_audit_20260831/repeats/r2_k0_fold4.json"
+    },
+    {
+      "restart_index": 2,
+      "k_model": 3,
+      "fold": 4,
+      "source_cell": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold4/cell.json",
+      "checkpoint_repeat_audit": "infra/r04/continuation_platform_audit_20260831/repeats/r2_k3_fold4.json"
+    },
+    {
+      "restart_index": 3,
+      "k_model": 0,
+      "fold": 0,
+      "source_cell": "infra/r04/restart_cont_r3_fit8400_20260831/k0_fold0/cell.json",
+      "checkpoint_repeat_audit": "infra/r04/continuation_platform_audit_20260831/repeats/r3_k0_fold0.json"
+    },
+    {
+      "restart_index": 3,
+      "k_model": 3,
+      "fold": 0,
+      "source_cell": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold0/cell.json",
+      "checkpoint_repeat_audit": "infra/r04/continuation_platform_audit_20260831/repeats/r3_k3_fold0.json"
+    },
+    {
+      "restart_index": 3,
+      "k_model": 0,
+      "fold": 4,
+      "source_cell": "infra/r04/restart_cont_r3_fit8400_20260831/k0_fold4/cell.json",
+      "checkpoint_repeat_audit": "infra/r04/continuation_platform_audit_20260831/repeats/r3_k0_fold4.json"
+    },
+    {
+      "restart_index": 3,
+      "k_model": 3,
+      "fold": 4,
+      "source_cell": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold4/cell.json",
+      "checkpoint_repeat_audit": "infra/r04/continuation_platform_audit_20260831/repeats/r3_k3_fold4.json"
+    },
+    {
+      "restart_index": 4,
+      "k_model": 0,
+      "fold": 0,
+      "source_cell": "infra/r04/restart_cont_r4_fit8400_20260831/k0_fold0/cell.json",
+      "checkpoint_repeat_audit": "infra/r04/continuation_platform_audit_20260831/repeats/r4_k0_fold0.json"
+    },
+    {
+      "restart_index": 4,
+      "k_model": 3,
+      "fold": 0,
+      "source_cell": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold0/cell.json",
+      "checkpoint_repeat_audit": "infra/r04/continuation_platform_audit_20260831/repeats/r4_k3_fold0.json"
+    },
+    {
+      "restart_index": 4,
+      "k_model": 0,
+      "fold": 4,
+      "source_cell": "infra/r04/restart_cont_r4_fit8400_20260831/k0_fold4/cell.json",
+      "checkpoint_repeat_audit": "infra/r04/continuation_platform_audit_20260831/repeats/r4_k0_fold4.json"
+    },
+    {
+      "restart_index": 4,
+      "k_model": 3,
+      "fold": 4,
+      "source_cell": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold4/cell.json",
+      "checkpoint_repeat_audit": "infra/r04/continuation_platform_audit_20260831/repeats/r4_k3_fold4.json"
+    }
+  ]
+}

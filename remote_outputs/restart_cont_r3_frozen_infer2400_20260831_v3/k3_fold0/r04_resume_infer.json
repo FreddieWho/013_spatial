@@ -1,0 +1,79 @@
+{
+  "continuation_panel_audit": "/home/huyudi/013_spatial/infra/r04/continuation_platform_audit_20260831_v2/panel_audit.json",
+  "environment_hash_compatibility": {
+    "mode": "SOURCE_CHECKPOINT_HASH_EXPLICIT_OVERRIDE",
+    "runtime_environment_hash": "5144e9c56256da406ba0917f0c7cec68b1bd3589eef3f78d46ca6600b9bbc55a",
+    "source_checkpoint_environment_hash": "2539df5724debcfc691f7d1defddeeaaa6938116df9c623f3ccb59843c944c59"
+  },
+  "fit_audit_json": "/home/huyudi/013_spatial/infra/r04/restart_cont_r3_fit8400_20260831/k3_fold0/cell.json",
+  "fit_converged": false,
+  "fit_objective_platform": {
+    "converged": false,
+    "criterion": "dense_full_panel_fixed_stateless_mc",
+    "objective_means": [
+      5307.040283203125,
+      5301.6986083984375,
+      5303.329345703125
+    ],
+    "observed_evaluations": 4,
+    "relative_improvement_threshold": 0.001,
+    "relative_improvements": [
+      0.0010065261463332008,
+      -0.000307587704458387
+    ],
+    "required_evaluations": 3,
+    "steps": [
+      7600,
+      8000,
+      8400
+    ]
+  },
+  "fold": 0,
+  "frozen_inference_provenance": {
+    "checkpoint_bundle_sha256": "e565689e34387a54b1f6036b0e78738fe4ea5a83512d7821202ed7f3c7bb18fd",
+    "identity": {
+      "fold": 0,
+      "k_model": 3,
+      "restart_index": 3
+    },
+    "practical_acceptance_sha256": "3f5c833a58fa86e9be3dc85166898cbd31fedff3d543b44bf6a1e94dc15829ae",
+    "protocol": {
+      "folds": 5,
+      "gene_folds": 2,
+      "group_seed": 20260807,
+      "inducing_points": 16,
+      "inference_steps": 2400,
+      "learning_rate": 0.01,
+      "lengthscale": 3.0,
+      "split_seed": 20260817
+    },
+    "source_sha256": "3ae53ba5ca9483dde7b79bcc8a5ae5f06f1759ee3d982537d029b0fdc663eb28",
+    "strict_audit_sha256": "92b63473d303eb34e35158e038335075e115d98bc73aac5ce700c30805b64e29"
+  },
+  "inference_authority": "PRACTICAL_POSTHOC_ACCEPTANCE",
+  "inference_platform": {
+    "converged": true,
+    "split_converged": [
+      true,
+      true
+    ],
+    "split_count": 2
+  },
+  "k_model": 3,
+  "legacy_minibatch_fit_gate": {
+    "block_means": [],
+    "converged": false,
+    "observed_steps": 0,
+    "relative_improvements": [],
+    "required_steps": 150
+  },
+  "optimization_seed": 743696281,
+  "practical_acceptance": "/home/huyudi/013_spatial/infra/r04/continuation_platform_audit_20260831_v2/practical_inference_acceptance.json",
+  "restart_index": 3,
+  "schema": "r04.resume_infer.v1",
+  "selected_k": null,
+  "source_checkpoint_dir": "/home/huyudi/013_spatial/infra/r04/restart_cont_r3_fit8400_20260831/k3_fold0/checkpoints/k3/fold0",
+  "status": "FROZEN_HELDOUT_DIAGNOSTIC_NOT_K_SELECTION",
+  "strict_audit_status": "STOPPED_OFF_PLATFORM",
+  "wiring_only": false
+}
