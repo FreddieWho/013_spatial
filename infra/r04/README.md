@@ -5,6 +5,23 @@ Candidate identity is a cross-run field equivalence class; it is never a spot
 cluster. A field output must contain a coordinate-aligned posterior mean, SD,
 length scale, loading and input hash.
 
+`K_model` is the number of latent spatial molecular-effect directions allowed by
+the representation, not the number of biological structures. `K_eff` is only
+assigned after held-out prediction, restart/subspace stability, repeatability
+and spatial-null evidence. Structures and latent directions can map many to
+many, so factor numbering, sign, rotation and a single factor label are not
+valid structure evidence; structure claims use rotation-robust effect
+representations and structure-specific readouts.
+
+Torch v3 checkpoints keep the resumable parameter state in `params` and may
+also keep a separate `best_state`; audits never mix the two. A
+`parameter_layout` is validated when present, and the objective input hash
+additionally covers an explicit `library_size` offset. Missing legacy v3
+objective hashes are reported as unverified rather than invented. The active
+execution modes are `auto` and `eager`; the historical false `compiled` frozen
+label is migrated to eager with provenance, while a new compiled request fails
+closed.
+
 The discovery process may read raw/filtered 10x counts, gene IDs and spatial
 coordinates only. GT, images, target-derived metadata, structure distances and
 outcomes belong exclusively to the post-freeze `anchor_eval` process.
@@ -12,9 +29,12 @@ outcomes belong exclusively to the post-freeze `anchor_eval` process.
 ## Current implementation status
 
 - `r04/` contains contracts, geometry, composition residualization, grouped
-  splits, local reference adapters, dual TensorFlow model adapters, candidate
+  splits, local reference adapters, single PyTorch model adapters, candidate
   matching and machine-readable gates. Role-pure manifests, conditional
-  common-panel inference and panel-cache loaders are included.
+  common-panel inference and panel-cache loaders are included. The active
+  compute backend is PyTorch (`environment.lock.json` `backend=torch`,
+  CPU/CUDA share one `torch.autograd`/`torch.optim` implementation); legacy
+  TensorFlow artifacts are sealed as historical evidence only.
 - `scripts/r04_prepare.py` builds the molecule-only input manifest.
 - `scripts/r04_smoke.py` runs the deterministic dual-model synthetic smoke.
 - `infra/r04/smoke/` is a reproducible pilot artifact, not a scientific result.
@@ -50,14 +70,22 @@ outcomes belong exclusively to the post-freeze `anchor_eval` process.
   The signed residual GP now uses the same per-spot gene-sum objective scale in
   fit and frozen inference; it remains a residual pilot rather than a complete
   signed NB posterior.
-- Formal real-data R-04 remains pending, but CPU time is no longer hard-blocked.
-  `resource_calibration_v5_summary.json` records a 20-step optimizer time of
-  92.80 seconds (4.64 seconds/step) and about 15.5 GiB peak RSS. Fixed loading,
-  construction and output cost was about 179.5 seconds, yielding a linear
-  planning estimate of 0.82 hours for one 600-step mNSF restart and 4.12 hours
-  for five. This excludes real-data K search, signed modelling and validation
-  and is not a runtime guarantee. GPU remains prohibited and is not currently
-  needed; the next gate is a K=0-upward grouped real-data search.
+- Formal real-data R-04 remains pending, but the K=0/K=3 extreme-fold
+  diagnostic and its five-seed frozen inference panel are complete. The
+  provenance-checked outputs are in `restart_stability_panel_20260901_frozen.json`,
+  `k_semantics_and_downstream_robustness_20260901.json` and the current linked
+  handoff `k_semantics_and_downstream_robustness_20260901_final.json`: fold 0 consistently
+  favors K=0, fold 4 consistently favors K=3, and the result is diagnostic only.
+  Ten K=3 training-role effect exports are now available with zero fit updates,
+  complete array/hash checks and validation GT sealed. The descriptive
+  shared-versus-specific readout is limited to two paired patients per extreme
+  fold, so downstream K robustness remains `not_tested` and factor naming stays
+  forbidden. A six-cell K=2 Stage-A manifest is frozen, but its first CPU fit
+  stopped before the first checkpoint; the stage is `BLOCKED_CPU_RUNTIME` with
+  no K=2 scientific result. Strict training audit remains
+  `STOPPED_OFF_PLATFORM`; GPU remains prohibited.
+  Legacy TensorFlow checkpoints, JSON/NPZ and audits are sealed and must not be
+  used as inputs to new Torch training; new science restarts from Torch.
   The current runtime storage guard is a 1.2 TB hard floor and a 1.4 TB soft
   warning line under D-057; historical 2 TB values remain dated records only.
 

@@ -1,0 +1,2475 @@
+{
+  "checkpoint_provenance": {
+    "0": {
+      "0": {
+        "bundle_sha256": "223d6e07fdc85519752882cf235499bae11c88ff828eb8225e82466659c317d8",
+        "directory": "infra/r04/dual_gate_infer_k3_fold0_2400_20260821/checkpoints/k3/fold0",
+        "files": [
+          {
+            "path": "infra/r04/dual_gate_infer_k3_fold0_2400_20260821/checkpoints/k3/fold0/checkpoint",
+            "sha256": "d8961b020bb2b6b7dd75b1fb676148225e477aeb095660186e795c570408006f"
+          },
+          {
+            "path": "infra/r04/dual_gate_infer_k3_fold0_2400_20260821/checkpoints/k3/fold0/checkpoint_metadata.json",
+            "sha256": "fc58e7ed099ed5c8a3ebf1b78d52e68c939766de01cc708b5d4d60080c532558"
+          },
+          {
+            "path": "infra/r04/dual_gate_infer_k3_fold0_2400_20260821/checkpoints/k3/fold0/ckpt-7200.data-00000-of-00001",
+            "sha256": "b1b9eee61b4b56791b15a86beff013b2815b1c805ef4d71cac39bb80677ab97f"
+          },
+          {
+            "path": "infra/r04/dual_gate_infer_k3_fold0_2400_20260821/checkpoints/k3/fold0/ckpt-7200.index",
+            "sha256": "c4d4604cd10b4adab629529cb9ad15ea388c44498ce978535a13e99a6f0adf11"
+          }
+        ]
+      },
+      "1": {
+        "bundle_sha256": "f1ac7fc0f6b09d1c20cd5cd9128ec003f3bdc895b5d3428db516ebd13b30c181",
+        "directory": "infra/r04/restart_diag_fold0_r1_20260825/checkpoints/k3/fold0",
+        "files": [
+          {
+            "path": "infra/r04/restart_diag_fold0_r1_20260825/checkpoints/k3/fold0/checkpoint",
+            "sha256": "891f5a0c6681adff032f91e781a1162bf3d385a6653c774c062216a768cc96eb"
+          },
+          {
+            "path": "infra/r04/restart_diag_fold0_r1_20260825/checkpoints/k3/fold0/checkpoint_metadata.json",
+            "sha256": "7761a3b4e8d001eba540c7f910301ebf4a7780a15035c3b8d9f3220f70443d91"
+          },
+          {
+            "path": "infra/r04/restart_diag_fold0_r1_20260825/checkpoints/k3/fold0/ckpt-6600.data-00000-of-00001",
+            "sha256": "bdd790bee30a618c06cd585ba45292900aceeecb860015a3f8defe768ab5ce2a"
+          },
+          {
+            "path": "infra/r04/restart_diag_fold0_r1_20260825/checkpoints/k3/fold0/ckpt-6600.index",
+            "sha256": "6018d1a95d706f32a7fd2c4271e09b10876a86f9fde407be9441ff8413067367"
+          },
+          {
+            "path": "infra/r04/restart_diag_fold0_r1_20260825/checkpoints/k3/fold0/ckpt-7200.data-00000-of-00001",
+            "sha256": "f072f6da20ceccd9018cecedf6eb3d9ebbb151e0175db636d998c59f4cf670eb"
+          },
+          {
+            "path": "infra/r04/restart_diag_fold0_r1_20260825/checkpoints/k3/fold0/ckpt-7200.index",
+            "sha256": "0e5265692fe268528886ecddd1fd7a513783d0dd8119bda4ab44823c5b456d15"
+          }
+        ]
+      },
+      "2": {
+        "bundle_sha256": "6f22a3d7d9b15614d86e2c75466316ad3f420259159a3727a7f4a248906e29a1",
+        "directory": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold0/checkpoints/k3/fold0",
+        "files": [
+          {
+            "path": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/checkpoint",
+            "sha256": "927c0754a185d996bc8ce9e1dce99703544476dff0dbdfebe26439e31e203c19"
+          },
+          {
+            "path": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/checkpoint_metadata.json",
+            "sha256": "ed8237fb54c33ae2d9b629b9fb442677284287f79a21d2a34966b68672102e3b"
+          },
+          {
+            "path": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-7800.data-00000-of-00001",
+            "sha256": "5bf9bfd15bb670bac21418cbbee2d9d5cb5b9ab829ba53051d116d5b67676bde"
+          },
+          {
+            "path": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-7800.index",
+            "sha256": "76b6569ebf9ba7af0b35c1510e2b838f34f841ffed3af25f869775993d167595"
+          },
+          {
+            "path": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-8400.data-00000-of-00001",
+            "sha256": "826b9b661fb2e37eb93072064f6c5da3a48da7495c8804363c66066619602fdb"
+          },
+          {
+            "path": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-8400.index",
+            "sha256": "013c8f42a21bdf053069fa4ff53c8c5410d10c2f84c1625246ea3324d8b48286"
+          }
+        ]
+      },
+      "3": {
+        "bundle_sha256": "c977b8710e36a99d9f1e17e9b67e9af380e96dcf53677c3d591e1f4e57529990",
+        "directory": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold0/checkpoints/k3/fold0",
+        "files": [
+          {
+            "path": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/checkpoint",
+            "sha256": "d9e15bc194a5b467384eff80dc454b594270eee1c28f18111b01d02d891d3603"
+          },
+          {
+            "path": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/checkpoint_metadata.json",
+            "sha256": "ae5926fdf96c332420d80496db17546ef379bfa041c68ad34f48e2390bacadb2"
+          },
+          {
+            "path": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-7800.data-00000-of-00001",
+            "sha256": "4bd29b7e3989dad283935baa9d81ff9300f5289e8ee86ecbc755d47912a2ae63"
+          },
+          {
+            "path": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-7800.index",
+            "sha256": "ca2b39b03e5bfb6216e97137fb3c13e765ba4502936ff61916104ce99ebec8b2"
+          },
+          {
+            "path": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-8400.data-00000-of-00001",
+            "sha256": "57572df5f664be7da7cc963bad2862f8606d9fc5ba5ff4664c8eee790da573c8"
+          },
+          {
+            "path": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-8400.index",
+            "sha256": "30de8c7f97f4668bb8e4b680ab1e087d73348c4255aca988956d61b8bccf3b3b"
+          }
+        ]
+      },
+      "4": {
+        "bundle_sha256": "d7821ba157eac60f535f277dea352bc2f24d1a7ec974fce8a0c5a1629a6556f9",
+        "directory": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold0/checkpoints/k3/fold0",
+        "files": [
+          {
+            "path": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/checkpoint",
+            "sha256": "1297beac22a32a1c374f8709da4fca4aa78955ca0b9459fe11b9f95662e5ffb8"
+          },
+          {
+            "path": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/checkpoint_metadata.json",
+            "sha256": "18bf79fb1c3b4b30530e24d8cfff8be856d134147f6a9193f48abd2fb82c3498"
+          },
+          {
+            "path": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-7800.data-00000-of-00001",
+            "sha256": "f4ddcf007404bcdcbf87a7fec4c9e881eefcdd2993c5ba04ef836b916e5473c1"
+          },
+          {
+            "path": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-7800.index",
+            "sha256": "398e0c4aa3d9c6bc4c7672cd2d375fafddab7d3ffcb1964407b209de5a8c62d7"
+          },
+          {
+            "path": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-8400.data-00000-of-00001",
+            "sha256": "67399bdd7bca4561b52e4da9771deaf27f272b983ed4498c02d2625503afb78b"
+          },
+          {
+            "path": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-8400.index",
+            "sha256": "940c8e5870fa460643f8dc24b6880a13205a151d06a1a5e7678a3f7fac03d29f"
+          }
+        ]
+      }
+    },
+    "4": {
+      "0": {
+        "bundle_sha256": "e1c0fc98fe9506f118b8f96a69e0633c2a8218a66ac35c9ee0daa539a9fbdaa7",
+        "directory": "infra/r04/dual_gate_infer_k3_fold4_2400_20260823/checkpoints/k3/fold4",
+        "files": [
+          {
+            "path": "infra/r04/dual_gate_infer_k3_fold4_2400_20260823/checkpoints/k3/fold4/checkpoint",
+            "sha256": "58feff2b8fa037ba81cb559d61f1c4a9dbdea5a5a6f97f910223c6df5dce3059"
+          },
+          {
+            "path": "infra/r04/dual_gate_infer_k3_fold4_2400_20260823/checkpoints/k3/fold4/checkpoint_metadata.json",
+            "sha256": "8dec4e4279381fd05b512da82b8d25ac9d5012b75b9f94b5decffa7bfadc900c"
+          },
+          {
+            "path": "infra/r04/dual_gate_infer_k3_fold4_2400_20260823/checkpoints/k3/fold4/ckpt-7200.data-00000-of-00001",
+            "sha256": "ce4d1962c44e007b0160d05c055bdf5486d645e6564d96dde834199c8c9acc62"
+          },
+          {
+            "path": "infra/r04/dual_gate_infer_k3_fold4_2400_20260823/checkpoints/k3/fold4/ckpt-7200.index",
+            "sha256": "9fbfbdf8a35e821e72244582be5ee5c6a8b8a1a6351101ff2f642529d7338e06"
+          }
+        ]
+      },
+      "1": {
+        "bundle_sha256": "3368b9eebdfec23cf4f6a6241b0c8d39a9d03052e5f4bc7dd6e771aad94711d2",
+        "directory": "infra/r04/restart_diag_fold4_r1_20260825/checkpoints/k3/fold4",
+        "files": [
+          {
+            "path": "infra/r04/restart_diag_fold4_r1_20260825/checkpoints/k3/fold4/checkpoint",
+            "sha256": "6c86fe0f31e3f4951d900a7aa17360355d5157b37b83709ca11105d28c69efe5"
+          },
+          {
+            "path": "infra/r04/restart_diag_fold4_r1_20260825/checkpoints/k3/fold4/checkpoint_metadata.json",
+            "sha256": "b7829a23aeec147875a108ce315d367fbcf1fa38bea7e2cb5fff595d629e9dd5"
+          },
+          {
+            "path": "infra/r04/restart_diag_fold4_r1_20260825/checkpoints/k3/fold4/ckpt-6600.data-00000-of-00001",
+            "sha256": "7aa63bb8e36307dd2c3e63ad0533399156206c254aef320c15a4b4875813d7de"
+          },
+          {
+            "path": "infra/r04/restart_diag_fold4_r1_20260825/checkpoints/k3/fold4/ckpt-6600.index",
+            "sha256": "95599b93d707eb24e58b73bcdfeb80830433142baef294fa77af549049b2b109"
+          },
+          {
+            "path": "infra/r04/restart_diag_fold4_r1_20260825/checkpoints/k3/fold4/ckpt-7200.data-00000-of-00001",
+            "sha256": "d7aacba63a21fcfe8c697db01d48bd7446483f8921d9715c7a77dfd79aa111e4"
+          },
+          {
+            "path": "infra/r04/restart_diag_fold4_r1_20260825/checkpoints/k3/fold4/ckpt-7200.index",
+            "sha256": "2dceb5227c89f54dde2323a1d10e3a2c0fe2d02732845032d224b6176b1ff7a5"
+          }
+        ]
+      },
+      "2": {
+        "bundle_sha256": "5c530ebdd92c3f02a0576bebce9f78794ed35bd3c56faf59eb6e9618b2c616b6",
+        "directory": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold4/checkpoints/k3/fold4",
+        "files": [
+          {
+            "path": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/checkpoint",
+            "sha256": "bfba80c7821d0d1ae293b9ef10630a4dd95bd6b5a5d380d9bf06b7ea5dc55f67"
+          },
+          {
+            "path": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/checkpoint_metadata.json",
+            "sha256": "b665d3fe3819f3a5b9f4b11a25dd2404362a53e0843789151b64cde3de536434"
+          },
+          {
+            "path": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-7800.data-00000-of-00001",
+            "sha256": "8f1b292fa2cba49d55c33570d9428fdd772e20fd7f4343f769ef1655e579a4c2"
+          },
+          {
+            "path": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-7800.index",
+            "sha256": "01a75f2293427649663a795c7c7dbc477c798c0f9dbe2f592f1197f508a426c9"
+          },
+          {
+            "path": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-8400.data-00000-of-00001",
+            "sha256": "0ed920804da8bcc011783955b42607dfe28e39f83c70a900291e4de16aee96bb"
+          },
+          {
+            "path": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-8400.index",
+            "sha256": "4e29b314eabc1f8e3758ec70f355cbf098596ce2da0d5e4b42d2e7fda0e182cd"
+          }
+        ]
+      },
+      "3": {
+        "bundle_sha256": "a92e465085d11b9525e135d0cc3e745959ed5c052fe8d8ea19aff82ac9995555",
+        "directory": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold4/checkpoints/k3/fold4",
+        "files": [
+          {
+            "path": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/checkpoint",
+            "sha256": "03255ad6ed835e410d7f9dc932daa7a065083994f35a63a7a985630a5baa82cc"
+          },
+          {
+            "path": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/checkpoint_metadata.json",
+            "sha256": "a71d24ce8ff5e9fa904a4cf24ad5cbbeff25bec1d743313274cc29c6a33efb58"
+          },
+          {
+            "path": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-7800.data-00000-of-00001",
+            "sha256": "effe6cb3ef301acd51a1e6c63a8886e76e9cf516124a03cfc268220ec5e40d15"
+          },
+          {
+            "path": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-7800.index",
+            "sha256": "2303c3d8a14312cff34a1d22787bda899bcba9929d854657567b719af9e94c0e"
+          },
+          {
+            "path": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-8400.data-00000-of-00001",
+            "sha256": "76b0609524e82af8ccf1d8054b268b3ea09be6a8476274fca97ef1d44f6838f1"
+          },
+          {
+            "path": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-8400.index",
+            "sha256": "23114f2c4085511f47e6acca8295301f45fa4c8633fd45daa56a853a9c72103b"
+          }
+        ]
+      },
+      "4": {
+        "bundle_sha256": "d0282017f4adca3b9a68539f5559ec1e292edbc09b48523222579a1340c38c75",
+        "directory": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold4/checkpoints/k3/fold4",
+        "files": [
+          {
+            "path": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/checkpoint",
+            "sha256": "46c1ce27182d4324eb713b4e6ffec59954d04562416354fda27de781fccd8ff1"
+          },
+          {
+            "path": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/checkpoint_metadata.json",
+            "sha256": "e01f3237e62c494cc9b8b0165363d4f2c36abdbeb26909eabb3ea70f9734f2dd"
+          },
+          {
+            "path": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-7800.data-00000-of-00001",
+            "sha256": "f49cfbe011041d380c90ca79ac4e62fcddc278c5084a35746c2077f3ea5f99c2"
+          },
+          {
+            "path": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-7800.index",
+            "sha256": "c2cf72f51971b18e7429ab8a5bcc856a539bc10b7c73a464385135a6e551ed75"
+          },
+          {
+            "path": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-8400.data-00000-of-00001",
+            "sha256": "57eced00cc4d70d06e7512c872cdccef2106c2564f94b08a710184996be699f3"
+          },
+          {
+            "path": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-8400.index",
+            "sha256": "58f6c9da435d6198c1c289538adaf3280e5e2de0a39fb210834764ecb0f692b6"
+          }
+        ]
+      }
+    }
+  },
+  "created_at": "2026-09-01",
+  "diagnostic_only": true,
+  "gates": {
+    "all_dense_objective_platform": false,
+    "all_inference_platform": true,
+    "direction_preserved_at_both_extreme_folds": true,
+    "five_seed_panel_complete": true,
+    "formal_k_selection_authorized": false,
+    "k3_collapse_warning_absent": true,
+    "spatial_null_authorized_by_this_artifact": false,
+    "subspace_similarity_threshold": "NOT_PREREGISTERED_DIAGNOSTIC_ONLY"
+  },
+  "input_provenance": [
+    {
+      "path": "infra/r04/dual_gate_infer_k0_fold0_2400_20260822/cell.json",
+      "sha256": "0bf0c2f903ddba185b4b26fa80fe99adc6f85449182c9de44e92667bd576df36"
+    },
+    {
+      "path": "infra/r04/dual_gate_infer_k3_fold0_2400_20260821/cell.json",
+      "sha256": "7eb7657ccb5677357e7a1caca2cb85079b4925a257d1dac34c886520f3a06deb"
+    },
+    {
+      "path": "infra/r04/dual_gate_infer_k0_fold4_2400_20260823/cell.json",
+      "sha256": "c4f4cd98680b6f1c394a8b4adcac5311f1dc92936168f5f1e7a9c846fcc5a4c0"
+    },
+    {
+      "path": "infra/r04/dual_gate_infer_k3_fold4_2400_20260823/cell.json",
+      "sha256": "44f677f7918e8ea65f47f064c6c014300ac35b91cdfab76f8f6fa6426937512f"
+    },
+    {
+      "path": "infra/r04/restart_diag_fold0_r1_20260825/cells/k0/fold0/cell.json",
+      "sha256": "2b044ec7acfbd7a8ad6c34791af3db6933791df23334a7cd13da33c068d0ddfa"
+    },
+    {
+      "path": "infra/r04/restart_diag_fold0_r1_20260825/cells/k3/fold0/cell.json",
+      "sha256": "ec8c793b26d6403b1f0dd8a2b04fd0e29e56ff5db8e913895c1f07e9b2ef97e2"
+    },
+    {
+      "path": "infra/r04/restart_diag_fold4_r1_20260825/cells/k0/fold4/cell.json",
+      "sha256": "d8d9fbdb403329f25b4ab0278e76b48947e8972c9ff18af42d5d9b7bbdcf2c71"
+    },
+    {
+      "path": "infra/r04/restart_diag_fold4_r1_20260825/cells/k3/fold4/cell.json",
+      "sha256": "2a317718ce324bd74666a8efae58a08da3bdb3f28ebd9b1646d1cd7e0989ec1f"
+    },
+    {
+      "path": "remote_outputs/restart_cont_r2_frozen_infer2400_20260831_v3/k0_fold0/cell.json",
+      "sha256": "30252de6758e48e5d55f7661cf8f775114b886f4d0c446d9ef16d7b349907104"
+    },
+    {
+      "path": "remote_outputs/restart_cont_r2_frozen_infer2400_20260831_v3/k3_fold0/cell.json",
+      "sha256": "b132cdc5be80a64faed6432cb1bd3562fcec956f991682c77531a00f99bd4d60"
+    },
+    {
+      "path": "remote_outputs/restart_cont_r2_frozen_infer2400_20260831_v3/k0_fold4/cell.json",
+      "sha256": "4c21aa7b2419da075a5432b0be609f23f87a70e5ee0917e9f68171b4a13134c4"
+    },
+    {
+      "path": "remote_outputs/restart_cont_r2_frozen_infer2400_20260831_v3/k3_fold4/cell.json",
+      "sha256": "8d49949ac33926089cbc6d3d00b4e9831a876c855e502dfa6c9eadeab1a53d94"
+    },
+    {
+      "path": "remote_outputs/restart_cont_r3_frozen_infer2400_20260831_v3/k0_fold0/cell.json",
+      "sha256": "13d1b0df55479a81b516a51afd336c282a7e6e8928bc0e37e5cd381fe29981ea"
+    },
+    {
+      "path": "remote_outputs/restart_cont_r3_frozen_infer2400_20260831_v3/k3_fold0/cell.json",
+      "sha256": "0d6530039adfaf3182a6c484bd8e7967175568a014e539cc9d45127340526d67"
+    },
+    {
+      "path": "remote_outputs/restart_cont_r3_frozen_infer2400_20260831_v3/k0_fold4/cell.json",
+      "sha256": "afab96df7b6246bf359fc22e1d09951c9cfd564b14c3248d68241ec997ed7d31"
+    },
+    {
+      "path": "remote_outputs/restart_cont_r3_frozen_infer2400_20260831_v3/k3_fold4/cell.json",
+      "sha256": "8b81dd422a71f87ba49e3b3948cb115c6da6e266bf6d7c571f45a1b85905ef66"
+    },
+    {
+      "path": "remote_outputs/restart_cont_r4_frozen_infer2400_20260831_v3/k0_fold0/cell.json",
+      "sha256": "f2867722fb5c0e85010aeed2cb385050edf26917b7eec201232cdf89625405b0"
+    },
+    {
+      "path": "remote_outputs/restart_cont_r4_frozen_infer2400_20260831_v3/k3_fold0/cell.json",
+      "sha256": "48a6543be6747f4493b55b48c180c34d4d154748dc0ea3e7ffa942e902e20d2b"
+    },
+    {
+      "path": "remote_outputs/restart_cont_r4_frozen_infer2400_20260831_v3/k0_fold4/cell.json",
+      "sha256": "fac05c11109deece098d42bb1ce20cb25ac1c05fd9fee8d969673f5c954258ac"
+    },
+    {
+      "path": "remote_outputs/restart_cont_r4_frozen_infer2400_20260831_v3/k3_fold4/cell.json",
+      "sha256": "7cf814a036322aa4f0b50d831bccdb569ae78d9601acda5530283e7dbe01af8a"
+    }
+  ],
+  "interpretation_policy": {
+    "magnitude": "optimization-seed spread is descriptive and is not an independent-patient confidence interval",
+    "restart_randomness": "optimization seed jointly changes initialization, gene-minibatch order, and variational draws; this is not a pure initialization experiment",
+    "score_direction": "paired patient K3-minus-K0 mean within each fold and restart",
+    "subspace": "canonical correlations compare continuous spans and ignore factor numbering, sign, and rotations",
+    "wiring_only_sources": "restart indices 2-4 retain WIRING_ONLY_NOT_SCIENTIFIC provenance"
+  },
+  "platform_rule_reaudit": {
+    "path": "infra/r04/platform_rule_reaudit_20260822.json",
+    "rule": "absolute_signed_relative_improvement",
+    "sha256": "8263f844dc3e44b90c6df69fe98baa7e603ed6b2161dd729d60d6daac07254f4",
+    "threshold": 0.001
+  },
+  "purpose": "Assess combined optimization-randomness sensitivity at the negative and strongest-positive folds before spatial null or formal K expansion.",
+  "schema": "r04.restart_stability_panel.v1",
+  "score_summary": {
+    "cell_count": 20,
+    "cell_status_counts": {
+      "FIT_AND_SCORED": 4,
+      "FIT_AND_SCORED_DUAL_GATE_DIAGNOSTIC": 4,
+      "FROZEN_FIT_AND_HELDOUT_SCORED_POSTHOC_ACCEPTANCE": 12
+    },
+    "fold_values": [
+      0,
+      4
+    ],
+    "folds": {
+      "0": {
+        "direction_by_restart": [
+          "K0_BETTER",
+          "K0_BETTER",
+          "K0_BETTER",
+          "K0_BETTER",
+          "K0_BETTER"
+        ],
+        "direction_preserved_across_restarts": true,
+        "maximum_mean_delta": -16.022554084064495,
+        "mean_delta_across_restarts": -30.166084561037888,
+        "mean_delta_by_restart": [
+          -28.03811175761325,
+          -33.35895537242277,
+          -40.60267980305131,
+          -16.022554084064495,
+          -32.808121788037624
+        ],
+        "median_delta_across_restarts": -32.808121788037624,
+        "minimum_mean_delta": -40.60267980305131,
+        "patient_stability": {
+          "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51": {
+            "delta_by_restart": [
+              21.71732572881956,
+              12.24201387386347,
+              14.034043672086682,
+              20.752385272794527,
+              20.68304323217353
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 1.0,
+            "mean_delta_k3_minus_k0": 17.885762355947556,
+            "median_delta_k3_minus_k0": 20.68304323217353
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a": {
+            "delta_by_restart": [
+              -6.566569571493346,
+              -8.75266903921056,
+              -9.905853849671075,
+              -1.0177816899117715,
+              -7.815579651304688
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 0.0,
+            "mean_delta_k3_minus_k0": -6.811690760318288,
+            "median_delta_k3_minus_k0": -7.815579651304688
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48": {
+            "delta_by_restart": [
+              -52.33513929147648,
+              -52.221964610090254,
+              -61.404348564978136,
+              -49.635442123849316,
+              -48.882779963327266
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 0.0,
+            "mean_delta_k3_minus_k0": -52.89593491074429,
+            "median_delta_k3_minus_k0": -52.221964610090254
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464": {
+            "delta_by_restart": [
+              -100.08601052638551,
+              -105.12168206513707,
+              -122.19653150027716,
+              -49.15543400991646,
+              -116.18121462710405
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 0.0,
+            "mean_delta_k3_minus_k0": -98.54817454576406,
+            "median_delta_k3_minus_k0": -105.12168206513707
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b": {
+            "delta_by_restart": [
+              -32.713520144800896,
+              -46.859851380113014,
+              -53.34233978633574,
+              -28.761560211873984,
+              -44.215863541332965
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 0.0,
+            "mean_delta_k3_minus_k0": -41.17862701289132,
+            "median_delta_k3_minus_k0": -44.215863541332965
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33": {
+            "delta_by_restart": [
+              1.7552432596571634,
+              0.5604209861508025,
+              -10.801048789132437,
+              11.682508258370035,
+              -0.43633617733030405
+            ],
+            "direction_preserved_across_restarts": false,
+            "k3_better_restart_fraction": 0.6,
+            "mean_delta_k3_minus_k0": 0.5521575075430519,
+            "median_delta_k3_minus_k0": 0.5604209861508025
+          }
+        },
+        "seed_sd_of_mean_delta": 9.092098596829189
+      },
+      "4": {
+        "direction_by_restart": [
+          "K3_BETTER",
+          "K3_BETTER",
+          "K3_BETTER",
+          "K3_BETTER",
+          "K3_BETTER"
+        ],
+        "direction_preserved_across_restarts": true,
+        "maximum_mean_delta": 59.361846213650814,
+        "mean_delta_across_restarts": 20.054509773830283,
+        "mean_delta_by_restart": [
+          59.361846213650814,
+          6.7203279793684105,
+          17.78486623999417,
+          2.0641815942667185,
+          14.341326841871288
+        ],
+        "median_delta_across_restarts": 14.341326841871288,
+        "minimum_mean_delta": 2.0641815942667185,
+        "patient_stability": {
+          "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de": {
+            "delta_by_restart": [
+              -14.582096905385697,
+              -32.61648469511874,
+              -26.759571695915838,
+              -32.5480773043455,
+              -34.71259990933049
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 0.0,
+            "mean_delta_k3_minus_k0": -28.243766102019254,
+            "median_delta_k3_minus_k0": -32.5480773043455
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e": {
+            "delta_by_restart": [
+              161.06111580048355,
+              36.92366706262146,
+              59.509917746404426,
+              14.43146960149079,
+              64.49731229556664
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 1.0,
+            "mean_delta_k3_minus_k0": 67.28469650131338,
+            "median_delta_k3_minus_k0": 59.509917746404426
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf": {
+            "delta_by_restart": [
+              48.90049824913808,
+              45.673637569276025,
+              48.802803892541306,
+              43.67801498087806,
+              49.37019548239164
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 1.0,
+            "mean_delta_k3_minus_k0": 47.28503003484502,
+            "median_delta_k3_minus_k0": 48.802803892541306
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63": {
+            "delta_by_restart": [
+              90.89744570781068,
+              33.07084441475945,
+              41.653432630883344,
+              31.307300360267618,
+              40.307523960656454
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 1.0,
+            "mean_delta_k3_minus_k0": 47.447309414875505,
+            "median_delta_k3_minus_k0": 40.307523960656454
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6": {
+            "delta_by_restart": [
+              18.777332393708548,
+              4.37374626691053,
+              3.0148975216816325,
+              4.402687511346812,
+              2.711966953478168
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 1.0,
+            "mean_delta_k3_minus_k0": 6.656126129425138,
+            "median_delta_k3_minus_k0": 4.37374626691053
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13": {
+            "delta_by_restart": [
+              51.11678203614974,
+              -47.10344274223826,
+              -19.51228265562986,
+              -48.88630558403747,
+              -36.12643773153468
+            ],
+            "direction_preserved_across_restarts": false,
+            "k3_better_restart_fraction": 0.2,
+            "mean_delta_k3_minus_k0": -20.102337335458106,
+            "median_delta_k3_minus_k0": -36.12643773153468
+          }
+        },
+        "seed_sd_of_mean_delta": 22.827126139278416
+      }
+    },
+    "inference_authority_counts": {
+      "None": 8,
+      "PRACTICAL_POSTHOC_ACCEPTANCE": 12
+    },
+    "input_hash_by_fold": {
+      "0": "044d28c564759a4175f7fda5a22974917eebde7c8e2aa2eed84080b75af25947",
+      "4": "0595b0ae27160969e7d606cf7c185254f3c7954d47d9c942c76c92ee83c2d52e"
+    },
+    "k3_collapse_warning_cells": 0,
+    "k3_factor_diagnostics": {
+      "by_fold": {
+        "0": {
+          "effective_rank_participation_summary": {
+            "maximum": 1.8281487571457307,
+            "mean": 1.5774310091763708,
+            "median": 1.4681908955745169,
+            "minimum": 1.381058537415662
+          },
+          "factor_energy_mean": [
+            0.44685604818177255,
+            0.4131023231663171,
+            0.14004162865191036
+          ],
+          "factor_energy_median": [
+            0.5964362228783388,
+            0.2186973344268577,
+            0.1449100557815873
+          ],
+          "records": [
+            {
+              "effective_rank_entropy": 1.7242747706364356,
+              "effective_rank_participation": 1.428713478276491,
+              "factor_energy": [
+                0.12770048291472835,
+                0.794016696872662,
+                0.07828282021260963
+              ],
+              "restart_index": 0
+            },
+            {
+              "effective_rank_entropy": 1.6694418045823447,
+              "effective_rank_participation": 1.381058537415662,
+              "factor_energy": [
+                0.8233866800679297,
+                0.07513918672695183,
+                0.10147413320511849
+              ],
+              "restart_index": 1
+            },
+            {
+              "effective_rank_entropy": 2.080763225538312,
+              "effective_rank_participation": 1.7810433774694536,
+              "factor_energy": [
+                0.6067524354419963,
+                0.2025728731925709,
+                0.19067469136543283
+              ],
+              "restart_index": 2
+            },
+            {
+              "effective_rank_entropy": 1.7849799248033928,
+              "effective_rank_participation": 1.4681908955745169,
+              "factor_energy": [
+                0.08000441960586961,
+                0.7750855246125431,
+                0.1449100557815873
+              ],
+              "restart_index": 3
+            },
+            {
+              "effective_rank_entropy": 2.117892133442518,
+              "effective_rank_participation": 1.8281487571457307,
+              "factor_energy": [
+                0.5964362228783388,
+                0.2186973344268577,
+                0.18486644269480357
+              ],
+              "restart_index": 4
+            }
+          ]
+        },
+        "4": {
+          "effective_rank_participation_summary": {
+            "maximum": 1.8672093838623118,
+            "mean": 1.7125092673190256,
+            "median": 1.7705384103038702,
+            "minimum": 1.403538015675228
+          },
+          "factor_energy_mean": [
+            0.32588217032482547,
+            0.35604174620962764,
+            0.31807608346554683
+          ],
+          "factor_energy_median": [
+            0.28929565930106754,
+            0.34095748796633996,
+            0.2666503146913096
+          ],
+          "records": [
+            {
+              "effective_rank_entropy": 2.2356237420092375,
+              "effective_rank_participation": 1.8672093838623118,
+              "factor_energy": [
+                0.3200400346410037,
+                0.24559043430849586,
+                0.4343695310505005
+              ],
+              "restart_index": 0
+            },
+            {
+              "effective_rank_entropy": 1.992925246388196,
+              "effective_rank_participation": 1.7705384103038702,
+              "factor_energy": [
+                0.46700809005254135,
+                0.2675718259072482,
+                0.26542008404021034
+              ],
+              "restart_index": 1
+            },
+            {
+              "effective_rank_entropy": 2.021561031036291,
+              "effective_rank_participation": 1.7272101208987511,
+              "factor_energy": [
+                0.2844257697873397,
+                0.4613805953995391,
+                0.2541936348131212
+              ],
+              "restart_index": 2
+            },
+            {
+              "effective_rank_entropy": 2.019865943760973,
+              "effective_rank_participation": 1.7940504058549682,
+              "factor_energy": [
+                0.26864129784217516,
+                0.4647083874665151,
+                0.2666503146913096
+              ],
+              "restart_index": 3
+            },
+            {
+              "effective_rank_entropy": 1.6732202800132727,
+              "effective_rank_participation": 1.403538015675228,
+              "factor_energy": [
+                0.28929565930106754,
+                0.34095748796633996,
+                0.3697468527325925
+              ],
+              "restart_index": 4
+            }
+          ]
+        }
+      },
+      "status": "DESCRIPTIVE_ONLY_NOT_K_EFF_SELECTION"
+    },
+    "k_values": [
+      0,
+      3
+    ],
+    "pairs": [
+      {
+        "direction": "K0_BETTER",
+        "fold": 0,
+        "k0_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5422.765625,
+            5422.78076171875,
+            5422.6904296875
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7201,
+            7500,
+            7800
+          ],
+          "dense_relative_improvements": [
+            -2.7913282256228806e-06,
+            1.6657880010138795e-05
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "k3_better_patients": 2,
+        "k3_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5303.0333251953125,
+            5301.4522705078125,
+            5300.021728515625
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            6600,
+            6900,
+            7200
+          ],
+          "dense_relative_improvements": [
+            0.000298141571162344,
+            0.0002698396437794341
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "mean_delta_k3_minus_k0": -28.03811175761325,
+        "mean_k0": -3386.8333005920017,
+        "mean_k3": -3414.871412349615,
+        "median_delta_k3_minus_k0": -19.64004485814712,
+        "patient_delta_k3_minus_k0": {
+          "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51": 21.71732572881956,
+          "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a": -6.566569571493346,
+          "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48": -52.33513929147648,
+          "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464": -100.08601052638551,
+          "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b": -32.713520144800896,
+          "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33": 1.7552432596571634
+        },
+        "patients": 6,
+        "restart_index": 0
+      },
+      {
+        "direction": "K3_BETTER",
+        "fold": 4,
+        "k0_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5625.51123046875,
+            5625.08349609375,
+            5624.8642578125
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            6600,
+            6900,
+            7200
+          ],
+          "dense_relative_improvements": [
+            7.603475621616682e-05,
+            3.897511590756769e-05
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "k3_better_patients": 5,
+        "k3_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5506.716064453125,
+            5502.7681884765625,
+            5499.8643798828125
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            6600,
+            6900,
+            7200
+          ],
+          "dense_relative_improvements": [
+            0.0007169201989633663,
+            0.0005276996039613141
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "mean_delta_k3_minus_k0": 59.361846213650814,
+        "mean_k0": -2812.2796184624535,
+        "mean_k3": -2752.9177722488034,
+        "median_delta_k3_minus_k0": 50.00864014264391,
+        "patient_delta_k3_minus_k0": {
+          "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de": -14.582096905385697,
+          "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e": 161.06111580048355,
+          "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf": 48.90049824913808,
+          "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63": 90.89744570781068,
+          "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6": 18.777332393708548,
+          "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13": 51.11678203614974
+        },
+        "patients": 6,
+        "restart_index": 0
+      },
+      {
+        "direction": "K0_BETTER",
+        "fold": 0,
+        "k0_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5422.77197265625,
+            5422.87841796875,
+            5422.68017578125
+          ],
+          "dense_objective_source": "embedded_deterministic_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            6600,
+            6900,
+            7200
+          ],
+          "dense_relative_improvements": [
+            -1.9629317448113096e-05,
+            3.65566350968008e-05
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "k3_better_patients": 2,
+        "k3_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5305.7596435546875,
+            5304.3865966796875,
+            5303.3433837890625
+          ],
+          "dense_objective_source": "embedded_deterministic_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            6600,
+            6900,
+            7200
+          ],
+          "dense_relative_improvements": [
+            0.0002587842207793836,
+            0.0001966698451575919
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "mean_delta_k3_minus_k0": -33.35895537242277,
+        "mean_k0": -3387.0602697992254,
+        "mean_k3": -3420.419225171648,
+        "median_delta_k3_minus_k0": -27.806260209661787,
+        "patient_delta_k3_minus_k0": {
+          "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51": 12.24201387386347,
+          "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a": -8.75266903921056,
+          "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48": -52.221964610090254,
+          "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464": -105.12168206513707,
+          "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b": -46.859851380113014,
+          "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33": 0.5604209861508025
+        },
+        "patients": 6,
+        "restart_index": 1
+      },
+      {
+        "direction": "K3_BETTER",
+        "fold": 4,
+        "k0_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5624.8134765625,
+            5624.66357421875,
+            5624.67529296875
+          ],
+          "dense_objective_source": "embedded_deterministic_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            6600,
+            6900,
+            7200
+          ],
+          "dense_relative_improvements": [
+            2.6650189268428865e-05,
+            -2.0834579429273157e-06
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "k3_better_patients": 4,
+        "k3_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5501.17822265625,
+            5500.1063232421875,
+            5499.072509765625
+          ],
+          "dense_objective_source": "embedded_deterministic_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            6600,
+            6900,
+            7200
+          ],
+          "dense_relative_improvements": [
+            0.0001948490615424803,
+            0.0001879624530518331
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "mean_delta_k3_minus_k0": 6.7203279793684105,
+        "mean_k0": -2767.1779824248115,
+        "mean_k3": -2760.457654445443,
+        "median_delta_k3_minus_k0": 18.72229534083499,
+        "patient_delta_k3_minus_k0": {
+          "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de": -32.61648469511874,
+          "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e": 36.92366706262146,
+          "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf": 45.673637569276025,
+          "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63": 33.07084441475945,
+          "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6": 4.37374626691053,
+          "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13": -47.10344274223826
+        },
+        "patients": 6,
+        "restart_index": 1
+      },
+      {
+        "direction": "K0_BETTER",
+        "fold": 0,
+        "k0_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5423.03076171875,
+            5422.91796875,
+            5427.07470703125
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7600,
+            8000,
+            8400
+          ],
+          "dense_relative_improvements": [
+            2.0798880498006235e-05,
+            -0.0007665132139566813
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "k3_better_patients": 1,
+        "k3_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5299.7591552734375,
+            5298.1446533203125,
+            5301.0963134765625
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7600,
+            8000,
+            8400
+          ],
+          "dense_relative_improvements": [
+            0.0003046368534537115,
+            -0.0005571120362673023
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "mean_delta_k3_minus_k0": -40.60267980305131,
+        "mean_k0": -3388.449055762057,
+        "mean_k3": -3429.051735565108,
+        "median_delta_k3_minus_k0": -32.07169428773409,
+        "patient_delta_k3_minus_k0": {
+          "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51": 14.034043672086682,
+          "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a": -9.905853849671075,
+          "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48": -61.404348564978136,
+          "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464": -122.19653150027716,
+          "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b": -53.34233978633574,
+          "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33": -10.801048789132437
+        },
+        "patients": 6,
+        "restart_index": 2
+      },
+      {
+        "direction": "K3_BETTER",
+        "fold": 4,
+        "k0_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5625.5478515625,
+            5625.10986328125,
+            5625.095703125
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7600,
+            8000,
+            8400
+          ],
+          "dense_relative_improvements": [
+            7.785700038589991e-05,
+            2.517311944862188e-06
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "k3_better_patients": 4,
+        "k3_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5499.867431640625,
+            5497.4154052734375,
+            5497.7637939453125
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7600,
+            8000,
+            8400
+          ],
+          "dense_relative_improvements": [
+            0.0004458337219331947,
+            -6.337317560917909e-05
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "mean_delta_k3_minus_k0": 17.78486623999417,
+        "mean_k0": -2765.2213261137936,
+        "mean_k3": -2747.4364598737993,
+        "median_delta_k3_minus_k0": 22.33416507628249,
+        "patient_delta_k3_minus_k0": {
+          "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de": -26.759571695915838,
+          "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e": 59.509917746404426,
+          "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf": 48.802803892541306,
+          "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63": 41.653432630883344,
+          "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6": 3.0148975216816325,
+          "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13": -19.51228265562986
+        },
+        "patients": 6,
+        "restart_index": 2
+      },
+      {
+        "direction": "K0_BETTER",
+        "fold": 0,
+        "k0_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5422.92919921875,
+            5422.76318359375,
+            5422.8857421875
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7600,
+            8000,
+            8400
+          ],
+          "dense_relative_improvements": [
+            3.0613644195081305e-05,
+            -2.260076451813234e-05
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "k3_better_patients": 2,
+        "k3_platform": {
+          "dense_objective_converged": false,
+          "dense_objective_means": [
+            5307.040283203125,
+            5301.6986083984375,
+            5303.329345703125
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7600,
+            8000,
+            8400
+          ],
+          "dense_relative_improvements": [
+            0.0010065261463332008,
+            -0.000307587704458387
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "mean_delta_k3_minus_k0": -16.022554084064495,
+        "mean_k0": -3386.6768978205832,
+        "mean_k3": -3402.699451904648,
+        "median_delta_k3_minus_k0": -14.889670950892878,
+        "patient_delta_k3_minus_k0": {
+          "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51": 20.752385272794527,
+          "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a": -1.0177816899117715,
+          "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48": -49.635442123849316,
+          "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464": -49.15543400991646,
+          "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b": -28.761560211873984,
+          "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33": 11.682508258370035
+        },
+        "patients": 6,
+        "restart_index": 3
+      },
+      {
+        "direction": "K3_BETTER",
+        "fold": 4,
+        "k0_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5624.85400390625,
+            5624.65576171875,
+            5625.03466796875
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7600,
+            8000,
+            8400
+          ],
+          "dense_relative_improvements": [
+            3.52439703079099e-05,
+            -6.736523372307073e-05
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "k3_better_patients": 4,
+        "k3_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5499.394287109375,
+            5497.7467041015625,
+            5502.375244140625
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7600,
+            8000,
+            8400
+          ],
+          "dense_relative_improvements": [
+            0.00029959354099676905,
+            -0.0008418976515613941
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "mean_delta_k3_minus_k0": 2.0641815942667185,
+        "mean_k0": -2765.557496745338,
+        "mean_k3": -2763.493315151072,
+        "median_delta_k3_minus_k0": 9.4170785564188,
+        "patient_delta_k3_minus_k0": {
+          "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de": -32.5480773043455,
+          "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e": 14.43146960149079,
+          "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf": 43.67801498087806,
+          "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63": 31.307300360267618,
+          "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6": 4.402687511346812,
+          "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13": -48.88630558403747
+        },
+        "patients": 6,
+        "restart_index": 3
+      },
+      {
+        "direction": "K0_BETTER",
+        "fold": 0,
+        "k0_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5422.87353515625,
+            5422.82421875,
+            5422.79052734375
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7600,
+            8000,
+            8400
+          ],
+          "dense_relative_improvements": [
+            9.094146476085772e-06,
+            6.212889242013106e-06
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "k3_better_patients": 1,
+        "k3_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5298.6973876953125,
+            5297.0643310546875,
+            5300.974853515625
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7600,
+            8000,
+            8400
+          ],
+          "dense_relative_improvements": [
+            0.00030819964250408037,
+            -0.0007382433394307831
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "mean_delta_k3_minus_k0": -32.808121788037624,
+        "mean_k0": -3386.8949005186732,
+        "mean_k3": -3419.7030223067104,
+        "median_delta_k3_minus_k0": -26.015721596318826,
+        "patient_delta_k3_minus_k0": {
+          "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51": 20.68304323217353,
+          "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a": -7.815579651304688,
+          "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48": -48.882779963327266,
+          "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464": -116.18121462710405,
+          "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b": -44.215863541332965,
+          "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33": -0.43633617733030405
+        },
+        "patients": 6,
+        "restart_index": 4
+      },
+      {
+        "direction": "K3_BETTER",
+        "fold": 4,
+        "k0_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5625.7998046875,
+            5625.42041015625,
+            5625.79052734375
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7600,
+            8000,
+            8400
+          ],
+          "dense_relative_improvements": [
+            6.743832777943553e-05,
+            -6.579369371785668e-05
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "k3_better_patients": 4,
+        "k3_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5498.1077880859375,
+            5496.99072265625,
+            5497.0184326171875
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7600,
+            8000,
+            8400
+          ],
+          "dense_relative_improvements": [
+            0.00020317270463633184,
+            -5.040932818622263e-06
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "mean_delta_k3_minus_k0": 14.341326841871288,
+        "mean_k0": -2771.0754374261924,
+        "mean_k3": -2756.7341105843207,
+        "median_delta_k3_minus_k0": 21.50974545706731,
+        "patient_delta_k3_minus_k0": {
+          "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de": -34.71259990933049,
+          "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e": 64.49731229556664,
+          "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf": 49.37019548239164,
+          "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63": 40.307523960656454,
+          "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6": 2.711966953478168,
+          "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13": -36.12643773153468
+        },
+        "patients": 6,
+        "restart_index": 4
+      }
+    ],
+    "platform_counts": {
+      "cells": 20,
+      "dense_objective_converged": 19,
+      "inference_converged": 20,
+      "legacy_fit_converged": 0
+    },
+    "protocol": {
+      "gene_batch_size": 512,
+      "gene_folds": 2,
+      "inducing_points": 16,
+      "inference_steps": 2400,
+      "lengthscale": 3.0,
+      "nonspatial_rank": 1,
+      "optimization_schedule": "joint",
+      "shared_steps": 0,
+      "split_seed": 20260817,
+      "steps": 8400
+    },
+    "protocol_exceptions": [
+      {
+        "field": "steps",
+        "fold": 0,
+        "k_model": 0,
+        "observed": 7800,
+        "reason": "The canonical fold-0 K=0 cell predates the step-8400 frozen endpoint and received the documented 7200-to-7800 continuation before matched held-out inference.",
+        "reference": 8400,
+        "restart_index": 0
+      },
+      {
+        "field": "steps",
+        "fold": 0,
+        "k_model": 3,
+        "observed": 7200,
+        "reason": "The canonical fold-0 K=3 cell predates the step-8400 frozen endpoint and is retained as a historical diagnostic stratum.",
+        "reference": 8400,
+        "restart_index": 0
+      },
+      {
+        "field": "steps",
+        "fold": 4,
+        "k_model": 0,
+        "observed": 7200,
+        "reason": "The canonical fold-4 K=0 cell predates the step-8400 frozen endpoint and is retained as a historical diagnostic stratum.",
+        "reference": 8400,
+        "restart_index": 0
+      },
+      {
+        "field": "steps",
+        "fold": 4,
+        "k_model": 3,
+        "observed": 7200,
+        "reason": "The canonical fold-4 K=3 cell predates the step-8400 frozen endpoint and is retained as a historical diagnostic stratum.",
+        "reference": 8400,
+        "restart_index": 0
+      },
+      {
+        "field": "steps",
+        "fold": 0,
+        "k_model": 0,
+        "observed": 7200,
+        "reason": "Restart 1 predates the step-8400 frozen endpoint and is retained as a historical diagnostic stratum.",
+        "reference": 8400,
+        "restart_index": 1
+      },
+      {
+        "field": "steps",
+        "fold": 0,
+        "k_model": 3,
+        "observed": 7200,
+        "reason": "Restart 1 predates the step-8400 frozen endpoint and is retained as a historical diagnostic stratum.",
+        "reference": 8400,
+        "restart_index": 1
+      },
+      {
+        "field": "steps",
+        "fold": 4,
+        "k_model": 0,
+        "observed": 7200,
+        "reason": "Restart 1 predates the step-8400 frozen endpoint and is retained as a historical diagnostic stratum.",
+        "reference": 8400,
+        "restart_index": 1
+      },
+      {
+        "field": "steps",
+        "fold": 4,
+        "k_model": 3,
+        "observed": 7200,
+        "reason": "Restart 1 predates the step-8400 frozen endpoint and is retained as a historical diagnostic stratum.",
+        "reference": 8400,
+        "restart_index": 1
+      }
+    ],
+    "protocol_strata": [
+      {
+        "cells": [
+          {
+            "fold": 0,
+            "k_model": 3,
+            "restart_index": 0
+          },
+          {
+            "fold": 4,
+            "k_model": 0,
+            "restart_index": 0
+          },
+          {
+            "fold": 4,
+            "k_model": 3,
+            "restart_index": 0
+          },
+          {
+            "fold": 0,
+            "k_model": 0,
+            "restart_index": 1
+          },
+          {
+            "fold": 0,
+            "k_model": 3,
+            "restart_index": 1
+          },
+          {
+            "fold": 4,
+            "k_model": 0,
+            "restart_index": 1
+          },
+          {
+            "fold": 4,
+            "k_model": 3,
+            "restart_index": 1
+          }
+        ],
+        "execution_environment_mode": "NOT_RECORDED",
+        "fit_steps": 7200,
+        "gene_batch_size": 512,
+        "inference_steps": 2400
+      },
+      {
+        "cells": [
+          {
+            "fold": 0,
+            "k_model": 0,
+            "restart_index": 0
+          }
+        ],
+        "execution_environment_mode": "NOT_RECORDED",
+        "fit_steps": 7800,
+        "gene_batch_size": 512,
+        "inference_steps": 2400
+      },
+      {
+        "cells": [
+          {
+            "fold": 0,
+            "k_model": 0,
+            "restart_index": 2
+          },
+          {
+            "fold": 0,
+            "k_model": 3,
+            "restart_index": 2
+          },
+          {
+            "fold": 4,
+            "k_model": 0,
+            "restart_index": 2
+          },
+          {
+            "fold": 4,
+            "k_model": 3,
+            "restart_index": 2
+          },
+          {
+            "fold": 0,
+            "k_model": 0,
+            "restart_index": 3
+          },
+          {
+            "fold": 0,
+            "k_model": 3,
+            "restart_index": 3
+          },
+          {
+            "fold": 4,
+            "k_model": 0,
+            "restart_index": 3
+          },
+          {
+            "fold": 4,
+            "k_model": 3,
+            "restart_index": 3
+          },
+          {
+            "fold": 0,
+            "k_model": 0,
+            "restart_index": 4
+          },
+          {
+            "fold": 0,
+            "k_model": 3,
+            "restart_index": 4
+          },
+          {
+            "fold": 4,
+            "k_model": 0,
+            "restart_index": 4
+          },
+          {
+            "fold": 4,
+            "k_model": 3,
+            "restart_index": 4
+          }
+        ],
+        "execution_environment_mode": "SOURCE_CHECKPOINT_HASH_EXPLICIT_OVERRIDE",
+        "fit_steps": 8400,
+        "gene_batch_size": 512,
+        "inference_steps": 2400
+      }
+    ],
+    "restart_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "strict_audit_status_counts": {
+      "None": 8,
+      "STOPPED_OFF_PLATFORM": 12
+    }
+  },
+  "status": "RESTART_STABILITY_DIAGNOSTIC_COMPLETE_NOT_FORMAL_K_SELECTION",
+  "subspace_stability": {
+    "0": {
+      "checkpoint_by_restart": {
+        "0": "infra/r04/dual_gate_infer_k3_fold0_2400_20260821/checkpoints/k3/fold0/ckpt-7200",
+        "1": "infra/r04/restart_diag_fold0_r1_20260825/checkpoints/k3/fold0/ckpt-7200",
+        "2": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-8400",
+        "3": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-8400",
+        "4": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-8400"
+      },
+      "checkpoint_provenance_by_restart": {
+        "0": {
+          "bundle_sha256": "223d6e07fdc85519752882cf235499bae11c88ff828eb8225e82466659c317d8",
+          "directory": "infra/r04/dual_gate_infer_k3_fold0_2400_20260821/checkpoints/k3/fold0",
+          "files": [
+            {
+              "path": "infra/r04/dual_gate_infer_k3_fold0_2400_20260821/checkpoints/k3/fold0/checkpoint",
+              "sha256": "d8961b020bb2b6b7dd75b1fb676148225e477aeb095660186e795c570408006f"
+            },
+            {
+              "path": "infra/r04/dual_gate_infer_k3_fold0_2400_20260821/checkpoints/k3/fold0/checkpoint_metadata.json",
+              "sha256": "fc58e7ed099ed5c8a3ebf1b78d52e68c939766de01cc708b5d4d60080c532558"
+            },
+            {
+              "path": "infra/r04/dual_gate_infer_k3_fold0_2400_20260821/checkpoints/k3/fold0/ckpt-7200.data-00000-of-00001",
+              "sha256": "b1b9eee61b4b56791b15a86beff013b2815b1c805ef4d71cac39bb80677ab97f"
+            },
+            {
+              "path": "infra/r04/dual_gate_infer_k3_fold0_2400_20260821/checkpoints/k3/fold0/ckpt-7200.index",
+              "sha256": "c4d4604cd10b4adab629529cb9ad15ea388c44498ce978535a13e99a6f0adf11"
+            }
+          ]
+        },
+        "1": {
+          "bundle_sha256": "f1ac7fc0f6b09d1c20cd5cd9128ec003f3bdc895b5d3428db516ebd13b30c181",
+          "directory": "infra/r04/restart_diag_fold0_r1_20260825/checkpoints/k3/fold0",
+          "files": [
+            {
+              "path": "infra/r04/restart_diag_fold0_r1_20260825/checkpoints/k3/fold0/checkpoint",
+              "sha256": "891f5a0c6681adff032f91e781a1162bf3d385a6653c774c062216a768cc96eb"
+            },
+            {
+              "path": "infra/r04/restart_diag_fold0_r1_20260825/checkpoints/k3/fold0/checkpoint_metadata.json",
+              "sha256": "7761a3b4e8d001eba540c7f910301ebf4a7780a15035c3b8d9f3220f70443d91"
+            },
+            {
+              "path": "infra/r04/restart_diag_fold0_r1_20260825/checkpoints/k3/fold0/ckpt-6600.data-00000-of-00001",
+              "sha256": "bdd790bee30a618c06cd585ba45292900aceeecb860015a3f8defe768ab5ce2a"
+            },
+            {
+              "path": "infra/r04/restart_diag_fold0_r1_20260825/checkpoints/k3/fold0/ckpt-6600.index",
+              "sha256": "6018d1a95d706f32a7fd2c4271e09b10876a86f9fde407be9441ff8413067367"
+            },
+            {
+              "path": "infra/r04/restart_diag_fold0_r1_20260825/checkpoints/k3/fold0/ckpt-7200.data-00000-of-00001",
+              "sha256": "f072f6da20ceccd9018cecedf6eb3d9ebbb151e0175db636d998c59f4cf670eb"
+            },
+            {
+              "path": "infra/r04/restart_diag_fold0_r1_20260825/checkpoints/k3/fold0/ckpt-7200.index",
+              "sha256": "0e5265692fe268528886ecddd1fd7a513783d0dd8119bda4ab44823c5b456d15"
+            }
+          ]
+        },
+        "2": {
+          "bundle_sha256": "6f22a3d7d9b15614d86e2c75466316ad3f420259159a3727a7f4a248906e29a1",
+          "directory": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold0/checkpoints/k3/fold0",
+          "files": [
+            {
+              "path": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/checkpoint",
+              "sha256": "927c0754a185d996bc8ce9e1dce99703544476dff0dbdfebe26439e31e203c19"
+            },
+            {
+              "path": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/checkpoint_metadata.json",
+              "sha256": "ed8237fb54c33ae2d9b629b9fb442677284287f79a21d2a34966b68672102e3b"
+            },
+            {
+              "path": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-7800.data-00000-of-00001",
+              "sha256": "5bf9bfd15bb670bac21418cbbee2d9d5cb5b9ab829ba53051d116d5b67676bde"
+            },
+            {
+              "path": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-7800.index",
+              "sha256": "76b6569ebf9ba7af0b35c1510e2b838f34f841ffed3af25f869775993d167595"
+            },
+            {
+              "path": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-8400.data-00000-of-00001",
+              "sha256": "826b9b661fb2e37eb93072064f6c5da3a48da7495c8804363c66066619602fdb"
+            },
+            {
+              "path": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-8400.index",
+              "sha256": "013c8f42a21bdf053069fa4ff53c8c5410d10c2f84c1625246ea3324d8b48286"
+            }
+          ]
+        },
+        "3": {
+          "bundle_sha256": "c977b8710e36a99d9f1e17e9b67e9af380e96dcf53677c3d591e1f4e57529990",
+          "directory": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold0/checkpoints/k3/fold0",
+          "files": [
+            {
+              "path": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/checkpoint",
+              "sha256": "d9e15bc194a5b467384eff80dc454b594270eee1c28f18111b01d02d891d3603"
+            },
+            {
+              "path": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/checkpoint_metadata.json",
+              "sha256": "ae5926fdf96c332420d80496db17546ef379bfa041c68ad34f48e2390bacadb2"
+            },
+            {
+              "path": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-7800.data-00000-of-00001",
+              "sha256": "4bd29b7e3989dad283935baa9d81ff9300f5289e8ee86ecbc755d47912a2ae63"
+            },
+            {
+              "path": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-7800.index",
+              "sha256": "ca2b39b03e5bfb6216e97137fb3c13e765ba4502936ff61916104ce99ebec8b2"
+            },
+            {
+              "path": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-8400.data-00000-of-00001",
+              "sha256": "57572df5f664be7da7cc963bad2862f8606d9fc5ba5ff4664c8eee790da573c8"
+            },
+            {
+              "path": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-8400.index",
+              "sha256": "30de8c7f97f4668bb8e4b680ab1e087d73348c4255aca988956d61b8bccf3b3b"
+            }
+          ]
+        },
+        "4": {
+          "bundle_sha256": "d7821ba157eac60f535f277dea352bc2f24d1a7ec974fce8a0c5a1629a6556f9",
+          "directory": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold0/checkpoints/k3/fold0",
+          "files": [
+            {
+              "path": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/checkpoint",
+              "sha256": "1297beac22a32a1c374f8709da4fca4aa78955ca0b9459fe11b9f95662e5ffb8"
+            },
+            {
+              "path": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/checkpoint_metadata.json",
+              "sha256": "18bf79fb1c3b4b30530e24d8cfff8be856d134147f6a9193f48abd2fb82c3498"
+            },
+            {
+              "path": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-7800.data-00000-of-00001",
+              "sha256": "f4ddcf007404bcdcbf87a7fec4c9e881eefcdd2993c5ba04ef836b916e5473c1"
+            },
+            {
+              "path": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-7800.index",
+              "sha256": "398e0c4aa3d9c6bc4c7672cd2d375fafddab7d3ffcb1964407b209de5a8c62d7"
+            },
+            {
+              "path": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-8400.data-00000-of-00001",
+              "sha256": "67399bdd7bca4561b52e4da9771deaf27f272b983ed4498c02d2625503afb78b"
+            },
+            {
+              "path": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold0/checkpoints/k3/fold0/ckpt-8400.index",
+              "sha256": "940c8e5870fa460643f8dc24b6880a13205a151d06a1a5e7678a3f7fac03d29f"
+            }
+          ]
+        }
+      },
+      "loading_subspace": {
+        "canonical_correlation_by_direction": [
+          {
+            "canonical_direction": 1,
+            "maximum": 0.9994725880911765,
+            "mean": 0.9916221046803037,
+            "median": 0.9932860227336193,
+            "minimum": 0.9827620966935144
+          },
+          {
+            "canonical_direction": 2,
+            "maximum": 0.997854698560054,
+            "mean": 0.8725848423266868,
+            "median": 0.8345412925006649,
+            "minimum": 0.7581478306165924
+          },
+          {
+            "canonical_direction": 3,
+            "maximum": 0.965126912916129,
+            "mean": 0.40054968249227524,
+            "median": 0.260187372716255,
+            "minimum": 0.0019946538804787536
+          }
+        ],
+        "mean_pairwise_canonical_correlation": 0.7549188764997552,
+        "median_pairwise_minimum_correlation": 0.260187372716255,
+        "minimum_canonical_correlation": 0.0019946538804787536,
+        "pair_count": 10,
+        "pairs": [
+          {
+            "canonical_correlations": [
+              0.9979836874689614,
+              0.9878579603709139,
+              0.8106460720480392
+            ],
+            "mean_canonical_correlation": 0.9321625732959715,
+            "minimum_canonical_correlation": 0.8106460720480392,
+            "restart_left": 0,
+            "restart_right": 1
+          },
+          {
+            "canonical_correlations": [
+              0.9841025239556883,
+              0.7777031481538019,
+              0.011268325932021133
+            ],
+            "mean_canonical_correlation": 0.5910246660138371,
+            "minimum_canonical_correlation": 0.011268325932021133,
+            "restart_left": 0,
+            "restart_right": 2
+          },
+          {
+            "canonical_correlations": [
+              0.9994725880911765,
+              0.997854698560054,
+              0.965126912916129
+            ],
+            "mean_canonical_correlation": 0.9874847331891199,
+            "minimum_canonical_correlation": 0.965126912916129,
+            "restart_left": 0,
+            "restart_right": 3
+          },
+          {
+            "canonical_correlations": [
+              0.9937078088493573,
+              0.8453242498110656,
+              0.2216147648494746
+            ],
+            "mean_canonical_correlation": 0.6868822745032991,
+            "minimum_canonical_correlation": 0.2216147648494746,
+            "restart_left": 0,
+            "restart_right": 4
+          },
+          {
+            "canonical_correlations": [
+              0.9861401643641367,
+              0.7986870926502513,
+              0.2791199508169151
+            ],
+            "mean_canonical_correlation": 0.6879824026104343,
+            "minimum_canonical_correlation": 0.2791199508169151,
+            "restart_left": 1,
+            "restart_right": 2
+          },
+          {
+            "canonical_correlations": [
+              0.9982413515406187,
+              0.9874357525629125,
+              0.7812700003255216
+            ],
+            "mean_canonical_correlation": 0.9223157014763509,
+            "minimum_canonical_correlation": 0.7812700003255216,
+            "restart_left": 1,
+            "restart_right": 3
+          },
+          {
+            "canonical_correlations": [
+              0.9857196675004108,
+              0.7581478306165924,
+              0.028986862648762202
+            ],
+            "mean_canonical_correlation": 0.5909514535885885,
+            "minimum_canonical_correlation": 0.028986862648762202,
+            "restart_left": 1,
+            "restart_right": 4
+          },
+          {
+            "canonical_correlations": [
+              0.9827620966935144,
+              0.7586297133237135,
+              0.0019946538804787536
+            ],
+            "mean_canonical_correlation": 0.5811288212992356,
+            "minimum_canonical_correlation": 0.0019946538804787536,
+            "restart_left": 2,
+            "restart_right": 3
+          },
+          {
+            "canonical_correlations": [
+              0.9952269217212897,
+              0.990449642027298,
+              0.6642144868898164
+            ],
+            "mean_canonical_correlation": 0.8832970168794679,
+            "minimum_canonical_correlation": 0.6642144868898164,
+            "restart_left": 2,
+            "restart_right": 4
+          },
+          {
+            "canonical_correlations": [
+              0.9928642366178814,
+              0.8237583351902642,
+              0.24125479461559493
+            ],
+            "mean_canonical_correlation": 0.6859591221412468,
+            "minimum_canonical_correlation": 0.24125479461559493,
+            "restart_left": 3,
+            "restart_right": 4
+          }
+        ]
+      },
+      "training_field_subspace": {
+        "canonical_correlation_by_direction": [
+          {
+            "canonical_direction": 1,
+            "maximum": 0.9153425959328719,
+            "mean": 0.8788328170354003,
+            "median": 0.8819338683467581,
+            "minimum": 0.8307207157497131
+          },
+          {
+            "canonical_direction": 2,
+            "maximum": 0.8608203304163613,
+            "mean": 0.7626371612090174,
+            "median": 0.7726842522153243,
+            "minimum": 0.6179212867946552
+          },
+          {
+            "canonical_direction": 3,
+            "maximum": 0.6711939468141003,
+            "mean": 0.27869025653086515,
+            "median": 0.2853273668399648,
+            "minimum": 0.016496251685972147
+          }
+        ],
+        "mean_pairwise_canonical_correlation": 0.640053411591761,
+        "median_pairwise_minimum_correlation": 0.2853273668399648,
+        "minimum_canonical_correlation": 0.016496251685972147,
+        "pair_count": 10,
+        "pairs": [
+          {
+            "canonical_correlations": [
+              0.8752641630514891,
+              0.773280746523864,
+              0.18837481079594953
+            ],
+            "mean_canonical_correlation": 0.6123065734571008,
+            "minimum_canonical_correlation": 0.18837481079594953,
+            "restart_left": 0,
+            "restart_right": 1
+          },
+          {
+            "canonical_correlations": [
+              0.8483856743294474,
+              0.6657310243380081,
+              0.03214275007445664
+            ],
+            "mean_canonical_correlation": 0.515419816247304,
+            "minimum_canonical_correlation": 0.03214275007445664,
+            "restart_left": 0,
+            "restart_right": 2
+          },
+          {
+            "canonical_correlations": [
+              0.9118564825294257,
+              0.8608203304163613,
+              0.3640318828203051
+            ],
+            "mean_canonical_correlation": 0.7122362319220308,
+            "minimum_canonical_correlation": 0.3640318828203051,
+            "restart_left": 0,
+            "restart_right": 3
+          },
+          {
+            "canonical_correlations": [
+              0.8886035736420271,
+              0.7720877579067845,
+              0.1331600440605632
+            ],
+            "mean_canonical_correlation": 0.5979504585364582,
+            "minimum_canonical_correlation": 0.1331600440605632,
+            "restart_left": 0,
+            "restart_right": 4
+          },
+          {
+            "canonical_correlations": [
+              0.9130287210790958,
+              0.7903297536414091,
+              0.5057786866606244
+            ],
+            "mean_canonical_correlation": 0.7363790537937097,
+            "minimum_canonical_correlation": 0.5057786866606244,
+            "restart_left": 1,
+            "restart_right": 2
+          },
+          {
+            "canonical_correlations": [
+              0.8587295860938847,
+              0.7650323622111864,
+              0.016496251685972147
+            ],
+            "mean_canonical_correlation": 0.5467527333303478,
+            "minimum_canonical_correlation": 0.016496251685972147,
+            "restart_left": 1,
+            "restart_right": 3
+          },
+          {
+            "canonical_correlations": [
+              0.9054088076059317,
+              0.8436888090423728,
+              0.2792592714674431
+            ],
+            "mean_canonical_correlation": 0.6761189627052492,
+            "minimum_canonical_correlation": 0.2792592714674431,
+            "restart_left": 1,
+            "restart_right": 4
+          },
+          {
+            "canonical_correlations": [
+              0.8307207157497131,
+              0.6179212867946552,
+              0.30506945871675056
+            ],
+            "mean_canonical_correlation": 0.5845704870870396,
+            "minimum_canonical_correlation": 0.30506945871675056,
+            "restart_left": 2,
+            "restart_right": 3
+          },
+          {
+            "canonical_correlations": [
+              0.9153425959328719,
+              0.8467455163087267,
+              0.6711939468141003
+            ],
+            "mean_canonical_correlation": 0.8110940196852329,
+            "minimum_canonical_correlation": 0.6711939468141003,
+            "restart_left": 2,
+            "restart_right": 4
+          },
+          {
+            "canonical_correlations": [
+              0.8409878503401171,
+              0.6907340249068067,
+              0.29139546221248647
+            ],
+            "mean_canonical_correlation": 0.6077057791531368,
+            "minimum_canonical_correlation": 0.29139546221248647,
+            "restart_left": 3,
+            "restart_right": 4
+          }
+        ]
+      }
+    },
+    "4": {
+      "checkpoint_by_restart": {
+        "0": "infra/r04/dual_gate_infer_k3_fold4_2400_20260823/checkpoints/k3/fold4/ckpt-7200",
+        "1": "infra/r04/restart_diag_fold4_r1_20260825/checkpoints/k3/fold4/ckpt-7200",
+        "2": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-8400",
+        "3": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-8400",
+        "4": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-8400"
+      },
+      "checkpoint_provenance_by_restart": {
+        "0": {
+          "bundle_sha256": "e1c0fc98fe9506f118b8f96a69e0633c2a8218a66ac35c9ee0daa539a9fbdaa7",
+          "directory": "infra/r04/dual_gate_infer_k3_fold4_2400_20260823/checkpoints/k3/fold4",
+          "files": [
+            {
+              "path": "infra/r04/dual_gate_infer_k3_fold4_2400_20260823/checkpoints/k3/fold4/checkpoint",
+              "sha256": "58feff2b8fa037ba81cb559d61f1c4a9dbdea5a5a6f97f910223c6df5dce3059"
+            },
+            {
+              "path": "infra/r04/dual_gate_infer_k3_fold4_2400_20260823/checkpoints/k3/fold4/checkpoint_metadata.json",
+              "sha256": "8dec4e4279381fd05b512da82b8d25ac9d5012b75b9f94b5decffa7bfadc900c"
+            },
+            {
+              "path": "infra/r04/dual_gate_infer_k3_fold4_2400_20260823/checkpoints/k3/fold4/ckpt-7200.data-00000-of-00001",
+              "sha256": "ce4d1962c44e007b0160d05c055bdf5486d645e6564d96dde834199c8c9acc62"
+            },
+            {
+              "path": "infra/r04/dual_gate_infer_k3_fold4_2400_20260823/checkpoints/k3/fold4/ckpt-7200.index",
+              "sha256": "9fbfbdf8a35e821e72244582be5ee5c6a8b8a1a6351101ff2f642529d7338e06"
+            }
+          ]
+        },
+        "1": {
+          "bundle_sha256": "3368b9eebdfec23cf4f6a6241b0c8d39a9d03052e5f4bc7dd6e771aad94711d2",
+          "directory": "infra/r04/restart_diag_fold4_r1_20260825/checkpoints/k3/fold4",
+          "files": [
+            {
+              "path": "infra/r04/restart_diag_fold4_r1_20260825/checkpoints/k3/fold4/checkpoint",
+              "sha256": "6c86fe0f31e3f4951d900a7aa17360355d5157b37b83709ca11105d28c69efe5"
+            },
+            {
+              "path": "infra/r04/restart_diag_fold4_r1_20260825/checkpoints/k3/fold4/checkpoint_metadata.json",
+              "sha256": "b7829a23aeec147875a108ce315d367fbcf1fa38bea7e2cb5fff595d629e9dd5"
+            },
+            {
+              "path": "infra/r04/restart_diag_fold4_r1_20260825/checkpoints/k3/fold4/ckpt-6600.data-00000-of-00001",
+              "sha256": "7aa63bb8e36307dd2c3e63ad0533399156206c254aef320c15a4b4875813d7de"
+            },
+            {
+              "path": "infra/r04/restart_diag_fold4_r1_20260825/checkpoints/k3/fold4/ckpt-6600.index",
+              "sha256": "95599b93d707eb24e58b73bcdfeb80830433142baef294fa77af549049b2b109"
+            },
+            {
+              "path": "infra/r04/restart_diag_fold4_r1_20260825/checkpoints/k3/fold4/ckpt-7200.data-00000-of-00001",
+              "sha256": "d7aacba63a21fcfe8c697db01d48bd7446483f8921d9715c7a77dfd79aa111e4"
+            },
+            {
+              "path": "infra/r04/restart_diag_fold4_r1_20260825/checkpoints/k3/fold4/ckpt-7200.index",
+              "sha256": "2dceb5227c89f54dde2323a1d10e3a2c0fe2d02732845032d224b6176b1ff7a5"
+            }
+          ]
+        },
+        "2": {
+          "bundle_sha256": "5c530ebdd92c3f02a0576bebce9f78794ed35bd3c56faf59eb6e9618b2c616b6",
+          "directory": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold4/checkpoints/k3/fold4",
+          "files": [
+            {
+              "path": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/checkpoint",
+              "sha256": "bfba80c7821d0d1ae293b9ef10630a4dd95bd6b5a5d380d9bf06b7ea5dc55f67"
+            },
+            {
+              "path": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/checkpoint_metadata.json",
+              "sha256": "b665d3fe3819f3a5b9f4b11a25dd2404362a53e0843789151b64cde3de536434"
+            },
+            {
+              "path": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-7800.data-00000-of-00001",
+              "sha256": "8f1b292fa2cba49d55c33570d9428fdd772e20fd7f4343f769ef1655e579a4c2"
+            },
+            {
+              "path": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-7800.index",
+              "sha256": "01a75f2293427649663a795c7c7dbc477c798c0f9dbe2f592f1197f508a426c9"
+            },
+            {
+              "path": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-8400.data-00000-of-00001",
+              "sha256": "0ed920804da8bcc011783955b42607dfe28e39f83c70a900291e4de16aee96bb"
+            },
+            {
+              "path": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-8400.index",
+              "sha256": "4e29b314eabc1f8e3758ec70f355cbf098596ce2da0d5e4b42d2e7fda0e182cd"
+            }
+          ]
+        },
+        "3": {
+          "bundle_sha256": "a92e465085d11b9525e135d0cc3e745959ed5c052fe8d8ea19aff82ac9995555",
+          "directory": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold4/checkpoints/k3/fold4",
+          "files": [
+            {
+              "path": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/checkpoint",
+              "sha256": "03255ad6ed835e410d7f9dc932daa7a065083994f35a63a7a985630a5baa82cc"
+            },
+            {
+              "path": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/checkpoint_metadata.json",
+              "sha256": "a71d24ce8ff5e9fa904a4cf24ad5cbbeff25bec1d743313274cc29c6a33efb58"
+            },
+            {
+              "path": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-7800.data-00000-of-00001",
+              "sha256": "effe6cb3ef301acd51a1e6c63a8886e76e9cf516124a03cfc268220ec5e40d15"
+            },
+            {
+              "path": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-7800.index",
+              "sha256": "2303c3d8a14312cff34a1d22787bda899bcba9929d854657567b719af9e94c0e"
+            },
+            {
+              "path": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-8400.data-00000-of-00001",
+              "sha256": "76b0609524e82af8ccf1d8054b268b3ea09be6a8476274fca97ef1d44f6838f1"
+            },
+            {
+              "path": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-8400.index",
+              "sha256": "23114f2c4085511f47e6acca8295301f45fa4c8633fd45daa56a853a9c72103b"
+            }
+          ]
+        },
+        "4": {
+          "bundle_sha256": "d0282017f4adca3b9a68539f5559ec1e292edbc09b48523222579a1340c38c75",
+          "directory": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold4/checkpoints/k3/fold4",
+          "files": [
+            {
+              "path": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/checkpoint",
+              "sha256": "46c1ce27182d4324eb713b4e6ffec59954d04562416354fda27de781fccd8ff1"
+            },
+            {
+              "path": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/checkpoint_metadata.json",
+              "sha256": "e01f3237e62c494cc9b8b0165363d4f2c36abdbeb26909eabb3ea70f9734f2dd"
+            },
+            {
+              "path": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-7800.data-00000-of-00001",
+              "sha256": "f49cfbe011041d380c90ca79ac4e62fcddc278c5084a35746c2077f3ea5f99c2"
+            },
+            {
+              "path": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-7800.index",
+              "sha256": "c2cf72f51971b18e7429ab8a5bcc856a539bc10b7c73a464385135a6e551ed75"
+            },
+            {
+              "path": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-8400.data-00000-of-00001",
+              "sha256": "57eced00cc4d70d06e7512c872cdccef2106c2564f94b08a710184996be699f3"
+            },
+            {
+              "path": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold4/checkpoints/k3/fold4/ckpt-8400.index",
+              "sha256": "58f6c9da435d6198c1c289538adaf3280e5e2de0a39fb210834764ecb0f692b6"
+            }
+          ]
+        }
+      },
+      "loading_subspace": {
+        "canonical_correlation_by_direction": [
+          {
+            "canonical_direction": 1,
+            "maximum": 0.997354390931533,
+            "mean": 0.9906542201352405,
+            "median": 0.9902687107814399,
+            "minimum": 0.9832969123354843
+          },
+          {
+            "canonical_direction": 2,
+            "maximum": 0.9743565210590763,
+            "mean": 0.8712802594346156,
+            "median": 0.9249278778486767,
+            "minimum": 0.672806498620125
+          },
+          {
+            "canonical_direction": 3,
+            "maximum": 0.9257191425303183,
+            "mean": 0.40910607576613023,
+            "median": 0.3846248968341216,
+            "minimum": 0.033938271508760734
+          }
+        ],
+        "mean_pairwise_canonical_correlation": 0.7570135184453287,
+        "median_pairwise_minimum_correlation": 0.3846248968341216,
+        "minimum_canonical_correlation": 0.033938271508760734,
+        "pair_count": 10,
+        "pairs": [
+          {
+            "canonical_correlations": [
+              0.9904186456861624,
+              0.9338187368751253,
+              0.10699619523541862
+            ],
+            "mean_canonical_correlation": 0.6770778592655687,
+            "minimum_canonical_correlation": 0.10699619523541862,
+            "restart_left": 0,
+            "restart_right": 1
+          },
+          {
+            "canonical_correlations": [
+              0.9893678799277956,
+              0.9614931157100927,
+              0.5103472064094385
+            ],
+            "mean_canonical_correlation": 0.8204027340157755,
+            "minimum_canonical_correlation": 0.5103472064094385,
+            "restart_left": 0,
+            "restart_right": 2
+          },
+          {
+            "canonical_correlations": [
+              0.9901187758767171,
+              0.9251673389016614,
+              0.3788902868832316
+            ],
+            "mean_canonical_correlation": 0.7647254672205367,
+            "minimum_canonical_correlation": 0.3788902868832316,
+            "restart_left": 0,
+            "restart_right": 3
+          },
+          {
+            "canonical_correlations": [
+              0.9832969123354843,
+              0.9343735695496858,
+              0.3903595067850116
+            ],
+            "mean_canonical_correlation": 0.7693433295567272,
+            "minimum_canonical_correlation": 0.3903595067850116,
+            "restart_left": 0,
+            "restart_right": 4
+          },
+          {
+            "canonical_correlations": [
+              0.9887537543795076,
+              0.672806498620125,
+              0.033938271508760734
+            ],
+            "mean_canonical_correlation": 0.5651661748361311,
+            "minimum_canonical_correlation": 0.033938271508760734,
+            "restart_left": 1,
+            "restart_right": 2
+          },
+          {
+            "canonical_correlations": [
+              0.997354390931533,
+              0.9743565210590763,
+              0.9257191425303183
+            ],
+            "mean_canonical_correlation": 0.9658100181736425,
+            "minimum_canonical_correlation": 0.9257191425303183,
+            "restart_left": 1,
+            "restart_right": 3
+          },
+          {
+            "canonical_correlations": [
+              0.9957775511094948,
+              0.9246884167956919,
+              0.7067122189880317
+            ],
+            "mean_canonical_correlation": 0.8757260622977395,
+            "minimum_canonical_correlation": 0.7067122189880317,
+            "restart_left": 1,
+            "restart_right": 4
+          },
+          {
+            "canonical_correlations": [
+              0.9912620493199931,
+              0.7388489451110314,
+              0.18501079125048442
+            ],
+            "mean_canonical_correlation": 0.6383739285605029,
+            "minimum_canonical_correlation": 0.18501079125048442,
+            "restart_left": 2,
+            "restart_right": 3
+          },
+          {
+            "canonical_correlations": [
+              0.9892139273148673,
+              0.7670152981490053,
+              0.0875656308827801
+            ],
+            "mean_canonical_correlation": 0.6145982854488843,
+            "minimum_canonical_correlation": 0.0875656308827801,
+            "restart_left": 2,
+            "restart_right": 4
+          },
+          {
+            "canonical_correlations": [
+              0.990978314470849,
+              0.8802341535746623,
+              0.7655215071878272
+            ],
+            "mean_canonical_correlation": 0.8789113250777795,
+            "minimum_canonical_correlation": 0.7655215071878272,
+            "restart_left": 3,
+            "restart_right": 4
+          }
+        ]
+      },
+      "training_field_subspace": {
+        "canonical_correlation_by_direction": [
+          {
+            "canonical_direction": 1,
+            "maximum": 0.9327499411074567,
+            "mean": 0.8851737839808911,
+            "median": 0.8847575037007712,
+            "minimum": 0.8490151372271716
+          },
+          {
+            "canonical_direction": 2,
+            "maximum": 0.8484178792170359,
+            "mean": 0.6350790016238371,
+            "median": 0.6494529910698315,
+            "minimum": 0.4512626703966224
+          },
+          {
+            "canonical_direction": 3,
+            "maximum": 0.6911862785653782,
+            "mean": 0.26197260674970163,
+            "median": 0.1672255178179647,
+            "minimum": 0.0067070706035531865
+          }
+        ],
+        "mean_pairwise_canonical_correlation": 0.5940751307848099,
+        "median_pairwise_minimum_correlation": 0.1672255178179647,
+        "minimum_canonical_correlation": 0.0067070706035531865,
+        "pair_count": 10,
+        "pairs": [
+          {
+            "canonical_correlations": [
+              0.8740767312246698,
+              0.7026843471005557,
+              0.12381610925808939
+            ],
+            "mean_canonical_correlation": 0.5668590625277716,
+            "minimum_canonical_correlation": 0.12381610925808939,
+            "restart_left": 0,
+            "restart_right": 1
+          },
+          {
+            "canonical_correlations": [
+              0.8939926756057182,
+              0.7873404842529669,
+              0.49089668921636964
+            ],
+            "mean_canonical_correlation": 0.7240766163583515,
+            "minimum_canonical_correlation": 0.49089668921636964,
+            "restart_left": 0,
+            "restart_right": 2
+          },
+          {
+            "canonical_correlations": [
+              0.8542606004461457,
+              0.703995334617577,
+              0.11209813356270797
+            ],
+            "mean_canonical_correlation": 0.5567846895421437,
+            "minimum_canonical_correlation": 0.11209813356270797,
+            "restart_left": 0,
+            "restart_right": 3
+          },
+          {
+            "canonical_correlations": [
+              0.8490151372271716,
+              0.528038582992435,
+              0.07903507716994865
+            ],
+            "mean_canonical_correlation": 0.4853629324631851,
+            "minimum_canonical_correlation": 0.07903507716994865,
+            "restart_left": 0,
+            "restart_right": 4
+          },
+          {
+            "canonical_correlations": [
+              0.8956159488256256,
+              0.4512626703966224,
+              0.1217665190374428
+            ],
+            "mean_canonical_correlation": 0.48954837941989693,
+            "minimum_canonical_correlation": 0.1217665190374428,
+            "restart_left": 1,
+            "restart_right": 2
+          },
+          {
+            "canonical_correlations": [
+              0.9327499411074567,
+              0.8484178792170359,
+              0.6911862785653782
+            ],
+            "mean_canonical_correlation": 0.8241180329632902,
+            "minimum_canonical_correlation": 0.6911862785653782,
+            "restart_left": 1,
+            "restart_right": 3
+          },
+          {
+            "canonical_correlations": [
+              0.9194501541328136,
+              0.7200225025789105,
+              0.41128360595255686
+            ],
+            "mean_canonical_correlation": 0.6835854208880937,
+            "minimum_canonical_correlation": 0.41128360595255686,
+            "restart_left": 1,
+            "restart_right": 4
+          },
+          {
+            "canonical_correlations": [
+              0.8528353915637652,
+              0.4995898686759475,
+              0.0067070706035531865
+            ],
+            "mean_canonical_correlation": 0.45304411028108865,
+            "minimum_canonical_correlation": 0.0067070706035531865,
+            "restart_left": 2,
+            "restart_right": 3
+          },
+          {
+            "canonical_correlations": [
+              0.8755223317958243,
+              0.5132167113672133,
+              0.21063492637784
+            ],
+            "mean_canonical_correlation": 0.5331246565136258,
+            "minimum_canonical_correlation": 0.21063492637784,
+            "restart_left": 2,
+            "restart_right": 4
+          },
+          {
+            "canonical_correlations": [
+              0.9042189278797191,
+              0.5962216350391071,
+              0.37230165775313
+            ],
+            "mean_canonical_correlation": 0.6242474068906521,
+            "minimum_canonical_correlation": 0.37230165775313,
+            "restart_left": 3,
+            "restart_right": 4
+          }
+        ]
+      }
+    }
+  },
+  "training_manifest": {
+    "path": "infra/r04/panel_cache_training/training_panel_manifest.json",
+    "sha256": "d0b449505e1c2ff10fa4294a1a1b2bf418105daae205f9277f7415c44b6883e2"
+  }
+}

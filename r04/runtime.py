@@ -28,9 +28,22 @@ def seed_everything(seed: int) -> None:
     np.random.seed(seed)
     os.environ["PYTHONHASHSEED"] = str(seed)
     try:
-        import tensorflow as tf
-        tf.keras.utils.set_random_seed(seed)
-        tf.config.experimental.enable_op_determinism()
+        import torch
+
+        torch.manual_seed(seed)
+        if torch.cuda.is_available():
+            torch.cuda.manual_seed_all(seed)
+        # Deterministic algorithms where available (CPU path)
+        try:
+            torch.use_deterministic_algorithms(True)
+        except Exception:
+            pass
+        # Ensure cudnn determinism if present
+        try:
+            torch.backends.cudnn.deterministic = True
+            torch.backends.cudnn.benchmark = False
+        except Exception:
+            pass
     except ImportError:
         pass
 

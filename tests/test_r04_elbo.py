@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import numpy as np
 import pytest
+import torch
 
 from r04.diagnostics import gene_batch_mean_scale, gene_batch_sum_scale
 from r04.objectives import gene_batch_sum_objective
@@ -32,24 +33,23 @@ def test_gene_batch_sum_scaling_targets_dense_per_spot_gene_sum() -> None:
     assert float(np.mean(estimates)) == pytest.approx(dense, abs=0.05)
 
 
-def test_tensorflow_dense_and_gene_batch_objectives_are_unbiased() -> None:
-    tf = pytest.importorskip("tensorflow")
-    values = tf.constant(np.arange(1, 1 + 12 * 9, dtype=np.float32).reshape(12, 9))
-    dense = float(tf.reduce_mean(tf.reduce_sum(values, axis=1)).numpy())
+def test_torch_dense_and_gene_batch_objectives_are_unbiased() -> None:
+    values = torch.tensor(np.arange(1, 1 + 12 * 9, dtype=np.float32).reshape(12, 9))
+    dense = float(values.sum(dim=1).mean().item())
     estimates = []
     for index in (np.array([0, 2, 5]), np.array([1, 4, 7]), np.array([3, 6, 8])):
-        estimates.append(float(gene_batch_sum_objective(tf.gather(values, index, axis=1), 9, 3).numpy()))
+        batch = values[:, torch.tensor(index, dtype=torch.long)]
+        estimates.append(float(gene_batch_sum_objective(batch, 9, 3).item()))
     assert float(np.mean(estimates)) == pytest.approx(dense, abs=1e-6)
 
 
-def test_tensorflow_full_batch_objective_has_matching_gradient() -> None:
-    tf = pytest.importorskip("tensorflow")
-    variable = tf.Variable(np.linspace(0.2, 1.1, 18, dtype=np.float32).reshape(6, 3))
-    with tf.GradientTape() as tape:
-        dense = gene_batch_sum_objective(variable, 3, 3)
-    gradient = tape.gradient(dense, variable)
+def test_torch_full_batch_objective_has_matching_gradient() -> None:
+    variable = torch.tensor(np.linspace(0.2, 1.1, 18, dtype=np.float32).reshape(6, 3), requires_grad=True)
+    dense = gene_batch_sum_objective(variable, 3, 3)
+    dense.backward()
+    assert variable.grad is not None
     expected = np.ones((6, 3), dtype=np.float32) / 6.0
-    np.testing.assert_allclose(gradient.numpy(), expected, rtol=1e-6, atol=1e-6)
+    np.testing.assert_allclose(variable.grad.detach().cpu().numpy(), expected, rtol=1e-6, atol=1e-6)
 
 
 def test_gene_minibatch_smoke_records_unscaled_global_kl() -> None:

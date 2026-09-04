@@ -1,0 +1,127 @@
+{
+  "checkpoints": [
+    {
+      "backend": "torch",
+      "checkpoint": "infra/r04/torch_representative_fold0_20260902/checkpoints/k0/fold0/checkpoint.pt",
+      "checkpoint_schema": "r04.mnsf_checkpoint.v3_torch",
+      "global_step": 4200,
+      "input_hash": "044d28c564759a4175f7fda5a22974917eebde7c8e2aa2eed84080b75af25947",
+      "mc_draws": 4,
+      "n_genes": 4000,
+      "n_spots": 77526,
+      "nuisance_gauge": {
+        "baseline_v_projection": [
+          0.15843648221724016
+        ],
+        "h_max": [
+          0.5539037238679482
+        ],
+        "h_mean": [
+          0.2282115665104975
+        ],
+        "h_min": [
+          4.777246311494686e-05
+        ],
+        "rank": 1
+      },
+      "objective_draws": [
+        5513.1328125,
+        5513.1328125,
+        5513.1328125,
+        5513.1328125
+      ],
+      "objective_input_hash": "b5a3fb68c165f04fcd6a70e80b3fe9e87e09876c3c08551c085ed22dcc27344b",
+      "objective_input_hash_status": "VERIFIED",
+      "objective_mean": 5513.1328125,
+      "objective_sd": 0.0,
+      "parameter_state_source": "params",
+      "seed": 20260820
+    },
+    {
+      "backend": "torch",
+      "checkpoint": "infra/r04/torch_representative_fold0_20260902_cont_k0/checkpoints/k0/fold0/checkpoint.pt",
+      "checkpoint_schema": "r04.mnsf_checkpoint.v3_torch",
+      "global_step": 7800,
+      "input_hash": "044d28c564759a4175f7fda5a22974917eebde7c8e2aa2eed84080b75af25947",
+      "mc_draws": 4,
+      "n_genes": 4000,
+      "n_spots": 77526,
+      "nuisance_gauge": {
+        "baseline_v_projection": [
+          0.14726656643998726
+        ],
+        "h_max": [
+          0.5978431210202553
+        ],
+        "h_mean": [
+          0.24362554729511612
+        ],
+        "h_min": [
+          1.707145472294685e-05
+        ],
+        "rank": 1
+      },
+      "objective_draws": [
+        5422.64013671875,
+        5422.64013671875,
+        5422.64013671875,
+        5422.64013671875
+      ],
+      "objective_input_hash": "b5a3fb68c165f04fcd6a70e80b3fe9e87e09876c3c08551c085ed22dcc27344b",
+      "objective_input_hash_status": "VERIFIED",
+      "objective_mean": 5422.64013671875,
+      "objective_sd": 0.0,
+      "parameter_state_source": "params",
+      "seed": 20260820
+    },
+    {
+      "backend": "torch",
+      "checkpoint": "infra/r04/torch_representative_fold0_20260902_cont_k0_7800/checkpoints/k0/fold0/checkpoint.pt",
+      "checkpoint_schema": "r04.mnsf_checkpoint.v3_torch",
+      "global_step": 8400,
+      "input_hash": "044d28c564759a4175f7fda5a22974917eebde7c8e2aa2eed84080b75af25947",
+      "mc_draws": 4,
+      "n_genes": 4000,
+      "n_spots": 77526,
+      "nuisance_gauge": {
+        "baseline_v_projection": [
+          0.14672173505499028
+        ],
+        "h_max": [
+          0.5839341616685227
+        ],
+        "h_mean": [
+          0.24441789265320768
+        ],
+        "h_min": [
+          1.5923822124664627e-05
+        ],
+        "rank": 1
+      },
+      "objective_draws": [
+        5422.71875,
+        5422.71875,
+        5422.71875,
+        5422.71875
+      ],
+      "objective_input_hash": "b5a3fb68c165f04fcd6a70e80b3fe9e87e09876c3c08551c085ed22dcc27344b",
+      "objective_input_hash_status": "VERIFIED",
+      "objective_mean": 5422.71875,
+      "objective_sd": 0.0,
+      "parameter_state_source": "params",
+      "seed": 20260820
+    }
+  ],
+  "factors": 0,
+  "fold": 0,
+  "folds": 5,
+  "gene_count": 4000,
+  "group_seed": 20260807,
+  "inducing_points": 16,
+  "lengthscale": 3.0,
+  "manifest_hash": "5a0dc1de6066847cfba613a41cb78d01e25cfc42a48ad75f1b18cf3d03da7d51",
+  "mc_draws": 4,
+  "ridge": 1e-05,
+  "schema": "r04.checkpoint_audit.v1",
+  "status": "DIAGNOSTIC_ONLY"
+}

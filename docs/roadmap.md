@@ -86,7 +86,7 @@
 
 1. **要做什么：** 不预设所有空间场都有明确结构锚点，先从分子空间数据发现候选场；对有独立 GT 的 TLS 与肿瘤—基质边界，再估计其周围的多通道距离响应，分别表示细胞组成、固定细胞类型内状态、可解释 program 和数据驱动生态信号。已知结构只作为候选场的验证与解释子集。
 2. **服务的假设：** H-01、H-03、H-05。
-3. **完成判据：** 至少一个候选空间场在患者或组织块层面显示可重复的空间残余信息；对有结构锚点的场，报告其与独立 GT 的对应关系；对未命名场，不要求先有 GT，但要用独立患者、队列或留出空间检验其可重复性，并给出组成与状态分量及不确定性。
+3. **完成判据：** 至少一个候选空间场在患者或组织块层面显示可重复的空间残余信息，并且有足以支撑该下游结论的稳定表示容量；不要求先找到一个唯一的全局 K，若不同 fold/患者支持不同有效秩，应明确记录全局 K 不可识别。对有结构锚点的场，报告其与独立 GT 的对应关系；对未命名场，不要求先有 GT，但要用独立患者、队列或留出空间检验其可重复性，并给出组成与状态分量及不确定性。
 4. **结果如何改变信心：** 若潜在场在独立队列方向一致，则提高对 H-01、H-03 和 H-05 的初始信心；若只有已知结构附近的复现而没有新的潜在场，结论收缩为已知结构场描述；若只存在组成变化或只在单队列出现，则削弱 H-03/H-05，并阻止进入强反演结论。
 
 **R-04 内部科学顺序：**
@@ -96,6 +96,14 @@
 3. 在独立患者或队列中检查候选场是否重复，避免把单一队列现象当成可迁移空间场。
 4. 对 TLS 和肿瘤—基质边界等已有结构锚点，检验它们是否能解释或验证候选场的一部分；没有对应结构的场保留为潜在空间场。
 5. 只有经过上述检验仍稳定的场，才进入 R-05 的捷径对抗和 R-06/R-07 的重建、定位评估。
+
+**R-04 当前 K 与下游衔接顺序：** `K_model` 是潜在空间分子效应的表示容量，`K_eff` 是经留出、restart、子空间稳定性、重复性和空间 null 支持的有效维度；两者都不等于生物结构数量。当前按以下顺序推进：
+
+1. 聚合已有五 seed 的 K=0/K=3 证据，并分开报告 fold、端点和执行环境 strata。
+2. 检查 top-1/2/3 子空间、患者级分数和 fold 异质性；不把第三方向或 factor 编号直接命名。
+3. 在不新增训练的前提下，使用 training-role GT 的嵌套 cross-fitting 检查结构特异读出，以及完整 K=3 与稳定子空间版本的敏感性；internal/external validation GT 在规则冻结前保持密封。
+4. 只有当主要结构结论对第三方向敏感，或现有证据仍无法判断其影响时，才运行 K=2 bridge；否则 `selected_k=null` 不阻止进入后续受控分析。
+5. 结构读出达到 K-robust 且优于 K=0/非空间基线后，再按既有路径进入空间置换 null、组成—状态拆分和独立 lineage 复现。
 
 **2026-08-07 工程状态：进行中。** 已建立 molecule-only 输入合同、双模型连续场适配器、按 factor 跨 section 的候选聚合、组成 cross-fitting、候选冻结、GT 隔离、checkpoint/hash 运行时和合成 smoke；一个 HTAN 单 section pilot 已执行但仍为 `FIT_COMPLETE_NOT_VALIDATED`。尚未完成正式多 section input manifest、五次 restart、独立 lineage 复现或 R-04 科学 gate，因此本节点仍未完成，不能据此提高或降低 H-01/H-03/H-05 的信心。
 
@@ -153,7 +161,21 @@
 
 **2026-08-31 实际接受并启动冻结推断：** 用户依据唯一失败的边缘幅度、完整端点净变化和 12/12 精确 repeat，接受 step-8400 面板作为进入下一诊断阶段的实际充分结果；严格审计仍保留 `STOPPED_OFF_PLATFORM`、11/12，不改写为全通过。新增的独立授权绑定 strict audit、source、repeat、checkpoint bundle、输入和固定推断协议，只允许 12 个冻结端点运行 held-out inference 与 NB scoring，禁止继续 fit，保持 `selected_k=null`。三个 CPU worker 已分别启动 restart 2、3、4，每个 worker 顺序运行 fold 0/4 的 K0/K3；一次错误 locator manifest 启动在模型加载前失败，改为 47-section training role manifest 并验证 fold 0/4 输入 hash 后已正常重启。该节点服务 R-04/H-01/H-03/H-05 的优化误差与留出稳定性判断；结果完成前不改变这些假设的科学信心，不运行空间 null、K 扩展、组成拆分或场命名。
 
-**2026-09-01 冻结推断面板完成并回收：** restart 2–4 的 12 个固定 step-8400 checkpoint cell 全部完成 2400-step、两次 gene cross-fit 的留出推断与评分，三份 panel 均为 `ALL_CELLS_COMPLETE`，失败 0；27 个输出文件已回收并逐项 SHA-256 一致。结果继续标记 `FROZEN_HELDOUT_DIAGNOSTIC_NOT_K_SELECTION`、`selected_k=null`，严格审计保持 `STOPPED_OFF_PLATFORM`；CPU/GPU 等价性对照按用户为避免租用 GPU 空转而中止，记为 `NOT_RUN`，不宣称跨设备数值等价。该结果完成 R-04 的冻结推断计算子阶段，但不完成 R-04 科学节点，不改变 H-01/H-03/H-05 信心。下一步按五 seed 聚合患者级分数、fold 方向和 top-1/2/3 子空间稳定性，再决定 K=2 或 K>4；空间 null、组成拆分和场命名仍不启动。
+**2026-09-01 冻结推断面板完成并回收：** restart 2-4 的 12 个固定 step-8400 checkpoint cell 全部完成 2400-step、两次 gene cross-fit 的留出推断与评分，三份 panel 均为 `ALL_CELLS_COMPLETE`，失败 0；27 个输出文件已回收并逐项 SHA-256 一致。结果继续标记 `FROZEN_HELDOUT_DIAGNOSTIC_NOT_K_SELECTION`、`selected_k=null`，严格审计保持 `STOPPED_OFF_PLATFORM`；CPU/GPU 等价性对照按用户为避免租用 GPU 空转而中止，记为 `NOT_RUN`，不宣称跨设备数值等价。该结果完成 R-04 的冻结推断计算子阶段，但不完成 R-04 科学节点，不改变 H-01/H-03/H-05 信心。下一步按五 seed 聚合患者级分数、fold 方向和 top-1/2/3 子空间稳定性，再决定 K=2 或 K>4；空间 null、组成拆分和场命名仍不启动。
+
+**2026-09-01 K 语义校正与衔接：** 现有 K=0/K=3 五 seed 面板明确作为表示容量与优化/子空间稳定性诊断，不作为生物结构数或正式 K 选择。已完成 provenance-checked 聚合：fold 0 的平均 K3-K0 为 `-30.17`，fold 4 为 `+20.05`，两 fold 各自 5/5 次方向保持；20/20 inference platform、19/20 当前 dense-objective 重放通过，端点和执行环境分层已保留。当前冻结 cell 没有 GT 对齐的 held-out spot×gene 空间效应矩阵，因此结构特异读出和下游 K 稳健性暂记 `not_tested`，不能把“未测试”解释为失败。下一判定点改为 training-role GT 的嵌套 cross-fitted 结构读出：比较共享成分、结构特异残余、完整 K=3 与稳定子空间版本；只有结论依赖不稳定第三方向时才触发 K=2 阶段 A。该子阶段服务 H-01/H-03/H-04/H-05 的可识别性边界，但在结构读出、空间 null、组成拆分和独立 lineage 复现完成前，R-04 仍未完成。
+**2026-09-01 training-role 结构读出完成：** 已从 10 个冻结 K=3 cell 导出训练角色的旋转稳健空间速率效应，并以患者为单位完成共享成分/结构特异残余的内层 cross-fit。结果可复现，但每个极端 outer fold 的 TLS 与 TUMOR_STROMA_BOUNDARY 配对 GT 只有 2 个患者，因此下游 K 稳健性仍为 `not_tested`，不支持把第三方向解释成某个结构，也不支持宣布它无效。按现有 R-04 顺序，K=2 bridge 阶段 A 被条件触发；空间 null、组成拆分和独立 lineage 复现仍在其后。
+**2026-09-01 K=2 阶段 A 资源边界：** 已冻结 fold 0/4、restart 0/1/2、K=3 匹配 seed 与协议的 6-cell manifest。首个 K=2 CPU fit 在首个 checkpoint 前运行超过两分钟后停止；历史同类 CPU fit 约需 1.25–6.9 小时/单 cell，故当前阶段记录为 `BLOCKED_CPU_RUNTIME`，没有 K=2 科学结果。只有获得单独资源批准或明确接受相应 CPU 时长后才继续；不得以旧 K=2 诊断、缩小 panel 或未完成 cell 替代正式 Stage A。
+
+**2026-09-01 Torch 迁移：** R-04 全部主动计算路径已从 TensorFlow/TFP 重构为 PyTorch（CPU/CUDA 共用同一 `torch.autograd`/`torch.optim` 实现，`environment.lock.json` `backend=torch`，active code 零 TensorFlow 可执行导入）。旧 TF checkpoint/JSON/NPZ/审计产物封存为历史证据，不得作为新 Torch 训练输入；`selected_k` 保持 `null`，新科学计算从 Torch 重新开始，当前 K=2 Stage A 尚无科学结果。
+
+**2026-09-02 Torch 迁移审计收尾：** 新 v3 checkpoint 只从同一 `params` 状态审计和恢复，`parameter_layout`、参数形状、成对 nuisance 参数及显式 library-size offset 均有 fail-closed 检查；旧 v3 缺少 objective-input hash 时保留可读性但标为未核验。`auto/eager` 的有效执行模式和历史错误 `compiled` frozen 标签迁移均已记录并回归测试。隔离 Torch 环境和 178 项 R-04 测试通过，但这只是工程/目标函数证据；尚未产生新的真实 K 结果，因此下一步仍是 Torch 内匹配的 K=0/K=3 代表性重跑，然后按既有顺序判断结构读出敏感性，必要时才运行 K=2 Stage A，之后才进入空间 null 与组成拆分。
+**2026-09-02 Torch 真实数据代表性复跑启动：** 使用冻结的 47-section、4,000-gene training panel 做了 K=0/K=3、fold 0 的完整链路预检；两种模型均完成 2-step fit、Torch v3 checkpoint、两路 gene cross-fit 推断与评分，输入和 objective hash 审计均通过，但因步数不足明确标记为 wiring-only。随后按既有 8400-step fit、2400-step inference、gene batch=512、NB/GP/K=0 公平基线协议启动正式代表性长 fit；当前尚无新的科学结论，GPU 未启用。待 fold 0 完成后先做 checkpoint/目标/平台复核，再决定是否补 fold 4；该节点仍不触发空间 null、组成拆分或 K=2 bridge。
+**2026-09-05 Torch fold-4 配对复跑完成，fold 异质性在迁移后复现：** 按 D-098 在同规格 4090 实例（runtime env hash 与 09-04 实例逐位相同 fdb3b0ec）执行 `infra/r04/gpu_fold4_20260905/` 作业包：hash 锚点预检 PASS（input 044d28c5/objective-input b5a3fb68/manifest 5a0dc1de 与历史一致，证明上传数据完整），fold-4 K=0/K=3 同协议配对跑完成（`infra/r04/torch_representative_fold4_20260905_k03/`），双 K 的 inference 双 split 均收敛，minibatch fit 门禁仍为警告（既有测量口径）；端点审计两份（`torch_k{0,3}_fold4_checkpoint_audit_20260905.json`）objective-input hash 全 VERIFIED、四 draw 近精确重复（sd≤0.007）。**配对 K3−K0 患者级差值均值 +72.73，K=3 胜 5/6 患者**，与 TF 五 seed fold-4 全正（均值 +20.05）方向一致；与 Torch fold-0（−28.96，偏 K=0）配对后，"fold 间 K 偏好异质"在 Torch 迁移后成立，后端伪影解释被进一步排除。幅度大于 TF 均值（+72.73 vs +20.05）与已知的正向幅度 seed 敏感性（D-080）相容，不作过度解读。一个有价值的观察：K=3 有效秩参与在 fold-4 为 1.92（≈2 个有效方向，无 collapse），fold-0 仅 1.43（≈1 个方向）——与各自 fold 的胜负方向自洽，提示 fold 间差异可能在有效空间维度上；单 run 无 seed 重复，仅作线索。结论维持 `K_UNDECIDED_OPTIMIZATION_NOT_RESOLVED`，`selected_k=null`；按 D-090，下一步是 Torch cell 上的结构读出 K 稳健性门禁。显存峰值 9.1GB/24GB，全程约 1 小时，实例已退租。
+
+**2026-09-04 Torch fold-0 代表性链路 GPU 收尾完成：** 用户批准租用 4090 实例（D-096，24GB/16c/48GB，CUDA 12.4 + torch 2.5.1 + python 3.12），双预检通过（2-step wiring 的 input/objective-input hash 与 checkpoint 元数据一致；100-step 短跑全 finite 且 K=0 首步 loss 逐位复现）。K=0 的 step-8400 端点先经 Torch 原生 checkpoint 审计（`infra/r04/torch_k0_fold0_checkpoint_audit_20260904.json`）：step 4200/7800/8400 的 dense objective 为 5513.13→5422.64→5422.72，7800→8400 仅 +0.0014%，每 checkpoint 四 draw 精确重复，objective-input hash 全部 VERIFIED。随后用新 Torch checkpoint-only 入口 `r04_torch_frozen_infer.py`（D-097，resume_infer 的严格面板门禁为 TF 专属不可达）完成零 fit 更新的 2400 步×2 gene split 留出推断与评分，双 split 均收敛，6 患者分数落盘（`infra/r04/torch_representative_fold0_20260904_k0_score_gpu/`）。K=3 因 k_search 强制 in-run K=0 baseline 而按 `--k-values 0,3` 同协议配对运行（`infra/r04/torch_representative_fold0_20260904_k3/`）：K=3 fit 8400 步 loss 8659→5306，inference 双 split 收敛；配对 K3-K0 患者级差值均值 -28.96，K=3 仅在 6 患者中 2 名更优，fold 0 在 Torch 上仍偏向 K=0，方向与 TF 历史（canonical -28.04、五 seed 均值 -30.17）一致。两个 minibatch fit 门禁仍保持为警告；两种 K=0 变体（CPU 链 checkpoint 续推断 vs GPU 全新 fit）逐患者分差 <0.5 nat，仅为观察记录，按 D-088 不宣称跨设备数值等价。显存实测峰值 10.3GB/24GB；全部产物已回传本地。结果为代表性/诊断，`selected_k=null`，不进科学聚合；下一步按 handoff 评估是否补 fold 4，空间 null、组成拆分、K=2 bridge 继续暂停。
+
+**2026-09-03 Torch fold-0 continuation：** fold-0 的 K=0 长 fit 在执行会话 7200 秒上限处停在 global step 4200；checkpoint 的 Torch v3 schema、`params`/`best_state`、Adam state 和 input/objective hash 均完整，未把中断当作模型失败。可恢复 continuation 已推进到 global step 7800，当前只补最后 600 步至 8400；K=0 的正式留出推断和 K=3 fit 尚未开始，当前仍没有新的科学结论。完成后先做 K=0 推断和审计，再推进 K=3，不改变 K 语义或启用 GPU。
 
 ## R-05｜核心遮蔽与组成捷径对抗
 
@@ -180,14 +202,14 @@
 
 ## R-08｜有结构锚点空间场的独立证据链 `[探索可并行]`
 
-1. **要做什么：** 只有在需要提出第二个命名结构或更强通用性主张时，才从血管、坏死、肿瘤—基质边界或其他候选中选择有结构锚点的第二类空间场，并独立重复 R-04 至 R-07 的证据链；潜在空间场的发现不依赖本节点。
+1. **要做什么：** 只有在需要提出第二个命名结构或更强通用性主张时，才从血管、坏死、肿瘤—基质边界或其他候选中选择有结构锚点的第二类空间场，并独立重复 R-04 至 R-07 的证据链；潜在空间场的发现不依赖本节点。结构验证使用潜在空间效应子空间、重建空间效应和结构特异映射，不使用未经对齐的单 factor 编号或把 K 当结构数量。
 2. **服务的假设：** H-04、H-05。
 3. **完成判据：** 第二结构具有独立患者或组织块测试、独立 GT 审计、结构级性能和适用词汇；若没有候选达到要求，明确记录失败而不替换成事后挑选的“漂亮结构”。
 4. **结果如何改变信心：** 若第二种机制或几何不同的结构成立，则支持 H-04 并提高方法级通用性；若所有命名结构候选失败，则收缩结构通用性主张，但不自动否定未命名潜在空间场的发现结果。
 
 ## R-09｜重叠结构的多源可分解性 `[探索可并行]`
 
-1. **要做什么：** 在人工控制和真实重叠区域中比较单一共同场、独立单源模型和联合多源后验，量化结构对之间的残余场相似性和实例归属。
+1. **要做什么：** 在人工控制和真实重叠区域中比较单一共同场、共享生态成分加结构特异残余、独立单源模型和联合多源后验，量化结构对之间的残余场相似性和实例归属。允许一个结构使用多个潜在方向，也允许多个结构共享方向；完全共线时报告联合场或不可识别，不通过增加 K 强拆。
 2. **服务的假设：** H-04。
 3. **完成判据：** 对每个结构对报告是否可分、只能联合报告或完全不可识别；联合模型必须在组织块留出中改善实例归属或概率校准。
 4. **结果如何改变信心：** 若至少一组重叠结构可稳定分解，则增强 H-04；若所有结构对均只能归为共同场，则否证多源分解 claim，但可保留联合生态场输出。

@@ -1,0 +1,10 @@
+{
+  "schema": "r04.environment.v1",
+  "python": "3.12.7",
+  "environment_path": "/root/miniconda3",
+  "backend": "torch",
+  "packages": {"numpy": "2.0.2", "scipy": "1.14.1", "h5py": "3.11.0", "torch": "2.5.1+cu124"},
+  "gpu_devices_at_capture": ["NVIDIA GeForce RTX 4090"],
+  "note": "Rented GPU instance per D-096/D-098. Runs set R04_STORAGE_RESERVE_BYTES=100GB (D-086 precedent) and CUBLAS_WORKSPACE_CONFIG=:4096:8.",
+  "captured_at": "2026-09-05"
+}

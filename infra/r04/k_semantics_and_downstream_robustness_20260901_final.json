@@ -1,0 +1,1930 @@
+{
+  "claim_boundary": [
+    "K_model is representation capacity, not a count of biological structures",
+    "K_eff and selected_k remain unresolved",
+    "the readout is training-role descriptive evidence only and does not establish structure identity",
+    "the K=2 bridge has no scientific result because its first CPU cell stopped before a checkpoint",
+    "spatial nulls, composition controls and independent lineage replication remain pending",
+    "internal and external validation GT remains sealed"
+  ],
+  "composition_split_status": "NOT_RUN",
+  "created_at": "2026-09-01",
+  "downstream_k_robust": "not_tested",
+  "independent_lineage_reproduction_status": "NOT_RUN",
+  "k2_bridge": {
+    "attempted_cell": {
+      "fit_updates": "NOT_AVAILABLE",
+      "fold": 0,
+      "restart_index": 0,
+      "status": "STOPPED_BEFORE_CHECKPOINT"
+    },
+    "blocked_reason": "The first K=2 stage-A cell was stopped before the first checkpoint after more than two minutes of CPU fit; historical matched CPU fits require approximately 1.25-6.9 hours per cell, while six cells are required.",
+    "gpu_required_for_bounded_completion": true,
+    "manifest_entry_count": 6,
+    "manifest_status": "FROZEN_PRECOMPUTE_MANIFEST",
+    "required": true,
+    "scientific_result": "NOT_AVAILABLE_NO_K2_CELL_COMPLETED",
+    "stage_status": "BLOCKED_CPU_RUNTIME"
+  },
+  "k2_bridge_required": true,
+  "k_eff": {
+    "available_descriptive_proxy": "K=3 factor energy, effective-rank participation and loading/field subspace diagnostics; these do not select K_eff",
+    "meaning": "data_supported_effective_dimension_under_holdout_repeatability_null_and_subspace_stability",
+    "reason": "frozen cell artifacts contain scores and provenance but no GT-aligned held-out spot_by_gene spatial effect matrix or composed field/loading readout",
+    "status": "not_computable_with_current_frozen_cell_outputs",
+    "value": null
+  },
+  "k_interpretation": "latent_spatial_effect_dimension_not_structure_count",
+  "k_model": {
+    "meaning": "model_allowed_latent_spatial_effect_dimension",
+    "single_factor_naming": "forbidden",
+    "structure_mapping": "many_to_many"
+  },
+  "schema": "r04.k_semantics_and_downstream_robustness.v2",
+  "score_summary": {
+    "cell_count": 20,
+    "cell_status_counts": {
+      "FIT_AND_SCORED": 4,
+      "FIT_AND_SCORED_DUAL_GATE_DIAGNOSTIC": 4,
+      "FROZEN_FIT_AND_HELDOUT_SCORED_POSTHOC_ACCEPTANCE": 12
+    },
+    "fold_values": [
+      0,
+      4
+    ],
+    "folds": {
+      "0": {
+        "direction_by_restart": [
+          "K0_BETTER",
+          "K0_BETTER",
+          "K0_BETTER",
+          "K0_BETTER",
+          "K0_BETTER"
+        ],
+        "direction_preserved_across_restarts": true,
+        "maximum_mean_delta": -16.022554084064495,
+        "mean_delta_across_restarts": -30.166084561037888,
+        "mean_delta_by_restart": [
+          -28.03811175761325,
+          -33.35895537242277,
+          -40.60267980305131,
+          -16.022554084064495,
+          -32.808121788037624
+        ],
+        "median_delta_across_restarts": -32.808121788037624,
+        "minimum_mean_delta": -40.60267980305131,
+        "patient_stability": {
+          "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51": {
+            "delta_by_restart": [
+              21.71732572881956,
+              12.24201387386347,
+              14.034043672086682,
+              20.752385272794527,
+              20.68304323217353
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 1.0,
+            "mean_delta_k3_minus_k0": 17.885762355947556,
+            "median_delta_k3_minus_k0": 20.68304323217353
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a": {
+            "delta_by_restart": [
+              -6.566569571493346,
+              -8.75266903921056,
+              -9.905853849671075,
+              -1.0177816899117715,
+              -7.815579651304688
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 0.0,
+            "mean_delta_k3_minus_k0": -6.811690760318288,
+            "median_delta_k3_minus_k0": -7.815579651304688
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48": {
+            "delta_by_restart": [
+              -52.33513929147648,
+              -52.221964610090254,
+              -61.404348564978136,
+              -49.635442123849316,
+              -48.882779963327266
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 0.0,
+            "mean_delta_k3_minus_k0": -52.89593491074429,
+            "median_delta_k3_minus_k0": -52.221964610090254
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464": {
+            "delta_by_restart": [
+              -100.08601052638551,
+              -105.12168206513707,
+              -122.19653150027716,
+              -49.15543400991646,
+              -116.18121462710405
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 0.0,
+            "mean_delta_k3_minus_k0": -98.54817454576406,
+            "median_delta_k3_minus_k0": -105.12168206513707
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b": {
+            "delta_by_restart": [
+              -32.713520144800896,
+              -46.859851380113014,
+              -53.34233978633574,
+              -28.761560211873984,
+              -44.215863541332965
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 0.0,
+            "mean_delta_k3_minus_k0": -41.17862701289132,
+            "median_delta_k3_minus_k0": -44.215863541332965
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33": {
+            "delta_by_restart": [
+              1.7552432596571634,
+              0.5604209861508025,
+              -10.801048789132437,
+              11.682508258370035,
+              -0.43633617733030405
+            ],
+            "direction_preserved_across_restarts": false,
+            "k3_better_restart_fraction": 0.6,
+            "mean_delta_k3_minus_k0": 0.5521575075430519,
+            "median_delta_k3_minus_k0": 0.5604209861508025
+          }
+        },
+        "seed_sd_of_mean_delta": 9.092098596829189
+      },
+      "4": {
+        "direction_by_restart": [
+          "K3_BETTER",
+          "K3_BETTER",
+          "K3_BETTER",
+          "K3_BETTER",
+          "K3_BETTER"
+        ],
+        "direction_preserved_across_restarts": true,
+        "maximum_mean_delta": 59.361846213650814,
+        "mean_delta_across_restarts": 20.054509773830283,
+        "mean_delta_by_restart": [
+          59.361846213650814,
+          6.7203279793684105,
+          17.78486623999417,
+          2.0641815942667185,
+          14.341326841871288
+        ],
+        "median_delta_across_restarts": 14.341326841871288,
+        "minimum_mean_delta": 2.0641815942667185,
+        "patient_stability": {
+          "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de": {
+            "delta_by_restart": [
+              -14.582096905385697,
+              -32.61648469511874,
+              -26.759571695915838,
+              -32.5480773043455,
+              -34.71259990933049
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 0.0,
+            "mean_delta_k3_minus_k0": -28.243766102019254,
+            "median_delta_k3_minus_k0": -32.5480773043455
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e": {
+            "delta_by_restart": [
+              161.06111580048355,
+              36.92366706262146,
+              59.509917746404426,
+              14.43146960149079,
+              64.49731229556664
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 1.0,
+            "mean_delta_k3_minus_k0": 67.28469650131338,
+            "median_delta_k3_minus_k0": 59.509917746404426
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf": {
+            "delta_by_restart": [
+              48.90049824913808,
+              45.673637569276025,
+              48.802803892541306,
+              43.67801498087806,
+              49.37019548239164
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 1.0,
+            "mean_delta_k3_minus_k0": 47.28503003484502,
+            "median_delta_k3_minus_k0": 48.802803892541306
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63": {
+            "delta_by_restart": [
+              90.89744570781068,
+              33.07084441475945,
+              41.653432630883344,
+              31.307300360267618,
+              40.307523960656454
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 1.0,
+            "mean_delta_k3_minus_k0": 47.447309414875505,
+            "median_delta_k3_minus_k0": 40.307523960656454
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6": {
+            "delta_by_restart": [
+              18.777332393708548,
+              4.37374626691053,
+              3.0148975216816325,
+              4.402687511346812,
+              2.711966953478168
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 1.0,
+            "mean_delta_k3_minus_k0": 6.656126129425138,
+            "median_delta_k3_minus_k0": 4.37374626691053
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13": {
+            "delta_by_restart": [
+              51.11678203614974,
+              -47.10344274223826,
+              -19.51228265562986,
+              -48.88630558403747,
+              -36.12643773153468
+            ],
+            "direction_preserved_across_restarts": false,
+            "k3_better_restart_fraction": 0.2,
+            "mean_delta_k3_minus_k0": -20.102337335458106,
+            "median_delta_k3_minus_k0": -36.12643773153468
+          }
+        },
+        "seed_sd_of_mean_delta": 22.827126139278416
+      }
+    },
+    "inference_authority_counts": {
+      "None": 8,
+      "PRACTICAL_POSTHOC_ACCEPTANCE": 12
+    },
+    "input_hash_by_fold": {
+      "0": "044d28c564759a4175f7fda5a22974917eebde7c8e2aa2eed84080b75af25947",
+      "4": "0595b0ae27160969e7d606cf7c185254f3c7954d47d9c942c76c92ee83c2d52e"
+    },
+    "k3_collapse_warning_cells": 0,
+    "k3_factor_diagnostics": {
+      "by_fold": {
+        "0": {
+          "effective_rank_participation_summary": {
+            "maximum": 1.8281487571457307,
+            "mean": 1.5774310091763708,
+            "median": 1.4681908955745169,
+            "minimum": 1.381058537415662
+          },
+          "factor_energy_mean": [
+            0.44685604818177255,
+            0.4131023231663171,
+            0.14004162865191036
+          ],
+          "factor_energy_median": [
+            0.5964362228783388,
+            0.2186973344268577,
+            0.1449100557815873
+          ],
+          "records": [
+            {
+              "effective_rank_entropy": 1.7242747706364356,
+              "effective_rank_participation": 1.428713478276491,
+              "factor_energy": [
+                0.12770048291472835,
+                0.794016696872662,
+                0.07828282021260963
+              ],
+              "restart_index": 0
+            },
+            {
+              "effective_rank_entropy": 1.6694418045823447,
+              "effective_rank_participation": 1.381058537415662,
+              "factor_energy": [
+                0.8233866800679297,
+                0.07513918672695183,
+                0.10147413320511849
+              ],
+              "restart_index": 1
+            },
+            {
+              "effective_rank_entropy": 2.080763225538312,
+              "effective_rank_participation": 1.7810433774694536,
+              "factor_energy": [
+                0.6067524354419963,
+                0.2025728731925709,
+                0.19067469136543283
+              ],
+              "restart_index": 2
+            },
+            {
+              "effective_rank_entropy": 1.7849799248033928,
+              "effective_rank_participation": 1.4681908955745169,
+              "factor_energy": [
+                0.08000441960586961,
+                0.7750855246125431,
+                0.1449100557815873
+              ],
+              "restart_index": 3
+            },
+            {
+              "effective_rank_entropy": 2.117892133442518,
+              "effective_rank_participation": 1.8281487571457307,
+              "factor_energy": [
+                0.5964362228783388,
+                0.2186973344268577,
+                0.18486644269480357
+              ],
+              "restart_index": 4
+            }
+          ]
+        },
+        "4": {
+          "effective_rank_participation_summary": {
+            "maximum": 1.8672093838623118,
+            "mean": 1.7125092673190256,
+            "median": 1.7705384103038702,
+            "minimum": 1.403538015675228
+          },
+          "factor_energy_mean": [
+            0.32588217032482547,
+            0.35604174620962764,
+            0.31807608346554683
+          ],
+          "factor_energy_median": [
+            0.28929565930106754,
+            0.34095748796633996,
+            0.2666503146913096
+          ],
+          "records": [
+            {
+              "effective_rank_entropy": 2.2356237420092375,
+              "effective_rank_participation": 1.8672093838623118,
+              "factor_energy": [
+                0.3200400346410037,
+                0.24559043430849586,
+                0.4343695310505005
+              ],
+              "restart_index": 0
+            },
+            {
+              "effective_rank_entropy": 1.992925246388196,
+              "effective_rank_participation": 1.7705384103038702,
+              "factor_energy": [
+                0.46700809005254135,
+                0.2675718259072482,
+                0.26542008404021034
+              ],
+              "restart_index": 1
+            },
+            {
+              "effective_rank_entropy": 2.021561031036291,
+              "effective_rank_participation": 1.7272101208987511,
+              "factor_energy": [
+                0.2844257697873397,
+                0.4613805953995391,
+                0.2541936348131212
+              ],
+              "restart_index": 2
+            },
+            {
+              "effective_rank_entropy": 2.019865943760973,
+              "effective_rank_participation": 1.7940504058549682,
+              "factor_energy": [
+                0.26864129784217516,
+                0.4647083874665151,
+                0.2666503146913096
+              ],
+              "restart_index": 3
+            },
+            {
+              "effective_rank_entropy": 1.6732202800132727,
+              "effective_rank_participation": 1.403538015675228,
+              "factor_energy": [
+                0.28929565930106754,
+                0.34095748796633996,
+                0.3697468527325925
+              ],
+              "restart_index": 4
+            }
+          ]
+        }
+      },
+      "status": "DESCRIPTIVE_ONLY_NOT_K_EFF_SELECTION"
+    },
+    "k_values": [
+      0,
+      3
+    ],
+    "pairs": [
+      {
+        "direction": "K0_BETTER",
+        "fold": 0,
+        "k0_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5422.765625,
+            5422.78076171875,
+            5422.6904296875
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7201,
+            7500,
+            7800
+          ],
+          "dense_relative_improvements": [
+            -2.7913282256228806e-06,
+            1.6657880010138795e-05
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "k3_better_patients": 2,
+        "k3_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5303.0333251953125,
+            5301.4522705078125,
+            5300.021728515625
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            6600,
+            6900,
+            7200
+          ],
+          "dense_relative_improvements": [
+            0.000298141571162344,
+            0.0002698396437794341
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "mean_delta_k3_minus_k0": -28.03811175761325,
+        "mean_k0": -3386.8333005920017,
+        "mean_k3": -3414.871412349615,
+        "median_delta_k3_minus_k0": -19.64004485814712,
+        "patient_delta_k3_minus_k0": {
+          "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51": 21.71732572881956,
+          "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a": -6.566569571493346,
+          "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48": -52.33513929147648,
+          "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464": -100.08601052638551,
+          "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b": -32.713520144800896,
+          "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33": 1.7552432596571634
+        },
+        "patients": 6,
+        "restart_index": 0
+      },
+      {
+        "direction": "K3_BETTER",
+        "fold": 4,
+        "k0_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5625.51123046875,
+            5625.08349609375,
+            5624.8642578125
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            6600,
+            6900,
+            7200
+          ],
+          "dense_relative_improvements": [
+            7.603475621616682e-05,
+            3.897511590756769e-05
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "k3_better_patients": 5,
+        "k3_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5506.716064453125,
+            5502.7681884765625,
+            5499.8643798828125
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            6600,
+            6900,
+            7200
+          ],
+          "dense_relative_improvements": [
+            0.0007169201989633663,
+            0.0005276996039613141
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "mean_delta_k3_minus_k0": 59.361846213650814,
+        "mean_k0": -2812.2796184624535,
+        "mean_k3": -2752.9177722488034,
+        "median_delta_k3_minus_k0": 50.00864014264391,
+        "patient_delta_k3_minus_k0": {
+          "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de": -14.582096905385697,
+          "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e": 161.06111580048355,
+          "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf": 48.90049824913808,
+          "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63": 90.89744570781068,
+          "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6": 18.777332393708548,
+          "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13": 51.11678203614974
+        },
+        "patients": 6,
+        "restart_index": 0
+      },
+      {
+        "direction": "K0_BETTER",
+        "fold": 0,
+        "k0_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5422.77197265625,
+            5422.87841796875,
+            5422.68017578125
+          ],
+          "dense_objective_source": "embedded_deterministic_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            6600,
+            6900,
+            7200
+          ],
+          "dense_relative_improvements": [
+            -1.9629317448113096e-05,
+            3.65566350968008e-05
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "k3_better_patients": 2,
+        "k3_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5305.7596435546875,
+            5304.3865966796875,
+            5303.3433837890625
+          ],
+          "dense_objective_source": "embedded_deterministic_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            6600,
+            6900,
+            7200
+          ],
+          "dense_relative_improvements": [
+            0.0002587842207793836,
+            0.0001966698451575919
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "mean_delta_k3_minus_k0": -33.35895537242277,
+        "mean_k0": -3387.0602697992254,
+        "mean_k3": -3420.419225171648,
+        "median_delta_k3_minus_k0": -27.806260209661787,
+        "patient_delta_k3_minus_k0": {
+          "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51": 12.24201387386347,
+          "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a": -8.75266903921056,
+          "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48": -52.221964610090254,
+          "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464": -105.12168206513707,
+          "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b": -46.859851380113014,
+          "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33": 0.5604209861508025
+        },
+        "patients": 6,
+        "restart_index": 1
+      },
+      {
+        "direction": "K3_BETTER",
+        "fold": 4,
+        "k0_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5624.8134765625,
+            5624.66357421875,
+            5624.67529296875
+          ],
+          "dense_objective_source": "embedded_deterministic_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            6600,
+            6900,
+            7200
+          ],
+          "dense_relative_improvements": [
+            2.6650189268428865e-05,
+            -2.0834579429273157e-06
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "k3_better_patients": 4,
+        "k3_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5501.17822265625,
+            5500.1063232421875,
+            5499.072509765625
+          ],
+          "dense_objective_source": "embedded_deterministic_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            6600,
+            6900,
+            7200
+          ],
+          "dense_relative_improvements": [
+            0.0001948490615424803,
+            0.0001879624530518331
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "mean_delta_k3_minus_k0": 6.7203279793684105,
+        "mean_k0": -2767.1779824248115,
+        "mean_k3": -2760.457654445443,
+        "median_delta_k3_minus_k0": 18.72229534083499,
+        "patient_delta_k3_minus_k0": {
+          "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de": -32.61648469511874,
+          "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e": 36.92366706262146,
+          "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf": 45.673637569276025,
+          "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63": 33.07084441475945,
+          "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6": 4.37374626691053,
+          "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13": -47.10344274223826
+        },
+        "patients": 6,
+        "restart_index": 1
+      },
+      {
+        "direction": "K0_BETTER",
+        "fold": 0,
+        "k0_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5423.03076171875,
+            5422.91796875,
+            5427.07470703125
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7600,
+            8000,
+            8400
+          ],
+          "dense_relative_improvements": [
+            2.0798880498006235e-05,
+            -0.0007665132139566813
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "k3_better_patients": 1,
+        "k3_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5299.7591552734375,
+            5298.1446533203125,
+            5301.0963134765625
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7600,
+            8000,
+            8400
+          ],
+          "dense_relative_improvements": [
+            0.0003046368534537115,
+            -0.0005571120362673023
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "mean_delta_k3_minus_k0": -40.60267980305131,
+        "mean_k0": -3388.449055762057,
+        "mean_k3": -3429.051735565108,
+        "median_delta_k3_minus_k0": -32.07169428773409,
+        "patient_delta_k3_minus_k0": {
+          "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51": 14.034043672086682,
+          "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a": -9.905853849671075,
+          "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48": -61.404348564978136,
+          "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464": -122.19653150027716,
+          "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b": -53.34233978633574,
+          "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33": -10.801048789132437
+        },
+        "patients": 6,
+        "restart_index": 2
+      },
+      {
+        "direction": "K3_BETTER",
+        "fold": 4,
+        "k0_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5625.5478515625,
+            5625.10986328125,
+            5625.095703125
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7600,
+            8000,
+            8400
+          ],
+          "dense_relative_improvements": [
+            7.785700038589991e-05,
+            2.517311944862188e-06
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "k3_better_patients": 4,
+        "k3_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5499.867431640625,
+            5497.4154052734375,
+            5497.7637939453125
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7600,
+            8000,
+            8400
+          ],
+          "dense_relative_improvements": [
+            0.0004458337219331947,
+            -6.337317560917909e-05
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "mean_delta_k3_minus_k0": 17.78486623999417,
+        "mean_k0": -2765.2213261137936,
+        "mean_k3": -2747.4364598737993,
+        "median_delta_k3_minus_k0": 22.33416507628249,
+        "patient_delta_k3_minus_k0": {
+          "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de": -26.759571695915838,
+          "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e": 59.509917746404426,
+          "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf": 48.802803892541306,
+          "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63": 41.653432630883344,
+          "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6": 3.0148975216816325,
+          "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13": -19.51228265562986
+        },
+        "patients": 6,
+        "restart_index": 2
+      },
+      {
+        "direction": "K0_BETTER",
+        "fold": 0,
+        "k0_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5422.92919921875,
+            5422.76318359375,
+            5422.8857421875
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7600,
+            8000,
+            8400
+          ],
+          "dense_relative_improvements": [
+            3.0613644195081305e-05,
+            -2.260076451813234e-05
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "k3_better_patients": 2,
+        "k3_platform": {
+          "dense_objective_converged": false,
+          "dense_objective_means": [
+            5307.040283203125,
+            5301.6986083984375,
+            5303.329345703125
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7600,
+            8000,
+            8400
+          ],
+          "dense_relative_improvements": [
+            0.0010065261463332008,
+            -0.000307587704458387
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "mean_delta_k3_minus_k0": -16.022554084064495,
+        "mean_k0": -3386.6768978205832,
+        "mean_k3": -3402.699451904648,
+        "median_delta_k3_minus_k0": -14.889670950892878,
+        "patient_delta_k3_minus_k0": {
+          "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51": 20.752385272794527,
+          "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a": -1.0177816899117715,
+          "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48": -49.635442123849316,
+          "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464": -49.15543400991646,
+          "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b": -28.761560211873984,
+          "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33": 11.682508258370035
+        },
+        "patients": 6,
+        "restart_index": 3
+      },
+      {
+        "direction": "K3_BETTER",
+        "fold": 4,
+        "k0_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5624.85400390625,
+            5624.65576171875,
+            5625.03466796875
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7600,
+            8000,
+            8400
+          ],
+          "dense_relative_improvements": [
+            3.52439703079099e-05,
+            -6.736523372307073e-05
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "k3_better_patients": 4,
+        "k3_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5499.394287109375,
+            5497.7467041015625,
+            5502.375244140625
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7600,
+            8000,
+            8400
+          ],
+          "dense_relative_improvements": [
+            0.00029959354099676905,
+            -0.0008418976515613941
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "mean_delta_k3_minus_k0": 2.0641815942667185,
+        "mean_k0": -2765.557496745338,
+        "mean_k3": -2763.493315151072,
+        "median_delta_k3_minus_k0": 9.4170785564188,
+        "patient_delta_k3_minus_k0": {
+          "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de": -32.5480773043455,
+          "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e": 14.43146960149079,
+          "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf": 43.67801498087806,
+          "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63": 31.307300360267618,
+          "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6": 4.402687511346812,
+          "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13": -48.88630558403747
+        },
+        "patients": 6,
+        "restart_index": 3
+      },
+      {
+        "direction": "K0_BETTER",
+        "fold": 0,
+        "k0_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5422.87353515625,
+            5422.82421875,
+            5422.79052734375
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7600,
+            8000,
+            8400
+          ],
+          "dense_relative_improvements": [
+            9.094146476085772e-06,
+            6.212889242013106e-06
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "k3_better_patients": 1,
+        "k3_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5298.6973876953125,
+            5297.0643310546875,
+            5300.974853515625
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7600,
+            8000,
+            8400
+          ],
+          "dense_relative_improvements": [
+            0.00030819964250408037,
+            -0.0007382433394307831
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "mean_delta_k3_minus_k0": -32.808121788037624,
+        "mean_k0": -3386.8949005186732,
+        "mean_k3": -3419.7030223067104,
+        "median_delta_k3_minus_k0": -26.015721596318826,
+        "patient_delta_k3_minus_k0": {
+          "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51": 20.68304323217353,
+          "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a": -7.815579651304688,
+          "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48": -48.882779963327266,
+          "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464": -116.18121462710405,
+          "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b": -44.215863541332965,
+          "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33": -0.43633617733030405
+        },
+        "patients": 6,
+        "restart_index": 4
+      },
+      {
+        "direction": "K3_BETTER",
+        "fold": 4,
+        "k0_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5625.7998046875,
+            5625.42041015625,
+            5625.79052734375
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7600,
+            8000,
+            8400
+          ],
+          "dense_relative_improvements": [
+            6.743832777943553e-05,
+            -6.579369371785668e-05
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "k3_better_patients": 4,
+        "k3_platform": {
+          "dense_objective_converged": true,
+          "dense_objective_means": [
+            5498.1077880859375,
+            5496.99072265625,
+            5497.0184326171875
+          ],
+          "dense_objective_source": "top_level_fit_objective_platform_recomputed_current_rule",
+          "dense_objective_steps": [
+            7600,
+            8000,
+            8400
+          ],
+          "dense_relative_improvements": [
+            0.00020317270463633184,
+            -5.040932818622263e-06
+          ],
+          "inference_converged": true,
+          "legacy_fit_converged": false
+        },
+        "mean_delta_k3_minus_k0": 14.341326841871288,
+        "mean_k0": -2771.0754374261924,
+        "mean_k3": -2756.7341105843207,
+        "median_delta_k3_minus_k0": 21.50974545706731,
+        "patient_delta_k3_minus_k0": {
+          "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de": -34.71259990933049,
+          "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e": 64.49731229556664,
+          "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf": 49.37019548239164,
+          "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63": 40.307523960656454,
+          "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6": 2.711966953478168,
+          "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13": -36.12643773153468
+        },
+        "patients": 6,
+        "restart_index": 4
+      }
+    ],
+    "platform_counts": {
+      "cells": 20,
+      "dense_objective_converged": 19,
+      "inference_converged": 20,
+      "legacy_fit_converged": 0
+    },
+    "protocol": {
+      "gene_batch_size": 512,
+      "gene_folds": 2,
+      "inducing_points": 16,
+      "inference_steps": 2400,
+      "lengthscale": 3.0,
+      "nonspatial_rank": 1,
+      "optimization_schedule": "joint",
+      "shared_steps": 0,
+      "split_seed": 20260817,
+      "steps": 8400
+    },
+    "protocol_exceptions": [
+      {
+        "field": "steps",
+        "fold": 0,
+        "k_model": 0,
+        "observed": 7800,
+        "reason": "The canonical fold-0 K=0 cell predates the step-8400 frozen endpoint and received the documented 7200-to-7800 continuation before matched held-out inference.",
+        "reference": 8400,
+        "restart_index": 0
+      },
+      {
+        "field": "steps",
+        "fold": 0,
+        "k_model": 3,
+        "observed": 7200,
+        "reason": "The canonical fold-0 K=3 cell predates the step-8400 frozen endpoint and is retained as a historical diagnostic stratum.",
+        "reference": 8400,
+        "restart_index": 0
+      },
+      {
+        "field": "steps",
+        "fold": 4,
+        "k_model": 0,
+        "observed": 7200,
+        "reason": "The canonical fold-4 K=0 cell predates the step-8400 frozen endpoint and is retained as a historical diagnostic stratum.",
+        "reference": 8400,
+        "restart_index": 0
+      },
+      {
+        "field": "steps",
+        "fold": 4,
+        "k_model": 3,
+        "observed": 7200,
+        "reason": "The canonical fold-4 K=3 cell predates the step-8400 frozen endpoint and is retained as a historical diagnostic stratum.",
+        "reference": 8400,
+        "restart_index": 0
+      },
+      {
+        "field": "steps",
+        "fold": 0,
+        "k_model": 0,
+        "observed": 7200,
+        "reason": "Restart 1 predates the step-8400 frozen endpoint and is retained as a historical diagnostic stratum.",
+        "reference": 8400,
+        "restart_index": 1
+      },
+      {
+        "field": "steps",
+        "fold": 0,
+        "k_model": 3,
+        "observed": 7200,
+        "reason": "Restart 1 predates the step-8400 frozen endpoint and is retained as a historical diagnostic stratum.",
+        "reference": 8400,
+        "restart_index": 1
+      },
+      {
+        "field": "steps",
+        "fold": 4,
+        "k_model": 0,
+        "observed": 7200,
+        "reason": "Restart 1 predates the step-8400 frozen endpoint and is retained as a historical diagnostic stratum.",
+        "reference": 8400,
+        "restart_index": 1
+      },
+      {
+        "field": "steps",
+        "fold": 4,
+        "k_model": 3,
+        "observed": 7200,
+        "reason": "Restart 1 predates the step-8400 frozen endpoint and is retained as a historical diagnostic stratum.",
+        "reference": 8400,
+        "restart_index": 1
+      }
+    ],
+    "protocol_strata": [
+      {
+        "cells": [
+          {
+            "fold": 0,
+            "k_model": 3,
+            "restart_index": 0
+          },
+          {
+            "fold": 4,
+            "k_model": 0,
+            "restart_index": 0
+          },
+          {
+            "fold": 4,
+            "k_model": 3,
+            "restart_index": 0
+          },
+          {
+            "fold": 0,
+            "k_model": 0,
+            "restart_index": 1
+          },
+          {
+            "fold": 0,
+            "k_model": 3,
+            "restart_index": 1
+          },
+          {
+            "fold": 4,
+            "k_model": 0,
+            "restart_index": 1
+          },
+          {
+            "fold": 4,
+            "k_model": 3,
+            "restart_index": 1
+          }
+        ],
+        "execution_environment_mode": "NOT_RECORDED",
+        "fit_steps": 7200,
+        "gene_batch_size": 512,
+        "inference_steps": 2400
+      },
+      {
+        "cells": [
+          {
+            "fold": 0,
+            "k_model": 0,
+            "restart_index": 0
+          }
+        ],
+        "execution_environment_mode": "NOT_RECORDED",
+        "fit_steps": 7800,
+        "gene_batch_size": 512,
+        "inference_steps": 2400
+      },
+      {
+        "cells": [
+          {
+            "fold": 0,
+            "k_model": 0,
+            "restart_index": 2
+          },
+          {
+            "fold": 0,
+            "k_model": 3,
+            "restart_index": 2
+          },
+          {
+            "fold": 4,
+            "k_model": 0,
+            "restart_index": 2
+          },
+          {
+            "fold": 4,
+            "k_model": 3,
+            "restart_index": 2
+          },
+          {
+            "fold": 0,
+            "k_model": 0,
+            "restart_index": 3
+          },
+          {
+            "fold": 0,
+            "k_model": 3,
+            "restart_index": 3
+          },
+          {
+            "fold": 4,
+            "k_model": 0,
+            "restart_index": 3
+          },
+          {
+            "fold": 4,
+            "k_model": 3,
+            "restart_index": 3
+          },
+          {
+            "fold": 0,
+            "k_model": 0,
+            "restart_index": 4
+          },
+          {
+            "fold": 0,
+            "k_model": 3,
+            "restart_index": 4
+          },
+          {
+            "fold": 4,
+            "k_model": 0,
+            "restart_index": 4
+          },
+          {
+            "fold": 4,
+            "k_model": 3,
+            "restart_index": 4
+          }
+        ],
+        "execution_environment_mode": "SOURCE_CHECKPOINT_HASH_EXPLICIT_OVERRIDE",
+        "fit_steps": 8400,
+        "gene_batch_size": 512,
+        "inference_steps": 2400
+      }
+    ],
+    "restart_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "strict_audit_status_counts": {
+      "None": 8,
+      "STOPPED_OFF_PLATFORM": 12
+    }
+  },
+  "selected_k": null,
+  "source_artifacts": [
+    {
+      "path": "infra/r04/k_semantics_and_downstream_robustness_20260901.json",
+      "schema": "r04.k_semantics_and_downstream_robustness.v1",
+      "sha256": "a099c07b44cbdc03e8d7ae2e24a1694535da2a5ce43935d66b3353a4cf95f4ef",
+      "status": "K_SEMANTICS_CORRECTED_DOWNSTREAM_ROBUSTNESS_INDETERMINATE"
+    },
+    {
+      "path": "infra/r04/training_structure_readout_20260901.json",
+      "schema": "r04.structure_readout_panel.v1",
+      "sha256": "88f080688528b914423816a418827c45080ae86a6dca8f2fe21d24343e7f7d9e",
+      "status": "COMPLETE_DESCRIPTIVE_NOT_FORMAL_STRUCTURE_CLAIM"
+    },
+    {
+      "path": "infra/r04/k2_bridge_stage_a_20260901/stage_a.json",
+      "schema": "r04.k2_bridge_stage_a.v1",
+      "sha256": "4bd82f6dedbd75eb448f8147848419a0db3645dc72debe8e6146781334a54c85",
+      "status": "BLOCKED_CPU_RUNTIME"
+    },
+    {
+      "path": "infra/r04/k2_bridge_stage_a_20260901/manifest.json",
+      "schema": "r04.k2_bridge_stage_a_manifest.v1",
+      "sha256": "7df47ed0b9b7c1e7c991c2e3a6933950c70b38f4c2fbc0c86c9c6e2d1e9170e8",
+      "status": "FROZEN_PRECOMPUTE_MANIFEST"
+    }
+  ],
+  "spatial_null_status": "NOT_RUN",
+  "status": "K_SEMANTICS_CORRECTED_K2_BRIDGE_BLOCKED_CPU_RUNTIME",
+  "structure_naming_status": "FORBIDDEN_NOT_RUN",
+  "structure_readout": {
+    "downstream_k_robust": "not_tested",
+    "factor_naming": "forbidden",
+    "internal_external_validation_gt": "SEALED_NOT_READ",
+    "k2_bridge_required": true,
+    "per_entry_summary": [
+      {
+        "fold": 0,
+        "full_k3": {
+          "mean_auc_delta_by_target": {
+            "TLS": 0.00012657029600954273,
+            "TUMOR_STROMA_BOUNDARY": 0.0015398022627087504
+          },
+          "specific_minus_shared_mean_mse_delta": 0.0007797449082810118,
+          "status": "COMPUTED_DESCRIPTIVE_TRAINING_ROLE_INNER_CROSSFIT",
+          "total_inner_folds": 2,
+          "valid_inner_folds": 2
+        },
+        "paired_patient_count": 2,
+        "paired_patients": [
+          "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+          "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+        ],
+        "restart_index": 0,
+        "stable_rank2_sensitivity": {
+          "mean_auc_delta_by_target": {
+            "TLS": -0.00902906629204231,
+            "TUMOR_STROMA_BOUNDARY": 0.08372298717222401
+          },
+          "specific_minus_shared_mean_mse_delta": -0.0023839691897606305,
+          "status": "COMPUTED_DESCRIPTIVE_TRAINING_ROLE_INNER_CROSSFIT",
+          "total_inner_folds": 2,
+          "valid_inner_folds": 2
+        }
+      },
+      {
+        "fold": 4,
+        "full_k3": {
+          "mean_auc_delta_by_target": {
+            "TLS": -0.0033244398389683655,
+            "TUMOR_STROMA_BOUNDARY": -0.10848765276373046
+          },
+          "specific_minus_shared_mean_mse_delta": 0.0005349402472309209,
+          "status": "COMPUTED_DESCRIPTIVE_TRAINING_ROLE_INNER_CROSSFIT",
+          "total_inner_folds": 2,
+          "valid_inner_folds": 2
+        },
+        "paired_patient_count": 2,
+        "paired_patients": [
+          "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a",
+          "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+        ],
+        "restart_index": 0,
+        "stable_rank2_sensitivity": {
+          "mean_auc_delta_by_target": {
+            "TLS": -0.006843434421398897,
+            "TUMOR_STROMA_BOUNDARY": 0.0011483820770674669
+          },
+          "specific_minus_shared_mean_mse_delta": -3.605141244692606e-05,
+          "status": "COMPUTED_DESCRIPTIVE_TRAINING_ROLE_INNER_CROSSFIT",
+          "total_inner_folds": 2,
+          "valid_inner_folds": 2
+        }
+      },
+      {
+        "fold": 0,
+        "full_k3": {
+          "mean_auc_delta_by_target": {
+            "TLS": 0.0385070263587447,
+            "TUMOR_STROMA_BOUNDARY": 0.08279034062210633
+          },
+          "specific_minus_shared_mean_mse_delta": -0.00017632740361938834,
+          "status": "COMPUTED_DESCRIPTIVE_TRAINING_ROLE_INNER_CROSSFIT",
+          "total_inner_folds": 2,
+          "valid_inner_folds": 2
+        },
+        "paired_patient_count": 2,
+        "paired_patients": [
+          "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+          "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+        ],
+        "restart_index": 1,
+        "stable_rank2_sensitivity": {
+          "mean_auc_delta_by_target": {
+            "TLS": 0.00680865811760295,
+            "TUMOR_STROMA_BOUNDARY": 0.007692875513722275
+          },
+          "specific_minus_shared_mean_mse_delta": -0.0002599354370006954,
+          "status": "COMPUTED_DESCRIPTIVE_TRAINING_ROLE_INNER_CROSSFIT",
+          "total_inner_folds": 2,
+          "valid_inner_folds": 2
+        }
+      },
+      {
+        "fold": 4,
+        "full_k3": {
+          "mean_auc_delta_by_target": {
+            "TLS": -0.03168316679731992,
+            "TUMOR_STROMA_BOUNDARY": -0.010650482217725021
+          },
+          "specific_minus_shared_mean_mse_delta": 8.268604140218572e-05,
+          "status": "COMPUTED_DESCRIPTIVE_TRAINING_ROLE_INNER_CROSSFIT",
+          "total_inner_folds": 2,
+          "valid_inner_folds": 2
+        },
+        "paired_patient_count": 2,
+        "paired_patients": [
+          "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a",
+          "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+        ],
+        "restart_index": 1,
+        "stable_rank2_sensitivity": {
+          "mean_auc_delta_by_target": {
+            "TLS": -0.0047529688007030835,
+            "TUMOR_STROMA_BOUNDARY": -0.016458673242807975
+          },
+          "specific_minus_shared_mean_mse_delta": -4.029382293641026e-05,
+          "status": "COMPUTED_DESCRIPTIVE_TRAINING_ROLE_INNER_CROSSFIT",
+          "total_inner_folds": 2,
+          "valid_inner_folds": 2
+        }
+      },
+      {
+        "fold": 0,
+        "full_k3": {
+          "mean_auc_delta_by_target": {
+            "TLS": 0.3153000506765374,
+            "TUMOR_STROMA_BOUNDARY": 0.009370053890419505
+          },
+          "specific_minus_shared_mean_mse_delta": -0.0002395917978874583,
+          "status": "COMPUTED_DESCRIPTIVE_TRAINING_ROLE_INNER_CROSSFIT",
+          "total_inner_folds": 2,
+          "valid_inner_folds": 2
+        },
+        "paired_patient_count": 2,
+        "paired_patients": [
+          "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+          "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+        ],
+        "restart_index": 2,
+        "stable_rank2_sensitivity": {
+          "mean_auc_delta_by_target": {
+            "TLS": 0.041822370466233105,
+            "TUMOR_STROMA_BOUNDARY": -0.011411192779548218
+          },
+          "specific_minus_shared_mean_mse_delta": -5.81189058895433e-05,
+          "status": "COMPUTED_DESCRIPTIVE_TRAINING_ROLE_INNER_CROSSFIT",
+          "total_inner_folds": 2,
+          "valid_inner_folds": 2
+        }
+      },
+      {
+        "fold": 4,
+        "full_k3": {
+          "mean_auc_delta_by_target": {
+            "TLS": -0.008743184604684096,
+            "TUMOR_STROMA_BOUNDARY": -0.014441918676442567
+          },
+          "specific_minus_shared_mean_mse_delta": 0.0005321274733385978,
+          "status": "COMPUTED_DESCRIPTIVE_TRAINING_ROLE_INNER_CROSSFIT",
+          "total_inner_folds": 2,
+          "valid_inner_folds": 2
+        },
+        "paired_patient_count": 2,
+        "paired_patients": [
+          "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a",
+          "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+        ],
+        "restart_index": 2,
+        "stable_rank2_sensitivity": {
+          "mean_auc_delta_by_target": {
+            "TLS": -0.00285948058520083,
+            "TUMOR_STROMA_BOUNDARY": -0.05909752910239416
+          },
+          "specific_minus_shared_mean_mse_delta": -5.234737573810849e-07,
+          "status": "COMPUTED_DESCRIPTIVE_TRAINING_ROLE_INNER_CROSSFIT",
+          "total_inner_folds": 2,
+          "valid_inner_folds": 2
+        }
+      },
+      {
+        "fold": 0,
+        "full_k3": {
+          "mean_auc_delta_by_target": {
+            "TLS": -0.0008858409428469938,
+            "TUMOR_STROMA_BOUNDARY": 0.011805397478063168
+          },
+          "specific_minus_shared_mean_mse_delta": 0.0022985128902798524,
+          "status": "COMPUTED_DESCRIPTIVE_TRAINING_ROLE_INNER_CROSSFIT",
+          "total_inner_folds": 2,
+          "valid_inner_folds": 2
+        },
+        "paired_patient_count": 2,
+        "paired_patients": [
+          "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+          "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+        ],
+        "restart_index": 3,
+        "stable_rank2_sensitivity": {
+          "mean_auc_delta_by_target": {
+            "TLS": 0.0004905443072649174,
+            "TUMOR_STROMA_BOUNDARY": 0.024882268542516406
+          },
+          "specific_minus_shared_mean_mse_delta": -0.0008777788170117352,
+          "status": "COMPUTED_DESCRIPTIVE_TRAINING_ROLE_INNER_CROSSFIT",
+          "total_inner_folds": 2,
+          "valid_inner_folds": 2
+        }
+      },
+      {
+        "fold": 4,
+        "full_k3": {
+          "mean_auc_delta_by_target": {
+            "TLS": -0.19065851779297058,
+            "TUMOR_STROMA_BOUNDARY": -0.009793511877762395
+          },
+          "specific_minus_shared_mean_mse_delta": 8.030299880442196e-05,
+          "status": "COMPUTED_DESCRIPTIVE_TRAINING_ROLE_INNER_CROSSFIT",
+          "total_inner_folds": 2,
+          "valid_inner_folds": 2
+        },
+        "paired_patient_count": 2,
+        "paired_patients": [
+          "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a",
+          "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+        ],
+        "restart_index": 3,
+        "stable_rank2_sensitivity": {
+          "mean_auc_delta_by_target": {
+            "TLS": -0.09182420793542526,
+            "TUMOR_STROMA_BOUNDARY": -0.00017235793243547404
+          },
+          "specific_minus_shared_mean_mse_delta": 8.940483104540736e-05,
+          "status": "COMPUTED_DESCRIPTIVE_TRAINING_ROLE_INNER_CROSSFIT",
+          "total_inner_folds": 2,
+          "valid_inner_folds": 2
+        }
+      },
+      {
+        "fold": 0,
+        "full_k3": {
+          "mean_auc_delta_by_target": {
+            "TLS": 0.013822809156370769,
+            "TUMOR_STROMA_BOUNDARY": 0.09398478425326515
+          },
+          "specific_minus_shared_mean_mse_delta": 4.848569797696184e-05,
+          "status": "COMPUTED_DESCRIPTIVE_TRAINING_ROLE_INNER_CROSSFIT",
+          "total_inner_folds": 2,
+          "valid_inner_folds": 2
+        },
+        "paired_patient_count": 2,
+        "paired_patients": [
+          "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+          "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+        ],
+        "restart_index": 4,
+        "stable_rank2_sensitivity": {
+          "mean_auc_delta_by_target": {
+            "TLS": -0.0032244818387318075,
+            "TUMOR_STROMA_BOUNDARY": 0.08309934827785048
+          },
+          "specific_minus_shared_mean_mse_delta": -0.0045556100450218455,
+          "status": "COMPUTED_DESCRIPTIVE_TRAINING_ROLE_INNER_CROSSFIT",
+          "total_inner_folds": 2,
+          "valid_inner_folds": 2
+        }
+      },
+      {
+        "fold": 4,
+        "full_k3": {
+          "mean_auc_delta_by_target": {
+            "TLS": -0.10510026637593373,
+            "TUMOR_STROMA_BOUNDARY": 0.01671430832017551
+          },
+          "specific_minus_shared_mean_mse_delta": 0.001210943234993725,
+          "status": "COMPUTED_DESCRIPTIVE_TRAINING_ROLE_INNER_CROSSFIT",
+          "total_inner_folds": 2,
+          "valid_inner_folds": 2
+        },
+        "paired_patient_count": 2,
+        "paired_patients": [
+          "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a",
+          "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+        ],
+        "restart_index": 4,
+        "stable_rank2_sensitivity": {
+          "mean_auc_delta_by_target": {
+            "TLS": 0.11402520794908323,
+            "TUMOR_STROMA_BOUNDARY": -0.05460444029682884
+          },
+          "specific_minus_shared_mean_mse_delta": 0.00012520476928137847,
+          "status": "COMPUTED_DESCRIPTIVE_TRAINING_ROLE_INNER_CROSSFIT",
+          "total_inner_folds": 2,
+          "valid_inner_folds": 2
+        }
+      }
+    ],
+    "reason": "training-role paired GT has only two patients per extreme outer fold; the descriptive inner cross-fit cannot establish third-direction robustness",
+    "scope": "training_role_inner_crossfit_only",
+    "status": "COMPLETE_DESCRIPTIVE_NOT_FORMAL_STRUCTURE_CLAIM",
+    "training_role_entry_count": 10
+  },
+  "subspace_stability_by_fold": {
+    "0": {
+      "loading_subspace": {
+        "canonical_correlation_by_direction": [
+          {
+            "canonical_direction": 1,
+            "maximum": 0.9994725880911765,
+            "mean": 0.9916221046803037,
+            "median": 0.9932860227336193,
+            "minimum": 0.9827620966935144
+          },
+          {
+            "canonical_direction": 2,
+            "maximum": 0.997854698560054,
+            "mean": 0.8725848423266868,
+            "median": 0.8345412925006649,
+            "minimum": 0.7581478306165924
+          },
+          {
+            "canonical_direction": 3,
+            "maximum": 0.965126912916129,
+            "mean": 0.40054968249227524,
+            "median": 0.260187372716255,
+            "minimum": 0.0019946538804787536
+          }
+        ],
+        "mean_pairwise_canonical_correlation": 0.7549188764997552,
+        "median_pairwise_minimum_correlation": 0.260187372716255,
+        "minimum_canonical_correlation": 0.0019946538804787536
+      },
+      "score": {
+        "direction_by_restart": [
+          "K0_BETTER",
+          "K0_BETTER",
+          "K0_BETTER",
+          "K0_BETTER",
+          "K0_BETTER"
+        ],
+        "direction_preserved_across_restarts": true,
+        "maximum_mean_delta": -16.022554084064495,
+        "mean_delta_across_restarts": -30.166084561037888,
+        "mean_delta_by_restart": [
+          -28.03811175761325,
+          -33.35895537242277,
+          -40.60267980305131,
+          -16.022554084064495,
+          -32.808121788037624
+        ],
+        "median_delta_across_restarts": -32.808121788037624,
+        "minimum_mean_delta": -40.60267980305131,
+        "patient_stability": {
+          "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51": {
+            "delta_by_restart": [
+              21.71732572881956,
+              12.24201387386347,
+              14.034043672086682,
+              20.752385272794527,
+              20.68304323217353
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 1.0,
+            "mean_delta_k3_minus_k0": 17.885762355947556,
+            "median_delta_k3_minus_k0": 20.68304323217353
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a": {
+            "delta_by_restart": [
+              -6.566569571493346,
+              -8.75266903921056,
+              -9.905853849671075,
+              -1.0177816899117715,
+              -7.815579651304688
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 0.0,
+            "mean_delta_k3_minus_k0": -6.811690760318288,
+            "median_delta_k3_minus_k0": -7.815579651304688
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48": {
+            "delta_by_restart": [
+              -52.33513929147648,
+              -52.221964610090254,
+              -61.404348564978136,
+              -49.635442123849316,
+              -48.882779963327266
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 0.0,
+            "mean_delta_k3_minus_k0": -52.89593491074429,
+            "median_delta_k3_minus_k0": -52.221964610090254
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464": {
+            "delta_by_restart": [
+              -100.08601052638551,
+              -105.12168206513707,
+              -122.19653150027716,
+              -49.15543400991646,
+              -116.18121462710405
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 0.0,
+            "mean_delta_k3_minus_k0": -98.54817454576406,
+            "median_delta_k3_minus_k0": -105.12168206513707
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b": {
+            "delta_by_restart": [
+              -32.713520144800896,
+              -46.859851380113014,
+              -53.34233978633574,
+              -28.761560211873984,
+              -44.215863541332965
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 0.0,
+            "mean_delta_k3_minus_k0": -41.17862701289132,
+            "median_delta_k3_minus_k0": -44.215863541332965
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33": {
+            "delta_by_restart": [
+              1.7552432596571634,
+              0.5604209861508025,
+              -10.801048789132437,
+              11.682508258370035,
+              -0.43633617733030405
+            ],
+            "direction_preserved_across_restarts": false,
+            "k3_better_restart_fraction": 0.6,
+            "mean_delta_k3_minus_k0": 0.5521575075430519,
+            "median_delta_k3_minus_k0": 0.5604209861508025
+          }
+        },
+        "seed_sd_of_mean_delta": 9.092098596829189
+      },
+      "third_direction": {
+        "interpretation": "descriptive_instability_signal_not_K_eff",
+        "loading": {
+          "canonical_direction": 3,
+          "maximum": 0.965126912916129,
+          "mean": 0.40054968249227524,
+          "median": 0.260187372716255,
+          "minimum": 0.0019946538804787536
+        },
+        "training_field": {
+          "canonical_direction": 3,
+          "maximum": 0.6711939468141003,
+          "mean": 0.27869025653086515,
+          "median": 0.2853273668399648,
+          "minimum": 0.016496251685972147
+        }
+      },
+      "training_field_subspace": {
+        "canonical_correlation_by_direction": [
+          {
+            "canonical_direction": 1,
+            "maximum": 0.9153425959328719,
+            "mean": 0.8788328170354003,
+            "median": 0.8819338683467581,
+            "minimum": 0.8307207157497131
+          },
+          {
+            "canonical_direction": 2,
+            "maximum": 0.8608203304163613,
+            "mean": 0.7626371612090174,
+            "median": 0.7726842522153243,
+            "minimum": 0.6179212867946552
+          },
+          {
+            "canonical_direction": 3,
+            "maximum": 0.6711939468141003,
+            "mean": 0.27869025653086515,
+            "median": 0.2853273668399648,
+            "minimum": 0.016496251685972147
+          }
+        ],
+        "mean_pairwise_canonical_correlation": 0.640053411591761,
+        "median_pairwise_minimum_correlation": 0.2853273668399648,
+        "minimum_canonical_correlation": 0.016496251685972147
+      }
+    },
+    "4": {
+      "loading_subspace": {
+        "canonical_correlation_by_direction": [
+          {
+            "canonical_direction": 1,
+            "maximum": 0.997354390931533,
+            "mean": 0.9906542201352405,
+            "median": 0.9902687107814399,
+            "minimum": 0.9832969123354843
+          },
+          {
+            "canonical_direction": 2,
+            "maximum": 0.9743565210590763,
+            "mean": 0.8712802594346156,
+            "median": 0.9249278778486767,
+            "minimum": 0.672806498620125
+          },
+          {
+            "canonical_direction": 3,
+            "maximum": 0.9257191425303183,
+            "mean": 0.40910607576613023,
+            "median": 0.3846248968341216,
+            "minimum": 0.033938271508760734
+          }
+        ],
+        "mean_pairwise_canonical_correlation": 0.7570135184453287,
+        "median_pairwise_minimum_correlation": 0.3846248968341216,
+        "minimum_canonical_correlation": 0.033938271508760734
+      },
+      "score": {
+        "direction_by_restart": [
+          "K3_BETTER",
+          "K3_BETTER",
+          "K3_BETTER",
+          "K3_BETTER",
+          "K3_BETTER"
+        ],
+        "direction_preserved_across_restarts": true,
+        "maximum_mean_delta": 59.361846213650814,
+        "mean_delta_across_restarts": 20.054509773830283,
+        "mean_delta_by_restart": [
+          59.361846213650814,
+          6.7203279793684105,
+          17.78486623999417,
+          2.0641815942667185,
+          14.341326841871288
+        ],
+        "median_delta_across_restarts": 14.341326841871288,
+        "minimum_mean_delta": 2.0641815942667185,
+        "patient_stability": {
+          "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de": {
+            "delta_by_restart": [
+              -14.582096905385697,
+              -32.61648469511874,
+              -26.759571695915838,
+              -32.5480773043455,
+              -34.71259990933049
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 0.0,
+            "mean_delta_k3_minus_k0": -28.243766102019254,
+            "median_delta_k3_minus_k0": -32.5480773043455
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e": {
+            "delta_by_restart": [
+              161.06111580048355,
+              36.92366706262146,
+              59.509917746404426,
+              14.43146960149079,
+              64.49731229556664
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 1.0,
+            "mean_delta_k3_minus_k0": 67.28469650131338,
+            "median_delta_k3_minus_k0": 59.509917746404426
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf": {
+            "delta_by_restart": [
+              48.90049824913808,
+              45.673637569276025,
+              48.802803892541306,
+              43.67801498087806,
+              49.37019548239164
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 1.0,
+            "mean_delta_k3_minus_k0": 47.28503003484502,
+            "median_delta_k3_minus_k0": 48.802803892541306
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63": {
+            "delta_by_restart": [
+              90.89744570781068,
+              33.07084441475945,
+              41.653432630883344,
+              31.307300360267618,
+              40.307523960656454
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 1.0,
+            "mean_delta_k3_minus_k0": 47.447309414875505,
+            "median_delta_k3_minus_k0": 40.307523960656454
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6": {
+            "delta_by_restart": [
+              18.777332393708548,
+              4.37374626691053,
+              3.0148975216816325,
+              4.402687511346812,
+              2.711966953478168
+            ],
+            "direction_preserved_across_restarts": true,
+            "k3_better_restart_fraction": 1.0,
+            "mean_delta_k3_minus_k0": 6.656126129425138,
+            "median_delta_k3_minus_k0": 4.37374626691053
+          },
+          "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13": {
+            "delta_by_restart": [
+              51.11678203614974,
+              -47.10344274223826,
+              -19.51228265562986,
+              -48.88630558403747,
+              -36.12643773153468
+            ],
+            "direction_preserved_across_restarts": false,
+            "k3_better_restart_fraction": 0.2,
+            "mean_delta_k3_minus_k0": -20.102337335458106,
+            "median_delta_k3_minus_k0": -36.12643773153468
+          }
+        },
+        "seed_sd_of_mean_delta": 22.827126139278416
+      },
+      "third_direction": {
+        "interpretation": "descriptive_instability_signal_not_K_eff",
+        "loading": {
+          "canonical_direction": 3,
+          "maximum": 0.9257191425303183,
+          "mean": 0.40910607576613023,
+          "median": 0.3846248968341216,
+          "minimum": 0.033938271508760734
+        },
+        "training_field": {
+          "canonical_direction": 3,
+          "maximum": 0.6911862785653782,
+          "mean": 0.26197260674970163,
+          "median": 0.1672255178179647,
+          "minimum": 0.0067070706035531865
+        }
+      },
+      "training_field_subspace": {
+        "canonical_correlation_by_direction": [
+          {
+            "canonical_direction": 1,
+            "maximum": 0.9327499411074567,
+            "mean": 0.8851737839808911,
+            "median": 0.8847575037007712,
+            "minimum": 0.8490151372271716
+          },
+          {
+            "canonical_direction": 2,
+            "maximum": 0.8484178792170359,
+            "mean": 0.6350790016238371,
+            "median": 0.6494529910698315,
+            "minimum": 0.4512626703966224
+          },
+          {
+            "canonical_direction": 3,
+            "maximum": 0.6911862785653782,
+            "mean": 0.26197260674970163,
+            "median": 0.1672255178179647,
+            "minimum": 0.0067070706035531865
+          }
+        ],
+        "mean_pairwise_canonical_correlation": 0.5940751307848099,
+        "median_pairwise_minimum_correlation": 0.1672255178179647,
+        "minimum_canonical_correlation": 0.0067070706035531865
+      }
+    }
+  },
+  "third_direction_interpretation": "descriptive instability signal; not a biological structure count and not sufficient to assign K_eff"
+}

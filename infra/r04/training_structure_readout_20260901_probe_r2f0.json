@@ -1,0 +1,452 @@
+{
+  "claim_boundary": "descriptive readout-level evidence only; does not prove causal structure identity, independence from composition/markers, or a unique K",
+  "effect_panel": {
+    "path": "/home/huyudi/013_spatial/infra/r04/training_effect_exports_20260901_probe_r2f0/panel.json",
+    "sha256": "2399fab08abd54180bb38822da1b6c488fd0a67bb1abc89a0a6425308391a25d"
+  },
+  "entries": [
+    {
+      "coverage_training": {
+        "TLS": {
+          "annotated_spots": 10341,
+          "negative_spots": 10184,
+          "patients": [
+            "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+            "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+          ],
+          "positive_spots": 157
+        },
+        "TUMOR_STROMA_BOUNDARY": {
+          "annotated_spots": 64379,
+          "negative_spots": 54328,
+          "patients": [
+            "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+            "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545",
+            "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870",
+            "HTAN_VANDERBILT_CRC::PATIENT::306c7a068bf4965f",
+            "HTAN_VANDERBILT_CRC::PATIENT::46cd4bcce25745d5",
+            "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20",
+            "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63",
+            "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6",
+            "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13",
+            "HTAN_VANDERBILT_CRC::PATIENT::94567531ae08aa59",
+            "HTAN_VANDERBILT_CRC::PATIENT::9af051af377d9c81",
+            "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508",
+            "HTAN_VANDERBILT_CRC::PATIENT::bbd41350b0c0bd3c",
+            "HTAN_VANDERBILT_CRC::PATIENT::e52fa79982a9ecea"
+          ],
+          "positive_spots": 10051
+        },
+        "paired": {
+          "patients": [
+            "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+            "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+          ],
+          "spots": 10341
+        }
+      },
+      "fold": 0,
+      "full_k3": {
+        "inner_crossfit": {
+          "fold_results": [
+            {
+              "heldout_spots": 3261,
+              "inner_fold": 0,
+              "readout": {
+                "alpha": 1.0,
+                "factor_naming": "forbidden",
+                "n_heldout_spots": 3261,
+                "n_training_spots": 7080,
+                "patient_or_section_weighting": "caller_supplied_sample_weights_or_equal_spots",
+                "representation": {
+                  "effect_definition": "section_center(exp(field_mean)@(evaluation_loading*factor_amplitude).T)",
+                  "factor_naming": "forbidden",
+                  "full_effect_rank": 3,
+                  "max_rank": null,
+                  "rank": 3,
+                  "representation": "centered_mnsf_spatial_rate_contribution",
+                  "singular_values": [
+                    1.448370969328096,
+                    0.7216580143627765,
+                    0.4745328223631267
+                  ]
+                },
+                "schema": "r04.structure_readout.v1",
+                "shared_only": {
+                  "mean_mse": 0.11614137450643783,
+                  "metrics": {
+                    "TLS": {
+                      "auc": 0.2692444895047126,
+                      "correlation": -0.039230428889459684,
+                      "mse": 0.010235330272682443
+                    },
+                    "TUMOR_STROMA_BOUNDARY": {
+                      "auc": 0.5166988380142561,
+                      "correlation": 0.036267639340283174,
+                      "mse": 0.2220474187401932
+                    }
+                  }
+                },
+                "shared_plus_specific_residual": {
+                  "mean_mse": 0.11586607395652654,
+                  "metrics": {
+                    "TLS": {
+                      "auc": 0.803086628365439,
+                      "correlation": 0.08767269516983084,
+                      "mse": 0.009996960877180772
+                    },
+                    "TUMOR_STROMA_BOUNDARY": {
+                      "auc": 0.524058356176538,
+                      "correlation": 0.05525420739992499,
+                      "mse": 0.2217351870358723
+                    }
+                  },
+                  "specific_residual_coefficient_norm": {
+                    "TLS": 0.003851977034025949,
+                    "TUMOR_STROMA_BOUNDARY": 0.009578751586432661
+                  }
+                },
+                "specific_increment": {
+                  "auc_delta_by_target": {
+                    "TLS": 0.5338421388607264,
+                    "TUMOR_STROMA_BOUNDARY": 0.007359518162281864
+                  },
+                  "interpretation": "descriptive heldout readout; a positive AUC or negative MSE change supports reproducible target-specific residual information",
+                  "mean_mse_delta_specific_minus_shared": -0.00027530054991128927
+                },
+                "target_count": 2,
+                "target_names": [
+                  "TLS",
+                  "TUMOR_STROMA_BOUNDARY"
+                ]
+              },
+              "status": "COMPUTED",
+              "test_patients": [
+                "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de"
+              ],
+              "training_spots": 7080
+            },
+            {
+              "heldout_spots": 7080,
+              "inner_fold": 1,
+              "readout": {
+                "alpha": 1.0,
+                "factor_naming": "forbidden",
+                "n_heldout_spots": 7080,
+                "n_training_spots": 3261,
+                "patient_or_section_weighting": "caller_supplied_sample_weights_or_equal_spots",
+                "representation": {
+                  "effect_definition": "section_center(exp(field_mean)@(evaluation_loading*factor_amplitude).T)",
+                  "factor_naming": "forbidden",
+                  "full_effect_rank": 3,
+                  "max_rank": null,
+                  "rank": 3,
+                  "representation": "centered_mnsf_spatial_rate_contribution",
+                  "singular_values": [
+                    1.448370969328096,
+                    0.7216580143627765,
+                    0.4745328223631267
+                  ]
+                },
+                "schema": "r04.structure_readout.v1",
+                "shared_only": {
+                  "mean_mse": 0.04797463664055906,
+                  "metrics": {
+                    "TLS": {
+                      "auc": 0.513321059563338,
+                      "correlation": 0.007152206977682988,
+                      "mse": 0.017438229818167908
+                    },
+                    "TUMOR_STROMA_BOUNDARY": {
+                      "auc": 0.531879422191341,
+                      "correlation": 0.017772475461248518,
+                      "mse": 0.07851104346295021
+                    }
+                  }
+                },
+                "shared_plus_specific_residual": {
+                  "mean_mse": 0.04777075359469543,
+                  "metrics": {
+                    "TLS": {
+                      "auc": 0.6100790220556863,
+                      "correlation": 0.05311452977125141,
+                      "mse": 0.017247494955355012
+                    },
+                    "TUMOR_STROMA_BOUNDARY": {
+                      "auc": 0.5432600118098981,
+                      "correlation": 0.03099219103021474,
+                      "mse": 0.07829401223403584
+                    }
+                  },
+                  "specific_residual_coefficient_norm": {
+                    "TLS": 0.0025608564211160307,
+                    "TUMOR_STROMA_BOUNDARY": 0.005063192627587705
+                  }
+                },
+                "specific_increment": {
+                  "auc_delta_by_target": {
+                    "TLS": 0.09675796249234836,
+                    "TUMOR_STROMA_BOUNDARY": 0.011380589618557146
+                  },
+                  "interpretation": "descriptive heldout readout; a positive AUC or negative MSE change supports reproducible target-specific residual information",
+                  "mean_mse_delta_specific_minus_shared": -0.00020388304586362732
+                },
+                "target_count": 2,
+                "target_names": [
+                  "TLS",
+                  "TUMOR_STROMA_BOUNDARY"
+                ]
+              },
+              "status": "COMPUTED",
+              "test_patients": [
+                "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+              ],
+              "training_spots": 3261
+            }
+          ],
+          "interpretation": "descriptive training-role cross-fit only; no outer validation GT was read, and no threshold was introduced after observing these values",
+          "mean_auc_delta_by_target": {
+            "TLS": 0.3153000506765374,
+            "TUMOR_STROMA_BOUNDARY": 0.009370053890419505
+          },
+          "shared_only_mean_mse": 0.08205800557349845,
+          "shared_plus_specific_mean_mse": 0.08181841377561098,
+          "specific_minus_shared_mean_mse_delta": -0.0002395917978874583,
+          "status": "COMPUTED_DESCRIPTIVE_TRAINING_ROLE_INNER_CROSSFIT",
+          "total_inner_folds": 2,
+          "valid_inner_folds": 2
+        },
+        "outer_heldout_gt": "NOT_IN_SCOPE",
+        "outer_heldout_patients": [],
+        "outer_heldout_spots": 0,
+        "representation": {
+          "effect_definition": "section_center(exp(field_mean)@(evaluation_loading*factor_amplitude).T)",
+          "factor_naming": "forbidden",
+          "full_effect_rank": 3,
+          "max_rank": null,
+          "rank": 3,
+          "representation": "centered_mnsf_spatial_rate_contribution",
+          "singular_values": [
+            1.448370969328096,
+            0.7216580143627765,
+            0.4745328223631267
+          ]
+        },
+        "training_coverage": 10341,
+        "training_patients": [
+          "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+          "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+        ]
+      },
+      "outer_heldout_gt": "NOT_IN_SCOPE",
+      "restart_index": 2,
+      "stable_rank2_sensitivity": {
+        "inner_crossfit": {
+          "fold_results": [
+            {
+              "heldout_spots": 3261,
+              "inner_fold": 0,
+              "readout": {
+                "alpha": 1.0,
+                "factor_naming": "forbidden",
+                "n_heldout_spots": 3261,
+                "n_training_spots": 7080,
+                "patient_or_section_weighting": "caller_supplied_sample_weights_or_equal_spots",
+                "representation": {
+                  "effect_definition": "section_center(exp(field_mean)@(evaluation_loading*factor_amplitude).T)",
+                  "factor_naming": "forbidden",
+                  "full_effect_rank": 3,
+                  "max_rank": 2,
+                  "rank": 2,
+                  "representation": "centered_mnsf_spatial_rate_contribution",
+                  "singular_values": [
+                    1.448370969328096,
+                    0.7216580143627765
+                  ]
+                },
+                "schema": "r04.structure_readout.v1",
+                "shared_only": {
+                  "mean_mse": 0.1162546963312482,
+                  "metrics": {
+                    "TLS": {
+                      "auc": 0.9620836618977885,
+                      "correlation": 0.20303844219112666,
+                      "mse": 0.009733058422785639
+                    },
+                    "TUMOR_STROMA_BOUNDARY": {
+                      "auc": 0.46898138738807515,
+                      "correlation": -0.0647347922201145,
+                      "mse": 0.22277633423971077
+                    }
+                  }
+                },
+                "shared_plus_specific_residual": {
+                  "mean_mse": 0.11622526586590834,
+                  "metrics": {
+                    "TLS": {
+                      "auc": 0.9608538920806581,
+                      "correlation": 0.20240381433114107,
+                      "mse": 0.009717919390349883
+                    },
+                    "TUMOR_STROMA_BOUNDARY": {
+                      "auc": 0.4696003978173692,
+                      "correlation": -0.06471374627625323,
+                      "mse": 0.2227326123414668
+                    }
+                  },
+                  "specific_residual_coefficient_norm": {
+                    "TLS": 0.0009883255501739075,
+                    "TUMOR_STROMA_BOUNDARY": 0.0005966525706676232
+                  }
+                },
+                "specific_increment": {
+                  "auc_delta_by_target": {
+                    "TLS": -0.0012297698171304106,
+                    "TUMOR_STROMA_BOUNDARY": 0.0006190104292940202
+                  },
+                  "interpretation": "descriptive heldout readout; a positive AUC or negative MSE change supports reproducible target-specific residual information",
+                  "mean_mse_delta_specific_minus_shared": -2.9430465339860823e-05
+                },
+                "target_count": 2,
+                "target_names": [
+                  "TLS",
+                  "TUMOR_STROMA_BOUNDARY"
+                ]
+              },
+              "status": "COMPUTED",
+              "test_patients": [
+                "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de"
+              ],
+              "training_spots": 7080
+            },
+            {
+              "heldout_spots": 7080,
+              "inner_fold": 1,
+              "readout": {
+                "alpha": 1.0,
+                "factor_naming": "forbidden",
+                "n_heldout_spots": 7080,
+                "n_training_spots": 3261,
+                "patient_or_section_weighting": "caller_supplied_sample_weights_or_equal_spots",
+                "representation": {
+                  "effect_definition": "section_center(exp(field_mean)@(evaluation_loading*factor_amplitude).T)",
+                  "factor_naming": "forbidden",
+                  "full_effect_rank": 3,
+                  "max_rank": 2,
+                  "rank": 2,
+                  "representation": "centered_mnsf_spatial_rate_contribution",
+                  "singular_values": [
+                    1.448370969328096,
+                    0.7216580143627765
+                  ]
+                },
+                "schema": "r04.structure_readout.v1",
+                "shared_only": {
+                  "mean_mse": 0.04803662012669727,
+                  "metrics": {
+                    "TLS": {
+                      "auc": 0.5188013596987516,
+                      "correlation": 0.008571253041517523,
+                      "mse": 0.017457825411411956
+                    },
+                    "TUMOR_STROMA_BOUNDARY": {
+                      "auc": 0.5197596706582454,
+                      "correlation": 0.009154910774519283,
+                      "mse": 0.07861541484198259
+                    }
+                  }
+                },
+                "shared_plus_specific_residual": {
+                  "mean_mse": 0.04794981278025805,
+                  "metrics": {
+                    "TLS": {
+                      "auc": 0.6036758704483483,
+                      "correlation": 0.04852828845065591,
+                      "mse": 0.01726994847799796
+                    },
+                    "TUMOR_STROMA_BOUNDARY": {
+                      "auc": 0.4963182746698549,
+                      "correlation": -0.0021445703302304443,
+                      "mse": 0.07862967708251814
+                    }
+                  },
+                  "specific_residual_coefficient_norm": {
+                    "TLS": 0.0024024935468344934,
+                    "TUMOR_STROMA_BOUNDARY": 0.0022030239106970778
+                  }
+                },
+                "specific_increment": {
+                  "auc_delta_by_target": {
+                    "TLS": 0.08487451074959662,
+                    "TUMOR_STROMA_BOUNDARY": -0.023441395988390457
+                  },
+                  "interpretation": "descriptive heldout readout; a positive AUC or negative MSE change supports reproducible target-specific residual information",
+                  "mean_mse_delta_specific_minus_shared": -8.680734643922577e-05
+                },
+                "target_count": 2,
+                "target_names": [
+                  "TLS",
+                  "TUMOR_STROMA_BOUNDARY"
+                ]
+              },
+              "status": "COMPUTED",
+              "test_patients": [
+                "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+              ],
+              "training_spots": 3261
+            }
+          ],
+          "interpretation": "descriptive training-role cross-fit only; no outer validation GT was read, and no threshold was introduced after observing these values",
+          "mean_auc_delta_by_target": {
+            "TLS": 0.041822370466233105,
+            "TUMOR_STROMA_BOUNDARY": -0.011411192779548218
+          },
+          "shared_only_mean_mse": 0.08214565822897274,
+          "shared_plus_specific_mean_mse": 0.08208753932308319,
+          "specific_minus_shared_mean_mse_delta": -5.81189058895433e-05,
+          "status": "COMPUTED_DESCRIPTIVE_TRAINING_ROLE_INNER_CROSSFIT",
+          "total_inner_folds": 2,
+          "valid_inner_folds": 2
+        },
+        "outer_heldout_gt": "NOT_IN_SCOPE",
+        "outer_heldout_patients": [],
+        "outer_heldout_spots": 0,
+        "representation": {
+          "effect_definition": "section_center(exp(field_mean)@(evaluation_loading*factor_amplitude).T)",
+          "factor_naming": "forbidden",
+          "full_effect_rank": 3,
+          "max_rank": 2,
+          "rank": 2,
+          "representation": "centered_mnsf_spatial_rate_contribution",
+          "singular_values": [
+            1.448370969328096,
+            0.7216580143627765
+          ]
+        },
+        "training_coverage": 10341,
+        "training_patients": [
+          "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+          "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+        ]
+      }
+    }
+  ],
+  "factor_naming": "forbidden",
+  "internal_external_validation_gt": "SEALED_NOT_READ",
+  "schema": "r04.structure_readout_panel.v1",
+  "scope": "training_role_inner_crossfit_only",
+  "selected_k": null,
+  "status": "COMPLETE_DESCRIPTIVE_NOT_FORMAL_STRUCTURE_CLAIM",
+  "structures": [
+    "TLS",
+    "TUMOR_STROMA_BOUNDARY"
+  ],
+  "training_gt_catalog": {
+    "path": "/home/huyudi/013_spatial/infra/structure-registry/structure_instances.tsv",
+    "schema": "r04.training_structure_gt.v1",
+    "sha256": "166e042fd926caf2c4ef81efdd55fc1f5909d8868c91aa8ecd5f0f2be536e8aa",
+    "training_manifest": "/home/huyudi/013_spatial/infra/r04/panel_cache_training/training_panel_manifest.json",
+    "training_manifest_sha256": "d0b449505e1c2ff10fa4294a1a1b2bf418105daae205f9277f7415c44b6883e2"
+  },
+  "weighting": "patient_equal_within_each_outer_fold"
+}

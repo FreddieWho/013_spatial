@@ -1,0 +1,161 @@
+{
+  "schema": "r04.restart_panel_manifest.v1",
+  "status": "READY_FOR_DIAGNOSTIC_AGGREGATION",
+  "created_at": "2026-09-01",
+  "purpose": "Aggregate the five-seed K=0/K=3 extreme-fold diagnostic while preserving the frozen practical-acceptance endpoint and the strict off-platform audit boundary; this does not authorize formal K selection.",
+  "training_manifest": "infra/r04/panel_cache_training/training_panel_manifest.json",
+  "platform_rule_reaudit": "infra/r04/platform_rule_reaudit_20260822.json",
+  "group_seed": 20260807,
+  "restart_indices": [0, 1, 2, 3, 4],
+  "fold_values": [0, 4],
+  "k_values": [0, 3],
+  "allowed_protocol_exceptions": [
+    {
+      "restart_index": 0,
+      "fold": 0,
+      "k_model": 0,
+      "field": "steps",
+      "reference": 8400,
+      "observed": 7800,
+      "reason": "The canonical fold-0 K=0 cell predates the step-8400 frozen endpoint and received the documented 7200-to-7800 continuation before matched held-out inference."
+    },
+    {
+      "restart_index": 0,
+      "fold": 0,
+      "k_model": 3,
+      "field": "steps",
+      "reference": 8400,
+      "observed": 7200,
+      "reason": "The canonical fold-0 K=3 cell predates the step-8400 frozen endpoint and is retained as a historical diagnostic stratum."
+    },
+    {
+      "restart_index": 0,
+      "fold": 4,
+      "k_model": 0,
+      "field": "steps",
+      "reference": 8400,
+      "observed": 7200,
+      "reason": "The canonical fold-4 K=0 cell predates the step-8400 frozen endpoint and is retained as a historical diagnostic stratum."
+    },
+    {
+      "restart_index": 0,
+      "fold": 4,
+      "k_model": 3,
+      "field": "steps",
+      "reference": 8400,
+      "observed": 7200,
+      "reason": "The canonical fold-4 K=3 cell predates the step-8400 frozen endpoint and is retained as a historical diagnostic stratum."
+    },
+    {
+      "restart_index": 1,
+      "fold": 0,
+      "k_model": 0,
+      "field": "steps",
+      "reference": 8400,
+      "observed": 7200,
+      "reason": "Restart 1 predates the step-8400 frozen endpoint and is retained as a historical diagnostic stratum."
+    },
+    {
+      "restart_index": 1,
+      "fold": 0,
+      "k_model": 3,
+      "field": "steps",
+      "reference": 8400,
+      "observed": 7200,
+      "reason": "Restart 1 predates the step-8400 frozen endpoint and is retained as a historical diagnostic stratum."
+    },
+    {
+      "restart_index": 1,
+      "fold": 4,
+      "k_model": 0,
+      "field": "steps",
+      "reference": 8400,
+      "observed": 7200,
+      "reason": "Restart 1 predates the step-8400 frozen endpoint and is retained as a historical diagnostic stratum."
+    },
+    {
+      "restart_index": 1,
+      "fold": 4,
+      "k_model": 3,
+      "field": "steps",
+      "reference": 8400,
+      "observed": 7200,
+      "reason": "Restart 1 predates the step-8400 frozen endpoint and is retained as a historical diagnostic stratum."
+    }
+  ],
+  "entries": [
+    {
+      "restart_index": 0,
+      "fold": 0,
+      "k0_cell": "infra/r04/dual_gate_infer_k0_fold0_2400_20260822/cell.json",
+      "k3_cell": "infra/r04/dual_gate_infer_k3_fold0_2400_20260821/cell.json",
+      "k3_checkpoint_dir": "infra/r04/dual_gate_infer_k3_fold0_2400_20260821/checkpoints/k3/fold0"
+    },
+    {
+      "restart_index": 0,
+      "fold": 4,
+      "k0_cell": "infra/r04/dual_gate_infer_k0_fold4_2400_20260823/cell.json",
+      "k3_cell": "infra/r04/dual_gate_infer_k3_fold4_2400_20260823/cell.json",
+      "k3_checkpoint_dir": "infra/r04/dual_gate_infer_k3_fold4_2400_20260823/checkpoints/k3/fold4"
+    },
+    {
+      "restart_index": 1,
+      "fold": 0,
+      "k0_cell": "infra/r04/restart_diag_fold0_r1_20260825/cells/k0/fold0/cell.json",
+      "k3_cell": "infra/r04/restart_diag_fold0_r1_20260825/cells/k3/fold0/cell.json",
+      "k3_checkpoint_dir": "infra/r04/restart_diag_fold0_r1_20260825/checkpoints/k3/fold0"
+    },
+    {
+      "restart_index": 1,
+      "fold": 4,
+      "k0_cell": "infra/r04/restart_diag_fold4_r1_20260825/cells/k0/fold4/cell.json",
+      "k3_cell": "infra/r04/restart_diag_fold4_r1_20260825/cells/k3/fold4/cell.json",
+      "k3_checkpoint_dir": "infra/r04/restart_diag_fold4_r1_20260825/checkpoints/k3/fold4"
+    },
+    {
+      "restart_index": 2,
+      "fold": 0,
+      "k0_cell": "remote_outputs/restart_cont_r2_frozen_infer2400_20260831_v3/k0_fold0/cell.json",
+      "k3_cell": "remote_outputs/restart_cont_r2_frozen_infer2400_20260831_v3/k3_fold0/cell.json",
+      "k3_checkpoint_dir": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold0/checkpoints/k3/fold0"
+    },
+    {
+      "restart_index": 2,
+      "fold": 4,
+      "k0_cell": "remote_outputs/restart_cont_r2_frozen_infer2400_20260831_v3/k0_fold4/cell.json",
+      "k3_cell": "remote_outputs/restart_cont_r2_frozen_infer2400_20260831_v3/k3_fold4/cell.json",
+      "k3_checkpoint_dir": "infra/r04/restart_cont_r2_fit8400_20260831/k3_fold4/checkpoints/k3/fold4"
+    },
+    {
+      "restart_index": 3,
+      "fold": 0,
+      "k0_cell": "remote_outputs/restart_cont_r3_frozen_infer2400_20260831_v3/k0_fold0/cell.json",
+      "k3_cell": "remote_outputs/restart_cont_r3_frozen_infer2400_20260831_v3/k3_fold0/cell.json",
+      "k3_checkpoint_dir": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold0/checkpoints/k3/fold0"
+    },
+    {
+      "restart_index": 3,
+      "fold": 4,
+      "k0_cell": "remote_outputs/restart_cont_r3_frozen_infer2400_20260831_v3/k0_fold4/cell.json",
+      "k3_cell": "remote_outputs/restart_cont_r3_frozen_infer2400_20260831_v3/k3_fold4/cell.json",
+      "k3_checkpoint_dir": "infra/r04/restart_cont_r3_fit8400_20260831/k3_fold4/checkpoints/k3/fold4"
+    },
+    {
+      "restart_index": 4,
+      "fold": 0,
+      "k0_cell": "remote_outputs/restart_cont_r4_frozen_infer2400_20260831_v3/k0_fold0/cell.json",
+      "k3_cell": "remote_outputs/restart_cont_r4_frozen_infer2400_20260831_v3/k3_fold0/cell.json",
+      "k3_checkpoint_dir": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold0/checkpoints/k3/fold0"
+    },
+    {
+      "restart_index": 4,
+      "fold": 4,
+      "k0_cell": "remote_outputs/restart_cont_r4_frozen_infer2400_20260831_v3/k0_fold4/cell.json",
+      "k3_cell": "remote_outputs/restart_cont_r4_frozen_infer2400_20260831_v3/k3_fold4/cell.json",
+      "k3_checkpoint_dir": "infra/r04/restart_cont_r4_fit8400_20260831/k3_fold4/checkpoints/k3/fold4"
+    }
+  ],
+  "provenance_note": "Restart 2-4 use the recovered frozen practical-acceptance cells and their step-8400 source checkpoints. The canonical and restart-1 cells retain their historical endpoints. Endpoint and environment strata are surfaced by the aggregator rather than silently pooled; all entries remain diagnostic-only.",
+  "strict_audit_boundary": "STOPPED_OFF_PLATFORM",
+  "selected_k": null
+}

@@ -17,6 +17,7 @@ from pathlib import Path
 import numpy as np
 
 from r04.diagnostics import platform_convergence_summary
+from r04.field_exports import write_heldout_field_export
 from r04.loaders import load_section_from_row
 from r04.metrics import negative_binomial_log_likelihood
 from r04.models import MNSFConfig, MNSFEstimator
@@ -208,10 +209,19 @@ def _score_fold(
     checkpoint_steps: int,
     resume_checkpoint_dir: Path | None = None,
     environment_hash: str | None = None,
+    checkpoint_output_dir: Path | None = None,
+    inference_export_root: Path | None = None,
+    structure_export_root: Path | None = None,
+    export_provenance: dict[str, object] | None = None,
+    execution_mode: str = "auto",
+    training_only: bool = False,
+    export_heldout_effect: bool = True,
 ) -> dict[str, object]:
     if resource_status(output_dir) == "BLOCKED_STORAGE":
         raise RuntimeError("BLOCKED_STORAGE")
-    checkpoint_dir = output_dir / "checkpoints" / f"k{k_model}" / f"fold{fold}"
+    checkpoint_dir = checkpoint_output_dir or (
+        output_dir / "checkpoints" / f"k{k_model}" / f"fold{fold}"
+    )
     estimator = MNSFEstimator(MNSFConfig(
         factors=k_model,
         inducing_points=inducing_points,
@@ -235,14 +245,94 @@ def _score_fold(
         checkpoint_steps=checkpoint_steps,
         seed=optimization_seed,
         environment_hash=environment_hash or "",
+        execution_mode=execution_mode,
     )).fit(training)
     fit_platform = platform_convergence_summary(
         estimator.diagnostics_.get("loss_trace", []), window=50, stable_windows=2
+    )
+    execution_mode_requested = str(
+        estimator.diagnostics_.get("execution_mode_requested", execution_mode)
+    )
+    execution_mode_effective = str(
+        estimator.diagnostics_.get(
+            "execution_mode_effective",
+            estimator.diagnostics_.get("execution_mode", "eager"),
+        )
     )
     score_by_patient: dict[str, list[float]] = {}
     section_scores: list[dict[str, object]] = []
     inference_platforms: list[dict[str, object]] = []
     inference_diagnostics_by_split: list[dict[str, object]] = []
+    inference_field_exports: list[dict[str, object]] = []
+    structure_field_exports: list[dict[str, object]] = []
+    if structure_export_root is not None:
+        structure_field_exports.append(write_heldout_field_export(
+            structure_export_root / "training_full.npz",
+            sections=training,
+            field_groups=estimator.fields_,
+            evaluation_loading=estimator.loading_,
+            factor_amplitude=estimator.factor_amplitude_,
+            frozen_gene_ids=genes,
+            adaptation_gene_ids=(),
+            evaluation_gene_ids=genes,
+            adaptation_indices=np.asarray([], dtype=int),
+            evaluation_indices=np.arange(len(genes), dtype=int),
+            provenance={
+                "k_model": k_model,
+                "fold": fold,
+                "gene_split": None,
+                "optimization_seed": optimization_seed,
+                "inference_steps": 0,
+                "fit_input_hash": estimator.fit_input_hash_,
+                "fit_config_hash": estimator.fit_config_hash_,
+                "fit_environment_hash": estimator.fit_environment_hash_,
+                "fit_updates": estimator.diagnostics_.get("optimizer_steps_this_call"),
+                "representation_role": "training_outer_fold_readout_fit",
+                **(export_provenance or {}),
+            },
+        ))
+    if training_only:
+        return {
+            "schema": "r04.real_k_cell.v1",
+            "status": "FIT_ONLY_TRAINING_EFFECT_EXPORTED",
+            "k_model": k_model,
+            "fold": fold,
+            "n_training_sections": len(training),
+            "n_validation_sections": len(validation),
+            "training_patients": sorted({str(section.patient_id) for section in training}),
+            "validation_patients": sorted({str(section.patient_id) for section in validation}),
+            "fit_platform": fit_platform,
+            "execution_mode": execution_mode_effective,
+            "execution_mode_requested": execution_mode_requested,
+            "execution_mode_effective": execution_mode_effective,
+            "inference_platform": {"converged": False, "status": "NOT_RUN_TRAINING_ONLY"},
+            "fit_diagnostics": estimator.diagnostics_,
+            "inference_diagnostics": {},
+            "inference_diagnostics_by_split": [],
+            "inference_field_exports": [],
+            "structure_field_exports": structure_field_exports,
+            "patient_scores": {},
+            "section_scores": [],
+            "input_hash": estimator.fit_input_hash_,
+            "config_hash": estimator.fit_config_hash_,
+            "checkpoint_dir": str(checkpoint_dir),
+            "parameters": {
+                "steps": steps,
+                "inference_steps": inference_steps,
+                "inducing_points": inducing_points,
+                "lengthscale": lengthscale,
+                "nonspatial_rank": 1,
+                "gene_folds": gene_folds,
+                "split_seed": split_seed,
+                "optimization_seed": optimization_seed,
+                "optimization_schedule": optimization_schedule,
+                "shared_steps": shared_steps,
+                "training_only": True,
+                "execution_mode": execution_mode_effective,
+                "execution_mode_requested": execution_mode_requested,
+                "execution_mode_effective": execution_mode_effective,
+            },
+        }
     splits = gene_crossfit_splits(len(genes), folds=gene_folds, seed=split_seed)
     for split_index, (adaptation, evaluation) in enumerate(splits):
         adaptation_genes = tuple(genes[index] for index in adaptation)
@@ -281,6 +371,34 @@ def _score_fold(
             "platform": inference_platform,
             "diagnostics": projected.inference_diagnostics_,
         })
+        if inference_export_root is not None:
+            export_path = inference_export_root / f"gene_split_{split_index}.npz"
+            inference_field_exports.append(write_heldout_field_export(
+                export_path,
+                sections=validation,
+                field_groups=inferred,
+                evaluation_loading=estimator.loading_[evaluation],
+                factor_amplitude=projected.factor_amplitude_,
+                frozen_gene_ids=genes,
+                adaptation_gene_ids=adaptation_genes,
+                evaluation_gene_ids=tuple(genes[index] for index in evaluation),
+                adaptation_indices=adaptation,
+                evaluation_indices=evaluation,
+                provenance={
+                    "k_model": k_model,
+                    "fold": fold,
+                    "gene_split": split_index,
+                    "gene_split_seed": split_seed,
+                    "optimization_seed": optimization_seed,
+                    "inference_steps": inference_steps,
+                    "fit_input_hash": estimator.fit_input_hash_,
+                    "fit_config_hash": estimator.fit_config_hash_,
+                    "fit_environment_hash": estimator.fit_environment_hash_,
+                    "inference_platform": inference_platform,
+                    "representation_role": "heldout_training_outer_fold",
+                    **(export_provenance or {}),
+                },
+            ))
         offset = 0
         for section in validation:
             n_spots = len(section.coords)
@@ -301,6 +419,42 @@ def _score_fold(
             offset += n_spots
         if offset != len(log_mu):
             raise RuntimeError("validation prediction spot count does not match sections")
+    if structure_export_root is not None and export_heldout_effect:
+        heldout_fields = estimator.infer(
+            validation,
+            steps=inference_steps,
+            posterior_draws=8,
+        )
+        structure_inference_platform = platform_convergence_summary(
+            estimator.inference_diagnostics_.get("loss_trace", []),
+            window=50,
+            stable_windows=2,
+        )
+        structure_field_exports.append(write_heldout_field_export(
+            structure_export_root / "heldout_full.npz",
+            sections=validation,
+            field_groups=heldout_fields,
+            evaluation_loading=estimator.loading_,
+            factor_amplitude=estimator.factor_amplitude_,
+            frozen_gene_ids=genes,
+            adaptation_gene_ids=(),
+            evaluation_gene_ids=genes,
+            adaptation_indices=np.asarray([], dtype=int),
+            evaluation_indices=np.arange(len(genes), dtype=int),
+            provenance={
+                "k_model": k_model,
+                "fold": fold,
+                "gene_split": None,
+                "optimization_seed": optimization_seed,
+                "inference_steps": inference_steps,
+                "fit_input_hash": estimator.fit_input_hash_,
+                "fit_config_hash": estimator.fit_config_hash_,
+                "fit_environment_hash": estimator.fit_environment_hash_,
+                "inference_platform": structure_inference_platform,
+                "representation_role": "heldout_outer_fold_readout_apply",
+                **(export_provenance or {}),
+            },
+        ))
     patient_scores = {
         patient: float(np.mean(values))
         for patient, values in score_by_patient.items()
@@ -315,10 +469,15 @@ def _score_fold(
         "training_patients": sorted({str(section.patient_id) for section in training}),
         "validation_patients": sorted({str(section.patient_id) for section in validation}),
         "fit_platform": fit_platform,
+        "execution_mode": execution_mode_effective,
+        "execution_mode_requested": execution_mode_requested,
+        "execution_mode_effective": execution_mode_effective,
         "inference_platform": _combine_inference_platforms(inference_platforms),
         "fit_diagnostics": estimator.diagnostics_,
         "inference_diagnostics": projected.inference_diagnostics_,
         "inference_diagnostics_by_split": inference_diagnostics_by_split,
+        "inference_field_exports": inference_field_exports,
+        "structure_field_exports": structure_field_exports,
         "patient_scores": patient_scores,
         "section_scores": section_scores,
         "input_hash": estimator.fit_input_hash_,
@@ -335,6 +494,9 @@ def _score_fold(
             "optimization_seed": optimization_seed,
             "optimization_schedule": optimization_schedule,
             "shared_steps": shared_steps,
+            "execution_mode": execution_mode_effective,
+            "execution_mode_requested": execution_mode_requested,
+            "execution_mode_effective": execution_mode_effective,
         },
     }
 

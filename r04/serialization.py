@@ -49,8 +49,18 @@ def read_json(path: Path) -> dict:
 def read_frozen_model(path: Path) -> object:
     """Load a frozen R-04 model without rebuilding or refitting its parameters."""
     payload = read_json(path)
-    if payload.get("schema") != "r04.frozen_model.v1":
+    schema = payload.get("schema")
+    if schema == "r04.frozen_model.v1":
+        raise ValueError(
+            "legacy TensorFlow frozen model (r04.frozen_model.v1) is not readable by the PyTorch runtime; "
+            "use historical evidence only"
+        )
+    if schema != "r04.frozen_model.v2_torch":
         raise ValueError("frozen model schema is missing or unsupported")
+    # Fail-closed on non-torch backend if present
+    backend = payload.get("backend")
+    if backend is not None and backend != "torch":
+        raise ValueError(f"unsupported frozen model backend: {backend}")
     from .models import MNSFEstimator, SignedResidualGPEstimator
 
     model_id = payload.get("model_id")

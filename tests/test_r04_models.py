@@ -2,25 +2,22 @@ from __future__ import annotations
 
 import pytest
 import numpy as np
+import torch
 
 from r04.models import MNSFConfig, MNSFEstimator, SignedResidualGPConfig, SignedResidualGPEstimator
 from r04.models.mnsf import predict_log_mean_from_fields
-from r04.models.mnsf import _diagonal_gp_kl, _rate_initial_components
+from r04.models.mnsf import _diagonal_gp_kl_torch, _rate_initial_components
 from r04.serialization import read_frozen_model, write_frozen_model
 from r04.synthetic import make_overlapping_sections
 
 
-tf = pytest.importorskip("tensorflow")
-pytest.importorskip("tensorflow_probability")
-
-
 def test_diagonal_gp_kl_matches_identity_prior() -> None:
-    prior_inverse = tf.eye(3)
-    loc = tf.zeros((3, 2))
-    unit = _diagonal_gp_kl(tf, loc, tf.ones((3, 2)), prior_inverse, tf.constant(0.0))
-    wider = _diagonal_gp_kl(tf, loc, tf.fill((3, 2), 2.0), prior_inverse, tf.constant(0.0))
-    assert float(unit.numpy()) == pytest.approx(0.0, abs=1e-6)
-    assert float(wider.numpy()) > 0.0
+    prior_inverse = torch.eye(3)
+    loc = torch.zeros((3, 2))
+    unit = _diagonal_gp_kl_torch(loc, torch.ones((3, 2)), prior_inverse, 0.0)
+    wider = _diagonal_gp_kl_torch(loc, torch.full((3, 2), 2.0), prior_inverse, 0.0)
+    assert float(unit.item()) == pytest.approx(0.0, abs=1e-6)
+    assert float(wider.item()) > 0.0
 
 
 def test_dual_models_emit_continuous_uncertain_fields() -> None:
@@ -90,7 +87,7 @@ def test_mnsf_field_prediction_is_continuous_and_gene_aligned() -> None:
     assert np.isfinite(log_mu).all()
 
 
-def test_mnsf_compiled_execution_matches_eager_reference_on_small_fixture() -> None:
+def test_mnsf_auto_execution_resolves_to_eager_on_small_fixture() -> None:
     sections, _ = make_overlapping_sections(
         sections=2, spots_per_section=12, genes=8, antagonistic=True
     )
@@ -104,44 +101,62 @@ def test_mnsf_compiled_execution_matches_eager_reference_on_small_fixture() -> N
         seed=211,
     )
     eager = MNSFEstimator(MNSFConfig(**common, execution_mode="eager")).fit(sections)
-    compiled = MNSFEstimator(
-        MNSFConfig(**common, execution_mode="compiled")
+    automatic = MNSFEstimator(
+        MNSFConfig(**common, execution_mode="auto")
     ).fit(sections)
     np.testing.assert_allclose(
-        compiled.loading_, eager.loading_, rtol=1e-5, atol=1e-6
+        automatic.loading_, eager.loading_, rtol=1e-5, atol=1e-6
     )
     np.testing.assert_allclose(
-        compiled.factor_amplitude_, eager.factor_amplitude_, rtol=1e-5, atol=1e-6
+        automatic.factor_amplitude_, eager.factor_amplitude_, rtol=1e-5, atol=1e-6
     )
     np.testing.assert_allclose(
-        compiled.gene_baseline_, eager.gene_baseline_, rtol=1e-5, atol=1e-6
+        automatic.gene_baseline_, eager.gene_baseline_, rtol=1e-5, atol=1e-6
     )
     np.testing.assert_allclose(
-        compiled.diagnostics_["loss_trace"],
+        automatic.diagnostics_["loss_trace"],
         eager.diagnostics_["loss_trace"],
         rtol=1e-5,
         atol=1e-6,
     )
-    assert compiled.diagnostics_["execution_mode"] == "compiled"
+    assert automatic.diagnostics_["execution_mode"] == "eager"
+    assert automatic.diagnostics_["execution_mode_requested"] == "auto"
 
     inferred_eager = eager.infer(sections, steps=2, posterior_draws=2)
-    inferred_compiled = compiled.infer(sections, steps=2, posterior_draws=2)
+    inferred_automatic = automatic.infer(sections, steps=2, posterior_draws=2)
     np.testing.assert_allclose(
-        inferred_compiled[0][0].field_mean,
+        inferred_automatic[0][0].field_mean,
         inferred_eager[0][0].field_mean,
         rtol=1e-5,
         atol=1e-6,
     )
     np.testing.assert_allclose(
-        inferred_compiled[1][1].field_mean,
+        inferred_automatic[1][1].field_mean,
         inferred_eager[1][1].field_mean,
         rtol=1e-5,
         atol=1e-6,
     )
-    assert compiled.inference_diagnostics_["execution_mode"] == "compiled"
+    assert automatic.inference_diagnostics_["execution_mode"] == "eager"
+    assert automatic.inference_diagnostics_["execution_mode_requested"] == "auto"
 
 
-def test_mnsf_compiled_execution_preserves_k0_and_staged_schedule() -> None:
+def test_legacy_compiled_frozen_label_is_migrated_to_eager_with_provenance() -> None:
+    sections, _ = make_overlapping_sections(
+        sections=1, spots_per_section=10, genes=7, antagonistic=True
+    )
+    fitted = MNSFEstimator(
+        MNSFConfig(factors=2, inducing_points=4, steps=2, posterior_draws=1, seed=217)
+    ).fit(sections)
+    state = fitted.frozen_state()
+    state["config"]["execution_mode"] = "compiled"
+    restored = MNSFEstimator.from_frozen_state(state)
+    restored.infer(sections, steps=1, posterior_draws=1)
+    assert restored.diagnostics_["execution_mode_requested_legacy"] == "compiled"
+    assert restored.diagnostics_["execution_mode_migration"] == "LEGACY_FALSE_LABEL_TO_EAGER"
+    assert restored.inference_diagnostics_["execution_mode"] == "eager"
+
+
+def test_mnsf_eager_execution_preserves_k0_and_staged_schedule() -> None:
     sections, _ = make_overlapping_sections(
         sections=2, spots_per_section=10, genes=7, antagonistic=True
     )
@@ -153,15 +168,23 @@ def test_mnsf_compiled_execution_preserves_k0_and_staged_schedule() -> None:
         diagnostic_interval=1,
         optimization_schedule="staged_shared_first",
         shared_steps=2,
-        execution_mode="compiled",
+        execution_mode="eager",
         seed=223,
     )).fit(sections)
     assert estimator.fields_ == [[], []]
-    assert estimator.diagnostics_["execution_mode"] == "compiled"
+    assert estimator.diagnostics_["execution_mode"] == "eager"
     assert len(estimator.diagnostics_["loss_trace"]) == 3
     inferred = estimator.infer(sections, steps=2, posterior_draws=1)
     assert inferred == [[], []]
-    assert estimator.inference_diagnostics_["execution_mode"] == "compiled"
+    assert estimator.inference_diagnostics_["execution_mode"] == "eager"
+
+
+def test_mnsf_rejects_unimplemented_compiled_execution_mode() -> None:
+    sections, _ = make_overlapping_sections(sections=1, spots_per_section=8, genes=6)
+    with pytest.raises(ValueError, match="compiled.*not implemented"):
+        MNSFEstimator(
+            MNSFConfig(factors=0, steps=1, posterior_draws=1, execution_mode="compiled")
+        ).fit(sections)
 
 
 def test_mnsf_k0_uses_same_nuisance_channel_and_emits_no_spatial_fields() -> None:
@@ -253,29 +276,27 @@ def test_mnsf_compiled_checkpoint_resume_preserves_optimizer_state(tmp_path, mon
         steps=4,
         posterior_draws=1,
         checkpoint_steps=2,
-        execution_mode="compiled",
+        execution_mode="eager",
         seed=227,
     )
     uninterrupted = MNSFEstimator(MNSFConfig(**common)).fit(sections)
     checkpointed = MNSFConfig(
         **common, checkpoint_dir=str(tmp_path / "compiled_mnsf")
     )
-    original_apply = tf.keras.optimizers.Adam.apply_gradients
+    original_step = torch.optim.Adam.step
     calls = 0
 
-    def interrupt_on_third_update(optimizer, *args, **kwargs):
+    def patched_step(self, *args, **kwargs):  # type: ignore[no-untyped-def]
         nonlocal calls
         calls += 1
         if calls == 3:
             raise RuntimeError("simulated interruption")
-        return original_apply(optimizer, *args, **kwargs)
+        return original_step(self, *args, **kwargs)
 
-    monkeypatch.setattr(
-        tf.keras.optimizers.Adam, "apply_gradients", interrupt_on_third_update
-    )
+    monkeypatch.setattr(torch.optim.Adam, "step", patched_step)
     with pytest.raises(RuntimeError, match="simulated interruption"):
         MNSFEstimator(checkpointed).fit(sections)
-    monkeypatch.setattr(tf.keras.optimizers.Adam, "apply_gradients", original_apply)
+    monkeypatch.setattr(torch.optim.Adam, "step", original_step)
     resumed = MNSFEstimator(checkpointed).fit(sections)
     np.testing.assert_allclose(
         resumed.loading_, uninterrupted.loading_, rtol=1e-5, atol=1e-6
@@ -303,22 +324,20 @@ def test_mnsf_checkpoint_resume_preserves_precrash_best_state(tmp_path, monkeypa
         **common, checkpoint_dir=str(tmp_path / "interrupted_mnsf")
     )
 
-    original_apply = tf.keras.optimizers.Adam.apply_gradients
+    original_step = torch.optim.Adam.step
     calls = 0
 
-    def interrupt_on_third_update(optimizer, *args, **kwargs):
+    def patched_step(self, *args, **kwargs):  # type: ignore[no-untyped-def]
         nonlocal calls
         calls += 1
         if calls == 3:
             raise RuntimeError("simulated interruption")
-        return original_apply(optimizer, *args, **kwargs)
+        return original_step(self, *args, **kwargs)
 
-    monkeypatch.setattr(
-        tf.keras.optimizers.Adam, "apply_gradients", interrupt_on_third_update
-    )
+    monkeypatch.setattr(torch.optim.Adam, "step", patched_step)
     with pytest.raises(RuntimeError, match="simulated interruption"):
         MNSFEstimator(checkpointed).fit(sections)
-    monkeypatch.setattr(tf.keras.optimizers.Adam, "apply_gradients", original_apply)
+    monkeypatch.setattr(torch.optim.Adam, "step", original_step)
 
     resumed = MNSFEstimator(checkpointed).fit(sections)
     np.testing.assert_allclose(resumed.loading_, uninterrupted.loading_, atol=1e-6)
@@ -369,7 +388,7 @@ def test_mnsf_continuation_preserves_optimizer_state_and_starts_at_checkpoint(
     tmp_path,
 ) -> None:
     sections, _ = make_overlapping_sections(
-        sections=2, spots_per_section=12, genes=8, antagonistic=True
+        sections=2, spots_per_section=10, genes=7, antagonistic=True
     )
     source = tmp_path / "source"
     target = tmp_path / "target"
@@ -407,6 +426,41 @@ def test_mnsf_continuation_preserves_optimizer_state_and_starts_at_checkpoint(
     assert continued.diagnostics_["learning_rate_trace"][0]["learning_rate"] == pytest.approx(
         0.0025, abs=1e-6
     )
+
+
+def test_mnsf_resume_rejects_missing_tensor_even_when_best_state_has_it(tmp_path) -> None:
+    sections, _ = make_overlapping_sections(
+        sections=1, spots_per_section=10, genes=7, antagonistic=True
+    )
+    source = tmp_path / "source"
+    MNSFEstimator(
+        MNSFConfig(
+            factors=2,
+            inducing_points=4,
+            steps=2,
+            posterior_draws=1,
+            checkpoint_dir=str(source),
+            checkpoint_steps=1,
+            seed=103,
+        )
+    ).fit(sections)
+    checkpoint_path = source / "checkpoint.pt"
+    payload = torch.load(str(checkpoint_path), map_location="cpu", weights_only=True)
+    payload["params"].pop("p_0")
+    torch.save(payload, str(checkpoint_path))
+    with pytest.raises(RuntimeError, match="missing parameter tensors.*p_0"):
+        MNSFEstimator(
+            MNSFConfig(
+                factors=2,
+                inducing_points=4,
+                steps=3,
+                posterior_draws=1,
+                checkpoint_dir=str(tmp_path / "target"),
+                checkpoint_steps=1,
+                resume_checkpoint_dir=str(source),
+                seed=103,
+            )
+        ).fit(sections)
 
 
 def test_staged_shared_first_freezes_spatial_blocks_and_preserves_k0_baseline() -> None:

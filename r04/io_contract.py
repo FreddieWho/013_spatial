@@ -84,6 +84,35 @@ def sections_content_hash(sections: Iterable[SectionData]) -> str:
     return digest.hexdigest()
 
 
+def section_objective_input_hash(section: SectionData) -> str:
+    """Hash the exact molecule-level inputs consumed by the NB objective.
+
+    ``sections_content_hash`` is retained as the historical identity/count
+    hash.  The objective also consumes an optional explicit library-size
+    vector, so that vector is tracked in this separate, additive hash without
+    changing old artifact meanings.
+    """
+    library_size = None
+    if section.library_size is not None:
+        values = np.asarray(section.library_size, dtype=np.float64)
+        if values.ndim != 1 or values.shape[0] != len(section.coords):
+            raise R04ContractError("library_size must have one value per spot")
+        if np.any(~np.isfinite(values)):
+            raise R04ContractError("library_size must be finite")
+        library_size = values.tolist()
+    return stable_json_hash({
+        "content_hash": section_content_hash(section),
+        "library_size": library_size,
+    })
+
+
+def sections_objective_input_hash(sections: Iterable[SectionData]) -> str:
+    """Hash all section inputs, including explicit objective offsets."""
+    return stable_json_hash([
+        section_objective_input_hash(section) for section in sections
+    ])
+
+
 def read_manifest(path: Path) -> list[ManifestRow]:
     with path.open(newline="", encoding="utf-8") as handle:
         rows = list(csv.DictReader(handle, delimiter="\t"))
