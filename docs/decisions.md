@@ -615,3 +615,32 @@ D-093 (2026-09-01): use the TensorFlow compiled execution path for the frozen K=
 - 理由：这是 D-099 门禁要的直接裁决，且是有检验力证据（6 患者/fold 配对分数），不是 N=2 读出的描述性推断；fold 异质性本身（fold-0 偏 K=0、fold-4 偏 K=3）在 K=2/K=3 下同时复现，说明异质性位于 ≤2 的有效维度内。
 - 失效条件：若未来 fold/队列出现 K=3 显著优于 K=2（留出配对差值方向不一致），或结构读出显示结论依赖第三方向，则重开 K 裁决。
 - 影响：L-001 转已并入主线；后续结构读出/验证工作默认 K=3；本次 GPU 会话花费约 ¥3.12（Money ¥0.39＋Power ¥2.73），累计 GPU 花费 ¥8.43。
+
+### D-107 | 2026-09-11 | K closure 精确语义：D-092 six-cell 范围被 D-104/D-106 取代，K 搜索关闭
+
+- 背景：D-092 曾冻结 six-cell（fold 0/4 × restart 0/1/2）K=2 Stage A 并记为 `BLOCKED_CPU_RUNTIME`；D-101 转探索定位后，D-104 授权更小的 GPU panel（fold 0/4 × restart 0，`--k-values 0,2` 两次配对跑），D-106 以该 panel 关闭 K 问题。但 `scripts/r04_finalize_k_semantics.py` 与 `infra/r04/k2_bridge_stage_a_20260901/stage_a.json` 仍停留在旧状态，机器入口与文档"已关闭"矛盾。
+- 决策：(1) 对 D-106 的精确解释：第三方向没有稳定正增量（fold-4 K2≈K3：+71.96 vs +72.73；fold-0 K2−K3 均值约 +12.35，即 K2 劣势更小，但 K2/K3 均不优于 K0）；采用 `working_k_model=3 + primary_readout_rank≤2`，但不声称 `global K_eff=2`，`selected_k` 保持 `null`。(2) D-104/D-106 的 exploratory GPU closure 正式 supersede D-092 的 six-cell 执行范围：不再补跑缺失 seed；压缩的依据是 K=2/K=3 配对分数已对第三方向做出有检验力裁决（6 患者/fold），额外 seed 只能改变幅度估计，不能改变"第三方向无稳定正增量"的定性结论；该压缩只支持"停止 K 搜索/选定工作表示"，不升级为确认性全局 K 结论。(3) 旧 bridge driver 与 stage artifact 保留为历史（legacy），`r04_finalize_k_semantics.py` 升级为 canonical K closure 入口，直接绑定 K=2/K=3 evidence artifact 与 hash。
+- 失效条件：若未来 fold/队列出现 K=3 显著优于 K=2，或读出依赖第三方向，则重开 K 裁决（沿 D-106 失效条件）。
+- 影响：`scripts/r04_finalize_k_semantics.py` + 测试；`infra/r04/k_closure_canonical_20260911.json`；旧入口标 legacy。
+
+### D-108 | 2026-09-11 | Composition adjustment 改为 nested patient-level cross-fitting，旧 smoke 产物保留为探索历史
+
+- 背景：`scripts/r04_explore_marker_smoke.py` 先在全体 paired 患者上 pooled 拟合 `crossfit_composition_adjustment`，再做内层 patient split 读出。内层训练患者的 adjusted 特征经由含内层测试患者数据的 residualizer 计算，构成 transductive/nested-CV 泄漏（2 患者 LOPO 下：测试患者的 adjusted 值虽只用训练患者拟合，但训练患者的 adjusted 值用了测试患者拟合，读出映射仍被污染）。
+- 决策：final audit 把 residualizer 嵌套进每个内层 split：只用内层训练患者拟合 `effect ~ ilr(proxy)`（单训练患者时用普通 ridge、无 crossfit），同一映射变换训练/测试；测试患者不参与任何 residualizer 参数估计。新增泄漏回归测试（向测试患者注入 composition-only 信号，旧路径必须检出、新路径必须干净）。旧 `explore_marker_smoke_fold0_20260910.json` 保留不动；final audit 写新产物。另记录仓库事实冲突：现行 roadmap/phase-report 写"full-TSB +0.127→−0.068"，但产物中 a29-test-fold 的 full-TSB unadjusted 实际为 −0.011（+0.127 属 rank2-TSB unadjusted）；新审计以产物值为准，历史文字不改写（见 final report）。
+- 失效条件：若 nested 调整后训练/测试映射无法构造（如单患者无 target variation），记 NOT_TESTABLE 而不放宽嵌套；不得回退到 pooled 拟合。
+- 影响：`r04/composition.py` 新增 train-only 拟合接口；新脚本 `scripts/r04_composition_final_audit.py`；新测试。
+
+### D-109 | 2026-09-11 | 最终审计规则预承诺（outcome-neutral，结果出来前冻结）
+
+- 背景：R-04 最终门禁必须允许阴性关闭，不能事后调规则。本条在看到 final-audit 数值前冻结两条审计的判定规则。
+- 决策：(1) Composition final audit（nested patient-level crossfit，D-108）：rank1/rank2（主）/full-K3（sensitivity），unadjusted vs nested-adjusted，训练角色导出（fold-0/fold-4，不新增训练）；uncertainty 为内层 LOPO 经验 spread＋test-spot bootstrap CI（200 draws，seed 20260911）。residual-signal 记录 adjusted 效应＋CI，不设通过阈值，由最终门禁综合判定。(2) Unnamed-field audit（旋转不变、无标签）：两 fold K=3 loading 的 SVD 内禀 rank-r 子空间 canonical correlation，基因行置换 null（200 draws，seed 20260911）；rank-1/rank-2 候选规则：min(obs cc) ≤ null q975 → DOES_NOT_SURVIVE；> max(null q975, 0.5) → SURVIVES；之间 → NOT_IDENTIFIABLE；rank-3 只描述。(3) fold-4 TSB rank3 0.544：若 rank1/rank2、fold-0 或 nested-adjusted 任一不复现，默认记 ISOLATED_EXPLORATORY_SIGNAL，不追第三方向。
+- 失效条件：规则一旦冻结，看到数值后不得修改阈值；若输入 artifact 被证伪，审计作废重跑而非调参通过。
+- 影响：`scripts/r04_composition_final_audit.py`、`scripts/r04_unnamed_field_audit.py`＋测试；产物 `composition_final_audit_20260911.json`、`unnamed_field_audit_20260911.json`。
+
+### D-110 | 2026-09-11 | R-04 最终门禁结果：阴性完成，无可重复残余场，R-05 不触发
+
+- 背景：D-109 预承诺规则下跑完 nested composition final audit 与 unnamed-field audit，`scripts/r04_finalize_phase.py` 从 5 份登记产物重算（hash/患者独立性 fail-closed）。
+- 证据：nested 调整后唯一非平凡残余是 a29 单患者的 TSB rank2 信号（adjusted +0.157，CI [0.095,0.212]）；独立患者 0bd3（+0.005）与 286667（−0.002）均为零，且 a29 同时在两 fold 训练集中、不能自我复制；TLS rank2 最大 reviewer 内效应 +0.034/+0.006，未过项目 null 等价带；rank1 读写全零（单维度下特异残余空间坍缩所致的结构性零，非证据）；外层验证双 fold null；unnamed rank-1 loading 子空间共享（cc 0.582）但无组成残余/外层支撑，不等于残余场。
+- 决策：最终状态 `R04_COMPLETE_NO_REPRODUCIBLE_RESIDUAL_FIELD`（阴性完成，不是 fishing 未果）。合成规则（D-109 把阈值制定委托给最终门禁，此处冻结）：hit 需 adjusted AUC delta ≥ 0.02（项目自 D-100 时代沿用的 null 等价带：|.|<0.02 联合读零；bootstrap CI 只覆盖 spot 抽样噪声，信号必须明显越过该带）且 q025 > 0；SURVIVES 需 ≥2 个不相交患者同号命中。4 候选全部 DOES_NOT_SURVIVE；uncertainty PASS；coordinate null 与 independent lineage 按 §6 记 NOT_TRIGGERED（无 surviving candidate，不是 open TODO）；R-05 记 `NOT_TRIGGERED_NO_SURVIVING_R04_FIELD`，R-06/R-07 不触发。
+- 失效条件：若未来独立患者/队列出现跨患者复制的组成残余信号，或外层验证转阳，则重开 R-04 证据评估（新决策，不改写本门禁）。
+- 影响：`infra/r04/r04_final_gate_20260911.json`；roadmap R-04 完成判据改为 outcome-neutral 三状态并记最终状态；I-019 关闭，I-012/I-013/I-014/I-017 按门禁记 resolved/limitation/deferred；旧 smoke 结论（a29 信号被吃掉）被 nested 审计推翻，以新产物为准（旧产物保留，历史文字不改写）。

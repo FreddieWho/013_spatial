@@ -1,0 +1,63 @@
+{
+  "candidates": [
+    {
+      "candidate": "rank1_subspace",
+      "min_observed": 0.581675837604007,
+      "n_perm": 200,
+      "null_min_max": 0.28359887712514553,
+      "null_min_q975": 0.08860552840461162,
+      "observed_canonical_corrs": [
+        0.581675837604007
+      ],
+      "rank": 1,
+      "seed": 20260911,
+      "verdict": "SURVIVES"
+    },
+    {
+      "candidate": "rank2_subspace",
+      "min_observed": 0.4738238843983537,
+      "n_perm": 200,
+      "null_min_max": 0.07094483572712379,
+      "null_min_q975": 0.03569828082431373,
+      "observed_canonical_corrs": [
+        0.9034112058246936,
+        0.4738238843983537
+      ],
+      "rank": 2,
+      "seed": 20260911,
+      "verdict": "NOT_IDENTIFIABLE"
+    },
+    {
+      "candidate": "rank3_descriptive",
+      "min_observed": 0.16377943119526733,
+      "n_perm": 200,
+      "null_min_max": 0.016827317002261973,
+      "null_min_q975": 0.010037261909472985,
+      "observed_canonical_corrs": [
+        0.92761174663437,
+        0.6923931831621529,
+        0.16377943119526733
+      ],
+      "rank": 3,
+      "seed": 20260911,
+      "verdict": "DESCRIPTIVE_ONLY"
+    }
+  ],
+  "decisions": [
+    "D-107",
+    "D-109"
+  ],
+  "evidence_grade": "exploratory_post_hoc_no_confirmatory_claim",
+  "export_sha256": {
+    "fold0": "b96f4baac503347034d93c24f4940c9e74289ce120f10c76e86d6ba7e6d4b38d",
+    "fold4": "0c21fb6d97c93e035d5e21d65db5e079382ad4e09475cbbf3236627dc387b2e9"
+  },
+  "exports": {
+    "fold0": "infra/r04/torch_effect_exports_20260905/r0_fold0/structure_exports/training_full.npz",
+    "fold4": "infra/r04/torch_effect_exports_20260905/r0_fold4/structure_exports/training_full.npz"
+  },
+  "method": "SVD-defined rank-r loading subspaces; canonical correlations; gene-row permutation null",
+  "n_genes": 4000,
+  "schema": "r04.unnamed_field_audit.v1",
+  "status": "UNNAMED_REPRODUCIBILITY_AUDIT"
+}

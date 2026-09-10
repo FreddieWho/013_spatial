@@ -83,10 +83,9 @@
 **投入上限：** 只普查当前已下载数据，不为增加普通横断面样本恢复外部下载；是否申请独特 serial-section 数据为 `[待定]`，需要本节点结果后另行决策。
 
 ## R-04｜潜在空间场发现、距离场复现与组成—状态拆分
-
 1. **要做什么：** 不预设所有空间场都有明确结构锚点，先从分子空间数据发现候选场；对有独立 GT 的 TLS 与肿瘤—基质边界，再估计其周围的多通道距离响应，分别表示细胞组成、固定细胞类型内状态、可解释 program 和数据驱动生态信号。已知结构只作为候选场的验证与解释子集。
 2. **服务的假设：** H-01、H-03、H-05。
-3. **完成判据：** 至少一个候选空间场在患者或组织块层面显示可重复的空间残余信息，并且有足以支撑该下游结论的稳定表示容量；不要求先找到一个唯一的全局 K，若不同 fold/患者支持不同有效秩，应明确记录全局 K 不可识别。对有结构锚点的场，报告其与独立 GT 的对应关系；对未命名场，不要求先有 GT，但要用独立患者、队列或留出空间检验其可重复性，并给出组成与状态分量及不确定性。
+3. **完成判据（2026-09-11 起为 outcome-neutral，D-110）：** 只允许三个最终状态。A `R04_COMPLETE_WITH_REPRODUCIBLE_RESIDUAL_FIELD`：至少一个候选在患者/组织块层面重复、在 rank≤2 主表示下成立、组成控制后仍有增量残余、有可审计不确定性、必要时通过空间坐标置换 null；对命名结构，GT 只用于解释/验证。B `R04_COMPLETE_NO_REPRODUCIBLE_RESIDUAL_FIELD`：在预先限定、现有数据的审计范围内无任何候选同时通过重复性、组成残余和不确定性要求——这是已完成的阴性结果，不是继续 fishing 的理由；R-05/R-06/R-07 强反演主线记 NOT_TRIGGERED。C `R04_BLOCKED_IDENTIFIABILITY`：仅在连阴性结论都无法可靠判断时使用（关键输入缺失、组成控制无法构造且决定主结论、或 provenance 破坏），须写明缺什么与最小解锁条件。不要求先找到唯一的全局 K；若不同 fold/患者支持不同有效秩，明确记录全局 K 不可识别（`global_k_eff=NOT_IDENTIFIABLE`，`selected_k=null`，`k_search_closed_for_r04=true`）。
 4. **结果如何改变信心：** 若潜在场在独立队列方向一致，则提高对 H-01、H-03 和 H-05 的初始信心；若只有已知结构附近的复现而没有新的潜在场，结论收缩为已知结构场描述；若只存在组成变化或只在单队列出现，则削弱 H-03/H-05，并阻止进入强反演结论。
 
 **R-04 内部科学顺序：**
@@ -102,7 +101,7 @@
 1. 聚合已有五 seed 的 K=0/K=3 证据，并分开报告 fold、端点和执行环境 strata。
 2. 检查 top-1/2/3 子空间、患者级分数和 fold 异质性；不把第三方向或 factor 编号直接命名。
 3. 在不新增训练的前提下，使用 training-role GT 的嵌套 cross-fitting 检查结构特异读出，以及完整 K=3 与稳定子空间版本的敏感性；internal/external validation GT 允许探索性使用并标注证据等级（GT 永不进入预测输入与训练，此条永久保留）。
-4. K=2 bridge 为可选探索方向（LEADS L-001），何时执行按成本/价值决定，不再是门禁触发条件；`selected_k=null` 不阻止后续探索分析。
+4. K=2 bridge 已关闭（D-107/D-110）：exploratory GPU closure（D-104/D-106，restart 0）已取代 D-092 six-cell 范围，不再补 seed；canonical K closure 入口见 `infra/r04/k_closure_canonical_20260911.json`，旧 bridge 记 legacy；`selected_k=null`、`k_search_closed_for_r04=true`。
 5. 空间置换 null、组成—状态拆分和独立 lineage 复现可与结构读出并行探索，不设顺序门禁；进入确认性表述前仍需相应的可重复证据。
 
 **2026-08-07 工程状态：进行中。** 已建立 molecule-only 输入合同、双模型连续场适配器、按 factor 跨 section 的候选聚合、组成 cross-fitting、候选冻结、GT 隔离、checkpoint/hash 运行时和合成 smoke；一个 HTAN 单 section pilot 已执行但仍为 `FIT_COMPLETE_NOT_VALIDATED`。尚未完成正式多 section input manifest、五次 restart、独立 lineage 复现或 R-04 科学 gate，因此本节点仍未完成，不能据此提高或降低 H-01/H-03/H-05 的信心。
@@ -185,6 +184,8 @@
 
 **2026-09-05 双 fold 合并外层判读（TSB 9 患者，exploratory）：** fold-0 经 split 拼装模式完成（`explore_outer_validation_fold0_20260905.json`，mode split_direct_D103；35818 spot×4000 基因，TSB 9 section/31618 spot/3968 阳性/5 患者，TLS 1 section/13 阳性只报数）。TSB：rank1 0.486、rank2 0.500、rank3 0.480——三个 rank 全落 null 带内（带宽约 ±0.01），与 fold-4 的"仅 rank3 弱阳性 0.544"不构成复现。合并 9 患者判断：训练侧 fold-0 的 TLS 共享生态一致性（双向 0.91/0.74）未能外推到留出；TSB 在留出侧无一致信号，fold-4 rank3 的 0.544 在 fold-0 对应位置为 0.480（null），孤立存在、N=4，不升级。TLS 留出两 fold 各仅 1 section（33/13 阳性），不做任何判断。结论：外层验证整体为零发现；H-01/H-03/H-04 信心不变，R-04 仍未完成。fold-0 heldout 全基因推断补跑仍在后台（严格可比复核， landed 后重跑一版对照拼装版）。
 
+**2026-09-11 R-04 最终关闭，状态为 R04_COMPLETE_NO_REPRODUCIBLE_RESIDUAL_FIELD（阴性完成）：** 最终门禁 `infra/r04/r04_final_gate_20260911.json` 由 `scripts/r04_finalize_phase.py` 从 5 份登记产物重算（D-109 预承诺规则＋D-110 合成）：nested 组成终审（`composition_final_audit_20260911.json`，fold-0/4，rank1/2/full，拟合器只用内层训练患者，200-draw bootstrap CI）显示唯一非平凡残余是 a29 单患者的 TSB rank2 信号（nested-adjusted +0.157，CI [0.095,0.212]；pooled smoke 的"被吃掉"结论是泄漏伪影，已被推翻）；独立患者 0bd3/286667 均为零，且 a29 横跨两 fold 不能自我复制；TLS 最大效应 +0.034 未过项目 null 等价带（0.02）；rank1 全零是单维度残余空间坍缩的结构性零；外层验证双 fold null；unnamed rank-1 loading 子空间跨 fold 共享（cc 0.582）但无残余/外层支撑，不计为残余场。4 候选全部 DOES_NOT_SURVIVE，uncertainty PASS，coordinate null 与 independent lineage 按规则记 NOT_TRIGGERED。K 状态：`working_k_model=3`、`primary_readout_rank=2`、`global_k_eff=NOT_IDENTIFIABLE`、`selected_k=null`、`k_search_closed_for_r04=true`（canonical 入口 `k_closure_canonical_20260911.json`，旧 bridge 记 legacy）。对 H-01/H-03/H-05：当前数据不支持，信心按 plan 否证逻辑下调为不支持（非证伪）；R-05 记 `NOT_TRIGGERED_NO_SURVIVING_R04_FIELD`，R-06/R-07 不触发。
+
 **2026-09-10 marker-proxy smoke 完成（exploratory，fold-0）：** 三库投票 proxy（T22/B11/Mye16/Epi54/Stromal22 基因，ILC 判死）经模块分伪组成＋patient 分组 crossfit 调整后重跑读出（`explore_marker_smoke_fold0_20260910.json`）。关键变化全在 a29 患者：full-TSB +0.127→−0.068、rank2-TSB +0.127→−0.004（门禁讨论的那个单患者信号被组成调整吃掉）、TLS 转明显负值；0bd3 患者小幅正向或基本不动。解读（描述性，N=2）：a29 的特异信号与组成共线，调整后消失；0bd3 的弱信号不受影响。注意反向因果警告：回归调整分不清"组成驱动"与"真信号恰与组成共线"（正是 H-03 的纠缠问题），故只记"相容于组成驱动"，不定案。待 scRNA 参考路线（独立方法）对照。
 
 **2026-09-10 NNLS 反卷积路线判死（B2），组成调整只走 marker-proxy：** 均值 profile NNLS 在全基因（3854）与 DE 限定（512 基因，top100/类 Welch t）两版下，免疫类别份额均与经典 marker 零相关或反相关（LYZ–Mye −0.05→−0.19，PTPRC–T −0.02→−0.04；Epi/Stromal 始终 +0.55–0.65 正常）。诊断：T 与 ILC 均值 profile 余弦 0.991，3854 基因淹没判别信号；DE 限定后仍不正，说明还有平台 gap（scRNA 解离细胞 vs Visium bulk＋环境 RNA）与 bulk 假设本身的问题。按预定判据（LYZ–Mye、PTPRC–T 转正）两版皆不过，NNLS 路线判死，不再投入；`r04_deconvolve_nnls.py` 与 GSE236581 参考保留为负结果资产（脚本＋测试＋provenance 全在）。组成调整结论以 marker-proxy smoke 为准（模块分定义对齐，无此坍缩问题）。
@@ -203,6 +204,8 @@
 2. **服务的假设：** H-01、H-03。
 3. **完成判据：** 患者或组织块级比较明确报告完整信息相对 composition-only、marker-only 和空间平滑基线的增量；至少两个独立数据来源给出一致结论；匹配变量的因果角色已登记。
 4. **结果如何改变信心：** 若完整信息在上述限制下仍有稳定增量，则第一次实质性支持 H-01/H-03；若增量消失，则否证 H-01 的当前强形式，并把项目收缩为结构—生态场描述或直接检测。
+
+**2026-09-11 触发状态：** `NOT_TRIGGERED_NO_SURVIVING_R04_FIELD`——R-04 以阴性完成关闭，无 surviving 候选交出，本节点不启动；R-06/R-07 同样不触发。
 
 **为什么不能更早否证：** 在 R-01 与 R-02 完成前无法排除重复样本、同一物理结构跨折和 GT—输入循环；在 R-04 完成前也没有独立于测试集定义的候选场。更早得到的阳性或阴性都无法区分真实结构信息、组成捷径和数据泄漏。
 

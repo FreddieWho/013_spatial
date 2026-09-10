@@ -70,20 +70,20 @@ outcomes belong exclusively to the post-freeze `anchor_eval` process.
   The signed residual GP now uses the same per-spot gene-sum objective scale in
   fit and frozen inference; it remains a residual pilot rather than a complete
   signed NB posterior.
-- Formal real-data R-04 remains pending, but the K=0/K=3 extreme-fold
-  diagnostic and its five-seed frozen inference panel are complete. The
-  provenance-checked outputs are in `restart_stability_panel_20260901_frozen.json`,
-  `k_semantics_and_downstream_robustness_20260901.json` and the current linked
-  handoff `k_semantics_and_downstream_robustness_20260901_final.json`: fold 0 consistently
-  favors K=0, fold 4 consistently favors K=3, and the result is diagnostic only.
-  Ten K=3 training-role effect exports are now available with zero fit updates,
-  complete array/hash checks and validation GT sealed. The descriptive
-  shared-versus-specific readout is limited to two paired patients per extreme
-  fold, so downstream K robustness remains `not_tested` and factor naming stays
-  forbidden. A six-cell K=2 Stage-A manifest is frozen, but its first CPU fit
-  stopped before the first checkpoint; the stage is `BLOCKED_CPU_RUNTIME` with
-  no K=2 scientific result. Strict training audit remains
-  `STOPPED_OFF_PLATFORM`; GPU remains prohibited.
+- Formal real-data R-04 closed on 2026-09-11 as
+  `R04_COMPLETE_NO_REPRODUCIBLE_RESIDUAL_FIELD` (credible negative, D-110;
+  final gate `infra/r04/r04_final_gate_20260911.json` recomputed by
+  `scripts/r04_finalize_phase.py`). K closure is canonical in
+  `infra/r04/k_closure_canonical_20260911.json` (`working_k_model=3`,
+  `primary_readout_rank=2`, `global_k_eff=NOT_IDENTIFIABLE`, `selected_k=null`,
+  `k_search_closed_for_r04=true`; entrypoint
+  `scripts/r04_finalize_k_semantics.py --mode closure`). The six-cell K=2
+  Stage-A manifest and its `BLOCKED_CPU_RUNTIME` stage record are retained as
+  legacy history only (superseded by the D-104/D-106 exploratory GPU closure,
+  D-107); the old strict training audit `STOPPED_OFF_PLATFORM` is likewise
+  historical. GPU rentals for the Torch representative/K=2 runs are all
+  released (cumulative spend ¥8.43); new GPU work still needs explicit user
+  approval.
   Legacy TensorFlow checkpoints, JSON/NPZ and audits are sealed and must not be
   used as inputs to new Torch training; new science restarts from Torch.
   The current runtime storage guard is a 1.2 TB hard floor and a 1.4 TB soft

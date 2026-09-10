@@ -1,0 +1,88 @@
+{
+  "anchored_readout_summary": {
+    "isolated_signal": {
+      "fold4_TSB_rank3_0.544": "ISOLATED_EXPLORATORY_SIGNAL",
+      "note": "rank1/rank2, fold-0, and nested-adjusted do not reproduce it; third direction not pursued (D-109)"
+    },
+    "outer_validation": "null finding both folds (TSB); TLS one section per fold, descriptive only"
+  },
+  "blocked_or_not_triggered_nodes": [
+    "R-05:NOT_TRIGGERED_NO_SURVIVING_R04_FIELD",
+    "R-06",
+    "R-07"
+  ],
+  "composition_gate": {
+    "candidate_verdicts": [
+      {
+        "candidate": "TLS_rank1_residual",
+        "verdict": "DOES_NOT_SURVIVE"
+      },
+      {
+        "candidate": "TLS_rank2_residual",
+        "verdict": "DOES_NOT_SURVIVE"
+      },
+      {
+        "candidate": "TUMOR_STROMA_BOUNDARY_rank1_residual",
+        "verdict": "DOES_NOT_SURVIVE"
+      },
+      {
+        "candidate": "TUMOR_STROMA_BOUNDARY_rank2_residual",
+        "verdict": "DOES_NOT_SURVIVE"
+      }
+    ],
+    "effect_floor": 0.02,
+    "effect_floor_provenance": "project null-equivalence band; D-110 synthesis",
+    "method": "nested patient-level crossfit residualizer (D-108)",
+    "overlap_note": "a29 trains in both folds: it cannot replicate with itself; replication needs disjoint patients",
+    "training_patient_overlap_folds_0_4": [
+      "a29ba9b1"
+    ]
+  },
+  "coordinate_null": "NOT_TRIGGERED",
+  "created_at": "2026-09-11",
+  "evidence": [
+    {
+      "path": "infra/r04/k_closure_canonical_20260911.json",
+      "role": "k_closure_canonical",
+      "sha256": "39b348cd95c87affaa53ae50cce6899939459ff02aa4ad31d7a2244b8a6a9523"
+    },
+    {
+      "path": "infra/r04/composition_final_audit_20260911.json",
+      "role": "composition_final_audit_nested",
+      "sha256": "322311c1e6274c9f4e2095cf4253720aa94e9d5a58429e2f962a8439815863e5"
+    },
+    {
+      "path": "infra/r04/unnamed_field_audit_20260911.json",
+      "role": "unnamed_field_audit",
+      "sha256": "f5fee40edfc80f2094092319d525369b3f5e641d3f8a06d7935bf655314bdc28"
+    },
+    {
+      "path": "infra/r04/explore_outer_validation_fold0_20260905.json",
+      "role": "outer_validation_fold0",
+      "sha256": "0560ee1535c925f3b1f658a5d4f40ce7482c04495de310b8bc4c97ad2ae3b95b"
+    },
+    {
+      "path": "infra/r04/explore_outer_validation_fold4_20260905.json",
+      "role": "outer_validation_fold4",
+      "sha256": "1edf88e85958ac17a6bf1736cff126b9ad0f3e8e64d6b9b502002d02787aa530"
+    }
+  ],
+  "global_k_eff": "NOT_IDENTIFIABLE",
+  "independent_lineage": "NOT_TRIGGERED_NO_SURVIVING_CANDIDATE",
+  "k_search_closed_for_r04": true,
+  "next_nodes_authorized": [],
+  "phase": "R04",
+  "primary_readout_rank": 2,
+  "schema": "r04.final_gate.v1",
+  "selected_k": null,
+  "status": "R04_COMPLETE_NO_REPRODUCIBLE_RESIDUAL_FIELD",
+  "surviving_candidates": [],
+  "uncertainty_gate": "PASS",
+  "unnamed_field_reproducibility_gate": {
+    "note": "a surviving loading subspace alone is not a surviving residual field",
+    "rank1_subspace": "SURVIVES",
+    "rank2_subspace": "NOT_IDENTIFIABLE",
+    "rank3": "DESCRIPTIVE_ONLY"
+  },
+  "working_k_model": 3
+}

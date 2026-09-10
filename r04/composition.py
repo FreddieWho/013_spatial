@@ -46,6 +46,35 @@ def _fit_linear(x: np.ndarray, y: np.ndarray, ridge: float) -> np.ndarray:
     return np.linalg.solve(design.T @ design + penalty, design.T @ y)
 
 
+def fit_residualizer(field_train: np.ndarray, composition_train: np.ndarray,
+                     ridge: float = 1e-4) -> np.ndarray:
+    """Fit ``field ~ ilr(composition)`` on train rows only; return coefficients.
+
+    The returned coefficient vector (intercept first) is the only fitted
+    object a nested audit may transfer to held-out rows. Callers must fit
+    this on inner-train patients and apply it with :func:`apply_residualizer`
+    to both train and test rows; fitting on pooled train+test rows is a
+    transductive leak (D-108).
+    """
+    y = np.asarray(field_train, dtype=float).ravel()
+    x = ilr_transform(np.asarray(composition_train, dtype=float))
+    if y.ndim != 1 or len(y) != len(x):
+        raise ValueError("train field and composition have incompatible lengths")
+    return _fit_linear(x, y, float(ridge))
+
+
+def apply_residualizer(field: np.ndarray, composition: np.ndarray,
+                       coef: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    """Return ``(adjusted, expected)`` for new rows under a fitted mapping."""
+    y = np.asarray(field, dtype=float).ravel()
+    x = ilr_transform(np.asarray(composition, dtype=float))
+    coef = np.asarray(coef, dtype=float).ravel()
+    if len(y) != len(x) or len(coef) != x.shape[1] + 1:
+        raise ValueError("field/composition/coefficient shapes are incompatible")
+    expected = np.column_stack([np.ones(len(x)), x]) @ coef
+    return y - expected, expected
+
+
 def crossfit_composition_adjustment(
     field: np.ndarray,
     composition: np.ndarray,

@@ -120,16 +120,18 @@
 - **再次硬阻塞条件：** 若任一后续 lineage 的 gene coverage 低于 80%、输入 hash 与 manifest 不一致、或出现非整数/目标派生输入，立即回退为 `BLOCKED_INPUT_CONTRACT`，不得用聚类或图平滑替代。
 
 ## I-012｜组成参考的 posterior uncertainty 尚未接入正式估计器
-- **状态：** `OPEN`
+- **状态：** `WONT_FIX`
 - **发现日期：** 2026-08-07
 - **影响节点：** R-04 的 composition/state 拆分与 H-03。
 - **当前事实：** 005/006 参考 adapter 已实现 donor/type cap、gene intersection 和 h5ad allowlist；组成调整函数支持 posterior draws，但 cell2location/RCTD 的正式运行和多重插补尚未接入。当前 deterministic reference 只能产生 `POINT_REFERENCE_NO_POSTERIOR`。
 - **当前影响：** raw latent field discovery 可以继续；组成之外的强结论和 cell-intrinsic state 结论必须保持 `PARTIAL_RAW_FIELD_ONLY` 或 `STATE_NOT_IDENTIFIABLE`。
 - **下一判定点：** 在冻结候选后运行 cell2location，保存 provenance、cell-type vocabulary、posterior draws 和 gene-fold cross-fit manifest，再运行 RCTD sensitivity。
+
+**2026-09-11 R-04 关闭处置：** 无 surviving candidate，按 finalization §6/§7 不再升级到 cell2location/RCTD；NNLS 路线已判死（L-003）；R-04 闭合采用 marker-proxy nested 调整＋LOPO spread＋bootstrap CI。本条目记 WONT_FIX（正式 deconvolution 路径放弃），不是证据缺口未填。
 - **硬阻塞条件：** 若参考无法排除物理重叠或不能提供可审计 cell-type uncertainty，停止组成/状态 gate，但不回滚无标签 raw field discovery。
 
 ## I-013｜双模型当前的后验不确定性主要覆盖诱导权重
-- **状态：** `OPEN`
+- **状态：** `RESOLVED`
 - **发现日期：** 2026-08-07
 - **影响节点：** R-04 候选 uncertainty、患者 bootstrap 和最终 gate。
 - **当前事实：** TensorFlow 实现已对 section-specific inducing weights 做 variational draws，并输出 field mean/SD；共享 loading、dispersion、长度尺度和模型选择不确定性尚未由同一后验完整覆盖。合成 smoke 不等于完整科学不确定性。
@@ -137,14 +139,18 @@
 - **下一判定点：** 加入 loading/dispersion 的变分或外层 bootstrap、5 restart、patient/block bootstrap 和 lengthscale sensitivity，并把 uncertainty coverage 写入 gate。
 - **硬阻塞条件：** 若最终 uncertainty 只能依赖单次点估计，R-04 只能保留连续 field 的探索性输出，不能进入强确认性结论。
 
+**2026-09-11 R-04 关闭处置：** R-04 以探索级阴性完成关闭（D-110），不确定性由 spot field SD＋内层 LOPO 经验 spread＋test-spot bootstrap CI 覆盖，满足闭合要求；loading/dispersion 全后验覆盖仍缺失，记为 limitation——未来任何确认性主张须先补齐，本条目届时重开。
+
 ## I-014｜signed residual adapter 仍是 pilot likelihood，不是完整 NB-GP 后验
-- **状态：** `OPEN`
+- **状态：** `WONT_FIX`
 - **发现日期：** 2026-08-07
 - **影响节点：** R-04 双模型一致性、signed-only 候选解释和最终 gate。
 - **当前事实：** signed 路线仍先用固定过度离散参数构造 NB Pearson nuisance residual，再对残差做 MSE 拟合；diagonal variational inducing-weight GP-KL 已纳入训练，fit 与 frozen infer 已统一为按 spot 平均、按 gene 求和的目标尺度，但还没有把完整 NB observation likelihood、dispersion uncertainty 和 loading uncertainty 统一纳入后验。
 - **当前影响：** signed-only 或 `BOTH` 候选可用于方法调试和探索性发现，不能把该适配器的输出写成已完成的 signed NB-GP 科学证据；gate 继续保持关闭。
 - **下一判定点：** 在真实 manifest 冻结后比较完整 signed NB likelihood、当前 residual pilot 和非空间残差基线，并传播 dispersion、loading、lengthscale 与 inducing weights 的不确定性。
 - **硬阻塞条件：** 若 signed 路线无法在 grouped held-out likelihood 上超过 nuisance/非空间基线，删除 signed 模型贡献，不得用普通聚类或调参后的 marker program 替代。
+
+**2026-09-11 R-04 关闭处置：** signed NB-GP 统一明确不在闭合要求内（finalization §7）；signed adapter 永久保持 pilot 身份，不得被引用为科学证据。本条目记 WONT_FIX。
 ## I-015｜R-04 正式 restart 的 CPU 时间可行性
 - **状态：** `RESOLVED`
 - **发现日期：** 2026-08-10
@@ -182,6 +188,8 @@
 - **下一判定点：** 用完整 gene 技术样本施加 USZ 同一 mask，比较 full/masked field correlation、factor loading energy 和 rank；通过后再运行真实 external validation。
 - **解除条件：** common observed panel 不造成 factor-specific 信息丢失，且 full/masked 判定一致；否则仅保留覆盖充分的 validation lineage。
 
+**2026-09-11 R-04 关闭处置：** USZ 技术对照与真实 external validation 在 R-04 闭合中未使用（外层验证只用 HTAN 留出）；本条目保持 OPEN 作为未来跨平台验证选项，不再是 R-04 阻塞项。
+
 ## I-018｜D-049 之前的 minibatch 校准结果与当前目标不再可直接比较
 - **状态：** `RESOLVED`
 - **发现日期：** 2026-08-13
@@ -193,8 +201,8 @@
 
 **2026-08-13 D-050 更新：** objective v3 同时通过 objective 和平均 minibatch gradient oracle；fit/infer 已统一 dense 缩放，D-050 后的合成校准与 47-section 资源重测均有独立 artifact。D-049 之前及 D-049 到 D-050 之间的 artifacts 继续保留但不合并。本 issue 关闭。
 
-## I-019｜R-04 全局表示秩、fold 异质性与下游 K 稳健性尚未闭合
-- **状态：** `OPEN`
+## I-019｜R-04 全局表示秩、fold 异质性与下游 K 稳健性（2026-09-11 已关闭）
+- **状态：** `RESOLVED`
 - **发现日期：** 2026-08-13
 - **影响节点：** R-04 正式候选发现及 H-01/H-03/H-05。
 - **当前事实：** 合成校准只证明方法在受控数据上能识别效应维度，不能给真实数据指定 K。真实数据已有五 seed 的 K=0/K=3 极端 fold 诊断和 restart 2–4 的冻结留出推断；fold 方向可重复，但幅度存在异质性，前两类子空间方向较稳定，第三方向较弱且不稳定。严格训练审计仍为 `STOPPED_OFF_PLATFORM`，冻结 practical acceptance 仅覆盖 held-out inference/scoring；当前冻结 cell 没有 GT 对齐的 held-out spot×gene 空间效应矩阵。

@@ -1,0 +1,157 @@
+{
+  "claim_boundary": [
+    "K=3 is an overcomplete working container, not a Keff=2 proof",
+    "the third direction shows no stable positive held-out increment",
+    "fold heterogeneity lives within effective rank <= 2",
+    "K=2 evidence is single-restart Torch; cross-seed third-direction instability comes from the TF five-seed panel"
+  ],
+  "created_at": "2026-09-11",
+  "fold0_k2_minus_k3_mean": 12.357185923096417,
+  "fold4_direction_agreement": "5/6",
+  "global_k_eff": "NOT_IDENTIFIABLE",
+  "k_search_closed_for_r04": true,
+  "paired_deltas_by_patient": {
+    "k02_minus_k0_fold0": {
+      "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51": 12.46232690762281,
+      "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a": -0.46779459089384545,
+      "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48": -41.24249386650445,
+      "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464": -43.96921554873279,
+      "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b": -31.373138785205356,
+      "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33": 4.953880747959829
+    },
+    "k02_minus_k0_fold4": {
+      "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de": 7.264914919529474,
+      "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e": 186.82163428479225,
+      "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf": 51.16166096634856,
+      "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63": 94.92881919020556,
+      "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6": 16.644029540531164,
+      "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13": 74.93996053799401
+    },
+    "k3_minus_k0_fold0": {
+      "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51": 21.899764059881818,
+      "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a": -6.525476603183961,
+      "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48": -55.15305074884782,
+      "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464": -100.48226138684913,
+      "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b": -41.04025908390531,
+      "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33": 7.521733088572091
+    },
+    "k3_minus_k0_fold4": {
+      "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de": -4.604456676483096,
+      "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e": 187.19368403676162,
+      "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf": 49.814918742003215,
+      "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63": 102.04629828514817,
+      "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6": 21.782534233871047,
+      "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13": 80.15367647157018
+    }
+  },
+  "paired_means": {
+    "k02_minus_k0_fold0": -16.606072522625634,
+    "k02_minus_k0_fold4": 71.96016990656683,
+    "k3_minus_k0_fold0": -28.96325844572205,
+    "k3_minus_k0_fold4": 72.73110918214519
+  },
+  "primary_readout_rank": 2,
+  "schema": "r04.k_closure_canonical.v1",
+  "selected_k": null,
+  "source_artifacts": [
+    {
+      "path": "infra/r04/torch_representative_fold0_20260910_k02/cells/k0/fold0/cell.json",
+      "schema": "r04.real_k_cell.v1",
+      "sha256": "a8af51adc7f9fa6f1d124f73ccdb238b0a25a666e98819a95b699c34153f085a",
+      "status": "FIT_AND_SCORED"
+    },
+    {
+      "path": "infra/r04/torch_representative_fold0_20260910_k02/cells/k2/fold0/cell.json",
+      "schema": "r04.real_k_cell.v1",
+      "sha256": "40484946cea522b19fd1fe0f628dbc129f2de8a2a2b645ef4d1de7a8db5bfb1f",
+      "status": "FIT_AND_SCORED"
+    },
+    {
+      "path": "infra/r04/torch_representative_fold0_20260910_k02/r04_real_k_search.json",
+      "schema": "r04.real_k_search.v1",
+      "sha256": "c86e15e0b273a4084df315b2ad67e64b0a830d0db66b88d67fc74f599a01cdae",
+      "status": "WIRING_ONLY_NOT_SCIENTIFIC"
+    },
+    {
+      "path": "infra/r04/torch_representative_fold4_20260910_k02/cells/k0/fold4/cell.json",
+      "schema": "r04.real_k_cell.v1",
+      "sha256": "c3f6ccfb4a40ed6b60ff9077387a1e4d7c1f89421cc955e48b78af3da9735eb2",
+      "status": "FIT_AND_SCORED"
+    },
+    {
+      "path": "infra/r04/torch_representative_fold4_20260910_k02/cells/k2/fold4/cell.json",
+      "schema": "r04.real_k_cell.v1",
+      "sha256": "4fb45b2f5e11d8aafabbfce64caf38ed7a0d6a37caabb71ab2766fcc72c8b2d2",
+      "status": "FIT_AND_SCORED"
+    },
+    {
+      "path": "infra/r04/torch_representative_fold4_20260910_k02/r04_real_k_search.json",
+      "schema": "r04.real_k_search.v1",
+      "sha256": "f54a0731537e0b276ad615bc2d29e17a8fbd9a635714d40235370a2692772841",
+      "status": "WIRING_ONLY_NOT_SCIENTIFIC"
+    },
+    {
+      "path": "infra/r04/torch_representative_fold0_20260904_k3/cells/k0/fold0/cell.json",
+      "schema": "r04.real_k_cell.v1",
+      "sha256": "03b1457debf49d41d147204e421b339e0d1c37678eba3a351a7dc756e7e4b2d8",
+      "status": "FIT_AND_SCORED"
+    },
+    {
+      "path": "infra/r04/torch_representative_fold0_20260904_k3/cells/k3/fold0/cell.json",
+      "schema": "r04.real_k_cell.v1",
+      "sha256": "334d2e20bab0db74b65b1ffa92d5dc19eea40398b6b8b3c09640f3210874dcaa",
+      "status": "FIT_AND_SCORED"
+    },
+    {
+      "path": "infra/r04/torch_representative_fold0_20260904_k3/r04_real_k_search.json",
+      "schema": "r04.real_k_search.v1",
+      "sha256": "dc96496df60af9c83bab9d7611e4be53ae929bc081ac63668bf9abc7e86f3208",
+      "status": "WIRING_ONLY_NOT_SCIENTIFIC"
+    },
+    {
+      "path": "infra/r04/torch_representative_fold4_20260905_k03/cells/k0/fold4/cell.json",
+      "schema": "r04.real_k_cell.v1",
+      "sha256": "04b75a9c11c1e189e5685aafdaba58f9cd0fb5944f3bda06fb415479f56d55de",
+      "status": "FIT_AND_SCORED"
+    },
+    {
+      "path": "infra/r04/torch_representative_fold4_20260905_k03/cells/k3/fold4/cell.json",
+      "schema": "r04.real_k_cell.v1",
+      "sha256": "cdfb06ae95c4b093327cba01f81e5e22b7d12f6100485e3b11d741ec73141e09",
+      "status": "FIT_AND_SCORED"
+    },
+    {
+      "path": "infra/r04/torch_representative_fold4_20260905_k03/r04_real_k_search.json",
+      "schema": "r04.real_k_search.v1",
+      "sha256": "d816184b0826203eed9e2e7ab4aa8561658fadd5298300a0c0ab4656974d964f",
+      "status": "WIRING_ONLY_NOT_SCIENTIFIC"
+    },
+    {
+      "path": "infra/r04/torch_k0_fold0_checkpoint_audit_20260910.json",
+      "schema": "r04.checkpoint_audit.v1",
+      "sha256": "39b597656c35faea3962df21e9bcaebccbd9c6887bf5679cc39934f828de1b26",
+      "status": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "path": "infra/r04/torch_k2_fold0_checkpoint_audit_20260910.json",
+      "schema": "r04.checkpoint_audit.v1",
+      "sha256": "38682f44ec93ca56ac61a7e47ffc01c19a4180d464904e26e9b191ec81d25652",
+      "status": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "path": "infra/r04/torch_k0_fold4_checkpoint_audit_20260910.json",
+      "schema": "r04.checkpoint_audit.v1",
+      "sha256": "6e0d35a196f08481453fa64a15b6d3da9b2d32883fd1d2635caa6c13cd675d63",
+      "status": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "path": "infra/r04/torch_k2_fold4_checkpoint_audit_20260910.json",
+      "schema": "r04.checkpoint_audit.v1",
+      "sha256": "1fd268ee801799a28daa9dc0c58f33c4718c56cbcd3c649d30e2ef1f2d63e0a5",
+      "status": "DIAGNOSTIC_ONLY"
+    }
+  ],
+  "status": "K_CLOSED_WORKING_K3_RANK2_READOUT",
+  "third_direction": "NO_STABLE_POSITIVE_INCREMENT",
+  "working_k_model": 3
+}

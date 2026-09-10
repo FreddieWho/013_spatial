@@ -1,0 +1,580 @@
+{
+  "classes": [
+    "T",
+    "B",
+    "Mye",
+    "Epi",
+    "Stromal"
+  ],
+  "decisions": [
+    "D-105",
+    "D-108"
+  ],
+  "evidence_grade": "exploratory_post_hoc_no_confirmatory_claim",
+  "folds": [
+    {
+      "export": "infra/r04/torch_effect_exports_20260905/r0_fold0/structure_exports/training_full.npz",
+      "fold": 0,
+      "ranks": [
+        {
+          "inner_folds": [
+            {
+              "adjusted": {
+                "auc_delta": {
+                  "TLS": 0.0,
+                  "TUMOR_STROMA_BOUNDARY": 0.0
+                },
+                "mse_delta": 0.0
+              },
+              "adjusted_bootstrap_ci": {
+                "draws": 200,
+                "q025_q975": {
+                  "TLS": [
+                    0.0,
+                    0.0
+                  ],
+                  "TUMOR_STROMA_BOUNDARY": [
+                    0.0,
+                    0.0
+                  ],
+                  "mse_delta": [
+                    0.0,
+                    0.0
+                  ]
+                },
+                "seed": 20260911
+              },
+              "n_test_spots": 3261,
+              "n_train_spots": 7080,
+              "status": "COMPUTED",
+              "test_patients": [
+                "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de"
+              ],
+              "unadjusted": {
+                "auc_delta": {
+                  "TLS": 0.0,
+                  "TUMOR_STROMA_BOUNDARY": 0.0
+                },
+                "mse_delta": 0.0
+              }
+            },
+            {
+              "adjusted": {
+                "auc_delta": {
+                  "TLS": 0.0,
+                  "TUMOR_STROMA_BOUNDARY": 0.0
+                },
+                "mse_delta": -1.734723475976807e-16
+              },
+              "adjusted_bootstrap_ci": {
+                "draws": 200,
+                "q025_q975": {
+                  "TLS": [
+                    0.0,
+                    0.0
+                  ],
+                  "TUMOR_STROMA_BOUNDARY": [
+                    0.0,
+                    0.0
+                  ],
+                  "mse_delta": [
+                    -1.8041124150158794e-16,
+                    -1.6653345369377348e-16
+                  ]
+                },
+                "seed": 20260912
+              },
+              "n_test_spots": 7080,
+              "n_train_spots": 3261,
+              "status": "COMPUTED",
+              "test_patients": [
+                "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+              ],
+              "unadjusted": {
+                "auc_delta": {
+                  "TLS": 0.0,
+                  "TUMOR_STROMA_BOUNDARY": 0.0
+                },
+                "mse_delta": -1.734723475976807e-16
+              }
+            }
+          ],
+          "n_paired_spots": 10341,
+          "paired_patients": [
+            "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+            "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+          ],
+          "rank": "rank1"
+        },
+        {
+          "inner_folds": [
+            {
+              "adjusted": {
+                "auc_delta": {
+                  "TLS": 0.034142540648116726,
+                  "TUMOR_STROMA_BOUNDARY": 0.004478540455942537
+                },
+                "mse_delta": 3.159768801731799e-05
+              },
+              "adjusted_bootstrap_ci": {
+                "draws": 200,
+                "q025_q975": {
+                  "TLS": [
+                    0.02544131453137808,
+                    0.043886613811192396
+                  ],
+                  "TUMOR_STROMA_BOUNDARY": [
+                    0.0021322382174769118,
+                    0.006748494491934749
+                  ],
+                  "mse_delta": [
+                    -8.138143276237992e-06,
+                    7.118049034927359e-05
+                  ]
+                },
+                "seed": 20260911
+              },
+              "n_test_spots": 3261,
+              "n_train_spots": 7080,
+              "status": "COMPUTED",
+              "test_patients": [
+                "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de"
+              ],
+              "unadjusted": {
+                "auc_delta": {
+                  "TLS": -0.022492583830873714,
+                  "TUMOR_STROMA_BOUNDARY": 0.004738008994221277
+                },
+                "mse_delta": -0.00012743795355241172
+              }
+            },
+            {
+              "adjusted": {
+                "auc_delta": {
+                  "TLS": 0.00812712163089635,
+                  "TUMOR_STROMA_BOUNDARY": 0.15731681616829324
+                },
+                "mse_delta": -0.004536393814018783
+              },
+              "adjusted_bootstrap_ci": {
+                "draws": 200,
+                "q025_q975": {
+                  "TLS": [
+                    0.005297738585255849,
+                    0.011054370119453195
+                  ],
+                  "TUMOR_STROMA_BOUNDARY": [
+                    0.09469585049844909,
+                    0.21174032417630514
+                  ],
+                  "mse_delta": [
+                    -0.004969782764997964,
+                    -0.004103813858662806
+                  ]
+                },
+                "seed": 20260912
+              },
+              "n_test_spots": 7080,
+              "n_train_spots": 3261,
+              "status": "COMPUTED",
+              "test_patients": [
+                "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+              ],
+              "unadjusted": {
+                "auc_delta": {
+                  "TLS": 0.0026271123560070997,
+                  "TUMOR_STROMA_BOUNDARY": 0.126782178321117
+                },
+                "mse_delta": -0.004596096491778341
+              }
+            }
+          ],
+          "n_paired_spots": 10341,
+          "paired_patients": [
+            "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+            "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+          ],
+          "rank": "rank2"
+        },
+        {
+          "inner_folds": [
+            {
+              "adjusted": {
+                "auc_delta": {
+                  "TLS": 0.13909541511771994,
+                  "TUMOR_STROMA_BOUNDARY": -0.006243236021454934
+                },
+                "mse_delta": 0.00021654547710531213
+              },
+              "adjusted_bootstrap_ci": {
+                "draws": 200,
+                "q025_q975": {
+                  "TLS": [
+                    0.09465778525533806,
+                    0.18789732830160355
+                  ],
+                  "TUMOR_STROMA_BOUNDARY": [
+                    -0.01965915659435687,
+                    0.004677396219051163
+                  ],
+                  "mse_delta": [
+                    8.799157769950675e-05,
+                    0.00033902232974625213
+                  ]
+                },
+                "seed": 20260911
+              },
+              "n_test_spots": 3261,
+              "n_train_spots": 7080,
+              "status": "COMPUTED",
+              "test_patients": [
+                "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de"
+              ],
+              "unadjusted": {
+                "auc_delta": {
+                  "TLS": 0.0008448800270363099,
+                  "TUMOR_STROMA_BOUNDARY": 0.018237078931052197
+                },
+                "mse_delta": -7.105502655783968e-05
+              }
+            },
+            {
+              "adjusted": {
+                "auc_delta": {
+                  "TLS": 0.019772904338792974,
+                  "TUMOR_STROMA_BOUNDARY": 0.11765558914908247
+                },
+                "mse_delta": 4.75942712108296e-05
+              },
+              "adjusted_bootstrap_ci": {
+                "draws": 200,
+                "q025_q975": {
+                  "TLS": [
+                    0.012800789513397637,
+                    0.02869037256994664
+                  ],
+                  "TUMOR_STROMA_BOUNDARY": [
+                    0.055224085198470156,
+                    0.16940633207805833
+                  ],
+                  "mse_delta": [
+                    -0.00012732358026157597,
+                    0.00027312670932541015
+                  ]
+                },
+                "seed": 20260912
+              },
+              "n_test_spots": 7080,
+              "n_train_spots": 3261,
+              "status": "COMPUTED",
+              "test_patients": [
+                "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+              ],
+              "unadjusted": {
+                "auc_delta": {
+                  "TLS": -0.0004509914856519748,
+                  "TUMOR_STROMA_BOUNDARY": -0.011362853905717007
+                },
+                "mse_delta": 0.0016026970030934215
+              }
+            }
+          ],
+          "n_paired_spots": 10341,
+          "paired_patients": [
+            "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+            "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+          ],
+          "rank": "full"
+        }
+      ]
+    },
+    {
+      "export": "infra/r04/torch_effect_exports_20260905/r0_fold4/structure_exports/training_full.npz",
+      "fold": 4,
+      "ranks": [
+        {
+          "inner_folds": [
+            {
+              "adjusted": {
+                "auc_delta": {
+                  "TLS": 0.0,
+                  "TUMOR_STROMA_BOUNDARY": 0.0
+                },
+                "mse_delta": 0.0
+              },
+              "adjusted_bootstrap_ci": {
+                "draws": 200,
+                "q025_q975": {
+                  "TLS": [
+                    0.0,
+                    0.0
+                  ],
+                  "TUMOR_STROMA_BOUNDARY": [
+                    0.0,
+                    0.0
+                  ],
+                  "mse_delta": [
+                    0.0,
+                    0.0
+                  ]
+                },
+                "seed": 20261311
+              },
+              "n_test_spots": 3385,
+              "n_train_spots": 7080,
+              "status": "COMPUTED",
+              "test_patients": [
+                "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a"
+              ],
+              "unadjusted": {
+                "auc_delta": {
+                  "TLS": 0.0,
+                  "TUMOR_STROMA_BOUNDARY": 0.0
+                },
+                "mse_delta": 0.0
+              }
+            },
+            {
+              "adjusted": {
+                "auc_delta": {
+                  "TLS": 0.0,
+                  "TUMOR_STROMA_BOUNDARY": 0.0
+                },
+                "mse_delta": -2.7755575615628914e-17
+              },
+              "adjusted_bootstrap_ci": {
+                "draws": 200,
+                "q025_q975": {
+                  "TLS": [
+                    0.0,
+                    0.0
+                  ],
+                  "TUMOR_STROMA_BOUNDARY": [
+                    0.0,
+                    0.0
+                  ],
+                  "mse_delta": [
+                    -3.469446951953614e-17,
+                    -2.0816681711721685e-17
+                  ]
+                },
+                "seed": 20261312
+              },
+              "n_test_spots": 7080,
+              "n_train_spots": 3385,
+              "status": "COMPUTED",
+              "test_patients": [
+                "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+              ],
+              "unadjusted": {
+                "auc_delta": {
+                  "TLS": 0.0,
+                  "TUMOR_STROMA_BOUNDARY": 0.0
+                },
+                "mse_delta": -2.7755575615628914e-17
+              }
+            }
+          ],
+          "n_paired_spots": 10465,
+          "paired_patients": [
+            "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a",
+            "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+          ],
+          "rank": "rank1"
+        },
+        {
+          "inner_folds": [
+            {
+              "adjusted": {
+                "auc_delta": {
+                  "TLS": 0.005611825896523426,
+                  "TUMOR_STROMA_BOUNDARY": -0.0019199342042020562
+                },
+                "mse_delta": -1.6023419020960716e-05
+              },
+              "adjusted_bootstrap_ci": {
+                "draws": 200,
+                "q025_q975": {
+                  "TLS": [
+                    0.0014396456494110922,
+                    0.010914065841451732
+                  ],
+                  "TUMOR_STROMA_BOUNDARY": [
+                    -0.004518524693378326,
+                    0.001239721220423082
+                  ],
+                  "mse_delta": [
+                    -2.560018664435164e-05,
+                    -6.672549881700864e-06
+                  ]
+                },
+                "seed": 20261311
+              },
+              "n_test_spots": 3385,
+              "n_train_spots": 7080,
+              "status": "COMPUTED",
+              "test_patients": [
+                "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a"
+              ],
+              "unadjusted": {
+                "auc_delta": {
+                  "TLS": -0.0023496669404142745,
+                  "TUMOR_STROMA_BOUNDARY": 0.008097191217257937
+                },
+                "mse_delta": 4.68024206318543e-05
+              }
+            },
+            {
+              "adjusted": {
+                "auc_delta": {
+                  "TLS": -0.013001075887142943,
+                  "TUMOR_STROMA_BOUNDARY": 0.013027924358228249
+                },
+                "mse_delta": 4.355817549521815e-05
+              },
+              "adjusted_bootstrap_ci": {
+                "draws": 200,
+                "q025_q975": {
+                  "TLS": [
+                    -0.01879696594671188,
+                    -0.005701890157371416
+                  ],
+                  "TUMOR_STROMA_BOUNDARY": [
+                    0.006303514017586083,
+                    0.019537656146543025
+                  ],
+                  "mse_delta": [
+                    1.4838411777934324e-05,
+                    7.256140999813403e-05
+                  ]
+                },
+                "seed": 20261312
+              },
+              "n_test_spots": 7080,
+              "n_train_spots": 3385,
+              "status": "COMPUTED",
+              "test_patients": [
+                "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+              ],
+              "unadjusted": {
+                "auc_delta": {
+                  "TLS": -0.004473974661002633,
+                  "TUMOR_STROMA_BOUNDARY": -0.006958659096647002
+                },
+                "mse_delta": 5.456329184666542e-06
+              }
+            }
+          ],
+          "n_paired_spots": 10465,
+          "paired_patients": [
+            "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a",
+            "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+          ],
+          "rank": "rank2"
+        },
+        {
+          "inner_folds": [
+            {
+              "adjusted": {
+                "auc_delta": {
+                  "TLS": -0.03900903367095532,
+                  "TUMOR_STROMA_BOUNDARY": 0.00561204689730832
+                },
+                "mse_delta": -0.0003709332467481258
+              },
+              "adjusted_bootstrap_ci": {
+                "draws": 200,
+                "q025_q975": {
+                  "TLS": [
+                    -0.05398494124802468,
+                    -0.02256652910422452
+                  ],
+                  "TUMOR_STROMA_BOUNDARY": [
+                    -0.0016575572393011813,
+                    0.013972355992269269
+                  ],
+                  "mse_delta": [
+                    -0.0004688663212395319,
+                    -0.0002721625539954567
+                  ]
+                },
+                "seed": 20261311
+              },
+              "n_test_spots": 3385,
+              "n_train_spots": 7080,
+              "status": "COMPUTED",
+              "test_patients": [
+                "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a"
+              ],
+              "unadjusted": {
+                "auc_delta": {
+                  "TLS": -0.08946984213888126,
+                  "TUMOR_STROMA_BOUNDARY": 0.06737037551313968
+                },
+                "mse_delta": -4.898006631656043e-05
+              }
+            },
+            {
+              "adjusted": {
+                "auc_delta": {
+                  "TLS": 0.022449869224062557,
+                  "TUMOR_STROMA_BOUNDARY": -0.24319939740307422
+                },
+                "mse_delta": 0.0008128624329132063
+              },
+              "adjusted_bootstrap_ci": {
+                "draws": 200,
+                "q025_q975": {
+                  "TLS": [
+                    0.014269450970198156,
+                    0.03014073066531347
+                  ],
+                  "TUMOR_STROMA_BOUNDARY": [
+                    -0.2623749449181631,
+                    -0.22114315120203187
+                  ],
+                  "mse_delta": [
+                    0.0007178748456640939,
+                    0.0009121382833798688
+                  ]
+                },
+                "seed": 20261312
+              },
+              "n_test_spots": 7080,
+              "n_train_spots": 3385,
+              "status": "COMPUTED",
+              "test_patients": [
+                "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+              ],
+              "unadjusted": {
+                "auc_delta": {
+                  "TLS": 0.03413507021091089,
+                  "TUMOR_STROMA_BOUNDARY": -0.21928956994026239
+                },
+                "mse_delta": 0.0007202077251425992
+              }
+            }
+          ],
+          "n_paired_spots": 10465,
+          "paired_patients": [
+            "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a",
+            "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+          ],
+          "rank": "full"
+        }
+      ]
+    }
+  ],
+  "inputs": {
+    "infra/r04/gene_universe.txt": "8e6100c49fa16d867b74f525f81bf6ebc4d5e0f3b3aac95921dfaac537813021",
+    "infra/r04/marker_proxy_combined.json": "9bb5ed7337dd184d54869ac5c64631f0cdc532d8975387f4e6af8c83dd5d425c",
+    "infra/r04/role_manifests/training_manifest.json": "8be9ed8640dbfdcf6a427d21c15bd0aaa63a1b288fc43de2911babdd03fe393a"
+  },
+  "nesting": "residualizer fitted on inner-train patients only; same mapping transforms train and test",
+  "schema": "r04.composition_final_audit.v1",
+  "status": "NESTED_AUDIT_COMPLETE",
+  "symbol_map": {
+    "path": "/home/huyudi/006/data/ref/ensembl_to_symbol_gencode_v49.csv",
+    "sha256": "321e065d58317efff748e01e6683ec72f3008d2b80fcb3d44c8fdfb5229ad275"
+  }
+}

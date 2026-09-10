@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 """Run the frozen, minimal K=2 bridge on extreme folds.
 
+LEGACY/HISTORICAL (D-107): the six-cell CPU Stage-A scope recorded here was
+superseded by the smaller exploratory GPU closure (D-104/D-106, restart 0
+only). This driver is retained byte-for-byte runnable for historical replay
+only; it is NOT the current K-state authority. The canonical K closure
+entrypoint is ``scripts/r04_finalize_k_semantics.py --mode closure``.
+
 This is conditional R-04 work, not a general K search.  The only model change
 from the K=3 source protocol is ``factors=2``; no GT is read by the fit or
 held-out score path.  Training-role GT is read only after all six cells have
