@@ -1,0 +1,150 @@
+{
+  "created_at": "2026-09-11",
+  "h06_impact": "no change: H-06 stays UNJUDGED; usable-pair count is zero, which is a data-boundary fact, not a failure of the hypothesis",
+  "inputs": {
+    "hest_field_coverage.tsv": "6fc7206ea13f12a58be471223d1f861fdecfe05f13fce0054150e49d57198537",
+    "physical_units.tsv": "367d94e50e43c32722d1aa2e343963c6cbeb5b7f6f6f8d189d3b7de22092d219"
+  },
+  "registration_error_floor": {
+    "note": "no fiducial-based cross-section registration performed; Visium 100um pitch / 55um spot are instrument scales, not a registration claim",
+    "status": "UNMEASURED"
+  },
+  "registry": {
+    "lineages": {
+      "HTAN_VANDERBILT_CRC": {
+        "multi_section_block_sizes": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3
+        ],
+        "multi_section_blocks": 14,
+        "n_blocks": 31,
+        "n_units": 47,
+        "section_order_coverage": 0,
+        "thickness_coverage": 0,
+        "thickness_values": [],
+        "z_position_coverage": 0
+      },
+      "ST_CRC_CMS": {
+        "multi_section_block_sizes": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "multi_section_blocks": 7,
+        "n_blocks": 7,
+        "n_units": 14,
+        "section_order_coverage": 0,
+        "thickness_coverage": 0,
+        "thickness_values": [],
+        "z_position_coverage": 0
+      },
+      "TENX_GENOMICS": {
+        "multi_section_block_sizes": [
+          2
+        ],
+        "multi_section_blocks": 1,
+        "n_blocks": 1,
+        "n_units": 2,
+        "section_order_coverage": 0,
+        "thickness_coverage": 0,
+        "thickness_values": [],
+        "z_position_coverage": 0
+      },
+      "TLS_VISIUM_USZ": {
+        "multi_section_block_sizes": [],
+        "multi_section_blocks": 0,
+        "n_blocks": 8,
+        "n_units": 8,
+        "section_order_coverage": 0,
+        "thickness_coverage": 8,
+        "thickness_values": [
+          "5 um"
+        ],
+        "z_position_coverage": 0
+      },
+      "external_geo": {
+        "multi_section_block_sizes": [],
+        "multi_section_blocks": 0,
+        "n_blocks": 0,
+        "n_units": 96,
+        "section_order_coverage": 0,
+        "thickness_coverage": 0,
+        "thickness_values": [],
+        "z_position_coverage": 0
+      }
+    },
+    "n_included": 167
+  },
+  "schema": "r03.serial_section_census.v1",
+  "scope": "already-downloaded data only; no external fetch",
+  "source_metadata": {
+    "external_geo": {
+      "finding": "96 included rows carry no block/section info (patient envelopes only)"
+    },
+    "hest_z_step": {
+      "finding": "raw_z_step_size nonempty 29/492 (see staging hest_field_coverage.tsv)",
+      "interpretation": "acquisition/segmentation step (mostly Xenium), NOT slice spacing (I-002)"
+    },
+    "htan_co_block_pieces": {
+      "finding": "14 multi-piece blocks (2-3 pieces) in the 47-unit training set",
+      "ordering_spacing": "NOT_RECORDED (z_position/section_order empty registry-wide)",
+      "registration_inputs": "h5ad only; no H&E downloaded",
+      "use": "block-level grouping only (already used in R-01); not adjacent-plane evidence"
+    },
+    "non_core_10x_rep_pairs": {
+      "finding": "downloaded 10x demo dirs contain Rep1/Rep2 pairs (Colon, Colon Post-Xenium, Lung post-Xenium sets); roles: none",
+      "spacing": "NOT_RECORDED_LOCALLY",
+      "use": "inventory only; not claim-bearing without roles"
+    },
+    "st_crc_serial_pairs": {
+      "finding": "README states 'two serial sections per patient' (7 blocks x 2)",
+      "registration_inputs": "H&E hires/lowres + scalefactors + tissue positions present per section (spot-checked SN048_A121573_Rep1)",
+      "spacing": "NOT_RECORDED_LOCALLY",
+      "thickness": "NOT_RECORDED_LOCALLY"
+    },
+    "tenx_block_a_sections": {
+      "finding": "Section_1/Section_2 of one block (serial-section validation role)",
+      "registration_inputs": "H&E hires/lowres + scalefactors + tissue positions present per section",
+      "spacing": "NOT_RECORDED_LOCALLY"
+    },
+    "usz_singletons": {
+      "finding": "8 singleton blocks; registry thickness '5 um' (registry-sourced)",
+      "registration_inputs": "h5ad only; high-res tif not fetched"
+    }
+  },
+  "status": "R03_CENSUS_COMPLETE",
+  "task_verdicts": {
+    "adjacent_plane_prediction": {
+      "reason": "no section pair in downloaded data carries a recorded inter-section distance; ST-CRC serial pairs, Block-A Sec1/Sec2 and HTAN co-block pieces all lack spacing",
+      "verdict": "NOT_MEASURABLE"
+    },
+    "held_out_middle_plane": {
+      "reason": "no ordered triplet with known spacing exists locally",
+      "verdict": "NOT_MEASURABLE"
+    },
+    "in_plane_core_masked": {
+      "reason": "single sections suffice; 167 included units across 5 lineages",
+      "verdict": "MEASURABLE"
+    },
+    "stack_edge_extrapolation": {
+      "reason": "same blocker as adjacent-plane prediction: no recorded inter-section spacing",
+      "verdict": "NOT_MEASURABLE"
+    }
+  }
+}

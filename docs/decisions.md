@@ -644,3 +644,10 @@ D-093 (2026-09-01): use the TensorFlow compiled execution path for the frozen K=
 - 决策：最终状态 `R04_COMPLETE_NO_REPRODUCIBLE_RESIDUAL_FIELD`（阴性完成，不是 fishing 未果）。合成规则（D-109 把阈值制定委托给最终门禁，此处冻结）：hit 需 adjusted AUC delta ≥ 0.02（项目自 D-100 时代沿用的 null 等价带：|.|<0.02 联合读零；bootstrap CI 只覆盖 spot 抽样噪声，信号必须明显越过该带）且 q025 > 0；SURVIVES 需 ≥2 个不相交患者同号命中。4 候选全部 DOES_NOT_SURVIVE；uncertainty PASS；coordinate null 与 independent lineage 按 §6 记 NOT_TRIGGERED（无 surviving candidate，不是 open TODO）；R-05 记 `NOT_TRIGGERED_NO_SURVIVING_R04_FIELD`，R-06/R-07 不触发。
 - 失效条件：若未来独立患者/队列出现跨患者复制的组成残余信号，或外层验证转阳，则重开 R-04 证据评估（新决策，不改写本门禁）。
 - 影响：`infra/r04/r04_final_gate_20260911.json`；roadmap R-04 完成判据改为 outcome-neutral 三状态并记最终状态；I-019 关闭，I-012/I-013/I-014/I-017 按门禁记 resolved/limitation/deferred；旧 smoke 结论（a29 信号被吃掉）被 nested 审计推翻，以新产物为准（旧产物保留，历史文字不改写）。
+
+### D-111 | 2026-09-11 | 用户批准 serial-section 数据申请，启动外部搜寻（只侦察不下载）
+
+- 背景：R-03 普查确认已下载数据中零对已知切片间距，R-11 邻近平面三类任务不可执行（I-002 对 R-11 已升级硬阻塞）。用户批准数据申请，并指示用 research agent 搜寻合适数据。
+- 决策：批准启动外部搜寻，本轮只做候选清单与逐项核实，不下载任何数据；下载前另凭清单报批。搜寻标准（缺口→不可替代性→规模→解锁判据）：(1) 同一组织块≥2 切片且片间距有书面记录（论文方法/数据集说明/Zenodo 记录均可，文件名暗示不算）；(2) 每切片有 counts＋坐标＋H&E（配准用）；(3) 优先 Visium 人肿瘤（与现有 HTAN/ST-CRC/Block-A 可比），平台不同则须论证可比性；(4) 规模：先求 1–2 个块共≥3 片（含一组已知间距邻片）做可行性验证，不求大队列；(5) 解锁判据：拿到间距后 R-11 邻近平面预测任务由 NOT_MEASURABLE 转为可执行（做不做得成另判）。
+- 失效条件：找不到满足 (1) 的数据则如实报告，I-002 硬阻塞维持，不放宽"记录间距"为"推测相邻"。
+- 影响：新增侦察任务（TODO #32）；不改变数据边界（下载仍需另批）。

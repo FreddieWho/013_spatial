@@ -82,6 +82,8 @@
 
 **投入上限：** 只普查当前已下载数据，不为增加普通横断面样本恢复外部下载；是否申请独特 serial-section 数据为 `[待定]`，需要本节点结果后另行决策。
 
+**2026-09-11 普查完成（`infra/r03/serial_section_census_20260911.json`，脚本 `scripts/r03_serial_section_census.py`＋测试）：** 只查已下载数据，未新增下载。注册表 167 个合格单元中：HTAN 31 块 14 个多片块（2–3 片/块，仅同块分组，无顺序/间距/厚度记录）、ST-CRC 7 块×2（README 明示 serial sections，但间距/厚度本地无记录）、Block-A 1 块×2（间距本地无记录）、USZ 8 个单片块（厚度 5 um，注册表来源）、external_geo 96 行无块信息；z_position/section_order 全注册表为空；HEST raw_z_step_size 29/492 系采集步进非切片间距（I-002 原判）。配准输入：ST-CRC 与 Block-A 逐切片 H&E hires＋scalefactors＋tissue positions 齐全；HTAN/USZ 只有 h5ad 无 H&E；跨切片配准误差本地未测量（Visium 100um pitch/55um spot 只是仪器尺度，不作配准声明）。四类任务判定：同平面遮蔽 MEASURABLE；邻近平面预测、抽中间平面、栈外外推全部 NOT_MEASURABLE（零对已知间距）。H-06 保持未判定（数据边界事实，非假设失败）。是否申请带记录间距的独特 serial-section 数据，待用户另行决策。本节点为基础设施，不增减任何假设信心。
+
 ## R-04｜潜在空间场发现、距离场复现与组成—状态拆分
 1. **要做什么：** 不预设所有空间场都有明确结构锚点，先从分子空间数据发现候选场；对有独立 GT 的 TLS 与肿瘤—基质边界，再估计其周围的多通道距离响应，分别表示细胞组成、固定细胞类型内状态、可解释 program 和数据驱动生态信号。已知结构只作为候选场的验证与解释子集。
 2. **服务的假设：** H-01、H-03、H-05。
