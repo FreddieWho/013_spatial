@@ -113,7 +113,24 @@ def _validate_source(
     if cell.get("inference_platform", {}).get("converged") is not True:
         raise ValueError("source cell inference platform is not converged")
     metadata = _read_json(checkpoint_dir / "checkpoint_metadata.json")
-    if metadata.get("checkpoint_schema") != "r04.mnsf_checkpoint.v2":
+    torch_source = metadata.get("backend") == "torch"
+    if torch_source:
+        # Torch-era single-file checkpoint (D-100): no TF pointer/bundle.
+        if metadata.get("checkpoint_schema") != "r04.mnsf_checkpoint.v3_torch":
+            raise ValueError("source Torch checkpoint schema is not supported")
+        if metadata.get("factors") != cell.get("k_model"):
+            raise ValueError("source Torch checkpoint factor count differs from cell")
+        checkpoint_file = checkpoint_dir / "checkpoint.pt"
+        if not checkpoint_file.is_file():
+            raise ValueError("source Torch checkpoint file is missing")
+        fit_diag = cell.get("fit_diagnostics")
+        if not isinstance(fit_diag, dict):
+            raise ValueError("source cell has no fit diagnostics")
+        if metadata.get("objective_input_hash") != fit_diag.get("objective_input_hash"):
+            raise ValueError("source Torch checkpoint objective input hash differs")
+        if not metadata.get("environment_hash"):
+            raise ValueError("source Torch checkpoint metadata has no environment hash")
+    elif metadata.get("checkpoint_schema") != "r04.mnsf_checkpoint.v2":
         raise ValueError("source checkpoint schema is not supported")
     fit_cell_path = checkpoint_dir.parents[2] / "cell.json"
     if not fit_cell_path.is_file():
@@ -131,11 +148,18 @@ def _validate_source(
         if cell.get(key) and fit_cell.get(key) and cell.get(key) != fit_cell.get(key):
             if key == "input_hash":
                 raise ValueError(f"panel cell and source fit cell {key} differ")
-    step = _checkpoint_step(cell, checkpoint_dir)
-    bundle = checkpoint_bundle_fingerprint(checkpoint_dir, step=step)
-    if not bundle.get("sha256"):
-        raise ValueError("source checkpoint bundle has no hash")
-    return cell_path, cell, fit_cell_path, fit_cell, checkpoint_dir, step
+    if torch_source:
+        diagnostics = cell.get("fit_diagnostics")
+        if not isinstance(diagnostics, dict) or not isinstance(diagnostics.get("steps"), int):
+            raise ValueError("source cell has no integer fit step")
+        step = int(diagnostics["steps"])
+        bundle = {"sha256": _sha256(checkpoint_dir / "checkpoint.pt"), "kind": "torch_single_file_v3"}
+    else:
+        step = _checkpoint_step(cell, checkpoint_dir)
+        bundle = checkpoint_bundle_fingerprint(checkpoint_dir, step=step)
+        if not bundle.get("sha256"):
+            raise ValueError("source checkpoint bundle has no hash")
+    return cell_path, cell, fit_cell_path, fit_cell, checkpoint_dir, step, str(metadata.get("environment_hash")), bundle
 
 
 def _write_panel_status(path: Path, payload: dict[str, object]) -> None:
@@ -221,17 +245,19 @@ def main() -> int:
             fit_cell,
             checkpoint_dir,
             fit_steps,
+            source_environment_hash,
+            checkpoint_bundle,
         ) = _validate_source(
             root=root, entry=entry, panel=panel
         )
         source_cell_hash = _sha256(cell_path)
-        checkpoint_bundle = checkpoint_bundle_fingerprint(checkpoint_dir, step=fit_steps)
         record = {
             "restart_index": restart,
             "fold": fold,
             "source_cell": {"path": str(cell_path), "sha256": source_cell_hash},
             "source_fit_cell": {"path": str(fit_cell_path), "sha256": _sha256(fit_cell_path)},
             "source_checkpoint": {"path": str(checkpoint_dir), **checkpoint_bundle},
+            "source_environment_hash": source_environment_hash,
             "source_status": source_cell.get("status"),
             "source_inference_authority": source_cell.get("inference_authority"),
             "strict_audit_status": source_cell.get("strict_audit_status"),
@@ -281,6 +307,7 @@ def main() -> int:
                 optimization_seed=seed,
                 checkpoint_steps=fit_steps,
                 resume_checkpoint_dir=checkpoint_dir,
+                environment_hash=source_environment_hash,
                 inference_export_root=export_root,
                 structure_export_root=structure_export_root,
                 checkpoint_output_dir=replay_checkpoint_root / "k3" / f"fold{fold}",
@@ -318,6 +345,10 @@ def main() -> int:
         if args.training_only:
             if result.get("patient_scores") != {}:
                 raise RuntimeError("training-only export unexpectedly produced held-out scores")
+            if result.get("input_hash") != source_cell.get("input_hash"):
+                raise RuntimeError("training-only replay input hash differs from source cell")
+            if result.get("config_hash") != source_cell.get("config_hash"):
+                raise RuntimeError("training-only replay config hash differs from source cell")
             score_replay_status = "NOT_RUN_TRAINING_ONLY_SOURCE_SCORES_RETAINED"
             record_status = "TRAINING_EFFECT_EXPORTED"
             score_match = None
@@ -330,7 +361,28 @@ def main() -> int:
                 np.isclose(float(replay_scores[key]), float(source_scores[key]), rtol=1e-6, atol=1e-5)
                 for key in replay_scores
             ):
-                raise RuntimeError("frozen replay patient scores differ from source cell")
+                diffs = {
+                    key: {
+                        "replay": float(replay_scores[key]),
+                        "source": float(source_scores[key]),
+                        "abs_diff": abs(float(replay_scores[key]) - float(source_scores[key])),
+                    }
+                    for key in replay_scores if key in source_scores
+                }
+                worst = max(diffs, key=lambda k: diffs[k]["abs_diff"]) if diffs else None
+                record.update({
+                    "status": "FAILED_SCORE_MISMATCH_FIELDS_RETAINED",
+                    "replay_patient_scores": {k: float(v) for k, v in replay_scores.items()},
+                    "score_diffs": diffs,
+                    "worst_key": worst,
+                })
+                panel_output["entries"].append(record)
+                _write_panel_status(output_root / "panel.json", panel_output)
+                raise RuntimeError(
+                    "frozen replay patient scores differ from source cell: "
+                    f"worst={worst} diff={diffs[worst]['abs_diff']:.6f}" if worst else
+                    "frozen replay patient scores differ from source cell"
+                )
             score_replay_status = "MATCHED_SOURCE_CELL"
             record_status = "EXPORTED"
             score_match = True

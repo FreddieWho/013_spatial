@@ -1,0 +1,1275 @@
+{
+ "schema": "r04.marker_proxy.v1",
+ "evidence_grade": "exploratory_post_hoc_no_confirmatory_claim",
+ "sources": {
+  "cellmarker2.0": {
+   "file": "Cell_marker_Human.xlsx",
+   "sha256": "bf52b8cd60df60f17a7c6b8a59d0bbb74ec78612f11cd11990f15e4eedb7d842"
+  },
+  "panglaodb": {
+   "file": "PanglaoDB_markers.tsv.gz",
+   "sha256": "6779952ad40aa5a124de7bd0e18975c6630bd6006d6b3ef210a916caaa6b53c9"
+  },
+  "celltypist_crc": {
+   "file": "celltypist_crc_top50.json",
+   "sha256": "1c7d02024c396f63cbcfa13a8aeb7c10349ac46f1e15b9bd33c622a97a4ea360"
+  }
+ },
+ "min_votes": 2,
+ "min_panel_genes": 10,
+ "unmapped_labels": {
+  "cellmarker2.0": [
+   "Endothelial cell",
+   "Follicular cell",
+   "Helper innate lymphoid cell",
+   "Hepatic stellate cell",
+   "Immune cell",
+   "Innate lymphoid cell",
+   "Intestinal cell",
+   "Leukocyte",
+   "Lymphocyte",
+   "Memory T(Tm) cell",
+   "Mesothelial cell",
+   "Microfold (M) cell",
+   "Mononuclear phagocyte",
+   "Mucosa-associated invariant T (MAIT) cell",
+   "Naive T(Th0) cell",
+   "Neuron",
+   "Nonhematopoietic heteroploid cell",
+   "Nucleated cell",
+   "T helper 1(Th1) cell",
+   "T helper 2(Th2) cell",
+   "T helper(Th) cell",
+   "Tissue resident memory T(TRM) cell",
+   "Transient-amplifying(TA) cell",
+   "Transit-amplifying cell",
+   "Tumor endothelial cell"
+  ],
+  "panglaodb": [
+   "Adipocyte progenitor cells",
+   "Adipocytes",
+   "Basal cells",
+   "Cholangiocytes",
+   "Chondrocytes",
+   "Endothelial cells",
+   "Endothelial cells (aorta)",
+   "Endothelial cells (blood brain barrier)",
+   "Enteric neurons",
+   "Enterochromaffin cells",
+   "Erythroblasts",
+   "Erythroid-like and erythroid precursor cells",
+   "Hepatoblasts",
+   "Hepatocytes",
+   "Kupffer cells",
+   "Megakaryocytes",
+   "Mesothelial cells",
+   "Microfold cells",
+   "Nuocytes",
+   "Platelets",
+   "Reticulocytes",
+   "T follicular helper cells",
+   "T helper cells",
+   "T regulatory cells"
+  ],
+  "celltypist_crc": [
+   "Intermediate (skipped: non-informative)",
+   "Unknown (skipped: non-informative)"
+  ]
+ },
+ "classes": {
+  "T": {
+   "voted_genes": [
+    "AGR2",
+    "ANKRD28",
+    "BATF",
+    "CCL3",
+    "CCL4",
+    "CCL5",
+    "CCR5",
+    "CCR6",
+    "CCR7",
+    "CD160",
+    "CD2",
+    "CD27",
+    "CD274",
+    "CD38",
+    "CD3D",
+    "CD3E",
+    "CD3G",
+    "CD4",
+    "CD44",
+    "CD69",
+    "CD7",
+    "CD79A",
+    "CD8A",
+    "CD8B",
+    "CLCA1",
+    "CMA1",
+    "CPA3",
+    "CREM",
+    "CST7",
+    "CXCL13",
+    "CXCR4",
+    "CXCR5",
+    "CXCR6",
+    "DCLK1",
+    "DGKI",
+    "DUSP1",
+    "ENTPD1",
+    "FCER1A",
+    "FCGBP",
+    "FCGR3A",
+    "FGFBP2",
+    "FOXP3",
+    "GNLY",
+    "GSN",
+    "GZMA",
+    "GZMB",
+    "GZMH",
+    "GZMK",
+    "H2AFZ",
+    "HDC",
+    "HPGDS",
+    "ICOS",
+    "IFIT3",
+    "IFNG",
+    "IL17A",
+    "IL2RA",
+    "IL32",
+    "IL7R",
+    "IRF7",
+    "ITGAE",
+    "ITLN1",
+    "KIT",
+    "KLK1",
+    "KLRB1",
+    "KLRD1",
+    "KLRF1",
+    "LAG3",
+    "LGR5",
+    "LTB",
+    "MAGEH1",
+    "MAP3K8",
+    "MKI67",
+    "MLPH",
+    "MS4A1",
+    "MS4A2",
+    "MUC2",
+    "MUC4",
+    "MUC5B",
+    "NCAM1",
+    "NKG7",
+    "NT5E",
+    "OLFM4",
+    "PRF1",
+    "PTGDR2",
+    "PTGER2",
+    "PTPRC",
+    "REP15",
+    "RGS1",
+    "RORA",
+    "RTKN2",
+    "S100A4",
+    "S100A8",
+    "SELL",
+    "SOX9",
+    "SPDEF",
+    "SPINK4",
+    "TCF7",
+    "TFF3",
+    "TIGIT",
+    "TNF",
+    "TNFRSF19",
+    "TNFRSF4",
+    "TPSAB1",
+    "TPSB2",
+    "TPSG1",
+    "TRBC2",
+    "TRDC",
+    "TRGC1",
+    "TRGC2",
+    "TRGV9",
+    "TUBA1B",
+    "TUBB",
+    "TYMS",
+    "ZEB2",
+    "ZG16"
+   ],
+   "n_voted": 115,
+   "in_panel": [
+    "AGR2",
+    "CD44",
+    "CXCR4",
+    "DUSP1",
+    "FCGBP",
+    "GSN",
+    "IL32",
+    "KLK1",
+    "LGR5",
+    "MKI67",
+    "MLPH",
+    "MUC2",
+    "MUC4",
+    "MUC5B",
+    "OLFM4",
+    "PTPRC",
+    "S100A4",
+    "SOX9",
+    "SPDEF",
+    "TFF3",
+    "TRBC2",
+    "TUBB"
+   ],
+   "n_in_panel": 22,
+   "viable": true,
+   "per_source_counts": {
+    "cellmarker2.0": 210,
+    "panglaodb": 518,
+    "celltypist_crc": 343
+   },
+   "gene_sources": {
+    "AGR2": [
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "CD44": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "CXCR4": [
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "DUSP1": [
+     "cellmarker2.0",
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "FCGBP": [
+     "cellmarker2.0",
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "GSN": [
+     "cellmarker2.0",
+     "celltypist_crc"
+    ],
+    "IL32": [
+     "cellmarker2.0",
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "KLK1": [
+     "cellmarker2.0",
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "LGR5": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "MKI67": [
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "MLPH": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "MUC2": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "MUC4": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "MUC5B": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "OLFM4": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "PTPRC": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "S100A4": [
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "SOX9": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "SPDEF": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "TFF3": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "TRBC2": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "TUBB": [
+     "panglaodb",
+     "celltypist_crc"
+    ]
+   }
+  },
+  "B": {
+   "voted_genes": [
+    "ADAM28",
+    "BANK1",
+    "BCL11A",
+    "BLK",
+    "CD19",
+    "CD1C",
+    "CD22",
+    "CD27",
+    "CD37",
+    "CD38",
+    "CD74",
+    "CD79A",
+    "CD79B",
+    "CD83",
+    "CR2",
+    "CXCR5",
+    "DERL3",
+    "FAM129C",
+    "FCER2",
+    "GNG7",
+    "HLA-DOB",
+    "HLA-DRA",
+    "HMGA1",
+    "IGHA1",
+    "IGHD",
+    "IGHG4",
+    "IGKC",
+    "IGLV3-1",
+    "IL3RA",
+    "IRF7",
+    "JCHAIN",
+    "LILRA4",
+    "LINC00926",
+    "LY86",
+    "MS4A1",
+    "MZB1",
+    "PAX5",
+    "PTPRC",
+    "SELL",
+    "SPCS3",
+    "SPIB",
+    "SSR4",
+    "STAG3",
+    "SWAP70",
+    "TCF4",
+    "TCL1A",
+    "TNFRSF13B",
+    "TNFRSF13C",
+    "VPREB3"
+   ],
+   "n_voted": 49,
+   "in_panel": [
+    "CD74",
+    "DERL3",
+    "HLA-DRA",
+    "HMGA1",
+    "IGHG4",
+    "IGKC",
+    "JCHAIN",
+    "MZB1",
+    "PTPRC",
+    "SPCS3",
+    "SSR4"
+   ],
+   "n_in_panel": 11,
+   "viable": true,
+   "per_source_counts": {
+    "cellmarker2.0": 37,
+    "panglaodb": 248,
+    "celltypist_crc": 146
+   },
+   "gene_sources": {
+    "CD74": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "DERL3": [
+     "cellmarker2.0",
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "HLA-DRA": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "HMGA1": [
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "IGHG4": [
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "IGKC": [
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "JCHAIN": [
+     "cellmarker2.0",
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "MZB1": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "PTPRC": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "SPCS3": [
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "SSR4": [
+     "panglaodb",
+     "celltypist_crc"
+    ]
+   }
+  },
+  "Mye": {
+   "voted_genes": [
+    "ACP5",
+    "ADAM19",
+    "AIF1",
+    "C5AR1",
+    "CCL17",
+    "CCL4",
+    "CCR2",
+    "CCR7",
+    "CD14",
+    "CD163",
+    "CD1B",
+    "CD1C",
+    "CD200R1",
+    "CD207",
+    "CD209",
+    "CD33",
+    "CD40",
+    "CD68",
+    "CD74",
+    "CD80",
+    "CD83",
+    "CD86",
+    "CEACAM8",
+    "CLEC10A",
+    "CLEC9A",
+    "CSF1R",
+    "CSF3R",
+    "CST7",
+    "CTSS",
+    "CX3CR1",
+    "CXCL2",
+    "CXCL8",
+    "FCER1A",
+    "FCGR1A",
+    "FCGR3A",
+    "FTL",
+    "FUT4",
+    "HILPDA",
+    "HLA-DPB1",
+    "HLA-DRA",
+    "HLA-DRB1",
+    "ICAM1",
+    "IL1B",
+    "IL1RN",
+    "IL3RA",
+    "IL6",
+    "ITGAE",
+    "ITGAM",
+    "ITGAX",
+    "LAMP3",
+    "LST1",
+    "LY75",
+    "LYZ",
+    "MERTK",
+    "MPO",
+    "MRC1",
+    "MS4A7",
+    "OSM",
+    "PDCD1LG2",
+    "PLAU",
+    "PTPRC",
+    "S100A8",
+    "S100A9",
+    "SIGLEC1",
+    "SPP1",
+    "TLR4",
+    "TYROBP",
+    "XCR1"
+   ],
+   "n_voted": 68,
+   "in_panel": [
+    "ADAM19",
+    "CD163",
+    "CD68",
+    "CD74",
+    "CTSS",
+    "CXCL8",
+    "FTL",
+    "FUT4",
+    "HLA-DPB1",
+    "HLA-DRA",
+    "ICAM1",
+    "LYZ",
+    "PTPRC",
+    "S100A9",
+    "SPP1",
+    "TYROBP"
+   ],
+   "n_in_panel": 16,
+   "viable": true,
+   "per_source_counts": {
+    "cellmarker2.0": 89,
+    "panglaodb": 456,
+    "celltypist_crc": 147
+   },
+   "gene_sources": {
+    "ADAM19": [
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "CD163": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "CD68": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "CD74": [
+     "cellmarker2.0",
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "CTSS": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "CXCL8": [
+     "cellmarker2.0",
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "FTL": [
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "FUT4": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "HLA-DPB1": [
+     "cellmarker2.0",
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "HLA-DRA": [
+     "cellmarker2.0",
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "ICAM1": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "LYZ": [
+     "cellmarker2.0",
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "PTPRC": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "S100A9": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "SPP1": [
+     "cellmarker2.0",
+     "celltypist_crc"
+    ],
+    "TYROBP": [
+     "panglaodb",
+     "celltypist_crc"
+    ]
+   }
+  },
+  "ILC": {
+   "voted_genes": [
+    "FCGR3A",
+    "FGFBP2",
+    "GNLY",
+    "GZMB",
+    "GZMH",
+    "IL2RB",
+    "KIT",
+    "KLRB1",
+    "KLRC1",
+    "KLRD1",
+    "KLRF1",
+    "NKG7",
+    "SPON2",
+    "ZBTB16"
+   ],
+   "n_voted": 14,
+   "in_panel": [
+    "SPON2"
+   ],
+   "n_in_panel": 1,
+   "viable": false,
+   "per_source_counts": {
+    "cellmarker2.0": 8,
+    "panglaodb": 98,
+    "celltypist_crc": 50
+   },
+   "gene_sources": {
+    "SPON2": [
+     "panglaodb",
+     "celltypist_crc"
+    ]
+   }
+  },
+  "Epi": {
+   "voted_genes": [
+    "ABCC2",
+    "ABCG2",
+    "ADH1C",
+    "AFP",
+    "ALCAM",
+    "ALDOB",
+    "ALPI",
+    "ANLN",
+    "ANPEP",
+    "APOA1",
+    "APOA4",
+    "APOB",
+    "APOC3",
+    "AQP1",
+    "AQP3",
+    "AQP8",
+    "ASCL2",
+    "ASPN",
+    "AXIN2",
+    "BEST4",
+    "BMI1",
+    "CA1",
+    "CA7",
+    "CCL20",
+    "CCL25",
+    "CD24",
+    "CDC42EP5",
+    "CDH1",
+    "CDH3",
+    "CDX2",
+    "CEACAM1",
+    "CEACAM5",
+    "CHGA",
+    "CHGB",
+    "CLCA1",
+    "CLDN15",
+    "CLDN18",
+    "CPE",
+    "CTSE",
+    "CXCL10",
+    "CXCL14",
+    "CXCL2",
+    "CXCL8",
+    "CYBRD1",
+    "CYP3A5",
+    "DAB1",
+    "DDC",
+    "DEFA5",
+    "DEFA6",
+    "DGAT1",
+    "DMBT1",
+    "DPEP1",
+    "DPP4",
+    "EPCAM",
+    "EPHX2",
+    "FABP1",
+    "FABP2",
+    "FABP4",
+    "FABP5",
+    "FLOT2",
+    "FOXQ1",
+    "G0S2",
+    "GAL",
+    "GFRA2",
+    "GPX2",
+    "GSTA1",
+    "GUCA2A",
+    "GUCA2B",
+    "HMOX1",
+    "ICAM1",
+    "IFI6",
+    "IL32",
+    "ITLN1",
+    "KIF20B",
+    "KLF5",
+    "KRT20",
+    "KRT8",
+    "LCN2",
+    "LGALS4",
+    "LGR5",
+    "LYPD8",
+    "LYZ",
+    "MADCAM1",
+    "MECOM",
+    "MEP1A",
+    "MOGAT2",
+    "MS4A4A",
+    "MUC13",
+    "MUC2",
+    "MYC",
+    "MYO1A",
+    "NEUROD1",
+    "NR1H4",
+    "NR5A2",
+    "NTS",
+    "PI15",
+    "PLA2G2A",
+    "PLIN2",
+    "PODXL",
+    "PRAP1",
+    "PRC1",
+    "PRG4",
+    "PROM1",
+    "PRR15",
+    "PRR15L",
+    "PTGDR",
+    "PYY",
+    "RBP2",
+    "REG4",
+    "RGMB",
+    "RIPK2",
+    "RNF128",
+    "RNF186",
+    "S100G",
+    "SCGN",
+    "SFN",
+    "SI",
+    "SLC15A1",
+    "SLC26A2",
+    "SLC26A3",
+    "SLC38A4",
+    "SLC51B",
+    "SMOC2",
+    "SPINK4",
+    "SPON2",
+    "TFF1",
+    "TM4SF20",
+    "TMEM45B",
+    "TREH",
+    "TRPA1",
+    "TSPAN8",
+    "TTR",
+    "UBE2C",
+    "UGT2B17",
+    "VWA5B2",
+    "ZNF662"
+   ],
+   "n_voted": 136,
+   "in_panel": [
+    "ANPEP",
+    "AQP1",
+    "AQP3",
+    "ASCL2",
+    "AXIN2",
+    "BMI1",
+    "CCL20",
+    "CD24",
+    "CDC42EP5",
+    "CDH1",
+    "CDX2",
+    "CEACAM1",
+    "CEACAM5",
+    "CXCL14",
+    "CXCL8",
+    "CYP3A5",
+    "DGAT1",
+    "DPEP1",
+    "EPCAM",
+    "EPHX2",
+    "FABP1",
+    "FABP5",
+    "FLOT2",
+    "G0S2",
+    "GPX2",
+    "ICAM1",
+    "IFI6",
+    "IL32",
+    "KLF5",
+    "KRT20",
+    "KRT8",
+    "LCN2",
+    "LGALS4",
+    "LGR5",
+    "LYPD8",
+    "LYZ",
+    "MUC13",
+    "MUC2",
+    "MYC",
+    "PLA2G2A",
+    "PLIN2",
+    "PRAP1",
+    "PRC1",
+    "PROM1",
+    "PRR15L",
+    "RGMB",
+    "SFN",
+    "SLC26A2",
+    "SLC26A3",
+    "SPON2",
+    "TFF1",
+    "TMEM45B",
+    "TSPAN8",
+    "UBE2C"
+   ],
+   "n_in_panel": 54,
+   "viable": true,
+   "per_source_counts": {
+    "cellmarker2.0": 1049,
+    "panglaodb": 416,
+    "celltypist_crc": 246
+   },
+   "gene_sources": {
+    "ANPEP": [
+     "cellmarker2.0",
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "AQP1": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "AQP3": [
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "ASCL2": [
+     "cellmarker2.0",
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "AXIN2": [
+     "cellmarker2.0",
+     "celltypist_crc"
+    ],
+    "BMI1": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "CCL20": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "CD24": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "CDC42EP5": [
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "CDH1": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "CDX2": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "CEACAM1": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "CEACAM5": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "CXCL14": [
+     "cellmarker2.0",
+     "celltypist_crc"
+    ],
+    "CXCL8": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "CYP3A5": [
+     "cellmarker2.0",
+     "celltypist_crc"
+    ],
+    "DGAT1": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "DPEP1": [
+     "cellmarker2.0",
+     "celltypist_crc"
+    ],
+    "EPCAM": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "EPHX2": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "FABP1": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "FABP5": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "FLOT2": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "G0S2": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "GPX2": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "ICAM1": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "IFI6": [
+     "cellmarker2.0",
+     "celltypist_crc"
+    ],
+    "IL32": [
+     "cellmarker2.0",
+     "celltypist_crc"
+    ],
+    "KLF5": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "KRT20": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "KRT8": [
+     "cellmarker2.0",
+     "celltypist_crc"
+    ],
+    "LCN2": [
+     "cellmarker2.0",
+     "celltypist_crc"
+    ],
+    "LGALS4": [
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "LGR5": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "LYPD8": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "LYZ": [
+     "cellmarker2.0",
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "MUC13": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "MUC2": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "MYC": [
+     "cellmarker2.0",
+     "celltypist_crc"
+    ],
+    "PLA2G2A": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "PLIN2": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "PRAP1": [
+     "cellmarker2.0",
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "PRC1": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "PROM1": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "PRR15L": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "RGMB": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "SFN": [
+     "cellmarker2.0",
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "SLC26A2": [
+     "cellmarker2.0",
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "SLC26A3": [
+     "cellmarker2.0",
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "SPON2": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "TFF1": [
+     "cellmarker2.0",
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "TMEM45B": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "TSPAN8": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "UBE2C": [
+     "cellmarker2.0",
+     "celltypist_crc"
+    ]
+   }
+  },
+  "Stromal": {
+   "voted_genes": [
+    "ABCC9",
+    "ACKR1",
+    "ACTA2",
+    "ASPN",
+    "BGN",
+    "BMP4",
+    "BMP5",
+    "C7",
+    "CCL11",
+    "CDH2",
+    "CLEC9A",
+    "COL11A1",
+    "COL15A1",
+    "COL1A1",
+    "COL1A2",
+    "COL3A1",
+    "COL4A1",
+    "COL6A3",
+    "COX4I2",
+    "CTHRC1",
+    "CXCL14",
+    "DCN",
+    "DES",
+    "DPT",
+    "ECM1",
+    "FABP4",
+    "FAP",
+    "GFRA3",
+    "GREM1",
+    "IGFBP6",
+    "L1CAM",
+    "LUM",
+    "MADCAM1",
+    "MEDAG",
+    "MEG3",
+    "MFAP5",
+    "MME",
+    "MMP9",
+    "MPZ",
+    "MYL9",
+    "NGF",
+    "NGFR",
+    "NOV",
+    "OLFML3",
+    "PECAM1",
+    "PI16",
+    "PLVAP",
+    "POSTN",
+    "PRG4",
+    "RARRES2",
+    "RBP7",
+    "RELN",
+    "RGS5",
+    "S100B",
+    "SOX10",
+    "SPARC",
+    "TAGLN",
+    "THBS2",
+    "THY1",
+    "VIM",
+    "WNT2"
+   ],
+   "n_voted": 61,
+   "in_panel": [
+    "ACTA2",
+    "BGN",
+    "BMP4",
+    "COL1A1",
+    "COL1A2",
+    "COL3A1",
+    "COL4A1",
+    "COL6A3",
+    "CTHRC1",
+    "CXCL14",
+    "DCN",
+    "GREM1",
+    "LUM",
+    "MYL9",
+    "PECAM1",
+    "POSTN",
+    "RARRES2",
+    "SPARC",
+    "TAGLN",
+    "THBS2",
+    "THY1",
+    "VIM"
+   ],
+   "n_in_panel": 22,
+   "viable": true,
+   "per_source_counts": {
+    "cellmarker2.0": 50,
+    "panglaodb": 296,
+    "celltypist_crc": 308
+   },
+   "gene_sources": {
+    "ACTA2": [
+     "cellmarker2.0",
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "BGN": [
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "BMP4": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "COL1A1": [
+     "cellmarker2.0",
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "COL1A2": [
+     "cellmarker2.0",
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "COL3A1": [
+     "cellmarker2.0",
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "COL4A1": [
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "COL6A3": [
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "CTHRC1": [
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "CXCL14": [
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "DCN": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "GREM1": [
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "LUM": [
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "MYL9": [
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "PECAM1": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "POSTN": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "RARRES2": [
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "SPARC": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "TAGLN": [
+     "cellmarker2.0",
+     "panglaodb"
+    ],
+    "THBS2": [
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "THY1": [
+     "cellmarker2.0",
+     "panglaodb",
+     "celltypist_crc"
+    ],
+    "VIM": [
+     "cellmarker2.0",
+     "panglaodb"
+    ]
+   }
+  }
+ },
+ "overall_viable": false
+}

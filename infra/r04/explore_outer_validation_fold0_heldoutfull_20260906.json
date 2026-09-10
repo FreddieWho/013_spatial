@@ -1,0 +1,691 @@
+{
+  "cross_device_replay": "D-103",
+  "draws": 200,
+  "effect_panel": {
+    "heldout": "infra/r04/torch_effect_exports_20260905_full/r0_fold0/structure_exports/heldout_full.npz",
+    "mode": "direct_D103",
+    "training": "infra/r04/torch_effect_exports_20260905/r0_fold0/structure_exports/training_full.npz"
+  },
+  "entries": [
+    {
+      "auc_by_structure": {
+        "TLS": 0.23733917328223375,
+        "TUMOR_STROMA_BOUNDARY": 0.48828345928751504
+      },
+      "by_section": {
+        "HTAN::8270_AS_6_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": 0.5456325378937772,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 442,
+          "n_spots": 3072,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b"
+        },
+        "HTAN::8270_AS_7_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": 0.4976923286599059,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 548,
+          "n_spots": 4297,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b"
+        },
+        "HTAN::8270_AS_9_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": 0.4389457525102579,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 478,
+          "n_spots": 3577,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51"
+        },
+        "HTAN::8578_AS_2_filtered_trimmed_WD84594.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": null,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 0,
+          "n_spots": 492,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51"
+        },
+        "HTAN::8578_AS_4_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": null,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 0,
+          "n_spots": 3708,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48"
+        },
+        "HTAN::8899_AS_1_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": 0.5307519951853191,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 797,
+          "n_spots": 4116,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464"
+        },
+        "HTAN::8899_AS_2_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": 0.44829019462028935,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 439,
+          "n_spots": 4078,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464"
+        },
+        "HTAN::8899_AS_3_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": 0.4674061198714501,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 211,
+          "n_spots": 1727,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33"
+        },
+        "HTAN::8899_AS_4_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": 0.5451305383344647,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 282,
+          "n_spots": 3635,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33"
+        },
+        "HTAN::8899_AS_7_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": 0.5424014763285374,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 398,
+          "n_spots": 3731,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a"
+        },
+        "HTAN::8899_AS_8_filtered_trimmed.h5ad": {
+          "TLS": 0.23733917328223375,
+          "TLS_n_pos": 13,
+          "TUMOR_STROMA_BOUNDARY": 0.41097896172236864,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 373,
+          "n_spots": 3385,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a"
+        }
+      },
+      "coverage_heldout": {
+        "TLS": {
+          "annotated_spots": 3385,
+          "positive_spots": 13,
+          "sections": [
+            "HTAN::8899_AS_8_filtered_trimmed.h5ad"
+          ]
+        },
+        "TUMOR_STROMA_BOUNDARY": {
+          "annotated_spots": 31618,
+          "positive_spots": 3968,
+          "sections": [
+            "HTAN::8270_AS_6_filtered_trimmed.h5ad",
+            "HTAN::8270_AS_7_filtered_trimmed.h5ad",
+            "HTAN::8270_AS_9_filtered_trimmed.h5ad",
+            "HTAN::8899_AS_1_filtered_trimmed.h5ad",
+            "HTAN::8899_AS_2_filtered_trimmed.h5ad",
+            "HTAN::8899_AS_3_filtered_trimmed.h5ad",
+            "HTAN::8899_AS_4_filtered_trimmed.h5ad",
+            "HTAN::8899_AS_7_filtered_trimmed.h5ad",
+            "HTAN::8899_AS_8_filtered_trimmed.h5ad"
+          ]
+        }
+      },
+      "empirical_upper_p_auc": {
+        "TLS": 1.0,
+        "TUMOR_STROMA_BOUNDARY": 1.0
+      },
+      "heldout_allowed_use_seen": {
+        "TLS": [
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets"
+        ],
+        "TUMOR_STROMA_BOUNDARY": [
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets"
+        ]
+      },
+      "heldout_gt_role_boundary": "heldout_exploratory_scoring_only_never_an_input",
+      "heldout_patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51",
+        "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a",
+        "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48",
+        "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464",
+        "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b",
+        "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33"
+      ],
+      "heldout_weighting": "patient_equal",
+      "n_heldout_spots": 35818,
+      "n_training_paired_spots": 10341,
+      "null_quantiles_auc": {
+        "TLS": {
+          "0.025": 0.3664887307236061,
+          "0.5": 0.4946676247832831,
+          "0.975": 0.6255224016789853
+        },
+        "TUMOR_STROMA_BOUNDARY": {
+          "0.025": 0.4905031601108009,
+          "0.5": 0.4993465371813154,
+          "0.975": 0.5086613174271012
+        }
+      },
+      "rank": 1,
+      "singular_values": [
+        2.6444433961728504
+      ]
+    },
+    {
+      "auc_by_structure": {
+        "TLS": 0.25889679715302494,
+        "TUMOR_STROMA_BOUNDARY": 0.5013258333880739
+      },
+      "by_section": {
+        "HTAN::8270_AS_6_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": 0.6134077731706898,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 442,
+          "n_spots": 3072,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b"
+        },
+        "HTAN::8270_AS_7_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": 0.464165139901054,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 548,
+          "n_spots": 4297,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b"
+        },
+        "HTAN::8270_AS_9_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": 0.501744387783345,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 478,
+          "n_spots": 3577,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51"
+        },
+        "HTAN::8578_AS_2_filtered_trimmed_WD84594.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": null,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 0,
+          "n_spots": 492,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51"
+        },
+        "HTAN::8578_AS_4_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": null,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 0,
+          "n_spots": 3708,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48"
+        },
+        "HTAN::8899_AS_1_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": 0.46057356545315514,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 797,
+          "n_spots": 4116,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464"
+        },
+        "HTAN::8899_AS_2_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": 0.42303794441512743,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 439,
+          "n_spots": 4078,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464"
+        },
+        "HTAN::8899_AS_3_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": 0.5443234253273143,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 211,
+          "n_spots": 1727,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33"
+        },
+        "HTAN::8899_AS_4_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": 0.6901028612040023,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 282,
+          "n_spots": 3635,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33"
+        },
+        "HTAN::8899_AS_7_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": 0.32848083803355205,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 398,
+          "n_spots": 3731,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a"
+        },
+        "HTAN::8899_AS_8_filtered_trimmed.h5ad": {
+          "TLS": 0.25889679715302494,
+          "TLS_n_pos": 13,
+          "TUMOR_STROMA_BOUNDARY": 0.5940527434497932,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 373,
+          "n_spots": 3385,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a"
+        }
+      },
+      "coverage_heldout": {
+        "TLS": {
+          "annotated_spots": 3385,
+          "positive_spots": 13,
+          "sections": [
+            "HTAN::8899_AS_8_filtered_trimmed.h5ad"
+          ]
+        },
+        "TUMOR_STROMA_BOUNDARY": {
+          "annotated_spots": 31618,
+          "positive_spots": 3968,
+          "sections": [
+            "HTAN::8270_AS_6_filtered_trimmed.h5ad",
+            "HTAN::8270_AS_7_filtered_trimmed.h5ad",
+            "HTAN::8270_AS_9_filtered_trimmed.h5ad",
+            "HTAN::8899_AS_1_filtered_trimmed.h5ad",
+            "HTAN::8899_AS_2_filtered_trimmed.h5ad",
+            "HTAN::8899_AS_3_filtered_trimmed.h5ad",
+            "HTAN::8899_AS_4_filtered_trimmed.h5ad",
+            "HTAN::8899_AS_7_filtered_trimmed.h5ad",
+            "HTAN::8899_AS_8_filtered_trimmed.h5ad"
+          ]
+        }
+      },
+      "empirical_upper_p_auc": {
+        "TLS": 1.0,
+        "TUMOR_STROMA_BOUNDARY": 0.425
+      },
+      "heldout_allowed_use_seen": {
+        "TLS": [
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets"
+        ],
+        "TUMOR_STROMA_BOUNDARY": [
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets"
+        ]
+      },
+      "heldout_gt_role_boundary": "heldout_exploratory_scoring_only_never_an_input",
+      "heldout_patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51",
+        "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a",
+        "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48",
+        "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464",
+        "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b",
+        "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33"
+      ],
+      "heldout_weighting": "patient_equal",
+      "n_heldout_spots": 35818,
+      "n_training_paired_spots": 10341,
+      "null_quantiles_auc": {
+        "TLS": {
+          "0.025": 0.3467629345743225,
+          "0.5": 0.5002908568300026,
+          "0.975": 0.6473275390090335
+        },
+        "TUMOR_STROMA_BOUNDARY": {
+          "0.025": 0.49027654853206637,
+          "0.5": 0.4999017865042267,
+          "0.975": 0.5103956169040645
+        }
+      },
+      "rank": 2,
+      "singular_values": [
+        2.6444433961728504,
+        0.8201564962979085
+      ]
+    },
+    {
+      "auc_by_structure": {
+        "TLS": 0.33597956017884845,
+        "TUMOR_STROMA_BOUNDARY": 0.4849562532201552
+      },
+      "by_section": {
+        "HTAN::8270_AS_6_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": 0.5002098996954736,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 442,
+          "n_spots": 3072,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b"
+        },
+        "HTAN::8270_AS_7_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": 0.4970026070212396,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 548,
+          "n_spots": 4297,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b"
+        },
+        "HTAN::8270_AS_9_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": 0.45870985511590334,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 478,
+          "n_spots": 3577,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51"
+        },
+        "HTAN::8578_AS_2_filtered_trimmed_WD84594.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": null,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 0,
+          "n_spots": 492,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51"
+        },
+        "HTAN::8578_AS_4_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": null,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 0,
+          "n_spots": 3708,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48"
+        },
+        "HTAN::8899_AS_1_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": 0.47588671437746866,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 797,
+          "n_spots": 4116,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464"
+        },
+        "HTAN::8899_AS_2_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": 0.5683086482118231,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 439,
+          "n_spots": 4078,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464"
+        },
+        "HTAN::8899_AS_3_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": 0.5690142430191698,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 211,
+          "n_spots": 1727,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33"
+        },
+        "HTAN::8899_AS_4_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": 0.37846492925780445,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 282,
+          "n_spots": 3635,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33"
+        },
+        "HTAN::8899_AS_7_filtered_trimmed.h5ad": {
+          "TLS": null,
+          "TLS_n_pos": 0,
+          "TUMOR_STROMA_BOUNDARY": 0.48277993628508603,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 398,
+          "n_spots": 3731,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a"
+        },
+        "HTAN::8899_AS_8_filtered_trimmed.h5ad": {
+          "TLS": 0.33597956017884845,
+          "TLS_n_pos": 13,
+          "TUMOR_STROMA_BOUNDARY": 0.5899591980603058,
+          "TUMOR_STROMA_BOUNDARY_n_pos": 373,
+          "n_spots": 3385,
+          "patient": "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a"
+        }
+      },
+      "coverage_heldout": {
+        "TLS": {
+          "annotated_spots": 3385,
+          "positive_spots": 13,
+          "sections": [
+            "HTAN::8899_AS_8_filtered_trimmed.h5ad"
+          ]
+        },
+        "TUMOR_STROMA_BOUNDARY": {
+          "annotated_spots": 31618,
+          "positive_spots": 3968,
+          "sections": [
+            "HTAN::8270_AS_6_filtered_trimmed.h5ad",
+            "HTAN::8270_AS_7_filtered_trimmed.h5ad",
+            "HTAN::8270_AS_9_filtered_trimmed.h5ad",
+            "HTAN::8899_AS_1_filtered_trimmed.h5ad",
+            "HTAN::8899_AS_2_filtered_trimmed.h5ad",
+            "HTAN::8899_AS_3_filtered_trimmed.h5ad",
+            "HTAN::8899_AS_4_filtered_trimmed.h5ad",
+            "HTAN::8899_AS_7_filtered_trimmed.h5ad",
+            "HTAN::8899_AS_8_filtered_trimmed.h5ad"
+          ]
+        }
+      },
+      "empirical_upper_p_auc": {
+        "TLS": 0.97,
+        "TUMOR_STROMA_BOUNDARY": 0.995
+      },
+      "heldout_allowed_use_seen": {
+        "TLS": [
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets"
+        ],
+        "TUMOR_STROMA_BOUNDARY": [
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets",
+          "training-fold distance fields, core masking and localization benchmarks within frozen outer splits; molecular-only input budgets"
+        ]
+      },
+      "heldout_gt_role_boundary": "heldout_exploratory_scoring_only_never_an_input",
+      "heldout_patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51",
+        "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a",
+        "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48",
+        "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464",
+        "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b",
+        "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33"
+      ],
+      "heldout_weighting": "patient_equal",
+      "n_heldout_spots": 35818,
+      "n_training_paired_spots": 10341,
+      "null_quantiles_auc": {
+        "TLS": {
+          "0.025": 0.3344266128296377,
+          "0.5": 0.5032165343553243,
+          "0.975": 0.6598412263892689
+        },
+        "TUMOR_STROMA_BOUNDARY": {
+          "0.025": 0.48866591732599407,
+          "0.5": 0.498535376651456,
+          "0.975": 0.5084310375121983
+        }
+      },
+      "rank": 3,
+      "singular_values": [
+        2.6444433961728504,
+        0.8201564962979085,
+        0.4773631654998329
+      ]
+    }
+  ],
+  "evidence_grade": "exploratory_post_hoc_no_confirmatory_claim",
+  "fold": 0,
+  "schema": "r04.explore_outer_validation.v1",
+  "seed": 20260905,
+  "status": "EXPLORATORY_COMPLETE"
+}

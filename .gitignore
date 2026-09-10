@@ -45,3 +45,7 @@ __pycache__/
 !/infra/r04/continuation_platform_audit_20260831_v2/
 !/infra/r04/GPU_RUNBOOK.md
 !/infra/r04/gpu_fold4_20260905/
+!/infra/r04/gpu_k2_20260910/
+!/infra/r04/composition_ref/
+!/infra/r04/composition_ref/provenance.json
+/infra/r04/composition_ref/*.npz

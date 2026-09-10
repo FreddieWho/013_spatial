@@ -560,3 +560,58 @@ D-093 (2026-09-01): use the TensorFlow compiled execution path for the frozen K=
 - 理由：K=3 在两个 fold 上均稳定 fit、无 collapse 警告、留出推断收敛；在 fold-4 显著最优、在 fold-0 次于 K=0 但不崩；在 fold 异质已被证实的前提下，继续为"选 K"投入资源的边际收益低于推进结构读出的收益；工程默认 + 稳健性门禁的组合既满足推进速度要求，又保留了对第三方向依赖性的检验通道。
 - 失效条件：结构读出 K 稳健性分析显示主要结论对 K∈{0,3} 敏感；或 K=2 Stage A（若触发）显示 K=2 明显优于 K=3；或未来新增 fold/队列出现 K=3 fit 不稳定或 collapse 证据。任一发生时回退默认，重开 K 裁决并追加决策。
 - 影响：新增 `infra/r04/GPU_RUNBOOK.md`（资源实测档案）；TODO 当前分支切换为"结构读出 K 稳健性分析"；不改变 plan.md 假设、fold 划分、gene split、objective、阈值、优化器与冻结协议脚本。
+
+### D-100 | 2026-09-05 | Torch 训练角色场导出授权（training-only，不新增推断）与 D-099 门禁规则预注册
+
+- 背景：D-099 门禁要求在 Torch cell 上做结构读出的 K 稳健性分析（fold-0 与 fold-4 的 K=0/K=3 对照）。现状缺口：两个 Torch K=3 cell 的 `structure_field_exports` 均为空；`scripts/r04_export_frozen_effects.py` 的 `_validate_source` 只接受 TF 时代产物（`checkpoint` 指针文件的 `ckpt-` 标记、`r04.mnsf_checkpoint.v2`、TF bundle 指纹），会对 Torch 的 `checkpoint.pt` + `r04.mnsf_checkpoint.v3_torch` 失败关闭。但 `_score_fold(training_only=True)`、field export 写入与 `r04_run_structure_readout.py` 均与后端无关；training-only 只做数据加载 + checkpoint 恢复 + 训练角色效应前向导出，不跑 2400 步留出推断（CPU 上约分钟级固定开销，D-096 的超时证据针对的是完整推断，不适用此处），因此无需 GPU。K=0 没有空间因子，走不了同一读出管线；门禁中的 K=0/K=3 对照指 fold 内 K=0 留出分数（fold-0 −28.96、fold-4 +72.73 已知）与 K=3 读出的联合判定。
+- 决策：(1) 给 `_validate_source` 加 Torch 分支：接受 `checkpoint_metadata.json` 的 `r04.mnsf_checkpoint.v3_torch` + `checkpoint.pt` 存在性，核验 `sha256(checkpoint.pt)`、input/objective-input hash 与源 cell 一致，step 取源 cell 的 `fit_diagnostics.steps`，env hash 以显式参数透传（记录 override，沿 D-096 模式）；(2) 新建 Torch 导出 panel manifest（restart 0、fold 0/4、K=3 cell）；(3) 本地 CPU 跑 `--training-only` 导出，再跑既有 readout 脚本；validation GT 全程密封。排除的替代方案：另写 Torch 专用导出脚本（D-097 模式）——此处 `_score_fold`/export/readout 已是后端无关实现，只有来源校验前言是 TF 绑定的，最小改动即够用。
+- 门禁规则（在看到 Torch 读出数值前预注册）：逐 fold 比较 `full_k3` 与 `stable_rank2_sensitivity` 的 `specific_increment`（逐结构 AUC delta、MSE delta）。两 fold 的逐结构结论定性一致（AUC delta 与 MSE delta 同号，或双方 |AUC delta|<0.02 即联合为零）→ ROBUST，K=3 默认正式生效；任一 fold 出现定性翻转（|AUC delta|≥0.02 的符号翻转，或有实质幅度的 MSE 符号翻转）→ SENSITIVE，触发 K=2 Stage A；任一 fold 为 NOT_TESTABLE（无有效内折/配对 GT 不足）→ 无法建立，按 roadmap 第 4 条走 K=2 Stage A 通道（需另行申请 GPU，不自动租用）。
+- 失效条件：导出 replay 出现 `optimizer_steps_this_call != 0`、replay input/config hash 与源 cell 不一致、env override 未记录、任一单 entry CPU 超过约 1 小时，立即停止并按 fail-closed 记录，不静默换参继续。
+- 影响：`scripts/r04_export_frozen_effects.py` 的校验分支扩展 + 新 panel manifest + Torch readout panel JSON；不改模型数学、协议参数、fold、gene split、阈值；不新增训练；不读 validation GT。
+
+### D-101 | 2026-09-05 | 项目转为发现/探索定位，取消预注册约束；D-100 预注册规则废止，门禁按实质重判
+
+- 背景：用户明确本项目是发现和探索性项目。既有流程按确认性范式搭建了预注册约束（outcome-blind 角色冻结、validation GT 规则冻结前密封、"只有…才…"式门禁触发、D-100 的阈值预注册），在探索定位下不再适用，且已实质阻碍推进（D-100 规则的字面触发与实质解读分离就是例证：fold-4 TSB −0.076→+0.001 触发字面规则，但内折显示两边都是单患者噪声）。
+- 决策：(1) 取消全部预注册约束：R-01 未来角色/用途调整不再要求 outcome-blind（须记录依据并披露所用信息；已冻结角色保持不变以保 provenance 连续）；R-04 顺序第 3 条 validation GT 改为探索性使用允许加证据等级标注；第 4 条 K=2 从触发式门禁降为可选探索方向（LEADS L-001）；第 5 条顺序门禁解除，各方向可并行探索；D-100 预注册规则废止，不再作为判决依据。(2) 保留（与预注册无关）：GT 永不进入预测输入与训练；leakage group 切分与保守连通分量；hash/provenance/fail-closed 工程约束；input manifest 合同；全部历史记录不动（含 D-100 原文与 roadmap 日期条目，由本条覆盖其状态）；plan.md 不动，其假设与"放弃条件" reinterpret 为探索方向参考，不再是确认性判决。(3) 门禁重判（探索语义，数值不变）：Torch 读出无任何稳定结构结论（N=2/fold 且全部非零值单患者驱动、跨患者矛盾）；没有任何结论正向依赖第三方向。结论为描述性未决；K=3 作为工作容器继续（D-099 的工程默认不变）；K=2 Stage A 转 LEADS L-001（可选探索，如执行仍需单独 GPU 审批）；之前提交的硬阻塞 GPU 审批撤回。
+- 理由：预注册解决的是"确认性结论的可信度"问题；探索定位下真正需要的是"不把探索写成确认"（证据等级标注）加"算对"（防泄漏与 provenance）。硬套已失准的字面规则会花 ¥3–8 去裁决一个单患者噪声，不符合探索的成本/价值比；但废止自己写下的规则必须由用户授权的定位变更来做，这正是本条。
+- 失效条件：若未来对外表述把探索性结果写成确认性结论，或 GT 进入预测输入，或绕过证据等级标注，则本条的宽松化自动失效，回退确认性约束并追加决策。
+- 影响：roadmap R-01/R-04 现行规则改写加新日期条目；新建 LEADS.md（L-001）；TODO 当前分支更新；之前提交的 GPU 硬阻塞审批撤回；不改 plan.md、历史记录、代码行为与测试。
+
+### D-102 | 2026-09-05 | R-04 探索性读出 null 与深化的固定分析口径
+
+- 背景：D-101 转探索定位后，读出类分析不再设预注册判定阈值，但跨时间可比需要固定口径。三方向并行第一轮用同一 Torch 训练角色导出与训练角色 GT 完成 A（标签置换 null）与 C（rank 曲线），B（组成拆分）经盘点无输入而转为 proposal（LEADS L-002）。
+- 决策：探索性读出 null 固定为"两结构标签联合、在 patient 内置换 spot，200 draws，种子 20260905＋fold/rank 偏移"，统计量与 panel 读出同口径（内层患者交叉拟合的 specific-increment 均值），只报经验 p 与分位数，不设通过阈值；读出深化固定为 rank1/2/3 曲线加绝对 AUC/MSE、残差系数范数与逐内折表。两者输出 schema 为 `r04.explore_readout_null.v1` / `r04.explore_readout_deepdive.v1`，状态一律 exploratory。后续读出类探索沿用此口径以保可比；validation GT 仍未动用。
+- 理由：null 必须在 GT 侧 réagir 而不是效应侧（效应是拟合产物，重排它破坏 provenance）；patient 内置换保留患病率与结构间相关，只打断 spot—标签关联，正好对应"空间效应与结构无关"的零假设；200 draws 在当前 N 下已使蒙特卡洛误差远小于患者抽样方差，加 draws 不增加信息。
+- 失效条件：若未来配对患者数显著增加或读出统计量定义改变，本口径需重审并追加决策；不得把经验 p 写成确认性 p 值。
+- 影响：`scripts/r04_explore_readout_null.py`、`scripts/r04_explore_readout_deepdive.py`、`tests/test_r04_explore_readout.py`；产物 `infra/r04/explore_readout_{null,deepdive}_torch_20260905.json`；不改变模型、协议与 GT 密封状态。
+
+### D-103 | 2026-09-05 | 跨设备推断重放分数门禁的处置：接受等效最优点漂移，场导出可用于探索性外层验证
+
+- 背景：fold-4 全量导出 CPU 重放收敛（双 split inference_platform 均为 converged，2400 步），fit_updates=0，三 hash 与源 cell 一致，但终点患者分数未通过 rtol=1e-6/atol=1e-5 的逐值重放门禁。对比终点推断损失：split-0 重放 3300.95 vs 源 3300.61（差 0.34，约 1e-4 相对），split-1 重放 3337.94 vs 源 3339.16（差 1.2，约 4e-4 相对）。源 cell 在 GPU（CUDA kernels/RNG 流）上产生，重放在 CPU 上进行；torch 不保证跨设备逐位可复现，2400 步变分轨迹的设备噪声必然超过 1e-6 量级门禁。D-088 早已确立不宣称跨设备数值等价。
+- 决策：(1) 该门禁的触发判定为"等效最优点上的设备噪声"，不是协议破坏；(2) 重放场导出（`heldout_full.npz` 全基因、`gene_split_*.npz`）可用于探索性外层验证，前提是逐项核验：fit_updates=0、hash 一致、重放 inference_platform 收敛、重放终点损失与源终点损失相对差 <1e-3；(3) 导出脚本的分数失配路径现将重放分数与逐患者差值写入 FAILED 记录再抛出（`FAILED_SCORE_MISMATCH_FIELDS_RETAINED`），不再丢弃诊断信息；(4) 任何跨设备重放分数不得进入科学聚合或 K 选择比较。
+- 理由：门禁的设计目的是捕获协议漂移（错数据、错 seed、错步数），这些通道已由 hash/步数/收敛三重检查覆盖；把同一最优点上的设备噪声当作协议破坏，会要求不可能的跨设备逐位复现。1e-3 的损失等效界远小于 K3-K0 患者分数差的量级（数十），不影响探索性读出的定性结论。
+- 失效条件：若重放终点损失相对差 ≥1e-3、或 inference_platform 不收敛、或任一 hash 不一致，则仍按协议破坏处理，不得接受；若未来出现同设备重放失配，门禁维持原 1e-6 严格度。
+- 影响：fold-4 外层验证可直接使用已落盘重放场；fold-0 导出若触发同一门禁，其场同样按此处置（以实际核验为准）；不改变 D-088（不做跨设备等价宣称）与 D-101（探索等级标注）。
+
+### D-104 | 2026-09-10 | GPU 自租用授权：K=2 配对跑（L-001），4090 档，看守与预算上限
+
+- 背景：用户明确批准由 agent 自行租用 GPU（L-001 K=2 Stage A 从 LEADS 转入执行），并强调费用看守（完成后关闭、空转检查）。
+- 决策：租用 4090 档（¥1.65/h；无货则 3090 ¥1.1/h），跑 `--k-values 0,2` 配对（fold 0+4，同 D-096/D-098 冻结协议）；预算上限 ¥15；看守机制为 bg 心跳（进程存活＋nvidia-smi 利用率＋日志 mtime 三重），连续空转即查因处置；完成后立即回传→退租→对账记账。
+- 失效条件：超预算停手汇报；余额不足不开租。
+- 影响：GPU 累计花费在汇总时记账。
+
+### D-105 | 2026-09-10 | marker-proxy 组成路线授权（探索级，R-02 例外事项记录）
+
+- 背景：组成拆分缺逐 spot 组成输入（LEADS L-002）；用户批准 marker 代理与 scRNA 参考双路线并行。三库（CellMarker 2.0 文献策展、PanglaoDB 灵敏度/特异度量化、CellTypist CRC 模型系数）投票后 5/6 类别在 panel 内可用（T22/B11/Mye16/Epi54/Stromal22 基因；ILC 仅 1 基因不可用）；规则缺口已修补，未映射标签与有意丢弃类别（内皮/神经/脂肪等无对应 Major）均有记录。
+- 决策：允许用三库投票 marker 集构建逐 spot 模块分 proxy（类内 log1p 均值→行归一伪组成），经 patient 分组 crossfit 残差化后重跑读出；全程标 exploratory。R-02 的表达派生标签禁令在此处境下让位，理由：proxy 只用作组成协变量调整而非结构 GT，且 scRNA 参考路线并行提供独立对照；若两路线结论矛盾，以参考路线为准并如实报告分歧。
+- 失效条件：proxy 调整前后结论翻转但无法归因到组成 vs 方法伪影时，不得单凭 proxy 路线下任何结论；对外表述 forbidden 确认性措辞。
+- 影响：`scripts/r04_combine_marker_proxy.py` + smoke 脚本 + 产物 `marker_proxy_combined.json`；不改 panel、模型与 GT 使用范围。
+
+### D-106 | 2026-09-10 | K=2 Stage A 裁决完成：第三方向无增量贡献，K=3 默认正式生效
+
+- 背景：D-099 门禁要求裁决主要结构结论是否依赖不稳定第三方向；D-100/SENSITIVE 与 D-101 重判后，K=2 Stage A 作为可选探索进入 LEADS L-001。用户批准 GPU 自租后执行（D-104，4090PLUS 48GB，¥2.49/h）。
+- 证据：Torch fold-0/fold-4 的 K=0/K=2 同协议配对跑（`torch_representative_fold{0,4}_20260910_k02`，4 cell 全部 FIT_AND_SCORED，inference 双 split 收敛，4 份端点审计）：fold-0 K2−K0 均值 −16.61（K2 胜 2/6），fold-4 K2−K0 均值 +71.96（K2 胜 6/6）。对照既有 K3−K0（fold-0 −28.96，fold-4 +72.73）：fold-4 上 K=2 与 K=3 几乎逐位一致（+71.96 vs +72.73），fold-0 上方向一致（均为负，K=2 劣势更小）。
+- 决策：第三方向（K=3 相对 K=2 的增量）不带来任何留出预测增益——fold-4 的全部正向增益已被 2 个方向捕获，fold-0 的负向在 K=2 下同样存在。K=3 作为过完备工作表示正式生效（D-099 默认转正）；`selected_k` 保持 `null`（仍不断言 K_eff=3）；K=2 无需替代 K=3（K=3 容器包含稳定子空间，rank-2 读出口径不变）。
+- 理由：这是 D-099 门禁要的直接裁决，且是有检验力证据（6 患者/fold 配对分数），不是 N=2 读出的描述性推断；fold 异质性本身（fold-0 偏 K=0、fold-4 偏 K=3）在 K=2/K=3 下同时复现，说明异质性位于 ≤2 的有效维度内。
+- 失效条件：若未来 fold/队列出现 K=3 显著优于 K=2（留出配对差值方向不一致），或结构读出显示结论依赖第三方向，则重开 K 裁决。
+- 影响：L-001 转已并入主线；后续结构读出/验证工作默认 K=3；本次 GPU 会话花费约 ¥3.12（Money ¥0.39＋Power ¥2.73），累计 GPU 花费 ¥8.43。
