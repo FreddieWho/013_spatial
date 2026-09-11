@@ -10,7 +10,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-BASE = HERE.parent  # WUSTL/
+BASE = HERE.parent.parent  # WUSTL/ (script lives in manifests/batches/)
 STATUS = BASE / "synapse_download_status.tsv"
 COLS = ["atlas", "synapse_id", "filename", "assay", "biospecimen",
         "destination", "status", "bytes", "checksum", "attempts",
