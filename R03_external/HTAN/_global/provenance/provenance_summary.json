@@ -1,9 +1,12 @@
 {
  "phase": "HTAN_R03_DATA_ACQUISITION_PARTIAL",
- "synapse_token": "NEED_USER_SYNAPSE_TOKEN",
+ "synapse_token": "CONFIGURED_CHMOD600_NOT_IN_GIT",
  "gen3_client": "BLOCKED_GEN3_CLIENT_INSTALL_RETRYABLE",
  "dbgap": "BLOCKED_AUTHORIZATION",
  "wustl_crosswalk_rows": 812,
  "deep3d_rows": 310,
- "serial_inventory_provisional_rows": 310
+ "serial_inventory_provisional_rows": 310,
+ "synapse_network": "BLOCKED_REGION_NOT_OD_25_083",
+ "portal_files_viewed": "WUSTL rows incl Xenium outputs + Visium aux H&E/json/png; bulk manifest download flaky",
+ "sardana_crc_cycif_lead": "FAQ-confirmed serial-section CRC CyCIF, 190 files, HTAN TNP SARDANA atlas"
 }
