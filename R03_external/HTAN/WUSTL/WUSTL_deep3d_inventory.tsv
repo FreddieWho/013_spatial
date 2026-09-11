@@ -1,0 +1,311 @@
+paper_sample_id	participant_id	biospecimen_id	parent_biospecimen_id	specimen_id	block_candidate	section_candidate	assay	platform	source_file	source_commit	evidence_grade
+HT206B1-S1Fc1U2Z1B1	HT206B1	HTA12_129_7				2	Visium	Visium	ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E1
+HT206B1-S1Fc1U3Z1B1	HT206B1	HTA12_129_8				3	Visium	Visium	ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E1
+HT206B1-S1Fc1U4Z1B1	HT206B1	HTA12_129_9				4	Visium	Visium	ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E1
+HT206B1-S1Fc1U5Z1B1	HT206B1	HTA12_129_14				5	Visium	Visium	ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E1
+HT206B1-U1_ST_Bn1	HT206B1	HTA12_129_18				1	Visium	Visium	ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E1
+HT397B1-S1H3A1U1Bp1	HT397B1	HTA12_253_9				1	Visium	Visium	ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E1
+HT397B1-S1H3A1U21Bp1	HT397B1	HTA12_253_10				21	Visium	Visium	ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E1
+HT397B1-S1H3A1U41Bp1	HT397B1	HTA12_253_11				41	Visium	Visium	ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E1
+HT397B1-S1H3A1U61Bp1	HT397B1	HTA12_253_12				61	Visium	Visium	ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E1
+HT397B1-S1H2Fs4U1Bp1	HT397B1	HTA12_253_8				1	Visium	Visium	ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E1
+HT397B1-S1H3Fs1U1Bp1	HT397B1	HTA12_253_13				1	Visium	Visium	ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E1
+HT206B1-S1H4A2Y2_1N3Z1_1Bn1	HT206B1	HTA12_129_16					3' snRNA-seq		ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E0
+HT397B1-S1H4A4Y1N1Z1_1Bmn1_1	HT397B1	HTA12_253_16					3' snRNA-seq		ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E0
+HT206B1_S1H1A2Y2E1_1	HT206B1	HTA12_129_11					bulk RNA-seq		ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E0
+HT206B1_S1H4A2Y2E1_1	HT206B1	HTA12_129_12					bulk RNA-seq		ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E0
+HT206B1-W1E1	HT206B1	HTA12_129_19					bulk RNA-seq		ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E0
+HT397B1-S1H4A4E1	HT397B1	HTA12_253_15					bulk RNA-seq		ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E0
+HT397B1-H2A2_20220505	HT397B1	HTA12_253_1					CODEX	CODEX	ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E0
+HT397B1-H3A1_20220429	HT397B1	HTA12_253_2					CODEX	CODEX	ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E0
+HT397B1-S1H3A1-U12_20230316	HT397B1	HTA12_253_3				12	CODEX	CODEX	ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E1
+HT397B1-S1H3A1-U2_20230315	HT397B1	HTA12_253_5				2	CODEX	CODEX	ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E1
+HT397B1-S1H3A1-U22_20230413	HT397B1	HTA12_253_4				22	CODEX	CODEX	ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E1
+HT397B1-S1H3A1-U31_20230407	HT397B1	HTA12_253_6				31	CODEX	CODEX	ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E1
+HT206B1-JM1D1_1	HT206B1	HTA12_129_13					WXS		ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E0
+HT206B1-S1H1A2Y2D1_1	HT206B1	HTA12_129_15					WXS		ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E0
+HT206B1-S1H4A2Y2D1_1	HT206B1	HTA12_129_17					WXS		ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E0
+HT397B1-Jm1D1_1	HT397B1	HTA12_253_7					WXS		ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E0
+HT397B1-S1H4A4D1_1	HT397B1	HTA12_253_14					WXS		ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E0
+HT397B1-W1D1_1	HT397B1	HTA12_253_17					WXS		ST_subclone_publication/Data_access/Sample_ID_Lookup_table_v1.xlsx	7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa	E0
+HT913Z1-S1H1Fp1	HT913Z1						CosMx	CosMx	3d-analysis tracking: 3d-analysis_cosmx_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - CosMx.csv	14f04c1b787991898380305702c31d52c19fa694	E0
+HT891Z1-S2H1Fp1	HT891Z1						CosMx	CosMx	3d-analysis tracking: 3d-analysis_cosmx_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - CosMx.csv	14f04c1b787991898380305702c31d52c19fa694	E0
+HT891Z1-S2H4Fp1	HT891Z1						CosMx	CosMx	3d-analysis tracking: 3d-analysis_cosmx_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - CosMx.csv	14f04c1b787991898380305702c31d52c19fa694	E0
+HT891Z1-S2H3FP1Us1	HT891Z1						CosMx	CosMx	3d-analysis tracking: 3d-analysis_cosmx_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - CosMx.csv	14f04c1b787991898380305702c31d52c19fa694	E0
+HT891Z1-S2H3FP1Us2	HT891Z1						CosMx	CosMx	3d-analysis tracking: 3d-analysis_cosmx_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - CosMx.csv	14f04c1b787991898380305702c31d52c19fa694	E0
+HT206B1-H2L1U23_1	HT206B1					23	CosMx	CosMx	3d-analysis tracking: 3d-analysis_cosmx_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - CosMx.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U14	HT704B1					14	CosMx	CosMx	3d-analysis tracking: 3d-analysis_cosmx_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - CosMx.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U22	HT704B1					22	CosMx	CosMx	3d-analysis tracking: 3d-analysis_cosmx_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - CosMx.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U47	HT704B1					47	CosMx	CosMx	3d-analysis tracking: 3d-analysis_cosmx_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - CosMx.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U56	HT704B1					56	CosMx	CosMx	3d-analysis tracking: 3d-analysis_cosmx_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - CosMx.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT206B1-S1Fc1U1Z1B1	HT206B1					1	Visium	Visium	3d-analysis tracking: 3d-analysis_visium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Visium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT206B1-S1Fc1U2Z1B1	HT206B1					2	Visium	Visium	3d-analysis tracking: 3d-analysis_visium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Visium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT206B1-S1Fc1U3Z1B1	HT206B1					3	Visium	Visium	3d-analysis tracking: 3d-analysis_visium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Visium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT206B1-S1Fc1U4Z1B1	HT206B1					4	Visium	Visium	3d-analysis tracking: 3d-analysis_visium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Visium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT206B1-S1Fc1U5Z1B1	HT206B1					5	Visium	Visium	3d-analysis tracking: 3d-analysis_visium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Visium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT397B1-S1H3Fs1U1Bp1	HT397B1					1	Visium	Visium	3d-analysis tracking: 3d-analysis_visium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Visium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT397B1-S1H2Fs4U1Bp1	HT397B1					1	Visium	Visium	3d-analysis tracking: 3d-analysis_visium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Visium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT397B1-S1H3A1U1Bp1	HT397B1					1	Visium	Visium	3d-analysis tracking: 3d-analysis_visium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Visium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT397B1-S1H3A1U21Bp1	HT397B1					21	Visium	Visium	3d-analysis tracking: 3d-analysis_visium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Visium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT397B1-S1H3A1U41Bp1	HT397B1					41	Visium	Visium	3d-analysis tracking: 3d-analysis_visium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Visium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT397B1-S1H3A1U61Bp1	HT397B1					61	Visium	Visium	3d-analysis tracking: 3d-analysis_visium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Visium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1U2	HT891Z1					2	Visium	Visium	3d-analysis tracking: 3d-analysis_visium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Visium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1U33	HT891Z1					33	Visium	Visium	3d-analysis tracking: 3d-analysis_visium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Visium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1U2	HT704B1					2	Visium	Visium	3d-analysis tracking: 3d-analysis_visium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Visium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1U51	HT704B1					51	Visium	Visium	3d-analysis tracking: 3d-analysis_visium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Visium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1U1	HT891Z1					1	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1U21	HT891Z1					21	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1U32	HT891Z1					32	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1U44	HT891Z1					44	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1U59	HT891Z1					59	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1U69	HT891Z1					69	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1U104	HT891Z1					104	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1U81	HT891Z1					81	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1U94	HT891Z1					94	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1U101	HT913Z1					101	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1U33	HT913Z1					33	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1U34	HT913Z1					34	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1U35	HT913Z1					35	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1U61	HT913Z1					61	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1U81	HT913Z1					81	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1U1	HT913Z1					1	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1U11	HT913Z1					11	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1U21	HT913Z1					21	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S1H1Fp1U1	HT913Z1					1	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S1H1Fp1U11	HT913Z1					11	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S1H1Fp1U8	HT913Z1					8	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT206B1-H2L1Us1_9	HT206B1						Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E0
+HT206B1-H2L1Us1_17	HT206B1						Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E0
+HT206B1-H2L1Us1_1	HT206B1						Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E0
+HT206B1-H2L1Us1_24	HT206B1						Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E0
+HT206B1-H2L1Us1_8	HT206B1						Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E0
+HT206B1-H2L1Us1_15	HT206B1						Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E0
+HT704B1-S1H3Fp1U1	HT704B1					1	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1U26	HT704B1					26	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1U33	HT704B1					33	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1U41	HT704B1					41	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1U50	HT704B1					50	Xenium	Xenium	3d-analysis tracking: 3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT206B1-S1Fc1U1Z1B1	HT206B1					1	Visium	Visium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT206B1-S1Fc1U2Z1B1	HT206B1					2	Visium	Visium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT206B1-S1Fc1U3Z1B1	HT206B1					3	Visium	Visium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT206B1-S1Fc1U4Z1B1	HT206B1					4	Visium	Visium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT206B1-S1Fc1U5Z1B1	HT206B1					5	Visium	Visium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT397B1-S1H3Fs1U1Bp1	HT397B1					1	Visium	Visium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT397B1-S1H2Fs4U1Bp1	HT397B1					1	Visium	Visium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT397B1-S1H3A1U1Bp1	HT397B1					1	Visium	Visium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT397B1-S1H3A1U21Bp1	HT397B1					21	Visium	Visium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT397B1-S1H3A1U41Bp1	HT397B1					41	Visium	Visium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT397B1-S1H3A1U61Bp1	HT397B1					61	Visium	Visium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1U2	HT891Z1					2	VisiumHD	VisiumHD	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1U33	HT891Z1					33	VisiumHD	VisiumHD	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1U2	HT704B1					2	VisiumHD	VisiumHD	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1U51	HT704B1					51	VisiumHD	VisiumHD	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S1H1Fp1	HT913Z1						CosMx	CosMx	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E0
+HT891Z1-S2H1Fp1	HT891Z1						CosMx	CosMx	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E0
+HT891Z1-S2H4Fp1	HT891Z1						CosMx	CosMx	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E0
+HT891Z1-S2H3FP1Us1	HT891Z1						CosMx	CosMx	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E0
+HT891Z1-S2H3FP1Us2	HT891Z1						CosMx	CosMx	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E0
+HT206B1-H2L1U23_1	HT206B1					23	CosMx	CosMx	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U14	HT704B1					14	CosMx	CosMx	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U22	HT704B1					22	CosMx	CosMx	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U47	HT704B1					47	CosMx	CosMx	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U56	HT704B1					56	CosMx	CosMx	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1U1	HT891Z1					1	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1U21	HT891Z1					21	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1U32	HT891Z1					32	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1U44	HT891Z1					44	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1U59	HT891Z1					59	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1U69	HT891Z1					69	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1U104	HT891Z1					104	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1U81	HT891Z1					81	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1U94	HT891Z1					94	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1U101	HT913Z1					101	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1U33	HT913Z1					33	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1U34	HT913Z1					34	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1U35	HT913Z1					35	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1U61	HT913Z1					61	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1U81	HT913Z1					81	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1U1	HT913Z1					1	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1U11	HT913Z1					11	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1U21	HT913Z1					21	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S1H1Fp1U1	HT913Z1					1	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S1H1Fp1U11	HT913Z1					11	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S1H1Fp1U8	HT913Z1					8	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT206B1-H2L1Us1_9	HT206B1						Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E0
+HT206B1-H2L1Us1_17	HT206B1						Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E0
+HT206B1-H2L1Us1_1	HT206B1						Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E0
+HT206B1-H2L1Us1_24	HT206B1						Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E0
+HT206B1-H2L1Us1_8	HT206B1						Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E0
+HT206B1-H2L1Us1_15	HT206B1						Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E0
+HT704B1-S1H3Fp1U1	HT704B1					1	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1U17	HT704B1					17	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1U26	HT704B1					26	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1U33	HT704B1					33	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1U41	HT704B1					41	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1U50	HT704B1					50	Xenium	Xenium	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1_U4	HT891Z1					4	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1_U5	HT891Z1					5	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1_U6	HT891Z1					6	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1_U7	HT891Z1					7	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1_U28	HT891Z1					28	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1_U29	HT891Z1					29	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1_U30	HT891Z1					30	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1_U35	HT891Z1					35	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1_U47	HT891Z1					47	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1_U48	HT891Z1					48	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1_U49	HT891Z1					49	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1_U50	HT891Z1					50	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1_U66	HT891Z1					66	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1_U68	HT891Z1					68	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1_U70	HT891Z1					70	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1_U84	HT891Z1					84	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1_U89	HT891Z1					89	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1_U90	HT891Z1					90	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1_U101	HT891Z1					101	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1_U102	HT891Z1					102	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1_U106	HT891Z1					106	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1_U107	HT891Z1					107	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1_U114	HT891Z1					114	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1_U115	HT891Z1					115	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1_U116	HT891Z1					116	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U3	HT913Z1					3	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U5	HT913Z1					5	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U7	HT913Z1					7	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U9	HT913Z1					9	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U10	HT913Z1					10	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U13	HT913Z1					13	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U15	HT913Z1					15	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U17	HT913Z1					17	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U19	HT913Z1					19	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U24	HT913Z1					24	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U26	HT913Z1					26	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U28	HT913Z1					28	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U30	HT913Z1					30	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U36	HT913Z1					36	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U38	HT913Z1					38	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U40	HT913Z1					40	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U42	HT913Z1					42	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U44	HT913Z1					44	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U46	HT913Z1					46	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U48	HT913Z1					48	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U50	HT913Z1					50	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U55	HT913Z1					55	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U57	HT913Z1					57	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U63	HT913Z1					63	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U65	HT913Z1					65	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U67	HT913Z1					67	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U69	HT913Z1					69	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U72	HT913Z1					72	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U74	HT913Z1					74	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U76	HT913Z1					76	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U78	HT913Z1					78	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U80	HT913Z1					80	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U83	HT913Z1					83	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U85	HT913Z1					85	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U87	HT913Z1					87	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U89	HT913Z1					89	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U92	HT913Z1					92	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U94	HT913Z1					94	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U96	HT913Z1					96	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U99	HT913Z1					99	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U103	HT913Z1					103	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U106	HT913Z1					106	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U108	HT913Z1					108	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U110	HT913Z1					110	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U112	HT913Z1					112	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U115	HT913Z1					115	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U117	HT913Z1					117	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U119	HT913Z1					119	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U120	HT913Z1					120	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U122	HT913Z1					122	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1Fp1_U124	HT913Z1					124	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U12	HT704B1					12	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U15	HT704B1					15	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U20	HT704B1					20	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U23	HT704B1					23	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U28	HT704B1					28	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U31	HT704B1					31	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U36	HT704B1					36	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U39	HT704B1					39	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U44	HT704B1					44	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U48	HT704B1					48	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U54	HT704B1					54	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U57	HT704B1					57	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U61	HT704B1					61	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U65	HT704B1					65	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U69	HT704B1					69	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U73	HT704B1					73	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U81	HT704B1					81	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U84	HT704B1					84	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U90	HT704B1					90	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1_U93	HT704B1					93	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT397B1-S1H3A1U1	HT397B1					1	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT397B1-S1H3A1U4	HT397B1					4	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT397B1-S1H3A1U8	HT397B1					8	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT397B1-S1H3A1U11	HT397B1					11	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT397B1-S1H3A1U16	HT397B1					16	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT397B1-S1H3A1U21	HT397B1					21	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT397B1-S1H3A1U20	HT397B1					20	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT397B1-S1H3A1U28	HT397B1					28	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT206B1-U4	HT206B1					4	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT206B1-U12	HT206B1					12	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT206B1-U20	HT206B1					20	H&E	H&E	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT206B1-H2L1-U2	HT206B1					2	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT206B1-H2L1-U5	HT206B1					5	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT206B1-H2L1-U10	HT206B1					10	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT206B1-H2L1-U13	HT206B1					13	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT206B1-H2L1-U18	HT206B1					18	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT206B1-H2L1-U21	HT206B1					21	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT397B1-S1H3A1-U2	HT397B1					2	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT397B1-S1H3A1-U12	HT397B1					12	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT397B1-S1H3A1-U22	HT397B1					22	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT397B1-S1H3A1-U31	HT397B1					31	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1-U11	HT704B1					11	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1-U19	HT704B1					19	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1-U27	HT704B1					27	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1-U35	HT704B1					35	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1-U43	HT704B1					43	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1-U53	HT704B1					53	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1-U60	HT704B1					60	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1-U68	HT704B1					68	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1-U76	HT704B1					76	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1-U82	HT704B1					82	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1-U85	HT704B1					85	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT704B1-S1H3Fp1-U91	HT704B1					91	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1-U14	HT891Z1					14	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1-U32	HT891Z1					32	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1-U40	HT891Z1					40	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1-U41	HT891Z1					41	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1-U43	HT891Z1					43	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1-U45	HT891Z1					45	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1-U46	HT891Z1					46	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1-U58	HT891Z1					58	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1-U79	HT891Z1					79	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1-U93	HT891Z1					93	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1-U103	HT891Z1					103	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1-U108	HT891Z1					108	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1-U109	HT891Z1					109	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1-U110	HT891Z1					110	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1-U111	HT891Z1					111	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3Fp1-U113	HT891Z1					113	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1FP1-U2	HT913Z1					2	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1FP1-U12	HT913Z1					12	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1FP1-U22	HT913Z1					22	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1FP1-U41	HT913Z1					41	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1FP1-U51	HT913Z1					51	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1FP1-U52	HT913Z1					52	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1FP1-U53	HT913Z1					53	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1FP1-U54	HT913Z1					54	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1FP1-U62	HT913Z1					62	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1FP1-U71	HT913Z1					71	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1FP1-U82	HT913Z1					82	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1FP1-U91	HT913Z1					91	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1FP1-U102	HT913Z1					102	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1FP1-U111	HT913Z1					111	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1FP1-U121	HT913Z1					121	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S2H1FP1-U125	HT913Z1					125	CODEX	CODEX	3d-analysis survey: 3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT913Z1-S1H1Fp1	HT913Z1				HT913Z1-S1H1Fp1		CosMx	CosMx	3d-analysis tracking: 3d-analysis_cosmx_reference_2d data tracking - cosmx.csv	14f04c1b787991898380305702c31d52c19fa694	E0
+HT891Z1-S2H1Fp1	HT891Z1				HT891Z1-S2H1Fp1		CosMx	CosMx	3d-analysis tracking: 3d-analysis_cosmx_reference_2d data tracking - cosmx.csv	14f04c1b787991898380305702c31d52c19fa694	E0
+HT891Z1-S2H4Fp1	HT891Z1				HT891Z1-S2H4Fp1		CosMx	CosMx	3d-analysis tracking: 3d-analysis_cosmx_reference_2d data tracking - cosmx.csv	14f04c1b787991898380305702c31d52c19fa694	E0
+HT891Z1-S2H3FP1Us1	HT891Z1				HT891Z1-S2H3FP1	s1	CosMx	CosMx	3d-analysis tracking: 3d-analysis_cosmx_reference_2d data tracking - cosmx.csv	14f04c1b787991898380305702c31d52c19fa694	E1
+HT891Z1-S2H3FP1Us2	HT891Z1				HT891Z1-S2H3FP1	s2	CosMx	CosMx	3d-analysis tracking: 3d-analysis_cosmx_reference_2d data tracking - cosmx.csv	14f04c1b787991898380305702c31d52c19fa694	E1

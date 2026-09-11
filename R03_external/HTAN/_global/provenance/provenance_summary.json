@@ -1,0 +1,9 @@
+{
+ "phase": "HTAN_R03_DATA_ACQUISITION_PARTIAL",
+ "synapse_token": "NEED_USER_SYNAPSE_TOKEN",
+ "gen3_client": "BLOCKED_GEN3_CLIENT_INSTALL_RETRYABLE",
+ "dbgap": "BLOCKED_AUTHORIZATION",
+ "wustl_crosswalk_rows": 812,
+ "deep3d_rows": 310,
+ "serial_inventory_provisional_rows": 310
+}

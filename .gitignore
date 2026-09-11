@@ -49,3 +49,11 @@ __pycache__/
 !/infra/r04/composition_ref/
 !/infra/r04/composition_ref/provenance.json
 /infra/r04/composition_ref/*.npz
+
+# HTAN R-03 external data: large download dirs stay out of git;
+# manifests/metadata/provenance/scripts stay tracked.
+/R03_external/HTAN/*/*/synapse/
+/R03_external/HTAN/*/*/crdc_open/
+/R03_external/HTAN/*/*/controlled/
+/R03_external/HTAN/*/auxiliary_public/
+/R03_external/HTAN/*/logs/

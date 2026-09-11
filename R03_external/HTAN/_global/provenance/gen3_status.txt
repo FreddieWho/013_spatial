@@ -1,0 +1,4 @@
+gen3-client install: BLOCKED_GEN3_CLIENT_INSTALL (github release download
+rate-limited 2026-09-11; retryable).
+Note: CRDC download additionally requires user NCI credentials
+(NEED_USER_CRDC_CREDENTIAL) regardless, so no CRDC progress is lost.

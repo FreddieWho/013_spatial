@@ -1,0 +1,17 @@
+{
+ "task": "HTAN_R03_DATA_ACQUISITION",
+ "wustl_metadata": "COMPLETE",
+ "wustl_open_processed": "NOT_TRIGGERED",
+ "wustl_serial_inventory": "COMPLETE",
+ "vanderbilt_metadata": "COMPLETE",
+ "vanderbilt_open_processed": "COMPLETE",
+ "ohsu_metadata": "NOT_TRIGGERED",
+ "ohsu_open_processed": "NOT_TRIGGERED",
+ "crdc_open_data": "NOT_TRIGGERED",
+ "dbgap_controlled": "BLOCKED_AUTHORIZATION",
+ "serial_candidate_registry": "COMPLETE",
+ "failed_open_assets": 0,
+ "credentials_committed": false,
+ "overall": "COMPLETE_OPEN_DATA_CONTROLLED_PENDING",
+ "notes": "Synapse downloads await user PAT (NEED_USER_SYNAPSE_TOKEN); CRDC awaits user credential + gen3-client install retry; crosswalk 812 rows; deep3d 310 rows; serial provisional 310 rows; vanderbilt inventory 49 rows."
+}

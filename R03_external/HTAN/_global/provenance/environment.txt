@@ -1,0 +1,3 @@
+NAME="Ubuntu"
+VERSION="20.04.6 LTS (Focal Fossa)"
+Python 3.11.5

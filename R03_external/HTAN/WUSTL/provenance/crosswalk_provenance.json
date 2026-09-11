@@ -1,0 +1,18 @@
+{
+ "lookup_sha256": "aa0bd5be329a312bf521217a654e05cec2ac5bc672d259dcf93e6493137eaea8",
+ "pins": {
+  "ST_subclone_publication": "7067cd16f06ec4aa2500aa1e5c9a6eb1e6e42cfa",
+  "3d-analysis": "14f04c1b787991898380305702c31d52c19fa694",
+  "mushroom": "dc3598950fd233f2255a8e53006c915cc425a4a7"
+ },
+ "tracked_csvs": [
+  "3d-analysis_visium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Visium.csv",
+  "3d-analysis_cosmx_reference_2d data tracking - cosmx.csv",
+  "3d-analysis_cosmx_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - CosMx.csv",
+  "3d-analysis_xenium_reference_HTAN2 3D Prostate Breast_ Spatial Omics Level 3 - Xenium.csv",
+  "3d-analysis_xenium_reference_HTAN2 Liver mCRC_ Spatial Omics Level 3 - Liver mCRC Xenium.csv",
+  "3d-analysis_xenium_reference_supplemental_tables.xlsx - Table S5.csv",
+  "3d-analysis_he_reference_HTAN2 3D Prostate Breast Data Survey - Datafiles.csv"
+ ],
+ "section_hint_rule": "U<digits> in WUSTL ID -> section_candidate, E1 only"
+}

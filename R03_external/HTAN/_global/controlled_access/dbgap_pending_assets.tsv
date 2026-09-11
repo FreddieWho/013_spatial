@@ -1,0 +1,4 @@
+study_accession	latest_version	atlas	participant	biospecimen	assay	file_type	expected_role	r03_need	priority	authorization_status
+phs002371	v9.p2	WUSTL	*	*	WXS/scRNA/WES	FASTQ/BAM	controlled sequencing	OPTIONAL_FOR_CURRENT_R03	low	BLOCKED_AUTHORIZATION
+phs002371	v9.p2	Vanderbilt	*	*	WXS/scRNA	FASTQ/BAM	controlled sequencing	OPTIONAL_FOR_CURRENT_R03	low	BLOCKED_AUTHORIZATION
+phs002371	v9.p2	OHSU	*	*	various	FASTQ/BAM	controlled sequencing	OPTIONAL_FOR_CURRENT_R03	low	BLOCKED_AUTHORIZATION
