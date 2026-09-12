@@ -79,14 +79,14 @@ R04_REFERENCE_SOURCES = (
     {
         "source_id": "local:005_preCan:GSE132465_counts",
         "accession": "GSE132465",
-        "local_path": "/home/huyudi/005_preCan/data/downloaded/CIT_CRC_005/GSE132465_GEO_processed_CRC_10X_raw_UMI_count_matrix.txt.gz",
+        "local_path": "/home/huyudi/005_preCan/data/downloaded/CRC_GSE132465/GSE132465_GEO_processed_CRC_10X_raw_UMI_count_matrix.txt.gz",
         "identity_coverage": "donor_cell_type",
         "notes": "R04 CRC reference; read in place, capped and never copied into this repository",
     },
     {
         "source_id": "local:005_preCan:GSE132465_annotation",
         "accession": "GSE132465",
-        "local_path": "/home/huyudi/005_preCan/data/downloaded/CIT_CRC_005/GSE132465_GEO_processed_CRC_10X_cell_annotation.txt.gz",
+        "local_path": "/home/huyudi/005_preCan/data/downloaded/CRC_GSE132465/GSE132465_GEO_processed_CRC_10X_cell_annotation.txt.gz",
         "identity_coverage": "donor_cell_type",
         "notes": "R04 annotation; only Index/Patient/Cell_type are allowlisted",
     },
