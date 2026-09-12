@@ -84,3 +84,4 @@
 - 2026-09-11：执行 R04 finalization prompt，R-04 阴性关闭（D-107…D-110，最终门禁落盘）；K 控制面修复；nested 终审推翻旧 smoke 结论；文档原位更新；final phase report 落盘；313 测试全过并推送（db625ed）。
 - 2026-09-11：R-03 普查完成（22 多切片块零已知间距；I-002 对 R-11 升级硬阻塞）；是否申请新数据待用户决策。
 - 2026-09-11：R-03 工作冻结为交接文档 docs/HANDOFF_R03_2026-09-11.md（普查＋侦察＋Cervilla 落地＋A/B/C/D 待决策＋恢复步骤）；恢复时只读该文档即可。
+- 2026-09-12：数据补充阶段关闭——W0（100文件16G）＋P0/P1（312文件，W0去重后新增224，落盘52G）＋HT480B1两对CANDIDATE（32文件3.55GB）全部校验落盘；W1分五档（P0 48f/6.5GB、P1 264f/35.6GB、P2_multi 216f/29GB、P2_single 432f/58GB、P3 96f/13GB），P2_multi验完（仅HT480B1两对判CANDIDATE，HT339B1判BORDERLINE不动，168文件判不同块REJECT）；P2_single＋P3跳过（~71GB零价值）；CRDC/Gen3/NCI、dbGaP、OHSU保持外部阻塞；流量配置为API走代理＋S3/GCS bulk直连（download_env.sh）。后续只按触发条件补数（smoke test归因缺数／复制对不够／H&E配准缺输入），不再囤积。
