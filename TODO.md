@@ -7,7 +7,7 @@
 
 - [x] R-04 最终关闭完成：`R04_COMPLETE_NO_REPRODUCIBLE_RESIDUAL_FIELD`（D-110，最终门禁已落盘）；K 控制面修复；nested 终审；文档原位更新
 - [x] R-03 普查完成 09-11：只查已下载数据（脚本＋测试＋`infra/r03/serial_section_census_20260911.json`）；22 个多切片块零对已知间距；同平面遮蔽可测，其余三类不可测；I-002 对 R-11 范围升级硬阻塞；是否申请带间距的新数据待用户决策
-- [ ] 用户定方向：收缩结论写总结 vs 批准新数据/新队列重开证据评估（需明确批准，不自动扩张；R-03 结论：三维方向如需继续，必须先批带记录间距的 serial-section 数据）
+- [x] 用户定方向（09-12）：关闭 R-04，不重开证据评估——收缩结论（R04_COMPLETE_NO_REPRODUCIBLE_RESIDUAL_FIELD 维持）；R-11 相关新数据（Xenium CRC／dbGaP／作者邮件）一律暂缓，需另行明确批准才重启
 
 ## 当前执行分支（三线并行执行中；2026-09-10 用户批准开工）
 
@@ -86,3 +86,4 @@
 - 2026-09-11：R-03 工作冻结为交接文档 docs/HANDOFF_R03_2026-09-11.md（普查＋侦察＋Cervilla 落地＋A/B/C/D 待决策＋恢复步骤）；恢复时只读该文档即可。
 - 2026-09-12：数据补充阶段关闭——W0（100文件16G）＋P0/P1去重后新增224（落盘52G）＋HT480B1两对CANDIDATE（32文件3.55GB）全部md5/文件头校验落盘；W1分五档，P2_multi验完（仅HT480B1两对CANDIDATE，HT339B1判BORDERLINE不动，168文件判不同块REJECT），P2_single＋P3跳过（~71GB零价值）；CRDC/Gen3/NCI、dbGaP、OHSU保持外部阻塞；流量API代理＋S3/GCS bulk直连已固化。后续只按触发条件补数，不再囤积。
 - 2026-09-12：数据补充阶段关闭——W0（100文件16G）＋P0/P1（312文件，W0去重后新增224，落盘52G）＋HT480B1两对CANDIDATE（32文件3.55GB）全部校验落盘；W1分五档（P0 48f/6.5GB、P1 264f/35.6GB、P2_multi 216f/29GB、P2_single 432f/58GB、P3 96f/13GB），P2_multi验完（仅HT480B1两对判CANDIDATE，HT339B1判BORDERLINE不动，168文件判不同块REJECT）；P2_single＋P3跳过（~71GB零价值）；CRDC/Gen3/NCI、dbGaP、OHSU保持外部阻塞；流量配置为API走代理＋S3/GCS bulk直连（download_env.sh）。后续只按触发条件补数（smoke test归因缺数／复制对不够／H&E配准缺输入），不再囤积。
+- 2026-09-12：用户定方向为关闭 R-04（收缩，不重开证据评估）；R-11 相关新数据（Xenium CRC／dbGaP／作者邮件）一律暂缓，需另行明确批准。
