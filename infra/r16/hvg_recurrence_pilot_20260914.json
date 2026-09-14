@@ -1,0 +1,149 @@
+{
+  "schema": "r16.hvg_recurrence_pilot.v1",
+  "status": "EXPLORATORY_PILOT_NOT_CLAIM",
+  "method": "seurat_v3 per-section top-K + patient-recurrence combine (SelectIntegrationFeatures analogue)",
+  "per_section_top_k": 5000,
+  "n_sections": 47,
+  "n_patients": 30,
+  "n_union_genes": 19468,
+  "recurrence_distribution_patients": {
+    "0": 223,
+    "1": 380,
+    "2": 578,
+    "3": 636,
+    "4": 757,
+    "5": 928,
+    "6": 1189,
+    "7": 1350,
+    "8": 1474,
+    "9": 1570,
+    "10": 1573,
+    "11": 1571,
+    "12": 1456,
+    "13": 1229,
+    "14": 1006,
+    "15": 827,
+    "16": 625,
+    "17": 503,
+    "18": 379,
+    "19": 292,
+    "20": 214,
+    "21": 185,
+    "22": 150,
+    "23": 106,
+    "24": 88,
+    "25": 58,
+    "26": 39,
+    "27": 27,
+    "28": 27,
+    "29": 25,
+    "30": 3
+  },
+  "genes_within_rank": {
+    "4000": 4000,
+    "8000": 8000,
+    "10000": 10000,
+    "12000": 12000
+  },
+  "overlap_top4000_vs_frozen4000": 637,
+  "tls_canonical": {
+    "CXCL13": {
+      "patient_recurrence": 23,
+      "final_rank": 285,
+      "in_top8000": true,
+      "in_top10000": true,
+      "in_frozen4000": false
+    },
+    "MS4A1": {
+      "patient_recurrence": 19,
+      "final_rank": 1005,
+      "in_top8000": true,
+      "in_top10000": true,
+      "in_frozen4000": false
+    },
+    "CD3D": {
+      "patient_recurrence": 22,
+      "final_rank": 491,
+      "in_top8000": true,
+      "in_top10000": true,
+      "in_frozen4000": false
+    },
+    "CD3E": {
+      "patient_recurrence": 14,
+      "final_rank": 3738,
+      "in_top8000": true,
+      "in_top10000": true,
+      "in_frozen4000": false
+    },
+    "CD19": {
+      "patient_recurrence": 20,
+      "final_rank": 876,
+      "in_top8000": true,
+      "in_top10000": true,
+      "in_frozen4000": false
+    },
+    "CCL19": {
+      "patient_recurrence": 23,
+      "final_rank": 274,
+      "in_top8000": true,
+      "in_top10000": true,
+      "in_frozen4000": false
+    },
+    "CCL21": {
+      "patient_recurrence": 25,
+      "final_rank": 126,
+      "in_top8000": true,
+      "in_top10000": true,
+      "in_frozen4000": false
+    },
+    "LTB": {
+      "patient_recurrence": 24,
+      "final_rank": 247,
+      "in_top8000": true,
+      "in_top10000": true,
+      "in_frozen4000": false
+    },
+    "CXCR5": {
+      "patient_recurrence": 13,
+      "final_rank": 5196,
+      "in_top8000": true,
+      "in_top10000": true,
+      "in_frozen4000": false
+    },
+    "CCR7": {
+      "patient_recurrence": 19,
+      "final_rank": 972,
+      "in_top8000": true,
+      "in_top10000": true,
+      "in_frozen4000": false
+    },
+    "CD79A": {
+      "patient_recurrence": 21,
+      "final_rank": 533,
+      "in_top8000": true,
+      "in_top10000": true,
+      "in_frozen4000": false
+    },
+    "BANK1": {
+      "patient_recurrence": 17,
+      "final_rank": 1983,
+      "in_top8000": true,
+      "in_top10000": true,
+      "in_frozen4000": false
+    },
+    "SELL": {
+      "patient_recurrence": 15,
+      "final_rank": 3258,
+      "in_top8000": true,
+      "in_top10000": true,
+      "in_frozen4000": false
+    },
+    "CR2": {
+      "patient_recurrence": 24,
+      "final_rank": 241,
+      "in_top8000": true,
+      "in_top10000": true,
+      "in_frozen4000": false
+    }
+  }
+}
