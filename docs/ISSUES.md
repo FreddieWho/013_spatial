@@ -249,7 +249,8 @@
 - **影响节点：** 一切 TLS 相关读出与注册场评分（field registry 的 TLS 行）；H-01/H-03 证据归因。
 - **当前事实：** TLS 阳性对照（`infra/r04/tls_positive_control_20260912.json`，exploratory）核验 frozen 4000-gene panel：CXCL13、MS4A1（CD20）、CD3D/E/G、CD19、CCL19、CCL21、LTB、CR2、CXCR5、CCR7、SELL、BANK1、FCRL5、IGHG2/3/4 家族部分均不在 panel；可用的是浆细胞模块（IGHM/IGKC/JCHAIN/MZB1/SDC1/IGLC3/IGHA2）、PTPRC、CD68、LYZ、ICAM1、CLU、CXCL12、PECAM1。panel 为 R-06 时代历史冻结，不回溯修改。
 - **当前影响：** TLS 读出只能用组成型代理信号（白细胞富集＋非上皮），任何 TLS 阴性结论的归因都受限：分不清"信号不存在"与"panel 不覆盖"。R-04 的 TLS DOES_NOT_SURVIVE 不受此改变（其零发现另有外层 null 支撑），但解释口径必须带本缺口。
-- **下一判定点：** field registry 回填 TLS 行时须把 panel 覆盖缺口写入该行 notes；若未来重选 panel，先查目标结构标记覆盖再上模型。
+- **2026-09-14 机理查明（用户追问 4000 基因来历）：** panel 来自 D-042（2026-08-10）：HTAN 训练患者内 ≥5% spot 检出且 ≥70% 患者满足 → 训练侧 log1p 方差取前 4000。**两阶段过滤共同致死**：(1) prevalence 关杀掉 14 个经典 TLS 基因中的 12 个（CXCL13 仅 34% 患者 ≥5%、MS4A1 21%、CD19 30%、CCL19 37%、CD79A 53%、CCL21 57%、CD3E 63%，均 <70%）；(2) 方差前 4000 关杀掉剩余 2 个（LTB 排名 ~7809、CD3D ~8582，共 9454 个基因过 prevalence 地板）。方差榜前 20 被免疫球蛋白/持家/上皮/基质霸占（IGKC、EEF1A1、IGHG1、FTL、ACTB、COL1A1、KRT8/18、CEACAM5）。机理：log1p 方差随稀疏性压缩，小型/稀有结构的 marker 在两项指标上都被系统性压低——panel 对"小而稀有"的生物学存在结构性盲区。地板实测：5%→9454 基因、1%→13392、0.5%→14626、0.1%→18129（union 19468）。
+- **下一判定点：** R-16 普查是否扩大 gene universe（需修订设计方案并追加 decision，冻结 R-04 资产不动）；field registry 回填 TLS 行时须把 panel 覆盖缺口与本质写入 notes。
 - **硬阻塞条件：** 若某一 claim 依赖的经典标记被证实在 panel 中缺失且无可替代代理，该 claim 保持 NOT_TESTABLE，不得以代理信号替代。
 
 
