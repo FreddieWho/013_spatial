@@ -10,7 +10,7 @@
 - [x] 用户定方向（09-12）：关闭 R-04，不重开证据评估——收缩结论；R-11 相关新数据一律暂缓
 - [x] 场发现策略修正（09-14，D-112）：残余从参赛资格降级为评分维度；搜索放开、claim 须复现＋过 null＋量化不确定性；field registry 立项；TLS 阳性对照确认 panel 盲区（I-020）与生物学可测性
 - [x] 发现引擎定型（09-14，D-113）：组成 pattern 为地基的距离函数框架＋双车道（Lane A 锚定筛选／Lane B 无锚残余）＋分步 DAG；连续信号 null 换代要求登记（I-021）；roadmap 新增 R-16
-- [ ] R-16 一页设计方案（函数族、空间保持 null 类型与抽样次数、聚类分辨率档位、阈值、registry schema）→ 交用户过目
+- [x] R-16 一页设计方案落盘 09-14：`docs/R16_DISCOVERY_DESIGN_20260914.md`（含函数族、空间保持 null 规格、三档分辨率、阈值、registry schema、校准条款）→ 待用户批准
 - [ ] 组成 pattern 普查（设计方案批准后执行；纯 CPU，复用 panel cache）
 - [ ] hold 中（需逐项批准）：R-11 smoke、Xenium CRC、dbGaP、两封数据邮件、CRDC/NCI 凭据
 
@@ -93,3 +93,4 @@
 - 2026-09-12：用户定方向为关闭 R-04（收缩，不重开证据评估）；R-11 相关新数据（Xenium CRC／dbGaP／作者邮件）一律暂缓，需另行明确批准。
 - 2026-09-14：场发现策略修正（D-112）——残余降级为评分维度、field registry 立项、TLS 阳性对照结果与 panel 盲区（I-020）落盘；文档已原位更新（roadmap/decisions/ISSUES/LEADS/STATUS）。
 - 2026-09-14：发现引擎定型（D-113）——组成pattern普查＋距离函数双车道（R-16 新节点）；连续信号null换代登记（I-021）；TODO下一步改为先交一页设计方案。registry schema并入设计方案，不再单列。
+- 2026-09-14：R-16 设计方案 v1 落盘（docs/R16_DISCOVERY_DESIGN_20260914.md）；侦察确认 bash 环境 sklearn/leidenalg/igraph 齐备、坐标在源 h5ad obsm/spatial 可按 barcode 对齐、坐标单位不可靠故距离用图跳数。待用户批准后执行第①步普查。
