@@ -1,0 +1,339 @@
+{
+  "schema": "r16.census_cache_manifest.v1",
+  "gene_universe": "integration_hvg_top10000_D114",
+  "n_genes": 10000,
+  "n_sections": 47,
+  "duplicate_symbols_skipped": 0,
+  "rank_file_sha256": "6954c16f905ec9e2c3640dbd2d0c7d87c6eec8e324b68cfde457071b23731c07",
+  "rows": [
+    {
+      "stem": "0000_HTAN_8270_AS_2_filtered_trimmed.h5ad",
+      "section_id": "HTAN::8270_AS_2_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::07dc676d92f9d153",
+      "n_spots": 665,
+      "n_genes_missing_in_source": 129
+    },
+    {
+      "stem": "0001_HTAN_7003_AS_5_filtered_trimmed.h5ad",
+      "section_id": "HTAN::7003_AS_5_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+      "n_spots": 3261,
+      "n_genes_missing_in_source": 14
+    },
+    {
+      "stem": "0002_HTAN_7003_AS_6_filtered_trimmed.h5ad",
+      "section_id": "HTAN::7003_AS_6_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+      "n_spots": 2533,
+      "n_genes_missing_in_source": 16
+    },
+    {
+      "stem": "0003_HTAN_7003_AS_1_filtered_trimmed.h5ad",
+      "section_id": "HTAN::7003_AS_1_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545",
+      "n_spots": 3461,
+      "n_genes_missing_in_source": 110
+    },
+    {
+      "stem": "0004_HTAN_7003_AS_2_filtered_trimmed.h5ad",
+      "section_id": "HTAN::7003_AS_2_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545",
+      "n_spots": 2693,
+      "n_genes_missing_in_source": 39
+    },
+    {
+      "stem": "0005_HTAN_8270_AS_10_filtered_trimmed.h5ad",
+      "section_id": "HTAN::8270_AS_10_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870",
+      "n_spots": 4758,
+      "n_genes_missing_in_source": 55
+    },
+    {
+      "stem": "0006_HTAN_8578_AS_2_filtered_trimmed_WD84226.h5ad",
+      "section_id": "HTAN::8578_AS_2_filtered_trimmed_WD84226.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870",
+      "n_spots": 412,
+      "n_genes_missing_in_source": 1751
+    },
+    {
+      "stem": "0007_HTAN_8270_AS_9_filtered_trimmed.h5ad",
+      "section_id": "HTAN::8270_AS_9_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51",
+      "n_spots": 3577,
+      "n_genes_missing_in_source": 182
+    },
+    {
+      "stem": "0008_HTAN_8578_AS_2_filtered_trimmed_WD84594.h5ad",
+      "section_id": "HTAN::8578_AS_2_filtered_trimmed_WD84594.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51",
+      "n_spots": 492,
+      "n_genes_missing_in_source": 1251
+    },
+    {
+      "stem": "0009_HTAN_8578_AS_1_filtered_trimmed_WD33473.h5ad",
+      "section_id": "HTAN::8578_AS_1_filtered_trimmed_WD33473.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e",
+      "n_spots": 93,
+      "n_genes_missing_in_source": 3222
+    },
+    {
+      "stem": "0010_HTAN_8270_AS_1_filtered_trimmed.h5ad",
+      "section_id": "HTAN::8270_AS_1_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf",
+      "n_spots": 830,
+      "n_genes_missing_in_source": 283
+    },
+    {
+      "stem": "0011_HTAN_8899_AS_7_filtered_trimmed.h5ad",
+      "section_id": "HTAN::8899_AS_7_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a",
+      "n_spots": 3731,
+      "n_genes_missing_in_source": 106
+    },
+    {
+      "stem": "0012_HTAN_8899_AS_8_filtered_trimmed.h5ad",
+      "section_id": "HTAN::8899_AS_8_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a",
+      "n_spots": 3385,
+      "n_genes_missing_in_source": 536
+    },
+    {
+      "stem": "0013_HTAN_7794_AS_3_filtered_trimmed.h5ad",
+      "section_id": "HTAN::7794_AS_3_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::306c7a068bf4965f",
+      "n_spots": 3395,
+      "n_genes_missing_in_source": 55
+    },
+    {
+      "stem": "0014_HTAN_8578_AS_3_filtered_trimmed_WD84221.h5ad",
+      "section_id": "HTAN::8578_AS_3_filtered_trimmed_WD84221.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::306c7a068bf4965f",
+      "n_spots": 237,
+      "n_genes_missing_in_source": 389
+    },
+    {
+      "stem": "0015_HTAN_8578_AS_4_filtered_trimmed.h5ad",
+      "section_id": "HTAN::8578_AS_4_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48",
+      "n_spots": 3708,
+      "n_genes_missing_in_source": 193
+    },
+    {
+      "stem": "0016_HTAN_7319_AS_2_filtered_trimmed.h5ad",
+      "section_id": "HTAN::7319_AS_2_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::42db69b0c0fe9511",
+      "n_spots": 2047,
+      "n_genes_missing_in_source": 50
+    },
+    {
+      "stem": "0017_HTAN_8270_AS_8_filtered_trimmed.h5ad",
+      "section_id": "HTAN::8270_AS_8_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::46cd4bcce25745d5",
+      "n_spots": 4620,
+      "n_genes_missing_in_source": 40
+    },
+    {
+      "stem": "0018_HTAN_8578_AS_3_filtered_trimmed_WD84596.h5ad",
+      "section_id": "HTAN::8578_AS_3_filtered_trimmed_WD84596.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::46cd4bcce25745d5",
+      "n_spots": 422,
+      "n_genes_missing_in_source": 1666
+    },
+    {
+      "stem": "0019_HTAN_6723_KL_1_filtered_trimmed.h5ad",
+      "section_id": "HTAN::6723_KL_1_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20",
+      "n_spots": 3901,
+      "n_genes_missing_in_source": 289
+    },
+    {
+      "stem": "0020_HTAN_6723_KL_2_filtered_trimmed.h5ad",
+      "section_id": "HTAN::6723_KL_2_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20",
+      "n_spots": 4369,
+      "n_genes_missing_in_source": 79
+    },
+    {
+      "stem": "0021_HTAN_6723_KL_3_filtered_trimmed.h5ad",
+      "section_id": "HTAN::6723_KL_3_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20",
+      "n_spots": 2997,
+      "n_genes_missing_in_source": 159
+    },
+    {
+      "stem": "0022_HTAN_6723_KL_4_filtered_trimmed.h5ad",
+      "section_id": "HTAN::6723_KL_4_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20",
+      "n_spots": 3934,
+      "n_genes_missing_in_source": 248
+    },
+    {
+      "stem": "0023_HTAN_8270_AS_11_filtered_trimmed.h5ad",
+      "section_id": "HTAN::8270_AS_11_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63",
+      "n_spots": 4418,
+      "n_genes_missing_in_source": 46
+    },
+    {
+      "stem": "0024_HTAN_8270_AS_12_filtered_trimmed.h5ad",
+      "section_id": "HTAN::8270_AS_12_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63",
+      "n_spots": 4099,
+      "n_genes_missing_in_source": 100
+    },
+    {
+      "stem": "0025_HTAN_8578_AS_2_filtered_trimmed_WD84216.h5ad",
+      "section_id": "HTAN::8578_AS_2_filtered_trimmed_WD84216.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63",
+      "n_spots": 282,
+      "n_genes_missing_in_source": 1567
+    },
+    {
+      "stem": "0026_HTAN_8899_AS_1_filtered_trimmed.h5ad",
+      "section_id": "HTAN::8899_AS_1_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464",
+      "n_spots": 4116,
+      "n_genes_missing_in_source": 43
+    },
+    {
+      "stem": "0027_HTAN_8899_AS_2_filtered_trimmed.h5ad",
+      "section_id": "HTAN::8899_AS_2_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464",
+      "n_spots": 4078,
+      "n_genes_missing_in_source": 147
+    },
+    {
+      "stem": "0028_HTAN_7794_AS_2_filtered_trimmed_WD33475.h5ad",
+      "section_id": "HTAN::7794_AS_2_filtered_trimmed_WD33475.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6",
+      "n_spots": 495,
+      "n_genes_missing_in_source": 1659
+    },
+    {
+      "stem": "0029_HTAN_7319_AS_3_filtered_trimmed.h5ad",
+      "section_id": "HTAN::7319_AS_3_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::6aea40a35e6c4335",
+      "n_spots": 1014,
+      "n_genes_missing_in_source": 197
+    },
+    {
+      "stem": "0030_HTAN_7003_AS_3_filtered_trimmed.h5ad",
+      "section_id": "HTAN::7003_AS_3_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13",
+      "n_spots": 2551,
+      "n_genes_missing_in_source": 17
+    },
+    {
+      "stem": "0031_HTAN_7003_AS_4_filtered_trimmed.h5ad",
+      "section_id": "HTAN::7003_AS_4_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13",
+      "n_spots": 3970,
+      "n_genes_missing_in_source": 65
+    },
+    {
+      "stem": "0032_HTAN_8578_AS_1_filtered_trimmed_WD33474.h5ad",
+      "section_id": "HTAN::8578_AS_1_filtered_trimmed_WD33474.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::772733d53add12a2",
+      "n_spots": 469,
+      "n_genes_missing_in_source": 1955
+    },
+    {
+      "stem": "0033_HTAN_8578_AS_1_filtered_trimmed_WD33469.h5ad",
+      "section_id": "HTAN::8578_AS_1_filtered_trimmed_WD33469.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::82a1eb08b47e14fe",
+      "n_spots": 370,
+      "n_genes_missing_in_source": 2770
+    },
+    {
+      "stem": "0034_HTAN_8270_AS_3_filtered_trimmed.h5ad",
+      "section_id": "HTAN::8270_AS_3_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::8abcbad99198901e",
+      "n_spots": 818,
+      "n_genes_missing_in_source": 101
+    },
+    {
+      "stem": "0035_HTAN_8270_AS_6_filtered_trimmed.h5ad",
+      "section_id": "HTAN::8270_AS_6_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b",
+      "n_spots": 3072,
+      "n_genes_missing_in_source": 115
+    },
+    {
+      "stem": "0036_HTAN_8270_AS_7_filtered_trimmed.h5ad",
+      "section_id": "HTAN::8270_AS_7_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b",
+      "n_spots": 4297,
+      "n_genes_missing_in_source": 285
+    },
+    {
+      "stem": "0037_HTAN_7794_AS_1_filtered_trimmed_WD33476.h5ad",
+      "section_id": "HTAN::7794_AS_1_filtered_trimmed_WD33476.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::94567531ae08aa59",
+      "n_spots": 581,
+      "n_genes_missing_in_source": 846
+    },
+    {
+      "stem": "0038_HTAN_7794_AS_1_filtered_trimmed_WD33479.h5ad",
+      "section_id": "HTAN::7794_AS_1_filtered_trimmed_WD33479.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::9af051af377d9c81",
+      "n_spots": 584,
+      "n_genes_missing_in_source": 420
+    },
+    {
+      "stem": "0039_HTAN_8899_AS_5_filtered_trimmed.h5ad",
+      "section_id": "HTAN::8899_AS_5_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508",
+      "n_spots": 3502,
+      "n_genes_missing_in_source": 268
+    },
+    {
+      "stem": "0040_HTAN_8899_AS_6_filtered_trimmed.h5ad",
+      "section_id": "HTAN::8899_AS_6_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508",
+      "n_spots": 3578,
+      "n_genes_missing_in_source": 302
+    },
+    {
+      "stem": "0041_HTAN_8270_AS_5_filtered_trimmed.h5ad",
+      "section_id": "HTAN::8270_AS_5_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::b279c0a0ecf76890",
+      "n_spots": 229,
+      "n_genes_missing_in_source": 191
+    },
+    {
+      "stem": "0042_HTAN_7794_AS_2_filtered_trimmed_WD33468.h5ad",
+      "section_id": "HTAN::7794_AS_2_filtered_trimmed_WD33468.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::bbd41350b0c0bd3c",
+      "n_spots": 494,
+      "n_genes_missing_in_source": 684
+    },
+    {
+      "stem": "0043_HTAN_7319_AS_4_filtered_trimmed.h5ad",
+      "section_id": "HTAN::7319_AS_4_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::c0b1b19d533645cb",
+      "n_spots": 1312,
+      "n_genes_missing_in_source": 97
+    },
+    {
+      "stem": "0044_HTAN_8899_AS_3_filtered_trimmed.h5ad",
+      "section_id": "HTAN::8899_AS_3_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33",
+      "n_spots": 1727,
+      "n_genes_missing_in_source": 42
+    },
+    {
+      "stem": "0045_HTAN_8899_AS_4_filtered_trimmed.h5ad",
+      "section_id": "HTAN::8899_AS_4_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33",
+      "n_spots": 3636,
+      "n_genes_missing_in_source": 15
+    },
+    {
+      "stem": "0046_HTAN_7003_AS_8_filtered_trimmed.h5ad",
+      "section_id": "HTAN::7003_AS_8_filtered_trimmed.h5ad",
+      "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::e52fa79982a9ecea",
+      "n_spots": 4132,
+      "n_genes_missing_in_source": 15
+    }
+  ]
+}

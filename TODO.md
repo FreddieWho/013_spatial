@@ -94,3 +94,4 @@
 - 2026-09-14：场发现策略修正（D-112）——残余降级为评分维度、field registry 立项、TLS 阳性对照结果与 panel 盲区（I-020）落盘；文档已原位更新（roadmap/decisions/ISSUES/LEADS/STATUS）。
 - 2026-09-14：发现引擎定型（D-113）——组成pattern普查＋距离函数双车道（R-16 新节点）；连续信号null换代登记（I-021）；TODO下一步改为先交一页设计方案。registry schema并入设计方案，不再单列。
 - 2026-09-14：R-16 设计方案 v1 落盘（docs/R16_DISCOVERY_DESIGN_20260914.md）；侦察确认 bash 环境 sklearn/leidenalg/igraph 齐备、坐标在源 h5ad obsm/spatial 可按 barcode 对齐、坐标单位不可靠故距离用图跳数。待用户批准后执行第①步普查。
+- 2026-09-14：R-16 两步走全部落地——D-114 基因宇宙（整合 HVG top-10000，14/14 TLS 基因救回）、D-115 两层结构（Tier-1 轴尺子厂＋Tier-2 残余普查）、registry v1 228 行交付；用户第一性原理追问驱动的逻辑层重构（L1-L5）全部处置。

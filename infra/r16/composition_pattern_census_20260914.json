@@ -1,0 +1,7549 @@
+{
+  "schema": "r16.composition_pattern_census.v2",
+  "status": "EXPLORATORY_COMPLETE_NOT_CLAIM",
+  "seed": 20260914,
+  "parameters": {
+    "resolutions": [
+      0.25,
+      0.5,
+      1.0
+    ],
+    "min_cluster_size": 20,
+    "pca_dims": 30,
+    "knn_expr": 15,
+    "knn_spatial": 6,
+    "match_cosine": 0.75,
+    "stability_jaccard": 0.5,
+    "null_draws": 200,
+    "null_type": "value_permutation",
+    "matching_method": "average_linkage_hierarchical",
+    "purity_floor": 0.5,
+    "axis_explained_floor": 0.5
+  },
+  "n_sections": 47,
+  "n_sections_failed": 0,
+  "section_errors": [],
+  "n_clusters_total": 995,
+  "n_pattern_groups": 221,
+  "pattern_groups": [
+    {
+      "pattern_id": "R16P001",
+      "n_clusters": 360,
+      "n_sections": 45,
+      "n_patients": 28,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::07dc676d92f9d153",
+        "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+        "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545",
+        "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870",
+        "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51",
+        "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf",
+        "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a",
+        "HTAN_VANDERBILT_CRC::PATIENT::306c7a068bf4965f",
+        "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48",
+        "HTAN_VANDERBILT_CRC::PATIENT::42db69b0c0fe9511",
+        "HTAN_VANDERBILT_CRC::PATIENT::46cd4bcce25745d5",
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20",
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63",
+        "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464",
+        "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6",
+        "HTAN_VANDERBILT_CRC::PATIENT::6aea40a35e6c4335",
+        "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13",
+        "HTAN_VANDERBILT_CRC::PATIENT::82a1eb08b47e14fe",
+        "HTAN_VANDERBILT_CRC::PATIENT::8abcbad99198901e",
+        "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b",
+        "HTAN_VANDERBILT_CRC::PATIENT::94567531ae08aa59",
+        "HTAN_VANDERBILT_CRC::PATIENT::9af051af377d9c81",
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508",
+        "HTAN_VANDERBILT_CRC::PATIENT::b279c0a0ecf76890",
+        "HTAN_VANDERBILT_CRC::PATIENT::bbd41350b0c0bd3c",
+        "HTAN_VANDERBILT_CRC::PATIENT::c0b1b19d533645cb",
+        "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33",
+        "HTAN_VANDERBILT_CRC::PATIENT::e52fa79982a9ecea"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.40555555555555556,
+      "moran_i_median": 0.6115934985273621,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.18733693659305573,
+      "best_axis": "ILC",
+      "best_axis_score": -0.1572543978691101,
+      "axis_explained": false,
+      "top_markers": [
+        "IFNL2",
+        "CECR2",
+        "PTCRA",
+        "IGLJ6",
+        "RPRM",
+        "HOXA13",
+        "GALR3",
+        "OR8H2",
+        "IGF2BP1",
+        "OR4N5"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P002",
+      "n_clusters": 204,
+      "n_sections": 42,
+      "n_patients": 27,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::07dc676d92f9d153",
+        "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+        "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545",
+        "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870",
+        "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51",
+        "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf",
+        "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a",
+        "HTAN_VANDERBILT_CRC::PATIENT::306c7a068bf4965f",
+        "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48",
+        "HTAN_VANDERBILT_CRC::PATIENT::42db69b0c0fe9511",
+        "HTAN_VANDERBILT_CRC::PATIENT::46cd4bcce25745d5",
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20",
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63",
+        "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464",
+        "HTAN_VANDERBILT_CRC::PATIENT::6aea40a35e6c4335",
+        "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13",
+        "HTAN_VANDERBILT_CRC::PATIENT::82a1eb08b47e14fe",
+        "HTAN_VANDERBILT_CRC::PATIENT::8abcbad99198901e",
+        "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b",
+        "HTAN_VANDERBILT_CRC::PATIENT::94567531ae08aa59",
+        "HTAN_VANDERBILT_CRC::PATIENT::9af051af377d9c81",
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508",
+        "HTAN_VANDERBILT_CRC::PATIENT::b279c0a0ecf76890",
+        "HTAN_VANDERBILT_CRC::PATIENT::bbd41350b0c0bd3c",
+        "HTAN_VANDERBILT_CRC::PATIENT::c0b1b19d533645cb",
+        "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33",
+        "HTAN_VANDERBILT_CRC::PATIENT::e52fa79982a9ecea"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.43137254901960786,
+      "moran_i_median": 0.6332388745313443,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.27664127945899963,
+      "best_axis": "Epi",
+      "best_axis_score": 0.4220532476902008,
+      "axis_explained": false,
+      "top_markers": [
+        "TPT1",
+        "UBC",
+        "ACTG1",
+        "SERF1A",
+        "TMSB10",
+        "CFL1",
+        "DEPRECATED_ENSG00000140264",
+        "EEF2",
+        "LGALS4",
+        "FAM153B"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P003",
+      "n_clusters": 9,
+      "n_sections": 4,
+      "n_patients": 3,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870",
+        "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a",
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.3333333333333333,
+      "moran_i_median": 0.6238265322764799,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.7218843698501587,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.5866923928260803,
+      "axis_explained": true,
+      "top_markers": [
+        "COL1A1",
+        "COL1A2",
+        "COL3A1",
+        "IFI27",
+        "IFI6",
+        "TMSB10",
+        "TMSB4X",
+        "FN1",
+        "SPARC",
+        "FTH1"
+      ],
+      "evidence_grade": "EXPLORATORY_REPRODUCED"
+    },
+    {
+      "pattern_id": "R16P004",
+      "n_clusters": 8,
+      "n_sections": 4,
+      "n_patients": 3,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870",
+        "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464",
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5176953834428639,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.6882336735725403,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.3853466808795929,
+      "axis_explained": false,
+      "top_markers": [
+        "COL1A2",
+        "COL3A1",
+        "FN1",
+        "IFI6",
+        "TPM2",
+        "COL1A1",
+        "ACTA2",
+        "DCN",
+        "BGN",
+        "TNC"
+      ],
+      "evidence_grade": "EXPLORATORY_REPRODUCED"
+    },
+    {
+      "pattern_id": "R16P005",
+      "n_clusters": 8,
+      "n_sections": 3,
+      "n_patients": 3,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e",
+        "HTAN_VANDERBILT_CRC::PATIENT::772733d53add12a2",
+        "HTAN_VANDERBILT_CRC::PATIENT::9af051af377d9c81"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.25,
+      "moran_i_median": 0.47884887669635734,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.7118204832077026,
+      "best_axis": "Epi",
+      "best_axis_score": -0.14450745284557343,
+      "axis_explained": false,
+      "top_markers": [
+        "CYP3A5",
+        "BCL2L14",
+        "GPD1",
+        "DNAH14",
+        "BARX1",
+        "MARC1",
+        "C10orf99",
+        "AMER1",
+        "TMEM200B",
+        "OR2W3"
+      ],
+      "evidence_grade": "EXPLORATORY_REPRODUCED"
+    },
+    {
+      "pattern_id": "R16P006",
+      "n_clusters": 8,
+      "n_sections": 2,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.375,
+      "moran_i_median": 0.7546047838236346,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.6797820329666138,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.15245911478996277,
+      "axis_explained": false,
+      "top_markers": [
+        "FCGBP",
+        "ID1",
+        "DEPRECATED_ENSG00000211890",
+        "HMGCS2",
+        "MUC2",
+        "CKB",
+        "AMN",
+        "MUC4",
+        "SELENBP1",
+        "LRATD1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P007",
+      "n_clusters": 7,
+      "n_sections": 4,
+      "n_patients": 3,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+        "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b",
+        "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.42857142857142855,
+      "moran_i_median": 0.36878964686328586,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.6715893149375916,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.7510433197021484,
+      "axis_explained": true,
+      "top_markers": [
+        "COL3A1",
+        "COL1A2",
+        "IGFBP7",
+        "SPARC",
+        "COL1A1",
+        "DCN",
+        "BGN",
+        "SULF1",
+        "IGFBP5",
+        "FN1"
+      ],
+      "evidence_grade": "EXPLORATORY_REPRODUCED"
+    },
+    {
+      "pattern_id": "R16P008",
+      "n_clusters": 6,
+      "n_sections": 3,
+      "n_patients": 3,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20",
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.5,
+      "moran_i_median": 0.8121647983267424,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.784082293510437,
+      "best_axis": "B",
+      "best_axis_score": 1.283611536026001,
+      "axis_explained": true,
+      "top_markers": [
+        "PTGDS",
+        "LTB",
+        "CD37",
+        "CORO1A",
+        "IGHM",
+        "CXCR4",
+        "LAPTM5",
+        "NIBAN3",
+        "CLU",
+        "DEPRECATED_ENSG00000211772"
+      ],
+      "evidence_grade": "EXPLORATORY_REPRODUCED"
+    },
+    {
+      "pattern_id": "R16P009",
+      "n_clusters": 6,
+      "n_sections": 3,
+      "n_patients": 2,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545",
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.16666666666666666,
+      "moran_i_median": 0.675122326068121,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.7168546915054321,
+      "best_axis": "Epi",
+      "best_axis_score": 0.29146307706832886,
+      "axis_explained": false,
+      "top_markers": [
+        "SLC25A5",
+        "ACTG1",
+        "IFI6",
+        "S100A6",
+        "RAN",
+        "LRATD1",
+        "GSTP1",
+        "AXIN2",
+        "SERF2",
+        "ID1"
+      ],
+      "evidence_grade": "EXPLORATORY_REPRODUCED"
+    },
+    {
+      "pattern_id": "R16P010",
+      "n_clusters": 6,
+      "n_sections": 2,
+      "n_patients": 2,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e",
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.5,
+      "moran_i_median": 0.590748684985062,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.7094680070877075,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.7322530746459961,
+      "axis_explained": true,
+      "top_markers": [
+        "LAMP1",
+        "CD81",
+        "TMSB4X",
+        "CAPG",
+        "TMBIM1",
+        "CTSA",
+        "TPT1",
+        "CD9",
+        "CTSZ",
+        "HLA-B"
+      ],
+      "evidence_grade": "EXPLORATORY_REPRODUCED"
+    },
+    {
+      "pattern_id": "R16P011",
+      "n_clusters": 6,
+      "n_sections": 2,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.5,
+      "moran_i_median": 0.8480662862958301,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.7490574717521667,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.3782331943511963,
+      "axis_explained": false,
+      "top_markers": [
+        "FN1",
+        "TGFBI",
+        "COL1A2",
+        "COL1A1",
+        "MUC12",
+        "AREG",
+        "PTPRO",
+        "EEF1A1",
+        "EEF1G",
+        "SLC25A6"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P012",
+      "n_clusters": 6,
+      "n_sections": 2,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.16666666666666666,
+      "moran_i_median": 0.6987087457103283,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.6667959690093994,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.6388981938362122,
+      "axis_explained": true,
+      "top_markers": [
+        "LCN2",
+        "ID1",
+        "FXYD3",
+        "CEACAM6",
+        "FCGBP",
+        "TFF3",
+        "IGHA1",
+        "IGKC",
+        "PIGR",
+        "ELF3"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P013",
+      "n_clusters": 5,
+      "n_sections": 3,
+      "n_patients": 3,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51",
+        "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b",
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.6,
+      "moran_i_median": 0.8738420789303895,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.7461799383163452,
+      "best_axis": "Plasma",
+      "best_axis_score": 1.1620408296585083,
+      "axis_explained": true,
+      "top_markers": [
+        "IGKC",
+        "DEPRECATED_ENSG00000211890",
+        "IGHA1",
+        "FCGBP",
+        "IGKV1D-12",
+        "SLC26A3",
+        "JCHAIN",
+        "MUC2",
+        "MT2A",
+        "CA4"
+      ],
+      "evidence_grade": "EXPLORATORY_REPRODUCED"
+    },
+    {
+      "pattern_id": "R16P014",
+      "n_clusters": 4,
+      "n_sections": 2,
+      "n_patients": 2,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48",
+        "HTAN_VANDERBILT_CRC::PATIENT::6aea40a35e6c4335"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.75,
+      "moran_i_median": 0.4702224312622817,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.7539629936218262,
+      "best_axis": "Epi",
+      "best_axis_score": 0.35587960481643677,
+      "axis_explained": false,
+      "top_markers": [
+        "FXYD3",
+        "CA2",
+        "FABP1",
+        "CDHR5",
+        "TSPAN1",
+        "SLC26A3",
+        "KRT8",
+        "SLC26A2",
+        "KRT20",
+        "MALL"
+      ],
+      "evidence_grade": "EXPLORATORY_REPRODUCED"
+    },
+    {
+      "pattern_id": "R16P015",
+      "n_clusters": 4,
+      "n_sections": 2,
+      "n_patients": 2,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::42db69b0c0fe9511",
+        "HTAN_VANDERBILT_CRC::PATIENT::8abcbad99198901e"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5157307389194826,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.8237481117248535,
+      "best_axis": "Epi",
+      "best_axis_score": 0.41119110584259033,
+      "axis_explained": false,
+      "top_markers": [
+        "IFI27",
+        "CEACAM6",
+        "UBC",
+        "CLDN4",
+        "PRAP1",
+        "TFF1",
+        "MUC13",
+        "ELF3",
+        "LGALS3BP",
+        "CLDN7"
+      ],
+      "evidence_grade": "EXPLORATORY_REPRODUCED"
+    },
+    {
+      "pattern_id": "R16P016",
+      "n_clusters": 4,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::46cd4bcce25745d5"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.25,
+      "moran_i_median": 0.717924334354347,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.7720417380332947,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.5339028835296631,
+      "axis_explained": true,
+      "top_markers": [
+        "MYH11",
+        "ACTG2",
+        "MYL9",
+        "TAGLN",
+        "DES",
+        "MYLK",
+        "FLNA",
+        "ACTA2",
+        "SYNPO2",
+        "CNN1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P017",
+      "n_clusters": 4,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.25,
+      "moran_i_median": 0.8168659660151927,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.7921389937400818,
+      "best_axis": "Epi",
+      "best_axis_score": 0.32155537605285645,
+      "axis_explained": false,
+      "top_markers": [
+        "SLC25A5",
+        "HIST1H1E",
+        "HIST1H4A",
+        "HIST1H1C",
+        "TMA7",
+        "AREG",
+        "RAN",
+        "HIST1H4D",
+        "HIST1H1B",
+        "HIST2H2BF"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P018",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.3333333333333333,
+      "moran_i_median": 0.6874468010187492,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.7977707386016846,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.05450637638568878,
+      "axis_explained": false,
+      "top_markers": [
+        "SERF1A",
+        "FAM153B",
+        "TAF11L9",
+        "IGKV1D-12",
+        "AC084121.13",
+        "NRXN1",
+        "MORN2",
+        "SLC38A11",
+        "ELOC",
+        "USP17L1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P019",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 1.0,
+      "moran_i_median": 0.7350251277946936,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9473256468772888,
+      "best_axis": "T",
+      "best_axis_score": -0.005377060268074274,
+      "axis_explained": false,
+      "top_markers": [
+        "SERF1A",
+        "FAM153B",
+        "TAF11L9",
+        "USP17L19",
+        "AC084121.13",
+        "TAF11L13",
+        "USP17L1",
+        "TAF11L4",
+        "POTEG",
+        "ADAM7"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P020",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.7329621109881168,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.884333074092865,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.7297095060348511,
+      "axis_explained": true,
+      "top_markers": [
+        "COL1A2",
+        "COL3A1",
+        "COL1A1",
+        "FN1",
+        "SPARC",
+        "BGN",
+        "ACTA2",
+        "IFI6",
+        "COL6A3",
+        "DCN"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P021",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 1.0,
+      "moran_i_median": 0.6349865833842072,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9098473787307739,
+      "best_axis": "Epi",
+      "best_axis_score": 0.09797097742557526,
+      "axis_explained": false,
+      "top_markers": [
+        "TFF3",
+        "TFF1",
+        "SLC25A5",
+        "HES6",
+        "LGALS4",
+        "FCGBP",
+        "SERF1A",
+        "ALDOA",
+        "XBP1",
+        "FAM153B"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P022",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5161071161939766,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.7117564678192139,
+      "best_axis": "Epi",
+      "best_axis_score": 0.2273915559053421,
+      "axis_explained": false,
+      "top_markers": [
+        "S100A6",
+        "COL1A2",
+        "PYGB",
+        "COL3A1",
+        "FAM153B",
+        "UBC",
+        "ITM2C",
+        "DEPRECATED_ENSG00000140264",
+        "FLNA",
+        "JUN"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P023",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.3333333333333333,
+      "moran_i_median": 0.8850216979106286,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.7694854736328125,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.5105417370796204,
+      "axis_explained": true,
+      "top_markers": [
+        "LYZ",
+        "PHGR1",
+        "ANXA2",
+        "KLK7",
+        "HTRA1",
+        "MT1G",
+        "TIMP2",
+        "GPRC5A",
+        "GREM1",
+        "COL16A1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P024",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.7111675697658726,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.8703363537788391,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.4357868432998657,
+      "axis_explained": false,
+      "top_markers": [
+        "MYH11",
+        "DES",
+        "MYL9",
+        "FLNA",
+        "TPM2",
+        "TAGLN",
+        "MYLK",
+        "ACTG2",
+        "ACTA2",
+        "SYNM"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P025",
+      "n_clusters": 3,
+      "n_sections": 2,
+      "n_patients": 2,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a",
+        "HTAN_VANDERBILT_CRC::PATIENT::46cd4bcce25745d5"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.3333333333333333,
+      "moran_i_median": 0.39717080369899405,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.7958611845970154,
+      "best_axis": "Epi",
+      "best_axis_score": 0.1816054880619049,
+      "axis_explained": false,
+      "top_markers": [
+        "S100A6",
+        "PABPC1",
+        "TPT1",
+        "TMSB10",
+        "KRT8",
+        "GSTP1",
+        "TSPAN8",
+        "DEPRECATED_ENSG00000140264",
+        "TMA7",
+        "CFL1"
+      ],
+      "evidence_grade": "EXPLORATORY_REPRODUCED"
+    },
+    {
+      "pattern_id": "R16P026",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.3763990436766133,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9566450715065002,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.2765471935272217,
+      "axis_explained": false,
+      "top_markers": [
+        "FN1",
+        "HIST1H1B",
+        "ACTA2",
+        "CHGA",
+        "EEF1G",
+        "RETNLB",
+        "EEF1A1",
+        "HIST1H4C",
+        "HIST1H4D",
+        "FLNA"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P027",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::42db69b0c0fe9511"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.6679489923730069,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.8474299907684326,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.6538511514663696,
+      "axis_explained": true,
+      "top_markers": [
+        "DCN",
+        "CFD",
+        "PTGDS",
+        "VIM",
+        "FBLN1",
+        "TNXB",
+        "FLNA",
+        "IGFBP7",
+        "C1R",
+        "COL1A2"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P028",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::46cd4bcce25745d5"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.3333333333333333,
+      "moran_i_median": 0.4605342690310215,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.8797702193260193,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.11071888357400894,
+      "axis_explained": false,
+      "top_markers": [
+        "FABP1",
+        "DEPRECATED_ENSG00000211890",
+        "IGKC",
+        "SLC26A3",
+        "JCHAIN",
+        "PHGR1",
+        "DES",
+        "CKB",
+        "IGHV3-35",
+        "IGLC3"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P029",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.7914252229232444,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.8680263757705688,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.9659059643745422,
+      "axis_explained": true,
+      "top_markers": [
+        "SPARC",
+        "COL1A1",
+        "BGN",
+        "IGHG1",
+        "COL3A1",
+        "IGKV3OR2-268",
+        "DEPRECATED_ENSG00000211892",
+        "IGKC",
+        "LUM",
+        "AEBP1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P030",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 1.0,
+      "moran_i_median": 0.6713793586784064,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9974439740180969,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.5636841654777527,
+      "axis_explained": true,
+      "top_markers": [
+        "COL1A2",
+        "COL3A1",
+        "FN1",
+        "COL1A1",
+        "IGKC",
+        "IGKV3OR2-268",
+        "IGHG1",
+        "IGHG2",
+        "IFI6",
+        "DCN"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P031",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5526800850135273,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.753550112247467,
+      "best_axis": "T",
+      "best_axis_score": 0.0968211367726326,
+      "axis_explained": false,
+      "top_markers": [
+        "CLCA1",
+        "ANO7",
+        "FCGBP",
+        "IFI27",
+        "TCEA3",
+        "CDC42EP5",
+        "CD74",
+        "HLA-E",
+        "MT2A",
+        "B2M"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P032",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.3333333333333333,
+      "moran_i_median": 0.5884806332312709,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.7723455429077148,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.29013946652412415,
+      "axis_explained": false,
+      "top_markers": [
+        "REG1B",
+        "SERPINA1",
+        "EEF1A1",
+        "EEF1G",
+        "GAPDH",
+        "C19orf33",
+        "DMBT1",
+        "REG1A",
+        "TFF1",
+        "SLC25A6"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P033",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.3333333333333333,
+      "moran_i_median": 0.8086274673371976,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.8486418128013611,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.24645039439201355,
+      "axis_explained": false,
+      "top_markers": [
+        "PTGDS",
+        "SFRP2",
+        "C7",
+        "TXNIP",
+        "IGF1",
+        "FOS",
+        "DEPRECATED_ENSG00000170345",
+        "CCN1",
+        "FABP4",
+        "TPT1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P034",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.3333333333333333,
+      "moran_i_median": 0.7220666302376154,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9218450784683228,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.6179956197738647,
+      "axis_explained": true,
+      "top_markers": [
+        "FN1",
+        "AEBP1",
+        "COL1A1",
+        "SPARC",
+        "COL1A2",
+        "COL3A1",
+        "BGN",
+        "MMP2",
+        "MYL9",
+        "DCN"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P035",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 1.0,
+      "moran_i_median": 0.6558544490962287,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9033523797988892,
+      "best_axis": "Epi",
+      "best_axis_score": 0.1542288064956665,
+      "axis_explained": false,
+      "top_markers": [
+        "IFI6",
+        "FCGBP",
+        "REG1A",
+        "HES6",
+        "SLC25A5",
+        "TFF3",
+        "IER3",
+        "S100A6",
+        "RAN",
+        "REG3A"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P036",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.7178737459041603,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.766039252281189,
+      "best_axis": "Epi",
+      "best_axis_score": 0.6337740421295166,
+      "axis_explained": true,
+      "top_markers": [
+        "TFF3",
+        "REG1A",
+        "SLC25A5",
+        "EIF5A",
+        "S100A6",
+        "FCGBP",
+        "RAN",
+        "HIST2H2BF",
+        "SPINK4",
+        "HIST1H1E"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P037",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 1.0,
+      "moran_i_median": 0.5909688553080078,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9414454698562622,
+      "best_axis": "Epi",
+      "best_axis_score": 0.07349258661270142,
+      "axis_explained": false,
+      "top_markers": [
+        "GSN",
+        "TMA7",
+        "UQCRQ",
+        "TKT",
+        "ATP5F1B",
+        "VDAC1",
+        "NPM1",
+        "UBA52",
+        "EIF4B",
+        "TXN"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P038",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.3333333333333333,
+      "moran_i_median": 0.6274236256504899,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9151192307472229,
+      "best_axis": "Epi",
+      "best_axis_score": 0.26552367210388184,
+      "axis_explained": false,
+      "top_markers": [
+        "SERF1A",
+        "KRT8",
+        "DEPRECATED_ENSG00000140264",
+        "FAM153B",
+        "S100A6",
+        "S100A10",
+        "LGALS4",
+        "TMSB10",
+        "ALDOA",
+        "ATP1B1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P039",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 1.0,
+      "moran_i_median": 0.8523927905531387,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.8595626950263977,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.3000178039073944,
+      "axis_explained": false,
+      "top_markers": [
+        "COL1A2",
+        "PTGDS",
+        "COL3A1",
+        "DCN",
+        "GREM1",
+        "COL1A1",
+        "MMP2",
+        "BASP1",
+        "COL6A3",
+        "FBN1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P040",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::6aea40a35e6c4335"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 1.0,
+      "moran_i_median": 0.8490986232776381,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9961180686950684,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.6001689434051514,
+      "axis_explained": true,
+      "top_markers": [
+        "DEPRECATED_ENSG00000211890",
+        "CFD",
+        "IGKC",
+        "TMSB4X",
+        "ACTA2",
+        "FTL",
+        "PHGR1",
+        "DCN",
+        "B2M",
+        "ACTB"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P041",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::772733d53add12a2"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 1.0,
+      "moran_i_median": 0.7966837246638572,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9932042956352234,
+      "best_axis": "Epi",
+      "best_axis_score": -0.019161490723490715,
+      "axis_explained": false,
+      "top_markers": [
+        "C11orf96",
+        "MYH11",
+        "PPP1R14A",
+        "FLNA",
+        "NR4A1",
+        "ADIRF",
+        "RHOB",
+        "DEPRECATED_ENSG00000170345",
+        "MUSTN1",
+        "CRIP2"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P042",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::94567531ae08aa59"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 1.0,
+      "moran_i_median": 0.7283024458420687,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.8421621918678284,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.5188515782356262,
+      "axis_explained": true,
+      "top_markers": [
+        "COL1A2",
+        "DEPRECATED_ENSG00000170345",
+        "COL3A1",
+        "SPARC",
+        "COL1A1",
+        "IGKC",
+        "UBC",
+        "TPM2",
+        "JUN",
+        "CCN2"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P043",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::9af051af377d9c81"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.3333333333333333,
+      "moran_i_median": 0.9044185730818459,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.8179138898849487,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.7993856072425842,
+      "axis_explained": true,
+      "top_markers": [
+        "BGN",
+        "IGHG1",
+        "VIM",
+        "COL3A1",
+        "IGKC",
+        "IGFBP7",
+        "C1R",
+        "SPARC",
+        "COL1A1",
+        "COL6A3"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P044",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::9af051af377d9c81"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 1.0,
+      "moran_i_median": 0.4697362483777578,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9553425908088684,
+      "best_axis": "Epi",
+      "best_axis_score": 0.029637109488248825,
+      "axis_explained": false,
+      "top_markers": [
+        "LCN2",
+        "SLC25A5",
+        "ATP5F1B",
+        "CLDN4",
+        "LRATD1",
+        "ACTG1",
+        "KRT8",
+        "PDZK1IP1",
+        "PFN1",
+        "S100A6"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P045",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 1.0,
+      "moran_i_median": 0.7650721082016962,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9984456896781921,
+      "best_axis": "Epi",
+      "best_axis_score": 0.5662519335746765,
+      "axis_explained": true,
+      "top_markers": [
+        "PHGR1",
+        "TFF1",
+        "C15orf48",
+        "FXYD3",
+        "LGALS4",
+        "CEACAM5",
+        "FCGBP",
+        "GAPDH",
+        "PIGR",
+        "TFF3"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P046",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.3333333333333333,
+      "moran_i_median": 0.7829564313478603,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.905933678150177,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.4215070307254791,
+      "axis_explained": false,
+      "top_markers": [
+        "RETNLB",
+        "KLK1",
+        "MUC2",
+        "SPINK4",
+        "CLCA1",
+        "IFI6",
+        "LRRC26",
+        "ITLN1",
+        "FAM3D",
+        "MLPH"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P047",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::b279c0a0ecf76890"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 1.0,
+      "moran_i_median": 0.5277306774799564,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9843392372131348,
+      "best_axis": "Epi",
+      "best_axis_score": 0.02734394744038582,
+      "axis_explained": false,
+      "top_markers": [
+        "TFF1",
+        "GPRC5A",
+        "CEACAM6",
+        "DHRS9",
+        "HLA-G",
+        "RHOF",
+        "CDHR2",
+        "EMP1",
+        "IL32",
+        "CTSE"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P048",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::c0b1b19d533645cb"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 1.0,
+      "moran_i_median": 0.1333509845788617,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.8645582795143127,
+      "best_axis": "ILC",
+      "best_axis_score": 0.009288985282182693,
+      "axis_explained": false,
+      "top_markers": [
+        "ITM2C",
+        "S100A14",
+        "BEST4",
+        "CA4",
+        "SLC25A5",
+        "SLC37A2",
+        "AMN",
+        "UBC",
+        "ACTG1",
+        "CLDN7"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P049",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 1.0,
+      "moran_i_median": 0.599886267411846,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.924579381942749,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.5702152848243713,
+      "axis_explained": true,
+      "top_markers": [
+        "UBD",
+        "IFI6",
+        "IFI27",
+        "ISG15",
+        "OAS2",
+        "IFI44",
+        "UBE2L6",
+        "MX1",
+        "GREM1",
+        "SPINK1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P050",
+      "n_clusters": 3,
+      "n_sections": 2,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.4370326704180816,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.8061149716377258,
+      "best_axis": "Epi",
+      "best_axis_score": 0.4583943486213684,
+      "axis_explained": false,
+      "top_markers": [
+        "KRT18",
+        "KRT8",
+        "S100A10",
+        "ACTG1",
+        "LDHA",
+        "TMSB4X",
+        "S100A6",
+        "PKM",
+        "SH3BGRL3",
+        "ACTB"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P051",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::e52fa79982a9ecea"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.3333333333333333,
+      "moran_i_median": 0.5542831004970207,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.8232300281524658,
+      "best_axis": "Epi",
+      "best_axis_score": -0.13428106904029846,
+      "axis_explained": false,
+      "top_markers": [
+        "CYP2W1",
+        "CEL",
+        "DEFA6",
+        "FN1",
+        "VAV3",
+        "RNF43",
+        "CDCA7",
+        "PTMA",
+        "CDHR1",
+        "LGR5"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P052",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::e52fa79982a9ecea"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 0.3333333333333333,
+      "moran_i_median": 0.4847429984504936,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9285080432891846,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.4471438527107239,
+      "axis_explained": false,
+      "top_markers": [
+        "NUP58",
+        "TGFBI",
+        "MTIF3",
+        "GTF3A",
+        "POMP",
+        "HLA-B",
+        "SERF1A",
+        "CCNI",
+        "COL1A1",
+        "DEPRECATED_ENSG00000142192"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P053",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::e52fa79982a9ecea"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "resolution_support": 3,
+      "stable_cluster_fraction": 1.0,
+      "moran_i_median": 0.6777614686049753,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9903970956802368,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.4707125723361969,
+      "axis_explained": false,
+      "top_markers": [
+        "TM4SF1",
+        "CKB",
+        "PIGR",
+        "MALL",
+        "EMP1",
+        "SFN",
+        "DHRS9",
+        "PLAUR",
+        "MUC4",
+        "KRT20"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P054",
+      "n_clusters": 3,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::e52fa79982a9ecea"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.37366005631361865,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.7723157405853271,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.26279670000076294,
+      "axis_explained": false,
+      "top_markers": [
+        "NCOA7",
+        "LCN2",
+        "SPINK1",
+        "XBP1",
+        "JUN",
+        "NRARP",
+        "MT1G",
+        "DEFA6",
+        "CFB",
+        "MYC"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P055",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5578064233249801,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.997033417224884,
+      "best_axis": "Epi",
+      "best_axis_score": 0.11026281863451004,
+      "axis_explained": false,
+      "top_markers": [
+        "SLC26A3",
+        "CDKN1A",
+        "ID1",
+        "SELENBP1",
+        "HSD11B2",
+        "HMGCS2",
+        "SLC39A4",
+        "ADIRF",
+        "CDHR5",
+        "LY6G6D"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P056",
+      "n_clusters": 2,
+      "n_sections": 2,
+      "n_patients": 2,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+        "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5680241443881763,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.7518850564956665,
+      "best_axis": "Epi",
+      "best_axis_score": -0.06605001538991928,
+      "axis_explained": false,
+      "top_markers": [
+        "SERF1A",
+        "TAF11L9",
+        "USP17L19",
+        "HMGCS2",
+        "AC084121.13",
+        "TAF11L4",
+        "TAF11L13",
+        "USP17L1",
+        "NXPE4",
+        "SPDYE6"
+      ],
+      "evidence_grade": "EXPLORATORY_REPRODUCED"
+    },
+    {
+      "pattern_id": "R16P057",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de"
+      ],
+      "resolutions_present": [
+        0.25,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.7227329198565255,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.8637697100639343,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.7286479473114014,
+      "axis_explained": true,
+      "top_markers": [
+        "TNFRSF6B",
+        "MMP3",
+        "IL11",
+        "MT2A",
+        "CXCL8",
+        "DEPRECATED_ENSG00000170345",
+        "IL24",
+        "EMP1",
+        "SERPINE1",
+        "IER3"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P058",
+      "n_clusters": 2,
+      "n_sections": 2,
+      "n_patients": 2,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+        "HTAN_VANDERBILT_CRC::PATIENT::e52fa79982a9ecea"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.272272178105202,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.8192275762557983,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.7918658256530762,
+      "axis_explained": true,
+      "top_markers": [
+        "BGN",
+        "COL1A2",
+        "ACTA2",
+        "SULF1",
+        "FBN1",
+        "COL3A1",
+        "IGFBP7",
+        "SPARC",
+        "CAVIN1",
+        "COL1A1"
+      ],
+      "evidence_grade": "EXPLORATORY_REPRODUCED"
+    },
+    {
+      "pattern_id": "R16P059",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5570172645289011,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9704163074493408,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.012766188941895962,
+      "axis_explained": false,
+      "top_markers": [
+        "SLC25A5",
+        "IFI6",
+        "ACTG1",
+        "S100A6",
+        "RAN",
+        "LRATD1",
+        "GSTP1",
+        "AXIN2",
+        "ID1",
+        "SERF2"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P060",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.6053692551400287,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.855049192905426,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.16799794137477875,
+      "axis_explained": false,
+      "top_markers": [
+        "FAM153B",
+        "ACTG1",
+        "TPT1",
+        "UBC",
+        "S100A6",
+        "ID1",
+        "SERF1A",
+        "KRT8",
+        "GSTP1",
+        "TMSB10"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P061",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.5,
+      "moran_i_median": 0.41276889223805935,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.8712307810783386,
+      "best_axis": "Epi",
+      "best_axis_score": 0.16629493236541748,
+      "axis_explained": false,
+      "top_markers": [
+        "TPT1",
+        "RACK1",
+        "PABPC1",
+        "EEF1A1",
+        "UBC",
+        "UBA52",
+        "SERF2",
+        "FAM153B",
+        "SLC25A5",
+        "EEF2"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P062",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.4474521138473313,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.8950110673904419,
+      "best_axis": "Epi",
+      "best_axis_score": 0.05499337986111641,
+      "axis_explained": false,
+      "top_markers": [
+        "TMSB10",
+        "AL136454.1",
+        "EEF1B2",
+        "SLC25A5",
+        "UBA52",
+        "FN1",
+        "TPT1",
+        "RACK1",
+        "IGF2",
+        "TMA7"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P063",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5270372494645665,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9827924966812134,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.14891649782657623,
+      "axis_explained": false,
+      "top_markers": [
+        "DEPRECATED_ENSG00000170345",
+        "LCN2",
+        "CCDC88B",
+        "FAM153B",
+        "FOS",
+        "IER3",
+        "ELF3",
+        "SERF1A",
+        "ID1",
+        "DMBT1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P064",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.35800616375003297,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.928530216217041,
+      "best_axis": "ILC",
+      "best_axis_score": 0.02941596508026123,
+      "axis_explained": false,
+      "top_markers": [
+        "SERF1A",
+        "FAM153B",
+        "USP17L19",
+        "FAM72D",
+        "TAF11L4",
+        "TAF11L9",
+        "HEATR3",
+        "GK",
+        "PCDHA5",
+        "AC084121.13"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P065",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5543290099101839,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9645033478736877,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.5349046587944031,
+      "axis_explained": true,
+      "top_markers": [
+        "ITM2C",
+        "FABP1",
+        "ZG16",
+        "UBC",
+        "KRT8",
+        "S100A6",
+        "FXYD3",
+        "LGALS4",
+        "CFL1",
+        "SLC25A5"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P066",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a"
+      ],
+      "resolutions_present": [
+        0.25,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.3158740812649583,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.761814296245575,
+      "best_axis": "Epi",
+      "best_axis_score": 0.06249083951115608,
+      "axis_explained": false,
+      "top_markers": [
+        "TMSB10",
+        "PIGR",
+        "SAT1",
+        "TAGLN2",
+        "HSPB1",
+        "TXN",
+        "ALDOA",
+        "LCN2",
+        "HSPE1",
+        "TMA7"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P067",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.37720828508657994,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.7784942984580994,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.4489530324935913,
+      "axis_explained": false,
+      "top_markers": [
+        "TMSB10",
+        "PIGR",
+        "TAGLN2",
+        "SAT1",
+        "HSPB1",
+        "CFL1",
+        "TMA7",
+        "PSAP",
+        "ALDOA",
+        "ACTG1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P068",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.7071869184342557,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9992271065711975,
+      "best_axis": "Epi",
+      "best_axis_score": -0.0828346386551857,
+      "axis_explained": false,
+      "top_markers": [
+        "LYZ",
+        "MT1G",
+        "PHGR1",
+        "MT1E",
+        "RARRES1",
+        "SLPI",
+        "PABPC1",
+        "SLC39A4",
+        "SLC6A20",
+        "GDF15"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P069",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.43304279685125646,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9748302102088928,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.5136570930480957,
+      "axis_explained": true,
+      "top_markers": [
+        "COL1A2",
+        "COL3A1",
+        "COL1A1",
+        "IGFBP7",
+        "COL6A3",
+        "SPARC",
+        "DCN",
+        "GREM1",
+        "IGKC",
+        "DEPRECATED_ENSG00000170345"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P070",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::306c7a068bf4965f"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.2722701866649499,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9819505214691162,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.07205445319414139,
+      "axis_explained": false,
+      "top_markers": [
+        "TPT1",
+        "EEF2",
+        "ACTG1",
+        "UBC",
+        "S100A6",
+        "SLC25A5",
+        "SERF2",
+        "UBA52",
+        "PABPC1",
+        "RAN"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P071",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::306c7a068bf4965f"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.43256779044616356,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9766083359718323,
+      "best_axis": "Plasma",
+      "best_axis_score": -0.01031001191586256,
+      "axis_explained": false,
+      "top_markers": [
+        "S100A6",
+        "UBC",
+        "MUC2",
+        "TPT1",
+        "TMSB10",
+        "ACTG1",
+        "ALDOA",
+        "GAPDH",
+        "EEF2",
+        "KRT8"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P072",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.376684268064128,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9015867710113525,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.301262766122818,
+      "axis_explained": false,
+      "top_markers": [
+        "VIM",
+        "CLU",
+        "IGFBP7",
+        "IGFBP5",
+        "C7",
+        "DPT",
+        "FLNA",
+        "C3",
+        "TIMP3",
+        "KLF2"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P073",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::42db69b0c0fe9511"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.38965398401117146,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.8193081021308899,
+      "best_axis": "Epi",
+      "best_axis_score": 0.10997015237808228,
+      "axis_explained": false,
+      "top_markers": [
+        "SLC25A5",
+        "S100A6",
+        "ALDOA",
+        "UBC",
+        "CFL1",
+        "FXYD3",
+        "ACTG1",
+        "KRT8",
+        "MUC2",
+        "S100A14"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P074",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::42db69b0c0fe9511"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.6050699469460366,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9158193469047546,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.040911346673965454,
+      "axis_explained": false,
+      "top_markers": [
+        "CFD",
+        "DCN",
+        "FLNA",
+        "ACTA2",
+        "FBLN1",
+        "MYL9",
+        "IGFBP5",
+        "MYH11",
+        "TNXB",
+        "CLEC3B"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P075",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::42db69b0c0fe9511"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.6579904511611187,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9663003087043762,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.5417497754096985,
+      "axis_explained": true,
+      "top_markers": [
+        "IGKC",
+        "PTGDS",
+        "CD74",
+        "TPT1",
+        "TMSB4X",
+        "DCN",
+        "CFD",
+        "IGHA1",
+        "LAPTM5",
+        "TMSB10"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P076",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::46cd4bcce25745d5"
+      ],
+      "resolutions_present": [
+        0.25,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.49194146862445054,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.7705910801887512,
+      "best_axis": "Epi",
+      "best_axis_score": 0.0593123622238636,
+      "axis_explained": false,
+      "top_markers": [
+        "SLC25A5",
+        "KRT8",
+        "IFI6",
+        "RAN",
+        "ACTG1",
+        "GSTP1",
+        "PABPC1",
+        "ALDOA",
+        "MYC",
+        "S100A6"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P077",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::46cd4bcce25745d5"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5355868597262967,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.96232008934021,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.4110462963581085,
+      "axis_explained": false,
+      "top_markers": [
+        "IGFBP7",
+        "CCN2",
+        "SERF1A",
+        "SPARC",
+        "COL3A1",
+        "VIM",
+        "DCN",
+        "COL1A2",
+        "UBC",
+        "CCN1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P078",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::46cd4bcce25745d5"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5763233859164091,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.4111259877681732,
+      "axis_explained": false,
+      "top_markers": [
+        "ACTA2",
+        "IGKC",
+        "DES",
+        "FLNA",
+        "MYH11",
+        "IGHG3",
+        "TAGLN",
+        "UBC",
+        "ACTG2",
+        "MYLK"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P079",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.40442384329312187,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9670296311378479,
+      "best_axis": "Epi",
+      "best_axis_score": 0.11427250504493713,
+      "axis_explained": false,
+      "top_markers": [
+        "ACTG1",
+        "KRT8",
+        "CLDN4",
+        "DPEP1",
+        "TGFBI",
+        "S100A6",
+        "S100A11",
+        "IER3",
+        "PPDPF",
+        "AHCY"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P080",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.5,
+      "moran_i_median": 0.5707549538871894,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9649746417999268,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.7631149291992188,
+      "axis_explained": true,
+      "top_markers": [
+        "FN1",
+        "IGFBP7",
+        "SPARC",
+        "IGFBP5",
+        "COL3A1",
+        "BGN",
+        "COL1A2",
+        "COL1A1",
+        "IGFBP3",
+        "SULF1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P081",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.49589098032819773,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9372491240501404,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.15528501570224762,
+      "axis_explained": false,
+      "top_markers": [
+        "MYC",
+        "ACTG1",
+        "KRT18",
+        "CLDN4",
+        "AREG",
+        "PTGES3",
+        "IFITM3",
+        "KRT8",
+        "RHOB",
+        "TUBA1C"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P082",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 1.0,
+      "moran_i_median": 0.6878666046118289,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9905072450637817,
+      "best_axis": "Epi",
+      "best_axis_score": 0.032657328993082047,
+      "axis_explained": false,
+      "top_markers": [
+        "SLC25A5",
+        "HIST1H1E",
+        "HIST1H1C",
+        "TMA7",
+        "AREG",
+        "HIST1H4A",
+        "HIST1H1B",
+        "AHCY",
+        "RAN",
+        "HIST1H4D"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P083",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20"
+      ],
+      "resolutions_present": [
+        0.25,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.7669501042874706,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "B",
+      "best_axis_score": 1.5762035846710205,
+      "axis_explained": true,
+      "top_markers": [
+        "LTB",
+        "LAPTM5",
+        "CORO1A",
+        "PTGDS",
+        "CD74",
+        "CD37",
+        "CIITA",
+        "HLA-DMA",
+        "LSP1",
+        "CXCR4"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P084",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5407493359470585,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9932436347007751,
+      "best_axis": "ILC",
+      "best_axis_score": -0.005379633978009224,
+      "axis_explained": false,
+      "top_markers": [
+        "REG3A",
+        "SLC25A5",
+        "RAN",
+        "IFI6",
+        "GSTP1",
+        "IGHJ6",
+        "AXIN2",
+        "LRATD1",
+        "HIST1H4A",
+        "DPEP1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P085",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.42847819312744684,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9906248450279236,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.17203886806964874,
+      "axis_explained": false,
+      "top_markers": [
+        "SERF1A",
+        "FABP1",
+        "CFD",
+        "LGALS4",
+        "FXYD3",
+        "IGHA1",
+        "UBC",
+        "DEPRECATED_ENSG00000170345",
+        "TPT1",
+        "KRT8"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P086",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.724324266975446,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.8527346849441528,
+      "best_axis": "B",
+      "best_axis_score": 0.3755759298801422,
+      "axis_explained": false,
+      "top_markers": [
+        "PTGDS",
+        "LAPTM5",
+        "CD37",
+        "CORO1A",
+        "LTB",
+        "CLU",
+        "CIITA",
+        "NIBAN3",
+        "CXCR4",
+        "HLA-DOA"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P087",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63"
+      ],
+      "resolutions_present": [
+        0.25,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5007971410836284,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9050592184066772,
+      "best_axis": "Epi",
+      "best_axis_score": 0.02833169884979725,
+      "axis_explained": false,
+      "top_markers": [
+        "RAN",
+        "ALDOA",
+        "S100A14",
+        "SLC25A5",
+        "KRT8",
+        "HSPA5",
+        "ENO1",
+        "DEPRECATED_ENSG00000170345",
+        "EIF5A",
+        "PHGDH"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P088",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.2926345113161435,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9809305667877197,
+      "best_axis": "Epi",
+      "best_axis_score": -0.09385967999696732,
+      "axis_explained": false,
+      "top_markers": [
+        "RAN",
+        "ALDOA",
+        "S100A14",
+        "SLC25A5",
+        "DEPRECATED_ENSG00000170345",
+        "PHGDH",
+        "KRT8",
+        "HSPA5",
+        "ENO1",
+        "PLAUR"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P089",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.4666362651774265,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9591589570045471,
+      "best_axis": "Epi",
+      "best_axis_score": 0.19837035238742828,
+      "axis_explained": false,
+      "top_markers": [
+        "RAN",
+        "EIF5A",
+        "SLC25A5",
+        "ALDOA",
+        "S100A14",
+        "HSPA5",
+        "KRT8",
+        "SERF2",
+        "SNRPD1",
+        "S100A6"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P090",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.41063821237306986,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9561340808868408,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.43752971291542053,
+      "axis_explained": false,
+      "top_markers": [
+        "COL3A1",
+        "FN1",
+        "IGKC",
+        "COL1A1",
+        "IGHG1",
+        "COL1A2",
+        "IGKV1D-12",
+        "ACTA2",
+        "CCN2",
+        "IGLC3"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P091",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5633280360354653,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9652948379516602,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.4207298755645752,
+      "axis_explained": false,
+      "top_markers": [
+        "TPT1",
+        "TMSB4X",
+        "PTGDS",
+        "IGHG1",
+        "IGLC1",
+        "CD74",
+        "IGLC3",
+        "ACTB",
+        "EEF1A1",
+        "IGKC"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P092",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.4986603818067574,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9994990825653076,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.47520121932029724,
+      "axis_explained": false,
+      "top_markers": [
+        "IGFBP7",
+        "MYL9",
+        "ACTA2",
+        "MYH11",
+        "VIM",
+        "TAGLN",
+        "FLNA",
+        "MCAM",
+        "BGN",
+        "HSPB1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P093",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.1416825289174609,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.7632519602775574,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.09804332256317139,
+      "axis_explained": false,
+      "top_markers": [
+        "TNC",
+        "COL3A1",
+        "BGN",
+        "COL1A2",
+        "COL6A3",
+        "CCN2",
+        "IGFBP5",
+        "IGKC",
+        "DUSP1",
+        "DCN"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P094",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464"
+      ],
+      "resolutions_present": [
+        0.25,
+        0.5
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.563448718284568,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9721985459327698,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.10545926541090012,
+      "axis_explained": false,
+      "top_markers": [
+        "REG1A",
+        "LYZ",
+        "SERPINA1",
+        "DNAJB1",
+        "SPINK1",
+        "REG3A",
+        "PIGR",
+        "WFDC2",
+        "ENC1",
+        "ELF3"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P095",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.43686727290171223,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9975842237472534,
+      "best_axis": "Epi",
+      "best_axis_score": 0.04146305099129677,
+      "axis_explained": false,
+      "top_markers": [
+        "PHGR1",
+        "S100A10",
+        "FABP1",
+        "LGALS4",
+        "NUPR1",
+        "CEACAM6",
+        "GOLM1",
+        "CDHR2",
+        "FXYD3",
+        "CDH17"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P096",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.20335505177665564,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.8210657238960266,
+      "best_axis": "Epi",
+      "best_axis_score": 0.1482040137052536,
+      "axis_explained": false,
+      "top_markers": [
+        "REG1A",
+        "BEX5",
+        "HSPA1B",
+        "DNAJB1",
+        "LYZ",
+        "AGR2",
+        "REG3A",
+        "HSPB1",
+        "HSPD1",
+        "PTP4A1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P097",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6"
+      ],
+      "resolutions_present": [
+        0.25,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 1.0,
+      "moran_i_median": 0.4439394058822339,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9315305948257446,
+      "best_axis": "T",
+      "best_axis_score": -0.05515442043542862,
+      "axis_explained": false,
+      "top_markers": [
+        "S100A14",
+        "TFF1",
+        "HSPA5",
+        "POLRMT",
+        "GSTP1",
+        "LGALS4",
+        "ASCL2",
+        "PRSS33",
+        "LYZ",
+        "S100A6"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P098",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::6aea40a35e6c4335"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.29494889104544186,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.7792941927909851,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.01588386483490467,
+      "axis_explained": false,
+      "top_markers": [
+        "SLC25A5",
+        "ALDOA",
+        "SERF2",
+        "VIPR2",
+        "MESP1",
+        "S100A14",
+        "FAM9A",
+        "RAN",
+        "THAP10",
+        "ACTG1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P099",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.4751865622492175,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9154154658317566,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.22866500914096832,
+      "axis_explained": false,
+      "top_markers": [
+        "VIM",
+        "POSTN",
+        "FTL",
+        "C1QB",
+        "TYROBP",
+        "C1QA",
+        "LAPTM5",
+        "C1QC",
+        "GPNMB",
+        "B2M"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P100",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.6615492624798787,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.8629356026649475,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.48512136936187744,
+      "axis_explained": false,
+      "top_markers": [
+        "COL14A1",
+        "SFRP2",
+        "C7",
+        "CLU",
+        "MGP",
+        "SERPINF1",
+        "IGF1",
+        "HSPB6",
+        "A2M",
+        "AEBP1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P101",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.7360050224787351,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9915265440940857,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.20163388550281525,
+      "axis_explained": false,
+      "top_markers": [
+        "COL1A2",
+        "SULF1",
+        "COL11A1",
+        "THBS1",
+        "ACTA2",
+        "ANTXR1",
+        "DCN",
+        "FN1",
+        "SFRP4",
+        "COL12A1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P102",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::772733d53add12a2"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.5,
+      "moran_i_median": 0.5819905462068766,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.8064579963684082,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.20068974792957306,
+      "axis_explained": false,
+      "top_markers": [
+        "FTL",
+        "IGHG2",
+        "SLC25A5",
+        "EEF1A1",
+        "IGKC",
+        "EEF2",
+        "MYC",
+        "IGHA1",
+        "PABPC1",
+        "IGLC2"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P103",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::772733d53add12a2"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5206768584601782,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9250507354736328,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.3968782126903534,
+      "axis_explained": false,
+      "top_markers": [
+        "SPARC",
+        "COL1A2",
+        "COL1A1",
+        "COL3A1",
+        "COL5A1",
+        "BGN",
+        "LUM",
+        "THBS2",
+        "FN1",
+        "AEBP1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P104",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::82a1eb08b47e14fe"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.5,
+      "moran_i_median": 0.34112247451024613,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.7710545063018799,
+      "best_axis": "Epi",
+      "best_axis_score": 0.05814441666007042,
+      "axis_explained": false,
+      "top_markers": [
+        "SERF1A",
+        "FAM153B",
+        "SLC25A5",
+        "GSTP1",
+        "KRT8",
+        "UBC",
+        "ACTG1",
+        "EEF2",
+        "RACK1",
+        "S100A6"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P105",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::8abcbad99198901e"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.192437526781073,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.8265079259872437,
+      "best_axis": "ILC",
+      "best_axis_score": -0.03125213459134102,
+      "axis_explained": false,
+      "top_markers": [
+        "S100A14",
+        "S100A6",
+        "MUC2",
+        "KRT19",
+        "TFF1",
+        "REG4",
+        "KLK14",
+        "RFX2",
+        "HBEGF",
+        "PADI1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P106",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::8abcbad99198901e"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.37050190400983884,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.603771984577179,
+      "axis_explained": true,
+      "top_markers": [
+        "TFF1",
+        "KRT8",
+        "S100A6",
+        "REG4",
+        "CRIP1",
+        "TFF3",
+        "TSPAN8",
+        "PLEC",
+        "MALL",
+        "KRT20"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P107",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::8abcbad99198901e"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.6721862929962099,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9831288456916809,
+      "best_axis": "ILC",
+      "best_axis_score": 0.044897813349962234,
+      "axis_explained": false,
+      "top_markers": [
+        "SLC26A2",
+        "HMGCS2",
+        "ZG16",
+        "CKB",
+        "SELENBP1",
+        "MT2A",
+        "SERF1A",
+        "SLC37A2",
+        "PIGR",
+        "MT1G"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P108",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.48193980511945,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9024895429611206,
+      "best_axis": "Mye",
+      "best_axis_score": 0.013357199728488922,
+      "axis_explained": false,
+      "top_markers": [
+        "PNMA5",
+        "UBD",
+        "ENO1",
+        "IGFBP2",
+        "CD74",
+        "MT1G",
+        "CCL20",
+        "HLA-DRA",
+        "AREG",
+        "DEPRECATED_ENSG00000170345"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P109",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.30405877096378575,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.8254207968711853,
+      "best_axis": "Epi",
+      "best_axis_score": 0.0063635739497840405,
+      "axis_explained": false,
+      "top_markers": [
+        "MUC1",
+        "LEFTY1",
+        "TFF3",
+        "PIGR",
+        "ERBB2",
+        "TPT1",
+        "PPP1R1B",
+        "SERINC2",
+        "EEF1A1",
+        "RAPGEFL1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P110",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::94567531ae08aa59"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.5,
+      "moran_i_median": 0.28889604447709766,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.7660232782363892,
+      "best_axis": "Mye",
+      "best_axis_score": 0.021183498203754425,
+      "axis_explained": false,
+      "top_markers": [
+        "IGFBP3",
+        "SQSTM1",
+        "LGALS4",
+        "CXCL5",
+        "C19orf33",
+        "TMSB4X",
+        "MUC5AC",
+        "TFF3",
+        "GLUL",
+        "EEF1A1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P111",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::9af051af377d9c81"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.8013138732856434,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 1.5479332208633423,
+      "axis_explained": true,
+      "top_markers": [
+        "IGKC",
+        "IGHG1",
+        "IGKV1D-12",
+        "DEPRECATED_ENSG00000211685",
+        "DEPRECATED_ENSG00000211892",
+        "IGLC2",
+        "IGHG2",
+        "IGLC3",
+        "IGKV3OR2-268",
+        "IGHV3-35"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P112",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.7130766537967017,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9999997615814209,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.5260105133056641,
+      "axis_explained": true,
+      "top_markers": [
+        "SLC25A5",
+        "RAN",
+        "GSTP1",
+        "ENO1",
+        "ALDOA",
+        "S100A6",
+        "PTGES3",
+        "TMA7",
+        "CYCS",
+        "ELF3"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P113",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.3622493477875526,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.99299156665802,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.8287094235420227,
+      "axis_explained": true,
+      "top_markers": [
+        "MYL9",
+        "VIM",
+        "TAGLN",
+        "MYH11",
+        "TPM2",
+        "MCAM",
+        "ACTA2",
+        "IGFBP7",
+        "BGN",
+        "CLU"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P114",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::bbd41350b0c0bd3c"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.28292397449845574,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.856614351272583,
+      "best_axis": "Epi",
+      "best_axis_score": 0.1601831316947937,
+      "axis_explained": false,
+      "top_markers": [
+        "SLC25A5",
+        "VDAC1",
+        "PABPC1",
+        "TMA7",
+        "HMGN1",
+        "HSPE1",
+        "TMSB10",
+        "HNRNPA3",
+        "HSPD1",
+        "MUC12"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P115",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::c0b1b19d533645cb"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.8105216198491315,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9792799949645996,
+      "best_axis": "Plasma",
+      "best_axis_score": 1.3436670303344727,
+      "axis_explained": true,
+      "top_markers": [
+        "ZG16",
+        "SLC26A2",
+        "SLC9A3",
+        "SLC37A2",
+        "MT1G",
+        "SLC26A3",
+        "CDHR5",
+        "UGT2B17",
+        "PITX2",
+        "ETNK1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P116",
+      "n_clusters": 2,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33"
+      ],
+      "resolutions_present": [
+        0.5,
+        1.0
+      ],
+      "resolution_support": 2,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.7942031103514227,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 0.9999999403953552,
+      "best_axis": "Epi",
+      "best_axis_score": 0.1699639856815338,
+      "axis_explained": false,
+      "top_markers": [
+        "FCGBP",
+        "PIGR",
+        "IFI27",
+        "CDC42EP5",
+        "CD74",
+        "FAM3D",
+        "ZG16B",
+        "HLA-DMA",
+        "SOD1",
+        "ATP8B1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P117",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::07dc676d92f9d153"
+      ],
+      "resolutions_present": [
+        0.5
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.2920816777020094,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.19714801013469696,
+      "axis_explained": false,
+      "top_markers": [
+        "SERF1A",
+        "FAM153B",
+        "PTGDS",
+        "CORO1A",
+        "CCL21",
+        "IGKC",
+        "LSP1",
+        "CD74",
+        "LAPTM5",
+        "ACTG1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P118",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::07dc676d92f9d153"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.17908350741670298,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "ILC",
+      "best_axis_score": -0.04611755907535553,
+      "axis_explained": false,
+      "top_markers": [
+        "TWIST2",
+        "OR5V1",
+        "KCNJ18",
+        "ATP6V1G1",
+        "CD300LB",
+        "C12orf42",
+        "TSHB",
+        "PNMA2",
+        "CXCL10",
+        "SP4"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P119",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::07dc676d92f9d153"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.23867200737762015,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.4853479862213135,
+      "axis_explained": false,
+      "top_markers": [
+        "IGKC",
+        "DEPRECATED_ENSG00000211890",
+        "ZG16",
+        "SERF1A",
+        "LGALS4",
+        "IGLC2",
+        "DEPRECATED_ENSG00000211685",
+        "JCHAIN",
+        "UGT2B17",
+        "IGHV3-30"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P120",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::07dc676d92f9d153"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.31822168159652847,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Stromal",
+      "best_axis_score": -0.07598214596509933,
+      "axis_explained": false,
+      "top_markers": [
+        "KCNC2",
+        "SV2B",
+        "OR52N5",
+        "VTN",
+        "AGTR2",
+        "DLGAP2",
+        "FOSB",
+        "CHRND",
+        "TGFB3",
+        "AL391650.1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P121",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::07dc676d92f9d153"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5250118821292775,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "B",
+      "best_axis_score": 0.3712161183357239,
+      "axis_explained": false,
+      "top_markers": [
+        "PTGDS",
+        "CD74",
+        "CORO1A",
+        "LSP1",
+        "SERF1A",
+        "FAM153B",
+        "CCL21",
+        "LAPTM5",
+        "CD37",
+        "DEPRECATED_ENSG00000211772"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P122",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.2489724693018145,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Epi",
+      "best_axis_score": 0.02805883064866066,
+      "axis_explained": false,
+      "top_markers": [
+        "MYC",
+        "AHCY",
+        "TMSB10",
+        "TGFBI",
+        "ENO1",
+        "RAN",
+        "RACK1",
+        "SLC25A5",
+        "UBA52",
+        "EEF1B2"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P123",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de"
+      ],
+      "resolutions_present": [
+        0.5
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 1.0,
+      "moran_i_median": 0.7868313122745879,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.6864561438560486,
+      "axis_explained": true,
+      "top_markers": [
+        "TNFRSF6B",
+        "MMP3",
+        "IL11",
+        "MT2A",
+        "IGLC2",
+        "IL24",
+        "DEPRECATED_ENSG00000211890",
+        "IGKC",
+        "CXCL8",
+        "DEPRECATED_ENSG00000170345"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P124",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.22339111058010092,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Epi",
+      "best_axis_score": 0.09580627083778381,
+      "axis_explained": false,
+      "top_markers": [
+        "EEF1B2",
+        "PABPC1",
+        "RACK1",
+        "EEF2",
+        "AHCY",
+        "EEF1A1",
+        "EIF4B",
+        "UBA52",
+        "EEF1G",
+        "TPT1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P125",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.34632853371695327,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Epi",
+      "best_axis_score": 0.28743821382522583,
+      "axis_explained": false,
+      "top_markers": [
+        "SELENBP1",
+        "SLC26A3",
+        "HSD11B2",
+        "ID1",
+        "FTL",
+        "ADIRF",
+        "CDHR5",
+        "S100P",
+        "SLC39A4",
+        "PHGR1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P126",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.6013416788109409,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Epi",
+      "best_axis_score": -0.07656076550483704,
+      "axis_explained": false,
+      "top_markers": [
+        "SLC26A3",
+        "SELENBP1",
+        "HMGCS2",
+        "PADI2",
+        "ID1",
+        "SLC39A4",
+        "ST3GAL4",
+        "NXPE4",
+        "ADIRF",
+        "HSD11B2"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P127",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.4270538892313469,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": -0.0021067738998681307,
+      "axis_explained": false,
+      "top_markers": [
+        "SERF1A",
+        "FAM153B",
+        "MMP27",
+        "HIST3H2BB",
+        "PAIP1",
+        "TAF11L9",
+        "NNT",
+        "USP17L1",
+        "FAM184A",
+        "IGKV1D-12"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P128",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545"
+      ],
+      "resolutions_present": [
+        0.5
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5701929200761179,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.3152007460594177,
+      "axis_explained": false,
+      "top_markers": [
+        "TPM2",
+        "IGKC",
+        "DEPRECATED_ENSG00000211685",
+        "IGLC2",
+        "DEPRECATED_ENSG00000211890",
+        "SLC25A5",
+        "IGHG2",
+        "RAN",
+        "IGHG1",
+        "IGHV3-30"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P129",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.44265815971257566,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.038462113589048386,
+      "axis_explained": false,
+      "top_markers": [
+        "SLC25A5",
+        "TPT1",
+        "S100A6",
+        "RAN",
+        "EEF2",
+        "ACTG1",
+        "ID1",
+        "AXIN2",
+        "GSTP1",
+        "SERF2"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P130",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::0def2e0b01043545"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5561265097257763,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 1.342005729675293,
+      "axis_explained": true,
+      "top_markers": [
+        "COL3A1",
+        "COL1A2",
+        "IGKC",
+        "TPM2",
+        "UBC",
+        "DEPRECATED_ENSG00000211890",
+        "IGLC2",
+        "DEPRECATED_ENSG00000211685",
+        "IGHV3-30",
+        "IGLC3"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P131",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5057618428640024,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.04856817424297333,
+      "axis_explained": false,
+      "top_markers": [
+        "IFI6",
+        "COL1A2",
+        "COL3A1",
+        "TPM2",
+        "IFI27",
+        "TNC",
+        "BST2",
+        "COL1A1",
+        "FN1",
+        "MT1E"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P132",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.3505644797873371,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "T",
+      "best_axis_score": -0.0582994744181633,
+      "axis_explained": false,
+      "top_markers": [
+        "TFF3",
+        "SLC25A5",
+        "TFF1",
+        "HES6",
+        "SERF1A",
+        "LGALS4",
+        "FCGBP",
+        "XBP1",
+        "RAN",
+        "ALDOA"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P133",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870"
+      ],
+      "resolutions_present": [
+        0.25
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 1.0,
+      "moran_i_median": 0.5859002770001398,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Epi",
+      "best_axis_score": 0.05590304732322693,
+      "axis_explained": false,
+      "top_markers": [
+        "FAM153B",
+        "TPT1",
+        "UBC",
+        "SERF2",
+        "RACK1",
+        "PABPC1",
+        "SLC25A5",
+        "IGF2",
+        "EEF2",
+        "TMA7"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P134",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::15c4be5f5e924870"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.48257575757575755,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Epi",
+      "best_axis_score": -0.016827234998345375,
+      "axis_explained": false,
+      "top_markers": [
+        "IGF2",
+        "FAM153B",
+        "TPT1",
+        "UBC",
+        "SERF2",
+        "RACK1",
+        "FN1",
+        "PABPC1",
+        "SLC25A5",
+        "TMA7"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P135",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51"
+      ],
+      "resolutions_present": [
+        0.25
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.4952451999576942,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.06581816077232361,
+      "axis_explained": false,
+      "top_markers": [
+        "SERF2",
+        "TMA7",
+        "FAM153B",
+        "SLC25A5",
+        "RAN",
+        "SERF1A",
+        "GSTP1",
+        "DEPRECATED_ENSG00000140264",
+        "ACTG1",
+        "ALDOA"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P136",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51"
+      ],
+      "resolutions_present": [
+        0.5
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.7066803133839037,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Epi",
+      "best_axis_score": 0.11023486405611038,
+      "axis_explained": false,
+      "top_markers": [
+        "LRATD1",
+        "AXIN2",
+        "S100A6",
+        "PGGHG",
+        "PYGB",
+        "FAM3D",
+        "ID1",
+        "TMA7",
+        "UBC",
+        "MUC1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P137",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.26010121616289184,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Stromal",
+      "best_axis_score": -0.021213414147496223,
+      "axis_explained": false,
+      "top_markers": [
+        "SLC25A5",
+        "TMSB10",
+        "FN1",
+        "GSTP1",
+        "AL136454.1",
+        "TMA7",
+        "RAN",
+        "TPM2",
+        "UBA52",
+        "CHCHD2"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P138",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5357494357290996,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.2254204899072647,
+      "axis_explained": false,
+      "top_markers": [
+        "ID1",
+        "GABRE",
+        "MUC1",
+        "PGGHG",
+        "S100A6",
+        "COL1A2",
+        "COL4A1",
+        "COL3A1",
+        "UBC",
+        "TNFRSF6B"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P139",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51"
+      ],
+      "resolutions_present": [
+        0.5
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.29149439719733444,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.1468115746974945,
+      "axis_explained": false,
+      "top_markers": [
+        "COL3A1",
+        "COL1A2",
+        "TPM2",
+        "COL1A1",
+        "FAM153B",
+        "ACTA2",
+        "FLNA",
+        "FBN1",
+        "CCN2",
+        "UBC"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P140",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.33090062114401847,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.2651014029979706,
+      "axis_explained": false,
+      "top_markers": [
+        "IGF2",
+        "FN1",
+        "COL3A1",
+        "MYC",
+        "HNRNPA3",
+        "SPARC",
+        "TMSB10",
+        "ENO1",
+        "AL136454.1",
+        "GAPDH"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P141",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::1cdbf9c9f9ca1d51"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.17023356268460496,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "ILC",
+      "best_axis_score": -0.030833205208182335,
+      "axis_explained": false,
+      "top_markers": [
+        "CFD",
+        "ID1",
+        "NKD1",
+        "MT1M",
+        "MT1E",
+        "MSX1",
+        "PROM2",
+        "PGGHG",
+        "LRATD1",
+        "PALM3"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P142",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::2660ebb0a070d36e"
+      ],
+      "resolutions_present": [
+        0.25
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 1.0,
+      "moran_i_median": 0.0,
+      "moran_p_median": 1.0,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 5.220296657171275e-07,
+      "axis_explained": false,
+      "top_markers": [],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P143",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.2871768157345942,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.27319803833961487,
+      "axis_explained": false,
+      "top_markers": [
+        "ZG16",
+        "ITM2C",
+        "FABP1",
+        "UBC",
+        "BEST4",
+        "KRT8",
+        "CTSD",
+        "SLC25A5",
+        "S100A6",
+        "CDHR5"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P144",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.2396014582815478,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "T",
+      "best_axis_score": 0.023655250668525696,
+      "axis_explained": false,
+      "top_markers": [
+        "ACTG1",
+        "GSTP1",
+        "TMSB10",
+        "SERF2",
+        "HIST1H4A",
+        "LRATD1",
+        "RAN",
+        "ALDOA",
+        "S100A14",
+        "S100A6"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P145",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::283e577e68cd34cf"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.09270797662578435,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Stromal",
+      "best_axis_score": -0.05649349093437195,
+      "axis_explained": false,
+      "top_markers": [
+        "GPM6A",
+        "PRR33",
+        "COL19A1",
+        "HLA-DOA",
+        "PRPF4",
+        "TNMD",
+        "FAM167A",
+        "FANCD2",
+        "TMEM132B",
+        "DCAF8L1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P146",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.4965526894368165,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.22354011237621307,
+      "axis_explained": false,
+      "top_markers": [
+        "FN1",
+        "PFN1",
+        "TIMP1",
+        "TMSB4X",
+        "ACTG1",
+        "OLFM4",
+        "SQSTM1",
+        "FTL",
+        "ACTB",
+        "COL3A1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P147",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.7481952738350461,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Epi",
+      "best_axis_score": 0.9569300413131714,
+      "axis_explained": true,
+      "top_markers": [
+        "CEACAM6",
+        "LGALS4",
+        "GAPDH",
+        "FABP1",
+        "CALM1",
+        "KRT18",
+        "FTH1",
+        "PHGR1",
+        "CA2",
+        "KRT8"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P148",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a"
+      ],
+      "resolutions_present": [
+        0.5
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.40040424359725263,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Epi",
+      "best_axis_score": 0.03268584609031677,
+      "axis_explained": false,
+      "top_markers": [
+        "S100A6",
+        "PABPC1",
+        "TPT1",
+        "GSTP1",
+        "SLC25A5",
+        "ACTG1",
+        "KRT8",
+        "RAN",
+        "DEPRECATED_ENSG00000140264",
+        "TMSB10"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P149",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::286667cab598bb4a"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.2969779877018503,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "ILC",
+      "best_axis_score": -0.016916563734412193,
+      "axis_explained": false,
+      "top_markers": [
+        "S100A6",
+        "PABPC1",
+        "TPT1",
+        "GSTP1",
+        "SLC25A5",
+        "RAN",
+        "ACTG1",
+        "TMSB10",
+        "TMA7",
+        "DEPRECATED_ENSG00000140264"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P150",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::306c7a068bf4965f"
+      ],
+      "resolutions_present": [
+        0.25
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.4284631518414716,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.018325982615351677,
+      "axis_explained": false,
+      "top_markers": [
+        "SLC25A5",
+        "ACTG1",
+        "S100A6",
+        "MUC2",
+        "ALDOA",
+        "RAN",
+        "UBC",
+        "SERF2",
+        "TPT1",
+        "COL1A2"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P151",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::306c7a068bf4965f"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.15644008596835848,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Epi",
+      "best_axis_score": -0.011411570943892002,
+      "axis_explained": false,
+      "top_markers": [
+        "S100A6",
+        "ACTG1",
+        "KRT8",
+        "MUC2",
+        "LYZ",
+        "GAPDH",
+        "TMSB10",
+        "UBC",
+        "TPT1",
+        "PABPC1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P152",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.23397466930090677,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.16098593175411224,
+      "axis_explained": false,
+      "top_markers": [
+        "DCN",
+        "FBLN1",
+        "FN1",
+        "CHGA",
+        "CFD",
+        "TNXB",
+        "HIST1H1B",
+        "CLEC3B",
+        "IGHA1",
+        "DEPRECATED_ENSG00000211890"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P153",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.18472117377206332,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.5255864262580872,
+      "axis_explained": true,
+      "top_markers": [
+        "SELENBP1",
+        "GOLM1",
+        "HSD11B2",
+        "CA2",
+        "PADI2",
+        "FXYD3",
+        "IGKC",
+        "JCHAIN",
+        "SLC26A2",
+        "LGALS4"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P154",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.13869160830616495,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Stromal",
+      "best_axis_score": -0.00265861046500504,
+      "axis_explained": false,
+      "top_markers": [
+        "ACTA2",
+        "RETNLB",
+        "ACTG2",
+        "GREM2",
+        "DES",
+        "MYH11",
+        "HIST1H1B",
+        "TPM2",
+        "FLNA",
+        "CDCA7"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P155",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.437176213130317,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "B",
+      "best_axis_score": 0.9639260172843933,
+      "axis_explained": true,
+      "top_markers": [
+        "PTGDS",
+        "CCL19",
+        "CCL21",
+        "CXCR4",
+        "C3",
+        "HLA-DRA",
+        "CD74",
+        "IL7R",
+        "CD37",
+        "CORO1A"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P156",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.6235982267017588,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.04754446819424629,
+      "axis_explained": false,
+      "top_markers": [
+        "ACTG2",
+        "MYL9",
+        "DES",
+        "MYH11",
+        "TPM2",
+        "CNN1",
+        "TAGLN",
+        "SYNM",
+        "MYLK",
+        "FLNA"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P157",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::3e050f81f3d36d48"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.1613767373381491,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.42652907967567444,
+      "axis_explained": false,
+      "top_markers": [
+        "PRPH",
+        "UCHL1",
+        "SCG2",
+        "TUBA1A",
+        "STMN2",
+        "HAND2",
+        "STMN4",
+        "VIP",
+        "SCGN",
+        "CLU"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P158",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::42db69b0c0fe9511"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.4294583270168096,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Epi",
+      "best_axis_score": 0.0327109657227993,
+      "axis_explained": false,
+      "top_markers": [
+        "IFI27",
+        "CLDN4",
+        "ALDOA",
+        "UBC",
+        "SLC25A5",
+        "CYP2S1",
+        "FXYD3",
+        "S100A6",
+        "CDHR5",
+        "ANPEP"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P159",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::42db69b0c0fe9511"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.27614966370925154,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": -0.018632547929883003,
+      "axis_explained": false,
+      "top_markers": [
+        "S100A14",
+        "S100A6",
+        "SLC25A5",
+        "KRT8",
+        "RAN",
+        "GSTP1",
+        "NPM1",
+        "LRATD1",
+        "SERF2",
+        "LGALS4"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P160",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::46cd4bcce25745d5"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.43292119503850524,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Epi",
+      "best_axis_score": 0.014956358820199966,
+      "axis_explained": false,
+      "top_markers": [
+        "SERF1A",
+        "FAM153B",
+        "SLC25A5",
+        "IFI6",
+        "AXIN2",
+        "RAN",
+        "SERF2",
+        "ALDOA",
+        "MYC",
+        "ACTG1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P161",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5989615209289173,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.373333215713501,
+      "axis_explained": false,
+      "top_markers": [
+        "IFI6",
+        "IGKV1D-12",
+        "COL1A2",
+        "IGKC",
+        "PLAUR",
+        "CDKN2A",
+        "S100A6",
+        "S100A14",
+        "CLDN4",
+        "TPM2"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P162",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.43243061054497134,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Mye",
+      "best_axis_score": 0.4037855267524719,
+      "axis_explained": false,
+      "top_markers": [
+        "CD74",
+        "LYZ",
+        "TYROBP",
+        "APOE",
+        "WARS",
+        "TYMP",
+        "IRF1",
+        "HLA-DRA",
+        "CIITA",
+        "IFI30"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P163",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.511898390694924,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.6793990731239319,
+      "axis_explained": true,
+      "top_markers": [
+        "COL1A2",
+        "FN1",
+        "COL1A1",
+        "SPARC",
+        "COL3A1",
+        "BGN",
+        "SPON2",
+        "IGFBP7",
+        "TIMP1",
+        "IGFBP5"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P164",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.31822545081831743,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "B",
+      "best_axis_score": 0.1038532555103302,
+      "axis_explained": false,
+      "top_markers": [
+        "PABPC1",
+        "AHCY",
+        "HIST1H1E",
+        "HIST1H1C",
+        "MYC",
+        "HIST1H1B",
+        "UBA52",
+        "HIST1H2AJ",
+        "SLC25A5",
+        "NCL"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P165",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4aa571d63ab1aa20"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5211225201120031,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.6896739602088928,
+      "axis_explained": true,
+      "top_markers": [
+        "FCGBP",
+        "ID1",
+        "HMGCS2",
+        "CKB",
+        "DEPRECATED_ENSG00000211890",
+        "SELENBP1",
+        "AMN",
+        "MUC4",
+        "LRATD1",
+        "FXYD3"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P166",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.2958954840995591,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.03867945820093155,
+      "axis_explained": false,
+      "top_markers": [
+        "ANO7",
+        "CLCA1",
+        "FCGBP",
+        "IFI27",
+        "CDC42EP5",
+        "HLA-E",
+        "IFI6",
+        "CREB3L1",
+        "IER3",
+        "TCEA3"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P167",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.41938047263312783,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Epi",
+      "best_axis_score": 0.18689072132110596,
+      "axis_explained": false,
+      "top_markers": [
+        "ZG16",
+        "ALDOA",
+        "CLDN4",
+        "DHRS9",
+        "ID1",
+        "ADM",
+        "CEACAM1",
+        "PLAUR",
+        "MUC12",
+        "FABP1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P168",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63"
+      ],
+      "resolutions_present": [
+        0.5
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.7415124745106937,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Epi",
+      "best_axis_score": 0.08916062861680984,
+      "axis_explained": false,
+      "top_markers": [
+        "REG1A",
+        "S100A6",
+        "TFF3",
+        "KRT8",
+        "SPINK4",
+        "GAPDH",
+        "SERPINA1",
+        "MUC2",
+        "REG1B",
+        "FCGBP"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P169",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.4768530366013679,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.3436424732208252,
+      "axis_explained": false,
+      "top_markers": [
+        "FN1",
+        "COL1A2",
+        "COL1A1",
+        "COL3A1",
+        "SPARC",
+        "AEBP1",
+        "DCN",
+        "MMP2",
+        "POSTN",
+        "IGKC"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P170",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5488885417202903,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.0432862713932991,
+      "axis_explained": false,
+      "top_markers": [
+        "PTGDS",
+        "SFRP2",
+        "DCN",
+        "ADIRF",
+        "IGF1",
+        "C7",
+        "FABP4",
+        "COL14A1",
+        "COL6A3",
+        "COL1A1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P171",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.42995148508087855,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 7.754316175123677e-05,
+      "axis_explained": false,
+      "top_markers": [
+        "REG1A",
+        "IFI6",
+        "IGHV3-35",
+        "IGHV3-30",
+        "FCGBP",
+        "TFF3",
+        "RAN",
+        "SLC25A5",
+        "IGHV3OR16-13",
+        "S100A6"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P172",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.6560199277920823,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "B",
+      "best_axis_score": 0.25820109248161316,
+      "axis_explained": false,
+      "top_markers": [
+        "CXCL13",
+        "FCMR",
+        "PTGDS",
+        "CD52",
+        "HLA-DRA",
+        "IL7R",
+        "MS4A1",
+        "PARP15",
+        "EVL",
+        "CCL19"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P173",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::4f81822a6f2ecd63"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.47701688555347094,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.17445868253707886,
+      "axis_explained": false,
+      "top_markers": [
+        "ADM",
+        "DDIT4",
+        "EGLN3",
+        "PLAUR",
+        "NDRG1",
+        "UBC",
+        "HSPA1B",
+        "SAT1",
+        "ACTG1",
+        "ERO1A"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P174",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.3541420739700033,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Epi",
+      "best_axis_score": -0.08792697638273239,
+      "axis_explained": false,
+      "top_markers": [
+        "TMA7",
+        "GSN",
+        "UQCRQ",
+        "NPM1",
+        "LDHB",
+        "ATP5F1B",
+        "UBA52",
+        "VDAC1",
+        "EIF4B",
+        "TXN"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P175",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.40116306118294887,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.687164306640625,
+      "axis_explained": true,
+      "top_markers": [
+        "FN1",
+        "COL1A1",
+        "COL3A1",
+        "SPARC",
+        "COL1A2",
+        "DEPRECATED_ENSG00000211685",
+        "IGKC",
+        "VIM",
+        "ACTA2",
+        "IGHG1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P176",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.41773281287341674,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Epi",
+      "best_axis_score": -0.0829961895942688,
+      "axis_explained": false,
+      "top_markers": [
+        "REG1A",
+        "SERPINA1",
+        "LYZ",
+        "PRSS2",
+        "DEFA6",
+        "WFDC2",
+        "DMBT1",
+        "REG3A",
+        "PDZK1IP1",
+        "DEFA5"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P177",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.28820862780262246,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.5225473046302795,
+      "axis_explained": true,
+      "top_markers": [
+        "SPARC",
+        "COL1A2",
+        "IGFBP7",
+        "FN1",
+        "COL1A1",
+        "VIM",
+        "COL3A1",
+        "AEBP1",
+        "BGN",
+        "COL6A3"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P178",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::51764d2ec560e464"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.23465196185242324,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "T",
+      "best_axis_score": -0.03098236210644245,
+      "axis_explained": false,
+      "top_markers": [
+        "REG1A",
+        "HSPA1B",
+        "NPM1",
+        "DNAJB1",
+        "BEX5",
+        "HSPD1",
+        "REG3A",
+        "DNAJA4",
+        "LYZ",
+        "SET"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P179",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6"
+      ],
+      "resolutions_present": [
+        0.5
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 1.0,
+      "moran_i_median": 0.5862623703207918,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Epi",
+      "best_axis_score": -0.01593269221484661,
+      "axis_explained": false,
+      "top_markers": [
+        "SLC25A5",
+        "S100A14",
+        "TPT1",
+        "GSTP1",
+        "FAM153B",
+        "LGALS4",
+        "KRT8",
+        "HSPA5",
+        "S100A6",
+        "ITM2B"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P180",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5093629426688537,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.13063111901283264,
+      "axis_explained": false,
+      "top_markers": [
+        "TPT1",
+        "SERF1A",
+        "SLC25A5",
+        "FAM153B",
+        "PABPC1",
+        "UBA52",
+        "RACK1",
+        "EEF1A1",
+        "VDAC1",
+        "EEF2"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P181",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.3284344191374498,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Epi",
+      "best_axis_score": 0.1939857304096222,
+      "axis_explained": false,
+      "top_markers": [
+        "EEF1A1",
+        "PABPC1",
+        "UBA52",
+        "TMSB10",
+        "EEF2",
+        "KRT8",
+        "TPT1",
+        "GAPDH",
+        "NPM1",
+        "DEPRECATED_ENSG00000140264"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P182",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::5a3d3a5b1d783fe6"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.29442250245594354,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "ILC",
+      "best_axis_score": -0.044175297021865845,
+      "axis_explained": false,
+      "top_markers": [
+        "TTF2",
+        "DDX10",
+        "L3MBTL2",
+        "RTN4IP1",
+        "HMGA2",
+        "AC007906.2",
+        "KLRG1",
+        "RFK",
+        "ALOX5AP",
+        "GNG3"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P183",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::6aea40a35e6c4335"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5390156871333158,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Epi",
+      "best_axis_score": 0.25928163528442383,
+      "axis_explained": false,
+      "top_markers": [
+        "S100A6",
+        "MUC2",
+        "TFF1",
+        "UBC",
+        "SQSTM1",
+        "ALDOA",
+        "KRT8",
+        "S100A14",
+        "PLEC",
+        "CLDN7"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P184",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::6aea40a35e6c4335"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.3010814763720072,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "B",
+      "best_axis_score": -0.0215613916516304,
+      "axis_explained": false,
+      "top_markers": [
+        "AQP8",
+        "TMEM132A",
+        "CA4",
+        "CHMP2B",
+        "PNLIP",
+        "COL14A1",
+        "HCST",
+        "PI15",
+        "WDFY4",
+        "PRAM1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P185",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::6aea40a35e6c4335"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.3327365206820973,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "ILC",
+      "best_axis_score": -0.042598333209753036,
+      "axis_explained": false,
+      "top_markers": [
+        "S100A6",
+        "MUC2",
+        "SLC25A5",
+        "S100A14",
+        "ALDOA",
+        "TFF1",
+        "KRT19",
+        "CYP2S1",
+        "PLEC",
+        "ACHE"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P186",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.4800952716178898,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.6767165660858154,
+      "axis_explained": true,
+      "top_markers": [
+        "TIMP3",
+        "FLNA",
+        "IGKC",
+        "COMP",
+        "FN1",
+        "SULF1",
+        "IGHG1",
+        "TNFRSF6B",
+        "TGM2",
+        "IDO1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P187",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.3986924016822467,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "ILC",
+      "best_axis_score": 0.36162617802619934,
+      "axis_explained": false,
+      "top_markers": [
+        "DEPRECATED_ENSG00000170345",
+        "POSTN",
+        "FOS",
+        "PCOLCE",
+        "COL1A2",
+        "GNLY",
+        "COL3A1",
+        "LGALS1",
+        "COL6A2",
+        "APOE"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P188",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5989708748996669,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.517764687538147,
+      "axis_explained": true,
+      "top_markers": [
+        "SULF1",
+        "FN1",
+        "POSTN",
+        "FAM153B",
+        "TIMP3",
+        "COL1A2",
+        "LAPTM5",
+        "CD74",
+        "SERF1A",
+        "C1QC"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P189",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.6362193400144688,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 1.0894838571548462,
+      "axis_explained": true,
+      "top_markers": [
+        "PTGDS",
+        "C7",
+        "SFRP2",
+        "IGKC",
+        "CCL19",
+        "DEPRECATED_ENSG00000211892",
+        "FOSB",
+        "CXCR4",
+        "IGHG4",
+        "IGHM"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P190",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5470913799500229,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.37584999203681946,
+      "axis_explained": false,
+      "top_markers": [
+        "A2M",
+        "IGFBP7",
+        "COL14A1",
+        "VIM",
+        "MCAM",
+        "CRIP2",
+        "ACTA2",
+        "MYH11",
+        "CLU",
+        "TAGLN"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P191",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.6240071618504694,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.4242730438709259,
+      "axis_explained": false,
+      "top_markers": [
+        "COMP",
+        "IGKC",
+        "DEPRECATED_ENSG00000211685",
+        "IGKV3OR2-268",
+        "IGHG1",
+        "DEPRECATED_ENSG00000211892",
+        "IGLC1",
+        "IGLC2",
+        "COL1A2",
+        "FN1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P192",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::7032fa6644896b13"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.619684663517188,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.027867600321769714,
+      "axis_explained": false,
+      "top_markers": [
+        "SLC25A5",
+        "S100A14",
+        "HMGA1",
+        "HIST1H4A",
+        "S100A6",
+        "KRT8",
+        "UBD",
+        "HIST1H4D",
+        "RAN",
+        "GSTP1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P193",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::772733d53add12a2"
+      ],
+      "resolutions_present": [
+        0.25
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5994602368558886,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.2489013820886612,
+      "axis_explained": false,
+      "top_markers": [
+        "COL1A1",
+        "COL3A1",
+        "SPARC",
+        "COL1A2",
+        "TPT1",
+        "EEF1A1",
+        "C3",
+        "TMSB10",
+        "FTL",
+        "IGKC"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P194",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::772733d53add12a2"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.3184976652400578,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.03945629671216011,
+      "axis_explained": false,
+      "top_markers": [
+        "FN1",
+        "FNDC1",
+        "INHBA",
+        "COL1A2",
+        "COL1A1",
+        "SPARC",
+        "MT2A",
+        "COL5A1",
+        "GREM1",
+        "TMSB10"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P195",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::772733d53add12a2"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.25122427748598103,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.05487557873129845,
+      "axis_explained": false,
+      "top_markers": [
+        "DEPRECATED_ENSG00000125398",
+        "H2AFY2",
+        "ZC3H15",
+        "L1TD1",
+        "CLDN3",
+        "IGLV3-1",
+        "OLR1",
+        "SPINK1",
+        "DEPRECATED_ENSG00000211685",
+        "FGGY"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P196",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::772733d53add12a2"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.7139369390956195,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.8170298933982849,
+      "axis_explained": true,
+      "top_markers": [
+        "CXCR4",
+        "PTGDS",
+        "ZFP36L2",
+        "CCR7",
+        "CD74",
+        "IKZF1",
+        "SERF1A",
+        "NPIPB4",
+        "PTPRC",
+        "LAPTM5"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P197",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::82a1eb08b47e14fe"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.29134658335769,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "ILC",
+      "best_axis_score": -0.009398356080055237,
+      "axis_explained": false,
+      "top_markers": [
+        "SERF1A",
+        "FAM153B",
+        "SLC25A5",
+        "EEF2",
+        "TMA7",
+        "MYC",
+        "KRT8",
+        "ACTG1",
+        "CFL1",
+        "UBC"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P198",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::8abcbad99198901e"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.310033174674302,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.048535507172346115,
+      "axis_explained": false,
+      "top_markers": [
+        "RAN",
+        "AL136454.1",
+        "RACK1",
+        "HIST1H4D",
+        "EEF2",
+        "HIST1H4A",
+        "EEF1B2",
+        "HIST1H1E",
+        "HIST2H2BF",
+        "SNRPD1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P199",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b"
+      ],
+      "resolutions_present": [
+        0.25
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.508881331129003,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.050834137946367264,
+      "axis_explained": false,
+      "top_markers": [
+        "S100A9",
+        "PABPC1",
+        "RAN",
+        "GAPDH",
+        "IGHG4",
+        "NPM1",
+        "FTH1",
+        "UBD",
+        "TPT1",
+        "DEPRECATED_ENSG00000211892"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P200",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.6176757085768143,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Mye",
+      "best_axis_score": -0.12938426434993744,
+      "axis_explained": false,
+      "top_markers": [
+        "GAPDH",
+        "FTH1",
+        "CEACAM6",
+        "S100A9",
+        "LCN2",
+        "S100A10",
+        "PABPC1",
+        "YWHAZ",
+        "PI3",
+        "EEF1A1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P201",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.36593040440212105,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.331305593252182,
+      "axis_explained": false,
+      "top_markers": [
+        "PNMA5",
+        "CD74",
+        "UBD",
+        "ENO1",
+        "MT1G",
+        "HLA-DRA",
+        "IGFBP2",
+        "NCL",
+        "HIST1H1E",
+        "AREG"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P202",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.4925924516766204,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.28598058223724365,
+      "axis_explained": false,
+      "top_markers": [
+        "COL1A2",
+        "COL1A1",
+        "COL3A1",
+        "SPARC",
+        "IFI6",
+        "IGKC",
+        "DCN",
+        "COL6A3",
+        "OLFM4",
+        "BGN"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P203",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::8d0d8f21b233f35b"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.39598322165920347,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Epi",
+      "best_axis_score": 0.022000577300786972,
+      "axis_explained": false,
+      "top_markers": [
+        "MUC1",
+        "PABPC1",
+        "OLFM4",
+        "EEF1A1",
+        "LEFTY1",
+        "MUC12",
+        "EEF1G",
+        "TPT1",
+        "ERBB2",
+        "PPP1R1B"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P204",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::94567531ae08aa59"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.1828895120986589,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Epi",
+      "best_axis_score": 0.046795688569545746,
+      "axis_explained": false,
+      "top_markers": [
+        "MUC5AC",
+        "EEF1A1",
+        "TFF3",
+        "LGALS4",
+        "TPT1",
+        "MUC6",
+        "TFF1",
+        "TMSB4X",
+        "MUC5B",
+        "GAPDH"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P205",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::94567531ae08aa59"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5395627627627627,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.3362666368484497,
+      "axis_explained": false,
+      "top_markers": [
+        "IGKC",
+        "COL1A2",
+        "DEPRECATED_ENSG00000211685",
+        "DEPRECATED_ENSG00000170345",
+        "IGHV3-35",
+        "IGKV1D-12",
+        "TPM2",
+        "IGLC2",
+        "IGHG1",
+        "COL3A1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P206",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::9af051af377d9c81"
+      ],
+      "resolutions_present": [
+        0.5
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.4450333714806654,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.024207687005400658,
+      "axis_explained": false,
+      "top_markers": [
+        "CST1",
+        "DES",
+        "SULF1",
+        "IGHG3",
+        "MYH11",
+        "FN1",
+        "IFI6",
+        "TYMP",
+        "CXCL14",
+        "TIMP3"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P207",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::9af051af377d9c81"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.6114729959069582,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "ILC",
+      "best_axis_score": 0.12635767459869385,
+      "axis_explained": false,
+      "top_markers": [
+        "IFI6",
+        "CST1",
+        "FN1",
+        "CTSD",
+        "UBD",
+        "APOE",
+        "WARS",
+        "DES",
+        "LYZ",
+        "SULF1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P208",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::9af051af377d9c81"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.7144584647330536,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.2869572341442108,
+      "axis_explained": false,
+      "top_markers": [
+        "ACTA2",
+        "COL3A1",
+        "COL1A2",
+        "COL1A1",
+        "BGN",
+        "SPARC",
+        "COMP",
+        "C1R",
+        "MYL9",
+        "AEBP1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P209",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::9af051af377d9c81"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.28148468214721994,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Epi",
+      "best_axis_score": -0.07277817279100418,
+      "axis_explained": false,
+      "top_markers": [
+        "SLC25A5",
+        "LCN2",
+        "S100A6",
+        "ACTG1",
+        "RAN",
+        "REG3A",
+        "HIST1H1E",
+        "PDZK1IP1",
+        "TMA7",
+        "PHGR1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P210",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.7106511801457892,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 1.0740951299667358,
+      "axis_explained": true,
+      "top_markers": [
+        "ID1",
+        "LCN2",
+        "TFF3",
+        "FCGBP",
+        "MT1E",
+        "IGHA1",
+        "IGKC",
+        "CDC42EP5",
+        "CRIP1",
+        "DEPRECATED_ENSG00000211890"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P211",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 1.0,
+      "moran_i_median": 0.7045694619699272,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.41745835542678833,
+      "axis_explained": false,
+      "top_markers": [
+        "FN1",
+        "IL32",
+        "GLIPR1",
+        "COL1A2",
+        "MMP11",
+        "COL1A1",
+        "AREG",
+        "DPEP1",
+        "PTPRO",
+        "SLC25A5"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P212",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::a29ba9b1cd4cf508"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.41896987989690604,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.13184955716133118,
+      "axis_explained": false,
+      "top_markers": [
+        "WFDC2",
+        "SLC25A5",
+        "MUC12",
+        "RACK1",
+        "SPINK4",
+        "REG1A",
+        "TFF3",
+        "MUC2",
+        "GAPDH",
+        "NPM1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P213",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::b279c0a0ecf76890"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.22944415044329558,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "T",
+      "best_axis_score": -0.030085483565926552,
+      "axis_explained": false,
+      "top_markers": [
+        "LEFTY1",
+        "HIST1H1B",
+        "PABPC1",
+        "CDCA7",
+        "OLFM4",
+        "PPP1R1B",
+        "RACK1",
+        "RAN",
+        "RECQL4",
+        "HIST2H2BF"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P214",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::bbd41350b0c0bd3c"
+      ],
+      "resolutions_present": [
+        0.25
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.4736170137740847,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.08828898519277573,
+      "axis_explained": false,
+      "top_markers": [
+        "TMA7",
+        "CDCA7",
+        "SLC25A5",
+        "RAN",
+        "MYC",
+        "GSTP1",
+        "AHCY",
+        "COL3A1",
+        "COL1A2",
+        "HIST1H4A"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P215",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::bbd41350b0c0bd3c"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.2914595628711174,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Epi",
+      "best_axis_score": 0.05240948498249054,
+      "axis_explained": false,
+      "top_markers": [
+        "SLC25A5",
+        "VDAC1",
+        "PABPC1",
+        "TMSB10",
+        "HMGN1",
+        "TMA7",
+        "SERF2",
+        "S100A6",
+        "GSTP1",
+        "HNRNPA3"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P216",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::bbd41350b0c0bd3c"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.42644929823453914,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.6967451572418213,
+      "axis_explained": true,
+      "top_markers": [
+        "IGKC",
+        "COL3A1",
+        "IGHG1",
+        "COL1A2",
+        "TNC",
+        "CCN1",
+        "DEPRECATED_ENSG00000211685",
+        "CCN2",
+        "FN1",
+        "IGLC2"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P217",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::c0b1b19d533645cb"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.0949797249333599,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Epi",
+      "best_axis_score": 0.06246042624115944,
+      "axis_explained": false,
+      "top_markers": [
+        "UBC",
+        "TPT1",
+        "ACTG1",
+        "EEF2",
+        "TMSB10",
+        "CFL1",
+        "PABPC1",
+        "S100A6",
+        "FCGBP",
+        "GSTP1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P218",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5210043801403408,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Mye",
+      "best_axis_score": 0.0541667602956295,
+      "axis_explained": false,
+      "top_markers": [
+        "CXCL8",
+        "IL1B",
+        "S100A9",
+        "S100A8",
+        "G0S2",
+        "SERPINB2",
+        "PLIN2",
+        "CXCL5",
+        "DEPRECATED_ENSG00000277632",
+        "CCL3L1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P219",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::c591c5e150910f33"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.5211490410254421,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 0.26029133796691895,
+      "axis_explained": false,
+      "top_markers": [
+        "LCN2",
+        "LYZ",
+        "SQSTM1",
+        "S100A6",
+        "NPM1",
+        "ASS1",
+        "TMSB10",
+        "HMGCS1",
+        "KRT18",
+        "CDC42EP1"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P220",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::e52fa79982a9ecea"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.327028234437344,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Stromal",
+      "best_axis_score": 0.07588160037994385,
+      "axis_explained": false,
+      "top_markers": [
+        "COL1A1",
+        "TGFBI",
+        "COL1A2",
+        "FN1",
+        "SULF1",
+        "POSTN",
+        "BGN",
+        "HLA-B",
+        "COL3A1",
+        "CEACAM6"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    },
+    {
+      "pattern_id": "R16P221",
+      "n_clusters": 1,
+      "n_sections": 1,
+      "n_patients": 1,
+      "patients": [
+        "HTAN_VANDERBILT_CRC::PATIENT::e52fa79982a9ecea"
+      ],
+      "resolutions_present": [
+        1.0
+      ],
+      "resolution_support": 1,
+      "stable_cluster_fraction": 0.0,
+      "moran_i_median": 0.42553342040665343,
+      "moran_p_median": 0.004975124378109453,
+      "purity": 1.0,
+      "best_axis": "Plasma",
+      "best_axis_score": 1.2119638919830322,
+      "axis_explained": true,
+      "top_markers": [
+        "ID1",
+        "PFN1",
+        "ALDOA",
+        "ENO1",
+        "TUBA1C",
+        "TCIM",
+        "UQCRQ",
+        "CFL1",
+        "ACTB",
+        "TUBB4B"
+      ],
+      "evidence_grade": "DESCRIPTIVE_SINGLE_PATIENT"
+    }
+  ]
+}

@@ -678,3 +678,25 @@ D-093 (2026-09-01): use the TensorFlow compiled execution path for the frozen K=
 - 理由：用户"全发现"诉求与复现防线的第二次拆分（继 D-112 后）：发现引擎（普查＋距离筛选）与证据引擎（null＋复现＋记分）解耦；普查只产组成型 pattern 是合法资产而非失败。
 - 失效条件：Lane A 的距离函数全部不可跨患者复现→按 plan 否证逻辑收缩；Lane B 在 Lane A 充分后仍只产不可复现残余→同样收缩；普查 mask 跨分辨率崩解→不静默换方法，追加决策。
 - 影响：roadmap 新增 R-16 节点；R-15 假设覆盖更新；I-021（连续信号 null 缺口）登记；TODO（先交一页设计方案）；plan.md 不动（H-01 不变，此为其操作化）。
+
+### D-114 | 2026-09-14 | R-16 gene universe 改用整合 HVG top-10000；样本范围定为 30 发现＋16 复现
+
+- 背景：用户追问 4000 基因来历，机理查明（I-020）：D-042 两阶段过滤（prevalence ≥5% spot 且 ≥70% 患者 → log1p 方差前 4000）系统性杀灭"小、稀有、患者间不均"结构的 marker——14 个经典 TLS 基因全灭（12 死于 prevalence、2 死于方差排名），方差榜被 IG/持家/上皮霸占。用户提出用经典 Seurat 整合 HVG 策略重新选基因。pilot（`infra/r16/hvg_recurrence_pilot_20260914.json`）：每片 seurat_v3 top-5000（loess frac=0.3）→ 患者 recurrence 合并（多片患者一票）→ **14/14 经典 TLS 基因进 top-8000**（rec 13–25/30）；天然截点 **recurrence ≥10/30 ≈ top-10000**（10,383 基因）。frozen 4000 在新排名中位数 14,722，两套哲学近乎正交。
+- 决策：
+  1. **R-16 census universe = 整合 HVG top-10000**（每片 seurat_v3 top-5000 → 患者 recurrence 合并 → 总排名前 10000；≈"≥1/3 患者中复发的高变异基因"）。从源 h5ad 重新 materialize census 专用 cache（含坐标），不改动 R-04 任何冻结资产（D-042 仅作 R-04 历史范围决策保留，不回溯）。
+  2. **样本范围（用户批准选项 C）**：发现引擎只用 Vanderbilt training（47 片 / 30 患者，单 lineage 单平台）；ST-CRC（14 片 / 7 患者）与 USZ（8 片 / 8 患者，带 TLS 注释）作为**独立复现引擎**——registry 行欲升级证据等级须在这两个队列中复现，跨平台复现按 D-113 自动降半级记录；Block-A 维持挂起；HTAN WUSTL 55G 在 R-01 注册表之外，不并入。
+  3. HVG 排名产物（`infra/r16/hvg_final_rank_20260914.npy`）与 pilot 脚本入库，全确定性；seurat_v3 为 Python 复刻非逐字节 Seurat，回收率（14/14）即其验证记录。
+- 失效条件：若发现复刻实现与参考实现（scanpy seurat_v3）系统性偏离，重推排名并审计受影响产物；若跨队列复现因平台效应系统性不可行，按 D-113 降级规则如实记录而非强推。
+- 影响：设计方案 v1.1；I-021 细化（自相关检验用值置换合法，关联检验才需空间保持 null）；TODO；随后 materialize＋普查第①步。
+
+### D-115 | 2026-09-14 | R-16 升级为两层结构：Tier-1 连续轴尺子厂＋Tier-2 残余发现（用户批准）
+
+- 背景：普查 v0 暴露逻辑层问题（用户第一性原理追问）：(L1) 硬聚类把"程序"与"混合邻居"焊死，全签名相似度无法区分"程序不同"与"邻居不同"，且跨平台放大；(L2) 用户保留——地基可离散，但旋钮必须披露可扫（Leiden resolution 是藏起来的旋钮：pattern 数 198→488）；(L3) 连续共享度试一下；(L4) 患者独有 pattern 是 tradeoff（好货 vs 污染）；(L5) 用户质疑连续轴能否更好服务下一步连续场发现。实证（`infra/r16/axis_rulers_20260914.json`）：7 根 marker 模块轴（T99/B45/Mye57/ILC12/Epi125/Stromal55/Plasma6 基因）在 **27–30/30 患者**空间相干（Moran 值置换 null，p≤0.01）；等高线分位 0.6/0.7/0.8 三档相邻 Jaccard ≈0.71（旋钮诚实）；端到端阳性对照 **CXCL13 在 25/30 患者的 B 轴等高线内侧/边缘达峰**（教科书位置）。
+- 决策：
+  1. **Tier-1（地基）**：组成轴尺子厂——轴分=模块基因 z 分均值，跨患者可比性由构造保证（同基因同公式），无匹配步骤；几何 ruler 由等高线切出（离散合法，但分位旋钮披露并扫三档）；轴全部登记 registry，EXPLORATORY_REPRODUCED 起步。
+  2. **Tier-2（发现）**：对不上任何轴的 cluster 进普查（平均链接层次聚类杀链式雪崩＋纯度列，纯度 <0.5 强制 LOW_PURITY_MIXED_GROUP 且压回 DESCRIPTIVE）；每组记 best_axis 对齐分（≥0.5 记 axis_explained）；患者独有组升一等公民，等级注明可能污染。
+  3. Lane A 双接法：gene~f(轴分)（组成坐标）与 gene~f(到等高线有符号跳数距离)（几何坐标）都允许；L3 连续共享度留作 Tier-2 跨患者测量（R-04 rank-1 方法的复用）。
+  4. 已知限制入 LEADS：毛发球会吞弱特异性真 pattern（B 细胞 6 cluster 被吞），候选解 marker-overlap 匹配（L-006）。
+- 理由：轴把"跨患者 cluster 匹配"（病态）换成"每患者测同一根轴"（良态）；离散 mask 保留在 Tier-2（无轴可打的区域）合法地位；D-113 连续信号原则落实为"地基连续＋离散几何旋钮诚实"。
+- 失效条件：轴集合覆盖不足（新结构全部 UNEXPLAINED 且 Tier-2 全孤证）→扩轴需追加 decision；等高线分位敏感性证伪下游结论→结论随旋钮作废；marker 库本身偏差（D-105 失效条件沿用）。
+- 影响：设计 v2.0；`r16/axes.py`＋`scripts/r16_axis_rulers.py`＋census 升级（平均链接/纯度/轴对齐）＋`scripts/r16_build_registry.py`；`infra/r16/field_registry.tsv` v1（228 行：7 Tier-1＋221 Tier-2；20 行 EXPLORATORY_REPRODUCED）；I-021 对 Tier-1 不再阻塞（自相关用值置换），Lane A 关联检验仍需空间保持 null。
