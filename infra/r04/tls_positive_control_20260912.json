@@ -1,0 +1,94 @@
+{
+  "evidence_grade": "exploratory_post_hoc_no_confirmatory_claim",
+  "features": [
+    "plasma_module",
+    "PTPRC",
+    "CD68",
+    "EPCAM",
+    "COL1A1",
+    "ACTA2",
+    "LYZ"
+  ],
+  "n_annotated_spots": 13726,
+  "n_patients_with_labels": 3,
+  "n_positive": 170,
+  "n_sections_with_labels": 4,
+  "n_total_spots_scanned": 113344,
+  "plasma_genes": [
+    "IGHM",
+    "IGKC",
+    "JCHAIN",
+    "MZB1",
+    "SDC1",
+    "IGLC3",
+    "IGHA2"
+  ],
+  "results": {
+    "ACTA2": {
+      "auc": 0.36291245031503305,
+      "ci95": [
+        0.3295305954080016,
+        0.397654186743129
+      ],
+      "n_boot": 500
+    },
+    "CD68": {
+      "auc": 0.38561696144967283,
+      "ci95": [
+        0.35909568232114475,
+        0.41431127554456243
+      ],
+      "n_boot": 500
+    },
+    "COL1A1": {
+      "auc": 0.40170230677104124,
+      "ci95": [
+        0.36714456384365424,
+        0.4416641810228814
+      ],
+      "n_boot": 500
+    },
+    "EPCAM": {
+      "auc": 0.20941584364639926,
+      "ci95": [
+        0.1927953649127786,
+        0.22857694761451292
+      ],
+      "n_boot": 500
+    },
+    "LYZ": {
+      "auc": 0.343869656153993,
+      "ci95": [
+        0.3150191556068141,
+        0.37344126816883255
+      ],
+      "n_boot": 500
+    },
+    "PTPRC": {
+      "auc": 0.7802605314772707,
+      "ci95": [
+        0.7336153272457061,
+        0.8182596891299182
+      ],
+      "n_boot": 500
+    },
+    "combined_logistic": {
+      "auc": 0.9301431534549494,
+      "ci95": [
+        0.9135934018989365,
+        0.9474334287517145
+      ],
+      "n_boot": 500
+    },
+    "plasma_module": {
+      "auc": 0.51794972488848,
+      "ci95": [
+        0.4829687646567977,
+        0.5559462760238278
+      ],
+      "n_boot": 500
+    }
+  },
+  "schema": "r04.tls_positive_control.v1",
+  "status": "EXPLORATORY_COMPLETE"
+}

@@ -3,11 +3,14 @@
 当前唯一活跃工作面：项目已转探索定位（D-101，预注册约束取消）。K=3 工作容器继续；各方向（空间 null、组成拆分、结构读出深化）可并行探索，结果须标注证据等级。
 科学判断见 `docs/plan.md`，节点状态见 `docs/roadmap.md`，技术选择见 `docs/decisions.md`。
 
-## 下一步（R-04 已关闭 2026-09-11；只保留真正尚需执行的节点）
+## 下一步（R-04 已关闭；策略修正 D-112 已落盘 2026-09-14）
 
 - [x] R-04 最终关闭完成：`R04_COMPLETE_NO_REPRODUCIBLE_RESIDUAL_FIELD`（D-110，最终门禁已落盘）；K 控制面修复；nested 终审；文档原位更新
 - [x] R-03 普查完成 09-11：只查已下载数据（脚本＋测试＋`infra/r03/serial_section_census_20260911.json`）；22 个多切片块零对已知间距；同平面遮蔽可测，其余三类不可测；I-002 对 R-11 范围升级硬阻塞；是否申请带间距的新数据待用户决策
-- [x] 用户定方向（09-12）：关闭 R-04，不重开证据评估——收缩结论（R04_COMPLETE_NO_REPRODUCIBLE_RESIDUAL_FIELD 维持）；R-11 相关新数据（Xenium CRC／dbGaP／作者邮件）一律暂缓，需另行明确批准才重启
+- [x] 用户定方向（09-12）：关闭 R-04，不重开证据评估——收缩结论；R-11 相关新数据一律暂缓
+- [x] 场发现策略修正（09-14，D-112）：残余从参赛资格降级为评分维度；搜索放开、claim 须复现＋过 null＋量化不确定性；field registry 立项；TLS 阳性对照确认 panel 盲区（I-020）与生物学可测性
+- [ ] 起草 field registry schema＋回填现有候选（TLS、TSB rank2、a29 残余、unnamed rank-1 方向）——新框架地基，纯本地工作
+- [ ] hold 中（需逐项批准）：R-11 smoke、Xenium CRC、dbGaP、两封数据邮件、CRDC/NCI 凭据
 
 ## 当前执行分支（三线并行执行中；2026-09-10 用户批准开工）
 
@@ -84,6 +87,6 @@
 - 2026-09-11：执行 R04 finalization prompt，R-04 阴性关闭（D-107…D-110，最终门禁落盘）；K 控制面修复；nested 终审推翻旧 smoke 结论；文档原位更新；final phase report 落盘；313 测试全过并推送（db625ed）。
 - 2026-09-11：R-03 普查完成（22 多切片块零已知间距；I-002 对 R-11 升级硬阻塞）；是否申请新数据待用户决策。
 - 2026-09-11：R-03 工作冻结为交接文档 docs/HANDOFF_R03_2026-09-11.md（普查＋侦察＋Cervilla 落地＋A/B/C/D 待决策＋恢复步骤）；恢复时只读该文档即可。
-- 2026-09-12：数据补充阶段关闭——W0（100文件16G）＋P0/P1去重后新增224（落盘52G）＋HT480B1两对CANDIDATE（32文件3.55GB）全部md5/文件头校验落盘；W1分五档，P2_multi验完（仅HT480B1两对CANDIDATE，HT339B1判BORDERLINE不动，168文件判不同块REJECT），P2_single＋P3跳过（~71GB零价值）；CRDC/Gen3/NCI、dbGaP、OHSU保持外部阻塞；流量API代理＋S3/GCS bulk直连已固化。后续只按触发条件补数，不再囤积。
-- 2026-09-12：数据补充阶段关闭——W0（100文件16G）＋P0/P1（312文件，W0去重后新增224，落盘52G）＋HT480B1两对CANDIDATE（32文件3.55GB）全部校验落盘；W1分五档（P0 48f/6.5GB、P1 264f/35.6GB、P2_multi 216f/29GB、P2_single 432f/58GB、P3 96f/13GB），P2_multi验完（仅HT480B1两对判CANDIDATE，HT339B1判BORDERLINE不动，168文件判不同块REJECT）；P2_single＋P3跳过（~71GB零价值）；CRDC/Gen3/NCI、dbGaP、OHSU保持外部阻塞；流量配置为API走代理＋S3/GCS bulk直连（download_env.sh）。后续只按触发条件补数（smoke test归因缺数／复制对不够／H&E配准缺输入），不再囤积。
+- 2026-09-12：数据补充阶段关闭——W0（100文件16G）＋P0/P1（312文件，W0去重后新增224，落盘52G）＋HT480B1两对CANDIDATE（32文件3.55GB）全部md5/文件头校验落盘；W1分五档（P0 48f/6.5GB、P1 264f/35.6GB、P2_multi 216f/29GB、P2_single 432f/58GB、P3 96f/13GB），P2_multi验完（仅HT480B1两对判CANDIDATE，HT339B1判BORDERLINE不动，168文件判不同块REJECT）；P2_single＋P3跳过（~71GB零价值）；CRDC/Gen3/NCI、dbGaP、OHSU保持外部阻塞；流量配置为API走代理＋S3/GCS bulk直连（download_env.sh）。后续只按触发条件补数，不再囤积。（本条目曾重复登记，09-14 清理为单条）
 - 2026-09-12：用户定方向为关闭 R-04（收缩，不重开证据评估）；R-11 相关新数据（Xenium CRC／dbGaP／作者邮件）一律暂缓，需另行明确批准。
+- 2026-09-14：场发现策略修正（D-112）——残余降级为评分维度、field registry 立项、TLS 阳性对照结果与 panel 盲区（I-020）落盘；文档已原位更新（roadmap/decisions/ISSUES/LEADS/STATUS）。

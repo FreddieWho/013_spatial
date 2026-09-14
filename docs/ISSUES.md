@@ -241,3 +241,14 @@
 - **2026-09-01 conditional bridge update:** because the training-role evidence cannot judge third-direction sensitivity, the six-cell K=2 Stage-A manifest is frozen. Its first K=2 CPU fit was stopped before the first checkpoint; no K=2 score, readout or K conclusion was produced. The stage artifact is `BLOCKED_CPU_RUNTIME`, with historical matched CPU fit estimates of approximately 1.25–6.9 hours per cell. The current linked handoff is `k_semantics_and_downstream_robustness_20260901_final.json`. The next decision is a bounded GPU approval or explicit acceptance of the corresponding CPU runtime; spatial null and composition split remain downstream and are not silently substituted.
 - **2026-09-01 Torch backend migration:** R-04 active compute has been refactored from TensorFlow/TFP to PyTorch (D-094); `environment.lock.json` `backend=torch` is now the single enforced backend, CPU/CUDA share one `torch.autograd`/`torch.optim` implementation, and no `import tensorflow`/`tensor_probability` remains in active code. Legacy TensorFlow checkpoints/artifacts are sealed as historical evidence and are not consumed by Torch training. Current `selected_k=null` is preserved; no new K=2/K=3 scientific result has been produced under Torch, and formal K comparison requires matched Torch reruns.
 - **2026-09-02 Torch migration audit update:** the new checkpoint contract is now fail-closed against mixing `params` with `best_state`, malformed parameter layouts, missing parameter tensors, one-sided nuisance tensors and explicit library-size changes. The isolated Torch environment (including the existing h5ad reader dependency) passes the full 178-test R-04 suite and the objective oracle; this is engineering/provenance evidence, not a new real-data result. The issue remains `OPEN`: matched Torch K=0/K=3 real-data reruns are still required before the old fold-heterogeneity signal can be reassessed, and the K=2 bridge remains conditional.
+
+## I-020｜frozen 4000 基因 panel 不含经典 TLS 标记基因（阳性对照证实）
+
+- **状态：** `OPEN`
+- **发现日期：** 2026-09-14
+- **影响节点：** 一切 TLS 相关读出与注册场评分（field registry 的 TLS 行）；H-01/H-03 证据归因。
+- **当前事实：** TLS 阳性对照（`infra/r04/tls_positive_control_20260912.json`，exploratory）核验 frozen 4000-gene panel：CXCL13、MS4A1（CD20）、CD3D/E/G、CD19、CCL19、CCL21、LTB、CR2、CXCR5、CCR7、SELL、BANK1、FCRL5、IGHG2/3/4 家族部分均不在 panel；可用的是浆细胞模块（IGHM/IGKC/JCHAIN/MZB1/SDC1/IGLC3/IGHA2）、PTPRC、CD68、LYZ、ICAM1、CLU、CXCL12、PECAM1。panel 为 R-06 时代历史冻结，不回溯修改。
+- **当前影响：** TLS 读出只能用组成型代理信号（白细胞富集＋非上皮），任何 TLS 阴性结论的归因都受限：分不清"信号不存在"与"panel 不覆盖"。R-04 的 TLS DOES_NOT_SURVIVE 不受此改变（其零发现另有外层 null 支撑），但解释口径必须带本缺口。
+- **下一判定点：** field registry 回填 TLS 行时须把 panel 覆盖缺口写入该行 notes；若未来重选 panel，先查目标结构标记覆盖再上模型。
+- **硬阻塞条件：** 若某一 claim 依赖的经典标记被证实在 panel 中缺失且无可替代代理，该 claim 保持 NOT_TESTABLE，不得以代理信号替代。
+
