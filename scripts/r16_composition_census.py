@@ -119,7 +119,8 @@ def main() -> int:
 
     # Tier-1 axis alignment per group (v2.0): mean signature scored on each axis
     proxy = json.load(open(args.marker_proxy))
-    axis_defs = {k: v["voted_genes"] for k, v in proxy["classes"].items()}
+    axis_defs = {k: v["voted_genes"] for k, v in proxy["classes"].items()
+                 if k not in A.RETIRED_AXES}
     axis_defs["Plasma"] = A.PLASMA_GENES
     genes0 = ok[0]["genes_ref"] if ok else []
     gidx0 = {g: i for i, g in enumerate(genes0)}

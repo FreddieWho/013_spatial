@@ -707,3 +707,10 @@ D-093 (2026-09-01): use the TensorFlow compiled execution path for the frozen K=
 - 决策：ST-CRC（同病 7 患者）与 USZ（肾+肺 8 患者、TLS 真值）只做独立轴复现；不用 Vanderbilt HVG-10k 过滤（用各切片实际存在的 voted 基因）；不做跨谱系联合聚类/匹配；不写入发现 registry 行，只写 replication 产物。发现集仍仅 Vanderbilt（D-114 C 维持）。
 - 失效条件：若独立复现因基因符号对不齐或坐标读入错误导致系统性零相干，先修 IO 再解释生物学；若用户明确批准「混合发现」才允许改 D-114 C。
 - 影响：`scripts/r16_axis_replication.py`；`infra/r16/axis_replication_{ST_CRC_CMS,TLS_VISIUM_USZ}_20260915.json` 与 comparison JSON。
+
+### D-117 | 2026-09-15 | 退役 ILC 轴；工作集定为 T/B/Mye/Epi/Stromal/Plasma 六轴
+
+- 背景：用户指出 ILC 在组织切片（尤其单细胞）里通常稀少、定义不稳。实证上 ILC 也是最弱轴（Visium Moran I 0.19–0.26；D-105 旧 panel 仅 1 基因、viable=False）。「7 轴+x」中唯一额外测试过的 x 是浆细胞模块；内皮/增殖/缺氧等未测。
+- 决策：ILC 移出工作集（`r16.axes.RETIRED_AXES`），后续 Lane A/普查轴对齐不再使用。历史产物保留 ILC 数字作档案，registry 行标记 `RETIRED_D117`。工作集六轴：T、B、Mye、Epi、Stromal、Plasma。新 x 轴须单独批准并做与 CXCL13–B 同级的阳性对照，不得默默加入。
+- 失效条件：若未来有稳定、跨队列可复现的 ILC 空间程序（且不与 T/NK 模块共线），可追加决策恢复。
+- 影响：轴脚本与 census 对齐跳过 ILC；不重跑已完成的三队列实验。

@@ -24,7 +24,8 @@ PC_BINS = np.arange(-4, 9)
 
 
 def _axis_defs(proxy: dict) -> dict[str, list[str]]:
-    defs = {k: list(v["voted_genes"]) for k, v in proxy["classes"].items()}
+    defs = {k: list(v["voted_genes"]) for k, v in proxy["classes"].items()
+            if k not in A.RETIRED_AXES}
     defs["Plasma"] = list(A.PLASMA_GENES)
     return defs
 

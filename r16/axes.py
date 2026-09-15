@@ -18,6 +18,9 @@ from r16.census import jaccard
 
 QUANTILES = (0.6, 0.7, 0.8)
 PLASMA_GENES = ["IGHM", "IGKC", "JCHAIN", "MZB1", "SDC1", "IGLC3", "IGHA2"]
+# ILC retired (D-117): rare, poorly defined on Visium spots; empirically weakest axis.
+RETIRED_AXES = frozenset({"ILC"})
+WORKING_AXES = ("T", "B", "Mye", "Epi", "Stromal", "Plasma")
 
 
 def axis_scores(x_z: np.ndarray, gidx: dict[str, int], axis_genes: list[str]):

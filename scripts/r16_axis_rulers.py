@@ -42,7 +42,8 @@ def main() -> int:
     rank = np.load(args.rank_file)
     top = {union[i] for i in np.flatnonzero(rank < args.top_n)}
     axis_defs = {k: [g for g in v["voted_genes"] if g in top]
-                 for k, v in proxy["classes"].items()}
+                 for k, v in proxy["classes"].items()
+                 if k not in A.RETIRED_AXES}
     axis_defs["Plasma"] = [g for g in A.PLASMA_GENES if g in top]
     rng = np.random.default_rng(C.SEED)
     stems = C.list_stems(args.cache)

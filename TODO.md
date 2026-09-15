@@ -93,3 +93,4 @@
 - 2026-09-14：R-16 设计方案 v1 落盘（docs/R16_DISCOVERY_DESIGN_20260914.md）；侦察确认 bash 环境 sklearn/leidenalg/igraph 齐备、坐标在源 h5ad obsm/spatial 可按 barcode 对齐、坐标单位不可靠故距离用图跳数。待用户批准后执行第①步普查。
 - 2026-09-14：R-16 两步走全部落地——D-114 基因宇宙（整合 HVG top-10000，14/14 TLS 基因救回）、D-115 两层结构（Tier-1 轴尺子厂＋Tier-2 残余普查）、registry v1 228 行交付；用户第一性原理追问驱动的逻辑层重构（L1-L5）全部处置。
 - 2026-09-15：D-116 独立复现完成——ST-CRC 7/7、USZ 8/8 轴相干；CXCL13 峰≤+1 为 6/7 与 7/8；USZ TLS~B 中位 AUC 0.71（肾高肺杂）；不混发现集。
+- 2026-09-15：D-117 退役ILC轴；工作集改为T/B/Mye/Epi/Stromal/Plasma；未测的x（内皮/增殖/缺氧）不得默默加入。
