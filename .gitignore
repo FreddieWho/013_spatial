@@ -64,3 +64,4 @@ __pycache__/
 # R-16 census cache: derived data, local-only (mirrors r04 panel cache practice)
 infra/r16/census_cache_hvg10k/sections/
 infra/r16/census_clusters_20260914.npz
+infra/r16/axis_factory_loadings_*.npz
