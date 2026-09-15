@@ -723,3 +723,12 @@ D-093 (2026-09-01): use the TensorFlow compiled execution path for the frozen K=
 - 理由：这是可信阴性而非方法失效——(1) 无阈值膝点，阴性不依赖 0.75；(2) 与 Tier-2 独立方法收敛到同一结论（可复现结构稀少且薄）；(3) pilot 预注册了旋钮行为，实测吻合。含义：病人特异性主导，未命名共享程序若存在，其 loading 形式在本队列不可见。
 - 失效条件：若未来引入旋转感知匹配（子空间/Procrustes）后出现 NEW 复现轴，本结论按方法升级修订（见 LEADS L-008）；若复现引擎（ST-CRC/USZ）上出现本队列没有的共享轴，同样修订。
 - 影响：`r16/axis_factory.py`＋`scripts/r16_axis_factory.py`（＋半径复核脚本）＋6 项测试；registry 升 v1.1（1085 行：7 Tier-1＋857 Tier-1b＋221 Tier-2）；设计 v2.1；I-021 对 Tier-1 v2 不再阻塞（自相关用值置换），Lane A 关联检验仍阻塞。
+
+### D-119 | 2026-09-15 | HTAN 内部联合嵌入发现轨：专用方法 + 独立复现
+
+- 背景：用户问为何不按单细胞方法把所有片子整合起来分析。判断：发现集内部联合可以，验证集绝不能混入（D-116 防火墙）；且整合的目标函数就是"抹掉样本间差异"，拿对齐完的数据检验一致性是循环论证——本轨只能当望远镜（发现候选），不能当法官（复现仍须独立检验）。
+- 环境勘误：此前"harmonypy、scVI、R 全没有"的调查结论**三条全错**，特此更正——R 一直在（/usr/bin/Rscript，R 4.5.1）；`sc` env 有 harmonypy；`sc_inte` env 有 scvi；R 891 个包中 Seurat 4.4.0/sctransform/harmony/Signac/SpatialExperiment 俱全。教训：环境断言必须以实测命令为准，不凭记忆。
+- 决策：联合轨限定 HTAN Vanderbilt 47 片/30 患者；四臂分工——A numpy 手写 ComBat 基线（scanpy import 链在本环境损坏，HVG 缓存+确定性种子已验证行为；跑全量中）、S Seurat v4 SCT anchors（reference 取最大 5 片）、H Harmony（merged log-normalize + RunHarmony）、P PRECAST（待装； intrinsic CAR，本轨唯一空转专用模型）。候选定义与 Tier-2 同口径（Leiden 三档、min 20 点、Moran 200 次）；内部裁判为 split-half 病人对半独立重跑（ComBat 在半内重 fit，匹配用 raw-space 签名）；升级线不变（≥2 病人）；registry 记 tier 2、kind joint_pattern_group。
+- ComBat 适用性质疑（用户提出，当面记录）：ComBat 假设各 batch 装的是同一生物学，切片间真实组成差异会被当批次效应吃掉——这是假设层问题，调参修不好。本轨内将其后果转为假阴性而非假claim（split-half 对不上就如实报不复现）；另提议补 Arm 0 无矫正对照以量化 ComBat 足迹，待用户批准。
+- 失效条件：任一臂出现系统性单病人纯 cluster（矫正失败）或全混浆糊（过度矫正），该臂结果降级为方法学阴性对照，不进 registry；PRECAST 若装不上或跑不动，P 臂取消，不阻塞 S/H 臂。
+- 影响：`r16/joint.py`＋`scripts/r16_joint_embed.py`＋`tests/test_r16_joint.py`；`scripts/r16_export_seurat_bridge.py`＋`scripts/r16_seurat_integration.R`＋`scripts/r16_score_r_labels.py`（待 R 产物）；`scripts/r16_build_registry.py` 接 tier2j/tier2r。

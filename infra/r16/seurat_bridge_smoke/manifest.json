@@ -1,0 +1,16 @@
+[
+  {
+    "stem": "0000_HTAN_8270_AS_2_filtered_trimmed.h5ad",
+    "section_id": "HTAN::8270_AS_2_filtered_trimmed.h5ad",
+    "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::07dc676d92f9d153",
+    "n_spots": 665,
+    "n_genes": 10000
+  },
+  {
+    "stem": "0001_HTAN_7003_AS_5_filtered_trimmed.h5ad",
+    "section_id": "HTAN::7003_AS_5_filtered_trimmed.h5ad",
+    "patient_id": "HTAN_VANDERBILT_CRC::PATIENT::0bd3490036cbd4de",
+    "n_spots": 3261,
+    "n_genes": 10000
+  }
+]

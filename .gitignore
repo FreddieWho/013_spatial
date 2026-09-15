@@ -65,3 +65,6 @@ __pycache__/
 infra/r16/census_cache_hvg10k/sections/
 infra/r16/census_clusters_20260914.npz
 infra/r16/axis_factory_loadings_*.npz
+
+# R16 Seurat bridge: derived per-section MM triples, regenerable via scripts/r16_export_seurat_bridge.py
+infra/r16/seurat_bridge/
