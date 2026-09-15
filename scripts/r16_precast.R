@@ -22,6 +22,9 @@ bridge_dir <- args[1]
 out_dir <- args[2]
 kmin <- ifelse(length(args) >= 3, as.integer(args[3]), 4L)
 kmax <- ifelse(length(args) >= 4, as.integer(args[4]), 10L)
+# ngene>0: keep top-ngene genes by pooled variance (smoke/cost control).
+# Full runs use all common genes; any cap is disclosed in run.log + registry.
+ngene <- ifelse(length(args) >= 5, as.integer(args[5]), 0L)
 dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
 logf <- file(file.path(out_dir, "run.log"), open = "wt")
 logmsg <- function(...) { cat(..., "\n", file = logf); flush(logf) }
@@ -52,6 +55,14 @@ logmsg("loaded: ", length(seuList), " sections")
 
 common_genes <- Reduce(intersect, lapply(seuList, rownames))
 logmsg("common genes across sections: ", length(common_genes))
+if (ngene > 0 && length(common_genes) > ngene) {
+  v <- rowMeans(do.call(cbind, lapply(seuList, function(s) {
+    m <- as.matrix(GetAssayData(s, slot = "counts")[common_genes, ])
+    (m - rowMeans(m))^2
+  })))
+  common_genes <- names(sort(v, decreasing = TRUE))[seq_len(ngene)]
+  logmsg("capped to top-", ngene, " variance genes")
+}
 
 po <- CreatePRECASTObject(seuList, customGenelist = common_genes,
                           rawData.preserve = FALSE, verbose = TRUE)
@@ -71,25 +82,19 @@ sidecar <- list(resList_names = names(po@resList),
                 resList_class = class(po@resList))
 write_json(sidecar, file.path(out_dir, "resList_sidecar.json"),
            auto_unbox = TRUE, pretty = TRUE)
+# resList$cluster is an UNNAMED per-section list of n×1 matrices aligned
+# with po@seulist (filtered cells); barcodes come from colnames(seulist).
+# (Smoke 2026-09-16 caught the old names()-based branch writing empty output.)
 tryCatch({
   clu <- po@resList$cluster
-  stopifnot(!is.null(clu))
-  # resList$cluster: named vector or per-sample list; normalize to table
-  if (is.list(clu) && !is.data.frame(clu)) {
-    tbl <- do.call(rbind, lapply(names(clu), function(s) {
-      data.frame(section = s, barcode = names(clu[[s]]),
-                 cluster = as.character(clu[[s]]), stringsAsFactors = FALSE)
-    }))
-  } else {
-    bcs <- if (!is.null(names(clu))) names(clu) else seq_along(clu)
-    # stacked order follows seuList order
-    sec_vec <- rep(vapply(seuList, function(s) s$section[1], character(1)),
-                   times = vapply(seuList, ncol, integer(1)))
-    tbl <- data.frame(section = sec_vec, barcode = as.character(bcs),
-                      cluster = as.character(clu), stringsAsFactors = FALSE)
-  }
-  # strip to orig barcodes via coords.csv lookup
-  tbl$orig_barcode <- tbl$barcode
+  stopifnot(is.list(clu), length(clu) == length(manifest))
+  tbl <- do.call(rbind, lapply(seq_along(clu), function(i) {
+    bcs <- colnames(po@seulist[[i]])
+    stopifnot(length(bcs) == nrow(clu[[i]]))
+    data.frame(section = manifest[[i]]$stem, barcode = bcs,
+               orig_barcode = bcs, cluster = as.character(clu[[i]][, 1]),
+               stringsAsFactors = FALSE)
+  }))
   write.csv(tbl, file.path(out_dir, "labels_armP.csv"), row.names = FALSE)
   logmsg("labels extracted: ", nrow(tbl), " spots, K groups: ",
          paste(sort(unique(tbl$cluster)), collapse = ","))
