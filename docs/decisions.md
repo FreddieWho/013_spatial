@@ -732,3 +732,10 @@ D-093 (2026-09-01): use the TensorFlow compiled execution path for the frozen K=
 - ComBat 适用性质疑（用户提出，当面记录）：ComBat 假设各 batch 装的是同一生物学，切片间真实组成差异会被当批次效应吃掉——这是假设层问题，调参修不好。本轨内将其后果转为假阴性而非假claim（split-half 对不上就如实报不复现）；另提议补 Arm 0 无矫正对照以量化 ComBat 足迹，待用户批准。
 - 失效条件：任一臂出现系统性单病人纯 cluster（矫正失败）或全混浆糊（过度矫正），该臂结果降级为方法学阴性对照，不进 registry；PRECAST 若装不上或跑不动，P 臂取消，不阻塞 S/H 臂。
 - 影响：`r16/joint.py`＋`scripts/r16_joint_embed.py`＋`tests/test_r16_joint.py`；`scripts/r16_export_seurat_bridge.py`＋`scripts/r16_seurat_integration.R`＋`scripts/r16_score_r_labels.py`（待 R 产物）；`scripts/r16_build_registry.py` 接 tier2j/tier2r。
+
+### D-121 | 2026-09-15 | GraphST GPU 臂准备：逐片训练＋全 epoch＋V100 券优先
+
+- 背景：用户批准 GPU 路径并指定 GraphST，要求全 epoch 不打折。事前核实（非记忆）：GraphST 源码无 DGL/torch-geometric 依赖（纯 torch）、聚类默认走 R-mclust（rpy2＋R 4.0.3）、`preprocess` 原生 seurat_v3 top-3000 HVG、`construct_interaction` 对 Visium 建稠密 O(n²) 距离矩阵。
+- 决策：逐片训练，不做 merged vertical——113k 点 pooled 的稠密距离矩阵约 100GB，24/48GB 卡放不下；跨片复现由 registry 现有机器（匹配/纯度/Moran/split-half）检验，不强迫对齐（D-119 原则沿用）。原生 seurat_v3 top-3000（输入池为 HVG-10k，披露近似）；random_seed 改 20260914（上游默认 41，披露）；聚类用 Leiden 三档＋min 20（不上 mclust，免 R 桥、与 Tier-2 同口径）；epochs=600 全量；labels 逐片增量落盘（防抢占作废）；torch 2.1.2+cu118（sm_70/V100 有文档支持，不追新版）；V100 6 小时券先烧，不够切 4090（¥1.65/时，先前 ¥15 封顶继续有效）。
+- 失效条件：任一片 embedding 出 NaN/全零则该片记失败不入 registry；若逐片 embedding 跨片匹配率系统性低于 Tier-2 同口径基线，记方法学阴性对照；V100 上 torch/DGL 行为异常则停租转 4090，不烧券硬扛。
+- 影响：`scripts/r16_export_graphst_bridge.py`＋`scripts/r16_graphst_run.py`＋`scripts/r16_graphst_setup.sh`＋`tests/test_r16_graphst_bridge.py`（3 项本地全绿，torch 路径 stub 覆盖）；scorer 接 arm G（纯加法，缺文件跳过）；bridge 数据 git 忽略可重建。

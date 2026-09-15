@@ -25,6 +25,7 @@ ROOT = Path(__file__).resolve().parent.parent
 ARMS = {
     "S": ("labels_armS.csv", ["SCT_025", "SCT_05", "SCT_10"]),
     "H": ("labels_armH.csv", ["HARM_025", "HARM_05", "HARM_10"]),
+    "G": ("labels_armG.csv", ["GRAPHST_025", "GRAPHST_05", "GRAPHST_10"]),
 }
 
 
@@ -68,6 +69,9 @@ def main() -> int:
     # all arm/res labelings, spot-aligned to pooled order
     labelings = {}  # (arm, col) -> (labels array, stems array)
     for arm, (fname, cols) in ARMS.items():
+        if not (args.labels_dir / fname).exists():
+            print(f"arm {arm}: {fname} absent, skipped", flush=True)
+            continue
         df = pd.read_csv(args.labels_dir / fname, dtype=str)
         key = list(zip(df["section"].tolist(), df["orig_barcode"].tolist()))
         for col in cols:
@@ -145,7 +149,9 @@ def main() -> int:
         memb[k] = d
     for r in cands:
         key = (r["arm"], {"SCT_025": "SCT_025", "SCT_05": "SCT_05", "SCT_10": "SCT_10",
-                          "HARM_025": "HARM_025", "HARM_05": "HARM_05", "HARM_10": "HARM_10"}[r["col"]])
+                          "HARM_025": "HARM_025", "HARM_05": "HARM_05", "HARM_10": "HARM_10",
+                          "GRAPHST_025": "GRAPHST_025", "GRAPHST_05": "GRAPHST_05",
+                          "GRAPHST_10": "GRAPHST_10"}[r["col"]])
         mine = memb[key][r["cluster_id"]]
         best = {}
         for k2, d2 in memb.items():
@@ -185,7 +191,7 @@ def main() -> int:
         slim.append(d)
     artifact = {"schema": "r16.joint_embed_R.v1",
                 "status": "EXPLORATORY_COMPLETE_NOT_CLAIM", "seed": C.SEED,
-                "parameters": {"arms": ["S", "H"], "resolutions": [0.25, 0.5, 1.0],
+                "parameters": {"arms": sorted({a for a, _ in labelings}), "resolutions": [0.25, 0.5, 1.0],
                                "min_cluster_size": C.MIN_CLUSTER_SIZE,
                                "null_draws": args.null_draws,
                                "split_half": "not_refit_for_R_arms_judge_is_xarm_agreement_plus_external"},

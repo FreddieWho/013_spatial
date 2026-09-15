@@ -68,3 +68,5 @@ infra/r16/axis_factory_loadings_*.npz
 
 # R16 Seurat bridge: derived per-section MM triples, regenerable via scripts/r16_export_seurat_bridge.py
 infra/r16/seurat_bridge/
+# R16 GraphST bridge: derived per-section AnnData, regenerable via scripts/r16_export_graphst_bridge.py
+infra/r16/graphst_bridge/
