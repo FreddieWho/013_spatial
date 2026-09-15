@@ -739,3 +739,8 @@ D-093 (2026-09-01): use the TensorFlow compiled execution path for the frozen K=
 - 决策：逐片训练，不做 merged vertical——113k 点 pooled 的稠密距离矩阵约 100GB，24/48GB 卡放不下；跨片复现由 registry 现有机器（匹配/纯度/Moran/split-half）检验，不强迫对齐（D-119 原则沿用）。原生 seurat_v3 top-3000（输入池为 HVG-10k，披露近似）；random_seed 改 20260914（上游默认 41，披露）；聚类用 Leiden 三档＋min 20（不上 mclust，免 R 桥、与 Tier-2 同口径）；epochs=600 全量；labels 逐片增量落盘（防抢占作废）；torch 2.1.2+cu118（sm_70/V100 有文档支持，不追新版）；V100 6 小时券先烧，不够切 4090（¥1.65/时，先前 ¥15 封顶继续有效）。
 - 失效条件：任一片 embedding 出 NaN/全零则该片记失败不入 registry；若逐片 embedding 跨片匹配率系统性低于 Tier-2 同口径基线，记方法学阴性对照；V100 上 torch/DGL 行为异常则停租转 4090，不烧券硬扛。
 - 影响：`scripts/r16_export_graphst_bridge.py`＋`scripts/r16_graphst_run.py`＋`scripts/r16_graphst_setup.sh`＋`tests/test_r16_graphst_bridge.py`（3 项本地全绿，torch 路径 stub 覆盖）；scorer 接 arm G（纯加法，缺文件跳过）；bridge 数据 git 忽略可重建。
+
+### D-122 | 2026-09-16 | GraphST 全量不限时跑完即停（用户指令变更计费纪律）
+- 背景：dry-run 全绿（GPU 真训、labels 落盘 665 行、列齐）；全量预估 1.5–2.5h。用户明确：不用管 6 小时券，跑完即停。
+- 决策：GraphST 全量（47 片×600 epoch）不限 6 小时券窗口，以完成为准；结束后立即退租（用户另有明确"跑完帮我及时退租关闭"指令）。券外部分的计费如实记录，不另设硬封顶——D-121 的 ¥15 封顶仅适用于 4090 fallback，不适用于本次 V100 全量。
+- 影响：`graphst_out_full` 远端增量落盘；完成后回收 labels→scorer→registry，落盘推送，然后执行退租。

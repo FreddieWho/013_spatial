@@ -60,7 +60,10 @@ def leiden_on_embedding(emb: np.ndarray):
 def run_one(h5ad_path: Path, device: str, epochs: int):
     """Train GraphST on one section file. Returns (adata_with_emb, seconds)."""
     import anndata as ad
-    from GraphST import GraphST
+    # NOTE: GraphST/__init__.py does NOT re-export the class, so
+    # `from GraphST import GraphST` binds the SUBMODULE (TypeError).
+    # Correct: import the class from the submodule (verified 2026-09-16).
+    from GraphST.GraphST import GraphST
 
     t0 = time.time()
     adata = ad.read_h5ad(h5ad_path)
