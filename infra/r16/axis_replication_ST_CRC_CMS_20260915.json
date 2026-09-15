@@ -1,0 +1,85 @@
+{
+  "schema": "r16.axis_replication.v1",
+  "status": "EXPLORATORY_REPLICATION_NOT_CLAIM",
+  "lineage": "ST_CRC_CMS",
+  "n_sections": 14,
+  "n_sections_ok": 14,
+  "section_errors": [],
+  "parameters": {
+    "marker_filter": "section_present_voted_genes_no_vanderbilt_hvg_cap",
+    "null_type": "value_permutation",
+    "null_draws": 200,
+    "pooled_clustering": false
+  },
+  "axes": {
+    "T": {
+      "n_genes_median": 115,
+      "patients_coherent": 7,
+      "n_patients": 7,
+      "moran_i_median": 0.5077923159817181,
+      "moran_p_median": 0.004975124378109453,
+      "contour_stability_mean": 0.7090855790083798
+    },
+    "B": {
+      "n_genes_median": 48,
+      "patients_coherent": 7,
+      "n_patients": 7,
+      "moran_i_median": 0.5067441818166822,
+      "moran_p_median": 0.004975124378109453,
+      "contour_stability_mean": 0.7090855790083798
+    },
+    "Mye": {
+      "n_genes_median": 68,
+      "patients_coherent": 7,
+      "n_patients": 7,
+      "moran_i_median": 0.585054881216402,
+      "moran_p_median": 0.004975124378109453,
+      "contour_stability_mean": 0.7090855790083798
+    },
+    "ILC": {
+      "n_genes_median": 14,
+      "patients_coherent": 7,
+      "n_patients": 7,
+      "moran_i_median": 0.26028765439312107,
+      "moran_p_median": 0.004975124378109453,
+      "contour_stability_mean": 0.7084882834158455
+    },
+    "Epi": {
+      "n_genes_median": 136,
+      "patients_coherent": 7,
+      "n_patients": 7,
+      "moran_i_median": 0.6597529563120177,
+      "moran_p_median": 0.004975124378109453,
+      "contour_stability_mean": 0.7090855790083798
+    },
+    "Stromal": {
+      "n_genes_median": 60,
+      "patients_coherent": 7,
+      "n_patients": 7,
+      "moran_i_median": 0.5822188636939161,
+      "moran_p_median": 0.004975124378109453,
+      "contour_stability_mean": 0.7090855790083798
+    },
+    "Plasma": {
+      "n_genes_median": 7,
+      "patients_coherent": 7,
+      "n_patients": 7,
+      "moran_i_median": 0.5180862530676731,
+      "moran_p_median": 0.004975124378109453,
+      "contour_stability_mean": 0.7068219860145346
+    }
+  },
+  "positive_control": {
+    "gene": "CXCL13",
+    "axis": "B",
+    "contour_quantile": 0.7,
+    "n_patients": 7,
+    "peak_hop_distribution": {
+      "-3": 2,
+      "-2": 4,
+      "3": 1
+    },
+    "n_peak_inside_or_edge_le1": 6
+  },
+  "usz_tls_auc": []
+}

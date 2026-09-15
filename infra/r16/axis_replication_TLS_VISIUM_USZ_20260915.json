@@ -1,0 +1,159 @@
+{
+  "schema": "r16.axis_replication.v1",
+  "status": "EXPLORATORY_REPLICATION_NOT_CLAIM",
+  "lineage": "TLS_VISIUM_USZ",
+  "n_sections": 8,
+  "n_sections_ok": 8,
+  "section_errors": [],
+  "parameters": {
+    "marker_filter": "section_present_voted_genes_no_vanderbilt_hvg_cap",
+    "null_type": "value_permutation",
+    "null_draws": 200,
+    "pooled_clustering": false
+  },
+  "axes": {
+    "T": {
+      "n_genes_median": 111,
+      "patients_coherent": 8,
+      "n_patients": 8,
+      "moran_i_median": 0.5131897512011614,
+      "moran_p_median": 0.004975124378109453,
+      "contour_stability_mean": 0.7085353208663846
+    },
+    "B": {
+      "n_genes_median": 45,
+      "patients_coherent": 8,
+      "n_patients": 8,
+      "moran_i_median": 0.5200225414321491,
+      "moran_p_median": 0.004975124378109453,
+      "contour_stability_mean": 0.7085353208663846
+    },
+    "Mye": {
+      "n_genes_median": 66,
+      "patients_coherent": 8,
+      "n_patients": 8,
+      "moran_i_median": 0.5587162708264528,
+      "moran_p_median": 0.004975124378109453,
+      "contour_stability_mean": 0.7085353208663846
+    },
+    "ILC": {
+      "n_genes_median": 14,
+      "patients_coherent": 8,
+      "n_patients": 8,
+      "moran_i_median": 0.1930768114868795,
+      "moran_p_median": 0.004975124378109453,
+      "contour_stability_mean": 0.6454973322959966
+    },
+    "Epi": {
+      "n_genes_median": 132,
+      "patients_coherent": 8,
+      "n_patients": 8,
+      "moran_i_median": 0.5855706930602746,
+      "moran_p_median": 0.004975124378109453,
+      "contour_stability_mean": 0.7085353208663846
+    },
+    "Stromal": {
+      "n_genes_median": 59,
+      "patients_coherent": 8,
+      "n_patients": 8,
+      "moran_i_median": 0.5909751967773684,
+      "moran_p_median": 0.004975124378109453,
+      "contour_stability_mean": 0.7085353208663846
+    },
+    "Plasma": {
+      "n_genes_median": 6,
+      "patients_coherent": 8,
+      "n_patients": 8,
+      "moran_i_median": 0.5199156268031375,
+      "moran_p_median": 0.004975124378109453,
+      "contour_stability_mean": 0.7059755834088771
+    }
+  },
+  "positive_control": {
+    "gene": "CXCL13",
+    "axis": "B",
+    "contour_quantile": 0.7,
+    "n_patients": 8,
+    "peak_hop_distribution": {
+      "-4": 3,
+      "-3": 3,
+      "-2": 1,
+      "3": 1
+    },
+    "n_peak_inside_or_edge_le1": 7
+  },
+  "usz_tls_auc": [
+    {
+      "section_id": "TLS_VISIUM_USZ::LC3",
+      "patient_id": "TLS_VISIUM_USZ::PATIENT::0277194ca1561b98",
+      "n_labeled": 2120,
+      "n_tls": 344,
+      "auc_B": 0.606942698512466,
+      "auc_T": 0.5611627252252253,
+      "auc_Plasma": 0.4919517991829038
+    },
+    {
+      "section_id": "TLS_VISIUM_USZ::KC3",
+      "patient_id": "TLS_VISIUM_USZ::PATIENT::05d0cf19760f8f04",
+      "n_labeled": 1541,
+      "n_tls": 132,
+      "auc_B": 0.8175742521022862,
+      "auc_T": 0.7383379572875669,
+      "auc_Plasma": 0.5202755016452675
+    },
+    {
+      "section_id": "TLS_VISIUM_USZ::LC2",
+      "patient_id": "TLS_VISIUM_USZ::PATIENT::5a46f98f9f8eedfe",
+      "n_labeled": 1122,
+      "n_tls": 88,
+      "auc_B": 0.5218755494988571,
+      "auc_T": 0.4462205468612625,
+      "auc_Plasma": 0.46295828204677336
+    },
+    {
+      "section_id": "TLS_VISIUM_USZ::LC1",
+      "patient_id": "TLS_VISIUM_USZ::PATIENT::7054344dca71771a",
+      "n_labeled": 2475,
+      "n_tls": 138,
+      "auc_B": 0.8738891679534644,
+      "auc_T": 0.8090857224361717,
+      "auc_Plasma": 0.7252764289656627
+    },
+    {
+      "section_id": "TLS_VISIUM_USZ::KC1",
+      "patient_id": "TLS_VISIUM_USZ::PATIENT::7b9204be03aa71d0",
+      "n_labeled": 1447,
+      "n_tls": 42,
+      "auc_B": 0.9536265039823759,
+      "auc_T": 0.8758600237247924,
+      "auc_Plasma": 0.7953312997796984
+    },
+    {
+      "section_id": "TLS_VISIUM_USZ::LC5",
+      "patient_id": "TLS_VISIUM_USZ::PATIENT::83fba1cd85d2f31b",
+      "n_labeled": 622,
+      "n_tls": 31,
+      "auc_B": 0.11841602532612848,
+      "auc_T": 0.08531193712133617,
+      "auc_Plasma": 0.04115495879045904
+    },
+    {
+      "section_id": "TLS_VISIUM_USZ::KC2",
+      "patient_id": "TLS_VISIUM_USZ::PATIENT::e13843047f4d2612",
+      "n_labeled": 777,
+      "n_tls": 30,
+      "auc_B": 0.9101294065149487,
+      "auc_T": 0.8652833556448014,
+      "auc_Plasma": 0.7614457831325301
+    },
+    {
+      "section_id": "TLS_VISIUM_USZ::LC4",
+      "patient_id": "TLS_VISIUM_USZ::PATIENT::ff5fc998488e94c0",
+      "n_labeled": 937,
+      "n_tls": 120,
+      "auc_B": 0.33268563851489186,
+      "auc_T": 0.42497450020399835,
+      "auc_Plasma": 0.23557731538147694
+    }
+  ]
+}

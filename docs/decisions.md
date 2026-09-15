@@ -700,3 +700,10 @@ D-093 (2026-09-01): use the TensorFlow compiled execution path for the frozen K=
 - 理由：轴把"跨患者 cluster 匹配"（病态）换成"每患者测同一根轴"（良态）；离散 mask 保留在 Tier-2（无轴可打的区域）合法地位；D-113 连续信号原则落实为"地基连续＋离散几何旋钮诚实"。
 - 失效条件：轴集合覆盖不足（新结构全部 UNEXPLAINED 且 Tier-2 全孤证）→扩轴需追加 decision；等高线分位敏感性证伪下游结论→结论随旋钮作废；marker 库本身偏差（D-105 失效条件沿用）。
 - 影响：设计 v2.0；`r16/axes.py`＋`scripts/r16_axis_rulers.py`＋census 升级（平均链接/纯度/轴对齐）＋`scripts/r16_build_registry.py`；`infra/r16/field_registry.tsv` v1（228 行：7 Tier-1＋221 Tier-2；20 行 EXPLORATORY_REPRODUCED）；I-021 对 Tier-1 不再阻塞（自相关用值置换），Lane A 关联检验仍需空间保持 null。
+
+### D-116 | 2026-09-15 | Tier-1 轴在 ST-CRC 与 USZ 上独立复现，不混发现集
+
+- 背景：用户看到 registry 全是 Vanderbilt CRC，担心单来源/单平台/单疾病偏见，询问是否应把多来源混入发现。判断：泛用性要，发现阶段混合不要（批次不可分、烧掉验证集、冲掉癌种特异信号）。正确梯子是同一套 marker 模块在每个谱系上独立打分。
+- 决策：ST-CRC（同病 7 患者）与 USZ（肾+肺 8 患者、TLS 真值）只做独立轴复现；不用 Vanderbilt HVG-10k 过滤（用各切片实际存在的 voted 基因）；不做跨谱系联合聚类/匹配；不写入发现 registry 行，只写 replication 产物。发现集仍仅 Vanderbilt（D-114 C 维持）。
+- 失效条件：若独立复现因基因符号对不齐或坐标读入错误导致系统性零相干，先修 IO 再解释生物学；若用户明确批准「混合发现」才允许改 D-114 C。
+- 影响：`scripts/r16_axis_replication.py`；`infra/r16/axis_replication_{ST_CRC_CMS,TLS_VISIUM_USZ}_20260915.json` 与 comparison JSON。

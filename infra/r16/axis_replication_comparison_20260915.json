@@ -1,0 +1,132 @@
+{
+  "schema": "r16.axis_replication_comparison.v1",
+  "status": "EXPLORATORY_REPLICATION_NOT_CLAIM",
+  "rule": "independent_per_lineage_same_marker_modules_no_pooled_clustering",
+  "cohorts": {
+    "HTAN_VANDERBILT_CRC": {
+      "role": "discovery",
+      "disease": "CRC",
+      "n_patients": 30,
+      "source": "infra/r16/axis_rulers_20260914.json"
+    },
+    "ST_CRC_CMS": {
+      "role": "same_disease_replication",
+      "disease": "CRC",
+      "n_patients": 7,
+      "source": "infra/r16/axis_replication_ST_CRC_CMS_20260915.json"
+    },
+    "TLS_VISIUM_USZ": {
+      "role": "cross_cancer_replication",
+      "disease": "kidney+lung",
+      "n_patients": 8,
+      "source": "infra/r16/axis_replication_TLS_VISIUM_USZ_20260915.json"
+    }
+  },
+  "axes": {
+    "T": {
+      "Vanderbilt": {
+        "I": 0.690394985222499,
+        "coherent": "30/30"
+      },
+      "ST_CRC": {
+        "I": 0.5077923159817181,
+        "coherent": "7/7"
+      },
+      "USZ": {
+        "I": 0.5131897512011614,
+        "coherent": "8/8"
+      }
+    },
+    "B": {
+      "Vanderbilt": {
+        "I": 0.5822027553540069,
+        "coherent": "30/30"
+      },
+      "ST_CRC": {
+        "I": 0.5067441818166822,
+        "coherent": "7/7"
+      },
+      "USZ": {
+        "I": 0.5200225414321491,
+        "coherent": "8/8"
+      }
+    },
+    "Mye": {
+      "Vanderbilt": {
+        "I": 0.6399286689267746,
+        "coherent": "30/30"
+      },
+      "ST_CRC": {
+        "I": 0.585054881216402,
+        "coherent": "7/7"
+      },
+      "USZ": {
+        "I": 0.5587162708264528,
+        "coherent": "8/8"
+      }
+    },
+    "ILC": {
+      "Vanderbilt": {
+        "I": 0.2557829047318674,
+        "coherent": "27/30"
+      },
+      "ST_CRC": {
+        "I": 0.26028765439312107,
+        "coherent": "7/7"
+      },
+      "USZ": {
+        "I": 0.1930768114868795,
+        "coherent": "8/8"
+      }
+    },
+    "Epi": {
+      "Vanderbilt": {
+        "I": 0.7656962894324882,
+        "coherent": "30/30"
+      },
+      "ST_CRC": {
+        "I": 0.6597529563120177,
+        "coherent": "7/7"
+      },
+      "USZ": {
+        "I": 0.5855706930602746,
+        "coherent": "8/8"
+      }
+    },
+    "Stromal": {
+      "Vanderbilt": {
+        "I": 0.6316790747186712,
+        "coherent": "30/30"
+      },
+      "ST_CRC": {
+        "I": 0.5822188636939161,
+        "coherent": "7/7"
+      },
+      "USZ": {
+        "I": 0.5909751967773684,
+        "coherent": "8/8"
+      }
+    },
+    "Plasma": {
+      "Vanderbilt": {
+        "I": 0.5851215471788636,
+        "coherent": "29/30"
+      },
+      "ST_CRC": {
+        "I": 0.5180862530676731,
+        "coherent": "7/7"
+      },
+      "USZ": {
+        "I": 0.5199156268031375,
+        "coherent": "8/8"
+      }
+    }
+  },
+  "cxcl13_peak_le1": {
+    "Vanderbilt": "25/30",
+    "ST_CRC": "6/7",
+    "USZ": "7/8"
+  },
+  "usz_tls_auc_B_median": 0.712,
+  "usz_tls_note": "kidney sections high (0.82-0.95); lung heterogeneous (0.12-0.87)"
+}
