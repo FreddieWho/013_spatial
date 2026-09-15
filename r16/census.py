@@ -119,6 +119,49 @@ def jaccard(a: np.ndarray, b: np.ndarray) -> float:
     return float(np.logical_and(a, b).sum() / u) if u else 0.0
 
 
+def match_units_to_groups(signatures: list) -> tuple[list, dict]:
+    """Average-linkage hierarchical matching of per-(section, cluster) units.
+
+    Used when cluster ids are section-local (e.g. per-section GraphST
+    training): raw ids must NEVER be pooled across sections. Mirrors the
+    Tier-2 v2.0 convention: cosine distance, average linkage, cut at
+    1 - MATCH_COSINE; purity = min pairwise cosine within group (singleton
+    groups get 1.0).
+    Returns (group_ids aligned to input order, {group_id: purity}).
+    """
+    from scipy.cluster.hierarchy import fcluster, linkage
+    from scipy.spatial.distance import squareform
+
+    n = len(signatures)
+    if n == 0:
+        return [], {}
+    if n == 1:
+        return [0], {0: 1.0}
+    mat = np.vstack([np.asarray(s, dtype=float) for s in signatures])
+    nrm = np.linalg.norm(mat, axis=1, keepdims=True)
+    nrm[nrm == 0] = 1.0
+    sim = (mat / nrm) @ (mat / nrm).T
+    np.fill_diagonal(sim, 1.0)
+    dist = 1 - np.clip(sim, -1, 1)
+    Z = linkage(squareform(dist, checks=False), method="average")
+    lab = fcluster(Z, t=1 - MATCH_COSINE, criterion="distance")
+    groups: dict = {}
+    for i, g in enumerate(lab):
+        groups.setdefault(int(g), []).append(i)
+    gids = [0] * n
+    purities = {}
+    for gi, (g, members) in enumerate(sorted(groups.items())):
+        for i in members:
+            gids[i] = gi
+        if len(members) > 1:
+            sub = sim[np.ix_(members, members)].copy()
+            np.fill_diagonal(sub, 1.0)
+            purities[gi] = float(sub.min())
+        else:
+            purities[gi] = 1.0
+    return gids, purities
+
+
 # ---------------------------------------------------------------- Moran's I
 
 

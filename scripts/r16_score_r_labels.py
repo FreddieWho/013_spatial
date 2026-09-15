@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 """Score R-track joint clusters into registry rows (D-120).
 
-Reads Seurat/Harmony label CSVs (global cluster ids across sections by
-construction: no cross-section matching needed) + census cache (counts,
-coords, genes). Per candidate: composition, pooled-log1p markers, per-section
+Reads label CSVs + census cache (counts, coords, genes). Seurat/Harmony
+arms carry global cluster ids (no cross-section matching needed); arm G
+(GraphST per-section training) carries SECTION-LOCAL ids and is remapped
+through Tier-2-convention matching (average linkage, cosine>=0.75) before
+any pooling — naive pooling would fabricate cross-patient candidates
+(caught 2026-09-16, pinned by tests/test_r16_g_matching.py). Per candidate: composition, pooled-log1p markers, per-section
 Moran (200 draws), cross-arm agreement (best Jaccard vs every other arm/res:
 numpy A/B + R S/H). Grade bar identical to Tier-2 (>=2 patients).
 No split-half refit for R arms (cost): judge = cross-arm agreement +
@@ -92,6 +95,49 @@ def main() -> int:
             labelings[(arm, col)] = (np.array(labs), pooled_stem.copy())
     print(f"arms loaded: {sorted(labelings)}", flush=True)
 
+    # Arm G (GraphST per-section training) has SECTION-LOCAL cluster ids:
+    # raw values must never be pooled across sections (2026-09-16 catch:
+    # naive pooling fabricated cross-patient candidates). Remap each
+    # (section, cluster) unit into matched groups via Tier-2 convention
+    # (average linkage on cosine, cut 1-MATCH_COSINE); signatures are
+    # per-section z-scored mean profiles, same definition as Tier-2.
+    g_purity: dict = {}
+    for (arm, col) in [k for k in labelings if k[0] == "G"]:
+        labs, stems_arr = labelings[(arm, col)]
+        units, unit_keys = [], []
+        for s in sorted(set(stems_arr.tolist())):
+            cd = cache[s]
+            x_z = C.log1p_zscore(cd["mat"])
+            pos = {b: k for k, b in enumerate(cd["barcodes"])}
+            # pooled-order positions of this section's spots
+            loc = np.flatnonzero(stems_arr == s)
+            local_lab = labs[loc]
+            for c in sorted(set(local_lab.tolist())):
+                m = np.flatnonzero(local_lab == c)
+                if len(m) < C.MIN_CLUSTER_SIZE:
+                    continue
+                units.append(x_z[m].mean(axis=0))
+                unit_keys.append((s, c))
+        gids, pur = C.match_units_to_groups(units)
+        # NOTE: labs from read_csv(dtype=str) is a FIXED-WIDTH '<Un' array;
+        # assigning longer group ids would silently TRUNCATE and collide
+        # groups (caught by inspection before any registry write).
+        new_labs = labs.astype(object)
+        covered = set(unit_keys)
+        for (s, c), gi in zip(unit_keys, gids):
+            new_labs[(stems_arr == s) & (labs == c)] = f"g{gi}"
+            g_purity[(arm, col, f"g{gi}")] = pur[gi]
+        # sub-threshold units keep section-namespaced ids so they can
+        # never merge across sections either (stay single-section candidates)
+        for s in sorted(set(stems_arr.tolist())):
+            for c in sorted(set(labs[stems_arr == s].tolist())):
+                if (s, c) not in covered:
+                    new_labs[(stems_arr == s) & (labs == c)] = f"s-{s}-c{c}"
+                    g_purity[(arm, col, f"s-{s}-c{c}")] = 1.0
+        labelings[(arm, col)] = (new_labs, stems_arr)
+        n_groups = len(set(gids)) if gids else 0
+        print(f"arm G remap {col}: {len(unit_keys)} units -> {n_groups} groups", flush=True)
+
     # per-candidate characterization
     cands = []
     for (arm, col), (labs, stems_arr) in labelings.items():
@@ -137,6 +183,7 @@ def main() -> int:
                 "moran_i_median": float(np.median(morans)) if morans else None,
                 "moran_p_median": float(np.median(moranps)) if moranps else None,
                 "moran_sections_tested": int(len(morans)),
+                "group_purity": g_purity.get((arm, col, str(c))),
             })
     print(f"candidates: {len(cands)}", flush=True)
 
@@ -169,6 +216,10 @@ def main() -> int:
     for r in cands:
         grade = ("EXPLORATORY_REPRODUCED" if r["n_patients"] >= 2
                  else "DESCRIPTIVE_SINGLE_PATIENT")
+        purity_note = ""
+        if r["arm"] == "G" and r.get("group_purity") is not None and r["group_purity"] < 0.5:
+            grade = "DESCRIPTIVE_SINGLE_PATIENT"  # Tier-2 v2.0 purity floor
+            purity_note = ";LOW_PURITY_MIXED_GROUP"
         pid = f"R16J{r['arm']}{r['col'].split('_')[1]}-{r['cluster_id']}"
         agree = ",".join(f"{k}={v}" for k, v in sorted(r["xarm_best_jaccard"].items()))
         rows.append({
@@ -183,7 +234,8 @@ def main() -> int:
             "fdr_q": "NA", "cross_patient_shape_corr": "NA",
             "residual_dimension": "NA", "uncertainty_ci95": "NA",
             "evidence_grade": grade,
-            "notes": f"arm={r['arm']};no_split_half_refit(cost);xarm_agree:{agree}",
+            "notes": f"arm={r['arm']};no_split_half_refit(cost);xarm_agree:{agree}" + purity_note + (
+                ";G:per-section-ids matched avg-linkage-cos0.75" if r["arm"] == "G" else ""),
         })
     slim = []
     for r in cands:

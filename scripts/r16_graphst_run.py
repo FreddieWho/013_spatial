@@ -58,7 +58,14 @@ def leiden_on_embedding(emb: np.ndarray):
 
 
 def run_one(h5ad_path: Path, device: str, epochs: int):
-    """Train GraphST on one section file. Returns (adata_with_emb, seconds)."""
+    """Train GraphST on one section file.
+    Returns (adata_with_emb, emb, seconds, hvg_method).
+    Fallback (disclosed): scanpy seurat_v3 HVG uses loess, which goes
+    singular on degenerate sections (hit 2026-09-16, full run aborted at
+    section 19/47). On ValueError/singularity we replicate GraphST's own
+    preprocess steps with flavor='seurat' (dispersion, no loess) and retry
+    once; the section is tagged hvg-seurat-fallback in logs/params.
+    """
     import anndata as ad
     # NOTE: GraphST/__init__.py does NOT re-export the class, so
     # `from GraphST import GraphST` binds the SUBMODULE (TypeError).
@@ -67,13 +74,28 @@ def run_one(h5ad_path: Path, device: str, epochs: int):
 
     t0 = time.time()
     adata = ad.read_h5ad(h5ad_path)
-    model = GraphST(
-        adata, device=device, epochs=epochs,
-        dim_input=3000, dim_output=64, random_seed=C.SEED,
-    )
+    hvg_method = "seurat_v3"
+    try:
+        model = GraphST(
+            adata, device=device, epochs=epochs,
+            dim_input=3000, dim_output=64, random_seed=C.SEED,
+        )
+    except ValueError as e:
+        if "singularit" not in str(e).lower():
+            raise
+        import scanpy as sc
+        sc.pp.normalize_total(adata, target_sum=1e4)
+        sc.pp.log1p(adata)
+        sc.pp.scale(adata, zero_center=False, max_value=10)
+        sc.pp.highly_variable_genes(adata, flavor="seurat", n_top_genes=3000)
+        hvg_method = "seurat-fallback"
+        model = GraphST(
+            adata, device=device, epochs=epochs,
+            dim_input=3000, dim_output=64, random_seed=C.SEED,
+        )
     adata = model.train()
     emb = np.asarray(adata.obsm["emb"])
-    return adata, emb, time.time() - t0
+    return adata, emb, time.time() - t0, hvg_method
 
 
 def main() -> int:
@@ -121,9 +143,21 @@ def main() -> int:
     (args.out / "params.json").write_text(json.dumps(params, indent=2))
     labels_path = args.out / "labels_armG.csv"
     header_written = labels_path.exists()
+    # resume: skip sections already fully written (incremental safe rerun)
+    done_stems = set()
+    if header_written:
+        import pandas as _pd
+        done_stems = set(_pd.read_csv(labels_path, usecols=["section"])["section"].tolist())
+        print(f"resume: {len(done_stems)} sections already done, skipping", flush=True)
+    fallbacks = []
     total_t = 0.0
     for i, stem in enumerate(stems):
-        adata, emb, secs = run_one(args.data / f"{stem}.h5ad", dev, args.epochs)
+        if stem in done_stems:
+            print(f"[{i+1}/{len(stems)}] {stem} SKIPPED (already done)", flush=True)
+            continue
+        adata, emb, secs, hvg_method = run_one(args.data / f"{stem}.h5ad", dev, args.epochs)
+        if hvg_method != "seurat_v3":
+            fallbacks.append(stem)
         total_t += secs
         labs = leiden_on_embedding(emb)
         df = pd.DataFrame({
@@ -138,12 +172,13 @@ def main() -> int:
         n_cl = {c: int((df[c] >= 0).sum()) for c in RES_COLS}
         msg = (f"[{i+1}/{len(stems)}] {stem} n={len(df)} "
                f"clusters={ {c: int(df[c].nunique()) for c in RES_COLS} } "
-               f"{secs:.0f}s elapsed={total_t:.0f}s")
+               f"hvg={hvg_method} {secs:.0f}s elapsed={total_t:.0f}s")
         print(msg, flush=True)
         logf.write(msg + "\n")
         logf.flush()
     logf.close()
-    print(f"DONE sections={len(stems)} total_s={total_t:.0f}")
+    print(f"DONE sections={len(stems)} hvg_fallbacks={fallbacks} total_s={total_t:.0f}")
+    (args.out / "hvg_fallbacks.json").write_text(json.dumps(fallbacks, indent=2))
     return 0
 
 

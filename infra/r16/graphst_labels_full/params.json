@@ -1,0 +1,21 @@
+{
+  "schema": "r16.graphst_run.v1",
+  "seed": 20260914,
+  "graphst_commit": "unpinned",
+  "torch": "2.1.2+cu118",
+  "cuda_available": true,
+  "cuda_device": "Tesla PG503-216",
+  "epochs": 600,
+  "resolutions": [
+    0.25,
+    0.5,
+    1.0
+  ],
+  "min_cluster_size": 20,
+  "knn_expr": 15,
+  "per_section_training": true,
+  "merged_training_rejected": "dense O(n^2) dist matrix ~100GB at 113k spots",
+  "hvg": "native seurat_v3 top-3000 per section on HVG-10k pool",
+  "clustering": "Leiden (not upstream mclust): no R bridge, Tier-2 convention",
+  "upstream_seed_default_overridden": 41
+}

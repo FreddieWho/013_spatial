@@ -744,3 +744,10 @@ D-093 (2026-09-01): use the TensorFlow compiled execution path for the frozen K=
 - 背景：dry-run 全绿（GPU 真训、labels 落盘 665 行、列齐）；全量预估 1.5–2.5h。用户明确：不用管 6 小时券，跑完即停。
 - 决策：GraphST 全量（47 片×600 epoch）不限 6 小时券窗口，以完成为准；结束后立即退租（用户另有明确"跑完帮我及时退租关闭"指令）。券外部分的计费如实记录，不另设硬封顶——D-121 的 ¥15 封顶仅适用于 4090 fallback，不适用于本次 V100 全量。
 - 影响：`graphst_out_full` 远端增量落盘；完成后回收 labels→scorer→registry，落盘推送，然后执行退租。
+
+### D-123 | 2026-09-16 | GraphST 臂标签语义修复：逐片 id 禁止跨片池化
+
+- 背景：GraphST 全量 47 片跑完（113345 点，1 片用 HVG fallback）。评分前发现 scorer 按原设计把同值标签跨片直接池化——对 Seurat/Harmony（联合嵌入，全局 id）正确，对 GraphST（逐片训练，片内 id）是错的，会凭空捏造跨病人候选（16 个全局取值→约 16 个假复现组）。
+- 决策：arm G 走 Tier-2 同构匹配（逐片 cluster 为单元，片内 z 签名，平均链接余弦≥0.75，纯度<0.5 强制 DESCRIPTIVE）；匹配逻辑抽成 `r16.census.match_units_to_groups` 并加回归测试（同值异质必分、同质必合、raw id 无关）。另修 numpy 定宽字符串截断组 id 的静默碰撞（`<U2` 下 "g123"→"g1"），赋值前一律转 object。
+- 失效条件：若匹配后干净组过少导致 arm G 无信息量，如实报阴性，不降阈捞数。
+- 影响：`r16/census.py` 新增 helper、`scripts/r16_score_r_labels.py` 改写 arm G 路径、`tests/test_r16_g_matching.py` 5 项全绿；registry 行待打分完成后合并。

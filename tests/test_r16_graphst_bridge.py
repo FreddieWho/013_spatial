@@ -43,7 +43,15 @@ def test_export_one_section_roundtrip(tmp_path):
 def test_run_script_with_stubbed_graphst(tmp_path):
     """Full wrapper path with a fake GraphST module (no torch/scanpy needed)."""
     import types
-    fake_mod = types.ModuleType("GraphST")
+    # Mirror the REAL package layout (package GraphST/ -> submodule
+    # GraphST.py -> class GraphST). A flat stub would mask the
+    # `from GraphST import GraphST` binds-submodule trap (caught live
+    # 2026-09-16), so nest it faithfully here.
+    fake_pkg = types.ModuleType("GraphST")
+    fake_sub = types.ModuleType("GraphST.GraphST")
+    sys.modules["GraphST"] = fake_pkg
+    sys.modules["GraphST.GraphST"] = fake_sub
+    fake_pkg.GraphST = fake_sub
 
     class FakeGS:
         def __init__(self, adata, **kw):
@@ -70,8 +78,7 @@ def test_run_script_with_stubbed_graphst(tmp_path):
          "0000_HTAN_8270_AS_2_filtered_trimmed.h5ad"],
         capture_output=True, text=True, cwd=ROOT, timeout=600, env=env)
     assert r.returncode == 0, r.stderr[-2000:]
-    fake_mod.GraphST = FakeGS
-    sys.modules["GraphST"] = fake_mod
+    fake_sub.GraphST = FakeGS
     try:
         import importlib.util
         spec = importlib.util.spec_from_file_location(
@@ -84,6 +91,7 @@ def test_run_script_with_stubbed_graphst(tmp_path):
         spec.loader.exec_module(grun)
         grun.main()
     finally:
+        sys.modules.pop("GraphST.GraphST", None)
         sys.modules.pop("GraphST", None)
     import pandas as pd
     df = pd.read_csv(tmp_path / "gout" / "labels_armG.csv")
