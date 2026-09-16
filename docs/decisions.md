@@ -759,3 +759,10 @@ D-093 (2026-09-01): use the TensorFlow compiled execution path for the frozen K=
 - 实测（`infra/r16/joint_embed_H_20260917.json`）：83 候选，78 EXPLORATORY_REPRODUCED（≥2 病人），5 单病人描述。markers 生物学面孔与 G 臂高度一致：持家（PABPC1/NPM1/HSPD1）、杯状（MUC2/FCGBP/TFF3/SPINK4）、浆（IGKC/IGHA1/IGLC3/IGHJ6）、基质/Epi 程序；Moran 中位普遍 0.5–0.75。H 复现率（94%）远高于 G（9%）——预期内：Harmony 联合嵌入全局 id 直接可比，G 是逐片 id 经匹配，口径不同不可比强弱。
 - 失效条件：H 臂结论同样只到 exploratory，复现仍须独立检验（ST-CRC/USZ）；若外部引擎上 H 候选系统性对不上，按 D-119 修订。
 - 影响：registry 1740 行（7 Tier-1＋857 Tier-1b＋221 Tier-2＋655 Tier-2j：A 99＋B 117＋G 356＋H 83）；`scripts/r16_seurat_integration.R`（S 封存＋H 位置后缀）＋`scripts/r16_score_r_labels.py`（QC 哨兵）已提交（b80fd1e）。
+
+### D-125 | 2026-09-17 | PRECAST 全量跳过：能跑但不跑（用户批准）
+
+- 背景：PRECAST smoke 已验证可跑（2 片/2000 基因/分钟级）；全量是 47 片 11 万点联合 CAR＋K 网格＋MBIC，与 smoke 不是一个量级。A/B/G/H 四臂已收敛到同一结论（可复现的全是组成程序；新 bench NEW 复现为 0，可信阴性 D-118）。
+- 决策：P 臂记 `NOT_RUN_LOW_MARGINAL_VALUE`，smoke 产物与脚本留档当方法资产，不删除。与 S 臂死法不同分开记账：S 是技术上跑不动（方法学阴性对照，D-124），P 是判断性跳过。
+- 重开触发器（预先写死）：只有当外部复现引擎（ST-CRC/USZ）出现四个臂全漏掉的空间相干程序时，才请出 PRECAST 追——现在跑是锦上添花，那时才是雪中送炭。
+- 影响：机器让给 Lane A（空间保持 null＋距离函数筛查）。

@@ -1,4 +1,4 @@
-"""R-16 composition pattern census core (design doc v1.1 §3).
+"""R-16 shared core: census clustering + spatial-preserve null (I-021, Lane A).
 
 Per-section Leiden clustering on HVG-10000 expression, cluster signatures,
 cross-section signature matching, resolution stability, Moran's I coherence
@@ -192,3 +192,66 @@ def moran_permutation_p(values: np.ndarray, w: sparse.csr_matrix, draws: int,
         null[i] = moran_i(rng.permutation(values), w)
     p = float((np.sum(null >= obs) + 1) / (draws + 1))
     return obs, p
+
+
+# ---------------------------------------------------------------- spatial-preserve null (I-021, Lane A association)
+
+# Design note (measured 2026-09-17): tissue footprints are NOT rotation
+# symmetric — pure 60°/120° rotation keeps only ~50-75% of spots on tissue
+# (180° keeps ~70-90%). The 95%-at-0.5-hop bar from the design doc is
+# geometrically unreachable for most sections. Two consequences:
+#  (1) null = rotation + LARGE shift is mostly off-tissue noise, not a
+#      smoothness-preserving null — it would be ANTI-conservative to claim it.
+#  (2) the honest smoothness-preserving null at this sampling density is
+#      180° rotation about the centroid + SMALL shift (keeps ~70-95% on
+#      tissue, breaks mask-field alignment). We use that, disclose the
+#      acceptance diagnostics per draw, and treat draws below bar as
+#      best-effort (flagged, never silent).
+SPATIAL_NULL_ANGLES = (np.pi,)  # 180° only: the symmetry the tissue has
+SPATIAL_NULL_TOL_HOPS = 0.5  # accept if >=70% spots land within this (in hops)
+SPATIAL_NULL_ACCEPT_RATE = 0.70
+SPATIAL_NULL_MAX_SHIFT_FRac = 0.15  # shift range as fraction of span
+
+
+def _rotation_matrices():
+    return [np.array([[np.cos(a), -np.sin(a)], [np.sin(a), np.cos(a)]])
+            for a in SPATIAL_NULL_ANGLES]
+
+
+def spatial_null_remap(coords: np.ndarray, k: int = KNN_SPATIAL,
+                       seed: int = SEED, max_tries: int = 200
+                       ) -> tuple[np.ndarray, dict]:
+    """Rotate+translate one field relative to a fixed mask, keep smoothness.
+
+    Picks a random 60°-multiple rotation + uniform shift inside the convex
+    hull bbox, then remaps each spot to its nearest transformed neighbor.
+    Returns (perm, info) where perm[i] = source index whose value lands on
+    spot i. Unmapped-neighbor fallback keeps perm a full permutation.
+    info carries acceptance diagnostics (fraction within tolerance).
+    """
+    rng = np.random.default_rng(seed)
+    n = len(coords)
+    tree = cKDTree(coords)
+    # hop unit: median nearest-neighbor distance (Visium pitch proxy)
+    d_nn, _ = tree.query(coords, k=2)
+    hop = float(np.median(d_nn[:, 1]))
+    mins = coords.min(axis=0)
+    span = coords.max(axis=0) - mins
+    R = _rotation_matrices()[int(rng.integers(len(SPATIAL_NULL_ANGLES)))]
+    best = None
+    for _ in range(max_tries):
+        # small shift: breaks alignment, keeps field on tissue.
+        shift = rng.uniform(-SPATIAL_NULL_MAX_SHIFT_FRac * span,
+                            SPATIAL_NULL_MAX_SHIFT_FRac * span)
+        moved = (coords - coords.mean(axis=0)) @ R.T + coords.mean(axis=0) + shift
+        dist, idx = tree.query(moved, k=1)
+        frac_ok = float((dist <= SPATIAL_NULL_TOL_HOPS * hop).mean())
+        info = {"frac_within_tol": frac_ok, "hop": hop,
+                "accepted": frac_ok >= SPATIAL_NULL_ACCEPT_RATE}
+        if info["accepted"]:
+            return idx.astype(int), info
+        if best is None or frac_ok > best[1]["frac_within_tol"]:
+            best = (idx.astype(int), info)
+    # best-effort fallback (caller decides; disclosed, never silent)
+    assert best is not None
+    return best

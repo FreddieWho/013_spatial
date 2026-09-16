@@ -85,7 +85,7 @@
     "residual_dimension": "NA",
     "uncertainty_ci95": "NA",
     "evidence_grade": "EXPLORATORY_REPRODUCED",
-    "notes": "coherent_patients=27/30;contour_jaccard=0.69"
+    "notes": "coherent_patients=27/30;contour_jaccard=0.69;RETIRED_D117"
   },
   {
     "pattern_id": "R16A_Epi",
