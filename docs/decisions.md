@@ -751,3 +751,11 @@ D-093 (2026-09-01): use the TensorFlow compiled execution path for the frozen K=
 - 决策：arm G 走 Tier-2 同构匹配（逐片 cluster 为单元，片内 z 签名，平均链接余弦≥0.75，纯度<0.5 强制 DESCRIPTIVE）；匹配逻辑抽成 `r16.census.match_units_to_groups` 并加回归测试（同值异质必分、同质必合、raw id 无关）。另修 numpy 定宽字符串截断组 id 的静默碰撞（`<U2` 下 "g123"→"g1"），赋值前一律转 object。
 - 失效条件：若匹配后干净组过少导致 arm G 无信息量，如实报阴性，不降阈捞数。
 - 影响：`r16/census.py` 新增 helper、`scripts/r16_score_r_labels.py` 改写 arm G 路径、`tests/test_r16_g_matching.py` 5 项全绿；registry 行待打分完成后合并。
+
+### D-124 | 2026-09-17 | Seurat 臂 S 判死刑、H 落盘：Harmony 83 候选 78 复现入库
+
+- 背景：R 集成脚本连续四次后台失败，逐一修好——(1) future 全局变量 50GB 上限（plan sequential 无用，在 future() 创建时收集，改 maxSize=Inf）；(2) Arm S 注释掉后工具函数 strip_prefix 一起被注释（提到 block 外）；(3) v4 FindClusters 无 cluster.name 参数（v5 API，静默忽略，改手动拷 Idents）；(4) suffix 地雷：as.character(1.0)=="1" 导致 HARM_1 ≠ HARM_10（改位置后缀）。随后 IntegrateData 在 540 万 anchors 上 kNN 内部长度不一致报错——Seurat v4 在 47 片规模的工程上限，非调参可解。
+- 决策：Arm S 按 D-119 失效条件降级为方法学阴性对照，不抢救（用户确认）；Arm H（merged log-normalize＋RunHarmony）全量跑通：47 片、108,775 点（Seurat QC min.cells=3/min.features=200 吃掉 4,570 点，覆盖度 0.9597）。scorer 改 QC-aware：QC 掉点挂哨兵位保 pooled 对齐、不进候选不进 Jaccard、coverage 进 artifact（附带修了 H/G 单独跑时 xarm 只有臂内的如实状态）。
+- 实测（`infra/r16/joint_embed_H_20260917.json`）：83 候选，78 EXPLORATORY_REPRODUCED（≥2 病人），5 单病人描述。markers 生物学面孔与 G 臂高度一致：持家（PABPC1/NPM1/HSPD1）、杯状（MUC2/FCGBP/TFF3/SPINK4）、浆（IGKC/IGHA1/IGLC3/IGHJ6）、基质/Epi 程序；Moran 中位普遍 0.5–0.75。H 复现率（94%）远高于 G（9%）——预期内：Harmony 联合嵌入全局 id 直接可比，G 是逐片 id 经匹配，口径不同不可比强弱。
+- 失效条件：H 臂结论同样只到 exploratory，复现仍须独立检验（ST-CRC/USZ）；若外部引擎上 H 候选系统性对不上，按 D-119 修订。
+- 影响：registry 1740 行（7 Tier-1＋857 Tier-1b＋221 Tier-2＋655 Tier-2j：A 99＋B 117＋G 356＋H 83）；`scripts/r16_seurat_integration.R`（S 封存＋H 位置后缀）＋`scripts/r16_score_r_labels.py`（QC 哨兵）已提交（b80fd1e）。
