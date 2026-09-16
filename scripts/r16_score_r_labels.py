@@ -30,6 +30,10 @@ ARMS = {
     "H": ("labels_armH.csv", ["HARM_025", "HARM_05", "HARM_10"]),
     "G": ("labels_armG.csv", ["GRAPHST_025", "GRAPHST_05", "GRAPHST_10"]),
 }
+# Spots dropped by method-side QC (e.g. Seurat CreateSeuratObject
+# min.cells=3/min.features=200) keep pooled alignment under this sentinel;
+# sentinel clusters are skipped as candidates and as agreement sets.
+QC_SENTINEL = "__QC_DROPPED__"
 
 
 def load_cache_index(cache_dir: Path):
@@ -71,6 +75,7 @@ def main() -> int:
 
     # all arm/res labelings, spot-aligned to pooled order
     labelings = {}  # (arm, col) -> (labels array, stems array)
+    coverage = {}  # (arm, col) -> labeled fraction of pooled spots
     for arm, (fname, cols) in ARMS.items():
         if not (args.labels_dir / fname).exists():
             print(f"arm {arm}: {fname} absent, skipped", flush=True)
@@ -80,18 +85,19 @@ def main() -> int:
         for col in cols:
             labmap = dict(zip(key, df[col].tolist()))
             labs = []
-            ok = True
+            n_missing = 0
             for s, cd in cache.items():
                 for b in cd["barcodes"]:
                     v = labmap.get((s, b))
                     if v is None:
-                        ok = False
-                        break
+                        v = QC_SENTINEL
+                        n_missing += 1
                     labs.append(v)
-                if not ok:
-                    break
-            if not ok:
-                raise SystemExit(f"barcode join failed for {arm}/{col}")
+            cov = 1 - n_missing / len(labs)
+            coverage[(arm, col)] = cov
+            print(f"arm {arm} {col}: coverage {cov:.4f} ({n_missing} QC-dropped)", flush=True)
+            if cov == 0:
+                raise SystemExit(f"barcode join failed for {arm}/{col}: zero coverage")
             labelings[(arm, col)] = (np.array(labs), pooled_stem.copy())
     print(f"arms loaded: {sorted(labelings)}", flush=True)
 
@@ -142,6 +148,8 @@ def main() -> int:
     cands = []
     for (arm, col), (labs, stems_arr) in labelings.items():
         for c in sorted(set(labs.tolist())):
+            if c == QC_SENTINEL:
+                continue
             idx = np.flatnonzero(labs == c)
             if len(idx) < C.MIN_CLUSTER_SIZE:
                 continue
@@ -192,6 +200,8 @@ def main() -> int:
     for k, (labs, _) in labelings.items():
         d = {}
         for c in set(labs.tolist()):
+            if c == QC_SENTINEL:
+                continue
             d[c] = set(np.flatnonzero(labs == c).tolist())
         memb[k] = d
     for r in cands:
@@ -246,6 +256,8 @@ def main() -> int:
                 "parameters": {"arms": sorted({a for a, _ in labelings}), "resolutions": [0.25, 0.5, 1.0],
                                "min_cluster_size": C.MIN_CLUSTER_SIZE,
                                "null_draws": args.null_draws,
+                               "coverage": {f"{a}:{c}": round(v, 4) for (a, c), v in sorted(coverage.items())},
+                               "qc_sentinel": QC_SENTINEL,
                                "split_half": "not_refit_for_R_arms_judge_is_xarm_agreement_plus_external"},
                 "n_candidates": len(slim), "candidates": slim}
     args.out_json.parent.mkdir(parents=True, exist_ok=True)

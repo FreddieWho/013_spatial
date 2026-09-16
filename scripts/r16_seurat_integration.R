@@ -41,7 +41,14 @@ logmsg("Seurat ", as.character(packageVersion("Seurat")),
 manifest <- fromJSON(file.path(bridge_dir, "manifest.json"), simplifyVector = FALSE)
 message("sections: ", length(manifest))
 
-# ---- load + SCTransform per section -------------------------------------
+# ---- load + SCTransform per section (checkpointed) -------------------------
+ckpt_dir <- file.path(out_dir, "checkpoints")
+dir.create(ckpt_dir, showWarnings = FALSE, recursive = TRUE)
+objs_ckpt <- file.path(ckpt_dir, "objs_sct.rds")
+if (file.exists(objs_ckpt)) {
+  objs <- readRDS(objs_ckpt)
+  logmsg("resumed SCT objects from checkpoint: ", length(objs), " sections")
+} else {
 objs <- lapply(seq_along(manifest), function(i) {
   m <- manifest[[i]]
   counts <- Read10X(data.dir = file.path(bridge_dir, m$stem), gene.column = 1)
@@ -55,16 +62,38 @@ objs <- lapply(seq_along(manifest), function(i) {
   so
 })
 logmsg("SCTransform done: ", length(objs), " sections")
+saveRDS(objs, objs_ckpt)
+logmsg("checkpoint saved: objs_sct")
+}
 
-# ---- Arm S: SCT anchor integration (reference = 5 largest sections) ------
+strip_prefix <- function(bc, sec) sub(paste0("^", sec, "_"), "", bc)
+
+# ---- Arm S: SKIPPED_PER_D119 (2026-09-16) ----------------------------------
+# IntegrateData fails at 47-section scale (kNN weight normalize length
+# mismatch over ~5.4M anchors); downgraded to method-negative-control
+# per D-119 failover. Anchors checkpoint retained. Wrap in if(FALSE).
+if (FALSE) {
 n_spots <- vapply(objs, ncol, integer(1))
 ref_idx <- order(n_spots, decreasing = TRUE)[seq_len(min(N_REFERENCE, length(objs)))]
 features <- SelectIntegrationFeatures(object.list = objs, nfeatures = N_ANCHOR_FEATURES)
 objs <- PrepSCTIntegration(object.list = objs, anchor.features = features, verbose = FALSE)
+anchors_ckpt <- file.path(ckpt_dir, "anchors.rds")
+if (file.exists(anchors_ckpt)) {
+  anchors <- readRDS(anchors_ckpt)
+  logmsg("resumed anchors from checkpoint")
+} else {
 anchors <- FindIntegrationAnchors(object.list = objs, normalization.method = "SCT",
                                  anchor.features = features, reference = ref_idx,
                                  verbose = FALSE)
+saveRDS(anchors, anchors_ckpt)
+logmsg("checkpoint saved: anchors")
+}
 logmsg("anchors found: ", nrow(anchors@anchors))
+# IntegrateData collects ~50GB of globals (whole object list + closure env)
+# at future() CREATION time, regardless of backend plan — plan(sequential)
+# does NOT help (verified: same globals error under sequential, 2026-09-16).
+# RAM is ~1TB, so lift the cap entirely instead of raising it piecemeal.
+options(future.globals.maxSize = Inf)
 int_s <- IntegrateData(anchorset = anchors, normalization.method = "SCT", verbose = FALSE)
 int_s <- RunPCA(int_s, npcs = 30, verbose = FALSE, seed.use = SEED)
 int_s <- FindNeighbors(int_s, dims = 1:30, verbose = FALSE)
@@ -73,7 +102,6 @@ for (res in RESOLUTIONS) {
                         random.seed = SEED,
                         cluster.name = paste0("SCT_", gsub("\\.", "", as.character(res))))
 }
-strip_prefix <- function(bc, sec) sub(paste0("^", sec, "_"), "", bc)
 s_labels <- data.frame(
   barcode = colnames(int_s),
   section = int_s$section,
@@ -82,6 +110,7 @@ s_labels <- data.frame(
 )
 write.csv(s_labels, file.path(out_dir, "labels_armS.csv"), row.names = FALSE)
 logmsg("Arm S done")
+} # end SKIPPED_PER_D119
 
 # ---- Arm H: merged log-normalize + Harmony --------------------------------
 merged <- merge(objs[[1]], objs[-1], add.cell.ids = vapply(objs, function(o) o$section[1], character(1)))
@@ -92,10 +121,17 @@ merged <- ScaleData(merged, verbose = FALSE)
 merged <- RunPCA(merged, npcs = 30, verbose = FALSE, seed.use = SEED)
 merged <- RunHarmony(merged, group.by.vars = "section", verbose = FALSE)
 merged <- FindNeighbors(merged, reduction = "harmony", dims = 1:30, verbose = FALSE)
-for (res in RESOLUTIONS) {
-  merged <- FindClusters(merged, resolution = res, verbose = FALSE,
-                         random.seed = SEED,
-                         cluster.name = paste0("HARM_", gsub("\\.", "", as.character(res))))
+# Seurat v4 FindClusters has no cluster.name arg (v5 API; silently ignored).
+# Store each resolution's Idents into its HARM_* column explicitly.
+# NOTE: suffixes are positional, NOT derived from as.character(res):
+# as.character(1.0)=="1" would give HARM_1, breaking the _025/_05/_10
+# convention used by the scorer and the GraphST arm (fixed 2026-09-16).
+HARM_SUFFIX <- c("025", "05", "10")
+for (k in seq_along(RESOLUTIONS)) {
+  res <- RESOLUTIONS[k]
+  merged <- FindClusters(merged, resolution = res, verbose = FALSE, random.seed = SEED)
+  cname <- paste0("HARM_", HARM_SUFFIX[k])
+  merged[[cname]] <- Idents(merged)
 }
 h_labels <- data.frame(
   barcode = colnames(merged),
@@ -108,7 +144,7 @@ logmsg("Arm H done")
 
 params <- list(seed = SEED, resolutions = RESOLUTIONS,
                sct_features = N_SCT_FEATURES, anchor_features = N_ANCHOR_FEATURES,
-               reference_sections = ref_idx, n_anchors = nrow(anchors@anchors),
+               arm_S = "SKIPPED_PER_D119", arm_H = "merged_logNormalize_Harmony",
                n_sections = length(objs))
 write_json(params, file.path(out_dir, "params.json"), auto_unbox = TRUE, pretty = TRUE)
 writeLines(capture.output(sessionInfo()), file.path(out_dir, "sessionInfo.txt"))
