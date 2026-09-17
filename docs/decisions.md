@@ -775,3 +775,11 @@ D-093 (2026-09-01): use the TensorFlow compiled execution path for the frozen K=
 - 决策：Lane A 在 6 轴距离尺上判全线阴性（exploratory）。这是实质阴性非技术失败：null 保守、阳性对照形状成立、top 面孔生物学自洽（自家基因台阶）。H-01 未命名场分支按否证逻辑收缩：组成区周围无跨病人一致的连续距离函数。
 - 失效条件：若未来引入旋转感知/多尺度距离尺后出现复现涟漪，本结论按方法升级修订；ST-CRC/USZ 上若出现本队列没有的轴周涟漪，同样修订。
 - 影响：registry 待补 19 个 Epi 擦线行（标 EXPLORATORY_REPRODUCED＋擦线披露）；Lane B（残余筛查）成为未命名场唯一剩余入口。
+
+### D-127 | 2026-09-18 | Lane B 全量完成：10000 基因残余筛查，191 复现入库（exploratory）
+
+- 背景：Lane B 回归掉 6 轴＋距离壳（OLS，设计列 25–37）后筛残余空间结构（Moran＋值置换 null 50 draws，I-021 细则自相关检验合法）。判据：病人中位 p≤0.05 且相干病人≥2＋残差 Moran 中位≥0.1（修复 smoke 期 p≤0.01 地板不可达 bug）。
+- 实测（`infra/r16/laneB_residual_20260917.json`，10000 测）：191 EXPLORATORY_REPRODUCED（残差 I 中位 0.138，最高 SERF1A 0.467；相干病人中位 24/30）。面孔：持家样（核糖体/骨架/代谢）＋自家地盘基因（EPCAM/CEACAM5/CLDN4 上皮、MUC2/FCGBP 杯状、FN1/DCN 基质、FOS/FOSB 应激）——轴回归吃掉了大头但同类基因仍有残余相干，符合"组成内状态/亚型"解释，不作新场解读。
+- 决策：191 行以 kind=laneB_residual_structure 入库（D-126 的 19 个 laneA 行同批在库），registry 1950 行（7＋857＋221＋655＋19＋191）。Lane B 关闭；未命名场两条入口（Lane A 距离函数、Lane B 残余）均已执行完毕。
+- 失效条件：残余相干≠新场；任何 laneB 行升级为 claim 前须先排除"同类基因亚型/状态"解释并经复现引擎检验。
+- 影响：`scripts/r16_laneB_screen.py`＋产物＋registry 行已提交；`scripts/r16_build_registry.py` 计数器补 laneA/laneB 分项。

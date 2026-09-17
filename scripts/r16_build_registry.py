@@ -33,15 +33,18 @@ def main() -> int:
                 rows.append([str(r.get(c, "NA")) for c in COLS])
     n_t1 = sum(1 for r in rows if r[1] == "1")
     n_t1b = sum(1 for r in rows if r[1] == "1b")
-    n_t2 = sum(1 for r in rows if r[1] == "2" and "joint" not in r[2])
+    n_t2 = sum(1 for r in rows if r[1] == "2" and "joint" not in r[2]
+               and "laneA" not in r[2] and "laneB" not in r[2])
     n_t2j = sum(1 for r in rows if r[2] == "joint_pattern_group")
+    n_laneA = sum(1 for r in rows if "laneA" in r[2])
+    n_laneB = sum(1 for r in rows if "laneB" in r[2])
     args.out.write_text(
         "# r16.field_registry.v1.1 (2026-09-15, D-118 tier1b + D-119 tier2j joint; "
         "grades capped at EXPLORATORY_REPRODUCED; "
         "CLAIM_CANDIDATE requires separate approval)\n"
         + HEADER + "\n"
         + "\n".join("\t".join(r) for r in rows) + "\n")
-    print(f"registry rows: {len(rows)} (tier1={n_t1}, tier1b={n_t1b}, tier2={n_t2}, tier2j={n_t2j}) -> {args.out}")
+    print(f"registry rows: {len(rows)} (tier1={n_t1}, tier1b={n_t1b}, tier2={n_t2}, tier2j={n_t2j}, laneA={n_laneA}, laneB={n_laneB}) -> {args.out}")
     return 0
 
 

@@ -70,3 +70,6 @@ infra/r16/axis_factory_loadings_*.npz
 infra/r16/seurat_bridge/
 # R16 GraphST bridge: derived per-section AnnData, regenerable via scripts/r16_export_graphst_bridge.py
 infra/r16/graphst_bridge/
+
+# R-16 Seurat integration scratch (7.7GB RDS checkpoints, reproducible via scripts/r16_seurat_integration.R)
+infra/r16/r_integration_20260915/checkpoints/

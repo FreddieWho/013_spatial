@@ -1,0 +1,9 @@
+{
+  "seed": 20260914,
+  "resolutions": [0.25, 0.5, 1],
+  "sct_features": 3000,
+  "anchor_features": 3000,
+  "arm_S": "SKIPPED_PER_D119",
+  "arm_H": "merged_logNormalize_Harmony",
+  "n_sections": 47
+}
