@@ -275,14 +275,15 @@
 - **下一判定点：** T2 交付 `laneA_corrected_small.json`＋`legacy_vs_corrected.md` 后复核。
 - **升级条件：** 若 T2 校准后仍无复现且功效足够，维持范围内阴性；若 surrogate 不合格，关联 p 记 `NOT_CALIBRATED`，不关闭项目。
 
-## I-023｜PC 工厂符号/新奇性/稳定性三问题（恢复包 A02/A03/A10/A11/A12）
+## I-023｜PC 工厂符号/新奇性/稳定性三问题（RESOLVED 2026-09-18，D-128）（恢复包 A02/A03/A10/A11/A12）
 
-- **状态：** `OPEN`
+- **状态：** `RESOLVED`
 - **发现日期：** 2026-09-18（恢复包审计，基准 7399652）
 - **影响节点：** R-16 Tier-1 v2；D-118 的 NEW=0 外推。
 - **当前事实：** 分组用 signed cosine 而非文档的绝对余弦、组内平均未定向（A02）；NEW 判据用单轴 max 相关，六轴均衡混合（各 ~0.408）可被误判新（A03）；q-Jaccard 0.7083 系嵌套分位代数必然（A10）；LISA 两侧绝对值合并显著点（A11）；augment 系矩阵相加非 BANKSY 拼接（A12，应改名）。
 - **当前影响：** D-118 历史数字保留，"无共享新轴"的可信阴性外推同样标记 `METHOD_LIMITED_PENDING_REANALYSIS`；T1 仅重算 matching/registry 派生，不重训 PCA/LISA。
 - **下一判定点：** T1 交付 `pc_matching_reanalysis.json`＋`old_to_new_groups.tsv` 后复核。
+- **2026-09-18 T1 完成（D-128）：** 857→772 组，91 合并（符号对）＋8 分裂；复现仍 2 组，joint R²=0.02/0.08，NEW=0 维持。A11/A12 转名备注（LISA 两侧合并仅描述、augment 改自定义平滑名）随 T3 程序卡落实，本条目 RESOLVED。
 - **升级条件：** T1 完成后本条目可 RESOLVED（遗留旋转混合限制转 LEADS L-008 有边界诊断）。
 
 ## I-024｜残差置换条件分布未校准＋轴自包含（恢复包 A13/A15/A18）

@@ -1,0 +1,102 @@
+{
+  "scope": "R16B_002 3 member sections: top matches to group medoid",
+  "sections": {
+    "0011_HTAN_8899_AS_7_filtered_trimmed.h5ad": [
+      {
+        "pc_key": "0011_HTAN_8899_AS_7_filtered_trimmed.h5ad::lam0.0::pc1",
+        "cos": 0.857,
+        "tile_ok": true,
+        "lam": 0.0
+      },
+      {
+        "pc_key": "0011_HTAN_8899_AS_7_filtered_trimmed.h5ad::lam0.5::pc2",
+        "cos": 0.798,
+        "tile_ok": true,
+        "lam": 0.5
+      },
+      {
+        "pc_key": "0011_HTAN_8899_AS_7_filtered_trimmed.h5ad::lam0.8::pc2",
+        "cos": 0.788,
+        "tile_ok": true,
+        "lam": 0.8
+      },
+      {
+        "pc_key": "0011_HTAN_8899_AS_7_filtered_trimmed.h5ad::lam0.2::pc2",
+        "cos": 0.776,
+        "tile_ok": true,
+        "lam": 0.2
+      },
+      {
+        "pc_key": "0011_HTAN_8899_AS_7_filtered_trimmed.h5ad::lam0.2::pc1",
+        "cos": 0.355,
+        "tile_ok": true,
+        "lam": 0.2
+      }
+    ],
+    "0035_HTAN_8270_AS_6_filtered_trimmed.h5ad": [
+      {
+        "pc_key": "0035_HTAN_8270_AS_6_filtered_trimmed.h5ad::lam0.2::pc1",
+        "cos": 0.949,
+        "tile_ok": true,
+        "lam": 0.2
+      },
+      {
+        "pc_key": "0035_HTAN_8270_AS_6_filtered_trimmed.h5ad::lam0.0::pc1",
+        "cos": 0.946,
+        "tile_ok": true,
+        "lam": 0.0
+      },
+      {
+        "pc_key": "0035_HTAN_8270_AS_6_filtered_trimmed.h5ad::lam0.5::pc1",
+        "cos": 0.941,
+        "tile_ok": true,
+        "lam": 0.5
+      },
+      {
+        "pc_key": "0035_HTAN_8270_AS_6_filtered_trimmed.h5ad::lam0.8::pc1",
+        "cos": 0.931,
+        "tile_ok": true,
+        "lam": 0.8
+      },
+      {
+        "pc_key": "0035_HTAN_8270_AS_6_filtered_trimmed.h5ad::lam0.8::pc3",
+        "cos": 0.111,
+        "tile_ok": true,
+        "lam": 0.8
+      }
+    ],
+    "0046_HTAN_7003_AS_8_filtered_trimmed.h5ad": [
+      {
+        "pc_key": "0046_HTAN_7003_AS_8_filtered_trimmed.h5ad::lam0.2::pc2",
+        "cos": 0.942,
+        "tile_ok": true,
+        "lam": 0.2
+      },
+      {
+        "pc_key": "0046_HTAN_7003_AS_8_filtered_trimmed.h5ad::lam0.0::pc1",
+        "cos": 0.936,
+        "tile_ok": true,
+        "lam": 0.0
+      },
+      {
+        "pc_key": "0046_HTAN_7003_AS_8_filtered_trimmed.h5ad::lam0.5::pc2",
+        "cos": 0.933,
+        "tile_ok": true,
+        "lam": 0.5
+      },
+      {
+        "pc_key": "0046_HTAN_7003_AS_8_filtered_trimmed.h5ad::lam0.8::pc2",
+        "cos": 0.923,
+        "tile_ok": true,
+        "lam": 0.8
+      },
+      {
+        "pc_key": "0046_HTAN_7003_AS_8_filtered_trimmed.h5ad::lam0.0::pc2",
+        "cos": 0.159,
+        "tile_ok": true,
+        "lam": 0.0
+      }
+    ]
+  },
+  "reading": "同片top匹配集中在单-PC（0011 pc1/pc2、0035 pc1、0046 pc1/pc2，cos 0.78-0.95），无跨PC拆分证据；逐向量|cos|匹配对此组已够用，无需旋转升级。L-008保持待挖掘，仅针对未来未解释候选。"
+}

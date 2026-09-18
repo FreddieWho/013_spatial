@@ -783,3 +783,12 @@ D-093 (2026-09-01): use the TensorFlow compiled execution path for the frozen K=
 - 决策：191 行以 kind=laneB_residual_structure 入库（D-126 的 19 个 laneA 行同批在库），registry 1950 行（7＋857＋221＋655＋19＋191）。Lane B 关闭；未命名场两条入口（Lane A 距离函数、Lane B 残余）均已执行完毕。
 - 失效条件：残余相干≠新场；任何 laneB 行升级为 claim 前须先排除"同类基因亚型/状态"解释并经复现引擎检验。
 - 影响：`scripts/r16_laneB_screen.py`＋产物＋registry 行已提交；`scripts/r16_build_registry.py` 计数器补 laneA/laneB 分项。
+
+### D-128 | 2026-09-18 | T1 PC 符号修复完成：分组 857→772，复现仍为 2 组且均为六轴联合可解释
+
+- 背景：恢复包 A02（signed cosine 分组＋raw 平均）。修复限 PC 语义：回归测试（`tests/test_r16_recovery_pc_matching.py`，3 绿，含旧代码必失败项）＋`r16/recovery/pc_matching.py`（|cos| 分组＋medoid 定向平均＋conflict 上报）＋`scripts/r16_recovery_T1_rematch.py` 从 65M loadings 直接重算。
+- 实测（`infra/r16/recovery_20260918/audit/pc_matching_reanalysis.json`）：857→772 组；8 旧组分裂、91 新组合并（均为两旧组合一，符号翻转对）；复现组仍为 2（R16B_001 持家/Epi 29 病人 184 成员；R16B_002 基质 3 病人 9 成员），conflict 均为 0.0。联合解释力（A03 正确新奇性）：两组 joint_axis_R²=0.02/0.08——不是"单轴 max|r|<0.7 的 NEW"，而是旧口径误标：它们本就 KNOWN（Epi/Stromal），联合口径下 `new_reproduced=0` 维持。
+- 子空间诊断（L-008 有边界检查）：R16B_002 三成员片内 top 匹配集中单 PC（cos 0.78–0.95），无跨 PC 拆分证据——逐向量匹配对此组够用，不升级旋转方法。
+- 几何诊断（A10）：q-Jaccard 降级为 `nested_quantile_overlap_descriptive`；q0.7 等高线保留定位功能，仅"稳定性"解读作废。
+- 决策：D-118 的 NEW=0 在符号修复＋联合口径下维持（772 组，0 NEW 复现）。I-023 可 RESOLVED（遗留旋转限制转 LEADS L-008）。产物路径见上；历史 JSON 不改写。
+- 失效条件：若未来对未解释候选的子空间诊断显示跨 PC 拆分，按 L-008 升级方法后重判。

@@ -1,0 +1,4 @@
+{
+  "contour_q_jaccard_status": "nested_quantile_overlap_descriptive (A10): q0.6/0.7/0.8 同分数嵌套mask的Jaccard均值代数恒为0.7083，与生物学边界稳定性无关；已停止将其作稳定性证据。后续程序几何稳定性改用marker子集/冻结定义重测（T3任务5要求）。",
+  "laneA_design_note": "Lane A距离尺仍用q0.7等高线作几何定义（定位功能保留），仅其“稳定性”解读降级。"
+}
