@@ -1,0 +1,112 @@
+[
+  {
+    "section": "ST_CRC_CMS::SN048_A121573_Rep1",
+    "n_windows": 12,
+    "leak_free": true
+  },
+  {
+    "section": "ST_CRC_CMS::SN048_A121573_Rep2",
+    "n_windows": 12,
+    "leak_free": true
+  },
+  {
+    "section": "ST_CRC_CMS::SN048_A416371_Rep1",
+    "n_windows": 12,
+    "leak_free": true
+  },
+  {
+    "section": "ST_CRC_CMS::SN048_A416371_Rep2",
+    "n_windows": 12,
+    "leak_free": true
+  },
+  {
+    "section": "ST_CRC_CMS::SN123_A595688_Rep1",
+    "n_windows": 12,
+    "leak_free": true
+  },
+  {
+    "section": "ST_CRC_CMS::SN124_A595688_Rep2",
+    "n_windows": 12,
+    "leak_free": true
+  },
+  {
+    "section": "ST_CRC_CMS::SN123_A551763_Rep1",
+    "n_windows": 12,
+    "leak_free": true
+  },
+  {
+    "section": "ST_CRC_CMS::SN124_A551763_Rep2",
+    "n_windows": 12,
+    "leak_free": true
+  },
+  {
+    "section": "ST_CRC_CMS::SN123_A798015_Rep1",
+    "n_windows": 12,
+    "leak_free": true
+  },
+  {
+    "section": "ST_CRC_CMS::SN124_A798015_Rep2",
+    "n_windows": 12,
+    "leak_free": true
+  },
+  {
+    "section": "ST_CRC_CMS::SN123_A938797_Rep1_X",
+    "n_windows": 12,
+    "leak_free": true
+  },
+  {
+    "section": "ST_CRC_CMS::SN124_A938797_Rep2",
+    "n_windows": 12,
+    "leak_free": true
+  },
+  {
+    "section": "ST_CRC_CMS::SN84_A120838_Rep1",
+    "n_windows": 12,
+    "leak_free": true
+  },
+  {
+    "section": "ST_CRC_CMS::SN84_A120838_Rep2",
+    "n_windows": 12,
+    "leak_free": true
+  },
+  {
+    "section": "TLS_VISIUM_USZ::LC3",
+    "n_windows": 12,
+    "leak_free": true
+  },
+  {
+    "section": "TLS_VISIUM_USZ::KC3",
+    "n_windows": 12,
+    "leak_free": true
+  },
+  {
+    "section": "TLS_VISIUM_USZ::LC2",
+    "n_windows": 12,
+    "leak_free": true
+  },
+  {
+    "section": "TLS_VISIUM_USZ::LC1",
+    "n_windows": 12,
+    "leak_free": true
+  },
+  {
+    "section": "TLS_VISIUM_USZ::KC1",
+    "n_windows": 12,
+    "leak_free": true
+  },
+  {
+    "section": "TLS_VISIUM_USZ::LC5",
+    "n_windows": 12,
+    "leak_free": true
+  },
+  {
+    "section": "TLS_VISIUM_USZ::KC2",
+    "n_windows": 12,
+    "leak_free": true
+  },
+  {
+    "section": "TLS_VISIUM_USZ::LC4",
+    "n_windows": 12,
+    "leak_free": true
+  }
+]
