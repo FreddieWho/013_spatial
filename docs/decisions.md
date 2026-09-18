@@ -808,3 +808,14 @@ D-093 (2026-09-01): use the TensorFlow compiled execution path for the frozen K=
 - 六程序：P-epi（16，QC残余0.34，30/30病人）/P-stromal（9，0.22，非线性quad砍半如实记）/P-plasma（11，与Plasma轴loo 0.815 不可分，降级只验分子再现）/P-smmhc（3，小而干净）/P-mhc2（2，唯一非丰度候选，残余最弱0.14）/P-stress（2，FOS系，技术梯度未排除双标签）。MT模块按技术伪影排除；HIST1H簇归增殖亚态不单列。
 - 决策：6 程序定义冻结结构已写（`program_definitions.json`，frozen时间戳空，T4前填）；readout基因T4划分并机器检查分离；患者效应全表180行无截断（A18关闭）。I-024待T4后降级。
 - 失效条件：T4 无增量则程序收缩为描述性；P-plasma 若分子亦不复现则关闭。
+
+### D-131 | 2026-09-18 | T4 独立复现＋增量：M1 全员成立，M2 仅 mhc2/stress 成立
+
+- 背景：02 T4＋03 §6（分子/空间/增量三层分开；input/readout分离；留一患者；局部校准口径）。定义冻结 2026-09-18T16:33:33Z（hash 675df82fde39b306）；readout 三队列全覆盖已验；P-plasma 只验分子（NOT_SEPARABLE）。
+- 实测（`infra/r16/recovery_20260918/{external_replication.tsv,incremental_prediction.tsv}`）：
+  - 分子再现：ST-CRC 全员强（corr 0.49–0.89）；USZ 分化——stromal 0.81/mhc2 0.72/epi 0.58 强，plasma 0.66 中，stress 0.33 弱（含 0.08–0.23 失败病人）。
+  - 空间再现：input/readout Moran 双双>0.2（除 USZ stress-input 0.23 及个别肺片），但"人人Moran阳性≠结构相同"（03 §6.1 已警告），只作必要条件。
+  - 增量 dM1（M1-M0，程序活性超组成）：10/10 队列-程序中位为正，其中 8 格 bootstrap CI 不含零；mhc2 两队列 CI 跨零（含 5399a83c1999 -80% 反例：M0 已很好 0.08，input 外推翻车）。
+  - 增量 dM2（M2-M1，邻域空间项）：仅 mhc2（9.4/8.2%，CI 不含零）与 stress/ST-CRC（15.8%）成立；epi/stromal/smmhc 中位≈0（epi/ST-CRC -0.1%）——活性有信息、空间排布无额外信息，诚实记为场活性复现而非空间组织发现。
+- 决策：T4 完成。P-epi/stromal/smmhc：组成外活性信息成立（H-01/H-03 支持），空间组织不成立；P-mhc2：三层全成立但最弱、CIs 宽，保留为候选；P-stress：ST-CRC 强、USZ 分化（技术梯度标签未摘）；P-plasma：分子再现成立（ST-CRC 0.60/USZ 0.66），增量未测。I-024 降级为方法备注（残差 p 仅筛查用，主证据为独立预测）。
+- 失效条件：T5 遮蔽若显示程序分可被最近邻插值替代，M2 结论再收缩；USZ 肺片系统性失败若经组织学确认为缺靶组织，则不记为生物学反例。

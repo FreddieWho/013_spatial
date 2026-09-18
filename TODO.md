@@ -9,8 +9,8 @@
 - [x] T1 PC 匹配符号修复＋联合解释力＋嵌套 Jaccard 降级（D-128：857→772组，NEW=0维持；I-023关闭）
 - [x] T2-small Lane A 机械修复验证（D-129：同算子闭环+NEG干净+BUMP检出；remap降诊断对照；占位p记NOT_CALIBRATED）
 - [ ] T2P2 变异函数匹配主 surrogate（硬骨头：非平稳+零膨胀+不规则几何无精确解；失败只封关联p，不阻塞T3/T4）
-- [ ] T3 191 基因→≤10 多基因程序（执行中：candidate_union＋共表达模块＋program_definitions＋triage_log）
-- [ ] T4 冻结程序 ST-CRC/USZ 独立复现＋增量预测（M0/M1/M2）
+- [x] T3 191 基因→6 多基因程序冻结（D-130：556union→共表达→6程序；M213残余0.18；plasma不可分；stromal quad敏感）
+- [ ] T4 冻结程序 ST-CRC/USZ 独立复现＋增量预测（执行中：readout划分已定，input零重叠；轴重叠走leave-axis-out敏感性）
 - [ ] T5 遮蔽任务接口（无适用目标则记 NOT_TESTABLE）
 - [ ] T6 阶段总结：old_vs_new 对照＋程序卡＋final_decision＋canonical 文档更新
 - [ ] hold 中（需逐项批准）：R-11 smoke、Xenium CRC、dbGaP、两封数据邮件、CRDC/NCI 凭据；GPU/新外部数据/付费资源本轮一律不动

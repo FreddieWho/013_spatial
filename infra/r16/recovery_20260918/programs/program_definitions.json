@@ -39,7 +39,14 @@
       "LGALS3BP",
       "GPX2"
     ],
-    "readout_genes": "TBD_T4_DISJOINT",
+    "readout_genes": [
+      "MUC2",
+      "MUC4",
+      "TFF1",
+      "CLDN3",
+      "KRT19",
+      "CDH1"
+    ],
     "direction_rule": "mean of log1p, higher = stronger",
     "normalization_rule": "log1p(counts) per spot; Q/QC residual variants defined",
     "nuisance_rule": "Q=[1,log10(libsize),ngenes_z]; QC=Q+6axes(linear); QCnlin sensitivity",
@@ -73,8 +80,8 @@
       "axes_separable": true,
       "notes": []
     },
-    "frozen_for_external_at": "",
-    "definition_hash": ""
+    "frozen_for_external_at": "2026-09-18T16:33:33Z",
+    "definition_hash": "675df82fde39b306"
   },
   "P-stromal": {
     "program_id": "P-stromal",
@@ -102,7 +109,14 @@
       "VIM",
       "C1R"
     ],
-    "readout_genes": "TBD_T4_DISJOINT",
+    "readout_genes": [
+      "COL6A2",
+      "COL5A1",
+      "FBN1",
+      "BGN",
+      "LUM",
+      "FN1"
+    ],
     "direction_rule": "mean of log1p, higher = stronger",
     "normalization_rule": "log1p(counts) per spot; Q/QC residual variants defined",
     "nuisance_rule": "Q=[1,log10(libsize),ngenes_z]; QC=Q+6axes(linear); QCnlin sensitivity",
@@ -129,8 +143,8 @@
       "axes_separable": true,
       "notes": []
     },
-    "frozen_for_external_at": "",
-    "definition_hash": ""
+    "frozen_for_external_at": "2026-09-18T16:33:33Z",
+    "definition_hash": "675df82fde39b306"
   },
   "P-plasma": {
     "program_id": "P-plasma",
@@ -162,7 +176,14 @@
       "DEPRECATED_ENSG00000211685",
       "DEPRECATED_ENSG00000211890"
     ],
-    "readout_genes": "TBD_T4_DISJOINT",
+    "readout_genes": [
+      "IGHM",
+      "IGHA2",
+      "MZB1",
+      "SDC1",
+      "TNFRSF17",
+      "CD38"
+    ],
     "direction_rule": "mean of log1p, higher = stronger",
     "normalization_rule": "log1p(counts) per spot; Q/QC residual variants defined",
     "nuisance_rule": "Q=[1,log10(libsize),ngenes_z]; QC=Q+6axes(linear); QCnlin sensitivity",
@@ -197,8 +218,8 @@
         "Plasma: loo_corr=0.815 <0.9 -> NOT_SEPARABLE_WITH_THIS_PROXY"
       ]
     },
-    "frozen_for_external_at": "",
-    "definition_hash": ""
+    "frozen_for_external_at": "2026-09-18T16:33:33Z",
+    "definition_hash": "675df82fde39b306"
   },
   "P-smmhc": {
     "program_id": "P-smmhc",
@@ -214,7 +235,13 @@
       "FLNA",
       "MYL9"
     ],
-    "readout_genes": "TBD_T4_DISJOINT",
+    "readout_genes": [
+      "TAGLN",
+      "CNN1",
+      "DES",
+      "MYH11",
+      "TPM2"
+    ],
     "direction_rule": "mean of log1p, higher = stronger",
     "normalization_rule": "log1p(counts) per spot; Q/QC residual variants defined",
     "nuisance_rule": "Q=[1,log10(libsize),ngenes_z]; QC=Q+6axes(linear); QCnlin sensitivity",
@@ -236,8 +263,8 @@
       "axes_separable": true,
       "notes": []
     },
-    "frozen_for_external_at": "",
-    "definition_hash": ""
+    "frozen_for_external_at": "2026-09-18T16:33:33Z",
+    "definition_hash": "675df82fde39b306"
   },
   "P-mhc2": {
     "program_id": "P-mhc2",
@@ -251,7 +278,13 @@
       "CD74",
       "HLA-DRA"
     ],
-    "readout_genes": "TBD_T4_DISJOINT",
+    "readout_genes": [
+      "HLA-DRB1",
+      "HLA-DPA1",
+      "HLA-DPB1",
+      "HLA-DQA1",
+      "CD86"
+    ],
     "direction_rule": "mean of log1p, higher = stronger",
     "normalization_rule": "log1p(counts) per spot; Q/QC residual variants defined",
     "nuisance_rule": "Q=[1,log10(libsize),ngenes_z]; QC=Q+6axes(linear); QCnlin sensitivity",
@@ -282,8 +315,8 @@
       "axes_separable": true,
       "notes": []
     },
-    "frozen_for_external_at": "",
-    "definition_hash": ""
+    "frozen_for_external_at": "2026-09-18T16:33:33Z",
+    "definition_hash": "675df82fde39b306"
   },
   "P-stress": {
     "program_id": "P-stress",
@@ -297,7 +330,14 @@
       "FOS",
       "DEPRECATED_ENSG00000170345"
     ],
-    "readout_genes": "TBD_T4_DISJOINT",
+    "readout_genes": [
+      "JUN",
+      "JUNB",
+      "EGR1",
+      "IER2",
+      "DUSP1",
+      "ATF3"
+    ],
     "direction_rule": "mean of log1p, higher = stronger",
     "normalization_rule": "log1p(counts) per spot; Q/QC residual variants defined",
     "nuisance_rule": "Q=[1,log10(libsize),ngenes_z]; QC=Q+6axes(linear); QCnlin sensitivity",
@@ -309,7 +349,7 @@
       "axes_separable": true,
       "notes": []
     },
-    "frozen_for_external_at": "",
-    "definition_hash": ""
+    "frozen_for_external_at": "2026-09-18T16:33:33Z",
+    "definition_hash": "675df82fde39b306"
   }
 }
