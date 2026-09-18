@@ -1,15 +1,18 @@
 # TODO（项目共读入口）
 
-当前唯一活跃工作面：项目已转探索定位（D-101，预注册约束取消）。K=3 工作容器继续；各方向（空间 null、组成拆分、结构读出深化）可并行探索，结果须标注证据等级。
+当前唯一活跃工作面：R-16 局部恢复与推进（恢复包 20260918，分支 `recovery-20260918`，基准 `7399652`=D-127）。旧 Lane A/B 已完成（D-126/D-127），其否证外推标记为 `METHOD_LIMITED_PENDING_REANALYSIS` 待 T1/T2 复核。
 科学判断见 `docs/plan.md`，节点状态见 `docs/roadmap.md`，技术选择见 `docs/decisions.md`。
 
-## 下一步（R-04 已关闭；R-16 两层结构已交付；D-116 独立复现已跑）
+## 下一步（恢复包 T0–T6；单 agent 按依赖串行）
 
-- [x] R-04 最终关闭完成：`R04_COMPLETE_NO_REPRODUCIBLE_RESIDUAL_FIELD`（D-110）
-- [x] 场发现策略修正（D-112/D-113/D-114/D-115）：残余降级为评分；HVG-10000；两层轴+普查；registry v1
-- [x] Tier-1 轴独立复现 09-15（D-116）：ST-CRC 7/7、USZ 8/8 相干；CXCL13 峰≤+1 为 6/7 与 7/8；不混发现集
-- [ ] Lane A（需先落地空间保持 null，I-021）
-- [ ] hold 中（需逐项批准）：R-11 smoke、Xenium CRC、dbGaP、两封数据邮件、CRDC/NCI 凭据
+- [x] T0 现状与输入契约：preflight 通过（HEAD=基准，registry 1950 行，cache 47 片，磁盘余量 1.62TB）；toy 审计 12 测试全过；`input_contract.json` 落盘（源 X=int64 原始 counts，r16 路径无深度校正=分析选择非数据缺失）
+- [ ] T1 PC 匹配符号修复＋联合解释力＋嵌套 Jaccard 降级（审计 A02/A03/A10）
+- [ ] T2 Lane A 患者先汇总＋同算子 null＋诊断集校准（审计 A05/A06/A07/A08/A09）
+- [ ] T3 191 基因→≤10 多基因程序（candidate_union＋program_definitions＋triage_log）
+- [ ] T4 冻结程序 ST-CRC/USZ 独立复现＋增量预测（M0/M1/M2）
+- [ ] T5 遮蔽任务接口（无适用目标则记 NOT_TESTABLE）
+- [ ] T6 阶段总结：old_vs_new 对照＋程序卡＋final_decision＋canonical 文档更新
+- [ ] hold 中（需逐项批准）：R-11 smoke、Xenium CRC、dbGaP、两封数据邮件、CRDC/NCI 凭据；GPU/新外部数据/付费资源本轮一律不动
 
 ## 当前执行分支（三线并行执行中；2026-09-10 用户批准开工）
 
@@ -101,3 +104,4 @@
 - 2026-09-16：用户指令全量不限时跑完即停（D-122）；GraphST 47片×600epoch已开跑，跑完回收＋退租。
 - 2026-09-16：GraphST GPU臂全量完成——47片×600epoch，356组32复现入库；registry共1657行；退租关闭。
 - 2026-09-16：V100 实例 lyg2143 已退租（0 在跑，0 残留磁盘，未用时长退款 ¥1.10）；SSH 密码文件已销毁。
+- 2026-09-18：TODO 顶部清理——旧 R-04/R-16 完成项归入历史正文；当前工作面切换为恢复包 T0–T6（分支 recovery-20260918）。起因：外部审计包指出 Lane A/B 与 PC 工厂的方法实现问题（A02/A05/A06/A09/A10/A13），旧否证外推待复核。

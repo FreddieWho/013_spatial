@@ -1,0 +1,23 @@
+source_id	source_type	title	url	use_and_limit
+R01	repository	Latest reviewed commit	https://github.com/FreddieWho/013_spatial/commit/73996528634ffe0362f1a0341771658171f3b5e2	D-127 and latest committed state
+R02	repository	STATUS.md	https://github.com/FreddieWho/013_spatial/blob/73996528634ffe0362f1a0341771658171f3b5e2/STATUS.md	Stale entry point; explicitly compared with latest decisions
+R03	repository	TODO.md	https://github.com/FreddieWho/013_spatial/blob/73996528634ffe0362f1a0341771658171f3b5e2/TODO.md	Stale top work list; historical items must not be mistaken for unfinished work
+R04	repository	docs/decisions.md	https://github.com/FreddieWho/013_spatial/blob/73996528634ffe0362f1a0341771658171f3b5e2/docs/decisions.md	D-116 through D-127; latest decisions, candidate counts and scope
+R05	repository	scripts/r16_laneA_screen.py	https://github.com/FreddieWho/013_spatial/blob/73996528634ffe0362f1a0341771658171f3b5e2/scripts/r16_laneA_screen.py	Patient/section aggregation, statistic mismatch, omitted remap info
+R06	repository	r16/census.py	https://github.com/FreddieWho/013_spatial/blob/73996528634ffe0362f1a0341771658171f3b5e2/r16/census.py	Normalization function, spatial graph, Moran and remap implementation
+R07	repository	docs/PHASE_REPORT_R04_FINAL_2026-09-11.md	https://github.com/FreddieWho/013_spatial/blob/73996528634ffe0362f1a0341771658171f3b5e2/docs/PHASE_REPORT_R04_FINAL_2026-09-11.md	Historical R04 closure; does not establish universal absence of fields
+R08	repository	scripts/r16_axis_factory.py	https://github.com/FreddieWho/013_spatial/blob/73996528634ffe0362f1a0341771658171f3b5e2/scripts/r16_axis_factory.py	Signed matching, raw averaging, per-axis novelty
+R09	repository	r16/axes.py	https://github.com/FreddieWho/013_spatial/blob/73996528634ffe0362f1a0341771658171f3b5e2/r16/axes.py	Quantile overlap, active axes, signed hops
+R10	repository	docs/plan.md	https://github.com/FreddieWho/013_spatial/blob/73996528634ffe0362f1a0341771658171f3b5e2/docs/plan.md	H01-H07 and boundaries B03-B09; true scientific scope
+R11	repository	docs/decisions.md D-116	https://github.com/FreddieWho/013_spatial/blob/73996528634ffe0362f1a0341771658171f3b5e2/docs/decisions.md	Independent known-axis replication; prior external exposure
+R12	repository	r16/axis_factory.py	https://github.com/FreddieWho/013_spatial/blob/73996528634ffe0362f1a0341771658171f3b5e2/r16/axis_factory.py	Additive neighbor mix and LISA statistic/tiles
+R13	repository	docs/R16_DISCOVERY_DESIGN_20260914.md	https://github.com/FreddieWho/013_spatial/blob/73996528634ffe0362f1a0341771658171f3b5e2/docs/R16_DISCOVERY_DESIGN_20260914.md	Earlier v2.1 specification; full-curve alternatives and PC limitations
+R14	repository	scripts/r16_laneB_screen.py	https://github.com/FreddieWho/013_spatial/blob/73996528634ffe0362f1a0341771658171f3b5e2/scripts/r16_laneB_screen.py	OLS residual screening, patient summary, truncated IDs
+R15	repository	r16/section_io.py	https://github.com/FreddieWho/013_spatial/blob/73996528634ffe0362f1a0341771658171f3b5e2/r16/section_io.py	Existing source symbol/library-size and USZ-label access
+R16	repository	scripts/r16_build_registry.py	https://github.com/FreddieWho/013_spatial/blob/73996528634ffe0362f1a0341771658171f3b5e2/scripts/r16_build_registry.py	Heterogeneous registry merging
+R17	repository	AGENTS.md	https://github.com/FreddieWho/013_spatial/blob/73996528634ffe0362f1a0341771658171f3b5e2/AGENTS.md	Authorization, storage, documentation and contamination constraints
+R18	repository	LEADS.md	https://github.com/FreddieWho/013_spatial/blob/73996528634ffe0362f1a0341771658171f3b5e2/LEADS.md	L007, L008 and existing follow-up leads
+L01	primary_research	Kotliar et al. (2019), eLife 8:e43803	https://doi.org/10.7554/eLife.43803	Identity versus activity gene-expression programs; conceptual foundation, not proof for this cohort
+L02	primary_research	Townes and Engelhardt (2023), Nature Methods 20:229-238	https://doi.org/10.1038/s41592-022-01687-w	Nonnegative spatial factorization and spatial/nonspatial components; contribution boundary
+L03	primary_research	Burt et al. (2020), NeuroImage 220:117038	https://doi.org/10.1016/j.neuroimage.2020.117038	Spatial-autocorrelation-preserving surrogate maps; adaptation requires tissue-specific validation
+L04	primary_research	Singhal et al. (2024), Nature Genetics 56:431-441	https://doi.org/10.1038/s41588-024-01664-3	BANKSY own/neighborhood product-space concatenation; distinction from current additive smoothing

@@ -1,0 +1,114 @@
+{
+  "schema": "013_spatial.recovery_defaults.v1",
+  "review_commit": "73996528634ffe0362f1a0341771658171f3b5e2",
+  "purpose": "R16 targeted corrections and candidate-to-evidence progression; not a new full-project version",
+  "defaults_are_preregistration": false,
+  "resource_policy": {
+    "gpu_authorized": false,
+    "new_external_data_authorized": false,
+    "paid_resources_authorized": false,
+    "minimum_free_bytes_before_heavy_analysis": 1200000000000,
+    "reuse_local_artifacts_first": true
+  },
+  "scientific_scope": {
+    "primary": [
+      "continuous_spatial_programs",
+      "incremental_information"
+    ],
+    "conditional": [
+      "masked_field_prediction",
+      "independently_anchored_structure_inference"
+    ],
+    "not_required_this_round": [
+      "multiple_structure_types",
+      "adjacent_plane_3D",
+      "active_ROI_selection"
+    ]
+  },
+  "active_composition_axes": [
+    "T",
+    "B",
+    "Mye",
+    "Epi",
+    "Stromal",
+    "Plasma"
+  ],
+  "retired_axes": [
+    "ILC"
+  ],
+  "data_roles": {
+    "discovery": {
+      "lineage": "HTAN_VANDERBILT_CRC",
+      "expected_patients": 30,
+      "expected_sections": 47
+    },
+    "same_disease_replication": {
+      "lineage": "ST_CRC_CMS",
+      "expected_patients": 7,
+      "expected_sections": 14
+    },
+    "context_specific_replication": {
+      "lineage": "TLS_VISIUM_USZ",
+      "expected_patients": 8,
+      "expected_sections": 8
+    },
+    "counts_are_expectations_not_hardcoded_truth": true,
+    "external_prior_exposure": "Known-axis scoring has already occurred; disclose, do not call wholly untouched."
+  },
+  "candidate_policy": {
+    "priority_program_limit": 10,
+    "target_program_count_not_success_gate": true,
+    "suggested_genes_per_program": [
+      10,
+      50
+    ],
+    "allow_overlapping_programs": true,
+    "keep_all_191_laneB_genes_in_inventory": true,
+    "freeze_definitions_before_external": true
+  },
+  "statistics": {
+    "patient_first": true,
+    "identical_observed_and_null_operator": true,
+    "screen_draws": 199,
+    "shortlist_draws": 999,
+    "draw_counts_are_adjustable": true,
+    "full_curve_preferred_over_exact_peak_bin": true,
+    "spline_df_initial": 4,
+    "surrogate_primary_initial": "variogram_matched_candidate_program_surrogates",
+    "surrogate_must_be_calibrated_for_actual_geometry": true,
+    "legacy_rotation_role": "diagnostic_sensitivity_only",
+    "null_failure_blocks_only_affected_inferential_claim": true,
+    "formal_multiplicity_family": "all shortlisted programs times declared primary readouts",
+    "ci_crossing_zero_is_not_falsification": true,
+    "input_readout_gene_disjointness": true,
+    "leave_tested_gene_or_module_out_of_axis": true
+  },
+  "pilot": {
+    "representative_patients": 6,
+    "select_by_geometry_and_coverage_not_effect": true,
+    "subspace_diagnostic_unknown_candidates_max": 3,
+    "not_a_biological_validation_cohort": true
+  },
+  "masked_tasks": {
+    "mask_generation_independent_of_ground_truth": true,
+    "include_matched_negative_windows": true,
+    "recompute_all_features_using_visible_values_only": true,
+    "no_expression_derived_structure_ground_truth": true
+  },
+  "outputs_root": "infra/r16/recovery_20260918",
+  "stop_unproductive_repetition": [
+    "K_search",
+    "full_GraphST_retraining",
+    "Seurat_S_rescue",
+    "PRECAST_full_run",
+    "uncorrected_60000_test_rerun",
+    "additional_clustering_algorithm_sweep"
+  ],
+  "hold_items_preserved": [
+    "R-11 smoke",
+    "Xenium CRC",
+    "dbGaP",
+    "data request emails",
+    "CRDC/NCI credentials"
+  ]
+}

@@ -1,0 +1,5 @@
+# Only for this package's toy diagnostics; the metadata inventory uses stdlib only.
+# Reuse a suitable existing environment rather than reinstalling the project stack.
+numpy
+scipy
+pytest

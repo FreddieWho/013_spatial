@@ -1,0 +1,525 @@
+{
+  "schema": "013_spatial.recovery_preflight.v1",
+  "created_utc": "2026-09-18T15:01:37.936651+00:00",
+  "repo_root": "/home/huyudi/013_spatial",
+  "review_commit": "73996528634ffe0362f1a0341771658171f3b5e2",
+  "current_head": "73996528634ffe0362f1a0341771658171f3b5e2",
+  "head_matches_review": true,
+  "head_diagnostic": {
+    "returncode": 0,
+    "stdout": "73996528634ffe0362f1a0341771658171f3b5e2",
+    "stderr": ""
+  },
+  "tracked_worktree_status": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "disk_free_bytes": 1617398259712,
+  "analysis_reserve_required_bytes": 1200000000000,
+  "analysis_reserve_met": true,
+  "disk_note": "This small metadata read is allowed; before heavy analysis enforce the repository reserve.",
+  "sources": [
+    {
+      "path": "AGENTS.md",
+      "state": "PRESENT",
+      "size_bytes": 3608,
+      "sha256": "0312d3a25f930471afe1a7543ad70a8caebe68025608c23bc7f940f861a0ac5e"
+    },
+    {
+      "path": "STATUS.md",
+      "state": "PRESENT",
+      "size_bytes": 1395,
+      "sha256": "e83cf9d582b112ef48fe85ddb9a0e0570f2a535502445d4b61880bcba0eecba1"
+    },
+    {
+      "path": "TODO.md",
+      "state": "PRESENT",
+      "size_bytes": 14779,
+      "sha256": "32a0b0d9f20ec37877b875aef53986f5ca6b83e1c17112b2917351cbe2d79e3a"
+    },
+    {
+      "path": "LEADS.md",
+      "state": "PRESENT",
+      "size_bytes": 5263,
+      "sha256": "de35d65fcc9605e086e03f01a3e701d798601f6c633bf6fa3d5f6095ab07c2d7"
+    },
+    {
+      "path": "docs/plan.md",
+      "state": "PRESENT",
+      "size_bytes": 13665,
+      "sha256": "a34d2963486addb11a686bfbdd2115353a60768cd8ceb8711e44ae0ca0770aa3"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "state": "PRESENT",
+      "size_bytes": 77554,
+      "sha256": "dec7dd0a91ded4e264990628501da71613759cbb63c36218bb6c67e3b5b98b3d"
+    },
+    {
+      "path": "docs/decisions.md",
+      "state": "PRESENT",
+      "size_bytes": 157536,
+      "sha256": "daaccc94232f8e5d6cedddbf513435df6c1a2eb6e3b6924510d0e784c50663db"
+    },
+    {
+      "path": "docs/ISSUES.md",
+      "state": "PRESENT",
+      "size_bytes": 52283,
+      "sha256": "24663654349576139be1aa5e9474ee72c8ef5364df05a5920323550d25a873dd"
+    },
+    {
+      "path": "docs/R16_DISCOVERY_DESIGN_20260914.md",
+      "state": "PRESENT",
+      "size_bytes": 7798,
+      "sha256": "f6a0cf5064aacc015d2f6c843058fe369be8f307e59b8b6ba4e84c1c900b4770"
+    },
+    {
+      "path": "scripts/r16_axis_factory.py",
+      "state": "PRESENT",
+      "size_bytes": 12632,
+      "sha256": "e42972c23da4e2cfb9d99c389284d6261217d9dc1a5f67b7a03c88ba91bb4639",
+      "function_locations": [
+        {
+          "name": "load_axis_defs",
+          "start_line": 35,
+          "end_line": 44
+        },
+        {
+          "name": "pick_pilot_stems",
+          "start_line": 47,
+          "end_line": 58
+        },
+        {
+          "name": "main",
+          "start_line": 61,
+          "end_line": 243
+        },
+        {
+          "name": "radius_check_report",
+          "start_line": 246,
+          "end_line": 269
+        }
+      ]
+    },
+    {
+      "path": "scripts/r16_laneA_screen.py",
+      "state": "PRESENT",
+      "size_bytes": 9350,
+      "sha256": "f329806eb287afc4d87b3858acddcb60dcde9b8ed34d115c369aa5c29902eeef",
+      "function_locations": [
+        {
+          "name": "section_profiles",
+          "start_line": 36,
+          "end_line": 95
+        },
+        {
+          "name": "main",
+          "start_line": 98,
+          "end_line": 207
+        }
+      ]
+    },
+    {
+      "path": "scripts/r16_laneB_screen.py",
+      "state": "PRESENT",
+      "size_bytes": 7290,
+      "sha256": "b25d526ba500ddf9c8dce6d966e1885f32a80a6eb6364ade88d676741528f323",
+      "function_locations": [
+        {
+          "name": "shell_dummies",
+          "start_line": 35,
+          "end_line": 42
+        },
+        {
+          "name": "main",
+          "start_line": 45,
+          "end_line": 159
+        }
+      ]
+    },
+    {
+      "path": "scripts/r16_build_registry.py",
+      "state": "PRESENT",
+      "size_bytes": 2372,
+      "sha256": "4a220b376a047edbc0520083adae055a9362ec460c954cb15e0e71f8ae2ee37f",
+      "function_locations": [
+        {
+          "name": "main",
+          "start_line": 20,
+          "end_line": 48
+        }
+      ]
+    },
+    {
+      "path": "r16/census.py",
+      "state": "PRESENT",
+      "size_bytes": 9760,
+      "sha256": "6f18bbe6d2b0fe94c8b779225f6a54612dec85dab3c2271593f3b96c05a003bf",
+      "function_locations": [
+        {
+          "name": "load_section",
+          "start_line": 37,
+          "end_line": 42
+        },
+        {
+          "name": "list_stems",
+          "start_line": 45,
+          "end_line": 46
+        },
+        {
+          "name": "log1p_zscore",
+          "start_line": 52,
+          "end_line": 58
+        },
+        {
+          "name": "pca_scores",
+          "start_line": 61,
+          "end_line": 63
+        },
+        {
+          "name": "knn_igraph",
+          "start_line": 66,
+          "end_line": 71
+        },
+        {
+          "name": "leiden_labels",
+          "start_line": 74,
+          "end_line": 79
+        },
+        {
+          "name": "filter_min_size",
+          "start_line": 82,
+          "end_line": 87
+        },
+        {
+          "name": "cluster_signatures",
+          "start_line": 93,
+          "end_line": 94
+        },
+        {
+          "name": "top_markers",
+          "start_line": 97,
+          "end_line": 107
+        },
+        {
+          "name": "cosine",
+          "start_line": 110,
+          "end_line": 114
+        },
+        {
+          "name": "jaccard",
+          "start_line": 117,
+          "end_line": 119
+        },
+        {
+          "name": "match_units_to_groups",
+          "start_line": 122,
+          "end_line": 162
+        },
+        {
+          "name": "spatial_weights",
+          "start_line": 168,
+          "end_line": 174
+        },
+        {
+          "name": "moran_i",
+          "start_line": 177,
+          "end_line": 183
+        },
+        {
+          "name": "moran_permutation_p",
+          "start_line": 186,
+          "end_line": 194
+        },
+        {
+          "name": "_rotation_matrices",
+          "start_line": 216,
+          "end_line": 218
+        },
+        {
+          "name": "spatial_null_remap",
+          "start_line": 221,
+          "end_line": 257
+        }
+      ]
+    },
+    {
+      "path": "r16/axes.py",
+      "state": "PRESENT",
+      "size_bytes": 2513,
+      "sha256": "8b583c83f267cd40527a50ceb67d12be609d7987af278146c79359f895f4980f",
+      "function_locations": [
+        {
+          "name": "axis_scores",
+          "start_line": 26,
+          "end_line": 31
+        },
+        {
+          "name": "contour_mask",
+          "start_line": 34,
+          "end_line": 35
+        },
+        {
+          "name": "contour_stability",
+          "start_line": 38,
+          "end_line": 42
+        },
+        {
+          "name": "signed_hop_distance",
+          "start_line": 45,
+          "end_line": 55
+        },
+        {
+          "name": "binned_profile",
+          "start_line": 58,
+          "end_line": 64
+        }
+      ]
+    },
+    {
+      "path": "r16/axis_factory.py",
+      "state": "PRESENT",
+      "size_bytes": 5455,
+      "sha256": "c7b56c2a2a0c0a13a6f5ffe7ba1ee4feccc64527960c5c33b2ecc4781bb65fec",
+      "function_locations": [
+        {
+          "name": "spatial_mean_weights",
+          "start_line": 44,
+          "end_line": 52
+        },
+        {
+          "name": "augment",
+          "start_line": 55,
+          "end_line": 57
+        },
+        {
+          "name": "zscore_columns",
+          "start_line": 60,
+          "end_line": 64
+        },
+        {
+          "name": "candidate_pcs",
+          "start_line": 70,
+          "end_line": 76
+        },
+        {
+          "name": "bh_fdr",
+          "start_line": 82,
+          "end_line": 95
+        },
+        {
+          "name": "lisa_tile_stats",
+          "start_line": 98,
+          "end_line": 136
+        },
+        {
+          "name": "abs_cosine",
+          "start_line": 142,
+          "end_line": 147
+        },
+        {
+          "name": "top_loading_genes",
+          "start_line": 150,
+          "end_line": 152
+        }
+      ]
+    },
+    {
+      "path": "r16/section_io.py",
+      "state": "PRESENT",
+      "size_bytes": 3958,
+      "sha256": "7cf78d7dd87a6c5827971b3720efc0f75af327222dc9fcd698a6fe07b82d6cdc",
+      "function_locations": [
+        {
+          "name": "_symbols_from_10x_h5",
+          "start_line": 22,
+          "end_line": 31
+        },
+        {
+          "name": "_symbols_from_10x_mtx",
+          "start_line": 34,
+          "end_line": 55
+        },
+        {
+          "name": "load_section_symbols",
+          "start_line": 58,
+          "end_line": 80
+        },
+        {
+          "name": "usz_tls_labels",
+          "start_line": 83,
+          "end_line": 106
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "infra/r16/field_registry.tsv",
+      "state": "PRESENT",
+      "size_bytes": 559398,
+      "contents_loaded": false
+    },
+    {
+      "path": "infra/r16/axis_factory_loadings_20260915.npz",
+      "state": "PRESENT",
+      "size_bytes": 67507717,
+      "contents_loaded": false
+    },
+    {
+      "path": "infra/r16/axis_factory_loadings_pilot_20260915.npz",
+      "state": "PRESENT",
+      "size_bytes": 6946759,
+      "contents_loaded": false
+    },
+    {
+      "path": "infra/r16/axis_factory_loadings_smoke_20260915.npz",
+      "state": "PRESENT",
+      "size_bytes": 1527119,
+      "contents_loaded": false
+    },
+    {
+      "path": "infra/r16/axis_factory_20260915.json",
+      "state": "PRESENT",
+      "size_bytes": 1559316,
+      "contents_loaded": false
+    },
+    {
+      "path": "infra/r16/axis_factory_pilot_20260915.json",
+      "state": "PRESENT",
+      "size_bytes": 171052,
+      "contents_loaded": false
+    },
+    {
+      "path": "infra/r16/axis_factory_radius_check_20260915.json",
+      "state": "PRESENT",
+      "size_bytes": 453,
+      "contents_loaded": false
+    },
+    {
+      "path": "infra/r16/laneA_B_20260917.json",
+      "state": "PRESENT",
+      "size_bytes": 3177269,
+      "contents_loaded": false
+    },
+    {
+      "path": "infra/r16/laneA_Epi_20260917.json",
+      "state": "PRESENT",
+      "size_bytes": 3195363,
+      "contents_loaded": false
+    },
+    {
+      "path": "infra/r16/laneA_Mye_20260917.json",
+      "state": "PRESENT",
+      "size_bytes": 3198195,
+      "contents_loaded": false
+    },
+    {
+      "path": "infra/r16/laneA_Plasma_20260917.json",
+      "state": "PRESENT",
+      "size_bytes": 3226070,
+      "contents_loaded": false
+    },
+    {
+      "path": "infra/r16/laneA_Stromal_20260917.json",
+      "state": "PRESENT",
+      "size_bytes": 3235763,
+      "contents_loaded": false
+    },
+    {
+      "path": "infra/r16/laneA_T_20260917.json",
+      "state": "PRESENT",
+      "size_bytes": 3177773,
+      "contents_loaded": false
+    },
+    {
+      "path": "infra/r16/laneB_residual_20260917.json",
+      "state": "PRESENT",
+      "size_bytes": 3998738,
+      "contents_loaded": false
+    },
+    {
+      "path": "infra/r16/joint_embed_20260915.json",
+      "state": "PRESENT",
+      "size_bytes": 602259,
+      "contents_loaded": false
+    },
+    {
+      "path": "infra/r16/joint_embed_G_20260916.json",
+      "state": "PRESENT",
+      "size_bytes": 350743,
+      "contents_loaded": false
+    },
+    {
+      "path": "infra/r16/joint_embed_H_20260917.json",
+      "state": "PRESENT",
+      "size_bytes": 346398,
+      "contents_loaded": false
+    },
+    {
+      "path": "infra/r16/axis_replication_ST_CRC_CMS_20260915.json",
+      "state": "PRESENT",
+      "size_bytes": 2342,
+      "contents_loaded": false
+    },
+    {
+      "path": "infra/r16/axis_replication_TLS_VISIUM_USZ_20260915.json",
+      "state": "PRESENT",
+      "size_bytes": 4560,
+      "contents_loaded": false
+    },
+    {
+      "path": "infra/r16/axis_replication_comparison_20260915.json",
+      "state": "PRESENT",
+      "size_bytes": 2941,
+      "contents_loaded": false
+    },
+    {
+      "pattern": "infra/r16/*manifest*.json",
+      "state": "NO_MATCH_AT_EXPECTED_LOCATION"
+    },
+    {
+      "path": "infra/r16/census_cache_hvg10k/cache_manifest.json",
+      "state": "PRESENT",
+      "size_bytes": 12906,
+      "contents_loaded": false
+    },
+    {
+      "pattern": "infra/r16/census_cache_hvg10k/sections/*manifest*.json",
+      "state": "NO_MATCH_AT_EXPECTED_LOCATION"
+    }
+  ],
+  "cache_section_metadata_count": 47,
+  "registry": {
+    "state": "READ",
+    "row_count": 1950,
+    "counts": {
+      "kind": {
+        "composition_axis": 7,
+        "pattern_group": 221,
+        "discovered_axis": 857,
+        "joint_pattern_group": 655,
+        "laneA_distance_function": 19,
+        "laneB_residual_structure": 191
+      },
+      "tier": {
+        "1": 7,
+        "2": 1086,
+        "1b": 857
+      },
+      "evidence_grade": {
+        "EXPLORATORY_REPRODUCED": 548,
+        "DESCRIPTIVE_SINGLE_PATIENT": 1402
+      }
+    },
+    "warning": "Rows are heterogeneous records, not independent field discoveries."
+  },
+  "scope": "METADATA_ONLY_NO_PATIENT_ANALYSIS",
+  "counts_normalization_status": "REQUIRES_MANIFEST_AND_BUILDER_REVIEW",
+  "notes": [
+    "Do not overwrite results if HEAD has advanced; inspect the actual diff.",
+    "Missing default paths are not evidence of absence of data.",
+    "No expression matrices, NPZ contents, or hidden labels were loaded."
+  ]
+}

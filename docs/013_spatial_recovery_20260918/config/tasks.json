@@ -1,0 +1,141 @@
+{
+  "schema": "013_spatial.recovery_tasks.v1",
+  "tasks": [
+    {
+      "task_id": "T0",
+      "title": "Current state and input contract",
+      "priority": "P0",
+      "owner": "supervisor",
+      "requires_completed_or_documented_not_applicable": [],
+      "soft_dependencies": [],
+      "outputs_relative_to_outputs_root": [
+        "input_contract.json",
+        "artifact_inventory.tsv",
+        "baseline_state.md"
+      ],
+      "success_requires_positive_scientific_result": false,
+      "details": "02_施工任务与依赖.md#T0",
+      "note": ""
+    },
+    {
+      "task_id": "T1",
+      "title": "PC matching and geometric evidence correction",
+      "priority": "P0",
+      "owner": "agent_A",
+      "requires_completed_or_documented_not_applicable": [
+        "T0"
+      ],
+      "soft_dependencies": [],
+      "outputs_relative_to_outputs_root": [
+        "audit/pc_matching_reanalysis.json",
+        "audit/geometry_diagnostic.json"
+      ],
+      "success_requires_positive_scientific_result": false,
+      "details": "02_施工任务与依赖.md#T1",
+      "note": ""
+    },
+    {
+      "task_id": "T2",
+      "title": "Lane A statistic correction and local calibration",
+      "priority": "P0/P1",
+      "owner": "agent_B",
+      "requires_completed_or_documented_not_applicable": [
+        "T0"
+      ],
+      "soft_dependencies": [
+        "T3"
+      ],
+      "outputs_relative_to_outputs_root": [
+        "laneA/laneA_corrected_small.json",
+        "laneA/surrogate_diagnostics.tsv"
+      ],
+      "success_requires_positive_scientific_result": false,
+      "details": "02_施工任务与依赖.md#T2",
+      "note": ""
+    },
+    {
+      "task_id": "T3",
+      "title": "Existing candidates to multigene programs",
+      "priority": "P1",
+      "owner": "agent_C",
+      "requires_completed_or_documented_not_applicable": [
+        "T0"
+      ],
+      "soft_dependencies": [
+        "T1"
+      ],
+      "outputs_relative_to_outputs_root": [
+        "programs/program_definitions.json",
+        "programs/program_patient_effects.tsv"
+      ],
+      "success_requires_positive_scientific_result": false,
+      "details": "02_施工任务与依赖.md#T3",
+      "note": ""
+    },
+    {
+      "task_id": "T4",
+      "title": "Frozen external replication and incremental information",
+      "priority": "P1",
+      "owner": "supervisor+agent_C",
+      "requires_completed_or_documented_not_applicable": [
+        "T0",
+        "T3"
+      ],
+      "soft_dependencies": [
+        "T1",
+        "T2"
+      ],
+      "outputs_relative_to_outputs_root": [
+        "external_replication.tsv",
+        "incremental_prediction.tsv"
+      ],
+      "success_requires_positive_scientific_result": false,
+      "details": "02_施工任务与依赖.md#T4",
+      "note": "PC-derived candidate claims require corrected T1; spatial association p-values require suitable T2 calibration. Other independent predictive tests need not wait."
+    },
+    {
+      "task_id": "T5",
+      "title": "Masked field or independently anchored structure task",
+      "priority": "P2",
+      "owner": "supervisor",
+      "requires_completed_or_documented_not_applicable": [
+        "T0"
+      ],
+      "soft_dependencies": [
+        "T3",
+        "T4"
+      ],
+      "outputs_relative_to_outputs_root": [
+        "mask_task_manifest.tsv",
+        "leakage_tests.json",
+        "masked_results_or_not_testable.md"
+      ],
+      "success_requires_positive_scientific_result": false,
+      "details": "02_施工任务与依赖.md#T5",
+      "note": "Input/leakage scaffolding may run early; real masked inference requires suitable candidate and independent target."
+    },
+    {
+      "task_id": "T6",
+      "title": "Synthesis and canonical documentation",
+      "priority": "P1",
+      "owner": "supervisor",
+      "requires_completed_or_documented_not_applicable": [
+        "T0",
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5"
+      ],
+      "soft_dependencies": [],
+      "outputs_relative_to_outputs_root": [
+        "final_decision.md",
+        "old_vs_new_conclusions.tsv",
+        "validation_report.md"
+      ],
+      "success_requires_positive_scientific_result": false,
+      "details": "02_施工任务与依赖.md#T6",
+      "note": ""
+    }
+  ]
+}

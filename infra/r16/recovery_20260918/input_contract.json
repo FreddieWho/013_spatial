@@ -1,0 +1,46 @@
+{
+  "schema": "013_spatial.recovery_input_contract.v1",
+  "created_utc": "2026-09-18T15:03:00.224615+00:00",
+  "head": "73996528634ffe0362f1a0341771658171f3b5e2",
+  "review_commit": "73996528634ffe0362f1a0341771658171f3b5e2",
+  "data_semantics": {
+    "source_X": "int64 raw counts, no layers (verified 8270_AS_2: rowsums 301..13991 med 1266)",
+    "cache_build": "verbatim count subset, log1p NOT applied at build (builder: mat @ sel only)",
+    "analysis_transform": "r16/census.py::log1p_zscore = log1p then per-gene zscore; NO library-size/depth step anywhere in r16 path",
+    "depth_status": "RAW COUNTS AVAILABLE in source h5ad; depth correction NOT done = analysis choice, NOT data absence. A14 answered: upstream HAS library size (row sums computable), downstream never uses it.",
+    "library_size_source": "row sums of source X (h5ad_counts, count_key=X); cache npz preserves counts so row sums recomputable per section",
+    "gene_universe": "integration_hvg_top10000_D114, dup symbols first-occurrence, per-section missing 0..129 genes as zero cols",
+    "geometry": "coords=obsm/spatial float32; graph hops (kNN symmetrized); spatial_trim exists but unused by r16"
+  },
+  "cohorts": {
+    "discovery": {
+      "sections": 47,
+      "patients": 30,
+      "lineage": "HTAN_VANDERBILT_CRC"
+    },
+    "same_disease": {
+      "sections": 14,
+      "patients": 7
+    },
+    "context": {
+      "sections": 8,
+      "patients": 8
+    }
+  },
+  "reusable": [
+    "cache 47 npz (raw counts, verified)",
+    "loadings npz 65M (T1 re-match without recompute)",
+    "laneA/B jsons (legacy, METHOD_LIMITED per 04-A)",
+    "ST-CRC/USZ readers+manifests (T4)"
+  ],
+  "audit_confirmations": {
+    "A02_signed_cosine": "CONFIRMED line147 sim=nrm@nrm.T, line171 raw mean",
+    "A05_stat_mismatch": "CONFIRMED obs=cohort-median peak vs null=section-draw pooled peaks",
+    "A06_section_votes": "CONFIRMED agree over section peak votes",
+    "A09_info_dropped": "CONFIRMED remap [0] drops acceptance info",
+    "A10_nested_jaccard": "CONFIRMED contour_stability on nested quantile masks (algebraic 0.7083)",
+    "A13_resid_perm": "CONFIRMED OLS residuals permuted directly, 50 draws, floor 1/51",
+    "A14_depth": "ANSWERED: raw counts present; depth unused by choice",
+    "A18_truncation": "CONFIRMED coherent_patients[:10] truncated; full tables needed in T3 outputs"
+  }
+}

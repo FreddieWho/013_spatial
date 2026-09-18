@@ -1,0 +1,67 @@
+{
+  "scope": "SYNTHETIC_MATHEMATICAL_AUDIT_ONLY",
+  "seed": 20260918,
+  "patient_data_used": false,
+  "repository_training_run": false,
+  "pc_sign": {
+    "legacy_groups": 2,
+    "sign_invariant_groups": 1,
+    "legacy_mean_norm": 0.0,
+    "oriented_mean_norm": 0.9999999999999999
+  },
+  "pc_rotation": {
+    "best_individual_axis_cosine": 0.7071067811865476,
+    "canonical_correlations": [
+      1.0,
+      1.0
+    ]
+  },
+  "known_axis_mixture": {
+    "max_individual_axis_correlation": 0.40824829046386313,
+    "joint_axis_r_squared": 1.0
+  },
+  "contour_stability": {
+    "ordered_jaccards": [
+      0.75,
+      0.6666666666666666
+    ],
+    "shuffled_jaccards": [
+      0.75,
+      0.6666666666666666
+    ],
+    "mean_jaccard": 0.7083333333333333,
+    "expected_by_algebra": 0.7083333333333334
+  },
+  "laneA_statistic_mismatch": {
+    "n_patients": 30,
+    "n_joint_draws": 999,
+    "observed_cohort_statistic": 0.9020743668495456,
+    "legacy_null_count": 29970,
+    "correct_null_count": 999,
+    "legacy_null_median": 1.6265238315001123,
+    "correct_null_median": 0.36534185469886105,
+    "legacy_p": 0.9282306229355043,
+    "matched_statistic_p": 0.001,
+    "warning": "Illustration of statistic mismatch, NOT a calibrated spatial test or effect estimate."
+  },
+  "patient_weighting": {
+    "original_section_median": 0.0,
+    "repeated_section_median": 1.0,
+    "patient_first_median": 0.0
+  },
+  "nearest_neighbor_remap": {
+    "n_spots": 7,
+    "n_unique_source_indices": 4,
+    "indices": [
+      2,
+      5,
+      4,
+      4,
+      2,
+      1,
+      2
+    ],
+    "is_bijection": false,
+    "note": "Demonstrates missing bijection guarantee; not a measurement of real remap acceptance."
+  }
+}
