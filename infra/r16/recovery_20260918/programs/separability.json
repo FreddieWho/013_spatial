@@ -1,0 +1,121 @@
+{
+  "P-epi": {
+    "overlapping_axes": {
+      "T": {
+        "n_overlap": 1,
+        "genes": [
+          "TFF3"
+        ],
+        "loo_corr": 0.9997,
+        "n_left": 98
+      },
+      "Epi": {
+        "n_overlap": 6,
+        "genes": [
+          "CEACAM5",
+          "EPCAM",
+          "GPX2",
+          "KRT8",
+          "LGALS4",
+          "MUC13"
+        ],
+        "loo_corr": 0.9959,
+        "n_left": 119
+      }
+    },
+    "axes_separable": true,
+    "notes": []
+  },
+  "P-stromal": {
+    "overlapping_axes": {
+      "Stromal": {
+        "n_overlap": 7,
+        "genes": [
+          "COL1A1",
+          "COL1A2",
+          "COL3A1",
+          "COL6A3",
+          "DCN",
+          "SPARC",
+          "VIM"
+        ],
+        "loo_corr": 0.9711,
+        "n_left": 48
+      }
+    },
+    "axes_separable": true,
+    "notes": []
+  },
+  "P-plasma": {
+    "overlapping_axes": {
+      "B": {
+        "n_overlap": 3,
+        "genes": [
+          "IGHA1",
+          "IGKC",
+          "JCHAIN"
+        ],
+        "loo_corr": 0.9802,
+        "n_left": 42
+      },
+      "Plasma": {
+        "n_overlap": 3,
+        "genes": [
+          "IGKC",
+          "IGLC3",
+          "JCHAIN"
+        ],
+        "loo_corr": 0.8146,
+        "n_left": 3
+      }
+    },
+    "axes_separable": false,
+    "notes": [
+      "Plasma: loo_corr=0.815 <0.9 -> NOT_SEPARABLE_WITH_THIS_PROXY"
+    ]
+  },
+  "P-smmhc": {
+    "overlapping_axes": {
+      "Stromal": {
+        "n_overlap": 2,
+        "genes": [
+          "ACTA2",
+          "MYL9"
+        ],
+        "loo_corr": 0.9964,
+        "n_left": 53
+      }
+    },
+    "axes_separable": true,
+    "notes": []
+  },
+  "P-mhc2": {
+    "overlapping_axes": {
+      "B": {
+        "n_overlap": 2,
+        "genes": [
+          "CD74",
+          "HLA-DRA"
+        ],
+        "loo_corr": 0.9873,
+        "n_left": 43
+      },
+      "Mye": {
+        "n_overlap": 2,
+        "genes": [
+          "CD74",
+          "HLA-DRA"
+        ],
+        "loo_corr": 0.9931,
+        "n_left": 55
+      }
+    },
+    "axes_separable": true,
+    "notes": []
+  },
+  "P-stress": {
+    "overlapping_axes": {},
+    "axes_separable": true,
+    "notes": []
+  }
+}

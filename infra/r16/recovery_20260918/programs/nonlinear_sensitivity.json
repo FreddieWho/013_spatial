@@ -1,0 +1,146 @@
+[
+  {
+    "section": "0005_HTAN_8270_AS_10_filtered_",
+    "program": "P-epi",
+    "moran_QC_lin": 0.1593,
+    "moran_QC_quad": 0.1268
+  },
+  {
+    "section": "0005_HTAN_8270_AS_10_filtered_",
+    "program": "P-stromal",
+    "moran_QC_lin": 0.3453,
+    "moran_QC_quad": 0.1717
+  },
+  {
+    "section": "0005_HTAN_8270_AS_10_filtered_",
+    "program": "P-plasma",
+    "moran_QC_lin": 0.1781,
+    "moran_QC_quad": 0.1552
+  },
+  {
+    "section": "0005_HTAN_8270_AS_10_filtered_",
+    "program": "P-smmhc",
+    "moran_QC_lin": 0.1397,
+    "moran_QC_quad": 0.0752
+  },
+  {
+    "section": "0005_HTAN_8270_AS_10_filtered_",
+    "program": "P-mhc2",
+    "moran_QC_lin": 0.1128,
+    "moran_QC_quad": 0.1128
+  },
+  {
+    "section": "0005_HTAN_8270_AS_10_filtered_",
+    "program": "P-stress",
+    "moran_QC_lin": 0.2786,
+    "moran_QC_quad": 0.2528
+  },
+  {
+    "section": "0009_HTAN_8578_AS_1_filtered_t",
+    "program": "P-epi",
+    "moran_QC_lin": 0.2614,
+    "moran_QC_quad": 0.2088
+  },
+  {
+    "section": "0009_HTAN_8578_AS_1_filtered_t",
+    "program": "P-stromal",
+    "moran_QC_lin": 0.0792,
+    "moran_QC_quad": 0.0395
+  },
+  {
+    "section": "0009_HTAN_8578_AS_1_filtered_t",
+    "program": "P-plasma",
+    "moran_QC_lin": 0.2099,
+    "moran_QC_quad": 0.1305
+  },
+  {
+    "section": "0009_HTAN_8578_AS_1_filtered_t",
+    "program": "P-smmhc",
+    "moran_QC_lin": 0.0143,
+    "moran_QC_quad": 0.0135
+  },
+  {
+    "section": "0009_HTAN_8578_AS_1_filtered_t",
+    "program": "P-mhc2",
+    "moran_QC_lin": 0.2993,
+    "moran_QC_quad": 0.2038
+  },
+  {
+    "section": "0009_HTAN_8578_AS_1_filtered_t",
+    "program": "P-stress",
+    "moran_QC_lin": -0.0414,
+    "moran_QC_quad": -0.0477
+  },
+  {
+    "section": "0021_HTAN_6723_KL_3_filtered_t",
+    "program": "P-epi",
+    "moran_QC_lin": 0.3654,
+    "moran_QC_quad": 0.3197
+  },
+  {
+    "section": "0021_HTAN_6723_KL_3_filtered_t",
+    "program": "P-stromal",
+    "moran_QC_lin": 0.3349,
+    "moran_QC_quad": 0.2168
+  },
+  {
+    "section": "0021_HTAN_6723_KL_3_filtered_t",
+    "program": "P-plasma",
+    "moran_QC_lin": 0.3398,
+    "moran_QC_quad": 0.2615
+  },
+  {
+    "section": "0021_HTAN_6723_KL_3_filtered_t",
+    "program": "P-smmhc",
+    "moran_QC_lin": 0.2892,
+    "moran_QC_quad": 0.2543
+  },
+  {
+    "section": "0021_HTAN_6723_KL_3_filtered_t",
+    "program": "P-mhc2",
+    "moran_QC_lin": 0.0726,
+    "moran_QC_quad": 0.0452
+  },
+  {
+    "section": "0021_HTAN_6723_KL_3_filtered_t",
+    "program": "P-stress",
+    "moran_QC_lin": 0.3716,
+    "moran_QC_quad": 0.3594
+  },
+  {
+    "section": "0046_HTAN_7003_AS_8_filtered_t",
+    "program": "P-epi",
+    "moran_QC_lin": 0.5106,
+    "moran_QC_quad": 0.4653
+  },
+  {
+    "section": "0046_HTAN_7003_AS_8_filtered_t",
+    "program": "P-stromal",
+    "moran_QC_lin": 0.2318,
+    "moran_QC_quad": 0.1581
+  },
+  {
+    "section": "0046_HTAN_7003_AS_8_filtered_t",
+    "program": "P-plasma",
+    "moran_QC_lin": 0.3347,
+    "moran_QC_quad": 0.1931
+  },
+  {
+    "section": "0046_HTAN_7003_AS_8_filtered_t",
+    "program": "P-smmhc",
+    "moran_QC_lin": 0.2453,
+    "moran_QC_quad": 0.2033
+  },
+  {
+    "section": "0046_HTAN_7003_AS_8_filtered_t",
+    "program": "P-mhc2",
+    "moran_QC_lin": 0.1396,
+    "moran_QC_quad": 0.1059
+  },
+  {
+    "section": "0046_HTAN_7003_AS_8_filtered_t",
+    "program": "P-stress",
+    "moran_QC_lin": 0.6119,
+    "moran_QC_quad": 0.6036
+  }
+]

@@ -1,0 +1,315 @@
+{
+  "P-epi": {
+    "program_id": "P-epi",
+    "source_candidates": "laneB191+Tier2-13+jointABGH",
+    "discovery_patients": "HTAN_VANDERBILT_CRC 30 patients",
+    "gene_weights": {
+      "EPCAM": 0.0625,
+      "CEACAM5": 0.0625,
+      "CEACAM6": 0.0625,
+      "CLDN4": 0.0625,
+      "CLDN7": 0.0625,
+      "KRT8": 0.0625,
+      "KRT18": 0.0625,
+      "MUC13": 0.0625,
+      "TFF3": 0.0625,
+      "ELF3": 0.0625,
+      "FXYD3": 0.0625,
+      "LGALS4": 0.0625,
+      "ANXA2": 0.0625,
+      "PHGR1": 0.0625,
+      "LGALS3BP": 0.0625,
+      "GPX2": 0.0625
+    },
+    "input_genes": [
+      "EPCAM",
+      "CEACAM5",
+      "CEACAM6",
+      "CLDN4",
+      "CLDN7",
+      "KRT8",
+      "KRT18",
+      "MUC13",
+      "TFF3",
+      "ELF3",
+      "FXYD3",
+      "LGALS4",
+      "ANXA2",
+      "PHGR1",
+      "LGALS3BP",
+      "GPX2"
+    ],
+    "readout_genes": "TBD_T4_DISJOINT",
+    "direction_rule": "mean of log1p, higher = stronger",
+    "normalization_rule": "log1p(counts) per spot; Q/QC residual variants defined",
+    "nuisance_rule": "Q=[1,log10(libsize),ngenes_z]; QC=Q+6axes(linear); QCnlin sensitivity",
+    "geometry_definition": "signed hops to program-own q0.7 contour (T4); NA until then",
+    "coverage_policy": "all 16 genes in cache10k; section min genes 16/16",
+    "interpretation": "identity-compatible: enterocyte/goblet differentiation state; state-compatible: epithelial activation",
+    "separability": {
+      "overlapping_axes": {
+        "T": {
+          "n_overlap": 1,
+          "genes": [
+            "TFF3"
+          ],
+          "loo_corr": 0.9997,
+          "n_left": 98
+        },
+        "Epi": {
+          "n_overlap": 6,
+          "genes": [
+            "CEACAM5",
+            "EPCAM",
+            "GPX2",
+            "KRT8",
+            "LGALS4",
+            "MUC13"
+          ],
+          "loo_corr": 0.9959,
+          "n_left": 119
+        }
+      },
+      "axes_separable": true,
+      "notes": []
+    },
+    "frozen_for_external_at": "",
+    "definition_hash": ""
+  },
+  "P-stromal": {
+    "program_id": "P-stromal",
+    "source_candidates": "laneB191+Tier2-13+jointABGH",
+    "discovery_patients": "HTAN_VANDERBILT_CRC 30 patients",
+    "gene_weights": {
+      "COL1A1": 0.1111111111111111,
+      "COL1A2": 0.1111111111111111,
+      "COL3A1": 0.1111111111111111,
+      "COL6A3": 0.1111111111111111,
+      "DCN": 0.1111111111111111,
+      "SPARC": 0.1111111111111111,
+      "IGFBP7": 0.1111111111111111,
+      "VIM": 0.1111111111111111,
+      "C1R": 0.1111111111111111
+    },
+    "input_genes": [
+      "COL1A1",
+      "COL1A2",
+      "COL3A1",
+      "COL6A3",
+      "DCN",
+      "SPARC",
+      "IGFBP7",
+      "VIM",
+      "C1R"
+    ],
+    "readout_genes": "TBD_T4_DISJOINT",
+    "direction_rule": "mean of log1p, higher = stronger",
+    "normalization_rule": "log1p(counts) per spot; Q/QC residual variants defined",
+    "nuisance_rule": "Q=[1,log10(libsize),ngenes_z]; QC=Q+6axes(linear); QCnlin sensitivity",
+    "geometry_definition": "signed hops to program-own q0.7 contour (T4); NA until then",
+    "coverage_policy": "all 9 genes in cache10k; section min genes 9/9",
+    "interpretation": "identity-compatible: fibroblast/matrix abundance; state-compatible: matrix remodeling activity",
+    "separability": {
+      "overlapping_axes": {
+        "Stromal": {
+          "n_overlap": 7,
+          "genes": [
+            "COL1A1",
+            "COL1A2",
+            "COL3A1",
+            "COL6A3",
+            "DCN",
+            "SPARC",
+            "VIM"
+          ],
+          "loo_corr": 0.9711,
+          "n_left": 48
+        }
+      },
+      "axes_separable": true,
+      "notes": []
+    },
+    "frozen_for_external_at": "",
+    "definition_hash": ""
+  },
+  "P-plasma": {
+    "program_id": "P-plasma",
+    "source_candidates": "laneB191+Tier2-13+jointABGH",
+    "discovery_patients": "HTAN_VANDERBILT_CRC 30 patients",
+    "gene_weights": {
+      "IGHA1": 0.09090909090909091,
+      "IGKC": 0.09090909090909091,
+      "IGLC2": 0.09090909090909091,
+      "IGLC3": 0.09090909090909091,
+      "JCHAIN": 0.09090909090909091,
+      "IGHV3-30": 0.09090909090909091,
+      "IGHV3-35": 0.09090909090909091,
+      "IGKV1D-12": 0.09090909090909091,
+      "IGKV3OR2-268": 0.09090909090909091,
+      "DEPRECATED_ENSG00000211685": 0.09090909090909091,
+      "DEPRECATED_ENSG00000211890": 0.09090909090909091
+    },
+    "input_genes": [
+      "IGHA1",
+      "IGKC",
+      "IGLC2",
+      "IGLC3",
+      "JCHAIN",
+      "IGHV3-30",
+      "IGHV3-35",
+      "IGKV1D-12",
+      "IGKV3OR2-268",
+      "DEPRECATED_ENSG00000211685",
+      "DEPRECATED_ENSG00000211890"
+    ],
+    "readout_genes": "TBD_T4_DISJOINT",
+    "direction_rule": "mean of log1p, higher = stronger",
+    "normalization_rule": "log1p(counts) per spot; Q/QC residual variants defined",
+    "nuisance_rule": "Q=[1,log10(libsize),ngenes_z]; QC=Q+6axes(linear); QCnlin sensitivity",
+    "geometry_definition": "signed hops to program-own q0.7 contour (T4); NA until then",
+    "coverage_policy": "all 11 genes in cache10k; section min genes 11/11",
+    "interpretation": "identity-compatible: plasma cell abundance",
+    "separability": {
+      "overlapping_axes": {
+        "B": {
+          "n_overlap": 3,
+          "genes": [
+            "IGHA1",
+            "IGKC",
+            "JCHAIN"
+          ],
+          "loo_corr": 0.9802,
+          "n_left": 42
+        },
+        "Plasma": {
+          "n_overlap": 3,
+          "genes": [
+            "IGKC",
+            "IGLC3",
+            "JCHAIN"
+          ],
+          "loo_corr": 0.8146,
+          "n_left": 3
+        }
+      },
+      "axes_separable": false,
+      "notes": [
+        "Plasma: loo_corr=0.815 <0.9 -> NOT_SEPARABLE_WITH_THIS_PROXY"
+      ]
+    },
+    "frozen_for_external_at": "",
+    "definition_hash": ""
+  },
+  "P-smmhc": {
+    "program_id": "P-smmhc",
+    "source_candidates": "laneB191+Tier2-13+jointABGH",
+    "discovery_patients": "HTAN_VANDERBILT_CRC 30 patients",
+    "gene_weights": {
+      "ACTA2": 0.3333333333333333,
+      "FLNA": 0.3333333333333333,
+      "MYL9": 0.3333333333333333
+    },
+    "input_genes": [
+      "ACTA2",
+      "FLNA",
+      "MYL9"
+    ],
+    "readout_genes": "TBD_T4_DISJOINT",
+    "direction_rule": "mean of log1p, higher = stronger",
+    "normalization_rule": "log1p(counts) per spot; Q/QC residual variants defined",
+    "nuisance_rule": "Q=[1,log10(libsize),ngenes_z]; QC=Q+6axes(linear); QCnlin sensitivity",
+    "geometry_definition": "signed hops to program-own q0.7 contour (T4); NA until then",
+    "coverage_policy": "all 3 genes in cache10k; section min genes 3/3",
+    "interpretation": "identity-compatible: smooth muscle/myofibroblast; state-compatible: contractile state",
+    "separability": {
+      "overlapping_axes": {
+        "Stromal": {
+          "n_overlap": 2,
+          "genes": [
+            "ACTA2",
+            "MYL9"
+          ],
+          "loo_corr": 0.9964,
+          "n_left": 53
+        }
+      },
+      "axes_separable": true,
+      "notes": []
+    },
+    "frozen_for_external_at": "",
+    "definition_hash": ""
+  },
+  "P-mhc2": {
+    "program_id": "P-mhc2",
+    "source_candidates": "laneB191+Tier2-13+jointABGH",
+    "discovery_patients": "HTAN_VANDERBILT_CRC 30 patients",
+    "gene_weights": {
+      "CD74": 0.5,
+      "HLA-DRA": 0.5
+    },
+    "input_genes": [
+      "CD74",
+      "HLA-DRA"
+    ],
+    "readout_genes": "TBD_T4_DISJOINT",
+    "direction_rule": "mean of log1p, higher = stronger",
+    "normalization_rule": "log1p(counts) per spot; Q/QC residual variants defined",
+    "nuisance_rule": "Q=[1,log10(libsize),ngenes_z]; QC=Q+6axes(linear); QCnlin sensitivity",
+    "geometry_definition": "signed hops to program-own q0.7 contour (T4); NA until then",
+    "coverage_policy": "all 2 genes in cache10k; section min genes 2/2",
+    "interpretation": "state-compatible: antigen-presentation activity; identity-compatible: APC (incl. B/myeloid) abundance",
+    "separability": {
+      "overlapping_axes": {
+        "B": {
+          "n_overlap": 2,
+          "genes": [
+            "CD74",
+            "HLA-DRA"
+          ],
+          "loo_corr": 0.9873,
+          "n_left": 43
+        },
+        "Mye": {
+          "n_overlap": 2,
+          "genes": [
+            "CD74",
+            "HLA-DRA"
+          ],
+          "loo_corr": 0.9931,
+          "n_left": 55
+        }
+      },
+      "axes_separable": true,
+      "notes": []
+    },
+    "frozen_for_external_at": "",
+    "definition_hash": ""
+  },
+  "P-stress": {
+    "program_id": "P-stress",
+    "source_candidates": "laneB191+Tier2-13+jointABGH",
+    "discovery_patients": "HTAN_VANDERBILT_CRC 30 patients",
+    "gene_weights": {
+      "FOS": 0.5,
+      "DEPRECATED_ENSG00000170345": 0.5
+    },
+    "input_genes": [
+      "FOS",
+      "DEPRECATED_ENSG00000170345"
+    ],
+    "readout_genes": "TBD_T4_DISJOINT",
+    "direction_rule": "mean of log1p, higher = stronger",
+    "normalization_rule": "log1p(counts) per spot; Q/QC residual variants defined",
+    "nuisance_rule": "Q=[1,log10(libsize),ngenes_z]; QC=Q+6axes(linear); QCnlin sensitivity",
+    "geometry_definition": "signed hops to program-own q0.7 contour (T4); NA until then",
+    "coverage_policy": "all 2 genes in cache10k; section min genes 2/2",
+    "interpretation": "state-compatible: immediate-early stress response; technical-compatible: procedure/permeabilization gradient not excluded",
+    "separability": {
+      "overlapping_axes": {},
+      "axes_separable": true,
+      "notes": []
+    },
+    "frozen_for_external_at": "",
+    "definition_hash": ""
+  }
+}

@@ -6,9 +6,10 @@
 ## 下一步（恢复包 T0–T6；单 agent 按依赖串行）
 
 - [x] T0 现状与输入契约：preflight 通过（HEAD=基准，registry 1950 行，cache 47 片，磁盘余量 1.62TB）；toy 审计 12 测试全过；`input_contract.json` 落盘（源 X=int64 原始 counts，r16 路径无深度校正=分析选择非数据缺失）
-- [ ] T1 PC 匹配符号修复＋联合解释力＋嵌套 Jaccard 降级（审计 A02/A03/A10）
-- [ ] T2 Lane A 患者先汇总＋同算子 null＋诊断集校准（审计 A05/A06/A07/A08/A09）
-- [ ] T3 191 基因→≤10 多基因程序（candidate_union＋program_definitions＋triage_log）
+- [x] T1 PC 匹配符号修复＋联合解释力＋嵌套 Jaccard 降级（D-128：857→772组，NEW=0维持；I-023关闭）
+- [x] T2-small Lane A 机械修复验证（D-129：同算子闭环+NEG干净+BUMP检出；remap降诊断对照；占位p记NOT_CALIBRATED）
+- [ ] T2P2 变异函数匹配主 surrogate（硬骨头：非平稳+零膨胀+不规则几何无精确解；失败只封关联p，不阻塞T3/T4）
+- [ ] T3 191 基因→≤10 多基因程序（执行中：candidate_union＋共表达模块＋program_definitions＋triage_log）
 - [ ] T4 冻结程序 ST-CRC/USZ 独立复现＋增量预测（M0/M1/M2）
 - [ ] T5 遮蔽任务接口（无适用目标则记 NOT_TESTABLE）
 - [ ] T6 阶段总结：old_vs_new 对照＋程序卡＋final_decision＋canonical 文档更新
