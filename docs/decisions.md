@@ -792,3 +792,11 @@ D-093 (2026-09-01): use the TensorFlow compiled execution path for the frozen K=
 - 几何诊断（A10）：q-Jaccard 降级为 `nested_quantile_overlap_descriptive`；q0.7 等高线保留定位功能，仅"稳定性"解读作废。
 - 决策：D-118 的 NEW=0 在符号修复＋联合口径下维持（772 组，0 NEW 复现）。I-023 可 RESOLVED（遗留旋转限制转 LEADS L-008）。产物路径见上；历史 JSON 不改写。
 - 失效条件：若未来对未解释候选的子空间诊断显示跨 PC 拆分，按 L-008 升级方法后重判。
+
+### D-129 | 2026-09-18 | T2 机械修复验证通过：患者先汇总＋同算子闭环；remap 近似性质首次实测
+
+- 背景：恢复包 A05/A06/A09。`r16/recovery/laneA_stats.py`（唯一 patient-first＋同算子）＋回归测试 3 绿＋诊断集（6 患者×先一片×10 基因×199 联合 draws，`scripts/r16_recovery_T2_laneA_small.py`）。
+- 实测（`infra/r16/recovery_20260918/laneA/`）：SYNTH_NEG 双 p>0.1（机械无假阳性）；SYNTH_BUMP 固定对比检出（tcon+1.53/p=0.005），峰高统计量对宽 bump 不敏感（p=0.215，符合预期）；CXCL13~B tcon+1.08（区内高成立，不答峰位）。
+- remap 实测（1194 draws）：接受率 1.00（诊断片几何规则）；frac 中位 0.71–0.84；唯一源比例 0.72–0.84（多对一量化约 20–28% 复用）；Moran 保持比 0.63–8.96，小 Moran 片爆炸——remap 不保变异函数尺度，正式降为诊断对照，主证据等变异函数匹配 surrogate。
+- 决策：A05 机械部分关闭；全部占位 p 记 `NOT_CALIBRATED`；I-022 保持 OPEN（待主 surrogate 落地）。历史 D-126 数字不动。
+- 失效条件：主 surrogate 校准失败则关联 p 永久记 NOT_CALIBRATED，转 T3/T4 独立预测为主证据（02 T2 完成条件已预告）。

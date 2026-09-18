@@ -1,0 +1,119 @@
+{
+  "schema": "013_spatial.recovery_T2_small.v1",
+  "diag_patients": 6,
+  "diag_sections": 6,
+  "null_draws": 199,
+  "seed": 20260914,
+  "results": [
+    {
+      "axis": "B",
+      "gene": "SYNTH_NEG",
+      "n_patients": 6,
+      "t_max": 0.252,
+      "p_max": 0.12,
+      "t_contrast": 0.058,
+      "p_contrast": 0.29,
+      "null_draws": 199,
+      "null_kind": "PLACEHOLDER_bin_permutation_pending_variogram"
+    },
+    {
+      "axis": "B",
+      "gene": "SYNTH_BUMP",
+      "n_patients": 6,
+      "t_max": 1.558,
+      "p_max": 0.215,
+      "t_contrast": 1.527,
+      "p_contrast": 0.005,
+      "null_draws": 199,
+      "null_kind": "PLACEHOLDER_bin_permutation_pending_variogram"
+    },
+    {
+      "axis": "B",
+      "gene": "CXCL13",
+      "n_patients": 6,
+      "t_max": 2.059,
+      "p_max": 0.005,
+      "t_contrast": 1.084,
+      "p_contrast": 0.005,
+      "null_draws": 199,
+      "null_kind": "PLACEHOLDER_bin_permutation_pending_variogram"
+    },
+    {
+      "axis": "B",
+      "gene": "EPCAM",
+      "n_patients": 6,
+      "t_max": 1.009,
+      "p_max": 0.12,
+      "t_contrast": 1.496,
+      "p_contrast": 0.005,
+      "null_draws": 199,
+      "null_kind": "PLACEHOLDER_bin_permutation_pending_variogram"
+    },
+    {
+      "axis": "B",
+      "gene": "MUC2",
+      "n_patients": 6,
+      "t_max": 0.313,
+      "p_max": 0.3,
+      "t_contrast": 0.307,
+      "p_contrast": 0.02,
+      "null_draws": 199,
+      "null_kind": "PLACEHOLDER_bin_permutation_pending_variogram"
+    },
+    {
+      "axis": "B",
+      "gene": "COL1A1",
+      "n_patients": 6,
+      "t_max": 1.206,
+      "p_max": 0.025,
+      "t_contrast": 1.541,
+      "p_contrast": 0.005,
+      "null_draws": 199,
+      "null_kind": "PLACEHOLDER_bin_permutation_pending_variogram"
+    },
+    {
+      "axis": "B",
+      "gene": "FN1",
+      "n_patients": 6,
+      "t_max": 0.789,
+      "p_max": 0.1,
+      "t_contrast": 0.808,
+      "p_contrast": 0.01,
+      "null_draws": 199,
+      "null_kind": "PLACEHOLDER_bin_permutation_pending_variogram"
+    },
+    {
+      "axis": "B",
+      "gene": "FOS",
+      "n_patients": 6,
+      "t_max": 1.788,
+      "p_max": 0.01,
+      "t_contrast": 1.338,
+      "p_contrast": 0.005,
+      "null_draws": 199,
+      "null_kind": "PLACEHOLDER_bin_permutation_pending_variogram"
+    },
+    {
+      "axis": "B",
+      "gene": "MKI67",
+      "n_patients": 6,
+      "t_max": 0.875,
+      "p_max": 0.055,
+      "t_contrast": 1.074,
+      "p_contrast": 0.005,
+      "null_draws": 199,
+      "null_kind": "PLACEHOLDER_bin_permutation_pending_variogram"
+    },
+    {
+      "axis": "B",
+      "gene": "PTPRC",
+      "n_patients": 6,
+      "t_max": 1.105,
+      "p_max": 0.05,
+      "t_contrast": 1.118,
+      "p_contrast": 0.005,
+      "null_draws": 199,
+      "null_kind": "PLACEHOLDER_bin_permutation_pending_variogram"
+    }
+  ]
+}

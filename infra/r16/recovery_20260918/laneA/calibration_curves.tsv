@@ -1,0 +1,11 @@
+gene	t_max	p_max	t_contrast	p_contrast	expectation
+SYNTH_NEG	0.252	0.12	0.058	0.29	null_uniform
+SYNTH_BUMP	1.558	0.215	1.527	0.005	small_p
+CXCL13	2.059	0.005	1.084	0.005	unknown
+EPCAM	1.009	0.12	1.496	0.005	unknown
+MUC2	0.313	0.3	0.307	0.02	unknown
+COL1A1	1.206	0.025	1.541	0.005	unknown
+FN1	0.789	0.1	0.808	0.01	unknown
+FOS	1.788	0.01	1.338	0.005	unknown
+MKI67	0.875	0.055	1.074	0.005	unknown
+PTPRC	1.105	0.05	1.118	0.005	unknown
