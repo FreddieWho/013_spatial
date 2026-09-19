@@ -8,12 +8,12 @@
 - [x] T0 现状与输入契约：preflight 通过（HEAD=基准，registry 1950 行，cache 47 片，磁盘余量 1.62TB）；toy 审计 12 测试全过；`input_contract.json` 落盘（源 X=int64 原始 counts，r16 路径无深度校正=分析选择非数据缺失）
 - [x] T1 PC 匹配符号修复＋联合解释力＋嵌套 Jaccard 降级（D-128：857→772组，NEW=0维持；I-023关闭）
 - [x] T2-small Lane A 机械修复验证（D-129：同算子闭环+NEG干净+BUMP检出；remap降诊断对照；占位p记NOT_CALIBRATED）
-- [ ] T2P2 变异函数匹配主 surrogate（硬骨头：非平稳+零膨胀+不规则几何无精确解；失败只封关联p，不阻塞T3/T4）
+- [ ] T2P2 变异函数匹配主 surrogate（LEADS L-010：失败只封关联p；Lane A 永久 NOT_CALIBRATED 亦可接受）
 - [x] T3 191 基因→6 多基因程序冻结（D-130：556union→共表达→6程序；M213残余0.18；plasma不可分；stromal quad敏感）
 - [x] T4 冻结程序 ST-CRC/USZ 独立复现＋增量预测（D-131：M1全员成立，M2仅mhc2/stress；I-024降级）
-- [ ] T5 遮蔽任务（执行中：A场预测全程序＋B结构定位USZ-TLS；ST-CRC IC aggregate不进B）
-- [ ] T5 遮蔽任务接口（无适用目标则记 NOT_TESTABLE）
-- [ ] T6 阶段总结：old_vs_new 对照＋程序卡＋final_decision＋canonical 文档更新
+- [x] T5 遮蔽任务（D-132：场预测m1碾压NN 45–86%，m2归零；mhc2超B轴5/6片成TLS最强线索；泄漏22/22通过）
+- [x] T6 阶段总结（D-133：old_vs_new＋6程序卡＋final_decision＋validation 21绿＋canonical更新；plan无冲突不修文）
+- [ ] 下一步二选一（请用户定）：① P-mhc2 TLS指向验证（LEADS L-009，更细窗/独立队列）② T2P2 主 surrogate（LEADS L-010）
 - [ ] hold 中（需逐项批准）：R-11 smoke、Xenium CRC、dbGaP、两封数据邮件、CRDC/NCI 凭据；GPU/新外部数据/付费资源本轮一律不动
 
 ## 当前执行分支（三线并行执行中；2026-09-10 用户批准开工）
@@ -107,3 +107,4 @@
 - 2026-09-16：GraphST GPU臂全量完成——47片×600epoch，356组32复现入库；registry共1657行；退租关闭。
 - 2026-09-16：V100 实例 lyg2143 已退租（0 在跑，0 残留磁盘，未用时长退款 ¥1.10）；SSH 密码文件已销毁。
 - 2026-09-18：TODO 顶部清理——旧 R-04/R-16 完成项归入历史正文；当前工作面切换为恢复包 T0–T6（分支 recovery-20260918）。起因：外部审计包指出 Lane A/B 与 PC 工厂的方法实现问题（A02/A05/A06/A09/A10/A13），旧否证外推待复核。
+- 2026-09-19：恢复包 T0–T6 关门（D-133）。T1符号修复NEW=0维持；T2-small机械通过；T3 191→6程序冻结；T4 M1全员M2仅mhc2/stress；T5场预测成立mhc2成TLS最强线索；T6交付old_vs_new＋程序卡＋final_decision。plan无冲突不修文；I-022/I-025保持OPEN。下一步 шанс请用户定①/②。

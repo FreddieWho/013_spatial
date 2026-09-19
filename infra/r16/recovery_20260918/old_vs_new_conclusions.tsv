@@ -1,0 +1,7 @@
+result_id	legacy_decision	old_artifact	new_artifact	problem_type	change_in_estimate	change_in_interpretation	scope_remaining	unresolved_limitations
+D-118 NEW=0	D-118	axis_factory_20260915.json	audit/pc_matching_reanalysis.json	signed-cosine分组+raw平均	857组→772组；91合并全是符号对；复现仍2组	NEW=0维持，但口径从单轴max|r|换成联合R²（两复现组R²=0.02/0.08，更硬）	旋转混合仍未解（L-008待挖掘）	PC符号修完；旋转升级未做
+D-126 LaneA全线阴性	D-126	laneA_*_20260917.json	laneA/laneA_corrected_small.json	观察=队列中位峰 vs null=单片峰混合；切片投票；峰位唯一指标	诊断集CXCL13区内高成立（tcon+1.08），峰位不答；SYNTH机械验证通过	普遍否证外推暂停→METHOD_LIMITED；D-126数字保留	主surrogate（变异函数匹配）未做；关联p全NOT_CALIBRATED	T2P2硬骨头，失败只封p
+D-127 191候选	D-127	laneB_residual_20260917.json	programs/program_definitions.json	OLS残余直置换；亚型/状态一概排除；患者ID截断10个	191→556union→共表达→6程序；残差p降筛查指标；分层评价替代排除	191是候选基因不是191新场；6程序冻结待验	深度混杂未确证（I-025 OPEN）；非线性quad敏感已披露	T3完成；T4为主证据
+q-Jaccard 0.71稳定	设计v2.1 §3	axis_rulers_20260914.json	audit/geometry_diagnostic.json	嵌套分位mask的Jaccard代数恒0.708	无变化（数学恒等式）	稳定性解读作废，降nested_quantile_overlap_descriptive；q0.7定位功能保留	程序几何稳定性改marker子集重测（T3已做QC三层）	I-023关闭时落实
+残差p作证据	D-127	laneB JSON	incremental_prediction.tsv	已拟合残差当可交换	主证据换成独立留出预测（M0/M1/M2）	残差p永久筛查级；I-024降WONT_FIX	正式条件推断未做（超出本轮）	T4完成
+191截断患者表	D-127	laneB coherent_patients[:10]	program_patient_effects.tsv 180行	只存前10 ID	全表30病人×6程序无截断	A18关闭	无	T3落实
