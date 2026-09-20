@@ -832,3 +832,10 @@ D-093 (2026-09-01): use the TensorFlow compiled execution path for the frozen K=
 - 背景：恢复包 04 要求在 P-01/H-03/H-05 处澄清身份/活动/空间信息分层。核对 plan 原文：H-01 放弃条件（两队列 CI 含零＋不优于基线）与 T4 证据结构一致；H-03 放弃条件（组成-only 等价＋高分辨无固定类型后状态变化）与分层评价一致；H-05 条件性偏移与 USZ 分化结果一致。plan 写的是"什么算数"，恢复包做的是"这次算出来什么"——无冲突，故澄清只做说明，不修改 plan 正文（AGENTS.md：plan 改动需科学判断改变）。
 - 实际执行改变：D-128（T1）/D-129（T2-small）/D-130（T3）/D-131（T4）/D-132（T5）；I-023 关闭，I-024 降 WONT_FIX；I-022/I-025 保持 OPEN（T2P2/深度确证未做）；旧产物路径见 old_vs_new_conclusions.tsv；历史决策原文未改写。
 - 失效条件：若 T2P2 主 surrogate 落地或深度确证完成，按新证据追加 D-13X 并更新 I-022/I-025，不追改本条。
+
+### D-134 | 2026-09-19 | L-009 mhc2 TLS验证失败：细窗963配对下B轴显著更好，退回场活性描述
+
+- 背景：T5B"mhc2超B轴5/6片"基于1–3阳性窗/片（粒度0.1–0.2）。L-009改TLS-foci自适应细窗（3/5/8 hops titration）+3 seeds，同窗同seed配对head-to-head（`scripts/r16_recovery_L009_fine.py`，963行）。
+- 实测（`infra/r16/recovery_20260918/{masked_structure_fine.tsv,L009_verdict.md}`）：mhc2 hit 0.606 vs B轴 0.672，差-0.065；不一致对34 vs 97，McNemar精确双侧p=3.3e-08。三档窗全输；8片7片输或持平；LC5小focus窗覆盖不足属设计局限。
+- 决策：T5B的"最强线索"修订为不成立；mhc2退回场活性程序（T4的M1/M2证据不受影响）；H-02仍未测试。L-009关闭。
+- 失效条件：若未来有独立TLS队列+更密标注再验出mhc2稳定超B轴，可重开；本轮不再投入。

@@ -11,3 +11,5 @@
 - **T5B TLS隐藏核心**：见masked_structure_results.tsv（mhc2在5/6可评片≥B轴；其余程序未超B轴）
 - **原始/调整图**：cards_data 4切片（raw/resid_Q/resid_QC三层分数已存npz，作图见triage_log）
 - **失败样本**：USZ肺片分子corr 0.26–0.34（epi）、stress USZ 3/8病人corr<0.25；ST-CRC个别病人dM1为负（M0已很好或input外推翻车，见incremental_prediction.tsv）
+
+- **L-009修订（2026-09-19，D-134）**：细窗963配对head-to-head，mhc2 hit 0.606 vs B轴0.672（McNemar p=3.3e-08）；T5B的超B轴结论不成立。本程序退回场活性描述，不做TLS定位器主张。
