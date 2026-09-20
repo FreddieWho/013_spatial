@@ -65,6 +65,8 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit-programs", type=int, default=0)
     ap.add_argument("--tag", type=str, default="v1")
+    ap.add_argument("--go-list", type=Path, default=None,
+                    help="JSON list of GO rep_ids: progs = GO input genes (GO线模式)")
     args = ap.parse_args()
     t0 = time.time()
     defs = json.load(open(OUT / "programs/program_definitions.json"))
@@ -86,9 +88,14 @@ def main() -> int:
     except Exception as e:
         print("GO extra skipped:", e)
 
-    progs = {pn: d["input_genes"] for pn, d in defs.items()}
-    progs.update(go_extra)
-    progs["B-axis"] = axis_full["B"]
+    if args.go_list is not None:
+        gdefs = json.load(open(OUT / "programs_go/definitions.json"))
+        reps = json.load(open(args.go_list))
+        progs = {"GO:" + r: gdefs[r]["input_genes"] for r in reps}
+    else:
+        progs = {pn: d["input_genes"] for pn, d in defs.items()}
+        progs.update(go_extra)
+        progs["B-axis"] = axis_full["B"]
     if args.limit_programs:
         progs = dict(list(progs.items())[:args.limit_programs])
     print(f"programs: {list(progs)}", flush=True)

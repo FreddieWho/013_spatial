@@ -873,3 +873,11 @@ D-093 (2026-09-01): use the TensorFlow compiled execution path for the frozen K=
   （需多片复现+机制解释，当前仅2片描述性）；mhc2"距离梯度翻盘"关闭。
 - 失效条件：若晕环在ST-CRC（无TLS GT，需B轴代理锚点）或更多USZ片复现失败，
   退回单片描述，不升级。
+
+### D-138 | 2026-09-20 | Spline×820通路：形态由切片主导，通路身份被抹平；L-011晕环降级
+
+- 背景：用户要求把 spline 铺到 GO 线 820 个双队列 dM1>20% 通路（USZ 8 片 TLS 锚点）。口径同 D-137。
+- 实测（`spline_summary_go820_test5.tsv` 6560 fits）：形态几乎完全由切片决定（LC3 100% nonmonotonic，KC3/LC2 99.9% flat，KC1 71% high-to-low）；通路多数票 nonmonotonic 725 / flat 95 / 单调 0；没有任何通路在 ≥3 片上稳定单调。LC3 随机通路对曲线 Spearman ρ≈1.0。
+- 原因：spline 拟合未残差 log1p 均值，深度/组成沿 TLS 距离的共变被所有通路共享。L-011 peri-TLS 晕环修订为切片几何，非 mhc2 特异。
+- 决策：820 通路 spline 作为方法阴性（切片主导）归档；不把形态当通路身份。继续 spline 必须先 Q+C 残差。mhc2 梯度翻盘（D-137）维持。
+- 失效条件：QC 残差后通路形状去共线且 ≥3 片同向，可重开通路特异形态主张。
