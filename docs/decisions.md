@@ -839,3 +839,10 @@ D-093 (2026-09-01): use the TensorFlow compiled execution path for the frozen K=
 - 实测（`infra/r16/recovery_20260918/{masked_structure_fine.tsv,L009_verdict.md}`）：mhc2 hit 0.606 vs B轴 0.672，差-0.065；不一致对34 vs 97，McNemar精确双侧p=3.3e-08。三档窗全输；8片7片输或持平；LC5小focus窗覆盖不足属设计局限。
 - 决策：T5B的"最强线索"修订为不成立；mhc2退回场活性程序（T4的M1/M2证据不受影响）；H-02仍未测试。L-009关闭。
 - 失效条件：若未来有独立TLS队列+更密标注再验出mhc2稳定超B轴，可重开；本轮不再投入。
+
+### D-135 | 2026-09-20 | GO线开工：GOBP全量7583通路当先验程序，T3线归档不删
+
+- 背景：用户要求用全部 GOBP 重跑一遍，不自己发现 pattern（T3 共表达 556→6 线保留归档）。方向切换：数据驱动发现→先验通路普查；H-03（复合生态）下 GOBP 是现成词典，P-07 B-09 允许无锚点软生态场。
+- 决策：GMT=c5.go.v2025.1.Hs.symbols.gmt（sha256 见 build_provenance.json）；coverage=三队列交集（cache10k∩STCRC∩USZ=9012基因），<3基因→NOT_TESTABLE（用户拍板，596条）；half-split seed 20260920 shuffle+ceil-input（input≥2，零重叠机器检查）；covered集相同的117个重复ID只跑一份（id_map保留，原始全留，家族归并只做report层）。
+- 范围：testable 6987 GO ID → unique 6870 份；验证机器逐字复用 T4（发现集QC三层Moran＋外部三层＋留一患者M0/M1/M2）；smoke20 已通（119s，rep/inc各300行）。
+- 失效条件：dM1/dM2 口径与 T4 完全一致；多重检验按有效独立通路计，不按6987计。

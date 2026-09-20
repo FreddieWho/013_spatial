@@ -1,0 +1,16 @@
+{
+  "gmt": "/home/huyudi/006/data/pathway/c5.go.v2025.1.Hs.symbols.gmt",
+  "gmt_sha256": "d063b43d3e12cefdbc2e9fc64df703c3fa4d8b9fcfe6c1a482be35267ca2598c",
+  "n_gobp": 7583,
+  "n_testable": 6987,
+  "n_unique_sets": 6870,
+  "n_not_testable": 596,
+  "three_intersection_size": 9012,
+  "split_seed": 20260920,
+  "coverage_rule": "covered>=3",
+  "cohort_manifests": [
+    "infra/r04/role_manifests/internal_validation_manifest.json",
+    "infra/r04/role_manifests/external_validation_manifest.json",
+    "infra/r16/census_cache_hvg10k (Vanderbilt 47/30)"
+  ]
+}
