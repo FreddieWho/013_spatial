@@ -23,6 +23,8 @@ from scipy import sparse
 from scipy.interpolate import BSpline
 from scipy.spatial import cKDTree
 from scipy.sparse.csgraph import connected_components
+from scipy.stats import f as fdist
+from scipy.stats import rankdata, spearmanr
 
 from r16 import axes as A
 from r16 import census as C
@@ -52,13 +54,54 @@ def ns_basis(x: np.ndarray, df: int = 3) -> np.ndarray:
     return X
 
 
-def prog_score(counts, gidx: dict, genes: list[str]) -> np.ndarray:
-    cols = [gidx[g] for g in genes if g in gidx]
+def mean_log1p_score(counts, cols: list[int]) -> np.ndarray:
     if not cols:
         return np.full(counts.shape[0], np.nan)
     X = counts[:, cols]
     X = X.toarray() if sparse.issparse(X) else np.asarray(X)
     return np.log1p(X.astype(float)).mean(axis=1)
+
+
+def rank_auc_score(ranks: np.ndarray, cols: list[int]) -> np.ndarray:
+    """Wilcoxon AUC of gene-set vs complement per spot (AUCell-class, full rank).
+
+    ranks: n_spots × n_genes, 1=lowest expression. AUC in [0,1], 0.5=null.
+    Faster than truncated AUCell; same rank identity, no top-5% cutoff.
+    """
+    n = ranks.shape[1]
+    k = len(cols)
+    if k == 0 or k >= n:
+        return np.full(ranks.shape[0], np.nan)
+    u = ranks[:, cols].sum(axis=1) - k * (k + 1) / 2.0
+    return u / (k * (n - k))
+
+
+def qc_design(counts, gidx: dict, axis_full: dict) -> np.ndarray:
+    """Q (libsize+ngenes) + C6 axis scores. C always mean-log1p so residual is composition, not circular."""
+    n = counts.shape[0]
+    lib = np.asarray(counts.sum(axis=1)).ravel().astype(float)
+    ng = np.asarray((counts > 0).sum(axis=1)).ravel().astype(float)
+    ngz = (ng - ng.mean()) / (ng.std() + 1e-9)
+    Q = np.column_stack([np.ones(n), np.log10(lib + 1.0), ngz])
+    ccols = []
+    for ax in ("B", "T", "Mye", "Epi", "Stromal", "Plasma"):
+        genes = axis_full.get(ax, [])
+        cols = [gidx[g] for g in genes if g in gidx]
+        ccols.append(mean_log1p_score(counts, cols))
+    C6 = np.column_stack(ccols)
+    return np.column_stack([Q, C6])
+
+
+def residualize(s: np.ndarray, QC: np.ndarray) -> np.ndarray:
+    col_ok = np.isfinite(QC).any(axis=0)
+    QC = QC[:, col_ok]
+    ok = np.isfinite(s) & np.isfinite(QC).all(axis=1)
+    out = np.full_like(s, np.nan, dtype=float)
+    if ok.sum() < 20 or QC.shape[1] < 2:
+        return out
+    beta, _, _, _ = np.linalg.lstsq(QC[ok], s[ok], rcond=None)
+    out[ok] = s[ok] - QC[ok] @ beta
+    return out
 
 
 def main() -> int:
@@ -67,6 +110,10 @@ def main() -> int:
     ap.add_argument("--tag", type=str, default="v1")
     ap.add_argument("--go-list", type=Path, default=None,
                     help="JSON list of GO rep_ids: progs = GO input genes (GO线模式)")
+    ap.add_argument("--score", choices=("mean_log1p", "rank_auc"), default="mean_log1p",
+                    help="mean_log1p=legacy; rank_auc=Wilcoxon AUC (fast AUCell-class)")
+    ap.add_argument("--residualize", action="store_true",
+                    help="OLS residual of score ~ Q+C6 before spline")
     args = ap.parse_args()
     t0 = time.time()
     defs = json.load(open(OUT / "programs/program_definitions.json"))
@@ -149,11 +196,23 @@ def main() -> int:
         print(f"  {alias}: foci={nc} TUM={tum.sum()}/{len(coords)} kept={keep.sum()}", flush=True)
         if keep.sum() < 100:
             continue
+        ranks = None
+        if args.score == "rank_auc":
+            dense = counts.toarray() if sparse.issparse(counts) else np.asarray(counts)
+            ranks = rankdata(dense.astype(np.float32), axis=1, method="average")
+            del dense
+        QC = qc_design(counts, gidx, axis_full) if args.residualize else None
         X = ns_basis(dn[keep])
-        grid = np.linspace(0, 0.75, 16)
-        Xg = ns_basis(grid)  # NOTE: 基函数节点按拟合数据分位算的，grid外推需同节点
+        print(f"    score={args.score} resid={int(args.residualize)} programs={len(progs)}", flush=True)
         for pn, gl in progs.items():
-            s = prog_score(counts, gidx, gl)[keep]
+            cols = [gidx[g] for g in gl if g in gidx]
+            if args.score == "rank_auc":
+                s = rank_auc_score(ranks, cols)
+            else:
+                s = mean_log1p_score(counts, cols)
+            if args.residualize:
+                s = residualize(s, QC)
+            s = s[keep]
             ok = np.isfinite(s)
             if ok.sum() < 50:
                 continue
@@ -165,7 +224,6 @@ def main() -> int:
             r2 = 1 - ss_res / ss_tot if ss_tot > 0 else 0.0
             n, p = ok.sum(), X.shape[1]
             F = ((ss_tot - ss_res) / (p - 1)) / (ss_res / (n - p)) if ss_res > 0 else 0.0
-            from scipy.stats import f as fdist
             pval = float(fdist.sf(F, p - 1, n - p))
             # 拟合曲线：训练节点（分位数）固定后，在箱中心求同一基函数。
             # ns_basis 的节点依赖输入分位数——必须用拟合数据的节点，不能重算。
@@ -192,7 +250,6 @@ def main() -> int:
             # 形态分类：Spearman单调性（robust）+ 45%端到端变化地板。
             # 严格逐差单调太脆（一箱抖动就判flat），论文曲线也是光滑趋势分类。
             if len(bv) >= 4:
-                from scipy.stats import spearmanr
                 rho, p_rho = spearmanr(np.arange(len(bv)), bv)
                 rel = (bv[-1] - bv[0]) / max(abs(bv).max(), 1e-9)
                 if p_rho < 0.05 and abs(rel) >= 0.15:
