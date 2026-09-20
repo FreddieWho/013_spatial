@@ -1,0 +1,17 @@
+program	section	n_foci	n_tum_kept	r2	p	shape	amplitude
+P-epi	TLS_VISIUM_USZ::LC3	27	772	0.188	1.8e-34	nonmonotonic	0.1549
+P-stromal	TLS_VISIUM_USZ::LC3	27	772	0.1836	1.42e-33	nonmonotonic	1.0286
+P-epi	TLS_VISIUM_USZ::KC3	20	440	0.0095	0.246	flat	0.0253
+P-stromal	TLS_VISIUM_USZ::KC3	20	440	0.0451	0.000158	flat	0.1828
+P-epi	TLS_VISIUM_USZ::LC2	11	514	0.1254	9.26e-15	flat	0.4591
+P-stromal	TLS_VISIUM_USZ::LC2	11	514	0.1764	2.48e-21	nonmonotonic	0.6643
+P-epi	TLS_VISIUM_USZ::LC1	17	579	0.0607	7.39e-08	flat	0.1004
+P-stromal	TLS_VISIUM_USZ::LC1	17	579	0.1205	6.32e-16	flat	0.1896
+P-epi	TLS_VISIUM_USZ::KC1	7	1088	0.0083	0.0288	high-to-low	0.0201
+P-stromal	TLS_VISIUM_USZ::KC1	7	1088	0.1581	3.21e-40	flat	0.3565
+P-epi	TLS_VISIUM_USZ::LC5	7	312	0.1485	9.8e-11	nonmonotonic	0.4554
+P-stromal	TLS_VISIUM_USZ::LC5	7	312	0.1046	1.92e-07	flat	0.592
+P-epi	TLS_VISIUM_USZ::KC2	4	481	0.303	4e-37	low-to-high	0.096
+P-stromal	TLS_VISIUM_USZ::KC2	4	481	0.1275	4.69e-14	low-to-high	0.1116
+P-epi	TLS_VISIUM_USZ::LC4	14	257	0.327	1.28e-21	nonmonotonic	0.3359
+P-stromal	TLS_VISIUM_USZ::LC4	14	257	0.2437	2.89e-15	nonmonotonic	0.3989

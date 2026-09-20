@@ -856,3 +856,20 @@ D-093 (2026-09-01): use the TensorFlow compiled execution path for the frozen K=
   T3旧6程序对照：上皮分化/抗原呈递/肌肉家族在GO线同样强（USZ 55–91%），应激家族分化（ST≈0/USZ 34%），与T4结论同向。
 - 决策：GO线与T3线并列，不互相覆盖；多重检验按有效独立通路计（report层），原始6870份全留；NOT_TESTABLE 596条诚实标记。
 - 失效条件：家族归并词根粗糙，大通路家族内部异质性高时以单通路行为准，不以家族均值杀单通路。
+
+### D-137 | 2026-09-20 | Spline 距离曲线：mhc2 翻盘失败，但发现 peri-TLS 晕环形态
+
+- 背景：M2 升级候选1（抄灵感论文 Science 2026）：程序分 ns(df=3)~到TLS距离，
+  USZ 8片TLS GT锚点，TUM spots，距离rescale 0–1，形态=Spearman单调+15%变化地板。
+- 实测（`infra/r16/recovery_20260918/spline_{summary,curves}_full.tsv`，64 fits）：
+  形态分布 flat 32 / nonmonotonic 22 / low-to-high 6 / high-to-low 4——干净单调极少。
+  mhc2：仅KC1 high-to-low（r²=0.07），LC3/LC4 nonmonotonic（r²=0.20/0.22），其余flat；
+  距离梯度翻盘失败，L-009结论维持（mhc2退回场活性）。
+- 新形态（非预设发现）：LC3/LC4的mhc2曲线呈"近TLS峰→谷→远端回升"晕环形
+  （LC3: 1.70→0.66→1.12；LC4: 1.16→0.59→0.55），B轴同片曲线平坦（0.43→0.26→0.30）。
+  mhc2振幅（中位0.34）数倍于B轴（0.07）——mhc2在TLS周围有B轴没有的空间结构，
+  只是不是单调梯度，而是晕环。这是M2线性均值和L-009 hit/miss都看不见的形态。
+- 决策：spline纳入M2形态库（与线性M2并列，不替代）；晕环形态记LEADS L-011
+  （需多片复现+机制解释，当前仅2片描述性）；mhc2"距离梯度翻盘"关闭。
+- 失效条件：若晕环在ST-CRC（无TLS GT，需B轴代理锚点）或更多USZ片复现失败，
+  退回单片描述，不升级。
