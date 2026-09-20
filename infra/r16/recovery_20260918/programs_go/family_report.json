@@ -1,0 +1,1742 @@
+[
+ {
+  "root": "MITOTIC_CELL",
+  "n": 4,
+  "STCRC_dM1_med": 57.65,
+  "USZ_dM1_med": 95.41
+ },
+ {
+  "root": "SMALL_MOLECULE",
+  "n": 3,
+  "STCRC_dM1_med": 52.86,
+  "USZ_dM1_med": 91.18
+ },
+ {
+  "root": "CELL_PROJECTION",
+  "n": 3,
+  "STCRC_dM1_med": 49.21,
+  "USZ_dM1_med": 92.37
+ },
+ {
+  "root": "CARBOHYDRATE_DERIVATIVE",
+  "n": 4,
+  "STCRC_dM1_med": 45.49,
+  "USZ_dM1_med": 87.52
+ },
+ {
+  "root": "RNA_SPLICING",
+  "n": 3,
+  "STCRC_dM1_med": 43.44,
+  "USZ_dM1_med": 89.11
+ },
+ {
+  "root": "MONOATOMIC_ION",
+  "n": 3,
+  "STCRC_dM1_med": 43.12,
+  "USZ_dM1_med": 87.54
+ },
+ {
+  "root": "NUCLEOBASE_CONTAINING",
+  "n": 5,
+  "STCRC_dM1_med": 30.11,
+  "USZ_dM1_med": 88.28
+ },
+ {
+  "root": "CELL_CYCLE",
+  "n": 8,
+  "STCRC_dM1_med": 27.55,
+  "USZ_dM1_med": 90.24
+ },
+ {
+  "root": "NUCLEOSIDE_TRIPHOSPHATE",
+  "n": 3,
+  "STCRC_dM1_med": 36.79,
+  "USZ_dM1_med": 80.19
+ },
+ {
+  "root": "PROTEIN_CONTAINING",
+  "n": 4,
+  "STCRC_dM1_med": 26.57,
+  "USZ_dM1_med": 80.92
+ },
+ {
+  "root": "IMPORT_INTO",
+  "n": 3,
+  "STCRC_dM1_med": 28.73,
+  "USZ_dM1_med": 75.59
+ },
+ {
+  "root": "MITOTIC_SPINDLE",
+  "n": 3,
+  "STCRC_dM1_med": 29.92,
+  "USZ_dM1_med": 74.25
+ },
+ {
+  "root": "BIOLOGICAL_PROCESS",
+  "n": 5,
+  "STCRC_dM1_med": 27.06,
+  "USZ_dM1_med": 76.69
+ },
+ {
+  "root": "MICROTUBULE_BASED",
+  "n": 4,
+  "STCRC_dM1_med": 19.05,
+  "USZ_dM1_med": 79.66
+ },
+ {
+  "root": "ORGANIC_ACID",
+  "n": 5,
+  "STCRC_dM1_med": 19.86,
+  "USZ_dM1_med": 78.77
+ },
+ {
+  "root": "DEFENSE_RESPONSE",
+  "n": 7,
+  "STCRC_dM1_med": 51.35,
+  "USZ_dM1_med": 41.37
+ },
+ {
+  "root": "DNA_TEMPLATED",
+  "n": 5,
+  "STCRC_dM1_med": 15.18,
+  "USZ_dM1_med": 76.44
+ },
+ {
+  "root": "CARDIAC_CHAMBER",
+  "n": 3,
+  "STCRC_dM1_med": 20.02,
+  "USZ_dM1_med": 67.52
+ },
+ {
+  "root": "MONOCARBOXYLIC_ACID",
+  "n": 4,
+  "STCRC_dM1_med": 18.3,
+  "USZ_dM1_med": 68.78
+ },
+ {
+  "root": "MEMBRANE_LIPID",
+  "n": 3,
+  "STCRC_dM1_med": 12.44,
+  "USZ_dM1_med": 74.16
+ },
+ {
+  "root": "CELL_JUNCTION",
+  "n": 4,
+  "STCRC_dM1_med": 25.98,
+  "USZ_dM1_med": 60.41
+ },
+ {
+  "root": "PYRIDINE_CONTAINING",
+  "n": 3,
+  "STCRC_dM1_med": 18.3,
+  "USZ_dM1_med": 67.52
+ },
+ {
+  "root": "CYTOKINE_PRODUCTION",
+  "n": 3,
+  "STCRC_dM1_med": 44.71,
+  "USZ_dM1_med": 38.43
+ },
+ {
+  "root": "ATTACHMENT_OF",
+  "n": 3,
+  "STCRC_dM1_med": 15.61,
+  "USZ_dM1_med": 67.23
+ },
+ {
+  "root": "NEURAL_TUBE",
+  "n": 3,
+  "STCRC_dM1_med": 9.66,
+  "USZ_dM1_med": 70.41
+ },
+ {
+  "root": "MITOTIC_SISTER",
+  "n": 4,
+  "STCRC_dM1_med": 13.61,
+  "USZ_dM1_med": 66.36
+ },
+ {
+  "root": "PURINE_CONTAINING",
+  "n": 5,
+  "STCRC_dM1_med": 11.6,
+  "USZ_dM1_med": 67.03
+ },
+ {
+  "root": "VESICLE_MEDIATED",
+  "n": 4,
+  "STCRC_dM1_med": 14.91,
+  "USZ_dM1_med": 61.79
+ },
+ {
+  "root": "SIGNAL_TRANSDUCTION",
+  "n": 4,
+  "STCRC_dM1_med": 13.34,
+  "USZ_dM1_med": 63.26
+ },
+ {
+  "root": "PYRIMIDINE_NUCLEOTIDE",
+  "n": 3,
+  "STCRC_dM1_med": 13.47,
+  "USZ_dM1_med": 62.5
+ },
+ {
+  "root": "ANTIGEN_PROCESSING",
+  "n": 14,
+  "STCRC_dM1_med": 51.89,
+  "USZ_dM1_med": 22.43
+ },
+ {
+  "root": "NUCLEOSIDE_DIPHOSPHATE",
+  "n": 3,
+  "STCRC_dM1_med": 15.1,
+  "USZ_dM1_med": 58.63
+ },
+ {
+  "root": "MITOTIC_DNA",
+  "n": 3,
+  "STCRC_dM1_med": 5.01,
+  "USZ_dM1_med": 67.53
+ },
+ {
+  "root": "ACTIN_FILAMENT",
+  "n": 8,
+  "STCRC_dM1_med": 15.19,
+  "USZ_dM1_med": 56.98
+ },
+ {
+  "root": "MITOCHONDRIAL_ELECTRON",
+  "n": 3,
+  "STCRC_dM1_med": 14.65,
+  "USZ_dM1_med": 56.27
+ },
+ {
+  "root": "MORPHOGENESIS_OF",
+  "n": 8,
+  "STCRC_dM1_med": 8.85,
+  "USZ_dM1_med": 60.06
+ },
+ {
+  "root": "PEPTIDE_ANTIGEN",
+  "n": 3,
+  "STCRC_dM1_med": 57.17,
+  "USZ_dM1_med": 11.18
+ },
+ {
+  "root": "RIBONUCLEOSIDE_MONOPHOSPHATE",
+  "n": 3,
+  "STCRC_dM1_med": 5.2,
+  "USZ_dM1_med": 62.89
+ },
+ {
+  "root": "MYELOID_LEUKOCYTE",
+  "n": 5,
+  "STCRC_dM1_med": 14.97,
+  "USZ_dM1_med": 52.95
+ },
+ {
+  "root": "CARDIAC_SEPTUM",
+  "n": 3,
+  "STCRC_dM1_med": 4.82,
+  "USZ_dM1_med": 60.48
+ },
+ {
+  "root": "CARDIAC_VENTRICLE",
+  "n": 3,
+  "STCRC_dM1_med": 10.73,
+  "USZ_dM1_med": 53.75
+ },
+ {
+  "root": "MUSCLE_CELL",
+  "n": 7,
+  "STCRC_dM1_med": 10.98,
+  "USZ_dM1_med": 53.19
+ },
+ {
+  "root": "ADAPTIVE_IMMUNE",
+  "n": 3,
+  "STCRC_dM1_med": 34.56,
+  "USZ_dM1_med": 29.32
+ },
+ {
+  "root": "DNA_REPLICATION",
+  "n": 5,
+  "STCRC_dM1_med": 3.19,
+  "USZ_dM1_med": 60.47
+ },
+ {
+  "root": "ANTERIOR_POSTERIOR",
+  "n": 3,
+  "STCRC_dM1_med": 8.62,
+  "USZ_dM1_med": 54.79
+ },
+ {
+  "root": "MATURATION_OF",
+  "n": 6,
+  "STCRC_dM1_med": 5.8,
+  "USZ_dM1_med": 55.74
+ },
+ {
+  "root": "PURINE_NUCLEOTIDE",
+  "n": 4,
+  "STCRC_dM1_med": 8.11,
+  "USZ_dM1_med": 53.4
+ },
+ {
+  "root": "SULFUR_COMPOUND",
+  "n": 4,
+  "STCRC_dM1_med": 5.76,
+  "USZ_dM1_med": 54.77
+ },
+ {
+  "root": "PROTEIN_DNA",
+  "n": 3,
+  "STCRC_dM1_med": 8.15,
+  "USZ_dM1_med": 52.27
+ },
+ {
+  "root": "STEROID_HORMONE",
+  "n": 3,
+  "STCRC_dM1_med": 10.52,
+  "USZ_dM1_med": 49.01
+ },
+ {
+  "root": "REGULATORY_NCRNA",
+  "n": 3,
+  "STCRC_dM1_med": 6.97,
+  "USZ_dM1_med": 51.77
+ },
+ {
+  "root": "NUCLEOSIDE_MONOPHOSPHATE",
+  "n": 4,
+  "STCRC_dM1_med": 8.29,
+  "USZ_dM1_med": 49.28
+ },
+ {
+  "root": "CELL_SURFACE",
+  "n": 7,
+  "STCRC_dM1_med": 15.19,
+  "USZ_dM1_med": 41.64
+ },
+ {
+  "root": "ANIMAL_ORGAN",
+  "n": 4,
+  "STCRC_dM1_med": 11.28,
+  "USZ_dM1_med": 45.52
+ },
+ {
+  "root": "STEM_CELL",
+  "n": 6,
+  "STCRC_dM1_med": 7.86,
+  "USZ_dM1_med": 48.71
+ },
+ {
+  "root": "INTERMEDIATE_FILAMENT",
+  "n": 3,
+  "STCRC_dM1_med": -1.21,
+  "USZ_dM1_med": 56.87
+ },
+ {
+  "root": "DNA_STRAND",
+  "n": 4,
+  "STCRC_dM1_med": 10.19,
+  "USZ_dM1_med": 45.24
+ },
+ {
+  "root": "RIBOSOMAL_LARGE",
+  "n": 3,
+  "STCRC_dM1_med": 5.91,
+  "USZ_dM1_med": 47.64
+ },
+ {
+  "root": "HEART_VALVE",
+  "n": 3,
+  "STCRC_dM1_med": 9.57,
+  "USZ_dM1_med": 43.83
+ },
+ {
+  "root": "CHAPERONE_MEDIATED",
+  "n": 3,
+  "STCRC_dM1_med": 11.04,
+  "USZ_dM1_med": 42.05
+ },
+ {
+  "root": "MEIOTIC_CHROMOSOME",
+  "n": 3,
+  "STCRC_dM1_med": 2.28,
+  "USZ_dM1_med": 50.45
+ },
+ {
+  "root": "CARDIAC_MUSCLE",
+  "n": 12,
+  "STCRC_dM1_med": 5.55,
+  "USZ_dM1_med": 46.3
+ },
+ {
+  "root": "DOUBLE_STRAND",
+  "n": 7,
+  "STCRC_dM1_med": 1.59,
+  "USZ_dM1_med": 50.01
+ },
+ {
+  "root": "NUCLEAR_TRANSCRIBED",
+  "n": 4,
+  "STCRC_dM1_med": 5.25,
+  "USZ_dM1_med": 45.75
+ },
+ {
+  "root": "TELOMERE_MAINTENANCE",
+  "n": 4,
+  "STCRC_dM1_med": 2.42,
+  "USZ_dM1_med": 48.18
+ },
+ {
+  "root": "EMBRYONIC_SKELETAL",
+  "n": 4,
+  "STCRC_dM1_med": 4.58,
+  "USZ_dM1_med": 45.33
+ },
+ {
+  "root": "SOMATIC_DIVERSIFICATION",
+  "n": 3,
+  "STCRC_dM1_med": 2.0,
+  "USZ_dM1_med": 47.49
+ },
+ {
+  "root": "CELL_CELL",
+  "n": 12,
+  "STCRC_dM1_med": 5.86,
+  "USZ_dM1_med": 43.58
+ },
+ {
+  "root": "WNT_SIGNALING",
+  "n": 3,
+  "STCRC_dM1_med": 0.08,
+  "USZ_dM1_med": 49.24
+ },
+ {
+  "root": "ANATOMICAL_STRUCTURE",
+  "n": 4,
+  "STCRC_dM1_med": 12.17,
+  "USZ_dM1_med": 36.67
+ },
+ {
+  "root": "ESTABLISHMENT_OR",
+  "n": 5,
+  "STCRC_dM1_med": -0.25,
+  "USZ_dM1_med": 47.45
+ },
+ {
+  "root": "ALPHA_BETA",
+  "n": 3,
+  "STCRC_dM1_med": 8.6,
+  "USZ_dM1_med": 38.51
+ },
+ {
+  "root": "GLYCOSYL_COMPOUND",
+  "n": 3,
+  "STCRC_dM1_med": 6.16,
+  "USZ_dM1_med": 40.51
+ },
+ {
+  "root": "INTRINSIC_APOPTOTIC",
+  "n": 9,
+  "STCRC_dM1_med": 6.96,
+  "USZ_dM1_med": 39.5
+ },
+ {
+  "root": "PURINE_NUCLEOBASE",
+  "n": 3,
+  "STCRC_dM1_med": 0.86,
+  "USZ_dM1_med": 45.13
+ },
+ {
+  "root": "B_CELL",
+  "n": 10,
+  "STCRC_dM1_med": 14.12,
+  "USZ_dM1_med": 31.18
+ },
+ {
+  "root": "MEIOTIC_CELL",
+  "n": 5,
+  "STCRC_dM1_med": 3.7,
+  "USZ_dM1_med": 41.57
+ },
+ {
+  "root": "SODIUM_ION",
+  "n": 5,
+  "STCRC_dM1_med": 4.89,
+  "USZ_dM1_med": 40.27
+ },
+ {
+  "root": "CELLULAR_COMPONENT",
+  "n": 4,
+  "STCRC_dM1_med": 6.75,
+  "USZ_dM1_med": 38.0
+ },
+ {
+  "root": "NUCLEAR_PORE",
+  "n": 3,
+  "STCRC_dM1_med": 2.36,
+  "USZ_dM1_med": 41.7
+ },
+ {
+  "root": "AMINO_ACID",
+  "n": 11,
+  "STCRC_dM1_med": 1.62,
+  "USZ_dM1_med": 41.79
+ },
+ {
+  "root": "FATTY_ACID",
+  "n": 15,
+  "STCRC_dM1_med": 0.4,
+  "USZ_dM1_med": 41.13
+ },
+ {
+  "root": "DEOXYRIBONUCLEOSIDE_MONOPHOSPHATE",
+  "n": 3,
+  "STCRC_dM1_med": -0.02,
+  "USZ_dM1_med": 41.27
+ },
+ {
+  "root": "DICARBOXYLIC_ACID",
+  "n": 4,
+  "STCRC_dM1_med": 2.56,
+  "USZ_dM1_med": 38.35
+ },
+ {
+  "root": "PYRIMIDINE_DEOXYRIBONUCLEOSIDE",
+  "n": 3,
+  "STCRC_dM1_med": 2.63,
+  "USZ_dM1_med": 37.86
+ },
+ {
+  "root": "MYELOID_CELL",
+  "n": 5,
+  "STCRC_dM1_med": 10.41,
+  "USZ_dM1_med": 29.65
+ },
+ {
+  "root": "STRIATED_MUSCLE",
+  "n": 6,
+  "STCRC_dM1_med": 1.1,
+  "USZ_dM1_med": 38.92
+ },
+ {
+  "root": "MODIFIED_AMINO",
+  "n": 4,
+  "STCRC_dM1_med": 2.04,
+  "USZ_dM1_med": 37.45
+ },
+ {
+  "root": "PYRIMIDINE_CONTAINING",
+  "n": 5,
+  "STCRC_dM1_med": 2.45,
+  "USZ_dM1_med": 36.95
+ },
+ {
+  "root": "PYRIMIDINE_NUCLEOSIDE",
+  "n": 9,
+  "STCRC_dM1_med": 2.62,
+  "USZ_dM1_med": 36.12
+ },
+ {
+  "root": "FORMATION_OF",
+  "n": 4,
+  "STCRC_dM1_med": 4.32,
+  "USZ_dM1_med": 34.2
+ },
+ {
+  "root": "NEURON_PROJECTION",
+  "n": 7,
+  "STCRC_dM1_med": 1.14,
+  "USZ_dM1_med": 36.98
+ },
+ {
+  "root": "ENDOCARDIAL_CUSHION",
+  "n": 4,
+  "STCRC_dM1_med": 10.09,
+  "USZ_dM1_med": 27.37
+ },
+ {
+  "root": "TRANSFORMING_GROWTH",
+  "n": 3,
+  "STCRC_dM1_med": 26.24,
+  "USZ_dM1_med": 11.21
+ },
+ {
+  "root": "AMYLOID_PRECURSOR",
+  "n": 3,
+  "STCRC_dM1_med": 4.23,
+  "USZ_dM1_med": 33.19
+ },
+ {
+  "root": "GLUTAMINE_FAMILY",
+  "n": 3,
+  "STCRC_dM1_med": 3.15,
+  "USZ_dM1_med": 34.16
+ },
+ {
+  "root": "PROSTATE_GLAND",
+  "n": 3,
+  "STCRC_dM1_med": 5.2,
+  "USZ_dM1_med": 31.97
+ },
+ {
+  "root": "MULTICELLULAR_ORGANISMAL",
+  "n": 7,
+  "STCRC_dM1_med": 3.88,
+  "USZ_dM1_med": 30.51
+ },
+ {
+  "root": "ESTABLISHMENT_OF",
+  "n": 32,
+  "STCRC_dM1_med": 3.15,
+  "USZ_dM1_med": 31.05
+ },
+ {
+  "root": "COMPLEMENT_ACTIVATION",
+  "n": 4,
+  "STCRC_dM1_med": 20.57,
+  "USZ_dM1_med": 13.57
+ },
+ {
+  "root": "PROTEIN_LOCALIZATION",
+  "n": 46,
+  "STCRC_dM1_med": 2.2,
+  "USZ_dM1_med": 31.45
+ },
+ {
+  "root": "DEVELOPMENT_OF",
+  "n": 4,
+  "STCRC_dM1_med": 4.57,
+  "USZ_dM1_med": 28.74
+ },
+ {
+  "root": "EMBRYONIC_CAMERA",
+  "n": 3,
+  "STCRC_dM1_med": 1.82,
+  "USZ_dM1_med": 31.48
+ },
+ {
+  "root": "ENDOSOME_TO",
+  "n": 3,
+  "STCRC_dM1_med": 1.93,
+  "USZ_dM1_med": 31.02
+ },
+ {
+  "root": "CRANIAL_NERVE",
+  "n": 4,
+  "STCRC_dM1_med": 0.49,
+  "USZ_dM1_med": 32.21
+ },
+ {
+  "root": "INTERLEUKIN_1",
+  "n": 4,
+  "STCRC_dM1_med": 9.19,
+  "USZ_dM1_med": 23.46
+ },
+ {
+  "root": "PHENOL_CONTAINING",
+  "n": 3,
+  "STCRC_dM1_med": 0.63,
+  "USZ_dM1_med": 31.72
+ },
+ {
+  "root": "NUCLEOTIDE_SUGAR",
+  "n": 3,
+  "STCRC_dM1_med": 7.08,
+  "USZ_dM1_med": 25.08
+ },
+ {
+  "root": "VESICLE_TARGETING",
+  "n": 3,
+  "STCRC_dM1_med": 2.74,
+  "USZ_dM1_med": 29.18
+ },
+ {
+  "root": "INNER_EAR",
+  "n": 3,
+  "STCRC_dM1_med": 4.39,
+  "USZ_dM1_med": 27.44
+ },
+ {
+  "root": "MODULATION_BY",
+  "n": 3,
+  "STCRC_dM1_med": 7.95,
+  "USZ_dM1_med": 23.88
+ },
+ {
+  "root": "MITOTIC_NUCLEAR",
+  "n": 3,
+  "STCRC_dM1_med": 3.23,
+  "USZ_dM1_med": 28.41
+ },
+ {
+  "root": "MAMMARY_GLAND",
+  "n": 10,
+  "STCRC_dM1_med": 1.36,
+  "USZ_dM1_med": 30.23
+ },
+ {
+  "root": "RENAL_SYSTEM",
+  "n": 6,
+  "STCRC_dM1_med": 24.08,
+  "USZ_dM1_med": 6.89
+ },
+ {
+  "root": "T_CELL",
+  "n": 20,
+  "STCRC_dM1_med": 14.34,
+  "USZ_dM1_med": 15.06
+ },
+ {
+  "root": "PROTEIN_INSERTION",
+  "n": 6,
+  "STCRC_dM1_med": 2.72,
+  "USZ_dM1_med": 26.42
+ },
+ {
+  "root": "GLIAL_CELL",
+  "n": 9,
+  "STCRC_dM1_med": 5.63,
+  "USZ_dM1_med": 23.09
+ },
+ {
+  "root": "INTESTINAL_EPITHELIAL",
+  "n": 3,
+  "STCRC_dM1_med": 2.59,
+  "USZ_dM1_med": 26.09
+ },
+ {
+  "root": "DENDRITIC_SPINE",
+  "n": 3,
+  "STCRC_dM1_med": 2.94,
+  "USZ_dM1_med": 25.72
+ },
+ {
+  "root": "PTERIDINE_CONTAINING",
+  "n": 3,
+  "STCRC_dM1_med": 5.35,
+  "USZ_dM1_med": 22.84
+ },
+ {
+  "root": "PRIMARY_ALCOHOL",
+  "n": 3,
+  "STCRC_dM1_med": 4.29,
+  "USZ_dM1_med": 23.41
+ },
+ {
+  "root": "LONG_TERM",
+  "n": 3,
+  "STCRC_dM1_med": 0.37,
+  "USZ_dM1_med": 27.19
+ },
+ {
+  "root": "MEMBRANE_RAFT",
+  "n": 3,
+  "STCRC_dM1_med": 2.1,
+  "USZ_dM1_med": 25.02
+ },
+ {
+  "root": "CENTRAL_NERVOUS",
+  "n": 8,
+  "STCRC_dM1_med": 1.62,
+  "USZ_dM1_med": 25.48
+ },
+ {
+  "root": "PEPTIDYL_TYROSINE",
+  "n": 3,
+  "STCRC_dM1_med": 1.26,
+  "USZ_dM1_med": 25.15
+ },
+ {
+  "root": "CELL_COMMUNICATION",
+  "n": 3,
+  "STCRC_dM1_med": -0.01,
+  "USZ_dM1_med": 26.06
+ },
+ {
+  "root": "PYRIMIDINE_RIBONUCLEOSIDE",
+  "n": 5,
+  "STCRC_dM1_med": 0.56,
+  "USZ_dM1_med": 25.37
+ },
+ {
+  "root": "PEPTIDYL_THREONINE",
+  "n": 3,
+  "STCRC_dM1_med": 0.57,
+  "USZ_dM1_med": 25.3
+ },
+ {
+  "root": "CELL_ADHESION",
+  "n": 4,
+  "STCRC_dM1_med": 8.85,
+  "USZ_dM1_med": 16.73
+ },
+ {
+  "root": "NEUTRAL_LIPID",
+  "n": 3,
+  "STCRC_dM1_med": 1.7,
+  "USZ_dM1_med": 23.45
+ },
+ {
+  "root": "BILE_ACID",
+  "n": 4,
+  "STCRC_dM1_med": 0.37,
+  "USZ_dM1_med": 24.44
+ },
+ {
+  "root": "DORSAL_VENTRAL",
+  "n": 3,
+  "STCRC_dM1_med": -0.04,
+  "USZ_dM1_med": 24.8
+ },
+ {
+  "root": "LONG_CHAIN",
+  "n": 8,
+  "STCRC_dM1_med": 0.88,
+  "USZ_dM1_med": 23.51
+ },
+ {
+  "root": "SERINE_FAMILY",
+  "n": 3,
+  "STCRC_dM1_med": 1.2,
+  "USZ_dM1_med": 22.91
+ },
+ {
+  "root": "RECEPTOR_MEDIATED",
+  "n": 3,
+  "STCRC_dM1_med": 1.65,
+  "USZ_dM1_med": 22.45
+ },
+ {
+  "root": "BRANCHING_INVOLVED",
+  "n": 5,
+  "STCRC_dM1_med": 1.28,
+  "USZ_dM1_med": 22.79
+ },
+ {
+  "root": "NUCLEOTIDE_BINDING",
+  "n": 3,
+  "STCRC_dM1_med": 1.21,
+  "USZ_dM1_med": 22.86
+ },
+ {
+  "root": "ASPARTATE_FAMILY",
+  "n": 3,
+  "STCRC_dM1_med": 1.1,
+  "USZ_dM1_med": 22.88
+ },
+ {
+  "root": "MITOCHONDRIAL_DNA",
+  "n": 3,
+  "STCRC_dM1_med": 0.37,
+  "USZ_dM1_med": 23.45
+ },
+ {
+  "root": "CEREBELLAR_CORTEX",
+  "n": 3,
+  "STCRC_dM1_med": 2.33,
+  "USZ_dM1_med": 21.13
+ },
+ {
+  "root": "RNA_POLYMERASE",
+  "n": 3,
+  "STCRC_dM1_med": 0.72,
+  "USZ_dM1_med": 22.64
+ },
+ {
+  "root": "POST_TRANSLATIONAL",
+  "n": 3,
+  "STCRC_dM1_med": 6.14,
+  "USZ_dM1_med": 17.09
+ },
+ {
+  "root": "MITOCHONDRIAL_RNA",
+  "n": 5,
+  "STCRC_dM1_med": 1.46,
+  "USZ_dM1_med": 21.5
+ },
+ {
+  "root": "PURINE_DEOXYRIBONUCLEOTIDE",
+  "n": 3,
+  "STCRC_dM1_med": 1.78,
+  "USZ_dM1_med": 20.42
+ },
+ {
+  "root": "TRICARBOXYLIC_ACID",
+  "n": 3,
+  "STCRC_dM1_med": 1.77,
+  "USZ_dM1_med": 20.07
+ },
+ {
+  "root": "VENTRICULAR_CARDIAC",
+  "n": 6,
+  "STCRC_dM1_med": 2.18,
+  "USZ_dM1_med": 18.96
+ },
+ {
+  "root": "PURINE_RIBONUCLEOSIDE",
+  "n": 3,
+  "STCRC_dM1_med": 0.45,
+  "USZ_dM1_med": 19.87
+ },
+ {
+  "root": "POTASSIUM_ION",
+  "n": 4,
+  "STCRC_dM1_med": 1.4,
+  "USZ_dM1_med": 18.87
+ },
+ {
+  "root": "MODULATION_OF",
+  "n": 3,
+  "STCRC_dM1_med": 0.0,
+  "USZ_dM1_med": 20.17
+ },
+ {
+  "root": "TYPE_II",
+  "n": 4,
+  "STCRC_dM1_med": 12.79,
+  "USZ_dM1_med": 7.29
+ },
+ {
+  "root": "WOUND_HEALING",
+  "n": 3,
+  "STCRC_dM1_med": 2.05,
+  "USZ_dM1_med": 17.91
+ },
+ {
+  "root": "DETOXIFICATION_OF",
+  "n": 3,
+  "STCRC_dM1_med": 15.69,
+  "USZ_dM1_med": 4.19
+ },
+ {
+  "root": "ADHERENS_JUNCTION",
+  "n": 3,
+  "STCRC_dM1_med": 3.36,
+  "USZ_dM1_med": 16.48
+ },
+ {
+  "root": "PYRIMIDINE_NUCLEOBASE",
+  "n": 3,
+  "STCRC_dM1_med": 1.13,
+  "USZ_dM1_med": 17.48
+ },
+ {
+  "root": "CELL_FATE",
+  "n": 6,
+  "STCRC_dM1_med": 1.31,
+  "USZ_dM1_med": 17.28
+ },
+ {
+  "root": "INFLAMMATORY_RESPONSE",
+  "n": 3,
+  "STCRC_dM1_med": 5.88,
+  "USZ_dM1_med": 12.34
+ },
+ {
+  "root": "POSTSYNAPTIC_DENSITY",
+  "n": 3,
+  "STCRC_dM1_med": 0.92,
+  "USZ_dM1_med": 17.29
+ },
+ {
+  "root": "METANEPHRIC_NEPHRON",
+  "n": 4,
+  "STCRC_dM1_med": 1.41,
+  "USZ_dM1_med": 16.49
+ },
+ {
+  "root": "EPITHELIAL_CELL",
+  "n": 15,
+  "STCRC_dM1_med": 1.03,
+  "USZ_dM1_med": 16.77
+ },
+ {
+  "root": "AMINO_SUGAR",
+  "n": 3,
+  "STCRC_dM1_med": 2.85,
+  "USZ_dM1_med": 14.85
+ },
+ {
+  "root": "DE_NOVO",
+  "n": 4,
+  "STCRC_dM1_med": 4.13,
+  "USZ_dM1_med": 13.32
+ },
+ {
+  "root": "ATRIAL_SEPTUM",
+  "n": 3,
+  "STCRC_dM1_med": -0.13,
+  "USZ_dM1_med": 17.56
+ },
+ {
+  "root": "PROTEIN_TARGETING",
+  "n": 7,
+  "STCRC_dM1_med": 6.89,
+  "USZ_dM1_med": 10.38
+ },
+ {
+  "root": "ENDONUCLEOLYTIC_CLEAVAGE",
+  "n": 3,
+  "STCRC_dM1_med": 1.08,
+  "USZ_dM1_med": 15.96
+ },
+ {
+  "root": "DNA_REPAIR",
+  "n": 3,
+  "STCRC_dM1_med": 0.62,
+  "USZ_dM1_med": 16.34
+ },
+ {
+  "root": "BLOOD_VESSEL",
+  "n": 6,
+  "STCRC_dM1_med": 3.21,
+  "USZ_dM1_med": 13.73
+ },
+ {
+  "root": "SKELETAL_MUSCLE",
+  "n": 14,
+  "STCRC_dM1_med": 0.01,
+  "USZ_dM1_med": 16.89
+ },
+ {
+  "root": "MESENCHYMAL_CELL",
+  "n": 7,
+  "STCRC_dM1_med": 1.53,
+  "USZ_dM1_med": 14.99
+ },
+ {
+  "root": "CELLULAR_RESPONSE",
+  "n": 125,
+  "STCRC_dM1_med": 1.27,
+  "USZ_dM1_med": 15.24
+ },
+ {
+  "root": "SEQUESTERING_OF",
+  "n": 3,
+  "STCRC_dM1_med": 5.12,
+  "USZ_dM1_med": 11.12
+ },
+ {
+  "root": "ENDOTHELIAL_CELL",
+  "n": 11,
+  "STCRC_dM1_med": 4.72,
+  "USZ_dM1_med": 11.38
+ },
+ {
+  "root": "REGULATION_OF",
+  "n": 1106,
+  "STCRC_dM1_med": 1.34,
+  "USZ_dM1_med": 14.7
+ },
+ {
+  "root": "PERIPHERAL_NERVOUS",
+  "n": 5,
+  "STCRC_dM1_med": 0.5,
+  "USZ_dM1_med": 14.86
+ },
+ {
+  "root": "RESPONSE_TO",
+  "n": 227,
+  "STCRC_dM1_med": 1.36,
+  "USZ_dM1_med": 13.99
+ },
+ {
+  "root": "COLUMNAR_CUBOIDAL",
+  "n": 3,
+  "STCRC_dM1_med": 0.94,
+  "USZ_dM1_med": 13.72
+ },
+ {
+  "root": "NEUROTRANSMITTER_RECEPTOR",
+  "n": 5,
+  "STCRC_dM1_med": 0.66,
+  "USZ_dM1_med": 14.0
+ },
+ {
+  "root": "FOLIC_ACID",
+  "n": 4,
+  "STCRC_dM1_med": 1.86,
+  "USZ_dM1_med": 12.71
+ },
+ {
+  "root": "MEMBRANE_PROTEIN",
+  "n": 3,
+  "STCRC_dM1_med": 7.1,
+  "USZ_dM1_med": 6.99
+ },
+ {
+  "root": "OTIC_VESICLE",
+  "n": 3,
+  "STCRC_dM1_med": -0.06,
+  "USZ_dM1_med": 14.08
+ },
+ {
+  "root": "PLATELET_DERIVED",
+  "n": 3,
+  "STCRC_dM1_med": 1.0,
+  "USZ_dM1_med": 12.79
+ },
+ {
+  "root": "NEURON_FATE",
+  "n": 3,
+  "STCRC_dM1_med": 0.33,
+  "USZ_dM1_med": 12.75
+ },
+ {
+  "root": "ACTIVATION_OF",
+  "n": 8,
+  "STCRC_dM1_med": 0.44,
+  "USZ_dM1_med": 12.45
+ },
+ {
+  "root": "PURINE_NUCLEOSIDE",
+  "n": 8,
+  "STCRC_dM1_med": 1.38,
+  "USZ_dM1_med": 11.49
+ },
+ {
+  "root": "VASCULAR_ASSOCIATED",
+  "n": 6,
+  "STCRC_dM1_med": 1.71,
+  "USZ_dM1_med": 11.01
+ },
+ {
+  "root": "HEMATOPOIETIC_STEM",
+  "n": 5,
+  "STCRC_dM1_med": 1.5,
+  "USZ_dM1_med": 11.16
+ },
+ {
+  "root": "CALCIUM_ION",
+  "n": 12,
+  "STCRC_dM1_med": 0.26,
+  "USZ_dM1_med": 12.36
+ },
+ {
+  "root": "AMYLOID_BETA",
+  "n": 4,
+  "STCRC_dM1_med": 0.17,
+  "USZ_dM1_med": 12.44
+ },
+ {
+  "root": "DENDRITIC_CELL",
+  "n": 6,
+  "STCRC_dM1_med": 1.77,
+  "USZ_dM1_med": 10.41
+ },
+ {
+  "root": "NEUROMUSCULAR_PROCESS",
+  "n": 3,
+  "STCRC_dM1_med": 2.93,
+  "USZ_dM1_med": 8.91
+ },
+ {
+  "root": "SYNAPTIC_VESICLE",
+  "n": 14,
+  "STCRC_dM1_med": 1.03,
+  "USZ_dM1_med": 10.38
+ },
+ {
+  "root": "PEPTIDYL_LYSINE",
+  "n": 3,
+  "STCRC_dM1_med": 0.56,
+  "USZ_dM1_med": 10.71
+ },
+ {
+  "root": "EXTRACELLULAR_MATRIX",
+  "n": 4,
+  "STCRC_dM1_med": 10.48,
+  "USZ_dM1_med": 0.73
+ },
+ {
+  "root": "PHOTORECEPTOR_CELL",
+  "n": 5,
+  "STCRC_dM1_med": -0.01,
+  "USZ_dM1_med": 11.14
+ },
+ {
+  "root": "POSITIVE_REGULATION",
+  "n": 767,
+  "STCRC_dM1_med": 0.82,
+  "USZ_dM1_med": 10.29
+ },
+ {
+  "root": "IMMUNE_RESPONSE",
+  "n": 6,
+  "STCRC_dM1_med": 3.26,
+  "USZ_dM1_med": 7.66
+ },
+ {
+  "root": "LOW_DENSITY",
+  "n": 3,
+  "STCRC_dM1_med": 0.16,
+  "USZ_dM1_med": 10.63
+ },
+ {
+  "root": "RESPIRATORY_BURST",
+  "n": 3,
+  "STCRC_dM1_med": 0.48,
+  "USZ_dM1_med": 10.24
+ },
+ {
+  "root": "ENDOPLASMIC_RETICULUM",
+  "n": 9,
+  "STCRC_dM1_med": 0.13,
+  "USZ_dM1_med": 10.39
+ },
+ {
+  "root": "PHOSPHATE_ION",
+  "n": 3,
+  "STCRC_dM1_med": -0.45,
+  "USZ_dM1_med": 10.76
+ },
+ {
+  "root": "AROMATIC_AMINO",
+  "n": 3,
+  "STCRC_dM1_med": 7.08,
+  "USZ_dM1_med": 3.12
+ },
+ {
+  "root": "NEGATIVE_REGULATION",
+  "n": 636,
+  "STCRC_dM1_med": 0.72,
+  "USZ_dM1_med": 9.46
+ },
+ {
+  "root": "GROWTH_PLATE",
+  "n": 3,
+  "STCRC_dM1_med": -0.03,
+  "USZ_dM1_med": 10.21
+ },
+ {
+  "root": "MYELOID_DENDRITIC",
+  "n": 3,
+  "STCRC_dM1_med": 6.63,
+  "USZ_dM1_med": 3.5
+ },
+ {
+  "root": "T_HELPER",
+  "n": 8,
+  "STCRC_dM1_med": 0.46,
+  "USZ_dM1_med": 9.49
+ },
+ {
+  "root": "CATECHOL_CONTAINING",
+  "n": 3,
+  "STCRC_dM1_med": -0.11,
+  "USZ_dM1_med": 9.29
+ },
+ {
+  "root": "NON_PROTEINOGENIC",
+  "n": 3,
+  "STCRC_dM1_med": -0.04,
+  "USZ_dM1_med": 9.21
+ },
+ {
+  "root": "IRON_ION",
+  "n": 3,
+  "STCRC_dM1_med": 1.0,
+  "USZ_dM1_med": 7.7
+ },
+ {
+  "root": "AUDITORY_RECEPTOR",
+  "n": 3,
+  "STCRC_dM1_med": 1.2,
+  "USZ_dM1_med": 7.47
+ },
+ {
+  "root": "MAINTENANCE_OF",
+  "n": 21,
+  "STCRC_dM1_med": 0.12,
+  "USZ_dM1_med": 8.45
+ },
+ {
+  "root": "CARDIAC_NEURAL",
+  "n": 3,
+  "STCRC_dM1_med": 0.78,
+  "USZ_dM1_med": 7.59
+ },
+ {
+  "root": "DETERMINATION_OF",
+  "n": 6,
+  "STCRC_dM1_med": 0.12,
+  "USZ_dM1_med": 8.21
+ },
+ {
+  "root": "THYROID_HORMONE",
+  "n": 3,
+  "STCRC_dM1_med": 2.8,
+  "USZ_dM1_med": 5.45
+ },
+ {
+  "root": "SULFUR_AMINO",
+  "n": 4,
+  "STCRC_dM1_med": 0.1,
+  "USZ_dM1_med": 8.12
+ },
+ {
+  "root": "HIGH_DENSITY",
+  "n": 3,
+  "STCRC_dM1_med": 0.4,
+  "USZ_dM1_med": 7.71
+ },
+ {
+  "root": "PURINE_DEOXYRIBONUCLEOSIDE",
+  "n": 3,
+  "STCRC_dM1_med": 1.96,
+  "USZ_dM1_med": 6.15
+ },
+ {
+  "root": "TYPE_B",
+  "n": 4,
+  "STCRC_dM1_med": 1.4,
+  "USZ_dM1_med": 6.37
+ },
+ {
+  "root": "LATE_ENDOSOME",
+  "n": 3,
+  "STCRC_dM1_med": 0.51,
+  "USZ_dM1_med": 7.04
+ },
+ {
+  "root": "CELL_PROLIFERATION",
+  "n": 7,
+  "STCRC_dM1_med": -0.09,
+  "USZ_dM1_med": 7.54
+ },
+ {
+  "root": "PROTEIN_IMPORT",
+  "n": 3,
+  "STCRC_dM1_med": 2.27,
+  "USZ_dM1_med": 5.01
+ },
+ {
+  "root": "MODIFICATION_OF",
+  "n": 3,
+  "STCRC_dM1_med": 0.79,
+  "USZ_dM1_med": 6.39
+ },
+ {
+  "root": "SPINAL_CORD",
+  "n": 6,
+  "STCRC_dM1_med": -0.02,
+  "USZ_dM1_med": 6.88
+ },
+ {
+  "root": "SYNAPTIC_TRANSMISSION",
+  "n": 5,
+  "STCRC_dM1_med": 0.2,
+  "USZ_dM1_med": 6.17
+ },
+ {
+  "root": "BEHAVIORAL_RESPONSE",
+  "n": 4,
+  "STCRC_dM1_med": 0.0,
+  "USZ_dM1_med": 6.36
+ },
+ {
+  "root": "PROTEIN_O",
+  "n": 3,
+  "STCRC_dM1_med": 0.09,
+  "USZ_dM1_med": 6.24
+ },
+ {
+  "root": "NATURAL_KILLER",
+  "n": 9,
+  "STCRC_dM1_med": 4.0,
+  "USZ_dM1_med": 2.16
+ },
+ {
+  "root": "VASCULAR_ENDOTHELIAL",
+  "n": 7,
+  "STCRC_dM1_med": 0.04,
+  "USZ_dM1_med": 5.87
+ },
+ {
+  "root": "RELAXATION_OF",
+  "n": 4,
+  "STCRC_dM1_med": -0.09,
+  "USZ_dM1_med": 5.7
+ },
+ {
+  "root": "APOPTOTIC_PROCESS",
+  "n": 5,
+  "STCRC_dM1_med": 1.22,
+  "USZ_dM1_med": 4.36
+ },
+ {
+  "root": "POST_EMBRYONIC",
+  "n": 4,
+  "STCRC_dM1_med": 2.93,
+  "USZ_dM1_med": 2.56
+ },
+ {
+  "root": "SMOOTH_MUSCLE",
+  "n": 9,
+  "STCRC_dM1_med": 2.97,
+  "USZ_dM1_med": 2.46
+ },
+ {
+  "root": "CELL_DIFFERENTIATION",
+  "n": 5,
+  "STCRC_dM1_med": 0.53,
+  "USZ_dM1_med": 4.58
+ },
+ {
+  "root": "TYPE_I",
+  "n": 3,
+  "STCRC_dM1_med": 0.29,
+  "USZ_dM1_med": 4.74
+ },
+ {
+  "root": "CONNECTIVE_TISSUE",
+  "n": 3,
+  "STCRC_dM1_med": 1.12,
+  "USZ_dM1_med": 3.83
+ },
+ {
+  "root": "CELL_MIGRATION",
+  "n": 6,
+  "STCRC_dM1_med": 0.52,
+  "USZ_dM1_med": 4.4
+ },
+ {
+  "root": "SENSORY_PERCEPTION",
+  "n": 12,
+  "STCRC_dM1_med": 0.16,
+  "USZ_dM1_med": 4.58
+ },
+ {
+  "root": "ENUCLEATE_ERYTHROCYTE",
+  "n": 3,
+  "STCRC_dM1_med": -0.04,
+  "USZ_dM1_med": 4.41
+ },
+ {
+  "root": "PLASMA_MEMBRANE",
+  "n": 9,
+  "STCRC_dM1_med": 1.28,
+  "USZ_dM1_med": 3.09
+ },
+ {
+  "root": "MOTOR_NEURON",
+  "n": 3,
+  "STCRC_dM1_med": 0.0,
+  "USZ_dM1_med": 4.29
+ },
+ {
+  "root": "CD4_POSITIVE",
+  "n": 6,
+  "STCRC_dM1_med": 1.27,
+  "USZ_dM1_med": 2.99
+ },
+ {
+  "root": "TOLL_LIKE",
+  "n": 6,
+  "STCRC_dM1_med": 0.14,
+  "USZ_dM1_med": 3.71
+ },
+ {
+  "root": "MEDIUM_CHAIN",
+  "n": 3,
+  "STCRC_dM1_med": 0.05,
+  "USZ_dM1_med": 3.5
+ },
+ {
+  "root": "COPPER_ION",
+  "n": 4,
+  "STCRC_dM1_med": 0.46,
+  "USZ_dM1_med": 3.0
+ },
+ {
+  "root": "MEMBRANE_REPOLARIZATION",
+  "n": 4,
+  "STCRC_dM1_med": 0.78,
+  "USZ_dM1_med": 2.68
+ },
+ {
+  "root": "GOLGI_TO",
+  "n": 5,
+  "STCRC_dM1_med": 0.04,
+  "USZ_dM1_med": 3.36
+ },
+ {
+  "root": "PIGMENT_GRANULE",
+  "n": 3,
+  "STCRC_dM1_med": 0.26,
+  "USZ_dM1_med": 3.13
+ },
+ {
+  "root": "MESODERMAL_CELL",
+  "n": 4,
+  "STCRC_dM1_med": 0.96,
+  "USZ_dM1_med": 2.19
+ },
+ {
+  "root": "NK_T",
+  "n": 3,
+  "STCRC_dM1_med": 1.46,
+  "USZ_dM1_med": 1.6
+ },
+ {
+  "root": "PARAXIAL_MESODERM",
+  "n": 3,
+  "STCRC_dM1_med": 1.85,
+  "USZ_dM1_med": 1.19
+ },
+ {
+  "root": "MESENCHYMAL_STEM",
+  "n": 3,
+  "STCRC_dM1_med": 0.35,
+  "USZ_dM1_med": 2.34
+ },
+ {
+  "root": "CD8_POSITIVE",
+  "n": 3,
+  "STCRC_dM1_med": 0.24,
+  "USZ_dM1_med": 2.25
+ },
+ {
+  "root": "GLANDULAR_EPITHELIAL",
+  "n": 3,
+  "STCRC_dM1_med": 2.07,
+  "USZ_dM1_med": 0.29
+ },
+ {
+  "root": "MEMBRANE_DEPOLARIZATION",
+  "n": 4,
+  "STCRC_dM1_med": 0.21,
+  "USZ_dM1_med": 2.02
+ },
+ {
+  "root": "CEREBRAL_CORTEX",
+  "n": 9,
+  "STCRC_dM1_med": 0.0,
+  "USZ_dM1_med": 2.2
+ },
+ {
+  "root": "ATRIAL_CARDIAC",
+  "n": 4,
+  "STCRC_dM1_med": 0.39,
+  "USZ_dM1_med": 1.81
+ },
+ {
+  "root": "L_GLUTAMATE",
+  "n": 3,
+  "STCRC_dM1_med": 0.13,
+  "USZ_dM1_med": 2.02
+ },
+ {
+  "root": "NEUTROPHIL_MEDIATED",
+  "n": 4,
+  "STCRC_dM1_med": -0.01,
+  "USZ_dM1_med": 2.06
+ },
+ {
+  "root": "NEPHRIC_DUCT",
+  "n": 3,
+  "STCRC_dM1_med": 0.2,
+  "USZ_dM1_med": 1.82
+ },
+ {
+  "root": "G_PROTEIN",
+  "n": 12,
+  "STCRC_dM1_med": 0.01,
+  "USZ_dM1_med": 1.99
+ },
+ {
+  "root": "LENS_FIBER",
+  "n": 3,
+  "STCRC_dM1_med": 0.8,
+  "USZ_dM1_med": 1.08
+ },
+ {
+  "root": "NITRIC_OXIDE",
+  "n": 3,
+  "STCRC_dM1_med": 1.61,
+  "USZ_dM1_med": 0.26
+ },
+ {
+  "root": "ZINC_ION",
+  "n": 3,
+  "STCRC_dM1_med": 0.21,
+  "USZ_dM1_med": 1.42
+ },
+ {
+  "root": "HYDROGEN_PEROXIDE",
+  "n": 3,
+  "STCRC_dM1_med": 1.27,
+  "USZ_dM1_med": 0.3
+ },
+ {
+  "root": "INDOLE_CONTAINING",
+  "n": 3,
+  "STCRC_dM1_med": 0.85,
+  "USZ_dM1_med": 0.59
+ },
+ {
+  "root": "RENAL_WATER",
+  "n": 3,
+  "STCRC_dM1_med": 0.65,
+  "USZ_dM1_med": 0.78
+ },
+ {
+  "root": "FAT_SOLUBLE",
+  "n": 3,
+  "STCRC_dM1_med": 0.53,
+  "USZ_dM1_med": 0.83
+ },
+ {
+  "root": "CYCLIC_NUCLEOTIDE",
+  "n": 4,
+  "STCRC_dM1_med": 0.25,
+  "USZ_dM1_med": 1.09
+ },
+ {
+  "root": "MAST_CELL",
+  "n": 8,
+  "STCRC_dM1_med": -0.04,
+  "USZ_dM1_med": 1.35
+ },
+ {
+  "root": "MICROGLIAL_CELL",
+  "n": 4,
+  "STCRC_dM1_med": 0.4,
+  "USZ_dM1_med": 0.84
+ },
+ {
+  "root": "CONVERGENT_EXTENSION",
+  "n": 4,
+  "STCRC_dM1_med": 0.57,
+  "USZ_dM1_med": 0.66
+ },
+ {
+  "root": "ADENYLATE_CYCLASE",
+  "n": 9,
+  "STCRC_dM1_med": 0.7,
+  "USZ_dM1_med": 0.11
+ },
+ {
+  "root": "METANEPHRIC_TUBULE",
+  "n": 3,
+  "STCRC_dM1_med": 0.83,
+  "USZ_dM1_med": -0.04
+ },
+ {
+  "root": "CEREBELLAR_PURKINJE",
+  "n": 3,
+  "STCRC_dM1_med": 0.07,
+  "USZ_dM1_med": 0.7
+ },
+ {
+  "root": "PHOSPHOLIPASE_C",
+  "n": 5,
+  "STCRC_dM1_med": 0.36,
+  "USZ_dM1_med": 0.39
+ },
+ {
+  "root": "NEURAL_PLATE",
+  "n": 4,
+  "STCRC_dM1_med": 0.04,
+  "USZ_dM1_med": 0.56
+ },
+ {
+  "root": "DETECTION_OF",
+  "n": 25,
+  "STCRC_dM1_med": 0.0,
+  "USZ_dM1_med": 0.52
+ },
+ {
+  "root": "SINOATRIAL_NODE",
+  "n": 3,
+  "STCRC_dM1_med": 0.01,
+  "USZ_dM1_med": 0.32
+ },
+ {
+  "root": "L_ARGININE",
+  "n": 3,
+  "STCRC_dM1_med": 0.21,
+  "USZ_dM1_med": 0.01
+ },
+ {
+  "root": "CEREBELLAR_GRANULAR",
+  "n": 3,
+  "STCRC_dM1_med": -0.02,
+  "USZ_dM1_med": 0.15
+ },
+ {
+  "root": "TOLERANCE_INDUCTION",
+  "n": 3,
+  "STCRC_dM1_med": 0.09,
+  "USZ_dM1_med": 0.01
+ },
+ {
+  "root": "CHEMOKINE_C",
+  "n": 4,
+  "STCRC_dM1_med": -0.38,
+  "USZ_dM1_med": 0.47
+ },
+ {
+  "root": "SERTOLI_CELL",
+  "n": 3,
+  "STCRC_dM1_med": 0.03,
+  "USZ_dM1_med": 0.0
+ },
+ {
+  "root": "GAMMA_AMINOBUTYRIC",
+  "n": 7,
+  "STCRC_dM1_med": 0.0,
+  "USZ_dM1_med": 0.02
+ },
+ {
+  "root": "CIRCADIAN_SLEEP",
+  "n": 4,
+  "STCRC_dM1_med": 0.0,
+  "USZ_dM1_med": 0.0
+ },
+ {
+  "root": "TRANS_SYNAPTIC",
+  "n": 5,
+  "STCRC_dM1_med": -0.02,
+  "USZ_dM1_med": -0.01
+ },
+ {
+  "root": "VESTIBULOCOCHLEAR_NERVE",
+  "n": 3,
+  "STCRC_dM1_med": -0.39,
+  "USZ_dM1_med": 0.12
+ },
+ {
+  "root": "NEURAL_CREST",
+  "n": 4,
+  "STCRC_dM1_med": -1.01,
+  "USZ_dM1_med": 0.68
+ },
+ {
+  "root": "VITAMIN_D",
+  "n": 3,
+  "STCRC_dM1_med": 0.08,
+  "USZ_dM1_med": -0.55
+ },
+ {
+  "root": "RENAL_SODIUM",
+  "n": 3,
+  "STCRC_dM1_med": -0.38,
+  "USZ_dM1_med": -0.65
+ },
+ {
+  "root": "PROTEIN_TRANSPORT",
+  "n": 3,
+  "STCRC_dM1_med": -2.6,
+  "USZ_dM1_med": -0.04
+ },
+ {
+  "root": "SUBSTRATE_DEPENDENT",
+  "n": 3,
+  "STCRC_dM1_med": -7.17,
+  "USZ_dM1_med": 1.19
+ }
+]

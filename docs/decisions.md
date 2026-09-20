@@ -846,3 +846,13 @@ D-093 (2026-09-01): use the TensorFlow compiled execution path for the frozen K=
 - 决策：GMT=c5.go.v2025.1.Hs.symbols.gmt（sha256 见 build_provenance.json）；coverage=三队列交集（cache10k∩STCRC∩USZ=9012基因），<3基因→NOT_TESTABLE（用户拍板，596条）；half-split seed 20260920 shuffle+ceil-input（input≥2，零重叠机器检查）；covered集相同的117个重复ID只跑一份（id_map保留，原始全留，家族归并只做report层）。
 - 范围：testable 6987 GO ID → unique 6870 份；验证机器逐字复用 T4（发现集QC三层Moran＋外部三层＋留一患者M0/M1/M2）；smoke20 已通（119s，rep/inc各300行）。
 - 失效条件：dM1/dM2 口径与 T4 完全一致；多重检验按有效独立通路计，不按6987计。
+
+### D-136 | 2026-09-20 | GO线全量完成：6870通路×三层验证，820双队列dM1>20%，家族归并只做report层
+
+- 背景：用户要求全部 GOBP 重跑，不自己发现 pattern（D-135 开工）。GMT v2025.1，coverage=三队列交集9012基因，<3基因596条NOT_TESTABLE，half-split seed 20260920，117重复ID跑一份。
+- 实测（`infra/r16/recovery_20260918/programs_go/go_summary_full.tsv`，6987行含重复展开）：
+  发现集QC残余中位0.040（p90=0.102，722通路>0.1）；ST-CRC dM1中位1.2%（12.9%>20%）、USZ dM1中位15.1%（44.0%>20%）；双队列dM1>20%共820通路。
+  家族归并（GO ID前两段词根，2727家族）：top为有丝分裂/细胞周期/剪接/代谢家族（两队列均值40–76%），bottom为神经/昼夜/转运家族（≈0%）。
+  T3旧6程序对照：上皮分化/抗原呈递/肌肉家族在GO线同样强（USZ 55–91%），应激家族分化（ST≈0/USZ 34%），与T4结论同向。
+- 决策：GO线与T3线并列，不互相覆盖；多重检验按有效独立通路计（report层），原始6870份全留；NOT_TESTABLE 596条诚实标记。
+- 失效条件：家族归并词根粗糙，大通路家族内部异质性高时以单通路行为准，不以家族均值杀单通路。
