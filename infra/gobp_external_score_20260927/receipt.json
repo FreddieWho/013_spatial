@@ -1,0 +1,10 @@
+{
+  "finished_at_utc": "2026-09-27T22:13:16.440066+00:00",
+  "n_patient_rows": 3872,
+  "n_summary_rows": 242,
+  "sha256": {
+    "patient_endpoints.tsv": "e6f5a62adc8cce0cf5e8b3760f725f23870d2a92130df23e378f045cbc4512a1",
+    "arm_summary.tsv": "05c4b34b3e2eed45e6e06afa61d9976ac178cd699d3a99337f32d05fae37b835",
+    "run_contract.json": "62cb128dde9ff1671f6a36490e335a1a6083f052253234f4e8f1c3ec2d5c2f1d"
+  }
+}
