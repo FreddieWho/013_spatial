@@ -1017,3 +1017,10 @@ D-093 (2026-09-01): use the TensorFlow compiled execution path for the frozen K=
 - 结果：检测器对病理 TLS vs 正常点 AUC 0.61–0.93（KC1/KC3 0.93），LC4/LC5 0.29/0.13。top-10% 下瘤内组件 42 个，41 个不含病理 TLS 点、尺寸 2–4 点、距最近已知 TLS 200–2400 μm。用这些锚点复算：免疫侧 6–7/7 片为正（循环，检测用它），G2M/MKI67 5/7 片为负（探索级，非循环），MYC/EMT/COL1A1 混杂。
 - 决定：不把计算锚点当已验证 TLS，不据此宣布复现论文主结果；记录为探索性扩样本与敏感性。LC4/LC5 病理 TLS 为低深度点（文库中位 260/278 vs 正常 655/6953），两片 TLS 导向的分析需单独标注。
 - 失效条件：若能取得论文原始 TLS 签名与 iStar（或 USZ 的 H&E），或引入独立组织学验证（FDC/GC 网络标记），可重审计算锚点的 TLS 资格；在此之前不得把锚点写进确认性结论。
+
+## D-158｜2026-09-30｜跨队列/平台/组织 TLS-signature 池扩到 55 section、2859 组件（只计数）
+- 依据：`infra/tls_pool_expand_20260930/run_contract_v3.json`（FROZEN_BEFORE_SCORING）、`scripts/tls_pool_expand.py`、`pool_diagnostics.tsv`（55 行）、`pool_components.tsv`（2859 行）、`pool_summary.json`（55/55 ok）。报告见 docs/TLS_POOL_EXPAND_20260930.md。
+- 选择：同一签名（B 49 + 浆 7 + 趋化因子 4，共 57 符号）、同一 AUCell 算子、同一 top-10% 阈值、同一六边组件规则跑全部本地队列；平台只换几何（Visium 系 100 μm；HD/Xenium 先聚 55 μm 伪格）。重复符号跨行加总。不拟合梯度、不反推、不算 p。
+- 结果：USZ 8（430）＋GSE175540 18（1008）＋ST-CRC 14（364）＋HTAN 8（452）＋Cervilla 对 2（76）＋10x 公开 CRC 2（250）＋HD 1（125）＋Xenium 2（153）。标签验证：USZ 0.63–0.94（LC4/LC5 异常沿用 D-157 标注）、GSE175540 0.56–0.96、HTAN 0.66–0.999。置换 null：Visium 系 obs/null 约 1.3–3.5（HD 12.5）；Cervilla CytAssist v2 0.95（约等于 null）；Xenium 0.6–0.7（大团块方向，panel 受限）。实现层修了两处不改算子的 bug（脚本入口缺失、tar 二进制成员被当文本解码、老 numpy 无 trapezoid 改手工梯形），重跑后 55/55 全过。
+- 决定：池子只用于样本量与诊断；组件仍是 B-签名热点而非已验证 TLS；数量不跨平台直接比；ST-CRC 的 IC aggregate 类维持 FAIL-CLOSED；不改 plan.md。
+- 失效条件：任何把池内组件直接当 TLS 证据用的分析，必须另立合同并先过独立组织学或签名外验证；不得用本池数量论证生物学结论。
