@@ -1,0 +1,5 @@
+family	fpr	n
+implementation_grf	0.06	500
+graph_smooth	0.205	400
+zero_inflated_smooth	0.1825	400
+power_bump	0.905	200

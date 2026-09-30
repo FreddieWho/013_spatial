@@ -1,0 +1,119 @@
+{
+  "audit_date": "2026-09-24",
+  "script": "scripts/audit_gobp_overlap_labels.py",
+  "script_sha256": "303cdf2f1f2131896900ef9e7f0d4ed33946a335ae0dcdbf1c53a73d4a8f42b1",
+  "inputs_sha256": {
+    "infra/repair_20260921/go_representatives.json": "67260897aa2fd8bdec8fc1a53efb9ed13e8dc884cb833187a7ccb0922576c9fb",
+    "infra/gobp_stage_20260922/candidate_context.tsv": "a219fa5e83f0c53873feb47119f043aa2e18867cccb9e00a24fd6a43cfdf1567",
+    "infra/structure-registry/gt_source_audit.tsv": "54c6dc42db9af60f7f24e5007b9fc2eef8c2de63c08ee8ebbfea04b872b2720d",
+    "infra/structure-registry/outer_splits.tsv": "ad3807002d39b4ba3f48b7fa39ec41fe17b192621ea5a7a81774b4a5fbd3e26e"
+  },
+  "method": {
+    "candidate_selection": "candidate_context.tsv molecular_robust_gt20 == true; definitions are the frozen GO BP representatives",
+    "gene_overlap": "per-program input, readout, and input union readout sets; pairwise Jaccard = intersection / union",
+    "gt_join": "AUDITABLE_GT source rows joined to the frozen R02 outer split on physical_unit_id; source file SHA-256 independently recomputed",
+    "scope": "local inventory only; no model fit, external download, or GPU use"
+  },
+  "go45": {
+    "n_programs": 45,
+    "covered_size_min_median_max": [
+      100,
+      499,
+      1023
+    ],
+    "input_gene_count_min_median_max": [
+      50,
+      250,
+      512
+    ],
+    "readout_gene_count_min_median_max": [
+      50,
+      249,
+      511
+    ],
+    "input_occurrences_unique_genes": [
+      11746,
+      3835
+    ],
+    "readout_occurrences_unique_genes": [
+      11717,
+      3867
+    ],
+    "combined_occurrences_unique_genes": [
+      23463,
+      4818
+    ],
+    "pair_count": 990,
+    "pairwise_jaccard_median": {
+      "input": 0.028665035,
+      "readout": 0.028345615,
+      "combined": 0.060147905
+    },
+    "combined_pairs_ge_0_25": 121,
+    "combined_pairs_ge_0_50": 42,
+    "top_input_genes": [
+      {
+        "symbol": "TGFB1",
+        "program_count": 21
+      },
+      {
+        "symbol": "IL1B",
+        "program_count": 18
+      },
+      {
+        "symbol": "TNF",
+        "program_count": 18
+      },
+      {
+        "symbol": "HMGB1",
+        "program_count": 16
+      },
+      {
+        "symbol": "IGF1",
+        "program_count": 16
+      },
+      {
+        "symbol": "ARID2",
+        "program_count": 15
+      },
+      {
+        "symbol": "CCL2",
+        "program_count": 15
+      },
+      {
+        "symbol": "RGCC",
+        "program_count": 15
+      },
+      {
+        "symbol": "SMARCA4",
+        "program_count": 15
+      },
+      {
+        "symbol": "ANXA1",
+        "program_count": 14
+      }
+    ]
+  },
+  "gt": {
+    "auditable_source_rows": 80,
+    "local_sha256_matches": 80,
+    "mapped_to_r02": 80,
+    "lineage_structure_groups": 5,
+    "lineages": 4,
+    "gse175540_local_file_counts": {
+      "spot_annotation_csv_gz": 23,
+      "filtered_feature_bc_matrix_h5": 24,
+      "tissue_positions_csv_gz": 24
+    }
+  },
+  "outputs_sha256": {
+    "go45_gene_frequency.tsv": "bce95742cc58e968c68807f3a2f6e3b3ae046b19b192bcf3908ca3bbe5d228bd",
+    "go45_pairwise_overlap.tsv": "bfac66b396892f13455f381be2c71d6ff1757ceb9f3a2b413cc5d437d465da26",
+    "go45_programs.tsv": "f3375f081795d6e0c9a00755658f3755244f07481271910f06165eb6b3d2eac2",
+    "gse175540_local_inventory.tsv": "378bfa25cf9a0b5e9a381e1fbe43f58fe90df528d69748ad3e11ef6cfb23d704",
+    "gt_cohort_summary.tsv": "3829879890c4eb1b9109f3314127bcb4d1abd8fdbd97fdb8c890d08ba0a6d921",
+    "gt_lineage_summary.tsv": "b71639be85a816b9c6ffc8ee7ce963638e57b8e5312f15b715ca1118bea7b1bd",
+    "gt_sources.tsv": "503ab9f22f030e24efb368df16c706fa688e38fceb286356b37efd05e31525a1"
+  },
+  "free_bytes_after": 1383998652416
+}

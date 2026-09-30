@@ -1,0 +1,149 @@
+cohort	patient	section	category	n	matched_barcodes	source
+ST-CRC	ST_CRC_CMS::PATIENT::01d49ea3852dbab9	ST_CRC_CMS::SN048_A121573_Rep1	IC aggregregate_submucosa	32	2203	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN048_A121573_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::01d49ea3852dbab9	ST_CRC_CMS::SN048_A121573_Rep1	epithelium&submucosa	694	2203	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN048_A121573_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::01d49ea3852dbab9	ST_CRC_CMS::SN048_A121573_Rep1	exclude	151	2203	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN048_A121573_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::01d49ea3852dbab9	ST_CRC_CMS::SN048_A121573_Rep1	non neo epithelium	294	2203	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN048_A121573_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::01d49ea3852dbab9	ST_CRC_CMS::SN048_A121573_Rep1	stroma_fibroblastic_IC high	249	2203	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN048_A121573_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::01d49ea3852dbab9	ST_CRC_CMS::SN048_A121573_Rep1	submucosa	188	2203	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN048_A121573_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::01d49ea3852dbab9	ST_CRC_CMS::SN048_A121573_Rep1	tumor	337	2203	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN048_A121573_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::01d49ea3852dbab9	ST_CRC_CMS::SN048_A121573_Rep1	tumor&stroma_IC med to high	258	2203	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN048_A121573_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::01d49ea3852dbab9	ST_CRC_CMS::SN048_A121573_Rep2	epithelium&submucosa	731	2385	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN048_A121573_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::01d49ea3852dbab9	ST_CRC_CMS::SN048_A121573_Rep2	exclude	94	2385	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN048_A121573_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::01d49ea3852dbab9	ST_CRC_CMS::SN048_A121573_Rep2	non neo epithelium	238	2385	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN048_A121573_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::01d49ea3852dbab9	ST_CRC_CMS::SN048_A121573_Rep2	stroma_fibroblastic_IC high	396	2385	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN048_A121573_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::01d49ea3852dbab9	ST_CRC_CMS::SN048_A121573_Rep2	submucosa	182	2385	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN048_A121573_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::01d49ea3852dbab9	ST_CRC_CMS::SN048_A121573_Rep2	tumor	373	2385	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN048_A121573_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::01d49ea3852dbab9	ST_CRC_CMS::SN048_A121573_Rep2	tumor&stroma_IC med to high	371	2385	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN048_A121573_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::1ae41c966afe7f34	ST_CRC_CMS::SN048_A416371_Rep1	stroma_fibroblastic_IC high	315	2317	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN048_A416371_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::1ae41c966afe7f34	ST_CRC_CMS::SN048_A416371_Rep1	stroma_fibroblastic_IC med	413	2317	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN048_A416371_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::1ae41c966afe7f34	ST_CRC_CMS::SN048_A416371_Rep1	tumor	672	2317	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN048_A416371_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::1ae41c966afe7f34	ST_CRC_CMS::SN048_A416371_Rep1	tumor&stroma_IC med to high	917	2317	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN048_A416371_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::1ae41c966afe7f34	ST_CRC_CMS::SN048_A416371_Rep2	EMPTY_UNKNOWN	1	1803	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN048_A416371_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::1ae41c966afe7f34	ST_CRC_CMS::SN048_A416371_Rep2	stroma_fibroblastic_IC high	236	1803	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN048_A416371_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::1ae41c966afe7f34	ST_CRC_CMS::SN048_A416371_Rep2	stroma_fibroblastic_IC med	288	1803	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN048_A416371_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::1ae41c966afe7f34	ST_CRC_CMS::SN048_A416371_Rep2	tumor	627	1803	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN048_A416371_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::1ae41c966afe7f34	ST_CRC_CMS::SN048_A416371_Rep2	tumor&stroma	651	1803	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN048_A416371_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::4ba09d0d8a81a32c	ST_CRC_CMS::SN123_A595688_Rep1	IC aggregate_muscularis or stroma	10	1192	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A595688_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::4ba09d0d8a81a32c	ST_CRC_CMS::SN123_A595688_Rep1	IC aggregate_submucosa	15	1192	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A595688_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::4ba09d0d8a81a32c	ST_CRC_CMS::SN123_A595688_Rep1	epithelium&submucosa	256	1192	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A595688_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::4ba09d0d8a81a32c	ST_CRC_CMS::SN123_A595688_Rep1	exclude	81	1192	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A595688_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::4ba09d0d8a81a32c	ST_CRC_CMS::SN123_A595688_Rep1	muscularis_IC med to high	51	1192	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A595688_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::4ba09d0d8a81a32c	ST_CRC_CMS::SN123_A595688_Rep1	non neo epithelium	71	1192	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A595688_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::4ba09d0d8a81a32c	ST_CRC_CMS::SN123_A595688_Rep1	stroma_fibroblastic_IC high	100	1192	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A595688_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::4ba09d0d8a81a32c	ST_CRC_CMS::SN123_A595688_Rep1	stroma_fibroblastic_IC med	109	1192	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A595688_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::4ba09d0d8a81a32c	ST_CRC_CMS::SN123_A595688_Rep1	submucosa	59	1192	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A595688_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::4ba09d0d8a81a32c	ST_CRC_CMS::SN123_A595688_Rep1	tumor	235	1192	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A595688_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::4ba09d0d8a81a32c	ST_CRC_CMS::SN123_A595688_Rep1	tumor&stroma IC med to high	205	1192	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A595688_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::4ba09d0d8a81a32c	ST_CRC_CMS::SN124_A595688_Rep2	IC aggreates_stroma or muscularis	1	387	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A595688_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::4ba09d0d8a81a32c	ST_CRC_CMS::SN124_A595688_Rep2	epithelium&submucosa	31	387	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A595688_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::4ba09d0d8a81a32c	ST_CRC_CMS::SN124_A595688_Rep2	exclude	31	387	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A595688_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::4ba09d0d8a81a32c	ST_CRC_CMS::SN124_A595688_Rep2	muscularis_IC med to high	16	387	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A595688_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::4ba09d0d8a81a32c	ST_CRC_CMS::SN124_A595688_Rep2	non neo epithelium	25	387	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A595688_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::4ba09d0d8a81a32c	ST_CRC_CMS::SN124_A595688_Rep2	stroma_fibroblastic_IC high	14	387	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A595688_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::4ba09d0d8a81a32c	ST_CRC_CMS::SN124_A595688_Rep2	stroma_fibroblastic_IC med	60	387	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A595688_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::4ba09d0d8a81a32c	ST_CRC_CMS::SN124_A595688_Rep2	tumor	162	387	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A595688_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::4ba09d0d8a81a32c	ST_CRC_CMS::SN124_A595688_Rep2	tumor&stroma_IC med to high	47	387	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A595688_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::5399a83c19996600	ST_CRC_CMS::SN123_A551763_Rep1	exclude	26	691	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A551763_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::5399a83c19996600	ST_CRC_CMS::SN123_A551763_Rep1	stroma_fibroblastic_IC high	21	691	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A551763_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::5399a83c19996600	ST_CRC_CMS::SN123_A551763_Rep1	stroma_fibroblastic_IC med	49	691	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A551763_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::5399a83c19996600	ST_CRC_CMS::SN123_A551763_Rep1	tumor	375	691	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A551763_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::5399a83c19996600	ST_CRC_CMS::SN123_A551763_Rep1	tumor&stroma_IC med to high	220	691	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A551763_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::5399a83c19996600	ST_CRC_CMS::SN124_A551763_Rep2	EMPTY_UNKNOWN	3	1219	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A551763_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::5399a83c19996600	ST_CRC_CMS::SN124_A551763_Rep2	exclude	54	1219	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A551763_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::5399a83c19996600	ST_CRC_CMS::SN124_A551763_Rep2	stroma_fibroblastic_IC high	21	1219	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A551763_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::5399a83c19996600	ST_CRC_CMS::SN124_A551763_Rep2	stroma_fibroblastic_IC med	29	1219	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A551763_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::5399a83c19996600	ST_CRC_CMS::SN124_A551763_Rep2	tumor	698	1219	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A551763_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::5399a83c19996600	ST_CRC_CMS::SN124_A551763_Rep2	tumor&stroma_IC med to high	414	1219	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A551763_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::5619c44ddca2f782	ST_CRC_CMS::SN123_A798015_Rep1	NO_AUDITED_SOURCE	0	0	
+ST-CRC	ST_CRC_CMS::PATIENT::5619c44ddca2f782	ST_CRC_CMS::SN124_A798015_Rep2	NO_AUDITED_SOURCE	0	0	
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN123_A938797_Rep1_X	EMPTY_UNKNOWN	1	2128	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A938797_Rep1_X.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN123_A938797_Rep1_X	IC aggragate_stroma or muscularis	8	2128	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A938797_Rep1_X.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN123_A938797_Rep1_X	IC aggregate submucosa	15	2128	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A938797_Rep1_X.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN123_A938797_Rep1_X	epithelium&submucosa	109	2128	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A938797_Rep1_X.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN123_A938797_Rep1_X	exclude	183	2128	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A938797_Rep1_X.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN123_A938797_Rep1_X	muscularis_IC med to high	14	2128	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A938797_Rep1_X.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN123_A938797_Rep1_X	non neo epithelium	29	2128	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A938797_Rep1_X.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN123_A938797_Rep1_X	stroma_desmoplastic_IC low	161	2128	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A938797_Rep1_X.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN123_A938797_Rep1_X	stroma_desmoplastic_IC med to high	131	2128	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A938797_Rep1_X.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN123_A938797_Rep1_X	stroma_fibroblastic_IC high	853	2128	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A938797_Rep1_X.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN123_A938797_Rep1_X	stroma_fibroblastic_IC med	269	2128	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A938797_Rep1_X.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN123_A938797_Rep1_X	submucosa	16	2128	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A938797_Rep1_X.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN123_A938797_Rep1_X	tumor	121	2128	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A938797_Rep1_X.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN123_A938797_Rep1_X	tumor&stroma_IC med to high	218	2128	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN123_A938797_Rep1_X.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN124_A938797_Rep2	IC aggregate_stroma or muscularis	21	1691	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A938797_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN124_A938797_Rep2	IC aggregate_submucosa	8	1691	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A938797_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN124_A938797_Rep2	epitehlium&submucosa	59	1691	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A938797_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN124_A938797_Rep2	exclude	206	1691	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A938797_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN124_A938797_Rep2	muscularis_IC med to high	6	1691	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A938797_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN124_A938797_Rep2	non neo epithelium	60	1691	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A938797_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN124_A938797_Rep2	stroma desmoplastic_IC low	65	1691	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A938797_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN124_A938797_Rep2	stroma desmoplastic_IC med to high	34	1691	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A938797_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN124_A938797_Rep2	stroma_fibroblastic_IC high	707	1691	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A938797_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN124_A938797_Rep2	stroma_fibroblastic_IC med	153	1691	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A938797_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN124_A938797_Rep2	submucosa	26	1691	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A938797_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN124_A938797_Rep2	tumor	165	1691	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A938797_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::8448c8d266f03cd4	ST_CRC_CMS::SN124_A938797_Rep2	tumor&stroma_IC med to high	181	1691	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN124_A938797_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::bbb3c37ffe61230a	ST_CRC_CMS::SN84_A120838_Rep1	exclude	88	328	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN84_A120838_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::bbb3c37ffe61230a	ST_CRC_CMS::SN84_A120838_Rep1	stroma_fibroblastic_IC high	103	328	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN84_A120838_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::bbb3c37ffe61230a	ST_CRC_CMS::SN84_A120838_Rep1	stroma_fibroblastic_IC low	33	328	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN84_A120838_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::bbb3c37ffe61230a	ST_CRC_CMS::SN84_A120838_Rep1	stroma_fibroblastic_IC med	20	328	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN84_A120838_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::bbb3c37ffe61230a	ST_CRC_CMS::SN84_A120838_Rep1	tumor	43	328	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN84_A120838_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::bbb3c37ffe61230a	ST_CRC_CMS::SN84_A120838_Rep1	tumor&stroma_IC low	4	328	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN84_A120838_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::bbb3c37ffe61230a	ST_CRC_CMS::SN84_A120838_Rep1	tumor&stroma_IC med to high	37	328	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN84_A120838_Rep1.csv
+ST-CRC	ST_CRC_CMS::PATIENT::bbb3c37ffe61230a	ST_CRC_CMS::SN84_A120838_Rep2	IC aggregate_stroma or muscularis	2	1048	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN84_A120838_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::bbb3c37ffe61230a	ST_CRC_CMS::SN84_A120838_Rep2	exclude	195	1048	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN84_A120838_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::bbb3c37ffe61230a	ST_CRC_CMS::SN84_A120838_Rep2	stroma_fibroblastic_IC low	69	1048	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN84_A120838_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::bbb3c37ffe61230a	ST_CRC_CMS::SN84_A120838_Rep2	stroma_fibroblastic_IC_high	226	1048	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN84_A120838_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::bbb3c37ffe61230a	ST_CRC_CMS::SN84_A120838_Rep2	stroma_fibroblastic_IC_med	113	1048	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN84_A120838_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::bbb3c37ffe61230a	ST_CRC_CMS::SN84_A120838_Rep2	tumor	232	1048	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN84_A120838_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::bbb3c37ffe61230a	ST_CRC_CMS::SN84_A120838_Rep2	tumor&stroma_IC low	67	1048	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN84_A120838_Rep2.csv
+ST-CRC	ST_CRC_CMS::PATIENT::bbb3c37ffe61230a	ST_CRC_CMS::SN84_A120838_Rep2	tumor&stroma_IC med to high	144	1048	data/other_sources/zenodo_st_crc_cms/Pathology_SpotAnnotations/Pathologist_Annotations_SN84_A120838_Rep2.csv
+USZ	TLS_VISIUM_USZ::PATIENT::0277194ca1561b98	TLS_VISIUM_USZ::LC3	INFL	42	3780	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC3.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::0277194ca1561b98	TLS_VISIUM_USZ::LC3	LN	33	3780	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC3.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::0277194ca1561b98	TLS_VISIUM_USZ::LC3	MISSING_BARCODE	398	3780	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC3.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::0277194ca1561b98	TLS_VISIUM_USZ::LC3	NOR	929	3780	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC3.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::0277194ca1561b98	TLS_VISIUM_USZ::LC3	TLS	344	3780	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC3.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::0277194ca1561b98	TLS_VISIUM_USZ::LC3	TUM	772	3780	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC3.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::0277194ca1561b98	TLS_VISIUM_USZ::LC3	UNASSIGNED	1660	3780	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC3.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::05d0cf19760f8f04	TLS_VISIUM_USZ::KC3	INFL	129	2654	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/KC3.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::05d0cf19760f8f04	TLS_VISIUM_USZ::KC3	MISSING_BARCODE	563	2654	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/KC3.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::05d0cf19760f8f04	TLS_VISIUM_USZ::KC3	NOR	840	2654	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/KC3.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::05d0cf19760f8f04	TLS_VISIUM_USZ::KC3	TLS	132	2654	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/KC3.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::05d0cf19760f8f04	TLS_VISIUM_USZ::KC3	TUM	440	2654	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/KC3.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::05d0cf19760f8f04	TLS_VISIUM_USZ::KC3	UNASSIGNED	1113	2654	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/KC3.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::5a46f98f9f8eedfe	TLS_VISIUM_USZ::LC2	INFL	30	2935	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC2.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::5a46f98f9f8eedfe	TLS_VISIUM_USZ::LC2	MISSING_BARCODE	1521	2935	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC2.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::5a46f98f9f8eedfe	TLS_VISIUM_USZ::LC2	NOR	490	2935	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC2.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::5a46f98f9f8eedfe	TLS_VISIUM_USZ::LC2	TLS	88	2935	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC2.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::5a46f98f9f8eedfe	TLS_VISIUM_USZ::LC2	TUM	514	2935	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC2.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::5a46f98f9f8eedfe	TLS_VISIUM_USZ::LC2	UNASSIGNED	1813	2935	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC2.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::7054344dca71771a	TLS_VISIUM_USZ::LC1	INFL	112	4361	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC1.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::7054344dca71771a	TLS_VISIUM_USZ::LC1	MISSING_BARCODE	3	4361	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC1.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::7054344dca71771a	TLS_VISIUM_USZ::LC1	NOR	1646	4361	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC1.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::7054344dca71771a	TLS_VISIUM_USZ::LC1	TLS	138	4361	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC1.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::7054344dca71771a	TLS_VISIUM_USZ::LC1	TUM	579	4361	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC1.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::7054344dca71771a	TLS_VISIUM_USZ::LC1	UNASSIGNED	1886	4361	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC1.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::7b9204be03aa71d0	TLS_VISIUM_USZ::KC1	INFL	35	3690	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/KC1.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::7b9204be03aa71d0	TLS_VISIUM_USZ::KC1	MISSING_BARCODE	483	3690	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/KC1.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::7b9204be03aa71d0	TLS_VISIUM_USZ::KC1	NOR	282	3690	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/KC1.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::7b9204be03aa71d0	TLS_VISIUM_USZ::KC1	TLS	42	3690	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/KC1.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::7b9204be03aa71d0	TLS_VISIUM_USZ::KC1	TUM	1088	3690	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/KC1.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::7b9204be03aa71d0	TLS_VISIUM_USZ::KC1	UNASSIGNED	2243	3690	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/KC1.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::83fba1cd85d2f31b	TLS_VISIUM_USZ::LC5	INFL	56	2017	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC5.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::83fba1cd85d2f31b	TLS_VISIUM_USZ::LC5	MISSING_BARCODE	135	2017	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC5.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::83fba1cd85d2f31b	TLS_VISIUM_USZ::LC5	NOR	223	2017	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC5.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::83fba1cd85d2f31b	TLS_VISIUM_USZ::LC5	TLS	31	2017	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC5.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::83fba1cd85d2f31b	TLS_VISIUM_USZ::LC5	TUM	312	2017	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC5.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::83fba1cd85d2f31b	TLS_VISIUM_USZ::LC5	UNASSIGNED	1395	2017	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC5.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::e13843047f4d2612	TLS_VISIUM_USZ::KC2	INFL	11	1870	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/KC2.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::e13843047f4d2612	TLS_VISIUM_USZ::KC2	MISSING_BARCODE	296	1870	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/KC2.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::e13843047f4d2612	TLS_VISIUM_USZ::KC2	NOR	255	1870	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/KC2.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::e13843047f4d2612	TLS_VISIUM_USZ::KC2	TLS	30	1870	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/KC2.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::e13843047f4d2612	TLS_VISIUM_USZ::KC2	TUM	481	1870	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/KC2.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::e13843047f4d2612	TLS_VISIUM_USZ::KC2	UNASSIGNED	1093	1870	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/KC2.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::ff5fc998488e94c0	TLS_VISIUM_USZ::LC4	INFL	103	2939	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC4.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::ff5fc998488e94c0	TLS_VISIUM_USZ::LC4	MISSING_BARCODE	70	2939	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC4.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::ff5fc998488e94c0	TLS_VISIUM_USZ::LC4	NOR	457	2939	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC4.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::ff5fc998488e94c0	TLS_VISIUM_USZ::LC4	TLS	120	2939	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC4.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::ff5fc998488e94c0	TLS_VISIUM_USZ::LC4	TUM	257	2939	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC4.h5ad
+USZ	TLS_VISIUM_USZ::PATIENT::ff5fc998488e94c0	TLS_VISIUM_USZ::LC4	UNASSIGNED	2002	2939	data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC4.h5ad

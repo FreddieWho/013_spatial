@@ -1,0 +1,1 @@
+{"status": "PASS", "section": "ST_CRC_CMS::SN048_A121573_Rep1", "program": "P-mhc2", "comparison": "exact canonical-value equality of serial and CPU-worker moments, molecular and coverage results"}

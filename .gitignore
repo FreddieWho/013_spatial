@@ -73,3 +73,24 @@ infra/r16/graphst_bridge/
 
 # R-16 Seurat integration scratch (7.7GB RDS checkpoints, reproducible via scripts/r16_seurat_integration.R)
 infra/r16/r_integration_20260915/checkpoints/
+
+# GO stage / repair derived tables: large intermediate outputs, regenerable via
+# scripts (hashes recorded in the receipts); keep local like other caches.
+/infra/gobp_stage_20260922/sections/
+/infra/gobp_stage_20260922/masked_patients.tsv
+/infra/gobp_stage_20260922/molecular_patients.tsv
+/infra/gobp_stage_20260922/distance_patients.tsv
+/infra/gobp_stage_20260922/masked_summary.tsv
+/infra/gobp_stage_20260922/direction_patients.tsv
+/infra/repair_20260921/go_molecular.tsv
+/infra/repair_20260921/go_discovery.tsv
+/infra/repair_20260921/go_prediction.tsv
+/infra/repair_20260921/go_not_testable.tsv
+/infra/repair_20260921/go_representatives.json
+/infra/repair_20260921/spline_results.tsv
+/infra/gobp_single_marker_20260924/*.tsv
+/infra/r16/recovery_20260918/programs_go/*_full.tsv
+/infra/tls_repro_20260930/repro_tls_bins.tsv
+/infra/gobp_single_marker_20260924/section_moments/
+/infra/repair_20260921/go_aliases.json
+/infra/repair_20260921/sections.json

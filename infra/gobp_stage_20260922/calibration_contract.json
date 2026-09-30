@@ -1,0 +1,30 @@
+{
+  "program_selection": "Smallest, median-sized, largest frozen covered gene sets, deterministic tie by name",
+  "programs": [
+    "GOBP_7_METHYLGUANOSINE_CAP_HYPERMETHYLATION",
+    "GOBP_NUCLEOTIDE_TRANSMEMBRANE_TRANSPORT",
+    "GOBP_CELL_MOTILITY"
+  ],
+  "widths_pitch": [
+    0,
+    1,
+    3,
+    6
+  ],
+  "amplitudes_sd": [
+    0,
+    0.1,
+    0.25,
+    0.5,
+    1
+  ],
+  "draws": 1000,
+  "seed": 20260922,
+  "alpha": 0.05,
+  "null": "Independent Gaussian innovations smoothed on observed coordinates, row L2 normalization; known covariance",
+  "injection": "Smoothed frozen directional contrast template, RMS 1 before nuisance projection",
+  "patient_test": "Exact two-sided sign flip on three patient-level contrasts",
+  "comparison": "Known-covariance Gaussian z vs misspecified independent-spot Gaussian z",
+  "boundary": "Power/FPR only for stated simulation. No fitted real-data variogram, no real-data spatial p.",
+  "code_sha256": "40be15c7c36c9950d8f4c6aa0d4eeda11cadc255ab27af2b6abe6538426d47c3"
+}

@@ -1,0 +1,6 @@
+logical_unit_id	source_class	structure_id	n_auditable_sources	n_physical_units	n_patient_ids	roles	n_block_level_eligible	n_not_block_level_eligible	n_unmapped	n_local_hash_matches
+GEO::GSE175540	SPOT_BARCODE_TLS_ANNOTATION_CSV	TLS	18	18	18	external_validation	0	18	0	18
+HTAN_VANDERBILT_CRC	SPOT_BARCODE_PATHOLOGY_ANNOTATION_CSV	TLS	8	8	7	training	8	0	0	8
+HTAN_VANDERBILT_CRC	SPOT_BARCODE_PATHOLOGY_ANNOTATION_CSV	TUMOR_STROMA_BOUNDARY	34	34	22	training	34	0	0	34
+ST_CRC_CMS	SPOT_BARCODE_PATHOLOGY_CATEGORY_CSV	TUMOR_STROMA_BOUNDARY	12	12	6	internal_validation	12	0	0	12
+TLS_VISIUM_USZ	H5AD_OBS_GROUND_TRUTH_LABELS	TLS	8	8	8	external_validation	8	0	0	8

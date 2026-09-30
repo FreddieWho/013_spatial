@@ -1,0 +1,34 @@
+{
+  "status": "AUDIT_FINDINGS_REQUIRE_REVIEW_AND_RECOMPUTATION",
+  "production_python_changed": [],
+  "pytest": {
+    "passed": 20,
+    "failed": 0,
+    "command": "LD_LIBRARY_PATH=/opt/anaconda3/lib OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MPLCONFIGDIR=/tmp/spatial-review-mpl PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python -m pytest -q -p no:cacheprovider tests/test_r16_recovery_mask_tasks.py tests/test_r16_recovery_pc_matching.py tests/test_r16_recovery_laneA_stats.py tests/test_r04_structure_readout.py tests/test_r04_finalize_phase.py",
+    "meaning": "Existing guards pass but do not cover complete prediction paths and scientific endpoints."
+  },
+  "not_run": [
+    "R04 training or full numeric backend audit",
+    "full R01/R02 metadata reverification",
+    "ST-CRC alternative-baseline replay",
+    "full GO recomputation",
+    "full actual-program spline recomputation",
+    "variogram surrogate calibration",
+    "new corridor/geometric dictionary computation"
+  ],
+  "resources": {
+    "GPU_used": false,
+    "external_data_acquired": false,
+    "initial_free_bytes": 1834966626304
+  },
+  "artifacts": {
+    "infra/review_20260921/usz_t4_diagnostic.tsv": "5dd098fa739ef54cd172bbe8ed21ecba496fe748ca74b7ed359da8e39b01bb03",
+    "infra/review_20260921/usz_data_checks.json": "c560f317a1374e08b185293ebde40e01ca7265258f53a696f2709fa6fb48d2ad",
+    "infra/review_20260921/usz_replay.py": "dfff84dce2879aee288632620043c07aa74dfee9ed6241bf2a97addedd9b1f90",
+    "infra/review_20260921/spline_geometry_injection.json": "f319917313e77ab30b56302298fcb3b22d1535539e0e360065ea8cfb4d1cb156",
+    "infra/review_20260921/probes.json": "ca85d99b55968177bde403abc43cd1b98578b5a442f7847d7ae71fd29a09be96",
+    "infra/review_20260921/reproduce.py": "f06e42abef722e7fe635159b31fa4ef1e7da763554ee624503398ed4c4dcd603",
+    "infra/review_20260921/source_hashes.json": "f69f9cea2dde7a1e818b8ef6d9beccb710770f90f348b144427c9231078b798d",
+    "infra/review_20260921/usz_t4_diagnostic_summary.tsv": "8dfbbf57bb8d20f63137fd26474dea0b88dc2d0160a301ef9c350aa8513bda68"
+  }
+}

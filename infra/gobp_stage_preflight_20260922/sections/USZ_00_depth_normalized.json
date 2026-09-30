@@ -1,0 +1,264 @@
+{
+  "status": "COMPLETED",
+  "section": "TLS_VISIUM_USZ::LC3",
+  "patient": "TLS_VISIUM_USZ::PATIENT::0277194ca1561b98",
+  "cohort": "USZ",
+  "key": "USZ_00",
+  "mode": "depth_normalized",
+  "n_programs": 64,
+  "computed": 64,
+  "not_testable": 0,
+  "valid_windows": 12,
+  "windows": [
+    {
+      "n_hidden": 72,
+      "label": "UNKNOWN"
+    },
+    {
+      "n_hidden": 72,
+      "label": "UNKNOWN"
+    },
+    {
+      "n_hidden": 80,
+      "label": "UNKNOWN"
+    },
+    {
+      "n_hidden": 80,
+      "label": "UNKNOWN"
+    },
+    {
+      "n_hidden": 64,
+      "label": "UNKNOWN"
+    },
+    {
+      "n_hidden": 72,
+      "label": "UNKNOWN"
+    },
+    {
+      "n_hidden": 80,
+      "label": "UNKNOWN"
+    },
+    {
+      "n_hidden": 72,
+      "label": "UNKNOWN"
+    },
+    {
+      "n_hidden": 72,
+      "label": "UNKNOWN"
+    },
+    {
+      "n_hidden": 80,
+      "label": "UNKNOWN"
+    },
+    {
+      "n_hidden": 80,
+      "label": "UNKNOWN"
+    },
+    {
+      "n_hidden": 72,
+      "label": "UNKNOWN"
+    }
+  ],
+  "foci": [
+    {
+      "focus": 0,
+      "n_tls_spots": 23,
+      "distance": 19.996549796920426,
+      "n_bands": 0,
+      "status": "INSUFFICIENT_MATCHED_BANDS"
+    },
+    {
+      "focus": 1,
+      "n_tls_spots": 14,
+      "distance": 36.38912430035846,
+      "n_bands": 0,
+      "status": "DISTANCE_OUTSIDE_4_24"
+    },
+    {
+      "focus": 2,
+      "n_tls_spots": 10,
+      "distance": 15.13836186646362,
+      "n_bands": 3,
+      "status": "ELIGIBLE"
+    },
+    {
+      "focus": 3,
+      "n_tls_spots": 32,
+      "distance": 12.589561958721998,
+      "n_bands": 0,
+      "status": "INSUFFICIENT_MATCHED_BANDS"
+    },
+    {
+      "focus": 4,
+      "n_tls_spots": 11,
+      "distance": 21.782356951904106,
+      "n_bands": 3,
+      "status": "ELIGIBLE"
+    },
+    {
+      "focus": 5,
+      "n_tls_spots": 3,
+      "distance": 31.72275734127368,
+      "n_bands": 0,
+      "status": "DISTANCE_OUTSIDE_4_24"
+    },
+    {
+      "focus": 6,
+      "n_tls_spots": 9,
+      "distance": 26.561830964704424,
+      "n_bands": 0,
+      "status": "DISTANCE_OUTSIDE_4_24"
+    },
+    {
+      "focus": 7,
+      "n_tls_spots": 8,
+      "distance": 16.45495745968369,
+      "n_bands": 3,
+      "status": "ELIGIBLE"
+    },
+    {
+      "focus": 8,
+      "n_tls_spots": 43,
+      "distance": 25.218214763698818,
+      "n_bands": 0,
+      "status": "DISTANCE_OUTSIDE_4_24"
+    },
+    {
+      "focus": 9,
+      "n_tls_spots": 9,
+      "distance": 38.26144628219036,
+      "n_bands": 0,
+      "status": "DISTANCE_OUTSIDE_4_24"
+    },
+    {
+      "focus": 10,
+      "n_tls_spots": 42,
+      "distance": 42.17104249834031,
+      "n_bands": 0,
+      "status": "DISTANCE_OUTSIDE_4_24"
+    },
+    {
+      "focus": 11,
+      "n_tls_spots": 11,
+      "distance": 20.988190303868627,
+      "n_bands": 1,
+      "status": "INSUFFICIENT_MATCHED_BANDS"
+    },
+    {
+      "focus": 12,
+      "n_tls_spots": 21,
+      "distance": 27.225230061974454,
+      "n_bands": 0,
+      "status": "DISTANCE_OUTSIDE_4_24"
+    },
+    {
+      "focus": 13,
+      "n_tls_spots": 30,
+      "distance": 21.81019129774988,
+      "n_bands": 0,
+      "status": "INSUFFICIENT_MATCHED_BANDS"
+    },
+    {
+      "focus": 14,
+      "n_tls_spots": 10,
+      "distance": 23.90313786932586,
+      "n_bands": 2,
+      "status": "ELIGIBLE"
+    },
+    {
+      "focus": 15,
+      "n_tls_spots": 8,
+      "distance": 13.315287266897396,
+      "n_bands": 2,
+      "status": "ELIGIBLE"
+    },
+    {
+      "focus": 16,
+      "n_tls_spots": 11,
+      "distance": 15.595877819432852,
+      "n_bands": 2,
+      "status": "ELIGIBLE"
+    },
+    {
+      "focus": 17,
+      "n_tls_spots": 19,
+      "distance": 31.924469379339012,
+      "n_bands": 0,
+      "status": "DISTANCE_OUTSIDE_4_24"
+    },
+    {
+      "focus": 18,
+      "n_tls_spots": 1,
+      "distance": 14.422205101855958,
+      "n_bands": 0,
+      "status": "INSUFFICIENT_MATCHED_BANDS"
+    },
+    {
+      "focus": 19,
+      "n_tls_spots": 9,
+      "distance": 34.29411640140458,
+      "n_bands": 0,
+      "status": "DISTANCE_OUTSIDE_4_24"
+    },
+    {
+      "focus": 20,
+      "n_tls_spots": 3,
+      "distance": 20.529112120217093,
+      "n_bands": 3,
+      "status": "ELIGIBLE"
+    },
+    {
+      "focus": 21,
+      "n_tls_spots": 6,
+      "distance": 18.385531751292312,
+      "n_bands": 3,
+      "status": "ELIGIBLE"
+    },
+    {
+      "focus": 22,
+      "n_tls_spots": 1,
+      "distance": 43.278170016764804,
+      "n_bands": 0,
+      "status": "DISTANCE_OUTSIDE_4_24"
+    },
+    {
+      "focus": 23,
+      "n_tls_spots": 3,
+      "distance": 29.734005971464914,
+      "n_bands": 0,
+      "status": "DISTANCE_OUTSIDE_4_24"
+    },
+    {
+      "focus": 24,
+      "n_tls_spots": 3,
+      "distance": 32.129944496269104,
+      "n_bands": 0,
+      "status": "DISTANCE_OUTSIDE_4_24"
+    },
+    {
+      "focus": 25,
+      "n_tls_spots": 1,
+      "distance": 16.09347693943108,
+      "n_bands": 0,
+      "status": "INSUFFICIENT_MATCHED_BANDS"
+    },
+    {
+      "focus": 26,
+      "n_tls_spots": 1,
+      "distance": 31.17691453623979,
+      "n_bands": 0,
+      "status": "DISTANCE_OUTSIDE_4_24"
+    },
+    {
+      "focus": 27,
+      "n_tls_spots": 2,
+      "distance": 33.23025729662652,
+      "n_bands": 0,
+      "status": "DISTANCE_OUTSIDE_4_24"
+    }
+  ],
+  "n_direction_foci": 8,
+  "n_distance_folds": 5,
+  "output_sha256": "c87c5b61a4f3a60df102ff3f5208eb2f36b6e4594ed9c75198e7fe35169e42d3",
+  "elapsed_seconds": 2.73
+}

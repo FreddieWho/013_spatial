@@ -1,0 +1,36 @@
+{
+  "verdict": "PERMANENTLY_NOT_CALIBRATED",
+  "usable": false,
+  "seconds": 917.5,
+  "implementation": {
+    "family": "implementation_grf",
+    "fpr": 0.06,
+    "n": 500
+  },
+  "graph_smooth": {
+    "family": "graph_smooth",
+    "fpr": 0.205,
+    "n": 400
+  },
+  "zero_inflated_smooth": {
+    "family": "zero_inflated_smooth",
+    "fpr": 0.1825,
+    "n": 400
+  },
+  "power_detection_at_0.05": 0.905,
+  "power_n": 200,
+  "gene_sections_passing_fit": {
+    "CXCL13": 5,
+    "COL1A1": 6
+  },
+  "gates_passed": {
+    "implementation_fpr": true,
+    "graph_smooth_fpr": false,
+    "zero_inflated_fpr": false,
+    "power": true,
+    "real_gene_fit": true
+  },
+  "coord_kinds": [
+    "hex_pitch"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "status": "COMPLETED",
+  "programs": 6,
+  "prediction_rows": 30,
+  "not_testable_sections": 295,
+  "discovery_sections": 47,
+  "normalization": "raw",
+  "claims": "Descriptive patient LOPO; not spatial-null-calibrated discovery"
+}

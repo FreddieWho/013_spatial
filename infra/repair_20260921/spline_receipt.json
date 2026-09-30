@@ -1,0 +1,11 @@
+{
+  "status": "COMPLETED",
+  "original_go": 820,
+  "new_go": 629,
+  "union_go": 901,
+  "programs": 907,
+  "rows": 29024,
+  "spatial_p": "NOT_CALIBRATED",
+  "injected_linear_field": "PASS",
+  "cv": "five contiguous x-stripes; >1 pitch buffer; train-only knots and nuisance; descriptive"
+}

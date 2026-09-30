@@ -1,0 +1,358 @@
+{
+  "status": "PASS",
+  "interventions": [
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::01d49ea3852dbab9",
+      "section": "ST_CRC_CMS::SN048_A121573_Rep1",
+      "program": "P-stromal",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::01d49ea3852dbab9",
+      "section": "ST_CRC_CMS::SN048_A121573_Rep1",
+      "program": "P-mhc2",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::01d49ea3852dbab9",
+      "section": "ST_CRC_CMS::SN048_A121573_Rep2",
+      "program": "P-stromal",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::01d49ea3852dbab9",
+      "section": "ST_CRC_CMS::SN048_A121573_Rep2",
+      "program": "P-mhc2",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::1ae41c966afe7f34",
+      "section": "ST_CRC_CMS::SN048_A416371_Rep1",
+      "program": "P-stromal",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::1ae41c966afe7f34",
+      "section": "ST_CRC_CMS::SN048_A416371_Rep1",
+      "program": "P-mhc2",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::1ae41c966afe7f34",
+      "section": "ST_CRC_CMS::SN048_A416371_Rep2",
+      "program": "P-stromal",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::1ae41c966afe7f34",
+      "section": "ST_CRC_CMS::SN048_A416371_Rep2",
+      "program": "P-mhc2",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::4ba09d0d8a81a32c",
+      "section": "ST_CRC_CMS::SN123_A595688_Rep1",
+      "program": "P-stromal",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::4ba09d0d8a81a32c",
+      "section": "ST_CRC_CMS::SN123_A595688_Rep1",
+      "program": "P-mhc2",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::4ba09d0d8a81a32c",
+      "section": "ST_CRC_CMS::SN124_A595688_Rep2",
+      "program": "P-stromal",
+      "window": 1,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::4ba09d0d8a81a32c",
+      "section": "ST_CRC_CMS::SN124_A595688_Rep2",
+      "program": "P-mhc2",
+      "window": 1,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::5399a83c19996600",
+      "section": "ST_CRC_CMS::SN123_A551763_Rep1",
+      "program": "P-stromal",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::5399a83c19996600",
+      "section": "ST_CRC_CMS::SN123_A551763_Rep1",
+      "program": "P-mhc2",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::5399a83c19996600",
+      "section": "ST_CRC_CMS::SN124_A551763_Rep2",
+      "program": "P-stromal",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::5399a83c19996600",
+      "section": "ST_CRC_CMS::SN124_A551763_Rep2",
+      "program": "P-mhc2",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::5619c44ddca2f782",
+      "section": "ST_CRC_CMS::SN123_A798015_Rep1",
+      "program": "P-stromal",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::5619c44ddca2f782",
+      "section": "ST_CRC_CMS::SN123_A798015_Rep1",
+      "program": "P-mhc2",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::5619c44ddca2f782",
+      "section": "ST_CRC_CMS::SN124_A798015_Rep2",
+      "program": "P-stromal",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::5619c44ddca2f782",
+      "section": "ST_CRC_CMS::SN124_A798015_Rep2",
+      "program": "P-mhc2",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::8448c8d266f03cd4",
+      "section": "ST_CRC_CMS::SN123_A938797_Rep1_X",
+      "program": "P-stromal",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::8448c8d266f03cd4",
+      "section": "ST_CRC_CMS::SN123_A938797_Rep1_X",
+      "program": "P-mhc2",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::8448c8d266f03cd4",
+      "section": "ST_CRC_CMS::SN124_A938797_Rep2",
+      "program": "P-stromal",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::8448c8d266f03cd4",
+      "section": "ST_CRC_CMS::SN124_A938797_Rep2",
+      "program": "P-mhc2",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::bbb3c37ffe61230a",
+      "section": "ST_CRC_CMS::SN84_A120838_Rep1",
+      "program": "P-stromal",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::bbb3c37ffe61230a",
+      "section": "ST_CRC_CMS::SN84_A120838_Rep1",
+      "program": "P-mhc2",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::bbb3c37ffe61230a",
+      "section": "ST_CRC_CMS::SN84_A120838_Rep2",
+      "program": "P-stromal",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "ST-CRC",
+      "patient": "ST_CRC_CMS::PATIENT::bbb3c37ffe61230a",
+      "section": "ST_CRC_CMS::SN84_A120838_Rep2",
+      "program": "P-mhc2",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "USZ",
+      "patient": "TLS_VISIUM_USZ::PATIENT::0277194ca1561b98",
+      "section": "TLS_VISIUM_USZ::LC3",
+      "program": "P-stromal",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "USZ",
+      "patient": "TLS_VISIUM_USZ::PATIENT::0277194ca1561b98",
+      "section": "TLS_VISIUM_USZ::LC3",
+      "program": "P-mhc2",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "USZ",
+      "patient": "TLS_VISIUM_USZ::PATIENT::05d0cf19760f8f04",
+      "section": "TLS_VISIUM_USZ::KC3",
+      "program": "P-stromal",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "USZ",
+      "patient": "TLS_VISIUM_USZ::PATIENT::05d0cf19760f8f04",
+      "section": "TLS_VISIUM_USZ::KC3",
+      "program": "P-mhc2",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "USZ",
+      "patient": "TLS_VISIUM_USZ::PATIENT::5a46f98f9f8eedfe",
+      "section": "TLS_VISIUM_USZ::LC2",
+      "program": "P-stromal",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "USZ",
+      "patient": "TLS_VISIUM_USZ::PATIENT::5a46f98f9f8eedfe",
+      "section": "TLS_VISIUM_USZ::LC2",
+      "program": "P-mhc2",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "USZ",
+      "patient": "TLS_VISIUM_USZ::PATIENT::7054344dca71771a",
+      "section": "TLS_VISIUM_USZ::LC1",
+      "program": "P-stromal",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "USZ",
+      "patient": "TLS_VISIUM_USZ::PATIENT::7054344dca71771a",
+      "section": "TLS_VISIUM_USZ::LC1",
+      "program": "P-mhc2",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "USZ",
+      "patient": "TLS_VISIUM_USZ::PATIENT::7b9204be03aa71d0",
+      "section": "TLS_VISIUM_USZ::KC1",
+      "program": "P-stromal",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "USZ",
+      "patient": "TLS_VISIUM_USZ::PATIENT::7b9204be03aa71d0",
+      "section": "TLS_VISIUM_USZ::KC1",
+      "program": "P-mhc2",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "USZ",
+      "patient": "TLS_VISIUM_USZ::PATIENT::83fba1cd85d2f31b",
+      "section": "TLS_VISIUM_USZ::LC5",
+      "program": "P-stromal",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "USZ",
+      "patient": "TLS_VISIUM_USZ::PATIENT::83fba1cd85d2f31b",
+      "section": "TLS_VISIUM_USZ::LC5",
+      "program": "P-mhc2",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "USZ",
+      "patient": "TLS_VISIUM_USZ::PATIENT::e13843047f4d2612",
+      "section": "TLS_VISIUM_USZ::KC2",
+      "program": "P-stromal",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "USZ",
+      "patient": "TLS_VISIUM_USZ::PATIENT::e13843047f4d2612",
+      "section": "TLS_VISIUM_USZ::KC2",
+      "program": "P-mhc2",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "USZ",
+      "patient": "TLS_VISIUM_USZ::PATIENT::ff5fc998488e94c0",
+      "section": "TLS_VISIUM_USZ::LC4",
+      "program": "P-stromal",
+      "window": 0,
+      "max_prediction_change": 0.0
+    },
+    {
+      "cohort": "USZ",
+      "patient": "TLS_VISIUM_USZ::PATIENT::ff5fc998488e94c0",
+      "section": "TLS_VISIUM_USZ::LC4",
+      "program": "P-mhc2",
+      "window": 0,
+      "max_prediction_change": 0.0
+    }
+  ],
+  "contract": "All hidden counts changed to 1e6; complete M0/M1/M2/NN/KNN8 predictions identical"
+}

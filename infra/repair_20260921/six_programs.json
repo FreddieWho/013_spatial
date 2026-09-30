@@ -1,0 +1,384 @@
+{
+  "P-epi": {
+    "program_id": "P-epi",
+    "source_candidates": "laneB191+Tier2-13+jointABGH",
+    "discovery_patients": "HTAN_VANDERBILT_CRC 30 patients",
+    "gene_weights": {
+      "EPCAM": 0.0625,
+      "CEACAM5": 0.0625,
+      "CEACAM6": 0.0625,
+      "CLDN4": 0.0625,
+      "CLDN7": 0.0625,
+      "KRT8": 0.0625,
+      "KRT18": 0.0625,
+      "MUC13": 0.0625,
+      "TFF3": 0.0625,
+      "ELF3": 0.0625,
+      "FXYD3": 0.0625,
+      "LGALS4": 0.0625,
+      "ANXA2": 0.0625,
+      "PHGR1": 0.0625,
+      "LGALS3BP": 0.0625,
+      "GPX2": 0.0625
+    },
+    "input_genes": [
+      "EPCAM",
+      "CEACAM5",
+      "CEACAM6",
+      "CLDN4",
+      "CLDN7",
+      "KRT8",
+      "KRT18",
+      "MUC13",
+      "TFF3",
+      "ELF3",
+      "FXYD3",
+      "LGALS4",
+      "ANXA2",
+      "PHGR1",
+      "LGALS3BP",
+      "GPX2"
+    ],
+    "readout_genes": [
+      "MUC2",
+      "MUC4",
+      "TFF1",
+      "CLDN3",
+      "KRT19",
+      "CDH1"
+    ],
+    "direction_rule": "mean of log1p, higher = stronger",
+    "normalization_rule": "raw mean log1p; QC and composition exclude input+readout; D-140",
+    "nuisance_rule": "intercept + log1p background counts/detected genes + raw mean-log six clean axes; no per-section z-score",
+    "geometry_definition": "external Visium hex pitch; annotated TLS spot-set distance for spline; GT-independent windows for mask",
+    "coverage_policy": "complete program coverage in actual 69-section common gene universe; empty composition axis -> NOT_SEPARABLE",
+    "interpretation": "identity-compatible: enterocyte/goblet differentiation state; state-compatible: epithelial activation",
+    "separability": {
+      "overlapping_axes": {
+        "T": {
+          "n_overlap": 1,
+          "genes": [
+            "TFF3"
+          ],
+          "loo_corr": 0.9997,
+          "n_left": 98
+        },
+        "Epi": {
+          "n_overlap": 6,
+          "genes": [
+            "CEACAM5",
+            "EPCAM",
+            "GPX2",
+            "KRT8",
+            "LGALS4",
+            "MUC13"
+          ],
+          "loo_corr": 0.9959,
+          "n_left": 119
+        }
+      },
+      "axes_separable": true,
+      "notes": []
+    },
+    "frozen_for_external_at": "2026-09-20T19:49:46Z",
+    "missing_genes": [
+      "CEACAM6",
+      "KRT19"
+    ],
+    "exposure": "post-audit exploratory reanalysis of previously observed cohorts; not a new independent confirmatory test",
+    "definition_hash": "b28351e63fb2c43a7d95fcfd607f677a0789d24d253e019b0fae9fb132442d7f"
+  },
+  "P-stromal": {
+    "program_id": "P-stromal",
+    "source_candidates": "laneB191+Tier2-13+jointABGH",
+    "discovery_patients": "HTAN_VANDERBILT_CRC 30 patients",
+    "gene_weights": {
+      "COL1A1": 0.1111111111111111,
+      "COL1A2": 0.1111111111111111,
+      "COL3A1": 0.1111111111111111,
+      "COL6A3": 0.1111111111111111,
+      "DCN": 0.1111111111111111,
+      "SPARC": 0.1111111111111111,
+      "IGFBP7": 0.1111111111111111,
+      "VIM": 0.1111111111111111,
+      "C1R": 0.1111111111111111
+    },
+    "input_genes": [
+      "COL1A1",
+      "COL1A2",
+      "COL3A1",
+      "COL6A3",
+      "DCN",
+      "SPARC",
+      "IGFBP7",
+      "VIM",
+      "C1R"
+    ],
+    "readout_genes": [
+      "COL6A2",
+      "COL5A1",
+      "FBN1",
+      "BGN",
+      "LUM",
+      "FN1"
+    ],
+    "direction_rule": "mean of log1p, higher = stronger",
+    "normalization_rule": "raw mean log1p; QC and composition exclude input+readout; D-140",
+    "nuisance_rule": "intercept + log1p background counts/detected genes + raw mean-log six clean axes; no per-section z-score",
+    "geometry_definition": "external Visium hex pitch; annotated TLS spot-set distance for spline; GT-independent windows for mask",
+    "coverage_policy": "complete program coverage in actual 69-section common gene universe; empty composition axis -> NOT_SEPARABLE",
+    "interpretation": "identity-compatible: fibroblast/matrix abundance; state-compatible: matrix remodeling activity",
+    "separability": {
+      "overlapping_axes": {
+        "Stromal": {
+          "n_overlap": 7,
+          "genes": [
+            "COL1A1",
+            "COL1A2",
+            "COL3A1",
+            "COL6A3",
+            "DCN",
+            "SPARC",
+            "VIM"
+          ],
+          "loo_corr": 0.9711,
+          "n_left": 48
+        }
+      },
+      "axes_separable": true,
+      "notes": []
+    },
+    "frozen_for_external_at": "2026-09-20T19:49:46Z",
+    "missing_genes": [],
+    "exposure": "post-audit exploratory reanalysis of previously observed cohorts; not a new independent confirmatory test",
+    "definition_hash": "07effd6a3130a25132ad65dcf1b6390e4dca992bfea5047589e35220ef7f6f38"
+  },
+  "P-plasma": {
+    "program_id": "P-plasma",
+    "source_candidates": "laneB191+Tier2-13+jointABGH",
+    "discovery_patients": "HTAN_VANDERBILT_CRC 30 patients",
+    "gene_weights": {
+      "IGHA1": 0.09090909090909091,
+      "IGKC": 0.09090909090909091,
+      "IGLC2": 0.09090909090909091,
+      "IGLC3": 0.09090909090909091,
+      "JCHAIN": 0.09090909090909091,
+      "IGHV3-30": 0.09090909090909091,
+      "IGHV3-35": 0.09090909090909091,
+      "IGKV1D-12": 0.09090909090909091,
+      "IGKV3OR2-268": 0.09090909090909091,
+      "DEPRECATED_ENSG00000211685": 0.09090909090909091,
+      "DEPRECATED_ENSG00000211890": 0.09090909090909091
+    },
+    "input_genes": [
+      "IGHA1",
+      "IGKC",
+      "IGLC2",
+      "IGLC3",
+      "JCHAIN",
+      "IGHV3-30",
+      "IGHV3-35",
+      "IGKV1D-12",
+      "IGKV3OR2-268",
+      "DEPRECATED_ENSG00000211685",
+      "DEPRECATED_ENSG00000211890"
+    ],
+    "readout_genes": [
+      "IGHM",
+      "IGHA2",
+      "MZB1",
+      "SDC1",
+      "TNFRSF17",
+      "CD38"
+    ],
+    "direction_rule": "mean of log1p, higher = stronger",
+    "normalization_rule": "raw mean log1p; QC and composition exclude input+readout; D-140",
+    "nuisance_rule": "intercept + log1p background counts/detected genes + raw mean-log six clean axes; no per-section z-score",
+    "geometry_definition": "external Visium hex pitch; annotated TLS spot-set distance for spline; GT-independent windows for mask",
+    "coverage_policy": "complete program coverage in actual 69-section common gene universe; empty composition axis -> NOT_SEPARABLE",
+    "interpretation": "identity-compatible: plasma cell abundance",
+    "separability": {
+      "overlapping_axes": {
+        "B": {
+          "n_overlap": 3,
+          "genes": [
+            "IGHA1",
+            "IGKC",
+            "JCHAIN"
+          ],
+          "loo_corr": 0.9802,
+          "n_left": 42
+        },
+        "Plasma": {
+          "n_overlap": 3,
+          "genes": [
+            "IGKC",
+            "IGLC3",
+            "JCHAIN"
+          ],
+          "loo_corr": 0.8146,
+          "n_left": 3
+        }
+      },
+      "axes_separable": false,
+      "notes": [
+        "Plasma: loo_corr=0.815 <0.9 -> NOT_SEPARABLE_WITH_THIS_PROXY"
+      ]
+    },
+    "frozen_for_external_at": "2026-09-20T19:49:46Z",
+    "missing_genes": [
+      "DEPRECATED_ENSG00000211685",
+      "DEPRECATED_ENSG00000211890",
+      "IGHV3-30",
+      "IGHV3-35",
+      "IGKV1D-12",
+      "IGKV3OR2-268",
+      "IGLC2",
+      "IGLC3",
+      "SDC1"
+    ],
+    "exposure": "post-audit exploratory reanalysis of previously observed cohorts; not a new independent confirmatory test",
+    "definition_hash": "3f116f55135b779c1e5661b65f3487337fd7c12c08a999e1664f1c488b47cfb0"
+  },
+  "P-smmhc": {
+    "program_id": "P-smmhc",
+    "source_candidates": "laneB191+Tier2-13+jointABGH",
+    "discovery_patients": "HTAN_VANDERBILT_CRC 30 patients",
+    "gene_weights": {
+      "ACTA2": 0.3333333333333333,
+      "FLNA": 0.3333333333333333,
+      "MYL9": 0.3333333333333333
+    },
+    "input_genes": [
+      "ACTA2",
+      "FLNA",
+      "MYL9"
+    ],
+    "readout_genes": [
+      "TAGLN",
+      "CNN1",
+      "DES",
+      "MYH11",
+      "TPM2"
+    ],
+    "direction_rule": "mean of log1p, higher = stronger",
+    "normalization_rule": "raw mean log1p; QC and composition exclude input+readout; D-140",
+    "nuisance_rule": "intercept + log1p background counts/detected genes + raw mean-log six clean axes; no per-section z-score",
+    "geometry_definition": "external Visium hex pitch; annotated TLS spot-set distance for spline; GT-independent windows for mask",
+    "coverage_policy": "complete program coverage in actual 69-section common gene universe; empty composition axis -> NOT_SEPARABLE",
+    "interpretation": "identity-compatible: smooth muscle/myofibroblast; state-compatible: contractile state",
+    "separability": {
+      "overlapping_axes": {
+        "Stromal": {
+          "n_overlap": 2,
+          "genes": [
+            "ACTA2",
+            "MYL9"
+          ],
+          "loo_corr": 0.9964,
+          "n_left": 53
+        }
+      },
+      "axes_separable": true,
+      "notes": []
+    },
+    "frozen_for_external_at": "2026-09-20T19:49:46Z",
+    "missing_genes": [
+      "MYH11"
+    ],
+    "exposure": "post-audit exploratory reanalysis of previously observed cohorts; not a new independent confirmatory test",
+    "definition_hash": "b223688b8cae7512ff16fd8d19c31c2a254a30d8adcd229ba496d92ea100c167"
+  },
+  "P-mhc2": {
+    "program_id": "P-mhc2",
+    "source_candidates": "laneB191+Tier2-13+jointABGH",
+    "discovery_patients": "HTAN_VANDERBILT_CRC 30 patients",
+    "gene_weights": {
+      "CD74": 0.5,
+      "HLA-DRA": 0.5
+    },
+    "input_genes": [
+      "CD74",
+      "HLA-DRA"
+    ],
+    "readout_genes": [
+      "HLA-DRB1",
+      "HLA-DPA1",
+      "HLA-DPB1",
+      "HLA-DQA1",
+      "CD86"
+    ],
+    "direction_rule": "mean of log1p, higher = stronger",
+    "normalization_rule": "raw mean log1p; QC and composition exclude input+readout; D-140",
+    "nuisance_rule": "intercept + log1p background counts/detected genes + raw mean-log six clean axes; no per-section z-score",
+    "geometry_definition": "external Visium hex pitch; annotated TLS spot-set distance for spline; GT-independent windows for mask",
+    "coverage_policy": "complete program coverage in actual 69-section common gene universe; empty composition axis -> NOT_SEPARABLE",
+    "interpretation": "state-compatible: antigen-presentation activity; identity-compatible: APC (incl. B/myeloid) abundance",
+    "separability": {
+      "overlapping_axes": {
+        "B": {
+          "n_overlap": 2,
+          "genes": [
+            "CD74",
+            "HLA-DRA"
+          ],
+          "loo_corr": 0.9873,
+          "n_left": 43
+        },
+        "Mye": {
+          "n_overlap": 2,
+          "genes": [
+            "CD74",
+            "HLA-DRA"
+          ],
+          "loo_corr": 0.9931,
+          "n_left": 55
+        }
+      },
+      "axes_separable": true,
+      "notes": []
+    },
+    "frozen_for_external_at": "2026-09-20T19:49:46Z",
+    "missing_genes": [],
+    "exposure": "post-audit exploratory reanalysis of previously observed cohorts; not a new independent confirmatory test",
+    "definition_hash": "511ce240b5a8eadd0d63c3523a5dcd9feea6b59955f824d0b275554997f18b06"
+  },
+  "P-stress": {
+    "program_id": "P-stress",
+    "source_candidates": "laneB191+Tier2-13+jointABGH",
+    "discovery_patients": "HTAN_VANDERBILT_CRC 30 patients",
+    "gene_weights": {
+      "FOS": 0.5,
+      "DEPRECATED_ENSG00000170345": 0.5
+    },
+    "input_genes": [
+      "FOS",
+      "DEPRECATED_ENSG00000170345"
+    ],
+    "readout_genes": [
+      "JUN",
+      "JUNB",
+      "EGR1",
+      "IER2",
+      "DUSP1",
+      "ATF3"
+    ],
+    "direction_rule": "mean of log1p, higher = stronger",
+    "normalization_rule": "raw mean log1p; QC and composition exclude input+readout; D-140",
+    "nuisance_rule": "intercept + log1p background counts/detected genes + raw mean-log six clean axes; no per-section z-score",
+    "geometry_definition": "external Visium hex pitch; annotated TLS spot-set distance for spline; GT-independent windows for mask",
+    "coverage_policy": "complete program coverage in actual 69-section common gene universe; empty composition axis -> NOT_SEPARABLE",
+    "interpretation": "state-compatible: immediate-early stress response; technical-compatible: procedure/permeabilization gradient not excluded",
+    "separability": {
+      "overlapping_axes": {},
+      "axes_separable": true,
+      "notes": []
+    },
+    "frozen_for_external_at": "2026-09-20T19:49:46Z",
+    "missing_genes": [
+      "DEPRECATED_ENSG00000170345"
+    ],
+    "exposure": "post-audit exploratory reanalysis of previously observed cohorts; not a new independent confirmatory test",
+    "definition_hash": "85627d08f4310fd2b14502beded65fd2aeea491aedcb0214cedf3a84480ba886"
+  }
+}

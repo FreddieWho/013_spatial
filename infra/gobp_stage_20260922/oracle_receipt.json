@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "program_section_mode_interventions": 132,
+  "predicted_models_per_intervention": 5,
+  "program_selection": "deterministic smallest/median/largest gene sets",
+  "max_feature_difference": 4.107825191113079e-15,
+  "max_prediction_difference": 2.540190280342358e-12,
+  "max_saved_mse_difference": 4.520273044761325e-13,
+  "max_hidden_intervention_difference": 0,
+  "output_sha256": "f4a9559971a541a7b527f3d1ae0ae918d06384cbf9cc5e4c3030efba06887525",
+  "code_sha256": "a5684d806b1d844054a2ef1b814c4a16115ba420c0ccc10aea0f381acbc1ecdd"
+}

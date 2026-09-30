@@ -1,0 +1,335 @@
+{
+  "spline_basis": {
+    "endpoint_design_rows": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "linear_signal_r2": 0.6975741544589996,
+    "selected_basis_second_derivatives_at_endpoints": [
+      [
+        -81.0,
+        0.0
+      ],
+      [
+        27.0,
+        0.0
+      ],
+      [
+        0.0,
+        26.999999999999993
+      ]
+    ]
+  },
+  "shape_offset": {
+    "centered": "low-to-high",
+    "plus_half": "flat"
+  },
+  "t5_probe_scope": {
+    "production_neighbor_probe_passes": true,
+    "actual_M1_prediction_max_change": 2003.9312617261758
+  },
+  "l009": {
+    "rows": 963,
+    "patients": 8,
+    "foci": 107,
+    "pooled_delta": -0.06542056074766354,
+    "equal_patient_delta": -0.05118497455098762,
+    "patient_deltas": {
+      "TLS_VISIUM_USZ::PATIENT::0277194ca1561b98": -0.11522633744855967,
+      "TLS_VISIUM_USZ::PATIENT::05d0cf19760f8f04": -0.07222222222222222,
+      "TLS_VISIUM_USZ::PATIENT::5a46f98f9f8eedfe": 0.030303030303030304,
+      "TLS_VISIUM_USZ::PATIENT::7054344dca71771a": -0.13725490196078433,
+      "TLS_VISIUM_USZ::PATIENT::7b9204be03aa71d0": -0.031746031746031744,
+      "TLS_VISIUM_USZ::PATIENT::83fba1cd85d2f31b": -0.015873015873015872,
+      "TLS_VISIUM_USZ::PATIENT::e13843047f4d2612": -0.08333333333333333,
+      "TLS_VISIUM_USZ::PATIENT::ff5fc998488e94c0": 0.015873015873015872
+    },
+    "patient_sign_test_p_diagnostic_only": 0.2890625
+  },
+  "r04_rank1_counterexample": {
+    "shared_absolute_auc": {
+      "TLS": 1.0,
+      "TUMOR_STROMA_BOUNDARY": 1.0
+    },
+    "specific_auc_increment_used_by_final_gate": {
+      "TLS": 0.0,
+      "TUMOR_STROMA_BOUNDARY": 0.0
+    }
+  },
+  "t4_overlap": {
+    "P-epi": {
+      "input_genes": {
+        "T": [
+          "TFF3"
+        ],
+        "Epi": [
+          "CEACAM5",
+          "EPCAM",
+          "GPX2",
+          "KRT8",
+          "LGALS4",
+          "MUC13"
+        ]
+      },
+      "readout_genes": {
+        "T": [
+          "MUC2",
+          "MUC4"
+        ],
+        "Epi": [
+          "CDH1",
+          "MUC2",
+          "TFF1"
+        ]
+      }
+    },
+    "P-stromal": {
+      "input_genes": {
+        "Stromal": [
+          "COL1A1",
+          "COL1A2",
+          "COL3A1",
+          "COL6A3",
+          "DCN",
+          "SPARC",
+          "VIM"
+        ]
+      },
+      "readout_genes": {
+        "Stromal": [
+          "BGN",
+          "LUM"
+        ]
+      }
+    },
+    "P-plasma": {
+      "input_genes": {
+        "B": [
+          "IGHA1",
+          "IGKC",
+          "JCHAIN"
+        ],
+        "Plasma": [
+          "IGKC",
+          "IGLC3",
+          "JCHAIN"
+        ]
+      },
+      "readout_genes": {
+        "T": [
+          "CD38"
+        ],
+        "B": [
+          "CD38",
+          "MZB1"
+        ],
+        "Plasma": [
+          "IGHA2",
+          "IGHM",
+          "MZB1",
+          "SDC1"
+        ]
+      }
+    },
+    "P-smmhc": {
+      "input_genes": {
+        "Stromal": [
+          "ACTA2",
+          "MYL9"
+        ]
+      },
+      "readout_genes": {
+        "Stromal": [
+          "DES",
+          "TAGLN"
+        ]
+      }
+    },
+    "P-mhc2": {
+      "input_genes": {
+        "B": [
+          "CD74",
+          "HLA-DRA"
+        ],
+        "Mye": [
+          "CD74",
+          "HLA-DRA"
+        ]
+      },
+      "readout_genes": {
+        "Mye": [
+          "CD86",
+          "HLA-DPB1",
+          "HLA-DRB1"
+        ]
+      }
+    },
+    "P-stress": {
+      "input_genes": {},
+      "readout_genes": {
+        "T": [
+          "DUSP1"
+        ]
+      }
+    }
+  },
+  "t1_artifact": {
+    "corrected": {
+      "n_groups": 772,
+      "reproduced": 2,
+      "new_reproduced_joint_R2": 2
+    },
+    "reproduced": [
+      {
+        "new_group": 529,
+        "n_members": 9,
+        "n_patients": 3,
+        "recurrence_patients": 3,
+        "sign_conflict": 0.0,
+        "n_flipped": 0,
+        "joint_axis_R2": 0.0791,
+        "top_markers": [
+          "MMP2",
+          "COL6A2",
+          "SPARC",
+          "AEBP1",
+          "COL6A3",
+          "FBN1",
+          "COL3A1",
+          "BGN",
+          "LUM",
+          "DCN"
+        ],
+        "merged_from_old_groups": 1,
+        "abs_purity": 0.7165,
+        "grade_new_rule": "EXPLORATORY_REPRODUCED",
+        "known_by_joint_R2": false
+      },
+      {
+        "new_group": 762,
+        "n_members": 184,
+        "n_patients": 29,
+        "recurrence_patients": 29,
+        "sign_conflict": 0.0,
+        "n_flipped": 0,
+        "joint_axis_R2": 0.0208,
+        "top_markers": [
+          "TPT1",
+          "TMSB10",
+          "EEF2",
+          "DEPRECATED_ENSG00000140264",
+          "PABPC1",
+          "UBA52",
+          "TMSB4X",
+          "PFN1",
+          "CFL1",
+          "PPDPF"
+        ],
+        "merged_from_old_groups": 1,
+        "abs_purity": 0.5277,
+        "grade_new_rule": "EXPLORATORY_REPRODUCED",
+        "known_by_joint_R2": false
+      }
+    ]
+  },
+  "go_definitions": {
+    "ids": 6987,
+    "representatives": 6870,
+    "duplicate_extra_ids": 117,
+    "duplicate_ids_with_different_declared_split": 96,
+    "examples": [
+      {
+        "id": "GOBP_REGULATION_OF_TRANSLATIONAL_FIDELITY",
+        "representative": "GOBP_AMINOACYL_TRNA_METABOLISM_INVOLVED_IN_TRANSLATIONAL_FIDELITY",
+        "declared_input": [
+          "IARS2",
+          "LARS2"
+        ],
+        "executed_input": [
+          "DTD2",
+          "LARS2"
+        ]
+      },
+      {
+        "id": "GOBP_POLYKETIDE_METABOLIC_PROCESS",
+        "representative": "GOBP_AMINOGLYCOSIDE_ANTIBIOTIC_METABOLIC_PROCESS",
+        "declared_input": [
+          "AKR1C1",
+          "AKR1C3"
+        ],
+        "executed_input": [
+          "AKR1C2",
+          "AKR1C3"
+        ]
+      },
+      {
+        "id": "GOBP_NMDA_SELECTIVE_GLUTAMATE_RECEPTOR_SIGNALING_PATHWAY",
+        "representative": "GOBP_AMPA_SELECTIVE_GLUTAMATE_RECEPTOR_SIGNALING_PATHWAY",
+        "declared_input": [
+          "MEF2C",
+          "NLGN1"
+        ],
+        "executed_input": [
+          "MEF2C",
+          "NRXN1"
+        ]
+      }
+    ],
+    "representatives_target_overlaps_axes": 2883,
+    "unfrozen_timestamp_representatives": 6870
+  },
+  "go_counts": {
+    "increment_rows": 103050,
+    "unique_representatives": 6870,
+    "both_cohorts_over_20_unique_reps": 820,
+    "both_cohorts_over_20_expanded_ids": 820,
+    "summary_rows": 6987,
+    "finite_dM1": 102945
+  },
+  "r04_gate_hashes": {
+    "infra/r04/k_closure_canonical_20260911.json": true,
+    "infra/r04/composition_final_audit_20260911.json": true,
+    "infra/r04/unnamed_field_audit_20260911.json": true,
+    "infra/r04/explore_outer_validation_fold0_20260905.json": true,
+    "infra/r04/explore_outer_validation_fold4_20260905.json": true
+  },
+  "r04_unnamed_gate": {
+    "note": "a surviving loading subspace alone is not a surviving residual field",
+    "rank1_subspace": "SURVIVES",
+    "rank2_subspace": "NOT_IDENTIFIABLE",
+    "rank3": "DESCRIPTIVE_ONLY"
+  },
+  "manifest_units": {
+    "training": {
+      "sections": 47,
+      "patients": 30,
+      "lineages": [
+        "HTAN_VANDERBILT_CRC"
+      ]
+    },
+    "internal_validation": {
+      "sections": 14,
+      "patients": 7,
+      "lineages": [
+        "ST_CRC_CMS"
+      ]
+    },
+    "external_validation": {
+      "sections": 8,
+      "patients": 8,
+      "lineages": [
+        "TLS_VISIUM_USZ"
+      ]
+    }
+  }
+}

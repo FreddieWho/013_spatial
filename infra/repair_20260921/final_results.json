@@ -1,0 +1,1385 @@
+{
+  "receipts": {
+    "six_raw": {
+      "status": "COMPLETED",
+      "programs": 6,
+      "prediction_rows": 30,
+      "not_testable_sections": 295,
+      "discovery_sections": 47,
+      "normalization": "raw",
+      "claims": "Descriptive patient LOPO; not spatial-null-calibrated discovery"
+    },
+    "six_depth_normalized": {
+      "status": "COMPLETED",
+      "programs": 6,
+      "prediction_rows": 30,
+      "not_testable_sections": 88,
+      "discovery_sections": 0,
+      "normalization": "depth_normalized",
+      "claims": "Descriptive patient LOPO; not spatial-null-calibrated discovery"
+    },
+    "go": {
+      "status": "COMPLETED",
+      "programs": 6870,
+      "prediction_rows": 103050,
+      "not_testable_sections": 92092,
+      "discovery_sections": 47,
+      "normalization": "raw",
+      "claims": "Descriptive patient LOPO; not spatial-null-calibrated discovery"
+    },
+    "mask": {
+      "status": "COMPLETED",
+      "label_unknown_preserved": true,
+      "field_interventions": 44,
+      "hex_foci": 108,
+      "l009_n_patients": 2,
+      "l009_median_delta": -0.375,
+      "l009_patient_interval": [
+        -0.75,
+        0.0
+      ],
+      "structure_claim": "Targeted focus controls; not blind localization or cross-cohort transfer"
+    },
+    "spline": {
+      "status": "COMPLETED",
+      "original_go": 820,
+      "new_go": 629,
+      "union_go": 901,
+      "programs": 907,
+      "rows": 29024,
+      "spatial_p": "NOT_CALIBRATED",
+      "injected_linear_field": "PASS",
+      "cv": "five contiguous x-stripes; >1 pitch buffer; train-only knots and nuisance; descriptive"
+    },
+    "pc": {
+      "status": "COMPLETED",
+      "reproduced_groups": 2,
+      "historical_loading_projection_new_groups": 2,
+      "groups": [
+        {
+          "group": 529,
+          "n_patients": 3,
+          "median_patient_spot_R2": 0.7921769081169372,
+          "n_patients_R2_ge_049": 3,
+          "interpretation": "Composition association diagnostic, not evidence of spatial novelty"
+        },
+        {
+          "group": 762,
+          "n_patients": 29,
+          "median_patient_spot_R2": 0.8679923781512149,
+          "n_patients_R2_ge_049": 29,
+          "interpretation": "Composition association diagnostic, not evidence of spatial novelty"
+        }
+      ],
+      "claim": "Two loading groups reproduce; loading projection cannot classify them as biologically novel"
+    }
+  },
+  "alias_definitions_checked": 6987,
+  "go": {
+    "representatives": 6870,
+    "molecular_section_rows": 151140,
+    "prediction_patient_rows": 103050,
+    "prediction_status_counts": {
+      "COMPUTED": 102710,
+      "NOT_TESTABLE_CONSTANT_TARGET": 340
+    },
+    "section_ineligibility": {
+      "DISCOVERY:MISSING_PROGRAM_GENES": 92092
+    },
+    "original_both_cohort_hits": 820,
+    "corrected_both_cohort_hits": 629
+  },
+  "six": {
+    "raw": [
+      {
+        "program": "P-epi",
+        "cohort": "ST-CRC",
+        "n_patients": "0",
+        "status": "NOT_TESTABLE",
+        "median_delta_M1": "",
+        "median_delta_M2": "",
+        "patient_bootstrap_low": "",
+        "patient_bootstrap_high": ""
+      },
+      {
+        "program": "P-stromal",
+        "cohort": "ST-CRC",
+        "n_patients": "7",
+        "status": "COMPUTED",
+        "median_delta_M1": "31.94756592759688",
+        "median_delta_M2": "32.22000389455756",
+        "patient_bootstrap_low": "20.575871009490793",
+        "patient_bootstrap_high": "34.00632403046053"
+      },
+      {
+        "program": "P-plasma",
+        "cohort": "ST-CRC",
+        "n_patients": "0",
+        "status": "NOT_TESTABLE",
+        "median_delta_M1": "",
+        "median_delta_M2": "",
+        "patient_bootstrap_low": "",
+        "patient_bootstrap_high": ""
+      },
+      {
+        "program": "P-smmhc",
+        "cohort": "ST-CRC",
+        "n_patients": "0",
+        "status": "NOT_TESTABLE",
+        "median_delta_M1": "",
+        "median_delta_M2": "",
+        "patient_bootstrap_low": "",
+        "patient_bootstrap_high": ""
+      },
+      {
+        "program": "P-mhc2",
+        "cohort": "ST-CRC",
+        "n_patients": "7",
+        "status": "COMPUTED",
+        "median_delta_M1": "35.87743968087473",
+        "median_delta_M2": "43.66519343513219",
+        "patient_bootstrap_low": "20.788759762465943",
+        "patient_bootstrap_high": "42.32531910664238"
+      },
+      {
+        "program": "P-stress",
+        "cohort": "ST-CRC",
+        "n_patients": "0",
+        "status": "NOT_TESTABLE",
+        "median_delta_M1": "",
+        "median_delta_M2": "",
+        "patient_bootstrap_low": "",
+        "patient_bootstrap_high": ""
+      },
+      {
+        "program": "P-epi",
+        "cohort": "USZ",
+        "n_patients": "0",
+        "status": "NOT_TESTABLE",
+        "median_delta_M1": "",
+        "median_delta_M2": "",
+        "patient_bootstrap_low": "",
+        "patient_bootstrap_high": ""
+      },
+      {
+        "program": "P-stromal",
+        "cohort": "USZ",
+        "n_patients": "8",
+        "status": "COMPUTED",
+        "median_delta_M1": "36.11025386989186",
+        "median_delta_M2": "36.164456677967394",
+        "patient_bootstrap_low": "14.03688487829001",
+        "patient_bootstrap_high": "59.08180673117284"
+      },
+      {
+        "program": "P-plasma",
+        "cohort": "USZ",
+        "n_patients": "0",
+        "status": "NOT_TESTABLE",
+        "median_delta_M1": "",
+        "median_delta_M2": "",
+        "patient_bootstrap_low": "",
+        "patient_bootstrap_high": ""
+      },
+      {
+        "program": "P-smmhc",
+        "cohort": "USZ",
+        "n_patients": "0",
+        "status": "NOT_TESTABLE",
+        "median_delta_M1": "",
+        "median_delta_M2": "",
+        "patient_bootstrap_low": "",
+        "patient_bootstrap_high": ""
+      },
+      {
+        "program": "P-mhc2",
+        "cohort": "USZ",
+        "n_patients": "8",
+        "status": "COMPUTED",
+        "median_delta_M1": "-7.7263264676514405",
+        "median_delta_M2": "-9.423188441450819",
+        "patient_bootstrap_low": "-26.175207317829095",
+        "patient_bootstrap_high": "11.666969213989772"
+      },
+      {
+        "program": "P-stress",
+        "cohort": "USZ",
+        "n_patients": "0",
+        "status": "NOT_TESTABLE",
+        "median_delta_M1": "",
+        "median_delta_M2": "",
+        "patient_bootstrap_low": "",
+        "patient_bootstrap_high": ""
+      }
+    ],
+    "depth_normalized": [
+      {
+        "program": "P-epi",
+        "cohort": "ST-CRC",
+        "n_patients": "0",
+        "status": "NOT_TESTABLE",
+        "median_delta_M1": "",
+        "median_delta_M2": "",
+        "patient_bootstrap_low": "",
+        "patient_bootstrap_high": ""
+      },
+      {
+        "program": "P-stromal",
+        "cohort": "ST-CRC",
+        "n_patients": "7",
+        "status": "COMPUTED",
+        "median_delta_M1": "22.470616305290168",
+        "median_delta_M2": "25.825571825135864",
+        "patient_bootstrap_low": "17.654691304369656",
+        "patient_bootstrap_high": "26.87825601862329"
+      },
+      {
+        "program": "P-plasma",
+        "cohort": "ST-CRC",
+        "n_patients": "0",
+        "status": "NOT_TESTABLE",
+        "median_delta_M1": "",
+        "median_delta_M2": "",
+        "patient_bootstrap_low": "",
+        "patient_bootstrap_high": ""
+      },
+      {
+        "program": "P-smmhc",
+        "cohort": "ST-CRC",
+        "n_patients": "0",
+        "status": "NOT_TESTABLE",
+        "median_delta_M1": "",
+        "median_delta_M2": "",
+        "patient_bootstrap_low": "",
+        "patient_bootstrap_high": ""
+      },
+      {
+        "program": "P-mhc2",
+        "cohort": "ST-CRC",
+        "n_patients": "7",
+        "status": "COMPUTED",
+        "median_delta_M1": "15.622935556224723",
+        "median_delta_M2": "24.340695649529785",
+        "patient_bootstrap_low": "11.053494483765071",
+        "patient_bootstrap_high": "34.75311622941691"
+      },
+      {
+        "program": "P-stress",
+        "cohort": "ST-CRC",
+        "n_patients": "0",
+        "status": "NOT_TESTABLE",
+        "median_delta_M1": "",
+        "median_delta_M2": "",
+        "patient_bootstrap_low": "",
+        "patient_bootstrap_high": ""
+      },
+      {
+        "program": "P-epi",
+        "cohort": "USZ",
+        "n_patients": "0",
+        "status": "NOT_TESTABLE",
+        "median_delta_M1": "",
+        "median_delta_M2": "",
+        "patient_bootstrap_low": "",
+        "patient_bootstrap_high": ""
+      },
+      {
+        "program": "P-stromal",
+        "cohort": "USZ",
+        "n_patients": "8",
+        "status": "COMPUTED",
+        "median_delta_M1": "23.79011977881921",
+        "median_delta_M2": "29.58112337941705",
+        "patient_bootstrap_low": "19.01953834168984",
+        "patient_bootstrap_high": "43.75012591869861"
+      },
+      {
+        "program": "P-plasma",
+        "cohort": "USZ",
+        "n_patients": "0",
+        "status": "NOT_TESTABLE",
+        "median_delta_M1": "",
+        "median_delta_M2": "",
+        "patient_bootstrap_low": "",
+        "patient_bootstrap_high": ""
+      },
+      {
+        "program": "P-smmhc",
+        "cohort": "USZ",
+        "n_patients": "0",
+        "status": "NOT_TESTABLE",
+        "median_delta_M1": "",
+        "median_delta_M2": "",
+        "patient_bootstrap_low": "",
+        "patient_bootstrap_high": ""
+      },
+      {
+        "program": "P-mhc2",
+        "cohort": "USZ",
+        "n_patients": "8",
+        "status": "COMPUTED",
+        "median_delta_M1": "2.072135080967496",
+        "median_delta_M2": "4.61414684481465",
+        "patient_bootstrap_low": "0.7430254376644563",
+        "patient_bootstrap_high": "15.012738770988319"
+      },
+      {
+        "program": "P-stress",
+        "cohort": "USZ",
+        "n_patients": "0",
+        "status": "NOT_TESTABLE",
+        "median_delta_M1": "",
+        "median_delta_M2": "",
+        "patient_bootstrap_low": "",
+        "patient_bootstrap_high": ""
+      }
+    ]
+  },
+  "single_marker": [
+    {
+      "mode": "raw",
+      "cohort": "ST-CRC",
+      "program": "P-stromal",
+      "n_patients": 7,
+      "median_program_improvement_over_selected_marker": 12.099086121291004,
+      "ci_low": 3.8515583182262776,
+      "ci_high": 21.102820430066814
+    },
+    {
+      "mode": "raw",
+      "cohort": "ST-CRC",
+      "program": "P-mhc2",
+      "n_patients": 7,
+      "median_program_improvement_over_selected_marker": 4.106534568355035,
+      "ci_low": 0.8362325147490963,
+      "ci_high": 13.67677959588787
+    },
+    {
+      "mode": "raw",
+      "cohort": "USZ",
+      "program": "P-stromal",
+      "n_patients": 8,
+      "median_program_improvement_over_selected_marker": 26.574919981870426,
+      "ci_low": 3.541696821790777,
+      "ci_high": 39.486094177209296
+    },
+    {
+      "mode": "raw",
+      "cohort": "USZ",
+      "program": "P-mhc2",
+      "n_patients": 8,
+      "median_program_improvement_over_selected_marker": -1.025045171334372,
+      "ci_low": -10.179664944728763,
+      "ci_high": 4.232801860615077
+    },
+    {
+      "mode": "depth_normalized",
+      "cohort": "ST-CRC",
+      "program": "P-stromal",
+      "n_patients": 7,
+      "median_program_improvement_over_selected_marker": 10.12699288515297,
+      "ci_low": 1.6609185997557974,
+      "ci_high": 16.523332819188678
+    },
+    {
+      "mode": "depth_normalized",
+      "cohort": "ST-CRC",
+      "program": "P-mhc2",
+      "n_patients": 7,
+      "median_program_improvement_over_selected_marker": 4.900387187700753,
+      "ci_low": 3.0131161978942127,
+      "ci_high": 8.91337448359919
+    },
+    {
+      "mode": "depth_normalized",
+      "cohort": "USZ",
+      "program": "P-stromal",
+      "n_patients": 8,
+      "median_program_improvement_over_selected_marker": 21.074629642625116,
+      "ci_low": 3.7885909470256562,
+      "ci_high": 29.973511082699417
+    },
+    {
+      "mode": "depth_normalized",
+      "cohort": "USZ",
+      "program": "P-mhc2",
+      "n_patients": 8,
+      "median_program_improvement_over_selected_marker": 3.878839620705046,
+      "ci_low": 1.2578294173190214,
+      "ci_high": 6.195532637291302
+    }
+  ],
+  "masked_field": [
+    {
+      "cohort": "ST-CRC",
+      "program": "P-epi",
+      "model": "M1",
+      "baseline": "M0",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-epi",
+      "model": "M1",
+      "baseline": "NN",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-epi",
+      "model": "M1",
+      "baseline": "KNN8",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-epi",
+      "model": "M2",
+      "baseline": "M0",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-epi",
+      "model": "M2",
+      "baseline": "NN",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-epi",
+      "model": "M2",
+      "baseline": "KNN8",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-stromal",
+      "model": "M1",
+      "baseline": "M0",
+      "n_patients": "7",
+      "median_improvement": "2.5511391548052753",
+      "ci_low": "-1.9884371231888505",
+      "ci_high": "9.752039079118916"
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-stromal",
+      "model": "M1",
+      "baseline": "NN",
+      "n_patients": "7",
+      "median_improvement": "9.945819566480438",
+      "ci_low": "0.4705078114778826",
+      "ci_high": "13.413909000642114"
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-stromal",
+      "model": "M1",
+      "baseline": "KNN8",
+      "n_patients": "7",
+      "median_improvement": "-28.58484298183604",
+      "ci_low": "-44.92574083612831",
+      "ci_high": "-15.872681160886714"
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-stromal",
+      "model": "M2",
+      "baseline": "M0",
+      "n_patients": "7",
+      "median_improvement": "5.496827331723097",
+      "ci_low": "0.08181926293263678",
+      "ci_high": "13.813035356279519"
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-stromal",
+      "model": "M2",
+      "baseline": "NN",
+      "n_patients": "7",
+      "median_improvement": "10.505324793380588",
+      "ci_low": "3.544384912838254",
+      "ci_high": "14.999539093513985"
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-stromal",
+      "model": "M2",
+      "baseline": "KNN8",
+      "n_patients": "7",
+      "median_improvement": "-27.992705249631058",
+      "ci_low": "-40.54491957655285",
+      "ci_high": "-11.413505247534443"
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-plasma",
+      "model": "M1",
+      "baseline": "M0",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-plasma",
+      "model": "M1",
+      "baseline": "NN",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-plasma",
+      "model": "M1",
+      "baseline": "KNN8",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-plasma",
+      "model": "M2",
+      "baseline": "M0",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-plasma",
+      "model": "M2",
+      "baseline": "NN",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-plasma",
+      "model": "M2",
+      "baseline": "KNN8",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-smmhc",
+      "model": "M1",
+      "baseline": "M0",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-smmhc",
+      "model": "M1",
+      "baseline": "NN",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-smmhc",
+      "model": "M1",
+      "baseline": "KNN8",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-smmhc",
+      "model": "M2",
+      "baseline": "M0",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-smmhc",
+      "model": "M2",
+      "baseline": "NN",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-smmhc",
+      "model": "M2",
+      "baseline": "KNN8",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-mhc2",
+      "model": "M1",
+      "baseline": "M0",
+      "n_patients": "7",
+      "median_improvement": "-1.297274786427255",
+      "ci_low": "-2.847850222155785",
+      "ci_high": "3.4815350019676545"
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-mhc2",
+      "model": "M1",
+      "baseline": "NN",
+      "n_patients": "7",
+      "median_improvement": "18.047576108461275",
+      "ci_low": "11.207018221510955",
+      "ci_high": "25.679281570492453"
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-mhc2",
+      "model": "M1",
+      "baseline": "KNN8",
+      "n_patients": "7",
+      "median_improvement": "-26.142723585703667",
+      "ci_low": "-32.67229338142425",
+      "ci_high": "-17.67809771721446"
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-mhc2",
+      "model": "M2",
+      "baseline": "M0",
+      "n_patients": "7",
+      "median_improvement": "2.3940088277938534",
+      "ci_low": "-1.7533270492202089",
+      "ci_high": "8.622998952414278"
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-mhc2",
+      "model": "M2",
+      "baseline": "NN",
+      "n_patients": "7",
+      "median_improvement": "18.329486607338808",
+      "ci_low": "16.106911552805553",
+      "ci_high": "29.638288736472525"
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-mhc2",
+      "model": "M2",
+      "baseline": "KNN8",
+      "n_patients": "7",
+      "median_improvement": "-21.511428958241808",
+      "ci_low": "-29.354940561900303",
+      "ci_high": "-12.990274171305606"
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-stress",
+      "model": "M1",
+      "baseline": "M0",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-stress",
+      "model": "M1",
+      "baseline": "NN",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-stress",
+      "model": "M1",
+      "baseline": "KNN8",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-stress",
+      "model": "M2",
+      "baseline": "M0",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-stress",
+      "model": "M2",
+      "baseline": "NN",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "ST-CRC",
+      "program": "P-stress",
+      "model": "M2",
+      "baseline": "KNN8",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-epi",
+      "model": "M1",
+      "baseline": "M0",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-epi",
+      "model": "M1",
+      "baseline": "NN",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-epi",
+      "model": "M1",
+      "baseline": "KNN8",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-epi",
+      "model": "M2",
+      "baseline": "M0",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-epi",
+      "model": "M2",
+      "baseline": "NN",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-epi",
+      "model": "M2",
+      "baseline": "KNN8",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-stromal",
+      "model": "M1",
+      "baseline": "M0",
+      "n_patients": "8",
+      "median_improvement": "0.209242395722528",
+      "ci_low": "-0.9597566668207294",
+      "ci_high": "9.518606613684298"
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-stromal",
+      "model": "M1",
+      "baseline": "NN",
+      "n_patients": "8",
+      "median_improvement": "20.070366491756964",
+      "ci_low": "11.58166952875057",
+      "ci_high": "42.61502458417282"
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-stromal",
+      "model": "M1",
+      "baseline": "KNN8",
+      "n_patients": "8",
+      "median_improvement": "-28.517811905288475",
+      "ci_low": "-44.490819376634825",
+      "ci_high": "-5.340954846017351"
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-stromal",
+      "model": "M2",
+      "baseline": "M0",
+      "n_patients": "8",
+      "median_improvement": "2.6554038046884414",
+      "ci_low": "-0.1776048096895576",
+      "ci_high": "12.938492986840586"
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-stromal",
+      "model": "M2",
+      "baseline": "NN",
+      "n_patients": "8",
+      "median_improvement": "25.277137304085105",
+      "ci_low": "16.468656647755118",
+      "ci_high": "42.57788185087574"
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-stromal",
+      "model": "M2",
+      "baseline": "KNN8",
+      "n_patients": "8",
+      "median_improvement": "-21.989768738457638",
+      "ci_low": "-35.51683978448499",
+      "ci_high": "-1.3594280090571755"
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-plasma",
+      "model": "M1",
+      "baseline": "M0",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-plasma",
+      "model": "M1",
+      "baseline": "NN",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-plasma",
+      "model": "M1",
+      "baseline": "KNN8",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-plasma",
+      "model": "M2",
+      "baseline": "M0",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-plasma",
+      "model": "M2",
+      "baseline": "NN",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-plasma",
+      "model": "M2",
+      "baseline": "KNN8",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-smmhc",
+      "model": "M1",
+      "baseline": "M0",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-smmhc",
+      "model": "M1",
+      "baseline": "NN",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-smmhc",
+      "model": "M1",
+      "baseline": "KNN8",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-smmhc",
+      "model": "M2",
+      "baseline": "M0",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-smmhc",
+      "model": "M2",
+      "baseline": "NN",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-smmhc",
+      "model": "M2",
+      "baseline": "KNN8",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-mhc2",
+      "model": "M1",
+      "baseline": "M0",
+      "n_patients": "8",
+      "median_improvement": "-0.6226361309440523",
+      "ci_low": "-1.889086994467639",
+      "ci_high": "2.964616552077567"
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-mhc2",
+      "model": "M1",
+      "baseline": "NN",
+      "n_patients": "8",
+      "median_improvement": "32.83897404261407",
+      "ci_low": "21.00733928919365",
+      "ci_high": "46.824377137781546"
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-mhc2",
+      "model": "M1",
+      "baseline": "KNN8",
+      "n_patients": "8",
+      "median_improvement": "-17.345056883519625",
+      "ci_low": "-32.1851480829029",
+      "ci_high": "4.866086212896279"
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-mhc2",
+      "model": "M2",
+      "baseline": "M0",
+      "n_patients": "8",
+      "median_improvement": "1.7947363261090832",
+      "ci_low": "0.9639953093321819",
+      "ci_high": "5.9652411700948695"
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-mhc2",
+      "model": "M2",
+      "baseline": "NN",
+      "n_patients": "8",
+      "median_improvement": "35.561248437137024",
+      "ci_low": "23.42081354107679",
+      "ci_high": "47.96156949519103"
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-mhc2",
+      "model": "M2",
+      "baseline": "KNN8",
+      "n_patients": "8",
+      "median_improvement": "-12.202311501255359",
+      "ci_low": "-28.14647602769255",
+      "ci_high": "6.001159115691396"
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-stress",
+      "model": "M1",
+      "baseline": "M0",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-stress",
+      "model": "M1",
+      "baseline": "NN",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-stress",
+      "model": "M1",
+      "baseline": "KNN8",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-stress",
+      "model": "M2",
+      "baseline": "M0",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-stress",
+      "model": "M2",
+      "baseline": "NN",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    },
+    {
+      "cohort": "USZ",
+      "program": "P-stress",
+      "model": "M2",
+      "baseline": "KNN8",
+      "n_patients": "0",
+      "median_improvement": "",
+      "ci_low": "",
+      "ci_high": ""
+    }
+  ],
+  "structure": {
+    "patient_results": [
+      {
+        "patient": "TLS_VISIUM_USZ::PATIENT::0277194ca1561b98",
+        "n_positive": "0",
+        "n_negative": "0",
+        "program_auc": "",
+        "B_auc": "",
+        "status": "NOT_TESTABLE"
+      },
+      {
+        "patient": "TLS_VISIUM_USZ::PATIENT::05d0cf19760f8f04",
+        "n_positive": "0",
+        "n_negative": "0",
+        "program_auc": "",
+        "B_auc": "",
+        "status": "NOT_TESTABLE"
+      },
+      {
+        "patient": "TLS_VISIUM_USZ::PATIENT::5a46f98f9f8eedfe",
+        "n_positive": "0",
+        "n_negative": "0",
+        "program_auc": "",
+        "B_auc": "",
+        "status": "NOT_TESTABLE"
+      },
+      {
+        "patient": "TLS_VISIUM_USZ::PATIENT::7054344dca71771a",
+        "n_positive": "0",
+        "n_negative": "0",
+        "program_auc": "",
+        "B_auc": "",
+        "status": "NOT_TESTABLE"
+      },
+      {
+        "patient": "TLS_VISIUM_USZ::PATIENT::7b9204be03aa71d0",
+        "n_positive": "0",
+        "n_negative": "2",
+        "program_auc": "",
+        "B_auc": "",
+        "status": "NOT_TESTABLE"
+      },
+      {
+        "patient": "TLS_VISIUM_USZ::PATIENT::83fba1cd85d2f31b",
+        "n_positive": "0",
+        "n_negative": "1",
+        "program_auc": "",
+        "B_auc": "",
+        "status": "NOT_TESTABLE"
+      },
+      {
+        "patient": "TLS_VISIUM_USZ::PATIENT::e13843047f4d2612",
+        "n_positive": "0",
+        "n_negative": "0",
+        "program_auc": "",
+        "B_auc": "",
+        "status": "NOT_TESTABLE"
+      },
+      {
+        "patient": "TLS_VISIUM_USZ::PATIENT::ff5fc998488e94c0",
+        "n_positive": "0",
+        "n_negative": "0",
+        "program_auc": "",
+        "B_auc": "",
+        "status": "NOT_TESTABLE"
+      }
+    ],
+    "window_label_counts": {
+      "UNKNOWN": 93,
+      "NEGATIVE": 3
+    },
+    "fine_control_status_counts": {
+      "UNKNOWN": 216,
+      "NO_KNOWN_NEGATIVE": 104,
+      "COMPUTED": 12
+    }
+  },
+  "spline": {
+    "shape_counts": {
+      "raw:NOT_TESTABLE": 32,
+      "rank:NOT_TESTABLE": 32,
+      "resid:NOT_TESTABLE": 32,
+      "rank_resid:NOT_TESTABLE": 32,
+      "raw:low-to-high": 940,
+      "rank:low-to-high": 1233,
+      "resid:nonmonotonic": 4988,
+      "rank_resid:nonmonotonic": 3882,
+      "resid:flat": 1674,
+      "rank_resid:flat": 2887,
+      "rank:nonmonotonic": 4901,
+      "resid:high-to-low": 329,
+      "rank_resid:high-to-low": 291,
+      "rank:flat": 836,
+      "raw:nonmonotonic": 6063,
+      "rank:high-to-low": 254,
+      "rank_resid:low-to-high": 164,
+      "raw:flat": 180,
+      "resid:low-to-high": 233,
+      "raw:high-to-low": 41
+    },
+    "direction_consistency_descriptive": [
+      {
+        "route": "raw",
+        "selection": "original820",
+        "n_programs": 820,
+        "all8_computed": 820,
+        "all8_same_monotonic_direction": 0
+      },
+      {
+        "route": "raw",
+        "selection": "union",
+        "n_programs": 901,
+        "all8_computed": 901,
+        "all8_same_monotonic_direction": 0
+      },
+      {
+        "route": "rank",
+        "selection": "original820",
+        "n_programs": 820,
+        "all8_computed": 820,
+        "all8_same_monotonic_direction": 0
+      },
+      {
+        "route": "rank",
+        "selection": "union",
+        "n_programs": 901,
+        "all8_computed": 901,
+        "all8_same_monotonic_direction": 0
+      },
+      {
+        "route": "resid",
+        "selection": "original820",
+        "n_programs": 820,
+        "all8_computed": 820,
+        "all8_same_monotonic_direction": 0
+      },
+      {
+        "route": "resid",
+        "selection": "union",
+        "n_programs": 901,
+        "all8_computed": 901,
+        "all8_same_monotonic_direction": 0
+      },
+      {
+        "route": "rank_resid",
+        "selection": "original820",
+        "n_programs": 820,
+        "all8_computed": 820,
+        "all8_same_monotonic_direction": 0
+      },
+      {
+        "route": "rank_resid",
+        "selection": "union",
+        "n_programs": 901,
+        "all8_computed": 901,
+        "all8_same_monotonic_direction": 0
+      }
+    ]
+  },
+  "r04": {
+    "anchored_readout_summary": {
+      "isolated_signal": {
+        "fold4_TSB_rank3_0.544": "ISOLATED_EXPLORATORY_SIGNAL",
+        "note": "rank1/rank2, fold-0, and nested-adjusted do not reproduce it; third direction not pursued (D-109)"
+      },
+      "outer_validation": "null finding both folds (TSB); TLS one section per fold, descriptive only"
+    },
+    "blocked_or_not_triggered_nodes": [
+      "R-05:NOT_TRIGGERED_SHARED_FIELD_UNTESTED",
+      "R-06",
+      "R-07"
+    ],
+    "claim_boundary": "A null specific-versus-shared AUC contrast does not reject a common residual field; D-140.",
+    "composition_gate": {
+      "candidate_verdicts": [
+        {
+          "candidate": "TLS_rank1_residual",
+          "verdict": "DOES_NOT_SURVIVE"
+        },
+        {
+          "candidate": "TLS_rank2_residual",
+          "verdict": "DOES_NOT_SURVIVE"
+        },
+        {
+          "candidate": "TUMOR_STROMA_BOUNDARY_rank1_residual",
+          "verdict": "DOES_NOT_SURVIVE"
+        },
+        {
+          "candidate": "TUMOR_STROMA_BOUNDARY_rank2_residual",
+          "verdict": "DOES_NOT_SURVIVE"
+        }
+      ],
+      "effect_floor": 0.02,
+      "effect_floor_provenance": "project null-equivalence band; D-110 synthesis",
+      "method": "nested patient-level crossfit residualizer (D-108)",
+      "overlap_note": "a29 trains in both folds: it cannot replicate with itself; replication needs disjoint patients",
+      "training_patient_overlap_folds_0_4": [
+        "a29ba9b1"
+      ]
+    },
+    "coordinate_null": "NOT_TRIGGERED",
+    "created_at": "2026-09-21",
+    "evidence": [
+      {
+        "path": "infra/r04/k_closure_canonical_20260911.json",
+        "role": "k_closure_canonical",
+        "sha256": "39b348cd95c87affaa53ae50cce6899939459ff02aa4ad31d7a2244b8a6a9523"
+      },
+      {
+        "path": "infra/r04/composition_final_audit_20260911.json",
+        "role": "composition_final_audit_nested",
+        "sha256": "322311c1e6274c9f4e2095cf4253720aa94e9d5a58429e2f962a8439815863e5"
+      },
+      {
+        "path": "infra/r04/unnamed_field_audit_20260911.json",
+        "role": "unnamed_field_audit",
+        "sha256": "f5fee40edfc80f2094092319d525369b3f5e641d3f8a06d7935bf655314bdc28"
+      },
+      {
+        "path": "infra/r04/explore_outer_validation_fold0_20260905.json",
+        "role": "outer_validation_fold0",
+        "sha256": "0560ee1535c925f3b1f658a5d4f40ce7482c04495de310b8bc4c97ad2ae3b95b"
+      },
+      {
+        "path": "infra/r04/explore_outer_validation_fold4_20260905.json",
+        "role": "outer_validation_fold4",
+        "sha256": "1edf88e85958ac17a6bf1736cff126b9ad0f3e8e64d6b9b502002d02787aa530"
+      }
+    ],
+    "global_k_eff": "NOT_IDENTIFIABLE",
+    "independent_lineage": "NOT_TRIGGERED_NO_SURVIVING_CANDIDATE",
+    "k_search_closed_for_r04": true,
+    "next_nodes_authorized": [],
+    "operational_status": "CLOSED_NO_NEW_COMPUTE_AUTHORIZED",
+    "phase": "R04",
+    "primary_readout_rank": 2,
+    "schema": "r04.final_gate.v2",
+    "selected_k": null,
+    "shared_residual_field_status": "NOT_TESTED",
+    "specific_residual_status": "NO_REPLICATED_SPECIFIC_INCREMENT",
+    "status": "R04_BLOCKED_IDENTIFIABILITY",
+    "surviving_candidates": [],
+    "uncertainty_gate": "PASS",
+    "unnamed_field_reproducibility_gate": {
+      "note": "a surviving loading subspace alone is not a surviving residual field",
+      "rank1_subspace": "SURVIVES",
+      "rank2_subspace": "NOT_IDENTIFIABLE",
+      "rank3": "DESCRIPTIVE_ONLY"
+    },
+    "working_k_model": 3
+  }
+}

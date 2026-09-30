@@ -1,0 +1,22 @@
+{
+  "status": "COMPLETED",
+  "reproduced_groups": 2,
+  "historical_loading_projection_new_groups": 2,
+  "groups": [
+    {
+      "group": 529,
+      "n_patients": 3,
+      "median_patient_spot_R2": 0.7921769081169372,
+      "n_patients_R2_ge_049": 3,
+      "interpretation": "Composition association diagnostic, not evidence of spatial novelty"
+    },
+    {
+      "group": 762,
+      "n_patients": 29,
+      "median_patient_spot_R2": 0.8679923781512149,
+      "n_patients_R2_ge_049": 29,
+      "interpretation": "Composition association diagnostic, not evidence of spatial novelty"
+    }
+  ],
+  "claim": "Two loading groups reproduce; loading projection cannot classify them as biologically novel"
+}

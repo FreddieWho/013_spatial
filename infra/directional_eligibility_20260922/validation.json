@@ -1,0 +1,9 @@
+{
+  "output_hashes": "PASS",
+  "script_hash_and_syntax": "PASS",
+  "108_focus_44_effect_row_accounting": "PASS",
+  "USZ_annotation_spot_accounting": "PASS",
+  "patient_denominators": "PASS",
+  "geometry_checks": "PASS; execution_notes.json",
+  "broad_test_suite": "NOT_RUN_NOT_REQUIRED"
+}

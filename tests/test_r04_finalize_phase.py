@@ -76,12 +76,14 @@ def _run_gate(tmp_path, monkeypatch, comp_path, label):
     return json.loads(out.read_text())
 
 
-def test_negative_outcome_closes_r04(tmp_path, monkeypatch):
+def test_negative_specificity_cannot_reject_shared_field(tmp_path, monkeypatch):
     gate = _run_gate(tmp_path, monkeypatch, _comp(tmp_path, {}), "neg")
-    assert gate["status"] == "R04_COMPLETE_NO_REPRODUCIBLE_RESIDUAL_FIELD"
+    assert gate["status"] == "R04_BLOCKED_IDENTIFIABILITY"
     assert gate["surviving_candidates"] == []
     assert gate["next_nodes_authorized"] == []
-    assert "R-05:NOT_TRIGGERED_NO_SURVIVING_R04_FIELD" in gate["blocked_or_not_triggered_nodes"]
+    assert "R-05:NOT_TRIGGERED_SHARED_FIELD_UNTESTED" in gate["blocked_or_not_triggered_nodes"]
+    assert gate["shared_residual_field_status"] == "NOT_TESTED"
+    assert gate["specific_residual_status"] == "NO_REPLICATED_SPECIFIC_INCREMENT"
     assert gate["coordinate_null"] == "NOT_TRIGGERED"
     assert gate["independent_lineage"] == "NOT_TRIGGERED_NO_SURVIVING_CANDIDATE"
 
@@ -90,14 +92,15 @@ def test_surviving_candidate_requires_both_folds(tmp_path, monkeypatch):
     # Stable residual in fold 0 only -> tested but unreplicated.
     comp = _comp(tmp_path, {(0, "rank2", 0): (0.15, 0.05)})
     gate = _run_gate(tmp_path, monkeypatch, comp, "one")
-    assert gate["status"] == "R04_COMPLETE_NO_REPRODUCIBLE_RESIDUAL_FIELD"
+    assert gate["status"] == "R04_BLOCKED_IDENTIFIABILITY"
     assert gate["surviving_candidates"] == []
     comp2 = _comp(tmp_path, {(0, "rank2", 0): (0.15, 0.05),
                              (4, "rank2", 1): (0.12, 0.02)})
     gate2 = _run_gate(tmp_path, monkeypatch, comp2, "two")
-    assert gate2["status"] == "R04_COMPLETE_WITH_REPRODUCIBLE_RESIDUAL_FIELD"
+    assert gate2["status"] == "R04_BLOCKED_IDENTIFIABILITY"
     assert gate2["surviving_candidates"] == ["TUMOR_STROMA_BOUNDARY_rank2_residual"]
-    assert gate2["next_nodes_authorized"] == ["R-05"]
+    assert gate2["next_nodes_authorized"] == []
+    assert gate2["specific_residual_status"] == "SURVIVES"
 
 
 def test_same_patient_cannot_replicate_with_itself(tmp_path, monkeypatch):
@@ -106,7 +109,13 @@ def test_same_patient_cannot_replicate_with_itself(tmp_path, monkeypatch):
                  patients={0: ("P0a", "SHARED"), 4: ("P4a", "SHARED")})
     gate = _run_gate(tmp_path, monkeypatch, comp, "self")
     assert gate["surviving_candidates"] == []
-    assert gate["status"] == "R04_COMPLETE_NO_REPRODUCIBLE_RESIDUAL_FIELD"
+    assert gate["status"] == "R04_BLOCKED_IDENTIFIABILITY"
+
+
+def test_two_hits_in_one_fold_do_not_establish_cross_fold_replication(tmp_path, monkeypatch):
+    comp = _comp(tmp_path, {(0, 'rank2', 0): (.15, .05), (0, 'rank2', 1): (.12, .02)})
+    gate = _run_gate(tmp_path, monkeypatch, comp, 'same-fold')
+    assert gate['surviving_candidates'] == []
 
 
 def test_trivial_effect_below_floor_does_not_survive(tmp_path, monkeypatch):
@@ -114,7 +123,7 @@ def test_trivial_effect_below_floor_does_not_survive(tmp_path, monkeypatch):
                             (4, "rank2", 0): (0.006, 0.001)})
     gate = _run_gate(tmp_path, monkeypatch, comp, "tiny")
     assert gate["surviving_candidates"] == []
-    assert gate["status"] == "R04_COMPLETE_NO_REPRODUCIBLE_RESIDUAL_FIELD"
+    assert gate["status"] == "R04_BLOCKED_IDENTIFIABILITY"
 
 
 def test_untested_candidate_is_not_identifiable(tmp_path, monkeypatch):
@@ -146,3 +155,14 @@ def test_missing_artifact_fails_closed(tmp_path, monkeypatch):
         assert "missing evidence artifact" in str(exc)
     else:
         raise AssertionError("missing artifact must fail closed")
+
+
+def test_missing_or_nonfinite_uncertainty_cannot_pass(tmp_path, monkeypatch):
+    for bad in [None, [float('nan'), 0.2], [0.3, 0.2]]:
+        path = _comp(tmp_path, {})
+        value = json.loads(path.read_text())
+        value['folds'][0]['ranks'][0]['inner_folds'][0]['adjusted_bootstrap_ci']['q025_q975']['TLS'] = bad
+        path.write_text(json.dumps(value))
+        gate = _run_gate(tmp_path, monkeypatch, path, 'bad-ci')
+        assert gate['uncertainty_gate'] == 'FAIL'
+        assert gate['specific_residual_status'] == 'NOT_IDENTIFIABLE'

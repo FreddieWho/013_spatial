@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "status": "FROZEN_BEFORE_DETECTION",
+  "goal": "Emulate Cho et al. 2026 computational TLS definition to expand the number of USZ TLS foci, especially intratumoral ones.",
+  "paper_method": "iStar super-resolution -> TLS signature score -> unsupervised clustering -> TLS segmentation. USZ has no H&E, so iStar is skipped; this uses expression only.",
+  "signature": {
+    "B_axis": "infra/r04/marker_proxy_combined.json classes.B.voted_genes",
+    "plasma": "r16.axes.PLASMA_GENES",
+    "chemokines": ["CXCL13", "CCL19", "CCL21", "LTB"],
+    "score_v2": "AUCell (rank-based, aucMaxRank = 5% of genes) over the signature; paper's convention",
+    "score_v1_rejected": "mean within-section z-scored log1p(counts); depth-confounded, Spearman with library size +0.73..+0.88 across sections, replaced before any gradient was computed"
+  },
+  "region_rule": {
+    "threshold": "score >= per-section quantile Q",
+    "Q_primary": 0.90,
+    "Q_sensitivity": [0.80, 0.85, 0.95],
+    "connectivity": "hex first ring <= 130 um",
+    "min_spots": 2
+  },
+  "classification": {
+    "IT": "component touches a TUM spot within 130 um",
+    "near": "no touch but nearest TUM spot <= 400 um",
+    "distal": "nearest TUM spot > 400 um",
+    "known_tls_frac": "fraction of component spots labeled TLS by the pathologist",
+    "new": "known_tls_frac == 0"
+  },
+  "label_finding": "LC4 and LC5 pathologist TLS spots are low-depth (median library 260/278 vs 655/6953 for NOR); expression-only detection cannot recover them. Report per section, do not pool over sections.",
+  "gradient_readout_circularity": {
+    "clean": ["G2M", "EMT", "MYC", "MKI67", "COL1A1"],
+    "partially_circular": ["IFN_I", "IFN_II", "MHC_II", "ANTIGEN_PRES", "INFLAMMATION"],
+    "circular": ["B", "CXCL13", "CCL19", "CCL21"],
+    "note": "Detection uses B+plasma+chemokines. Any readout sharing those genes is circular by construction and cannot count as a discovery."
+  },
+  "not_a_result": "This run only measures detection yield. No gradient is fit, no p-value is computed."
+}

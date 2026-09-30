@@ -1,0 +1,13 @@
+{
+  "status": "COMPLETED",
+  "label_unknown_preserved": true,
+  "field_interventions": 44,
+  "hex_foci": 108,
+  "l009_n_patients": 2,
+  "l009_median_delta": -0.375,
+  "l009_patient_interval": [
+    -0.75,
+    0.0
+  ],
+  "structure_claim": "Targeted focus controls; not blind localization or cross-cohort transfer"
+}

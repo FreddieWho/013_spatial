@@ -1,0 +1,10 @@
+{
+  "status": "COMPLETED",
+  "scenarios": 120,
+  "simulated_draws": 120000,
+  "output_sha256": "1ec1877330a42be69b61a1c3eee394599dfa7afa5f9e759221fd5d9a1186b007",
+  "exact_direction_p_floor": 0.25,
+  "real_data_spatial_p": "NOT_CALIBRATED",
+  "T2P2": "NOT_RUN",
+  "interpretation": "Three-patient two-sided sign-flip test has zero rejection power at alpha .05 even without multiple testing."
+}

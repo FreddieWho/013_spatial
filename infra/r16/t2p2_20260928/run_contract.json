@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "status": "FROZEN_BEFORE_RESULTS",
+  "method": "stationary exponential+nugget; empirical semivariogram; Cholesky surrogates L@z",
+  "geometry": "6 T2 diagnostic patients, first manifest section, effect-blind",
+  "coords": "Visium array_row/col to hex pitch when source obs has both and barcodes align; else cache pixel coords, flagged, not silently treated as pitch",
+  "statistic": "mean(score | B-contour signed hop<=0) - mean(score | hop>=4); contour q=0.7",
+  "real_genes": [
+    "CXCL13",
+    "COL1A1"
+  ],
+  "gates": {
+    "impl_fpr_reps": 100,
+    "misspec_reps": 80,
+    "power_reps": 40,
+    "surrogates": 99,
+    "fpr_window": [
+      0.02,
+      0.1
+    ],
+    "power_min": 0.4,
+    "bump_sd": 1.0,
+    "fit_rrmse_max": 0.35,
+    "min_sections_fit": 5,
+    "surrogate_variogram_rrmse_max": 0.35,
+    "surrogate_abs_corr_max": 0.2
+  },
+  "families": [
+    "implementation_grf",
+    "graph_smooth",
+    "zero_inflated_smooth"
+  ],
+  "usable_iff": "implementation FPR in window AND both misspecification families in window AND power>=0.40 AND at least one real gene fit-passes on >=5/6 sections AND surrogate match gates pass on that gene",
+  "failure_action": "else PERMANENTLY_NOT_CALIBRATED for Lane A association p; do not relax thresholds; known-model calibration does not substitute",
+  "not_a_discovery_run": "no GO expansion, no p-values reported as biological findings",
+  "frozen_at_utc": "2026-09-27T20:42:17Z"
+}

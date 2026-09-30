@@ -1,0 +1,127 @@
+[
+  {
+    "section": "LC3",
+    "n_tum": 772,
+    "injected_truth": "strictly_linear_increasing",
+    "legacy_shape": "nonmonotonic",
+    "legacy_r2": 0.8629474977529599,
+    "natural_r2": 1.0,
+    "finite_bin_centers": [
+      0.328125,
+      0.421875,
+      0.515625,
+      0.609375,
+      0.703125
+    ]
+  },
+  {
+    "section": "KC3",
+    "n_tum": 440,
+    "injected_truth": "strictly_linear_increasing",
+    "legacy_shape": "low-to-high",
+    "legacy_r2": 0.7141012977698786,
+    "natural_r2": 1.0,
+    "finite_bin_centers": [
+      0.234375,
+      0.328125,
+      0.421875,
+      0.515625,
+      0.609375,
+      0.703125
+    ]
+  },
+  {
+    "section": "LC2",
+    "n_tum": 514,
+    "injected_truth": "strictly_linear_increasing",
+    "legacy_shape": "low-to-high",
+    "legacy_r2": 0.7845665031133504,
+    "natural_r2": 1.0,
+    "finite_bin_centers": [
+      0.140625,
+      0.234375,
+      0.328125,
+      0.421875,
+      0.515625,
+      0.609375
+    ]
+  },
+  {
+    "section": "LC1",
+    "n_tum": 579,
+    "injected_truth": "strictly_linear_increasing",
+    "legacy_shape": "flat",
+    "legacy_r2": 0.780160469327495,
+    "natural_r2": 1.0,
+    "finite_bin_centers": [
+      0.140625,
+      0.234375,
+      0.328125,
+      0.421875,
+      0.515625,
+      0.609375,
+      0.703125
+    ]
+  },
+  {
+    "section": "KC1",
+    "n_tum": 1088,
+    "injected_truth": "strictly_linear_increasing",
+    "legacy_shape": "flat",
+    "legacy_r2": 0.860813450291191,
+    "natural_r2": 1.0,
+    "finite_bin_centers": [
+      0.234375,
+      0.328125,
+      0.421875,
+      0.515625,
+      0.609375,
+      0.703125
+    ]
+  },
+  {
+    "section": "LC5",
+    "n_tum": 312,
+    "injected_truth": "strictly_linear_increasing",
+    "legacy_shape": "low-to-high",
+    "legacy_r2": 0.8286481147247842,
+    "natural_r2": 1.0,
+    "finite_bin_centers": [
+      0.234375,
+      0.328125,
+      0.421875,
+      0.515625,
+      0.609375
+    ]
+  },
+  {
+    "section": "KC2",
+    "n_tum": 481,
+    "injected_truth": "strictly_linear_increasing",
+    "legacy_shape": "low-to-high",
+    "legacy_r2": 0.8808570846762483,
+    "natural_r2": 1.0,
+    "finite_bin_centers": [
+      0.328125,
+      0.421875,
+      0.515625,
+      0.609375,
+      0.703125
+    ]
+  },
+  {
+    "section": "LC4",
+    "n_tum": 257,
+    "injected_truth": "strictly_linear_increasing",
+    "legacy_shape": "nonmonotonic",
+    "legacy_r2": 0.4353870296987127,
+    "natural_r2": 1.0,
+    "finite_bin_centers": [
+      0.140625,
+      0.234375,
+      0.328125,
+      0.421875,
+      0.515625
+    ]
+  }
+]

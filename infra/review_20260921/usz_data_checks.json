@@ -1,0 +1,100 @@
+{
+  "sections": [
+    {
+      "section": "TLS_VISIUM_USZ::LC3",
+      "patient": "TLS_VISIUM_USZ::PATIENT::0277194ca1561b98",
+      "spots": 4178,
+      "tls": 344,
+      "unknown": 2058,
+      "legacy_knn_foci": 27,
+      "hex_neighbor_foci_diagnostic": 28,
+      "missing_go_genes": [],
+      "source_gene_duplicates": 1
+    },
+    {
+      "section": "TLS_VISIUM_USZ::KC3",
+      "patient": "TLS_VISIUM_USZ::PATIENT::05d0cf19760f8f04",
+      "spots": 3217,
+      "tls": 132,
+      "unknown": 1676,
+      "legacy_knn_foci": 20,
+      "hex_neighbor_foci_diagnostic": 21,
+      "missing_go_genes": [],
+      "source_gene_duplicates": 1
+    },
+    {
+      "section": "TLS_VISIUM_USZ::LC2",
+      "patient": "TLS_VISIUM_USZ::PATIENT::5a46f98f9f8eedfe",
+      "spots": 4456,
+      "tls": 88,
+      "unknown": 3334,
+      "legacy_knn_foci": 11,
+      "hex_neighbor_foci_diagnostic": 11,
+      "missing_go_genes": [],
+      "source_gene_duplicates": 1
+    },
+    {
+      "section": "TLS_VISIUM_USZ::LC1",
+      "patient": "TLS_VISIUM_USZ::PATIENT::7054344dca71771a",
+      "spots": 4364,
+      "tls": 138,
+      "unknown": 1889,
+      "legacy_knn_foci": 17,
+      "hex_neighbor_foci_diagnostic": 15,
+      "missing_go_genes": [],
+      "source_gene_duplicates": 1
+    },
+    {
+      "section": "TLS_VISIUM_USZ::KC1",
+      "patient": "TLS_VISIUM_USZ::PATIENT::7b9204be03aa71d0",
+      "spots": 4173,
+      "tls": 42,
+      "unknown": 2726,
+      "legacy_knn_foci": 7,
+      "hex_neighbor_foci_diagnostic": 6,
+      "missing_go_genes": [],
+      "source_gene_duplicates": 1
+    },
+    {
+      "section": "TLS_VISIUM_USZ::LC5",
+      "patient": "TLS_VISIUM_USZ::PATIENT::83fba1cd85d2f31b",
+      "spots": 2152,
+      "tls": 31,
+      "unknown": 1530,
+      "legacy_knn_foci": 7,
+      "hex_neighbor_foci_diagnostic": 6,
+      "missing_go_genes": [],
+      "source_gene_duplicates": 1
+    },
+    {
+      "section": "TLS_VISIUM_USZ::KC2",
+      "patient": "TLS_VISIUM_USZ::PATIENT::e13843047f4d2612",
+      "spots": 2166,
+      "tls": 30,
+      "unknown": 1389,
+      "legacy_knn_foci": 4,
+      "hex_neighbor_foci_diagnostic": 5,
+      "missing_go_genes": [],
+      "source_gene_duplicates": 1
+    },
+    {
+      "section": "TLS_VISIUM_USZ::LC4",
+      "patient": "TLS_VISIUM_USZ::PATIENT::ff5fc998488e94c0",
+      "spots": 3009,
+      "tls": 120,
+      "unknown": 2072,
+      "legacy_knn_foci": 14,
+      "hex_neighbor_foci_diagnostic": 16,
+      "missing_go_genes": [],
+      "source_gene_duplicates": 1
+    }
+  ],
+  "legacy_replay_max_errors": {
+    "mse_M0": 4.8729189168761344e-06,
+    "mse_M1": 4.986475524035305e-06,
+    "mse_M2": 4.9856705487787145e-06,
+    "dM1_pct": 0.004849830211782091,
+    "dM2_pct": 0.004975089330511384
+  },
+  "note": "Alternative baselines are sensitivity diagnostics, not accepted replacement results."
+}

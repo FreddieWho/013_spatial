@@ -1,0 +1,15 @@
+{
+  "raw_molecular_rows_compared": 103050,
+  "mse_M0_max_abs_difference": 8.966716258385077e-13,
+  "mse_M1_max_abs_difference": 8.379963389870682e-13,
+  "mse_M2_max_abs_difference": 9.625633623500107e-13,
+  "distance_rows_compared": 7208,
+  "distance_max_percentage_point_difference": 6.90477008902235e-10,
+  "USZ_direction_eligible_foci": 11,
+  "USZ_direction_eligible_patients": 3,
+  "USZ_window_labels": {
+    "POSITIVE": 0,
+    "NEGATIVE": 3,
+    "UNKNOWN": 93
+  }
+}

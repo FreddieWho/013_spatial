@@ -1,0 +1,63 @@
+{
+  "status": "COMPLETED_WITH_SCIENTIFIC_LIMITATIONS",
+  "full_GOBP_programs": 6870,
+  "section_mode_tasks": 44,
+  "full_scope": true,
+  "tests_passed": 15,
+  "real_mask_interventions": 132,
+  "models_per_intervention": 5,
+  "previous_result_agreement": {
+    "raw_molecular_rows_compared": 103050,
+    "mse_M0_max_abs_difference": 8.966716258385077e-13,
+    "mse_M1_max_abs_difference": 8.379963389870682e-13,
+    "mse_M2_max_abs_difference": 9.625633623500107e-13,
+    "distance_rows_compared": 7208,
+    "distance_max_percentage_point_difference": 6.90477008902235e-10,
+    "USZ_direction_eligible_foci": 11,
+    "USZ_direction_eligible_patients": 3,
+    "USZ_window_labels": {
+      "POSITIVE": 0,
+      "NEGATIVE": 3,
+      "UNKNOWN": 93
+    }
+  },
+  "calibration_status": "KNOWN_MODEL_ONLY_COMPLETED",
+  "real_spatial_p": "NOT_CALIBRATED",
+  "T2P2": "NOT_RUN",
+  "structure_AUC": "NOT_TESTABLE_NO_POSITIVE_WINDOWS",
+  "direction_confirmation": "HARD_BLOCKED_THREE_PATIENTS",
+  "code_hashes": {
+    "r16/recovery/gobp_stage.py": "23be243219f6dc6b841917fa8130e255161d5e9122492ecca059fad0ff38f7df",
+    "scripts/r16_gobp_stage.py": "5a6372fb42ce77a1e8bf5475ee496de25267a92323264c6c414be7339fedbe55",
+    "scripts/r16_gobp_calibration.py": "40be15c7c36c9950d8f4c6aa0d4eeda11cadc255ab27af2b6abe6538426d47c3",
+    "scripts/r16_gobp_summarize.py": "f1c8dd0334af982c0fd210f148606f68f43758cb57321ccf4e9f4e79d6a978f2",
+    "scripts/r16_gobp_verify.py": "a5684d806b1d844054a2ef1b814c4a16115ba420c0ccc10aea0f381acbc1ecdd",
+    "tests/test_r16_gobp_stage.py": "60160b99c9a5820b7dd7f8650fae8acbe64cd8865e9839d3f9367e8ed0675cdd"
+  },
+  "report_sha256": "16b8dacafb0261574eac65467e09a06896f3ed0f276366ab789da5e6f2fbea75",
+  "results_sha256": "1fae9a4758d84eae945b62b69eacc7ca6cb41982510b732344acaea99d3d9398",
+  "receipt_hashes": {
+    "compute_receipt.json": "611087981394718d61a0caf58cc2a590fb5b22fc228696ee01e16bbcfb921f9b",
+    "oracle_receipt.json": "f02e3d06420d7028a34239d161812861b4c983be2bcfcbd78b566bc3b86f949f",
+    "calibration_receipt.json": "70a22ba8bfccec721aa4298088e794d4fcf0b5c5393a50178c4cd2f3f6ecb38b",
+    "previous_result_agreement.json": "24af2ec05acdac99ee3b244b4354140a5f4101bea61fe8f02a510abd4f345b89",
+    "validation_tests.log": "1df307053afa671edada3ebe0177374b607c534d27df15d8934ef59cb9a19c55"
+  },
+  "project_doc_hashes": {
+    "STATUS.md": "4759dca1dc7c62e77935024e6a6837cb0382fd637a8cda248bdb50c7bfe558cc",
+    "TODO.md": "743b8c1c3235cc9bc63327e2077cc977c3a193b3d81034c10c386a7108833b55",
+    "LEADS.md": "78d3f9d018195d60d402feef7208e82564174ddad277d183bebfb1f708f81478",
+    "docs/decisions.md": "2fe1415d63ba94f9b3a24026d81e810ebcf548dc232a5703eeba9422b3c9e73e",
+    "docs/ISSUES.md": "9abc96c805f4ae19e6b78ce147cbb480871337a4be94138b3794a0bb34577dfc",
+    "docs/roadmap.md": "0eb3f5e3a496b1c6bd59f996fc6a462ff4c865762e6a94c19aa3ba92a556349a",
+    "docs/field_geometry_scanner.md": "0055d32eef12ddc67dc64d1ab943d1eb4e3be1b1df94fe02b5ebc2a15ea1e508"
+  },
+  "plan_unchanged": true,
+  "disk_free_bytes": 1553104445440,
+  "constraints": {
+    "GPU_used": false,
+    "external_data_acquired": false,
+    "old_models_retrained": false
+  },
+  "final_report": "docs/GOBP_TESTS_20260922.md"
+}

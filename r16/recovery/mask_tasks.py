@@ -31,16 +31,17 @@ def window_mask(coords: np.ndarray, win: dict) -> np.ndarray:
 
 def label_windows(wins: list[dict], coords: np.ndarray, gt: np.ndarray,
                   pos_frac: float = 0.1) -> tuple[list[int], list[int]]:
-    """事后套 GT：窗内 GT 覆盖>=pos_frac 为阳性；零覆盖为阴性；部分覆盖单列."""
+    """Only sufficiently annotated positives and completely known negatives."""
+    from r16.recovery.corrected import classify_window
     pos, neg, partial = [], [], []
     for i, w in enumerate(wins):
         m = window_mask(coords, w)
         if m.sum() == 0:
             continue
-        f = gt[m].mean()
-        if f >= pos_frac:
+        state = classify_window(gt[m], pos_fraction=pos_frac)
+        if state == 'POSITIVE':
             pos.append(i)
-        elif f == 0:
+        elif state == 'NEGATIVE':
             neg.append(i)
         else:
             partial.append(i)

@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "checks": 45,
+  "max_absolute_error": 1.2723155862204294e-13,
+  "independence": "Explicit stacked spot designs and weighted np.linalg.lstsq; no moment solver used"
+}

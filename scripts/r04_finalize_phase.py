@@ -1,35 +1,18 @@
 #!/usr/bin/env python3
-"""R-04 final machine-readable gate (D-109/D-110): outcome-neutral closure.
+"""R-04 repaired gate (D-140): separate specificity from a common residual field.
 
-Reads only registered final-audit artifacts, re-verifies hashes/paths/
-patient-fold independence, recomputes verdicts, and emits exactly one of:
-  R04_COMPLETE_WITH_REPRODUCIBLE_RESIDUAL_FIELD
-  R04_COMPLETE_NO_REPRODUCIBLE_RESIDUAL_FIELD
-  R04_BLOCKED_IDENTIFIABILITY
-No model training. Fail closed on any missing artifact, hash mismatch, or
-fold/patient overlap violation.
+The registered composition artifact contains specific-versus-shared AUC deltas,
+not an absolute common-residual readout. Candidate-specific verdicts are retained,
+but these inputs cannot establish the absence of every residual field. The
+scientific status therefore remains R04_BLOCKED_IDENTIFIABILITY while the
+operational stop and closed K search are preserved; no next node is authorized.
 
-Pre-committed candidate rules (frozen before composition numbers were seen):
-- Anchored residual candidate (structure, rank<=2): per inner (test-patient)
-  fold, nested-adjusted specific-increment AUC delta with bootstrap CI.
-  A hit needs adjusted delta >= EFFECT_FLOOR with bootstrap q025 > 0.
-  EFFECT_FLOOR (0.02) is the project's own historical null-equivalence band
-  (|AUC delta| < 0.02 jointly read as zero since the D-100-era sensitivity
-  analyses); bootstrap CIs capture spot-sampling noise only, so a signal
-  must clear the band, not hug it (D-110 synthesis).
-  SURVIVES iff hits occur in >= 2 DISJOINT patients across the two
-  data-folds with the same sign (a patient present in both folds, e.g. a29,
-  cannot replicate with itself; overlap is recorded, not crashed on).
-  DOES_NOT_SURVIVE iff the candidate was tested (COMPUTED with finite CIs)
-  but nothing replicates.
-  NOT_IDENTIFIABLE iff never COMPUTED anywhere or uncertainty missing.
-- Unnamed subspace candidates: verdicts are read off the unnamed audit
-  artifact (D-109 rule); a surviving loading subspace alone is NOT a
-  surviving residual field.
-- fold-4 TSB rank3 0.544: ISOLATED_EXPLORATORY_SIGNAL unless rank1/rank2,
-  fold-0, or nested-adjusted reproduces it (D-109).
-- Uncertainty gate passes iff every reported adjusted effect carries a
-  bootstrap CI and every candidate has a verdict.
+A specific candidate needs finite, ordered uncertainty bounds, an adjusted
+increment at least EFFECT_FLOOR, and replication in two distinct patients across
+both data folds. Shared patients cannot replicate with themselves. These
+spot-bootstrap intervals are exploratory and do not become patient-level
+confirmatory intervals through this gate. Unnamed loading-subspace recurrence
+alone is not evidence of a residual biological field. No model training occurs.
 """
 
 from __future__ import annotations
@@ -37,6 +20,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 from pathlib import Path
 
 from r04.runtime import atomic_json
@@ -102,7 +86,7 @@ def main() -> int:
     parser.add_argument("--unnamed-audit", type=Path,
                         default=Path("infra/r04/unnamed_field_audit_20260911.json"))
     parser.add_argument("--output", type=Path,
-                        default=Path("infra/r04/r04_final_gate_20260911.json"))
+                        default=Path("infra/repair_20260921/r04_final_gate.json"))
     args = parser.parse_args()
     root = args.project_root.resolve()
     evidence: list[dict[str, object]] = []
@@ -147,9 +131,12 @@ def main() -> int:
 
     candidates: list[dict[str, object]] = []
     tested_anywhere = False
+    invalid_uncertainty = False
     for structure in ("TLS", "TUMOR_STROMA_BOUNDARY"):
         for rank in RANKS:
             hits: list[tuple[str, float]] = []
+            hit_folds = set()
+            candidate_invalid = False
             computed = 0
             detail: dict[str, object] = {}
             for fold in FOLDS:
@@ -158,12 +145,19 @@ def main() -> int:
                 for inner in rank_rec["inner_folds"]:
                     if inner.get("status") != "COMPUTED":
                         continue
+                    adj = inner.get("adjusted", {})
+                    ci = inner.get("adjusted_bootstrap_ci", {}).get("q025_q975", {}).get(structure)
+                    delta = adj.get("auc_delta", {}).get(structure)
+                    valid = (isinstance(delta, (int, float)) and math.isfinite(delta)
+                             and isinstance(ci, (list, tuple)) and len(ci) == 2
+                             and all(isinstance(v, (int, float)) and math.isfinite(v) for v in ci)
+                             and ci[0] <= ci[1])
+                    if not valid:
+                        invalid_uncertainty = True
+                        candidate_invalid = True
+                        continue
                     computed += 1
-                    adj = inner["adjusted"]
-                    ci = inner["adjusted_bootstrap_ci"]["q025_q975"][structure]
-                    delta = float(adj["auc_delta"][structure] or 0.0)
-                    hit = (delta >= EFFECT_FLOOR and ci[0] is not None
-                           and ci[0] > 0)
+                    hit = delta >= EFFECT_FLOOR and ci[0] > 0
                     entry = {
                         "test_patients": [_short(p) for p in inner["test_patients"]],
                         "adjusted_auc_delta": delta,
@@ -172,12 +166,15 @@ def main() -> int:
                     }
                     folds_hit.append(entry)
                     if hit:
+                        hit_folds.add(fold)
                         for person in inner["test_patients"]:
                             hits.append((str(person), delta))
                 detail[str(fold)] = folds_hit
             if computed:
                 tested_anywhere = True
-            verdict = (_candidate_verdict(hits) if computed else "NOT_IDENTIFIABLE")
+            verdict = (_candidate_verdict(hits) if computed and not candidate_invalid else "NOT_IDENTIFIABLE")
+            if verdict == "SURVIVES" and len(hit_folds) < 2:
+                verdict = "DOES_NOT_SURVIVE"
             candidates.append({
                 "candidate": f"{structure}_{rank}_residual",
                 "verdict": verdict,
@@ -201,28 +198,28 @@ def main() -> int:
     surviving = [c["candidate"] for c in candidates if c["verdict"] == "SURVIVES"]
     not_identifiable = [c["candidate"] for c in candidates
                         if c["verdict"] == "NOT_IDENTIFIABLE"]
-    uncertainty_ok = bool(tested_anywhere) and all(
+    uncertainty_ok = bool(tested_anywhere) and not invalid_uncertainty and all(
         inner.get("status") != "COMPUTED" or "adjusted_bootstrap_ci" in inner
         for fold in FOLDS
         for rank_rec in comp_folds[fold]["ranks"]
         for inner in rank_rec["inner_folds"])
-    if surviving:
-        status = "R04_COMPLETE_WITH_REPRODUCIBLE_RESIDUAL_FIELD"
-    elif not_identifiable or not uncertainty_ok:
-        status = "R04_BLOCKED_IDENTIFIABILITY"
-    else:
-        status = "R04_COMPLETE_NO_REPRODUCIBLE_RESIDUAL_FIELD"
-    if status == "R04_COMPLETE_WITH_REPRODUCIBLE_RESIDUAL_FIELD":
-        next_nodes = ["R-05"]
-        blocked_nodes = ["R-06", "R-07"]
-    else:
-        next_nodes = []
-        blocked_nodes = ["R-05:NOT_TRIGGERED_NO_SURVIVING_R04_FIELD", "R-06", "R-07"]
+    # Specific-versus-shared contrast cannot establish absence of a shared field.
+    # These registered artifacts contain no absolute common-residual readout.
+    specificity_status = ("SURVIVES" if surviving and uncertainty_ok else
+                          "NOT_IDENTIFIABLE" if not_identifiable or not uncertainty_ok else
+                          "NO_REPLICATED_SPECIFIC_INCREMENT")
+    status = "R04_BLOCKED_IDENTIFIABILITY"
+    next_nodes = []
+    blocked_nodes = ["R-05:NOT_TRIGGERED_SHARED_FIELD_UNTESTED", "R-06", "R-07"]
     gate = {
-        "schema": "r04.final_gate.v1",
+        "schema": "r04.final_gate.v2",
         "phase": "R04",
         "status": status,
-        "created_at": "2026-09-11",
+        "created_at": "2026-09-21",
+        "operational_status": "CLOSED_NO_NEW_COMPUTE_AUTHORIZED",
+        "specific_residual_status": specificity_status,
+        "shared_residual_field_status": "NOT_TESTED",
+        "claim_boundary": "A null specific-versus-shared AUC contrast does not reject a common residual field; D-140.",
         "working_k_model": 3,
         "primary_readout_rank": 2,
         "global_k_eff": "NOT_IDENTIFIABLE",

@@ -1,0 +1,24 @@
+{
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "FAILED_BEFORE_OUTPUT",
+      "reason": "Incorrectly required all raw barcodes in preprocessed annotation; missing barcodes now remain unknown, matching prior cache."
+    },
+    {
+      "attempt": 2,
+      "status": "FAILED_BEFORE_OUTPUT",
+      "reason": "Passed two-column labels to TLS component routine; fixed to TLS column."
+    },
+    {
+      "attempt": 3,
+      "status": "COMPLETED"
+    }
+  ],
+  "minimal_checks": [
+    "radial-band constant contrast equals zero",
+    "rigid-rotation membership invariant",
+    "unknown points cannot become controls"
+  ],
+  "threshold_changes_after_results": false
+}

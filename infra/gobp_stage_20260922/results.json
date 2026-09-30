@@ -1,0 +1,90 @@
+{
+  "status": "COMPLETED",
+  "programs": 6870,
+  "section_mode_tasks": 44,
+  "molecular_both_cohorts_gt20": {
+    "raw": 629,
+    "depth_normalized": 45
+  },
+  "molecular_stable_raw_normalized": 45,
+  "masked_both_cohorts_positive_vs_KNN8": {
+    "raw": {
+      "M1": 2430,
+      "M2": 2498
+    },
+    "depth_normalized": {
+      "M1": 5027,
+      "M2": 5139
+    }
+  },
+  "masked_stable_raw_normalized": {
+    "M1": 2427,
+    "M2": 2497
+  },
+  "distance_counts": {
+    "raw": {
+      "positive_median": 111,
+      "positive_all8": 0
+    },
+    "depth_normalized": {
+      "positive_median": 100,
+      "positive_all8": 0
+    }
+  },
+  "direction_counts": {
+    "raw": {
+      "positive_all3": 781,
+      "negative_all3": 775
+    },
+    "depth_normalized": {
+      "positive_all3": 627,
+      "negative_all3": 1129
+    }
+  },
+  "masked_both_modes_cohorts_all_three_baselines": {
+    "M1": {
+      "strictly_positive_minimum_median": 50,
+      "minimum_median_above_one_percent": 0,
+      "best_minimum_median_percent": 0.04532356228771923,
+      "all_patients_all_conditions_positive": 0
+    },
+    "M2": {
+      "strictly_positive_minimum_median": 92,
+      "minimum_median_above_one_percent": 0,
+      "best_minimum_median_percent": 0.36705639849038774,
+      "all_patients_all_conditions_positive": 0
+    }
+  },
+  "molecular45_masked92_overlap": 0,
+  "stable_distance_positive_median": 30,
+  "stable_direction_positive": 456,
+  "stable_direction_negative": 644,
+  "holm_rejections": {
+    "mask": 0,
+    "direction": 0,
+    "distance": 0
+  },
+  "patient_test_scope": "Conditional on independent symmetric patient effects; whole endpoint-family Holm; not pointwise spatial p",
+  "actual_spatial_association_p": "NOT_CALIBRATED",
+  "hidden_structure_AUC": "NOT_TESTABLE_NO_POSITIVE_WINDOWS",
+  "row_counts": {
+    "molecular_patients": 206100,
+    "mask_patients": 206100,
+    "direction_patients": 41220,
+    "distance_patients": 109920
+  },
+  "numerical_output_hashes": {
+    "masked_patients.tsv": "17148f1f5e00fd4b60c25e2e91766d7d0ca6d1a02d80edd561029f74d5e644a1",
+    "molecular_summary.tsv": "3f5b5fbf5cd10253fddf436536f5c6c31af7c69139daed75f725e77a30016687",
+    "direction_patients.tsv": "c5bfcd827d207fb675144bf6704cca9687e94b37b2f8582e95c4c5fc9852b2f3",
+    "real_data_oracles.tsv": "f4a9559971a541a7b527f3d1ae0ae918d06384cbf9cc5e4c3030efba06887525",
+    "masked_summary.tsv": "cf1b11b8749dd37dbffa0b277e49211bb791f0eb6b80be5772c387e0b389e95e",
+    "molecular_patients.tsv": "9404d26d138839d7bcf256436a5cad3f654fc74525e29071f0b504e6d1959622",
+    "distance_patients.tsv": "dab49b8e7eff3931c24f918eaca3625c73773cd0cbd06bc8c33c356468401ae6",
+    "cross_mode_candidates.tsv": "ee4ba357c2dda4484ad11c7ddda2a89bae3656064d3174ebb57b895c6c35eb6d",
+    "candidate_context.tsv": "a219fa5e83f0c53873feb47119f043aa2e18867cccb9e00a24fd6a43cfdf1567",
+    "direction_summary.tsv": "8b3ecb4eac196ef5c80e4983bd99d5f2d769ed1c96d2fd11674cfa5ca7e2e89f",
+    "calibration_results.tsv": "1ec1877330a42be69b61a1c3eee394599dfa7afa5f9e759221fd5d9a1186b007",
+    "distance_summary.tsv": "c5faba7ca08493ac3818e813c2259194e0864d36088992f835d4d4b7a7865823"
+  }
+}

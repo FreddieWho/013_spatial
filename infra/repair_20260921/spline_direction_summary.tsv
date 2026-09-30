@@ -1,0 +1,9 @@
+route	selection	n_programs	all8_computed	all8_same_monotonic_direction
+raw	original820	820	820	0
+raw	union	901	901	0
+rank	original820	820	820	0
+rank	union	901	901	0
+resid	original820	820	820	0
+resid	union	901	901	0
+rank_resid	original820	820	820	0
+rank_resid	union	901	901	0

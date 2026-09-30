@@ -1,0 +1,33 @@
+{
+  "finished_at_utc": "2026-09-28T11:33:35Z",
+  "verdict": "DOES_NOT_SURVIVE",
+  "primary": {
+    "depth": {
+      "program": "GOBP_ADAPTIVE_IMMUNE_RESPONSE",
+      "mode": "depth",
+      "status": "COLLAPSED",
+      "n": 16,
+      "n_pos": 16,
+      "median_unadj_smd": 1.451236779405468,
+      "median_resid_smd": 0.5662584114809213,
+      "retained_fraction": 0.3901902291319421,
+      "sign_p": 3.0517578125e-05,
+      "median_qc_r2": 0.6562667958764747,
+      "sign_p_holm": 0.000946044921875
+    },
+    "raw": {
+      "program": "GOBP_ADAPTIVE_IMMUNE_RESPONSE",
+      "mode": "raw",
+      "status": "REMAINS",
+      "n": 16,
+      "n_pos": 16,
+      "median_unadj_smd": 0.6642392213220238,
+      "median_resid_smd": 0.48060819462477267,
+      "retained_fraction": 0.7235468475773329,
+      "sign_p": 3.0517578125e-05,
+      "median_qc_r2": 0.9287277414959773,
+      "sign_p_holm": 0.000946044921875
+    }
+  },
+  "n_rows": 992
+}

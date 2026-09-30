@@ -1,0 +1,5 @@
+logical_unit_id	n_auditable_sources	structures	n_physical_units	n_patient_ids	roles	n_block_level_eligible	n_not_block_level_eligible	n_local_hash_matches
+GEO::GSE175540	18	TLS	18	18	external_validation	0	18	18
+HTAN_VANDERBILT_CRC	42	TLS;TUMOR_STROMA_BOUNDARY	36	24	training	42	0	42
+ST_CRC_CMS	12	TUMOR_STROMA_BOUNDARY	12	6	internal_validation	12	0	12
+TLS_VISIUM_USZ	8	TLS	8	8	external_validation	8	0	8

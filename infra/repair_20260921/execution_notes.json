@@ -1,0 +1,10 @@
+{
+  "status": "COMPLETED",
+  "pc_receipt_recovery": {
+    "reason": "NumPy int64 was not JSON serializable after the complete numeric table had been written",
+    "repair": "cast summary count to int; regenerate summary from full table; assert all frozen group members are present",
+    "numeric_table_rows": 49,
+    "numeric_table_sha256": "620dc3d52ce12707526b93e03d0852971ae304fc28d43335db4fa23e10e4fc55"
+  },
+  "incomplete_go_attempts": "Interrupted for source-coverage and CPU execution corrections; none were used as scientific results."
+}
