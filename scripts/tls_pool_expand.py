@@ -232,9 +232,11 @@ def load_cervilla_visium():
         ROOT / "data/other_sources/cervilla_2026/visium_Colorectal/spatial/tissue_positions_list.csv")
     if pos is None:
         return None, reason
-    xy = hex_xy([r for _, r, _ in pos], [c for _, _, c in pos], 100)
     keep = {b for b, _, _ in pos}
     order = [i for i, b in enumerate(barcodes) if b in keep]
+    lut = {b: (r, c) for b, r, c in pos}
+    rows = [lut[b] for b in (barcodes[i] for i in order)]
+    xy = hex_xy([r for r, _ in rows], [c for _, c in rows], 100)
     return ("cervilla-Visium-v1", X[order], names, xy, 100,
             {"vocab": "none", "y": None, "positive_values": None},
             {g: v for g, v in gene_index_from_names(names, ftypes, genomes).items()})
@@ -247,9 +249,11 @@ def load_cervilla_cytassist():
         ROOT / "data/other_sources/cervilla_2026/cytassist_Colorectal/spatial/tissue_positions.csv")
     if pos is None:
         return None, reason
-    xy = hex_xy([r for _, r, _ in pos], [c for _, _, c in pos], 100)
     keep = {b for b, _, _ in pos}
     order = [i for i, b in enumerate(barcodes) if b in keep]
+    lut = {b: (r, c) for b, r, c in pos}
+    rows = [lut[b] for b in (barcodes[i] for i in order)]
+    xy = hex_xy([r for r, _ in rows], [c for _, c in rows], 100)
     return ("cervilla-CytAssist-v2", X[order], names, xy, 100,
             {"vocab": "none", "y": None, "positive_values": None},
             {g: v for g, v in gene_index_from_names(names, ftypes, genomes).items()})
@@ -554,6 +558,11 @@ def run_section(cohort, section_id, X, genes, xy, pitch_um, labels, gene_index,
             "label_vocab": labels.get("vocab", "") if labels else "",
             "extent_um": ""}
     try:
+        if X.shape[0] != len(xy):
+            diag.update(status="skipped",
+                        reason=f"matrix/coordinate row mismatch {X.shape[0]} vs {len(xy)}")
+            diag_rows.append(diag)
+            return
         if X.shape[0] < 10 or not cols:
             diag.update(status="skipped",
                         reason="too few spots or zero signature genes present")

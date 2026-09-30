@@ -1025,6 +1025,18 @@ D-093 (2026-09-01): use the TensorFlow compiled execution path for the frozen K=
 - 决定：池子只用于样本量与诊断；组件仍是 B-签名热点而非已验证 TLS；数量不跨平台直接比；ST-CRC 的 IC aggregate 类维持 FAIL-CLOSED；不改 plan.md。
 - 失效条件：任何把池内组件直接当 TLS 证据用的分析，必须另立合同并先过独立组织学或签名外验证；不得用本池数量论证生物学结论。
 
+## D-160｜2026-09-30｜场筛查改用 Hallmark（用户推翻 D-159 小 panel）＋P0/P1 先行门控
+- 背景：用户要求必须下 MSigDB Hallmark，不退回小 panel；乐观才切 GOBP（归并减规模）；去掉新增外部数据锁；同意 P0–P3 门控意见。GMT 文件已在本地（`data/geneset/h.all.v2026.1.Hs.symbols.gmt`，50 集，32–200 基因/集，中位 199，sha256 `eecaf6…f596`），本次无下载动作；D-111 对未来拉取仍然有效。
+- 选择：读数＝Hallmark 50＋B 轴（对照兼晕问题本身）；mask＝组件＋一圈隔离；距离主口径绝对微米公共 bins，rescale 只做论文仿真敏感性；P0 角度分箱＋P1 走廊对照先行，P2/P3 以阳性为开门条件；Xenium 冻结；GOBP 归并只在乐观后另立冻结。合同 `infra/tls_field_20260930/run_contract_v4.json`。
+- 失效条件：出结果后改 panel、改门槛、把 Xenium 拼入计数、或用免疫读数单独宣布发现，本条作废重冻。
+
+## D-161｜2026-10-01｜Hallmark 场筛查 P0/P1：B 晕有、走廊无；P2/P3 不开
+- 依据：v4 合同、`scripts/tls_field_hallmark.py`、`field_curves/angular/summary_v4{,r}.tsv`。
+- 结果：径向 B 轴 52/53 片为正（中位 drop 0.012）；免疫集 72–92% 为正但量级千分之几且循环；G2M/MYC 平坦；EMT 反方向（基质共定位解释）。角度走廊 51 集全部归零（中位 ±0.002）。
+- 限制：锚点 top-10% 选择效应无梯度 null，只能描述；汇总指标因掩膜改过一次（首个可用 bin），门未动。
+- 决定：P0 径向对 B 描述性通过，角度与 P1 走廊为阴性 → P2/P3 不启动；H-01/H-03/H-05 不升级；plan.md 不变。
+- 失效条件：任何把 B 晕或免疫方向写成淋巴结构定位证据的用法，必须另立合同并先过独立验证与梯度 null。
+
 ## D-159｜2026-09-30｜B 热点场筛查方案冻结（含三条反驳）：内圈一环、冻结小 panel、P0/P1 先行、Xenium 冻结
 - 背景：用户确认内圈隔离一环、读数取免疫＋B＋肿瘤内在、P0–P3 全开、Xenium 先冻结，并要求主动反驳。
 - 反驳一（不跑全 GOBP）：本地 GO 定义 6987 个、中位仅 6 基因，AUCell 在小集合上噪声大；2859 锚点 × 6987 集 ≈ 2000 万条曲线，不可行；45 候选中已有 42/990 对 Jaccard≥0.5，全量跑等于把高度相关的检验数几千倍，且通不过多重检验。Hallmark 本地无文件，下载即新增外部数据，需另行批准。冻结小 panel：免疫（IFN_I/II、MHC_II、炎症、抗原呈递）＋B 轴＋干净肿瘤内在（G2M/EMT/MYC/MKI67/COL1A1）＋少量单基因（CXCL13/CXCL10/CCL19/CCL21/TNFSF14 等）。
