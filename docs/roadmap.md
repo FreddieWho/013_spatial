@@ -294,6 +294,8 @@
 
 **2026-09-03 Torch fold-0 continuation：** fold-0 的 K=0 长 fit 在执行会话 7200 秒上限处停在 global step 4200；checkpoint 的 Torch v3 schema、`params`/`best_state`、Adam state 和 input/objective hash 均完整，未把中断当作模型失败。可恢复 continuation 已推进到 global step 7800，当前只补最后 600 步至 8400；K=0 的正式留出推断和 K=3 fit 尚未开始，当前仍没有新的科学结论。完成后先做 K=0 推断和审计，再推进 K=3，不改变 K 语义或启用 GPU。
 
+**2026-10-01 场线封口对 R-05/R-06/R-07 触发状态的影响：** 本轮把 D-162–D-166 四条证据（Hallmark 场、GOBP 1691 集筛选+前 30 校准、独立病理锚点、组成对照）合并后，“无存活候选场”的结论比 2026-09-11 关门时更强：不仅 R-04 的候选全部 DOES_NOT_SURVIVE，而且后续用 1691 个通路、独立标签锚点和组成控制重做也全部阴性。因此 **R-05/R-06/R-07 继续保持 `NOT_TRIGGERED`**：在没有候选场可定位的情况下启动 R-06 的位置后验属于“阴性门后继续 fishing”。若用户希望把 H-02 当作**方法校准**检验（而非发现检验）开跑，需先明确记录这是对提前登记规则的有意偏离，并由用户批准。
+
 ## R-05｜核心遮蔽与组成捷径对抗
 
 1. **要做什么：** 对 R-04 的目标结构执行结构核心遮蔽、直接定义性 marker 限制、composition-only ceiling、同切片基础区室匹配、cross-fitted residualization，并在可用高分辨率数据中检验固定细胞类型后的状态变化。
