@@ -1,0 +1,45 @@
+{
+  "version": 7,
+  "round": "v7-gobp-halo-null",
+  "status": "FROZEN_BEFORE_SCORING",
+  "frozen_at_utc": "2026-10-01",
+  "purpose": "Calibrate the conditioned near-far contrast for the 30 top-ranked GOBP sets from the v6 screen plus 3 controls, using a matched-autocorrelation surrogate null around FIXED anchors.",
+  "targets": {
+    "file": "infra/gobp_halo_20261001/target_sets_v7.tsv",
+    "sha256": "dd114df56701d7c8d9cda52564a9be3b7906ac7efcbd81a2031cce85f8849acc",
+    "n_sets": 33,
+    "selection": "top 30 by own_median from the v6 screen (rank rule declared in contract v6), then 3 controls",
+    "controls": {
+      "CTRL_B_AXIS": "49-gene B panel; circular positive reference (detection signature shares 49/57 genes)",
+      "CTRL_MYC_V1": "HALLMARK_MYC_TARGETS_V1 (200 genes); clean tumor-intrinsic control, v5 own-arm median -0.0017",
+      "CTRL_RANDOM_32": "32 genes sampled uniformly from the GOBP gene union with seed 20261001; noise floor"
+    }
+  },
+  "statistic": {
+    "arm": "own-conditioned (identical to the v6 screen): readout minus its projection on [deciles of the spot's own detection score] + quadratic tissue trend",
+    "distance": "edge distance to the nearest anchor spot; Voronoi assignment; own-component ring 1.3*pitch excluded",
+    "bins": "0,100,...,1000 um; >=5 spots per bin per anchor",
+    "per_anchor": "delta = mean(bin 200-300) - mean(bin 700-800)",
+    "section_statistic": "median delta over anchors; evaluable if >=8 anchors carry both bins"
+  },
+  "null": {
+    "reason_for_fixed_anchors": "the conditioned residual is, under the null, a smooth field independent of the anchor geometry; so the correct null keeps the observed anchors fixed and randomises only the field. The v5.0 mixing/re-selection design was built for the RAW statistic and would inflate significance here because the conditioned residual has already had the rho*s component removed. Declared before running.",
+    "construction": "per section and per set: estimate sigma from the lag-band correlations of the observed conditioned residual (bands 100-200/200-400/400-700/700-1000, pairs subsampled to <=200k, reuse one pair list per section); simulate iid Gaussian white noise (n x 200), smooth with a row-normalised Gaussian kernel exp(-d^2/(2 sigma^2)) truncated at 3 sigma, standardise columns, quantile-map each column to the marginal distribution of the observed residual; compute the near-far contrast around the fixed observed anchors; section null = median over anchors",
+    "draws": 200,
+    "p_value": "one-sided p = (1 + #{null median >= observed median}) / (200 + 1)",
+    "sigma_fallback": "if sigma cannot be fitted (fewer than 2 usable lag bands) the section is dropped and counted"
+  },
+  "claim_rule": {
+    "per_set": "halo claimed only if (a) >=50% of evaluable sections have p <= 0.05, (b) >=8 evaluable sections, (c) median observed delta > median of the per-section null medians",
+    "controls_expected": "CTRL_RANDOM_32 should give p approximately uniform (no claim); CTRL_MYC_V1 flat; CTRL_B_AXIS reported as the circular reference, not a claim",
+    "no_claim_without_composition_control": "even a positive result stays 'field-shaped co-variation' until the composition control (C6 covariates) is run"
+  },
+  "raw_arm_reference": {
+    "scope": "the v5.0 mixing/re-selection null is run for the 3 controls only, to show the machinery reproduces the v5 control behaviour; the raw arm for the 30 targets is not re-run (v5 already calibrated that statistic on 51 Hallmark/B sets)"
+  },
+  "exclusions": {"xenium": "frozen", "visiumhd": "included, flagged"},
+  "outputs": [
+    "infra/gobp_halo_20261001/gobp_halo_null_v7.tsv",
+    "infra/gobp_halo_20261001/gobp_halo_null_summary_v7.tsv"
+  ]
+}
