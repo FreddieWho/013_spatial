@@ -1069,6 +1069,15 @@ D-093 (2026-09-01): use the TensorFlow compiled execution path for the frozen K=
 - 限制：“无证据”而非“证明无”；半数检验用白噪声 fallback；标签是病理区域注释非分子 GT。
 - 失效条件：若换成分子级 TLS GT（如空间 TCR/浆细胞原位验证）或加入组成对照后出现能过固定掩膜零假设的跨片一致信号，本条重开。报告：docs/LABEL_ANCHOR_FIELD_20261001.md。
 
+## D-166｜2026-10-01｜组成对照补齐：残余超额不被组成解释，也无集通过；场线封口
+- 目的：v4 门里唯一未执行的“beats composition controls”。
+- v9.0 无效：R-04 冻结 NNLS 参考是 **CRC 单细胞**（GSE236581），套到本轮的肾/肺（USZ）与 ccRCC（GSE175540）上退化——usz-LC3 均值 T=0.00/B=0.63/Epi=0.00，gse…c_2 的 Epi=0.06；参考自身 profile 重建完美（各自 1.0），故是**领域不匹配**而非代码 bug。v9.0 结果不承担结论，仅存档为 `*_v90_nnls.tsv`。
+- v9.1 有效：改用跨组织 marker-proxy 模块（CellMarker2.0 + PanglaoDB + CellTypist CRC，加 r16.PLASMA_GENES）的 T/Mye/Epi/Stromal/Plasma 分数（AUCell，转十分位）作协变量；排除 B（锚点相邻轴，已由签名分位代表）与 ILC（非 viable）。跑前有效性检查通过（T/B/Plasma 在 TLS 升、Epi 在肿瘤升）。
+- 结果：own 臂 968 个切片级检验 7.4% p≤0.05、comp 臂 **6.8%**（USZ 7.1%→6.1%，GSE 7.6%→7.3%）；**无读数通过事前判定**（最高 comp 臂 0.25，需 0.50）；对照 MYC 0.00、随机集 0.00。
+- 合并结论：签名锚点（v5/v7）、独立病理标签锚点（v8.2/D-165）、组成对照（v9.1）三个方向一致——无独立分子晕；“锚点循环性”与“组成”两个最强反驳均已被排除。残余 ~1.8pp 超额散在单切片，不聚集于任何通路。
+- 限制：无分子级 TLS GT；Visium 100 μm 分辨率；20/26 片可评估；半数检验用白噪声 fallback；横断面无串行切片（I-002）。
+- 失效条件：分子级 TLS GT 或更高分辨率数据出现能过同一固定掩膜零假设的跨片一致信号时重开。报告：docs/COMPOSITION_CONTROL_FIELD_20261001.md。
+
 ## D-159｜2026-09-30｜B 热点场筛查方案冻结（含三条反驳）：内圈一环、冻结小 panel、P0/P1 先行、Xenium 冻结
 - 背景：用户确认内圈隔离一环、读数取免疫＋B＋肿瘤内在、P0–P3 全开、Xenium 先冻结，并要求主动反驳。
 - 反驳一（不跑全 GOBP）：本地 GO 定义 6987 个、中位仅 6 基因，AUCell 在小集合上噪声大；2859 锚点 × 6987 集 ≈ 2000 万条曲线，不可行；45 候选中已有 42/990 对 Jaccard≥0.5，全量跑等于把高度相关的检验数几千倍，且通不过多重检验。Hallmark 本地无文件，下载即新增外部数据，需另行批准。冻结小 panel：免疫（IFN_I/II、MHC_II、炎症、抗原呈递）＋B 轴＋干净肿瘤内在（G2M/EMT/MYC/MKI67/COL1A1）＋少量单基因（CXCL13/CXCL10/CCL19/CCL21/TNFSF14 等）。
