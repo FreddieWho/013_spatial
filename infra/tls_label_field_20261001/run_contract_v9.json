@@ -1,0 +1,32 @@
+{
+  "version": 9,
+  "round": "v9-composition-controlled-field",
+  "status": "FROZEN_BEFORE_SCORING",
+  "frozen_at_utc": "2026-10-01",
+  "purpose": "Close the last gate of the halo line: test whether any field-shaped co-variation around pathologist TLS survives conditioning on per-spot cell composition (the C6 covariates), in addition to the detection-field level and tissue trend.",
+  "reference": {
+    "source": "frozen R-04 composition reference, infra/r04/composition_ref (GSE236581 CRC-ICB author-annotated profiles; evidence grade exploratory_post_hoc_no_confirmatory_claim)",
+    "profile_space": "proportion (row-normalised counts)",
+    "classes": ["T", "B", "Mye", "ILC", "Epi", "Stromal"],
+    "panel_genes": 3854,
+    "method": "per-spot NNLS onto class mean profiles, weights row-normalised (same operator as scripts/r04_deconvolve_nnls.py)",
+    "uncertainty": "none propagated (documented limitation of the reference)"
+  },
+  "design": {
+    "anchors": "pathologist TLS labels (USZ ground_truth == TLS; GSE175540 == TLS), same 26 sections",
+    "statistic": "identical to v8.1/v8.2: section-level edge distance bins, contrast = mean(bin 200-300) - mean(bin 700-800), >=30 spots per bin, ring 1.3*pitch excluded",
+    "arms": {
+      "own": "conditioning = [deciles of own detection score] + quadratic trend (v8.2 comparator, recomputed here)",
+      "comp": "primary: conditioning = [deciles of own detection score] + [deciles of each of the 6 composition classes] + quadratic trend"
+    },
+    "null": "identical to v8.2: matched-sigma smooth surrogate of the conditioned residual with a white-noise fallback when sigma cannot be fitted; 200 draws; same TLS mask",
+    "claim_rule": "unchanged: >=50% of evaluable sections with p <= 0.05, >=8 sections, median observed > median null",
+    "interpretation_rule": "if the comp arm loses the own arm's signal, the residual excess is attributable to composition; if both are null there is no field-shaped co-variation beyond composition and detection level; a comp-arm claim still requires the external-anchor caveat (labels are pathology TLS, not molecular ground truth)"
+  },
+  "outputs": [
+    "infra/tls_label_field_20261001/composition/<section_id>.npz",
+    "infra/tls_label_field_20261001/label_field_comp_sections.tsv",
+    "infra/tls_label_field_20261001/label_field_comp_null.tsv",
+    "infra/tls_label_field_20261001/label_field_comp_summary.tsv"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "version": "8.1",
+  "round": "v8-independent-anchor-field",
+  "status": "FROZEN_BEFORE_SCORING",
+  "frozen_at_utc": "2026-10-01",
+  "purpose": "Halo test with INDEPENDENT anchors: pathologist TLS labels define the geometry (distance field), not signature hotspots. Removes the anchor circularity of v4-v7.",
+  "v8_2_fallback": {
+    "declared_at_utc": "2026-10-01",
+    "trigger": "in the v8.1 run 485 of 968 section-readout pairs were dropped as 'sigma unfit': the conditioned residual shows lag-band correlations below 0.05, i.e. the conditioning removed most of the spatial autocorrelation",
+    "change": "when sigma cannot be fitted the surrogate becomes uncorrelated noise with the same marginal distribution (no smoothing), instead of dropping the test",
+    "scope": "adds the previously dropped tests only; the 483 tests already computed are unchanged, as are the statistic, the bins and the claim rule",
+    "known_limitation": "a white surrogate slightly understates the contrast variance when weak autocorrelation remains (rho < 0.05), so the fallback is mildly anti-conservative; the note 'white_fallback' marks every affected row"
+  },
+  "why_v8_1": {
+    "probe": "label geometry probed before any readout statistic was computed",
+    "finding": "per-anchor Voronoi profiles are infeasible with label anchors: only 5-6 of 26 sections reach >=8 evaluable anchors (far-band variants 400-500 / 500-600 / 700-800 / 600+ pooled give 5 / 5 / 6 / 6 sections); label masks carry 16-344 TLS spots per section and form many small components whose Voronoi territories rarely extend to the far bin",
+    "change": "primary statistic moved to the SECTION-level edge-distance profile (one profile per section using the whole TLS mask), which is fully powered (hundreds of spots per bin) and corresponds to the Cho 2026 RadialDistance design; the per-anchor version is retained as a descriptive secondary for the 6 sections that qualify",
+    "no_result_seen": "at the time of this amendment no readout contrast, p-value or ranking had been computed for any section"
+  },
+  "anchors": {
+    "source": "spot labels",
+    "definition": {"USZ": "obs/ground_truth == 'TLS'", "GSE175540": "label == 'TLS'"},
+    "sections": "USZ 8 + GSE175540 18 = 26",
+    "label_quality_flag": "USZ LC4 (AUC 0.377) and LC5 (0.18) flagged weak; pre-declared sensitivity drops them"
+  },
+  "primary_statistic": {
+    "distance": "edge distance from each spot to the nearest TLS-labelled spot; spots within 1.3*pitch of any TLS spot are excluded (the TLS interior)",
+    "bins": "0,100,...,1000 um; a bin enters the contrast only if it holds >=30 spots",
+    "contrast": "mean(residual | bin 200-300) - mean(residual | bin 700-800)",
+    "conditioning": "own arm identical to v6/v7: readout minus projection on [deciles of the spot's own detection score] + quadratic tissue trend; raw contrast also reported",
+    "section_scope": "all tissue spots outside the TLS ring; one contrast per section per readout"
+  },
+  "null": {
+    "design": "matched-autocorrelation smooth surrogate of the conditioned residual: sigma from lag-band correlations of the residual (bands 100-200/200-400/400-700/700-1000, pairs <=200k), Gaussian kernel truncated at 3 sigma, columns standardised then quantile-mapped to the residual marginal; the SAME TLS distance mask is used, so the null answers 'what contrast does a smooth field with this autocorrelation give around this TLS geometry'",
+    "draws": 200,
+    "p_value": "one-sided p = (1 + #{null contrast >= observed contrast}) / (200 + 1)"
+  },
+  "readouts": {
+    "panel_a": "33 frozen v7 sets (30 GOBP top + B_AXIS + MYC_V1 + RANDOM_32)",
+    "panel_b": "4 Hallmark (IFN-gamma, IFN-alpha, G2M, EMT)",
+    "panel_c": "12 single genes (CXCL13, CCL19, CCL21, LTB, CD74, HLA-DRA, IFNG, CXCL9, GZMB, CD8A, MKI67, COL1A1)",
+    "n_readouts": 49,
+    "note": "with label anchors the readouts are no longer circular by construction; the detection score enters only through conditioning"
+  },
+  "claim_rule": {
+    "per_readout": "field claimed only if (a) >=50% of evaluable sections have p <= 0.05, (b) >=8 evaluable sections, (c) median observed contrast > median null contrast",
+    "controls_expected": "RANDOM_32 and MYC_V1 flat; B_AXIS now interpretable as a normal readout",
+    "composition_gate": "even a positive result stays field-shaped co-variation until the composition control is run (next step of this plan)"
+  },
+  "secondary": {
+    "per_anchor_profile": "descriptive only, for the sections with >=8 evaluable anchors (6 sections); no null, no claim"
+  },
+  "pre_declared_sensitivity": [
+    "sensitivity A: exclude USZ LC4 and LC5",
+    "sensitivity B: GSE175540 sections only"
+  ],
+  "outputs": [
+    "infra/tls_label_field_20261001/label_field_sections.tsv",
+    "infra/tls_label_field_20261001/label_field_summary.tsv",
+    "infra/tls_label_field_20261001/label_field_null.tsv"
+  ]
+}
