@@ -1,0 +1,49 @@
+{
+  "version": 6,
+  "round": "v6-gobp-halo-screen",
+  "status": "FROZEN_BEFORE_SCORING",
+  "frozen_at_utc": "2026-10-01",
+  "purpose": "Scan the compressed keep-specific GOBP panel (1691 sets) around TLS-pool anchors with the v5 conditioned near-far contrast. Screen only: nominate candidates, make no claims.",
+  "panel": {
+    "file": "infra/gobp_compress_20261001/survivors_specific_floor20_jac70.tsv",
+    "sha256": "512842dd33617dad2b9e7d751c3b7193dcde6ecdc74fde377a9058dafba0f7ac",
+    "rule": "keep-specific (ascending size; a term is dropped if it is an ancestor of an already kept term), size floor 20 raw genes, Jaccard 0.7, no depth window, no size cap",
+    "n_sets": 1691,
+    "raw_size_min_med_p90_max": [20, 32, 82, 1248],
+    "gene_source": "/home/huyudi/006/data/pathway/c5.go.v2025.1.Hs.symbols.gmt (MSigDB v2025.1 GOBP, local)",
+    "ontology": "/home/huyudi/012_conference/aaai2027/data/raw/ontology/go-basic.obo (releases/2026-06-15, local); 7331/7583 names matched, 252 unmatched",
+    "notes": "the surviving 1248-gene set is flagged in the summary (large terms can survive when no descendant passes the floor); sets outside definitions.json (4) and sets with cohort coverage <10 are reported but not filtered here"
+  },
+  "scoring": {
+    "operator": "identical formula to tls_pool_expand.aucell: rank 1 = highest expression, contribution clip(max_rank - rank + 1, 0), divided by (k * max_rank), max_frac 0.05",
+    "speed": "one rank pass per section; all 1691 sets scored by a single sparse product",
+    "equivalence_gate": "before any scan row is written, 5 random panel sets are compared against tls_pool_expand.aucell on the same section; max |diff| must be <= 1e-6, otherwise the run aborts"
+  },
+  "metric": {
+    "distance": "edge distance to the nearest anchor spot; spots assigned by Voronoi to that anchor's component; own-component ring 1.3*pitch excluded",
+    "bins": "0,100,...,1000 um; at least 5 spots per bin per anchor",
+    "per_anchor": "delta = mean(bin 200-300) - mean(bin 700-800)",
+    "section_statistic": "median delta over anchors; section evaluable if >=8 anchors carry both bins",
+    "arms": {
+      "raw": "no conditioning",
+      "own": "readout minus its projection on [deciles of the spot's own detection score] + quadratic tissue trend",
+      "local": "same projection using deciles of the 300 um-smoothed detection score (over-corrects by construction; reported, not used for claims)"
+    },
+    "detection_field": "57-gene B/plasma/chemokine signature, top-10% threshold, components at 1.3*pitch, min_size 2 (identical to the pool and v4/v5)"
+  },
+  "screen_rule": {
+    "claims": "none. All values are NOT_CALIBRATED; this round may only nominate candidates.",
+    "ranking": "own_median descending, own_pos_frac as consistency; raw_median/raw_pos_frac reported alongside",
+    "calibration_deferred": "a matched-autocorrelation surrogate null (v5.0 design) will be run only for the top 50 sets by own_median, in a separate round with its own contract",
+    "multiple_testing_context": "1691 sets; the binomial reference for a set reaching >=60% positive sections out of 53 by chance is reported next to the summary",
+    "circularity": "any set whose overlap with the 57-gene detection signature is >=20% of the set is flagged; those cannot carry a biological claim"
+  },
+  "exclusions": {
+    "xenium": "frozen (panel coverage 20/57)",
+    "visiumhd": "included but flagged; giant components (up to 4612 spots) make its geometry unreliable"
+  },
+  "outputs": [
+    "infra/gobp_halo_20261001/gobp_halo_sections.tsv",
+    "infra/gobp_halo_20261001/gobp_halo_summary.tsv"
+  ]
+}

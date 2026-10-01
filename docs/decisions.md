@@ -1045,6 +1045,14 @@ D-093 (2026-09-01): use the TensorFlow compiled execution path for the frozen K=
 - 结论：B 晕＝峰值选择＋读数随局部 B 场水平变化；无独立于 B 场之外的分子晕/场；走廊阴性（USZ-only）。
 - 失效条件：若将来引入**组成对照**（C6 协变量）或独立组织学锚点后重新检出方向一致的晕，本条需重开；任何引用“无晕”结论时必须同时说明组成对照尚未执行。报告见 docs/TLS_FIELD_NULL_20261001.md。
 
+## D-163｜2026-10-01｜GOBP 压缩规则（用户选定 keep-specific）＋compressed panel 晕扫掠（screen-only）
+- 背景：用户要求用 Hallmark 之外的 GOBP 扫一遍分子晕；先做压缩。本地已有 v2025.1 的 c5.go GMT（`/home/huyudi/006/data/pathway/`）与 GO 本体（`012_conference/…/go-basic.obo`，releases/2026-06-15），零下载。
+- 数据：GOBP 7583 集；名称匹配本体 7331（96.7%），252 未匹配（旧名/弃用）；仅尺寸 ≥20 基因保留 3808，仅层级去后代保留 867。用户选定 **keep-specific（每条谱系留最具体者，floor 20 基因，Jaccard 0.7）→ 1691 集**，面板文件 `infra/gobp_compress_20261001/survivors_specific_floor20_jac70.tsv`，sha256 `512842dd…f7ac`。失效条件：若换用“保留泛化”或加 depth 窗，需另写一条。
+- 扫描口径：与 D-162 条件化臂一致（边缘距离、每锚点近-远差、raw/own/local 三口径）；实现改为“每片只排一次秩 + 一次稀疏乘法打 all sets”，开跑前用 5 个随机集与 `aucell` 逐点比对 ≤1e-6 通过；53 片 × 1691 集 919 秒。合同 `infra/gobp_halo_20261001/run_contract_v6.json`。
+- 结果：raw 中位为正的集 52.3%、own 后 38.5%；中位 raw +0.00005 → own −0.00021。片内标签置换零假设：own ≥0.7 实测 13 对零假设中位 4（上限 10），own ≥0.65 为 59 对 32，raw ≥0.7 为 101 对 16；集大小与 own_pos 无关（Spearman −0.025）。
+- 结论：**筛选结果，NOT_CALIBRATED，不作声明**。top 名单里补体经典途径、肽抗原-MHC 组装、抗菌体液反应与 v5 方向一致；心肌形态发生、剪接位点识别等项生物学上无法解释。下一步（合同已预登记）：只对 own 前 50 集跑匹配自相关代理场 null。
+- 报告：docs/GOBP_HALO_SCREEN_20261001.md。
+
 ## D-159｜2026-09-30｜B 热点场筛查方案冻结（含三条反驳）：内圈一环、冻结小 panel、P0/P1 先行、Xenium 冻结
 - 背景：用户确认内圈隔离一环、读数取免疫＋B＋肿瘤内在、P0–P3 全开、Xenium 先冻结，并要求主动反驳。
 - 反驳一（不跑全 GOBP）：本地 GO 定义 6987 个、中位仅 6 基因，AUCell 在小集合上噪声大；2859 锚点 × 6987 集 ≈ 2000 万条曲线，不可行；45 候选中已有 42/990 对 Jaccard≥0.5，全量跑等于把高度相关的检验数几千倍，且通不过多重检验。Hallmark 本地无文件，下载即新增外部数据，需另行批准。冻结小 panel：免疫（IFN_I/II、MHC_II、炎症、抗原呈递）＋B 轴＋干净肿瘤内在（G2M/EMT/MYC/MKI67/COL1A1）＋少量单基因（CXCL13/CXCL10/CCL19/CCL21/TNFSF14 等）。
