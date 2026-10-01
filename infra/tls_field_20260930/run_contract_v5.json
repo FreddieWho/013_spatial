@@ -1,0 +1,41 @@
+{
+  "version": 5,
+  "round": "v5-halo-null-calibration",
+  "status": "FROZEN_BEFORE_SCORING",
+  "frozen_at_utc": "2026-10-01",
+  "purpose": "Calibrate the radial halo against a selection+autocorrelation null, replace centroid distance with edge distance, correct the angular analysis scope, and quantify readout circularity. Post-hoc relative to v4; declared before any v5 statistic was computed.",
+  "audit_findings_that_motivated_v5": {
+    "cervilla_alignment": "Cervilla loaders returned X subset with full-tissue coordinates; components() then indexed the first len(X) rows silently. Fixed 2026-09-30. Pool components 2859 -> 2900 (Cervilla 76 -> 117). Field anchors verified equal to pool components for all 53 Visium sections (2747 anchors).",
+    "angular_scope": "Only USZ carries a 'TUM' label value. HTAN values are carcinoma/carcinoma_border, STCRC values are tumor/tumor&stroma_*; the v4 angular run searched only for 'TUM', so sector 0 was arbitrary (+x) for 22/30 sections that were reported as 'labeled cohorts'. Any corridor claim is restricted to cohorts with a declared tumor-label map.",
+    "readout_circularity": "B_AXIS = 49/49 genes of the detection signature (definitionally circular). Hallmark overlaps with the 57-gene signature: allograft 10/200, IL2_STAT5 6/199, IFN_gamma 4/200, IL6 4/87, IFN_alpha 3/97, TNFA 1/200; 31 sets zero overlap.",
+    "giant_components": "hd-colon-16um has components of 4612/3304/1789 spots; centroid distance is meaningless there. Edge distance is used in v5 and HD is reported separately.",
+    "metric_range": "v4 'first available bin' was 200-300 for 52/53 Visium sections (pitch 100 everywhere), so the range concern is limited; the remaining issue is the absence of a null, not the range."
+  },
+  "operator": {
+    "distance": "edge distance = distance to the nearest anchor spot; each spot is assigned to the component of its nearest anchor spot (Voronoi on the anchor mask); own-component ring at 1.3*pitch excluded",
+    "bins": "0,100,...,1000 um; at least 5 spots per bin per anchor",
+    "statistic": "per anchor rel_drop = 1 - mean(bin 700-800)/mean(bin 200-300); require >=5 spots in both bins and near_mean >= 0.005; section statistic = median rel_drop over anchors; evaluable if >=8 anchors",
+    "null": "matched-autocorrelation surrogate fields. Per section: estimate sigma from observed lag-band correlations (bands 100-200, 200-400, 400-700, 700-1000; pairs sampled to <=200k) by fitting rho(d)=exp(-d^2/(4 sigma^2)) in log space using bands with rho>0.05; simulate iid white noise, smooth with a row-normalised Gaussian kernel exp(-d^2/(2 sigma^2)) truncated at 3 sigma, standardise; readout surrogate = rhoS*Zs + sqrt(1-rhoS^2)*Zr with rhoS = Spearman(observed detection, observed readout) and independent Zr smoothed with the readout's own sigma; quantile-map both surrogates to the observed marginals; anchors = top-10% of the surrogate detection field -> components(1.3*pitch, min_size=2) -> same edge-distance statistic. 200 draws.",
+    "test": "one-sided p = (1 + #{null median rel_drop >= observed median rel_drop}) / (N_draws + 1); halo signal claimed for a readout only if (a) >=50% of evaluable sections have p <= 0.05, (b) >=8 evaluable sections, (c) median observed rel_drop > median of per-section null medians",
+    "primary_readouts": ["B_AXIS", "HALLMARK_INTERFERON_GAMMA_RESPONSE", "HALLMARK_INTERFERON_ALPHA_RESPONSE", "HALLMARK_G2M_CHECKPOINT", "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION", "HALLMARK_MYC_TARGETS_V1"],
+    "claim_eligibility": "only sets whose overlap with the 57-gene detection signature is < 20% of set size may support a biological claim; B_AXIS serves as a circular consistency reference",
+    "exclusions": "Xenium frozen (v4); hd-colon-16um reported separately",
+    "angular": "sector 0 is the direction to the nearest tumor spot only where a declared tumor-label map exists (USZ: label == TUM). Other cohorts are NOT_EVALUABLE for the corridor test. Corridor statistic = sector0 - mean(sector1,sector3) per radial band, median over anchors."
+  },
+  "gates": {
+    "P2_P3": "unchanged; not opened by this round",
+    "composition_control": "NOT executed in v5; remains the open gap named in the v4 gate"
+  },
+  "v5_1_addendum": {
+    "declared_before_full_run": true,
+    "declared_at_utc": "2026-10-01",
+    "seen_before_declaration": "one 2-section smoke run with 20 draws; no p-values, no full-panel statistics",
+    "changes": {
+      "draw_threshold_fix": "the 'too few draws' guard used a fixed 50 that a 20-draw smoke could never meet; now max(20, 0.5*N); this is a bug fix, not a threshold relaxation",
+      "surrogate_diagnostics": "each null row now records observed and median-null component counts plus the observed lag-band correlations used for the sigma fit",
+      "conditioned_arm_added": "PRIMARY arm: per-anchor near-minus-far contrast of the readout after regressing out deciles of the detection-field level (own spot, and 300 um-smoothed) plus a quadratic tissue trend; this removes the peak-selection effect without a covariance model. SURROGATE arm (v5.0) demoted to SECONDARY because a single-sigma Gaussian surrogate cannot reproduce the long-range component of real fields (smoke: fitted sigma 173 um predicts rho(700-1000)~0.00 while observed rho=0.29-0.59); the direction of that mismatch is conservative (null drops are inflated), so the surrogate arm is retained as a conservative reference, and component-count diagnostics are recorded to expose geometry mismatch."
+    },
+    "conditioned_arm_rule": "per anchor delta = mean(residual, 200-300) - mean(residual, 700-800), >=5 spots per bin, >=8 anchors per section, section statistic = median delta; halo claimed for a readout iff both conditioned arms (own-field and 300 um-smoothed-field) give >=60% of evaluable sections with delta > 0 AND >=8 evaluable sections; only non-circular sets may carry a biological claim",
+    "disagreement_rule": "if the surrogate and conditioned arms disagree, the conditioned arm is reported as primary and the disagreement is reported explicitly; no set is called positive on the surrogate arm alone"
+  }
+}

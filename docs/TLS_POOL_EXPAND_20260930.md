@@ -18,13 +18,13 @@
 |---|---|---|---|
 | USZ（肾/肺，Visium v1/v2） | 8 | 430 | 标签验证见下 |
 | GSE175540（ccRCC，Visium v1） | 18 | 1008 | 标签验证见下 |
-| ST-CRC（CRC，Visium） | 14 | 364 | 无 TLS 标签；IC aggregate 类 FAIL-CLOSED |
+| ST-CRC（CRC，Visium） | 14 | 365 | 无 TLS 标签；IC aggregate 类 FAIL-CLOSED |
 | HTAN-CRC（淋巴滤泡验证 8 片） | 8 | 452 | 标签验证见下 |
-| Cervilla CRC 对（Visium v1 + CytAssist v2） | 2 | 76 | 无标签 |
+| Cervilla CRC 对（Visium v1 + CytAssist v2） | 2 | 117 | 无标签 |
 | 10x 公开 CRC（Parent Visium + CytAssist 11mm） | 2 | 250 | 无标签 |
 | VisiumHD 结肠 FF（16 μm→55 μm 伪格） | 1 | 125 | 无标签 |
 | Xenium 肾/肺（55 μm 伪格，panel 受限） | 2 | 153 | 无标签，见下 |
-| 合计 | 55 | 2859 | |
+| 合计 | 55 | 2900 | |
 
 ## 签名覆盖
 
@@ -40,8 +40,7 @@ JCHAIN/SDC1/CD74/HLA-DRA/COL1A1 等）——Xenium 是独立的 panel 受限层�
 
 ## 置换 null 对照（每 section 10 次）
 
-- Visium 系：obs/null 中位约 1.3–3.5（HD 12.5）。高分点成团显著多于随机。
-- Cervilla CytAssist v2：0.95，基本等于 null（探针/化学敏感性备注）。
+- Visium 系：obs/null 中位按队列 1.58（Cervilla）–2.38（HTAN），USZ 2.11、GSE175540 2.04、ST-CRC 2.10、Parent 2.35、HD 11.90。高分点成团显著多于随机。
 - Xenium：0.72/0.60——观测到的组件数**少于** null 中位，即大团块而非散点；
   panel 受限、无标签验证，不解读为 TLS 证据。
 
@@ -52,3 +51,15 @@ JCHAIN/SDC1/CD74/HLA-DRA/COL1A1 等）——Xenium 是独立的 panel 受限层�
 - ST-CRC 的 IC aggregate 类维持 FAIL-CLOSED，不计入任何 TLS 口径。
 - LC4/LC5（USZ）与 GSE175540 frozen_c_5（AUC 0.56）等弱验证行保留原样，
   不删不修。
+
+## 修复记录（2026-10-01 审计）
+
+本文件与 `pool_components.tsv` 在 2026-10-01 的审计中被修正两处：
+
+1. **Cervilla 坐标错位（实质）**：两个 Cervilla loader 返回的是全片坐标数组
+   与矩阵子集，`components()` 用布尔掩膜索引坐标时静默取前 N 行 → 组件位置
+   错误。修复后 Cervilla 组件数 76 → 117，全池 2859 → 2900。
+   修后 obs/null 由约 0.95 变为 1.58（Visium v1）/1.90（CytAssist v2），
+   与其余 Visium 系队列同量级。场筛查（v4/v5）在此修复之后运行，未受影响；
+   D-158 正文的 2859 为修复前数字，以 D-162 更正。
+2. **ST-CRC 计数笔误**：表格原写 364，文件实为 365（合计随之少 1）。

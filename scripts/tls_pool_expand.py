@@ -68,6 +68,8 @@ def hex_xy(array_row, array_col, pitch_um):
 
 
 def components(xy, mask, pitch_um, min_size=2):
+    if len(np.asarray(mask)) != len(xy):
+        raise ValueError(f"components(): mask length {len(np.asarray(mask))} != coordinate rows {len(xy)}")
     idx = np.where(np.asarray(mask, dtype=bool))[0]
     if len(idx) == 0:
         return []
