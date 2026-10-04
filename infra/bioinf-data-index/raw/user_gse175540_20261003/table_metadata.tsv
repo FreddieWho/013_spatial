@@ -1,0 +1,131 @@
+cohort	ID	pT	Lymphocyte and TLS quantification	TLS maturation	Plasma cell and Ig detection	AI-based fibroblast quantification	Innate cell detection CD68	Innate cell detection NK	Cell death quantification	Spatial transcriptomics	Bulk 5' RNAseq
+ExhauCRF	a_1	pT1b	X		x		x	x		Frozen	x
+ExhauCRF	a_2	pT3c	X	x	x			x	x		2x
+ExhauCRF	a_3	pT3c	X		x		x	x	x	Frozen	x
+ExhauCRF	a_4	pT1b	X	x	x		x		x		2x
+ExhauCRF	a_5	pT3b	X	x	x		x	x	x		x
+ExhauCRF	a_6	pT1b	X		x		x	x	x		x
+ExhauCRF	a_7	pT 3a	X	x	x				x		x
+ExhauCRF	a_8	pT1b	X	x	x		x	x	x		x
+ExhauCRF	a_9	NA	X	x	x		x	x	x		x
+ExhauCRF	a_10	pT3a	X	x	x			x	x		x
+ExhauCRF	a_11	pT3a	X	x	x		x	x	x		x
+ExhauCRF	a_12	pT3b	X	x	x			x	x		x
+ExhauCRF	a_13	pT3a	X		x		x	x	x		
+ExhauCRF	a_14	pT1b	X	x	x		x	x	x		
+ExhauCRF	a_15	pT1b	X	x	x		x	x	x	Frozen	2x
+ExhauCRF	a_16	pT1b	X		x		x	x	x		x
+ExhauCRF	a_17	pT1b	X		x		x	x	x	Frozen	x
+ExhauCRF	a_18	pT1b	X	x	x			x	x		
+ExhauCRF	a_19	pT1a	X		x			x	x		x
+ExhauCRF	a_20	NA	X	x	x		x	x	x		
+ExhauCRF	a_21	pT1b	X		x			x	x		
+ExhauCRF	a_22	pT2a	X	x	x		x	x	x		
+ExhauCRF	a_23	pT1b	X				x	x	x		
+ExhauCRF	a_24	pT3c	X	x	x		x	x	x		
+ExhauCRF	a_25	pT2a	X		x		x	x	x		
+ExhauCRF	a_26	pT1b	X	x	x		x	x	x		x
+ExhauCRF	a_27	NA									x
+ExhauCRF	a_28	pT3a	X	x	x		x	x	x		x
+ExhauCRF	a_29	NA	X		x				x		
+ExhauCRF	a_30	pT3a	X	x	x			x	x		
+ExhauCRF	a_31	pT3a	X	x	x		x	x	x		
+ExhauCRF	a_32	pT1b	X	x	x		x	x	x		x
+ExhauCRF	a_33	pT3a	X	x	x			x	x		
+ExhauCRF	a_34	pT1b	X	x	x			x	x		
+ExhauCRF	a_35	pT3a	X		x		x	x	x		
+ExhauCRF	a_36	pT3a	X	x	x		x	x	x		
+ExhauCRF	a_37	pT1b	X		x		x	x	x		
+ExhauCRF	a_38	pT3a	X		x			x	x		
+ExhauCRF	a_39	pT3a	X	x	x		x	x	x		
+ExhauCRF	a_40	pT3a	X		x		x	x	x		
+ExhauCRF	a_41	pT3a	X	x	x		x	x	x		
+ExhauCRF	a_42	pT3a	X	x	x			x	x		
+ExhauCRF	a_43	pT3a	X		x		x	x	x		
+ExhauCRF	a_44	pT2a	X		x		x	x	x		
+ExhauCRF	a_45	pT3a	X	x	x		x	x	x		
+ExhauCRF	a_46	pT3a	X		x		x	x	x		
+IMM	b_1	pT1	X		x					Frozen	x
+IMM	b_2	pT1	X								x
+IMM	b_3	pT3	X								x
+IMM	b_4	pt3	X								
+IMM	b_5	pT2	X								x
+IMM	b_6	pT1	X								x
+IMM	b_7	pT3	X							Frozen	x
+IMM	b_8	pT1	X								x
+IMM	b_9	pT1	X								x
+IMM	b_10	pT1	X								x
+IMM	b_11	pT1	X								x
+IMM	b_12	pT1	X								x
+IMM	b_13	pT3	X							Frozen	x
+IMM	b_14	pT1	X								x
+IMM	b_15	pT1	X								x
+IMM	b_16	pT3	X								x
+IMM	b_17	pT3	X								x
+IMM	b_18	pT2	X							Frozen	x
+IMM	b_19	pT2	X								x
+IMM	b_20	pT1	X								x
+IMM	b_21	pT1	X								x
+IMM	b_22	pT1	X								x
+IMM	b_23	pT1	X								x
+IMM	b_24	pT1	X								x
+IMM	b_25	pT2	X								x
+BIONIKK	c_1	pT3a	X		x		x	x	x		
+BIONIKK	c_2	pT1a	X		x	x	x	x	x	Frozen / FFPE	
+BIONIKK	c_3	pT4	X	x	x	x	x	x		FFPE	
+BIONIKK	c_4	pT3a	X							FFPE	
+BIONIKK	c_5	pT3a	X		x	x	x	x	x	Frozen	
+BIONIKK	c_6	pT3a	X	x	x	x	x	x	x		
+BIONIKK	c_7	pT3b	X	x	x	x	x	x		FFPE	
+BIONIKK	c_8	pT3b	X	x	x	x	x	x	x		
+BIONIKK	c_9	pT3c	X		x	x	x	x	x		
+BIONIKK	c_10	pT3a	X		x	x	x	x		FFPE	
+BIONIKK	c_11	pT2a	X		x		x	x			
+BIONIKK	c_12	pT3a	X	x	x	x					
+BIONIKK	c_13	pT1b	X	x	x	x		x	x		
+BIONIKK	c_14	pT1b	X		x			x	x		
+BIONIKK	c_15	pT1b	X		x	x	x	x			
+BIONIKK	c_16	pT3a	X		x	x	x	x			
+BIONIKK	c_17	pT3a	X	x	x	x		x	x		
+BIONIKK	c_18	pT1b	X		x	x		x	x		
+BIONIKK	c_19	pT3a	X		x		x	x	x		
+BIONIKK	c_20	pT1b	X	x	x		x	x		FFPE	
+BIONIKK	c_21	NA	X	x	x		x	x		FFPE	
+BIONIKK	c_22	pT2a	X		x		x	x			
+BIONIKK	c_23	pT3a	X		x	x	x	x	x	Frozen	
+BIONIKK	c_24	pT3b	X	x	x	x		x	x		
+BIONIKK	c_25	pT1b	X	x	x	x	x	x	x		
+BIONIKK	c_26	pT1a	X	x	x	x	x	x	x		
+BIONIKK	c_27	pT3a	X	x	x	x	x	x	x		
+BIONIKK	c_28	pT3a	X		x		x	x	x		
+BIONIKK	c_29	pT3a	X	x	x	x	x	x	x		
+BIONIKK	c_30	pT3a	X		x	x	x	x	x		
+BIONIKK	c_31	pT2a	X	x	x	x	x	x	x		
+BIONIKK	c_32	pT3b	X		x	x	x	x	x		
+BIONIKK	c_33	pT3a	X	x	x	x	x	x	x		
+BIONIKK	c_34	pT3a	X	x	x	x		x		FFPE	
+BIONIKK	c_35	pT3a	X	x	x	x		x	x		
+BIONIKK	c_36	pT3a	X	x	x	x	x	x		FFPE	
+BIONIKK	c_37	pT3c	X		x		x	x			
+BIONIKK	c_38	pT3a	X	x	x	x	x	x	x		
+BIONIKK	c_39	pT3a	X	x	x	x		x		FFPE	
+BIONIKK	c_40	pT3a	X	x	x	x	x	x	x		
+BIONIKK	c_41	pT3a	X	x	x	x	x	x	x		
+BIONIKK	c_42	pT3a	X		x	x	x	x			
+BIONIKK	c_43	pT3a	X	x	x			x	x		
+BIONIKK	c_44	pT3a	X		x	x		x	x		
+BIONIKK	c_45	pT3a	X	x	x	x	x	x		FFPE	
+BIONIKK	c_46	pT3a	X		x			x	x		
+BIONIKK	c_47	pT3a	X		x	x		x	x		
+BIONIKK	c_48	pT3	X		x			x	x		
+BIONIKK	c_49	pT3a	X	x	x		x	x	x		
+BIONIKK	c_50	pT3a	X	x	x	x	x	x	x		
+BIONIKK	c_51	pT3a	X	x	x	x	x	x		FFPE	
+BIONIKK	c_52	pT4	X		x	x	x	x	x		
+BIONIKK	c_53	pT3a	X		x	x	x	x	x		
+BIONIKK	c_54	pT1b	X		x		x	x	x		
+BIONIKK	c_55	pT3b	X		x	x	x	x	x		
+BIONIKK	c_56	pT3a	X		x	x	x		x		
+BIONIKK	c_57	pT3c	X	x	x	x	x	x	x	Frozen	
+BIONIKK	c_58	pT2b	X		x	x	x	x	x		
+BIONIKK	c_59	pT2b	X	x	x	x	x	x	x		

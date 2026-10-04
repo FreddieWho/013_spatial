@@ -1,0 +1,19 @@
+{
+  "source": "USER_PROVIDED_LOCAL_FILE",
+  "original_path": "tmp/gse175540_sd.xlsx",
+  "retained_path": "infra/bioinf-data-index/raw/user_gse175540_20261003/gse175540_sd.xlsx",
+  "sha256": "13d42da7005b115f0536513983a0a7f4de6dd9898dfba4c65c41d19f4054e200",
+  "bytes": 16562,
+  "publication_url": null,
+  "ID_unit": "UNKNOWN_PENDING_CAPTION",
+  "rows": 130,
+  "geo_samples_matched": 24,
+  "distinct_table_IDs_for_GEO": 23,
+  "current_samples_matched": 18,
+  "current_distinct_table_IDs": 17,
+  "same_ID_pair": [
+    "GSM5924030",
+    "GSM5924050"
+  ],
+  "date": "2026-10-03T06:30:13.371369+00:00"
+}

@@ -1,0 +1,27 @@
+{
+  "status": "COMPLETE_NO_REPRODUCTION_MISMATCH_FOUND",
+  "checks": [
+    {
+      "section_id": "gse175540-GSM5924030_ffpe_c_2",
+      "original_metadata_match": true,
+      "all1742_scores_recomputed_match": true,
+      "raw_depth_detected_match": true,
+      "query_labels_all3_masks_match": true,
+      "fixed_features_all3_masks_match": true,
+      "grouped_B_and_fixed_GO_predictions_recomputed_match": true
+    },
+    {
+      "section_id": "gse175540-GSM5924050_frozen_c_2",
+      "original_metadata_match": true,
+      "all1742_scores_recomputed_match": true,
+      "raw_depth_detected_match": true,
+      "query_labels_all3_masks_match": true,
+      "fixed_features_all3_masks_match": true,
+      "grouped_B_and_fixed_GO_predictions_recomputed_match": true
+    }
+  ],
+  "causal_preparation_effect_identified": false,
+  "model_or_labels_changed": false,
+  "scope": "Source-label agreement is not independent pathology validation; diagnostic association is not cause",
+  "feature_contribution_sums_match_prediction_mean_gaps": true
+}

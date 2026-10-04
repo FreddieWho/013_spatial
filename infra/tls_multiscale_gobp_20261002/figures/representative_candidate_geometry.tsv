@@ -1,0 +1,23 @@
+section_id	family	effect_row	pair_id	length_um	mask_um	halfwidth_um	mode	selection
+usz-KC1	TLS_TLS	9	0	2699.9999999999995	130	250	tissue_graph_shortest	median length within family; no expression selection
+usz-KC1	TLS_REGION	1217	99	3900.0000000000005	130	250	tissue_graph_shortest	median length within family; no expression selection
+usz-KC2	TLS_TLS	433	41	2400.0	130	250	tissue_graph_shortest	median length within family; no expression selection
+usz-KC2	TLS_REGION	1401	153	4000.0000000000005	130	250	tissue_graph_shortest	median length within family; no expression selection
+usz-KC3	TLS_TLS	971	134	4100.0	130	250	tissue_graph_shortest	median length within family; no expression selection
+usz-KC3	TLS_REGION	4181	751	3300.0000000000005	130	250	tissue_graph_shortest	median length within family; no expression selection
+usz-KC3	TLS_EDGE	4495	786	3200.0	130	250	tissue_graph_shortest	median length within family; no expression selection
+usz-LC1	TLS_TLS	2852	358	3300.000000000001	130	250	tissue_graph_shortest	median length within family; no expression selection
+usz-LC1	TLS_REGION	6304	722	4400.0	130	250	tissue_graph_shortest	median length within family; no expression selection
+usz-LC1	TLS_EDGE	1588	232	4400.0	130	250	tissue_graph_shortest	median length within family; no expression selection
+usz-LC2	TLS_TLS	2512	308	4400.000000000002	130	250	tissue_graph_shortest	median length within family; no expression selection
+usz-LC2	TLS_REGION	3035	365	3900.0	130	250	tissue_graph_shortest	median length within family; no expression selection
+usz-LC3	TLS_TLS	8977	1016	3700.0000000000005	130	250	tissue_graph_shortest	median length within family; no expression selection
+usz-LC3	TLS_REGION	14017	1515	4600.0	130	250	tissue_graph_shortest	median length within family; no expression selection
+usz-LC4	TLS_TLS	2116	316	3800.0000000000005	130	250	tissue_graph_shortest	median length within family; no expression selection
+usz-LC4	TLS_REGION	2630	400	4200.000000000001	130	250	tissue_graph_shortest	median length within family; no expression selection
+usz-LC4	TLS_EDGE	626	86	4100.0	130	250	tissue_graph_shortest	median length within family; no expression selection
+usz-LC5	TLS_TLS	3	2	2400.0	130	250	tissue_graph_shortest	median length within family; no expression selection
+usz-LC5	TLS_REGION	377	98	2699.9999999999995	130	250	tissue_graph_shortest	median length within family; no expression selection
+gse175540-GSM5924030_ffpe_c_2	TLS_TLS	7	0	6299.999999999998	130	250	tissue_graph_shortest	median length within family; no expression selection
+gse175540-GSM5924031_ffpe_c_3	TLS_TLS	18	2	5199.999999999998	130	250	tissue_graph_shortest	median length within family; no expression selection
+gse175540-GSM5924041_ffpe_c_51	TLS_TLS	6	0	4500.0	130	250	tissue_graph_shortest	median length within family; no expression selection

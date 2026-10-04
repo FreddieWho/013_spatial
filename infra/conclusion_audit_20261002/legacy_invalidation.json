@@ -1,0 +1,17 @@
+{
+  "decision": "D-167",
+  "current_report": "docs/CONCLUSION_AUDIT_20261002.md",
+  "claim": "NOT_CALIBRATED",
+  "legacy_paths": [
+    "infra/tls_pool_expand_20260930",
+    "infra/tls_field_20260930",
+    "infra/gobp_halo_20261001",
+    "infra/tls_label_field_20261001"
+  ],
+  "scope": "Component/geometry and field results using old Visium conversion; residual/null results using old QR or sigma/fallback. Gene-set definitions themselves are not invalidated.",
+  "action": "WITHDRAW_CONCLUSION_USE_KEEP_HISTORICAL_FILES",
+  "fresh_results": [
+    "label",
+    "composition"
+  ]
+}

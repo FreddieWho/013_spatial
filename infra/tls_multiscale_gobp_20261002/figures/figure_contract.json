@@ -1,0 +1,52 @@
+{
+  "backend": "Python/matplotlib; existing project plotting workflow",
+  "status": "FROZEN_BEFORE_DRAWING",
+  "archetype": "quantitative grid",
+  "conclusions": [
+    "The scan includes submillimeter and larger lengths; testability varies with length and width and is not bridge evidence.",
+    "Reverse prediction depends on mask and source; a training-selected GO combination does not consistently beat the B axis.",
+    "Every GO and fixed control is retained, including untestable conditions."
+  ],
+  "panels": {
+    "scale_support": "all length by halfwidth evaluable/attempted combinations",
+    "reverse_leave_section": "individual held-out sections, all3 masks and2 cohorts,3 fixed model families",
+    "reverse_leave_cohort": "same comparison with source holdout; unknown patient independence",
+    "all_GO_inverse": "1691 rows in frozen panel order; all masks/splits/cohorts; radial/angular/full arms",
+    "all_controls_inverse": "all51 fixed controls in original order"
+  },
+  "exports": [
+    "SVG editable text",
+    "PDF TrueType text; heatmap embedded image",
+    "TIFF 600dpi LZW",
+    "PNG 160dpi QA preview"
+  ],
+  "sizes_inches": {
+    "scale_support": [
+      7.2,
+      4.0
+    ],
+    "reverse": [
+      7.2,
+      5.0
+    ],
+    "full_panel": [
+      7.2,
+      9.0
+    ]
+  },
+  "statistics": "AUC per eligible section; diamond=section mean; no patient CI or significance stars; gray=not testable. No image smoothing.",
+  "source_data": [
+    "summary/length_width_support.tsv",
+    "reverse/summary/paired_section_metrics.tsv.gz",
+    "reverse/summary/all_programs.tsv",
+    "scores/usz-KC1.npz set_ids"
+  ],
+  "review_risks": [
+    "overlapping query windows",
+    "single-positive sections",
+    "different qualified TLS across masks",
+    "source holdout is internal",
+    "posthoc single-GO ranking is exploratory",
+    "geometry availability is not bridge detection"
+  ]
+}

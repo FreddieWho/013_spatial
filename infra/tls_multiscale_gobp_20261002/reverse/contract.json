@@ -1,0 +1,24 @@
+{
+  "status": "FROZEN_BEFORE_REVERSE_FEATURES",
+  "decision": "D-173",
+  "grid": "row%2==0 and doubled-column%4==0; independent of labels",
+  "radii_um": [
+    230,
+    500,
+    1000
+  ],
+  "features": "5 radial normalized means + 5 angular order1 amplitudes + 5 angular order2 amplitudes",
+  "mask": "same circular mask for every query; all moments from outside circle; positive full annotated component plus130um hidden",
+  "target": "central spot TLS vs explicit central non-TLS; not presence/absence anywhere in the window",
+  "models": {
+    "single_program": "covariance standardized ridge lambda=1,15 features",
+    "combined": "training-fold top10 GO by training AUC + 17 geometry/depth features; ridge lambda=1",
+    "baseline": "17 geometry/depth features",
+    "fixed_controls": 51
+  },
+  "split": "leave-one-section-out and leave-cohort-out, train-only selection; not guaranteed distinct patients",
+  "missing": "inadequate bins encode0 plus baseline support features; UNKNOWN target excluded, not relabelled negative",
+  "n_gobp": 1691,
+  "n_controls": 51,
+  "formal_patient_inference": "NOT_TESTABLE_IDENTITY"
+}

@@ -1,0 +1,12 @@
+{
+  "section_id": "usz-KC2",
+  "cohort": "USZ",
+  "status": "FULL_PANEL_SCORED",
+  "n_spots": 2166,
+  "n_gobp": 1691,
+  "n_controls": 51,
+  "n_covered_variable_GO": 1558,
+  "elapsed_seconds": 3.0324289798736572,
+  "sha256": "b541e870cda07c12d42ec4abce2144c642cdf2a2469e704937aefebd9eae3873",
+  "contract_sha256": "f0d3cd78dc539a0c2d8e75ce7b8b9f197dc65b23405c12e5d32ef1b7770f1462"
+}

@@ -1,0 +1,176 @@
+{
+  "status": "FROZEN_BEFORE_NEW_SCORING",
+  "decision": "D-169",
+  "sections": [
+    {
+      "section_id": "usz-KC1",
+      "cohort": "USZ"
+    },
+    {
+      "section_id": "usz-KC2",
+      "cohort": "USZ"
+    },
+    {
+      "section_id": "usz-KC3",
+      "cohort": "USZ"
+    },
+    {
+      "section_id": "usz-LC1",
+      "cohort": "USZ"
+    },
+    {
+      "section_id": "usz-LC2",
+      "cohort": "USZ"
+    },
+    {
+      "section_id": "usz-LC3",
+      "cohort": "USZ"
+    },
+    {
+      "section_id": "usz-LC4",
+      "cohort": "USZ"
+    },
+    {
+      "section_id": "usz-LC5",
+      "cohort": "USZ"
+    },
+    {
+      "section_id": "gse175540-GSM5924030_ffpe_c_2",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924031_ffpe_c_3",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924032_ffpe_c_4",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924033_ffpe_c_7",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924035_ffpe_c_20",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924037_ffpe_c_34",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924038_ffpe_c_36",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924039_ffpe_c_39",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924040_ffpe_c_45",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924041_ffpe_c_51",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924043_frozen_a_3",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924044_frozen_a_15",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924046_frozen_b_1",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924049_frozen_b_18",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924050_frozen_c_2",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924051_frozen_c_5",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924052_frozen_c_23",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924053_frozen_c_57",
+      "cohort": "GSE175540"
+    }
+  ],
+  "mask_um": [
+    130,
+    230
+  ],
+  "near_um": [
+    200,
+    400
+  ],
+  "far_um": [
+    700,
+    1000
+  ],
+  "min_spots": 30,
+  "min_TLS": 20,
+  "unknown_policy": "Unknown is not TLS-negative. Distance refers only to labelled TLS; missing known TLS excludes geometry.",
+  "score": "visible-only per-spot AUCell top 5% after raw count sum for duplicated gene symbols",
+  "coverage_min": 0.8,
+  "min_genes": 10,
+  "panel_sha256": "c36cb2a28b7611c9d28d71694c822bc99a2d0aa33104505d6235b44599cc3ea9",
+  "statistic": "near mean minus far mean, raw and divided by visible sample SD; no composition/B/trend residualization",
+  "useful_effect_sd": 0.2,
+  "patient_inference": "BLOCKED_EXPLICIT_IDENTITY_CROSSWALK",
+  "spatial_candidate": "NNLS empirical variogram: nugget plus Gaussian correlations ell=100,300,800,1600um; plug-in two-sided normal statistic",
+  "calibration": {
+    "seed": 20261002,
+    "replicates": 400,
+    "power_replicates": 200,
+    "alpha": 0.05,
+    "families": [
+      "white",
+      "short150",
+      "long800",
+      "mixture",
+      "non_gaussian",
+      "random_trend"
+    ],
+    "generators": "Gaussian-filtered iid rectangular lattice padded 4 kernel SD; ell/sqrt(2) convolution; no thinning of tissue spots",
+    "injected_effects_sd": [
+      0.2,
+      0.5
+    ],
+    "injection_widths_um": [
+      200,
+      600
+    ],
+    "gate": "Every eligible section/mask/family Wilson upper 95% FPR <=0.10. Power lower95%>=0.80 at 0.5SD for both widths; report 0.2SD separately.",
+    "fit_pairs": 16000,
+    "lag_edges_um": [
+      0.0,
+      150.0,
+      250.0,
+      400.0,
+      600.0,
+      900.0,
+      1300.0,
+      1800.0,
+      2500.0,
+      4000.0,
+      8000.0
+    ],
+    "max_fit_lag": "unbounded final bin",
+    "real_gate": "Simulation gate + per-readout variogram fit relative RMSE <=0.25; even then model-conditional only, not proven empirical exchangeability"
+  },
+  "multiplicity": "Holm over51 readouts per eligible section/mask, only if formal gates pass; no patient inference without IDs.",
+  "stop": "Failed calibration keeps all real scores descriptive; no new null tuning, radius search, inversion or field-absence claim.",
+  "figure_contract": "Python existing workflow; evidence=all-section mask grid, complete readout effects, null calibration. SVG/PDF editable text plus PNG; no unsupported patient CI."
+}

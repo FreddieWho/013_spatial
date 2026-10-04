@@ -1,0 +1,7 @@
+amplitude_sd	length_stratum	n_settings	mean_setting_power	n_power_passed	n_power_and_matching_null_passed	n_power_and_whole_source_null_passed
+0.5	2	114	0.17385964912280702	4	1	0
+0.5	3	534	0.23978464419475654	75	24	3
+0.5	4	240	0.2779166666666667	42	18	0
+1.0	2	114	0.23214912280701755	10	0	0
+1.0	3	534	0.35470037453183517	107	31	6
+1.0	4	240	0.4354791666666667	78	21	0

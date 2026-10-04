@@ -1,0 +1,231 @@
+{
+  "status": "FULL_LOCAL_EXECUTION_AUDITED_CONFIRMATION_NOT_PROVEN",
+  "verified_input_files": 94,
+  "sources": [
+    {
+      "section_id": "usz-KC1",
+      "score_sha256": "0569ac8e25d1668cf72ccb304020f7cef94e2c5d9da6cf445f9ee4c7e94fe8c1",
+      "n_covered_variable_GO": 1558,
+      "geometry_attempts": 4128,
+      "evaluable_geometry": 3174,
+      "native_references": 71836
+    },
+    {
+      "section_id": "usz-KC2",
+      "score_sha256": "b541e870cda07c12d42ec4abce2144c642cdf2a2469e704937aefebd9eae3873",
+      "n_covered_variable_GO": 1558,
+      "geometry_attempts": 2528,
+      "evaluable_geometry": 1428,
+      "native_references": 15152
+    },
+    {
+      "section_id": "usz-KC3",
+      "score_sha256": "f96f06754c1fc686af5732b48d91eeb6064e797e1f51ac94ad86db0ec9a64e17",
+      "n_covered_variable_GO": 1558,
+      "geometry_attempts": 16112,
+      "evaluable_geometry": 5791,
+      "native_references": 56091
+    },
+    {
+      "section_id": "usz-LC1",
+      "score_sha256": "0af3968de83d079db4a8daeb0e5edcc12d507facbb6709e41933e01f9c8d7aeb",
+      "n_covered_variable_GO": 1558,
+      "geometry_attempts": 11968,
+      "evaluable_geometry": 6500,
+      "native_references": 62644
+    },
+    {
+      "section_id": "usz-LC2",
+      "score_sha256": "083c78f89dd517b66366666d72e722da9182ab07f959b8a5f085b2278a5f1e1c",
+      "n_covered_variable_GO": 1558,
+      "geometry_attempts": 6800,
+      "evaluable_geometry": 3645,
+      "native_references": 50843
+    },
+    {
+      "section_id": "usz-LC3",
+      "score_sha256": "50f100606b491f95e8089ef011c16b4e0d4a9cf11c0e88e6a63eba633be956a6",
+      "n_covered_variable_GO": 1558,
+      "geometry_attempts": 27840,
+      "evaluable_geometry": 16208,
+      "native_references": 112973
+    },
+    {
+      "section_id": "usz-LC4",
+      "score_sha256": "88c598ced1dc1318b33b9653d1ff47ad584a82ffe917bea65344b761f847c840",
+      "n_covered_variable_GO": 1558,
+      "geometry_attempts": 8784,
+      "evaluable_geometry": 3656,
+      "native_references": 30784
+    },
+    {
+      "section_id": "usz-LC5",
+      "score_sha256": "98e97f1695a68568650e8050f2df7abe76476793c9d5ae20eb6792dd739366f7",
+      "n_covered_variable_GO": 1558,
+      "geometry_attempts": 2240,
+      "evaluable_geometry": 546,
+      "native_references": 3027
+    },
+    {
+      "section_id": "gse175540-GSM5924030_ffpe_c_2",
+      "score_sha256": "fc5ba99dc0235f565fd3b5d1dd05e43a512b1257922a89e5128c8e196fc15384",
+      "n_covered_variable_GO": 1544,
+      "geometry_attempts": 96,
+      "evaluable_geometry": 47,
+      "native_references": 198
+    },
+    {
+      "section_id": "gse175540-GSM5924031_ffpe_c_3",
+      "score_sha256": "81388bc580125039f5a6950ad8ded585cdebd0efabfb055195e11158c0dd5fad",
+      "n_covered_variable_GO": 1544,
+      "geometry_attempts": 48,
+      "evaluable_geometry": 23,
+      "native_references": 329
+    },
+    {
+      "section_id": "gse175540-GSM5924032_ffpe_c_4",
+      "score_sha256": "2b2d5c4d1830694db735432e2dd161d421dc0b6ad7833b45b1dce207084dbade",
+      "n_covered_variable_GO": 1544,
+      "geometry_attempts": 48,
+      "evaluable_geometry": 11,
+      "native_references": 41
+    },
+    {
+      "section_id": "gse175540-GSM5924033_ffpe_c_7",
+      "score_sha256": "208616f1745ff70eec3948bb161e88bd0da5232e39eb53210e9353d920b059a9",
+      "n_covered_variable_GO": 1544,
+      "geometry_attempts": 48,
+      "evaluable_geometry": 6,
+      "native_references": 13
+    },
+    {
+      "section_id": "gse175540-GSM5924035_ffpe_c_20",
+      "score_sha256": "179dd5376583b92fd579e07aa575298b7db5232a7d3b81b714bc722602385e5a",
+      "n_covered_variable_GO": 1544,
+      "geometry_attempts": 0,
+      "evaluable_geometry": 0,
+      "native_references": 0
+    },
+    {
+      "section_id": "gse175540-GSM5924037_ffpe_c_34",
+      "score_sha256": "2a61c2cc96e1ee88e059b4afbf54b8754f81f3a444aaffa2eb0ab92484eb2620",
+      "n_covered_variable_GO": 1544,
+      "geometry_attempts": 16,
+      "evaluable_geometry": 0,
+      "native_references": 0
+    },
+    {
+      "section_id": "gse175540-GSM5924038_ffpe_c_36",
+      "score_sha256": "cafb20d2f8240012ee9a62ca509829c1f3cf724b9d812da162f88812265621dc",
+      "n_covered_variable_GO": 1544,
+      "geometry_attempts": 16,
+      "evaluable_geometry": 0,
+      "native_references": 0
+    },
+    {
+      "section_id": "gse175540-GSM5924039_ffpe_c_39",
+      "score_sha256": "45be17082f6972b7bf43d907f882311f696e802edea8e8c3ad23cd6bc1e6327d",
+      "n_covered_variable_GO": 1544,
+      "geometry_attempts": 0,
+      "evaluable_geometry": 0,
+      "native_references": 0
+    },
+    {
+      "section_id": "gse175540-GSM5924040_ffpe_c_45",
+      "score_sha256": "a817fc613be6bde103716f5ac1b6a55cb75560f340504e75665646b33416d25a",
+      "n_covered_variable_GO": 1544,
+      "geometry_attempts": 0,
+      "evaluable_geometry": 0,
+      "native_references": 0
+    },
+    {
+      "section_id": "gse175540-GSM5924041_ffpe_c_51",
+      "score_sha256": "c71bbb89ec0a2fffda4cbfb3ba0ae2f2b3cedfd2dd2bdf902fbfd4bf45e072cb",
+      "n_covered_variable_GO": 1544,
+      "geometry_attempts": 16,
+      "evaluable_geometry": 7,
+      "native_references": 20
+    },
+    {
+      "section_id": "gse175540-GSM5924043_frozen_a_3",
+      "score_sha256": "a30486be31dfaf6ffa59a3ec1be7be5a74d8ae46036084fa314cf39f0311c06b",
+      "n_covered_variable_GO": 1602,
+      "geometry_attempts": 0,
+      "evaluable_geometry": 0,
+      "native_references": 0
+    },
+    {
+      "section_id": "gse175540-GSM5924044_frozen_a_15",
+      "score_sha256": "532356a581d68dcce3c260ef73a74747cbd57167fb1c8f3f4bc4c7057d178895",
+      "n_covered_variable_GO": 1602,
+      "geometry_attempts": 0,
+      "evaluable_geometry": 0,
+      "native_references": 0
+    },
+    {
+      "section_id": "gse175540-GSM5924046_frozen_b_1",
+      "score_sha256": "4dbe79aa44e1fa84582f3dcf8fc70f4bc06403db476761d787f5874803adb31c",
+      "n_covered_variable_GO": 1602,
+      "geometry_attempts": 16,
+      "evaluable_geometry": 1,
+      "native_references": 1
+    },
+    {
+      "section_id": "gse175540-GSM5924049_frozen_b_18",
+      "score_sha256": "5d6bc715bdf019f1adb479967adc15f051f8a1fbed811ce297073442ecdfebe5",
+      "n_covered_variable_GO": 1602,
+      "geometry_attempts": 0,
+      "evaluable_geometry": 0,
+      "native_references": 0
+    },
+    {
+      "section_id": "gse175540-GSM5924050_frozen_c_2",
+      "score_sha256": "88744c55a381c8b7db20671030f8b26900ddb75ab4509b397168c7850076ca85",
+      "n_covered_variable_GO": 1602,
+      "geometry_attempts": 16,
+      "evaluable_geometry": 1,
+      "native_references": 2
+    },
+    {
+      "section_id": "gse175540-GSM5924051_frozen_c_5",
+      "score_sha256": "491fa0d0e7eb2fd00d8830b11745035296aa8640893c7765e6fae552a7548e90",
+      "n_covered_variable_GO": 1602,
+      "geometry_attempts": 0,
+      "evaluable_geometry": 0,
+      "native_references": 0
+    },
+    {
+      "section_id": "gse175540-GSM5924052_frozen_c_23",
+      "score_sha256": "0f54183b52474e0f8cad613dc94bed32b4ed142d2b2113dfbc1818644e895572",
+      "n_covered_variable_GO": 1602,
+      "geometry_attempts": 48,
+      "evaluable_geometry": 14,
+      "native_references": 95
+    },
+    {
+      "section_id": "gse175540-GSM5924053_frozen_c_57",
+      "score_sha256": "da1d723ff31042f2b6fc665505bf2607cd7f601880da157e98c72b07ee9044cb",
+      "n_covered_variable_GO": 1602,
+      "geometry_attempts": 0,
+      "evaluable_geometry": 0,
+      "native_references": 0
+    }
+  ],
+  "gobp_attempted": 1691,
+  "fixed_controls": 51,
+  "reverse_folds": 84,
+  "atlas_pages": 1742,
+  "bridge_groups": 1559,
+  "raw_inputs_and_score_and_prediction_receipts_sha256_verified": true,
+  "failed_tests_preserved": true,
+  "scientific_confirmation_proven": false,
+  "goal_confirmation_requirement": "NOT_ESTABLISHED",
+  "why_not_confirmed": [
+    "I-031: bridge null gate failed and halo/edge power inadequate; joint real-GO spatial applicability not proven.",
+    "I-033: no current source-to-patient mapping to establish the required independent repeat units.",
+    "I-034/I-035: short/narrow support and complete tumor-boundary truth unavailable for parts of the requested scope."
+  ],
+  "free_bytes": 1987818881024,
+  "external_data_acquired": false,
+  "GPU_used": false
+}

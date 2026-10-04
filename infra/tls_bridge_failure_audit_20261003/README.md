@@ -1,0 +1,5 @@
+# 现有桥检验失效诊断 D-189
+
+[报告](../../docs/TLS_BRIDGE_FAILURE_AUDIT_20261003.md)。source_coverage.tsv列全部26源。null_by_field.tsv汇总48误报设置；all_direction_rejection_rates.tsv列1920个方向诊断，方向平均约5%是秩约束，不是实际方向已校准。power_with_null_qualification.tsv保留全部1776设置；power_by_geometry_and_field.tsv及family/width/length/field表保留分层。six_field_joint_necessary_gate.tsv检查同一148代表几何的六场联合必要门，不是联合GO验证。signal_only_template_diagnostics.tsv为无噪声原模板，不是真实功效或p。
+
+all_geometry_operator_variance.tsv是单位独立噪声下的线性算子方差，不是真实空间协方差。contract.json绑定原表与保存模拟的SHA；complete.json记录原方向误报重现和803个显式算子校核。没有更改原阈值/模型/真实GO结论，正式p不允许。

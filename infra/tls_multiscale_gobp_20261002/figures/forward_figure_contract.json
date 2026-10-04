@@ -1,0 +1,60 @@
+{
+  "backend": "Python existing workflow, exclusively",
+  "archetype": "quantitative grid and spatial point maps",
+  "scope": "all1691GO+51controls; no effect-based exclusions",
+  "claims": [
+    "Full distance curves preserve missing bins and source variation.",
+    "Bridge contrasts and native references are descriptive after failed calibration.",
+    "Representative maps illustrate programs and geometry; they do not confirm bridges."
+  ],
+  "atlas": {
+    "pages": 1742,
+    "book_size": 128,
+    "panels": [
+      "halo USZ",
+      "halo GSE175540",
+      "labelled interface TUM",
+      "labelled interface explicit nonTUM"
+    ],
+    "masks": [
+      130,
+      230
+    ],
+    "source_data": "integrated/halo_edge_bins.npz + all_bins.tsv",
+    "exports": [
+      "multipage vector PDF",
+      "one SVG/PDF/PNG/TIFF preview page"
+    ],
+    "size_inches": [
+      7.2,
+      8.4
+    ]
+  },
+  "bridge_overviews": {
+    "all_programs": 1742,
+    "all_groups": 1559,
+    "metrics": [
+      "raw_median",
+      "adjusted_median",
+      "native_z_median",
+      "positive_continuity",
+      "negative_continuity",
+      "side_asymmetry"
+    ],
+    "no_smoothing": true,
+    "export_dpi": 300,
+    "size_inches": [
+      9,
+      9
+    ]
+  },
+  "representatives": "D180: B_AXIS plus500/1000 worst-source-AUC rank1; metadata-selected median-length candidate geometry; all26 source maps",
+  "statistics": "individual section curves, no patient CI, no formal p; raw curves keep unsupported bins as line breaks; maps use visible-only mean/SD and disclosed display clipping",
+  "missingness": "gray/no curve; never zero imputation for an unavailable effect",
+  "interface_scope": "available labelled adjacency fragments only; not complete tumor perimeter",
+  "figures_required_for_completion": [
+    "all1742 atlas pages and exact index",
+    "6 complete bridge matrix views and group index",
+    "all representative/source maps with candidate metadata"
+  ]
+}

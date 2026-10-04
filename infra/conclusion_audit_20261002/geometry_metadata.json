@@ -1,0 +1,482 @@
+[
+  {
+    "n_neighbor_pairs": 14693,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      219.0,
+      219.5449840010015,
+      220.41097976280582
+    ],
+    "parity_mismatch": 0,
+    "source": "data/GEO/GSE175540/raw/GSM5924030_ffpe_c_2_tissue_positions_list.csv.gz"
+  },
+  {
+    "n_neighbor_pairs": 14693,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      109.0,
+      109.77249200050075,
+      110.63905277974861
+    ],
+    "parity_mismatch": 0,
+    "source": "data/GEO/GSE175540/raw/GSM5924031_ffpe_c_3_tissue_positions_list.csv.gz"
+  },
+  {
+    "n_neighbor_pairs": 14693,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      109.0,
+      110.0,
+      110.63905277974861
+    ],
+    "parity_mismatch": 0,
+    "source": "data/GEO/GSE175540/raw/GSM5924032_ffpe_c_4_tissue_positions_list.csv.gz"
+  },
+  {
+    "n_neighbor_pairs": 14693,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      54.0,
+      55.0,
+      55.569775957799216
+    ],
+    "parity_mismatch": 0,
+    "source": "data/GEO/GSE175540/raw/GSM5924033_ffpe_c_7_tissue_positions_list.csv.gz"
+  },
+  {
+    "n_neighbor_pairs": 14693,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      109.0,
+      109.77249200050075,
+      110.63905277974861
+    ],
+    "parity_mismatch": 0,
+    "source": "data/GEO/GSE175540/raw/GSM5924034_ffpe_c_10_tissue_positions_list.csv.gz"
+  },
+  {
+    "n_neighbor_pairs": 14693,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      54.0,
+      55.0,
+      55.569775957799216
+    ],
+    "parity_mismatch": 0,
+    "source": "data/GEO/GSE175540/raw/GSM5924035_ffpe_c_20_tissue_positions_list.csv.gz"
+  },
+  {
+    "n_neighbor_pairs": 14693,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      54.0,
+      55.0,
+      55.569775957799216
+    ],
+    "parity_mismatch": 0,
+    "source": "data/GEO/GSE175540/raw/GSM5924036_ffpe_c_21_tissue_positions_list.csv.gz"
+  },
+  {
+    "n_neighbor_pairs": 14693,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      54.0,
+      55.0,
+      55.569775957799216
+    ],
+    "parity_mismatch": 0,
+    "source": "data/GEO/GSE175540/raw/GSM5924037_ffpe_c_34_tissue_positions_list.csv.gz"
+  },
+  {
+    "n_neighbor_pairs": 14693,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      109.0,
+      109.77249200050075,
+      110.63905277974861
+    ],
+    "parity_mismatch": 0,
+    "source": "data/GEO/GSE175540/raw/GSM5924038_ffpe_c_36_tissue_positions_list.csv.gz"
+  },
+  {
+    "n_neighbor_pairs": 14693,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      54.0,
+      55.0,
+      55.569775957799216
+    ],
+    "parity_mismatch": 0,
+    "source": "data/GEO/GSE175540/raw/GSM5924039_ffpe_c_39_tissue_positions_list.csv.gz"
+  },
+  {
+    "n_neighbor_pairs": 14693,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      54.0,
+      55.0,
+      55.569775957799216
+    ],
+    "parity_mismatch": 0,
+    "source": "data/GEO/GSE175540/raw/GSM5924040_ffpe_c_45_tissue_positions_list.csv.gz"
+  },
+  {
+    "n_neighbor_pairs": 14693,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      54.0,
+      55.0,
+      55.569775957799216
+    ],
+    "parity_mismatch": 0,
+    "source": "data/GEO/GSE175540/raw/GSM5924041_ffpe_c_51_tissue_positions_list.csv.gz"
+  },
+  {
+    "n_neighbor_pairs": 14693,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      218.0,
+      219.04565734111233,
+      219.91361940543837
+    ],
+    "parity_mismatch": 0,
+    "source": "data/GEO/GSE175540/raw/GSM5924042_frozen_a_1_tissue_positions_list.csv.gz"
+  },
+  {
+    "n_neighbor_pairs": 14693,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      218.0,
+      219.04565734111233,
+      219.91361940543837
+    ],
+    "parity_mismatch": 0,
+    "source": "data/GEO/GSE175540/raw/GSM5924043_frozen_a_3_tissue_positions_list.csv.gz"
+  },
+  {
+    "n_neighbor_pairs": 14693,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      218.0,
+      219.04565734111233,
+      219.91361940543837
+    ],
+    "parity_mismatch": 0,
+    "source": "data/GEO/GSE175540/raw/GSM5924044_frozen_a_15_tissue_positions_list.csv.gz"
+  },
+  {
+    "n_neighbor_pairs": 14693,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      218.0,
+      219.04565734111233,
+      219.91361940543837
+    ],
+    "parity_mismatch": 0,
+    "source": "data/GEO/GSE175540/raw/GSM5924045_frozen_a_17_tissue_positions_list.csv.gz"
+  },
+  {
+    "n_neighbor_pairs": 14693,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      218.0,
+      219.04565734111233,
+      220.41097976280582
+    ],
+    "parity_mismatch": 0,
+    "source": "data/GEO/GSE175540/raw/GSM5924046_frozen_b_1_tissue_positions_list.csv.gz"
+  },
+  {
+    "n_neighbor_pairs": 14693,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      218.0,
+      219.04565734111233,
+      219.91361940543837
+    ],
+    "parity_mismatch": 0,
+    "source": "data/GEO/GSE175540/raw/GSM5924047_frozen_b_7_tissue_positions_list.csv.gz"
+  },
+  {
+    "n_neighbor_pairs": 14693,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      218.0,
+      219.04565734111233,
+      220.41097976280582
+    ],
+    "parity_mismatch": 0,
+    "source": "data/GEO/GSE175540/raw/GSM5924048_frozen_b_13_tissue_positions_list.csv.gz"
+  },
+  {
+    "n_neighbor_pairs": 14693,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      218.0,
+      219.04565734111233,
+      219.91361940543837
+    ],
+    "parity_mismatch": 0,
+    "source": "data/GEO/GSE175540/raw/GSM5924049_frozen_b_18_tissue_positions_list.csv.gz"
+  },
+  {
+    "n_neighbor_pairs": 14693,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      217.68095920406083,
+      218.17882573705452,
+      219.04565734111233
+    ],
+    "parity_mismatch": 0,
+    "source": "data/GEO/GSE175540/raw/GSM5924050_frozen_c_2_tissue_positions_list.csv.gz"
+  },
+  {
+    "n_neighbor_pairs": 14693,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      218.0,
+      219.04565734111233,
+      219.5449840010015
+    ],
+    "parity_mismatch": 0,
+    "source": "data/GEO/GSE175540/raw/GSM5924051_frozen_c_5_tissue_positions_list.csv.gz"
+  },
+  {
+    "n_neighbor_pairs": 14693,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      218.0,
+      219.04565734111233,
+      220.41097976280582
+    ],
+    "parity_mismatch": 0,
+    "source": "data/GEO/GSE175540/raw/GSM5924052_frozen_c_23_tissue_positions_list.csv.gz"
+  },
+  {
+    "n_neighbor_pairs": 14693,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      219.0,
+      219.04565734111233,
+      220.41097976280582
+    ],
+    "parity_mismatch": 0,
+    "source": "data/GEO/GSE175540/raw/GSM5924053_frozen_c_57_tissue_positions_list.csv.gz"
+  },
+  {
+    "n_neighbor_pairs": 10646,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      31.453417261106264,
+      31.561724777855886,
+      31.56183634599291
+    ],
+    "parity_mismatch": 0,
+    "source": "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/KC1.h5ad"
+  },
+  {
+    "n_neighbor_pairs": 5086,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      32.10920798067526,
+      32.21981499669504,
+      32.21994323261803
+    ],
+    "parity_mismatch": 0,
+    "source": "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/KC2.h5ad"
+  },
+  {
+    "n_neighbor_pairs": 7357,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      32.04566487433391,
+      32.15604657374919,
+      32.15616860115073
+    ],
+    "parity_mismatch": 0,
+    "source": "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/KC3.h5ad"
+  },
+  {
+    "n_neighbor_pairs": 12773,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      31.44582563525917,
+      31.554162997930955,
+      31.554251430382223
+    ],
+    "parity_mismatch": 0,
+    "source": "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC1.h5ad"
+  },
+  {
+    "n_neighbor_pairs": 7852,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      32.09482781345976,
+      32.205372151727246,
+      32.205492652544805
+    ],
+    "parity_mismatch": 0,
+    "source": "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC2.h5ad"
+  },
+  {
+    "n_neighbor_pairs": 10798,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      31.45146841277836,
+      31.559833596776876,
+      31.559951908807495
+    ],
+    "parity_mismatch": 0,
+    "source": "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC3.h5ad"
+  },
+  {
+    "n_neighbor_pairs": 7998,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      31.455779047269232,
+      31.56414367641906,
+      31.56424923902221
+    ],
+    "parity_mismatch": 0,
+    "source": "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC4.h5ad"
+  },
+  {
+    "n_neighbor_pairs": 5514,
+    "old_um_unique": [
+      100.0,
+      173.205,
+      200.0
+    ],
+    "pixel_distance_q05_q50_q95": [
+      32.052423629442615,
+      32.162810290963456,
+      32.16294208161971
+    ],
+    "parity_mismatch": 0,
+    "source": "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC5.h5ad"
+  }
+]

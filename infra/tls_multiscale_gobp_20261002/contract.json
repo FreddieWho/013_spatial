@@ -1,0 +1,180 @@
+{
+  "status": "FROZEN_BEFORE_GOBP_SCORING",
+  "decision": "D-171",
+  "scope": "FULL_1691_MULTISCALE_HALO_EDGE_BRIDGE_AND_REVERSE",
+  "panel": {
+    "n_gobp": 1691,
+    "go_sha256": "6f63927e4e00cb7b073837a1dd964e1bac496705cf6d57bb9c66e54dda13e7c9",
+    "slim_sha256": "512842dd33617dad2b9e7d751c3b7193dcde6ecdc74fde377a9058dafba0f7ac",
+    "gmt_sha256": "d063b43d3e12cefdbc2e9fc64df703c3fa4d8b9fcfe6c1a482be35267ca2598c",
+    "controls": 51
+  },
+  "sources": [
+    {
+      "section_id": "usz-KC1",
+      "cohort": "USZ"
+    },
+    {
+      "section_id": "usz-KC2",
+      "cohort": "USZ"
+    },
+    {
+      "section_id": "usz-KC3",
+      "cohort": "USZ"
+    },
+    {
+      "section_id": "usz-LC1",
+      "cohort": "USZ"
+    },
+    {
+      "section_id": "usz-LC2",
+      "cohort": "USZ"
+    },
+    {
+      "section_id": "usz-LC3",
+      "cohort": "USZ"
+    },
+    {
+      "section_id": "usz-LC4",
+      "cohort": "USZ"
+    },
+    {
+      "section_id": "usz-LC5",
+      "cohort": "USZ"
+    },
+    {
+      "section_id": "gse175540-GSM5924030_ffpe_c_2",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924031_ffpe_c_3",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924032_ffpe_c_4",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924033_ffpe_c_7",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924035_ffpe_c_20",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924037_ffpe_c_34",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924038_ffpe_c_36",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924039_ffpe_c_39",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924040_ffpe_c_45",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924041_ffpe_c_51",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924043_frozen_a_3",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924044_frozen_a_15",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924046_frozen_b_1",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924049_frozen_b_18",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924050_frozen_c_2",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924051_frozen_c_5",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924052_frozen_c_23",
+      "cohort": "GSE175540"
+    },
+    {
+      "section_id": "gse175540-GSM5924053_frozen_c_57",
+      "cohort": "GSE175540"
+    }
+  ],
+  "score": "raw count duplicate-symbol sum; per-spot AUCell top5%; no cross-spot normalization/smoothing; mask applied by each operator",
+  "coverage": {
+    "min_fraction": 0.8,
+    "min_genes": 10,
+    "all_terms_retained": true
+  },
+  "radial_edges_um": [
+    130,
+    230,
+    400,
+    800,
+    1600,
+    3200,
+    6400,
+    "section_max"
+  ],
+  "length_strata_um": [
+    0,
+    500,
+    1000,
+    2000,
+    4000,
+    8000,
+    "section_max"
+  ],
+  "corridor_halfwidth_um": [
+    100,
+    250,
+    500,
+    1000
+  ],
+  "mask_um": [
+    130,
+    230
+  ],
+  "endpoint_definitions": {
+    "TLS": "source label connected components, >=2 spots, graph edges<=130.01um; singleton labels remain in exclusion mask",
+    "tumor_regions": "explicit TUM connected components >=10 spots and fixed 500/1000um tiles >=5 TUM spots; medoid-nearest-centroid",
+    "tumor_edge": "TUM neighboring explicit NOR/INFL/LN, interface connected components >=2 spots; UNKNOWN and TLS do not define non-tumor"
+  },
+  "geometry": {
+    "paths": [
+      "straight",
+      "tissue_graph_shortest"
+    ],
+    "graph": "<=130.01um spatial neighbor graph; no expression cost",
+    "all_pairs": "all unordered TLS-TLS and all TLS-to-region/interface endpoints; no signal-based selection",
+    "endpoint_masks": "all known TLS cores plus radius ring for forward analyses; target-end exclusion disk; uniform query mask in reverse",
+    "support_min": ">=5 spots per longitudinal segment in corridor and each of two matched-width sidebands; 5 segments; report partial/not_testable",
+    "continuity": "all 5 segments measured; require at least4 same-direction contrasts for a descriptive bridge candidate; formal gate separate",
+    "scale_policy": "no minimum-mm assumption, full continuous lengths and length/TLS-component-diameter retained"
+  },
+  "inference": {
+    "primary": "exploratory complete screen; no reuse of failed R17 p",
+    "formal": "pending selection-aware spatial calibration and sample identity",
+    "reverse": "uniform query-centered masks; no TLS labels/distances/GT-shaped holes in features; training-fold-only selection; all1691 programs attempted; section/leave-cohort-out internal validation"
+  },
+  "resource": {
+    "GPU": false,
+    "local_only": true,
+    "min_free_bytes": 1200000000000
+  }
+}

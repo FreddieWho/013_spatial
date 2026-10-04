@@ -1,0 +1,12 @@
+{
+  "section_id": "gse175540-GSM5924030_ffpe_c_2",
+  "cohort": "GSE175540",
+  "status": "FULL_PANEL_SCORED",
+  "n_spots": 4510,
+  "n_gobp": 1691,
+  "n_controls": 51,
+  "n_covered_variable_GO": 1544,
+  "elapsed_seconds": 7.587214946746826,
+  "sha256": "fc5ba99dc0235f565fd3b5d1dd05e43a512b1257922a89e5128c8e196fc15384",
+  "contract_sha256": "f0d3cd78dc539a0c2d8e75ce7b8b9f197dc65b23405c12e5d32ef1b7770f1462"
+}

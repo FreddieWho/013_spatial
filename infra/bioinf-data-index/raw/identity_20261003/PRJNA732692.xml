@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<RecordSet><DocumentSummary uid="732692">
+    <Project>
+        <ProjectID>
+            <ArchiveID accession="PRJNA732692" archive="NCBI" id="732692"/>
+            <CenterID center="GEO" id="0">GSE175540</CenterID>
+        </ProjectID>
+        <ProjectDescr>
+            <Name>Tertiary lymphoid structures generate and propagate anti-tumor antibody-producing plasma cells in renal cell cancer</Name>
+            <Title>Tertiary lymphoid structures generate and propagate anti-tumor antibody-producing plasma cells in renal cell cancer</Title>
+            <Description>The presence of intratumoral tertiary lymphoid structures (TLS) is associated with positive clinical outcomes and responses to immunotherapy in cancer. Here, we used spatial transcriptomics to examine the nature of B cell responses within TLS in renal cell carcinoma (RCC). B cells were enriched in TLS, and therein, we could identify all B cell maturation stages toward plasma cell (PC) formation. B cell repertoire analysis revealed clonal diversification, selection, expansion in TLS, and the presence of fully mature clonotypes at distance. In TLS+ tumors, IgG- and IgA-producing PCs disseminated into the tumor beds along fibroblastic tracks. TLS+ tumors exhibited high frequencies of IgG-producing PCs and IgG-stained and apoptotic malignant cells, suggestive of anti-tumor effector activity. Therapeutic responses and progression-free survival correlated with IgG-stained tumor cells in RCC patients treated with immune checkpoint inhibitors. Thus, intratumoral TLS sustains B cell maturation and antibody production that is associated with response to immunotherapy, potentially via direct anti-tumor effects. Overall design: Spatial transcriptomics of fresh frozen ccRCC human tumors *** Raw data has not been submitted at this time due to patient privacy concerns ***</Description>
+            <ExternalLink label="">
+                <dbXREF db="GEO">
+                    <ID>GSE175540</ID>
+                </dbXREF>
+            </ExternalLink>
+            <Publication date="2022-03-02T00:00:00Z" id="35231421" status="ePublished">
+                <Reference>35231421</Reference>
+                <DbType>ePubmed</DbType>
+            </Publication>
+            <Relevance>
+                <Medical>Yes</Medical>
+            </Relevance>
+        </ProjectDescr>
+        <ProjectType>
+            <ProjectTypeSubmission>
+                <Target capture="eWhole" material="eTranscriptome" sample_scope="eMultiisolate">
+                    <Organism species="9606" taxID="9606">
+                        <OrganismName>Homo sapiens</OrganismName>
+                        <Supergroup>eEukaryotes</Supergroup>
+                    </Organism>
+                </Target>
+                <Method method_type="eSequencing"/>
+                <Objectives>
+                    <Data data_type="eExpression"/>
+                </Objectives>
+                <ProjectDataTypeSet>
+                    <DataType>Transcriptome or Gene expression</DataType>
+                </ProjectDataTypeSet>
+            </ProjectTypeSubmission>
+        </ProjectType>
+    </Project>
+    <Submission last_update="2022-03-03" submission_id="SUB11153265" submitted="2021-05-25">
+        <Description>
+            <!-- Submitter information has been removed -->
+            <Organization role="owner" type="institute">
+                <Name>UMRS 1138 - Centre de Recherche des Cordeliers</Name>
+                <!-- Contact information has been removed -->
+            </Organization>
+            <Access>public</Access>
+        </Description>
+        <Action action_id="SUB11153265-gse175540"/>
+    </Submission>
+</DocumentSummary>
+
+</RecordSet>

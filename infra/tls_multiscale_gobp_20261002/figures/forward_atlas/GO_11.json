@@ -1,0 +1,904 @@
+{
+  "status": "COMPLETE",
+  "start": 1280,
+  "end": 1408,
+  "pages": 128,
+  "index": [
+    {
+      "program_index": 1280,
+      "program": "GOBP_REGULATION_OF_CYTOPLASMIC_TRANSLATION",
+      "book": "GO_11.pdf",
+      "page": 1,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1281,
+      "program": "GOBP_REGULATION_OF_CYTOSOLIC_CALCIUM_ION_CONCENTRATION",
+      "book": "GO_11.pdf",
+      "page": 2,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1282,
+      "program": "GOBP_REGULATION_OF_DENDRITE_MORPHOGENESIS",
+      "book": "GO_11.pdf",
+      "page": 3,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1283,
+      "program": "GOBP_REGULATION_OF_DENDRITIC_SPINE_MORPHOGENESIS",
+      "book": "GO_11.pdf",
+      "page": 4,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1284,
+      "program": "GOBP_REGULATION_OF_DEPHOSPHORYLATION",
+      "book": "GO_11.pdf",
+      "page": 5,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1285,
+      "program": "GOBP_REGULATION_OF_DIGESTIVE_SYSTEM_PROCESS",
+      "book": "GO_11.pdf",
+      "page": 6,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1286,
+      "program": "GOBP_REGULATION_OF_DNA_BINDING_TRANSCRIPTION_FACTOR_ACTIVITY",
+      "book": "GO_11.pdf",
+      "page": 7,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1287,
+      "program": "GOBP_REGULATION_OF_DNA_DAMAGE_CHECKPOINT",
+      "book": "GO_11.pdf",
+      "page": 8,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1288,
+      "program": "GOBP_REGULATION_OF_DNA_DAMAGE_RESPONSE_SIGNAL_TRANSDUCTION_BY_P53_CLASS_MEDIATOR",
+      "book": "GO_11.pdf",
+      "page": 9,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1289,
+      "program": "GOBP_REGULATION_OF_DNA_TEMPLATED_DNA_REPLICATION",
+      "book": "GO_11.pdf",
+      "page": 10,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1290,
+      "program": "GOBP_REGULATION_OF_DOPAMINE_SECRETION",
+      "book": "GO_11.pdf",
+      "page": 11,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1291,
+      "program": "GOBP_REGULATION_OF_DOUBLE_STRAND_BREAK_REPAIR_VIA_NONHOMOLOGOUS_END_JOINING",
+      "book": "GO_11.pdf",
+      "page": 12,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1292,
+      "program": "GOBP_REGULATION_OF_D_GLUCOSE_IMPORT",
+      "book": "GO_11.pdf",
+      "page": 13,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1293,
+      "program": "GOBP_REGULATION_OF_ENDOCYTIC_RECYCLING",
+      "book": "GO_11.pdf",
+      "page": 14,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1294,
+      "program": "GOBP_REGULATION_OF_ENDOPEPTIDASE_ACTIVITY",
+      "book": "GO_11.pdf",
+      "page": 15,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1295,
+      "program": "GOBP_REGULATION_OF_ENDOTHELIAL_CELL_CHEMOTAXIS",
+      "book": "GO_11.pdf",
+      "page": 16,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1296,
+      "program": "GOBP_REGULATION_OF_ENDOTHELIAL_CELL_DIFFERENTIATION",
+      "book": "GO_11.pdf",
+      "page": 17,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1297,
+      "program": "GOBP_REGULATION_OF_ERAD_PATHWAY",
+      "book": "GO_11.pdf",
+      "page": 18,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1298,
+      "program": "GOBP_REGULATION_OF_ESTABLISHMENT_OR_MAINTENANCE_OF_CELL_POLARITY",
+      "book": "GO_11.pdf",
+      "page": 19,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1299,
+      "program": "GOBP_REGULATION_OF_EXCITATORY_SYNAPSE_ASSEMBLY",
+      "book": "GO_11.pdf",
+      "page": 20,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1300,
+      "program": "GOBP_REGULATION_OF_EXTRACELLULAR_MATRIX_ASSEMBLY",
+      "book": "GO_11.pdf",
+      "page": 21,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1301,
+      "program": "GOBP_REGULATION_OF_EXTRACELLULAR_MATRIX_DISASSEMBLY",
+      "book": "GO_11.pdf",
+      "page": 22,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1302,
+      "program": "GOBP_REGULATION_OF_FATTY_ACID_OXIDATION",
+      "book": "GO_11.pdf",
+      "page": 23,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1303,
+      "program": "GOBP_REGULATION_OF_FEEDING_BEHAVIOR",
+      "book": "GO_11.pdf",
+      "page": 24,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1304,
+      "program": "GOBP_REGULATION_OF_FIBROBLAST_APOPTOTIC_PROCESS",
+      "book": "GO_11.pdf",
+      "page": 25,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1305,
+      "program": "GOBP_REGULATION_OF_FIBROBLAST_MIGRATION",
+      "book": "GO_11.pdf",
+      "page": 26,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1306,
+      "program": "GOBP_REGULATION_OF_FLAGELLATED_SPERM_MOTILITY",
+      "book": "GO_11.pdf",
+      "page": 27,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1307,
+      "program": "GOBP_REGULATION_OF_GENE_SILENCING_BY_REGULATORY_NCRNA",
+      "book": "GO_11.pdf",
+      "page": 28,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1308,
+      "program": "GOBP_REGULATION_OF_GLIAL_CELL_MIGRATION",
+      "book": "GO_11.pdf",
+      "page": 29,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1309,
+      "program": "GOBP_REGULATION_OF_GLYCOGEN_BIOSYNTHETIC_PROCESS",
+      "book": "GO_11.pdf",
+      "page": 30,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1310,
+      "program": "GOBP_REGULATION_OF_GLYCOLYTIC_PROCESS",
+      "book": "GO_11.pdf",
+      "page": 31,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1311,
+      "program": "GOBP_REGULATION_OF_HAIR_FOLLICLE_DEVELOPMENT",
+      "book": "GO_11.pdf",
+      "page": 32,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1312,
+      "program": "GOBP_REGULATION_OF_HEART_RATE_BY_CARDIAC_CONDUCTION",
+      "book": "GO_11.pdf",
+      "page": 33,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1313,
+      "program": "GOBP_REGULATION_OF_HEMATOPOIETIC_PROGENITOR_CELL_DIFFERENTIATION",
+      "book": "GO_11.pdf",
+      "page": 34,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1314,
+      "program": "GOBP_REGULATION_OF_HETEROTYPIC_CELL_CELL_ADHESION",
+      "book": "GO_11.pdf",
+      "page": 35,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1315,
+      "program": "GOBP_REGULATION_OF_HORMONE_BIOSYNTHETIC_PROCESS",
+      "book": "GO_11.pdf",
+      "page": 36,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1316,
+      "program": "GOBP_REGULATION_OF_INCLUSION_BODY_ASSEMBLY",
+      "book": "GO_11.pdf",
+      "page": 37,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1317,
+      "program": "GOBP_REGULATION_OF_INSULIN_LIKE_GROWTH_FACTOR_RECEPTOR_SIGNALING_PATHWAY",
+      "book": "GO_11.pdf",
+      "page": 38,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1318,
+      "program": "GOBP_REGULATION_OF_INSULIN_RECEPTOR_SIGNALING_PATHWAY",
+      "book": "GO_11.pdf",
+      "page": 39,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1319,
+      "program": "GOBP_REGULATION_OF_INTEGRIN_MEDIATED_SIGNALING_PATHWAY",
+      "book": "GO_11.pdf",
+      "page": 40,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1320,
+      "program": "GOBP_REGULATION_OF_INTRACELLULAR_ESTROGEN_RECEPTOR_SIGNALING_PATHWAY",
+      "book": "GO_11.pdf",
+      "page": 41,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1321,
+      "program": "GOBP_REGULATION_OF_JUN_KINASE_ACTIVITY",
+      "book": "GO_11.pdf",
+      "page": 42,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1322,
+      "program": "GOBP_REGULATION_OF_KETONE_BIOSYNTHETIC_PROCESS",
+      "book": "GO_11.pdf",
+      "page": 43,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1323,
+      "program": "GOBP_REGULATION_OF_LIPOPOLYSACCHARIDE_MEDIATED_SIGNALING_PATHWAY",
+      "book": "GO_11.pdf",
+      "page": 44,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1324,
+      "program": "GOBP_REGULATION_OF_LONG_TERM_NEURONAL_SYNAPTIC_PLASTICITY",
+      "book": "GO_11.pdf",
+      "page": 45,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1325,
+      "program": "GOBP_REGULATION_OF_LOW_DENSITY_LIPOPROTEIN_PARTICLE_CLEARANCE",
+      "book": "GO_11.pdf",
+      "page": 46,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1326,
+      "program": "GOBP_REGULATION_OF_LYMPHOCYTE_CHEMOTAXIS",
+      "book": "GO_11.pdf",
+      "page": 47,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1327,
+      "program": "GOBP_REGULATION_OF_MACROPHAGE_DIFFERENTIATION",
+      "book": "GO_11.pdf",
+      "page": 48,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1328,
+      "program": "GOBP_REGULATION_OF_MAST_CELL_DEGRANULATION",
+      "book": "GO_11.pdf",
+      "page": 49,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1329,
+      "program": "GOBP_REGULATION_OF_MEIOTIC_NUCLEAR_DIVISION",
+      "book": "GO_11.pdf",
+      "page": 50,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1330,
+      "program": "GOBP_REGULATION_OF_MEMBRANE_LIPID_METABOLIC_PROCESS",
+      "book": "GO_11.pdf",
+      "page": 51,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1331,
+      "program": "GOBP_REGULATION_OF_MEMBRANE_PROTEIN_ECTODOMAIN_PROTEOLYSIS",
+      "book": "GO_11.pdf",
+      "page": 52,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1332,
+      "program": "GOBP_REGULATION_OF_MICROGLIAL_CELL_ACTIVATION",
+      "book": "GO_11.pdf",
+      "page": 53,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1333,
+      "program": "GOBP_REGULATION_OF_MICROTUBULE_POLYMERIZATION",
+      "book": "GO_11.pdf",
+      "page": 54,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1334,
+      "program": "GOBP_REGULATION_OF_MITOCHONDRIAL_DEPOLARIZATION",
+      "book": "GO_11.pdf",
+      "page": 55,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1335,
+      "program": "GOBP_REGULATION_OF_MITOCHONDRIAL_OUTER_MEMBRANE_PERMEABILIZATION_INVOLVED_IN_APOPTOTIC_SIGNALING_PATHWAY",
+      "book": "GO_11.pdf",
+      "page": 56,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1336,
+      "program": "GOBP_REGULATION_OF_MITOCHONDRIAL_TRANSLATION",
+      "book": "GO_11.pdf",
+      "page": 57,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1337,
+      "program": "GOBP_REGULATION_OF_MITOTIC_SPINDLE_ASSEMBLY",
+      "book": "GO_11.pdf",
+      "page": 58,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1338,
+      "program": "GOBP_REGULATION_OF_MODIFICATION_OF_SYNAPTIC_STRUCTURE",
+      "book": "GO_11.pdf",
+      "page": 59,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1339,
+      "program": "GOBP_REGULATION_OF_MONOCYTE_DIFFERENTIATION",
+      "book": "GO_11.pdf",
+      "page": 60,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1340,
+      "program": "GOBP_REGULATION_OF_MYOBLAST_FUSION",
+      "book": "GO_11.pdf",
+      "page": 61,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1341,
+      "program": "GOBP_REGULATION_OF_MYOBLAST_PROLIFERATION",
+      "book": "GO_11.pdf",
+      "page": 62,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1342,
+      "program": "GOBP_REGULATION_OF_MYOTUBE_DIFFERENTIATION",
+      "book": "GO_11.pdf",
+      "page": 63,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1343,
+      "program": "GOBP_REGULATION_OF_NEURON_MIGRATION",
+      "book": "GO_11.pdf",
+      "page": 64,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1344,
+      "program": "GOBP_REGULATION_OF_NEURON_PROJECTION_REGENERATION",
+      "book": "GO_11.pdf",
+      "page": 65,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1345,
+      "program": "GOBP_REGULATION_OF_NEUROTRANSMITTER_UPTAKE",
+      "book": "GO_11.pdf",
+      "page": 66,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1346,
+      "program": "GOBP_REGULATION_OF_NITRIC_OXIDE_METABOLIC_PROCESS",
+      "book": "GO_11.pdf",
+      "page": 67,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1347,
+      "program": "GOBP_REGULATION_OF_NON_CANONICAL_WNT_SIGNALING_PATHWAY",
+      "book": "GO_11.pdf",
+      "page": 68,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1348,
+      "program": "GOBP_REGULATION_OF_NUCLEAR_TRANSCRIBED_MRNA_CATABOLIC_PROCESS_DEADENYLATION_DEPENDENT_DECAY",
+      "book": "GO_11.pdf",
+      "page": 69,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1349,
+      "program": "GOBP_REGULATION_OF_NUCLEOTIDE_EXCISION_REPAIR",
+      "book": "GO_11.pdf",
+      "page": 70,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1350,
+      "program": "GOBP_REGULATION_OF_OSTEOBLAST_PROLIFERATION",
+      "book": "GO_11.pdf",
+      "page": 71,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1351,
+      "program": "GOBP_REGULATION_OF_OXIDATIVE_PHOSPHORYLATION",
+      "book": "GO_11.pdf",
+      "page": 72,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1352,
+      "program": "GOBP_REGULATION_OF_OXIDOREDUCTASE_ACTIVITY",
+      "book": "GO_11.pdf",
+      "page": 73,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1353,
+      "program": "GOBP_REGULATION_OF_PEROXISOME_PROLIFERATOR_ACTIVATED_RECEPTOR_SIGNALING_PATHWAY",
+      "book": "GO_11.pdf",
+      "page": 74,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1354,
+      "program": "GOBP_REGULATION_OF_PHOSPHOLIPID_METABOLIC_PROCESS",
+      "book": "GO_11.pdf",
+      "page": 75,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1355,
+      "program": "GOBP_REGULATION_OF_PLATELET_AGGREGATION",
+      "book": "GO_11.pdf",
+      "page": 76,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1356,
+      "program": "GOBP_REGULATION_OF_PLATELET_DERIVED_GROWTH_FACTOR_RECEPTOR_SIGNALING_PATHWAY",
+      "book": "GO_11.pdf",
+      "page": 77,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1357,
+      "program": "GOBP_REGULATION_OF_POSITIVE_CHEMOTAXIS",
+      "book": "GO_11.pdf",
+      "page": 78,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1358,
+      "program": "GOBP_REGULATION_OF_POSTSYNAPSE_ASSEMBLY",
+      "book": "GO_11.pdf",
+      "page": 79,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1359,
+      "program": "GOBP_REGULATION_OF_POSTSYNAPTIC_DENSITY_ORGANIZATION",
+      "book": "GO_11.pdf",
+      "page": 80,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1360,
+      "program": "GOBP_REGULATION_OF_POSTSYNAPTIC_NEUROTRANSMITTER_RECEPTOR_INTERNALIZATION",
+      "book": "GO_11.pdf",
+      "page": 81,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1361,
+      "program": "GOBP_REGULATION_OF_POSTSYNAPTIC_SPECIALIZATION_ASSEMBLY",
+      "book": "GO_11.pdf",
+      "page": 82,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1362,
+      "program": "GOBP_REGULATION_OF_PRESYNAPSE_ORGANIZATION",
+      "book": "GO_11.pdf",
+      "page": 83,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1363,
+      "program": "GOBP_REGULATION_OF_PRESYNAPTIC_MEMBRANE_POTENTIAL",
+      "book": "GO_11.pdf",
+      "page": 84,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1364,
+      "program": "GOBP_REGULATION_OF_PROTEIN_EXIT_FROM_ENDOPLASMIC_RETICULUM",
+      "book": "GO_11.pdf",
+      "page": 85,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1365,
+      "program": "GOBP_REGULATION_OF_PROTEIN_LOCALIZATION_TO_SYNAPSE",
+      "book": "GO_11.pdf",
+      "page": 86,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1366,
+      "program": "GOBP_REGULATION_OF_PROTEIN_NEDDYLATION",
+      "book": "GO_11.pdf",
+      "page": 87,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1367,
+      "program": "GOBP_REGULATION_OF_PROTEIN_POLYUBIQUITINATION",
+      "book": "GO_11.pdf",
+      "page": 88,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1368,
+      "program": "GOBP_REGULATION_OF_PROTEIN_SUMOYLATION",
+      "book": "GO_11.pdf",
+      "page": 89,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1369,
+      "program": "GOBP_REGULATION_OF_PROTEIN_TYROSINE_KINASE_ACTIVITY",
+      "book": "GO_11.pdf",
+      "page": 90,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1370,
+      "program": "GOBP_REGULATION_OF_PROTEOLYSIS_INVOLVED_IN_PROTEIN_CATABOLIC_PROCESS",
+      "book": "GO_11.pdf",
+      "page": 91,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1371,
+      "program": "GOBP_REGULATION_OF_RAC_PROTEIN_SIGNAL_TRANSDUCTION",
+      "book": "GO_11.pdf",
+      "page": 92,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1372,
+      "program": "GOBP_REGULATION_OF_RECEPTOR_LOCALIZATION_TO_SYNAPSE",
+      "book": "GO_11.pdf",
+      "page": 93,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1373,
+      "program": "GOBP_REGULATION_OF_RECEPTOR_RECYCLING",
+      "book": "GO_11.pdf",
+      "page": 94,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1374,
+      "program": "GOBP_REGULATION_OF_RENAL_SYSTEM_PROCESS",
+      "book": "GO_11.pdf",
+      "page": 95,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1375,
+      "program": "GOBP_REGULATION_OF_RESPIRATORY_GASEOUS_EXCHANGE",
+      "book": "GO_11.pdf",
+      "page": 96,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1376,
+      "program": "GOBP_REGULATION_OF_RESPONSE_TO_NUTRIENT_LEVELS",
+      "book": "GO_11.pdf",
+      "page": 97,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1377,
+      "program": "GOBP_REGULATION_OF_RESPONSE_TO_TUMOR_CELL",
+      "book": "GO_11.pdf",
+      "page": 98,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1378,
+      "program": "GOBP_REGULATION_OF_RIG_I_SIGNALING_PATHWAY",
+      "book": "GO_11.pdf",
+      "page": 99,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1379,
+      "program": "GOBP_REGULATION_OF_RUFFLE_ASSEMBLY",
+      "book": "GO_11.pdf",
+      "page": 100,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1380,
+      "program": "GOBP_REGULATION_OF_SENSORY_PERCEPTION",
+      "book": "GO_11.pdf",
+      "page": 101,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1381,
+      "program": "GOBP_REGULATION_OF_SIGNALING_RECEPTOR_ACTIVITY",
+      "book": "GO_11.pdf",
+      "page": 102,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1382,
+      "program": "GOBP_REGULATION_OF_SISTER_CHROMATID_SEGREGATION",
+      "book": "GO_11.pdf",
+      "page": 103,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1383,
+      "program": "GOBP_REGULATION_OF_SKELETAL_MUSCLE_CELL_DIFFERENTIATION",
+      "book": "GO_11.pdf",
+      "page": 104,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1384,
+      "program": "GOBP_REGULATION_OF_SKELETAL_MUSCLE_TISSUE_DEVELOPMENT",
+      "book": "GO_11.pdf",
+      "page": 105,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1385,
+      "program": "GOBP_REGULATION_OF_SPINDLE_CHECKPOINT",
+      "book": "GO_11.pdf",
+      "page": 106,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1386,
+      "program": "GOBP_REGULATION_OF_STEROID_HORMONE_SECRETION",
+      "book": "GO_11.pdf",
+      "page": 107,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1387,
+      "program": "GOBP_REGULATION_OF_SUPEROXIDE_ANION_GENERATION",
+      "book": "GO_11.pdf",
+      "page": 108,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1388,
+      "program": "GOBP_REGULATION_OF_SYNAPSE_MATURATION",
+      "book": "GO_11.pdf",
+      "page": 109,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1389,
+      "program": "GOBP_REGULATION_OF_SYNAPTIC_TRANSMISSION_GABAERGIC",
+      "book": "GO_11.pdf",
+      "page": 110,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1390,
+      "program": "GOBP_REGULATION_OF_SYNAPTIC_VESICLE_ENDOCYTOSIS",
+      "book": "GO_11.pdf",
+      "page": 111,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1391,
+      "program": "GOBP_REGULATION_OF_SYNAPTIC_VESICLE_EXOCYTOSIS",
+      "book": "GO_11.pdf",
+      "page": 112,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1392,
+      "program": "GOBP_REGULATION_OF_SYNAPTIC_VESICLE_MEMBRANE_ORGANIZATION",
+      "book": "GO_11.pdf",
+      "page": 113,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1393,
+      "program": "GOBP_REGULATION_OF_SYSTEMIC_ARTERIAL_BLOOD_PRESSURE_BY_CIRCULATORY_RENIN_ANGIOTENSIN",
+      "book": "GO_11.pdf",
+      "page": 114,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1394,
+      "program": "GOBP_REGULATION_OF_THE_FORCE_OF_HEART_CONTRACTION",
+      "book": "GO_11.pdf",
+      "page": 115,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1395,
+      "program": "GOBP_REGULATION_OF_TOLERANCE_INDUCTION",
+      "book": "GO_11.pdf",
+      "page": 116,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1396,
+      "program": "GOBP_REGULATION_OF_TRANSCRIPTION_BY_RNA_POLYMERASE_III",
+      "book": "GO_11.pdf",
+      "page": 117,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1397,
+      "program": "GOBP_REGULATION_OF_TRANSCRIPTION_REGULATORY_REGION_DNA_BINDING",
+      "book": "GO_11.pdf",
+      "page": 118,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1398,
+      "program": "GOBP_REGULATION_OF_TRANSLATION_IN_RESPONSE_TO_STRESS",
+      "book": "GO_11.pdf",
+      "page": 119,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1399,
+      "program": "GOBP_REGULATION_OF_TRANSPORTER_ACTIVITY",
+      "book": "GO_11.pdf",
+      "page": 120,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1400,
+      "program": "GOBP_REGULATION_OF_TRIGLYCERIDE_BIOSYNTHETIC_PROCESS",
+      "book": "GO_11.pdf",
+      "page": 121,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1401,
+      "program": "GOBP_REGULATION_OF_TYPE_2_IMMUNE_RESPONSE",
+      "book": "GO_11.pdf",
+      "page": 122,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1402,
+      "program": "GOBP_REGULATION_OF_TYROSINE_PHOSPHORYLATION_OF_STAT_PROTEIN",
+      "book": "GO_11.pdf",
+      "page": 123,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1403,
+      "program": "GOBP_REGULATION_OF_T_CELL_DIFFERENTIATION_IN_THYMUS",
+      "book": "GO_11.pdf",
+      "page": 124,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1404,
+      "program": "GOBP_REGULATION_OF_T_HELPER_17_CELL_DIFFERENTIATION",
+      "book": "GO_11.pdf",
+      "page": 125,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1405,
+      "program": "GOBP_REGULATION_OF_T_HELPER_1_TYPE_IMMUNE_RESPONSE",
+      "book": "GO_11.pdf",
+      "page": 126,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1406,
+      "program": "GOBP_REGULATION_OF_UBIQUITIN_PROTEIN_TRANSFERASE_ACTIVITY",
+      "book": "GO_11.pdf",
+      "page": 127,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 1407,
+      "program": "GOBP_REGULATION_OF_URINE_VOLUME",
+      "book": "GO_11.pdf",
+      "page": 128,
+      "panel": "GO_BP"
+    }
+  ]
+}

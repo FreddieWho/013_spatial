@@ -72,8 +72,8 @@ def estimate_sigma(xy, values, rng):
     xs, ys = np.array(xs), np.array(ys)
     if len(xs) < 2 or (xs ** 2).sum() <= 0:
         return float("nan"), dict(cal)
-    a = float((xs * ys).sum() / (xs ** 2).sum())   # a = 1/(4 sigma^2)
-    sigma = float(np.sqrt(1.0 / (4.0 * a))) if a > 0 else float("nan")
+    a = float((xs * ys).sum() / (xs ** 2).sum())   # x=d^2/4; a=1/sigma^2
+    sigma = float(np.sqrt(1.0 / a)) if a > 0 else float("nan")
     sigma = float(np.clip(sigma, 40.0, 800.0))
     return sigma, dict(cal)
 
@@ -139,11 +139,15 @@ def section_statistic(means, counts):
 
 # ---------------------------------------------------------------- main
 def main():
+    global OUT
     ap = argparse.ArgumentParser()
     ap.add_argument("--draws", type=int, default=200)
     ap.add_argument("--seed", type=int, default=20261001)
     ap.add_argument("--sections", default="", help="comma list to subset (smoke)")
+    ap.add_argument("--output-dir", type=Path, required=True, help="New audit output directory (D-167)")
     args = ap.parse_args()
+    OUT = args.output_dir
+    OUT.mkdir(parents=True, exist_ok=False)
     rng = np.random.default_rng(args.seed)
 
     v5 = json.loads(V5.read_text())

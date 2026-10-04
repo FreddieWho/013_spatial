@@ -1,0 +1,50 @@
+[
+  {
+    "metric": "raw_median",
+    "programs": 1742,
+    "groups": 1559,
+    "status": "DESCRIPTIVE_ONLY",
+    "units": "Visible-field SD",
+    "display_limit": 1
+  },
+  {
+    "metric": "adjusted_median",
+    "programs": 1742,
+    "groups": 1559,
+    "status": "DESCRIPTIVE_ONLY",
+    "units": "Visible-field SD",
+    "display_limit": 1
+  },
+  {
+    "metric": "native_z_median",
+    "programs": 1742,
+    "groups": 1559,
+    "status": "DESCRIPTIVE_ONLY",
+    "units": "Native-reference SD (not a p-value)",
+    "display_limit": 3
+  },
+  {
+    "metric": "positive_continuity",
+    "programs": 1742,
+    "groups": 1559,
+    "status": "DESCRIPTIVE_ONLY",
+    "units": "Median within-TLS fraction",
+    "display_limit": 1
+  },
+  {
+    "metric": "negative_continuity",
+    "programs": 1742,
+    "groups": 1559,
+    "status": "DESCRIPTIVE_ONLY",
+    "units": "Median within-TLS fraction",
+    "display_limit": 1
+  },
+  {
+    "metric": "side_asymmetry",
+    "programs": 1742,
+    "groups": 1559,
+    "status": "DESCRIPTIVE_ONLY",
+    "units": "Visible-field SD",
+    "display_limit": 1
+  }
+]

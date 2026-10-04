@@ -73,7 +73,8 @@ def sigma_from_bands(corr):
     a = float((xs * ys).sum() / (xs ** 2).sum())
     if a <= 0:
         return float("nan")
-    return float(np.clip(np.sqrt(1.0 / (4.0 * a)), 40.0, 800.0))
+    # x = d^2/4, so slope a = 1/sigma^2.
+    return float(np.clip(np.sqrt(1.0 / a), 40.0, 800.0))
 
 
 def smoothed_noise(xy, sigma, n_draws, rng, mult=3.0):
@@ -100,12 +101,16 @@ def quantile_map(z, observed):
 
 
 def main():
+    global OUT
     ap = argparse.ArgumentParser()
     ap.add_argument("--draws", type=int, default=200)
     ap.add_argument("--sections", default="")
     ap.add_argument("--tag", default="")
     ap.add_argument("--limit-sets", type=int, default=0)
+    ap.add_argument("--output-dir", type=Path, required=True, help="New audit output directory (D-167)")
     args = ap.parse_args()
+    OUT = args.output_dir
+    OUT.mkdir(parents=True, exist_ok=False)
     rng = np.random.default_rng(20261001)
 
     v7 = json.loads(CONTRACT.read_text())
@@ -191,6 +196,7 @@ def main():
             if key not in W_cache:
                 W_cache[key] = smoothed_noise(xy, sigma, args.draws, rng)
             S_sim = quantile_map(W_cache[key], R)
+            S_sim = screen.residualize(S_sim, Q)
             means = np.asarray(A.T @ S_sim)                     # (K, draws)
             ncomp = len(cnt) // NBINS
             M = means.reshape(ncomp, NBINS, args.draws)
@@ -208,7 +214,7 @@ def main():
                          "obs": round(obs, 6),
                          "null_median": round(float(np.median(null_med)), 6),
                          "p_one_sided": round(p, 4), "n_anchors": int(ok_anchor.sum()),
-                         "sigma": round(sigma, 1), "rho_s": round(rho, 4), "note": ""})
+                         "sigma": round(sigma, 1), "rho_s": round(rho, 4), "note": "NOT_CALIBRATED"})
         print(f"{sid}: anchors={len(comps)} sets={len(set_ids)} "
               f"elapsed={time.time()-t0:.1f}s", flush=True)
 
@@ -223,7 +229,7 @@ def main():
     for sid_set in set_ids:
         sub = [r for r in rows if r["set_id"] == sid_set]
         ps = np.array([float(r["p_one_sided"]) for r in sub if r["p_one_sided"] != ""])
-        obs = np.array([float(r["obs"]) for r in sub if r["obs"] != ""])
+        obs = np.array([float(r["obs"]) for r in sub if r["p_one_sided"] != ""])
         nulls = np.array([float(r["null_median"]) for r in sub if r["null_median"] != ""])
         frac = float((ps <= 0.05).mean()) if len(ps) else float("nan")
         med_obs = float(np.median(obs)) if len(obs) else float("nan")
@@ -234,7 +240,7 @@ def main():
                     "median_null": round(med_null, 6) if med_null == med_null else "",
                     "median_p": round(float(np.median(ps)), 4) if len(ps) else "",
                     "min_p": round(float(ps.min()), 4) if len(ps) else "",
-                    "claim": claim})
+                    "claim": "", "screen_rule_pass": claim, "status": "NOT_CALIBRATED"})
     out.sort(key=lambda r: (-(r["frac_p_le_0.05"] if isinstance(r["frac_p_le_0.05"], float) else -1),
                             -(r["median_obs"] if isinstance(r["median_obs"], float) else -9)))
     with (OUT / f"gobp_halo_null_summary_v7{args.tag}.tsv").open("w", newline="") as f:

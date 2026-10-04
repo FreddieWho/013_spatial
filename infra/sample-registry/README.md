@@ -1,3 +1,5 @@
+> 2026-10-02 R-17严格身份限制：见 `identity_restrictions_20261002.tsv` 与 I-033。历史USZ SAMPLE生成的patient_id不是源metadata明确患者编号；GSE队列级患者旁证不等于逐GSM对应。新患者级结论不得直接沿用受限条目的历史身份等级。
+
 # R-01 sample registry
 
 This directory is the versioned control surface for roadmap node R-01. It

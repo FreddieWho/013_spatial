@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-03",
+  "user_statement": "id确认，usz有没有论文编号或者数据链接让我人工审核",
+  "interpretation": "Workbook ID denotes patient, confirmed in response to explicit patient-ID question",
+  "authority": "USER_CONFIRMATION_NOT_INDEPENDENT_PUBLISHER_VERIFICATION",
+  "current_GSE_sections": 18,
+  "current_GSE_patients": 17,
+  "USZ_unknown_sections": 8,
+  "crosswalk": "gsm_patient_crosswalk_confirmed.tsv",
+  "original_audit_preserved": true,
+  "models_rerun": false
+}

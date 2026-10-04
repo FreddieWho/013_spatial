@@ -1,0 +1,99 @@
+{
+  "label": {
+    "status": {
+      "status": "NOT_CALIBRATED",
+      "decision": "D-167",
+      "draws": 200,
+      "n_sections_requested": 26,
+      "excluded": 3,
+      "changes": [
+        "Visium doubled-column geometry",
+        "rank-aware projection",
+        "sigma factor corrected",
+        "project surrogate through same design",
+        "no white-noise fallback"
+      ],
+      "interpretation": "Exploratory sensitivity only; no formal positive or negative claim."
+    },
+    "exclusions": [
+      {
+        "section_id": "gse175540-GSM5924039_ffpe_c_39",
+        "reason": "fewer_than_20_TLS_spots"
+      },
+      {
+        "section_id": "gse175540-GSM5924043_frozen_a_3",
+        "reason": "insufficient_distance_bins",
+        "n_near": 29,
+        "n_far": 53
+      },
+      {
+        "section_id": "gse175540-GSM5924053_frozen_c_57",
+        "reason": "insufficient_distance_bins",
+        "n_near": 22,
+        "n_far": 30
+      }
+    ],
+    "arms": {
+      "own": {
+        "readout_section_rows": 1112,
+        "sections": 23,
+        "diagnostic_p_count": 438,
+        "sigma_unfit": 674,
+        "diagnostic_p05": 16
+      }
+    },
+    "exploratory_passes": []
+  },
+  "composition": {
+    "status": {
+      "status": "NOT_CALIBRATED",
+      "decision": "D-167",
+      "draws": 200,
+      "n_sections_requested": 26,
+      "excluded": 3,
+      "changes": [
+        "Visium doubled-column geometry",
+        "rank-aware projection",
+        "sigma factor corrected",
+        "project surrogate through same design",
+        "no white-noise fallback"
+      ],
+      "interpretation": "Exploratory sensitivity only; no formal positive or negative claim."
+    },
+    "exclusions": [
+      {
+        "section_id": "gse175540-GSM5924039_ffpe_c_39",
+        "reason": "fewer_than_20_TLS_spots"
+      },
+      {
+        "section_id": "gse175540-GSM5924043_frozen_a_3",
+        "reason": "insufficient_distance_bins",
+        "n_near": 29,
+        "n_far": 53
+      },
+      {
+        "section_id": "gse175540-GSM5924053_frozen_c_57",
+        "reason": "insufficient_distance_bins",
+        "n_near": 22,
+        "n_far": 30
+      }
+    ],
+    "arms": {
+      "comp": {
+        "readout_section_rows": 1112,
+        "sections": 23,
+        "diagnostic_p_count": 188,
+        "sigma_unfit": 924,
+        "diagnostic_p05": 9
+      },
+      "own": {
+        "readout_section_rows": 1112,
+        "sections": 23,
+        "diagnostic_p_count": 436,
+        "sigma_unfit": 676,
+        "diagnostic_p05": 17
+      }
+    },
+    "exploratory_passes": []
+  }
+}

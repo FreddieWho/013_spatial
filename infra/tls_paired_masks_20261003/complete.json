@@ -1,0 +1,15 @@
+{
+  "status": "COMPLETE_PAIRED_COMMON_QUERY_EVALUATION",
+  "paired_model_jobs": 19,
+  "section_comparisons": 44,
+  "section_metric_rows": 76736,
+  "unit_metric_rows": 73248,
+  "summary_rows": 5232,
+  "programs_per_comparison": 1744,
+  "matched_query_rows": 28417,
+  "source_predictions_sha_verified": true,
+  "query_label_agreement": true,
+  "unit_mean_delta_consistency": true,
+  "original_full_population_preserved": true,
+  "scientific_confirmation": false
+}

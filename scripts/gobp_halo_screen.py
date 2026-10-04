@@ -109,8 +109,14 @@ def design(s, xy, deciles=DECILES):
 
 
 def residual_operator(X_design):
-    Q, _ = np.linalg.qr(X_design)
-    return Q
+    # Decile indicators plus an intercept are necessarily rank deficient.
+    # Unpivoted QR adds arbitrary directions at dependent/empty columns.
+    X_design = np.asarray(X_design, dtype=float)
+    if X_design.ndim != 2 or not np.isfinite(X_design).all():
+        raise ValueError("design must be a finite matrix")
+    U, s, _ = np.linalg.svd(X_design, full_matrices=False)
+    tol = max(X_design.shape) * np.finfo(float).eps * (s[0] if len(s) else 0)
+    return U[:, s > tol]
 
 
 def residualize(R, Q):
@@ -131,13 +137,17 @@ def anchor_contrasts(means_kn, cnt):
 
 
 def main():
+    global OUT
     ap = argparse.ArgumentParser()
     ap.add_argument("--sections", default="", help="comma list for smoke tests")
     ap.add_argument("--limit-sets", type=int, default=0)
     ap.add_argument("--tag", default="")
     ap.add_argument("--check-sets", type=int, default=5,
                     help="number of sets to verify against tls_pool_expand.aucell")
+    ap.add_argument("--output-dir", type=Path, required=True, help="New audit output directory (D-167)")
     args = ap.parse_args()
+    OUT = args.output_dir
+    OUT.mkdir(parents=True, exist_ok=False)
 
     OUT.mkdir(parents=True, exist_ok=True)
     v6 = json.loads(CONTRACT.read_text())

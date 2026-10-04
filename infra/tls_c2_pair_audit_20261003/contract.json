@@ -1,0 +1,30 @@
+{
+  "decision": "D-186",
+  "pair": [
+    "gse175540-GSM5924030_ffpe_c_2",
+    "gse175540-GSM5924050_frozen_c_2"
+  ],
+  "fixed_programs": [
+    "B_AXIS",
+    "GOBP_GAMMA_DELTA_T_CELL_ACTIVATION",
+    "GOBP_B_CELL_RECEPTOR_SIGNALING_PATHWAY"
+  ],
+  "identity_sha256": "b414d2585c4b8f789c595e0d981cb4ee06b6ac4bedf6307103ba13c949ca576d",
+  "scoring": "recompute original raw-count rank scores for every1742 program",
+  "reverse": "reconstruct labels and fixed-readout features at230/500/1000; decompose fixed1000 group-held-out model only",
+  "source_sha256": {
+    "/home/huyudi/013_spatial/data/GEO/GSE175540/raw/GSM5924030_ffpe_c_2_filtered_feature_bc_matrix.h5": "8a1acb88e9f85836a80b4389a9ab4a17692d6261139cb71c3e4b5ca4ac0aa6d6",
+    "/home/huyudi/013_spatial/data/GEO/GSE175540/raw/GSM5924030_ffpe_c_2_tissue_positions_list.csv.gz": "fec025dccbdccaaa96133007d8832d0edf860aa7274030067ae7c7fcdaf9db0f",
+    "/home/huyudi/013_spatial/data/GEO/GSE175540/raw/GSM5924030_ffpe_c_2_TLS_annotation.csv.gz": "7672457f6fcc4ec79f90678ff745016000394bef6e3b129ba1365a54aa31d29d",
+    "/home/huyudi/013_spatial/infra/tls_multiscale_gobp_20261002/geometry/gse175540-GSM5924030_ffpe_c_2.npz": "add6694957b26f3c919fdb7e48ee83725a52495ad3e747f9f3e0fdb37fb9ab38",
+    "/home/huyudi/013_spatial/infra/tls_multiscale_gobp_20261002/scores/gse175540-GSM5924030_ffpe_c_2.npz": "fc5ba99dc0235f565fd3b5d1dd05e43a512b1257922a89e5128c8e196fc15384",
+    "/home/huyudi/013_spatial/data/GEO/GSE175540/raw/GSM5924050_frozen_c_2_filtered_feature_bc_matrix.h5": "c126b77a6db3578d22a8985255d3a6a462b38bdaaf97e8f5332b698226a19a28",
+    "/home/huyudi/013_spatial/data/GEO/GSE175540/raw/GSM5924050_frozen_c_2_tissue_positions_list.csv.gz": "91b9188966fe4e4cf75fe5141ad6476500a1d5a54b489b97f13c711b37c6ed06",
+    "/home/huyudi/013_spatial/data/GEO/GSE175540/raw/GSM5924050_frozen_c_2_TLS_annotation.csv.gz": "c911dd920db30f34c0cd03ced35b5bd8c5e15fecf377d66a917a0c4c521530a5",
+    "/home/huyudi/013_spatial/infra/tls_multiscale_gobp_20261002/geometry/gse175540-GSM5924050_frozen_c_2.npz": "d85a3df08337d1f41daf445c0f7b9b6576a88b6f04aef4cdddbbc56bfd384e0d",
+    "/home/huyudi/013_spatial/infra/tls_multiscale_gobp_20261002/scores/gse175540-GSM5924050_frozen_c_2.npz": "88744c55a381c8b7db20671030f8b26900ddb75ab4509b397168c7850076ca85"
+  },
+  "prediction_sha256": {
+    "/home/huyudi/013_spatial/infra/tls_patient_validation_20261003/models/1000_leave_patient_GSE175540_c_2.npz": "d833bbf00b3d1c1961e3b184067eb4bdba646210aa1adde8b15047ded77d6aee"
+  }
+}

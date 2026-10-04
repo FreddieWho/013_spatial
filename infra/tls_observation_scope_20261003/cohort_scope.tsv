@@ -1,0 +1,7 @@
+cohort	mask_um	unit_type	n_total_units	n_units_with_evaluable_section	n_units_with_positive_queries	n_annotated_component_instances	n_nonsingleton_instances	n_contributing_component_instances	n_positive_queries	n_negative_queries	necessary_diameter_ceiling_um	min_evaluable_component_diameter_um	max_evaluable_component_diameter_um	n_instances_diameter_too_large	n_units_single_contributing_instance	n_component_instances_in_AUC_evaluable_sections	n_positive_queries_in_AUC_evaluable_sections
+USZ	230	tumor_sample_unknown_patient	8	5	5	108	86	10	10	2482	200	99.99999999999994	200.00000000000009	51	2	10	10
+USZ	500	tumor_sample_unknown_patient	8	8	8	108	86	61	95	2500	740	99.99999999999994	700.0000000000001	8	0	61	95
+USZ	1000	tumor_sample_unknown_patient	8	8	8	108	86	72	184	2507	1740	99.99999999999994	1473.0919862656233	0	0	72	184
+GSE175540	230	patient	17	0	0	35	34	0	0	12863	200			34	0	0	0
+GSE175540	500	patient	17	5	5	35	34	7	12	12899	740	360.5551275463989	721.1102550927982	27	3	7	12
+GSE175540	1000	patient	17	13	14	35	34	27	172	12913	1740	360.5551275463989	1539.4804318340655	6	7	26	166

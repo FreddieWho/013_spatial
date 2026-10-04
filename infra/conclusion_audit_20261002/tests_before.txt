@@ -1,0 +1,113 @@
+FFF.                                                                     [100%]
+=================================== FAILURES ===================================
+______________ test_rank_deficient_residual_matches_least_squares ______________
+
+    def test_rank_deficient_residual_matches_least_squares():
+        m = module('gobp_halo_screen')
+        rng = np.random.default_rng(43)
+        xy = rng.normal(size=(90, 2))
+        X = m.design(np.zeros(90), xy)
+        y = rng.normal(size=(90, 3))
+        expected = y - X @ np.linalg.lstsq(X, y, rcond=None)[0]
+        actual = m.residualize(y, m.residual_operator(X))
+>       np.testing.assert_allclose(actual, expected, atol=1e-12)
+
+tests/test_halo_audit.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (<function assert_allclose.<locals>.compare at 0x7f161fe9db20>, array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e...535318, -0.28138112],
+       [-1.51885621,  0.44243217, -0.6626466 ],
+       [-1.01523689, -0.95736769, -0.10814974]]))
+kwds = {'err_msg': '', 'verbose': True, 'header': 'Not equal to tolerance rtol=1e-07, atol=1e-12', 'equal_nan': True}
+
+    @wraps(func)
+    def inner(*args, **kwds):
+        with self._recreate_cm():
+>           return func(*args, **kwds)
+                   ^^^^^^^^^^^^^^^^^^^
+E           AssertionError: 
+E           Not equal to tolerance rtol=1e-07, atol=1e-12
+E           
+E           Mismatched elements: 270 / 270 (100%)
+E           Max absolute difference: 2.12192369
+E           Max relative difference: 4.90985906
+E            x: array([[ 0.000000e+00,  0.000000e+00,  0.000000e+00],
+E                  [ 0.000000e+00,  0.000000e+00,  0.000000e+00],
+E                  [ 0.000000e+00,  0.000000e+00,  0.000000e+00],...
+E            y: array([[-0.206002, -0.267414,  0.196973],
+E                  [ 0.496873,  0.13803 ,  0.246341],
+E                  [ 0.933916,  0.938192, -1.072406],...
+
+/opt/anaconda3/lib/python3.11/contextlib.py:81: AssertionError
+_______________ test_redundant_covariates_do_not_change_residual _______________
+
+    def test_redundant_covariates_do_not_change_residual():
+        m = module('gobp_halo_screen')
+        rng = np.random.default_rng(4)
+        X = np.column_stack([np.ones(80), rng.normal(size=(80, 2))])
+        y = rng.normal(size=80)
+        X2 = np.column_stack([X, X[:, 0], X[:, 1], np.zeros(80)])
+>       np.testing.assert_allclose(m.residualize(y, m.residual_operator(X)),
+                                   m.residualize(y, m.residual_operator(X2)), atol=1e-12)
+
+tests/test_halo_audit.py:31: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (<function assert_allclose.<locals>.compare at 0x7f161cdb42c0>, array([-0.8307947 ,  0.10156302,  0.51928152, -0.30787...028e-01,  7.20803834e-01, -2.95756590e-01,
+        1.53395843e+00, -8.00938676e-01, -2.87145922e-01, -1.73483719e+00]))
+kwds = {'err_msg': '', 'verbose': True, 'header': 'Not equal to tolerance rtol=1e-07, atol=1e-12', 'equal_nan': True}
+
+    @wraps(func)
+    def inner(*args, **kwds):
+        with self._recreate_cm():
+>           return func(*args, **kwds)
+                   ^^^^^^^^^^^^^^^^^^^
+E           AssertionError: 
+E           Not equal to tolerance rtol=1e-07, atol=1e-12
+E           
+E           Mismatched elements: 80 / 80 (100%)
+E           Max absolute difference: 0.8307947
+E           Max relative difference: 3.74156672e+15
+E            x: array([-0.830795,  0.101563,  0.519282, -0.307874,  1.443957,  0.066154,
+E                  -2.986714, -1.089891,  1.034842, -0.015306, -0.563089, -0.802839,
+E                   1.854727,  1.063476,  1.058992,  0.284608,  0.930368,  0.720794,...
+E            y: array([ 2.220446e-16,  1.204953e-01,  4.513494e-01, -2.957910e-01,
+E                   1.471022e+00, -2.155236e-01, -2.984164e+00, -1.036148e+00,
+E                   1.027700e+00, -3.778131e-02, -5.662638e-01, -8.171050e-01,...
+
+/opt/anaconda3/lib/python3.11/contextlib.py:81: AssertionError
+_________________ test_sigma_recovers_analytic_gaussian_kernel _________________
+
+    def test_sigma_recovers_analytic_gaussian_kernel():
+        m = module('gobp_halo_null')
+        sigma = 300.0
+        corr = {(lo, hi): np.exp(-((lo+hi)/2)**2/(4*sigma**2))
+                for lo, hi in m.LAG_BANDS}
+>       np.testing.assert_allclose(m.sigma_from_bands(corr), sigma, rtol=1e-12)
+
+tests/test_halo_audit.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (<function assert_allclose.<locals>.compare at 0x7f161cdb4040>, array(150.), array(300.))
+kwds = {'err_msg': '', 'verbose': True, 'header': 'Not equal to tolerance rtol=1e-12, atol=0', 'equal_nan': True}
+
+    @wraps(func)
+    def inner(*args, **kwds):
+        with self._recreate_cm():
+>           return func(*args, **kwds)
+                   ^^^^^^^^^^^^^^^^^^^
+E           AssertionError: 
+E           Not equal to tolerance rtol=1e-12, atol=0
+E           
+E           Mismatched elements: 1 / 1 (100%)
+E           Max absolute difference: 150.
+E           Max relative difference: 0.5
+E            x: array(150.)
+E            y: array(300.)
+
+/opt/anaconda3/lib/python3.11/contextlib.py:81: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_halo_audit.py::test_rank_deficient_residual_matches_least_squares
+FAILED tests/test_halo_audit.py::test_redundant_covariates_do_not_change_residual
+FAILED tests/test_halo_audit.py::test_sigma_recovers_analytic_gaussian_kernel
+3 failed, 1 passed in 0.67s

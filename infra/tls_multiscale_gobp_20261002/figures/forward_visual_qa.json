@@ -1,0 +1,18 @@
+{
+  "status": "COMPLETE_TEMPLATE_VISUAL_REVIEW_AND_ALL_PAGE_CONTENT_AUDIT",
+  "visual_review_scope": "Representative layouts, not a claim of manual review of every page",
+  "reviewed_layouts": [
+    "forward_atlas/B_AXIS_preview.png",
+    "bridge_all_native_z_median.png",
+    "representative_02_USZ.png",
+    "representative_02_GSE175540.png"
+  ],
+  "observations": [
+    "Legends and colorbar units readable; map footer separated from colorbar",
+    "Core mask and missing-label qualification visible",
+    "Bridge reference z explicitly not p; gray not testable; clipping disclosed"
+  ],
+  "full_atlas_content_audit": "forward_atlas/pdf_content_audit.json",
+  "prior_reverse_review": "visual_qa.json",
+  "scientific_confirmation": false
+}

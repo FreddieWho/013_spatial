@@ -1,0 +1,8 @@
+{
+  "status": "FAILED",
+  "n_null_cells": 288,
+  "n_null_fail": 56,
+  "n_power_cells": 576,
+  "n_power_fail": 510,
+  "note": "Real-data/patient confirmation remains separately gated."
+}

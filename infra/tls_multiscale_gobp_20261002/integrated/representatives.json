@@ -1,0 +1,9 @@
+{
+  "programs": [
+    "B_AXIS",
+    "GOBP_GAMMA_DELTA_T_CELL_ACTIVATION",
+    "GOBP_B_CELL_RECEPTOR_SIGNALING_PATHWAY"
+  ],
+  "rule": "D-180: B_AXIS plus each mask500/1000 full-arm worst-source-AUC rank1, illustration only",
+  "independent_validation": false
+}

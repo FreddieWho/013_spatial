@@ -1,0 +1,52 @@
+[
+  {
+    "figure": "multiscale_support",
+    "tiff_pixels": [
+      4320,
+      2400
+    ],
+    "tiff_dpi": 600,
+    "svg_editable_text": true,
+    "visual_review": "PASS: labels, legends, missingness and all scales inspected"
+  },
+  {
+    "figure": "reverse_leave_section",
+    "tiff_pixels": [
+      4320,
+      3000
+    ],
+    "tiff_dpi": 600,
+    "svg_editable_text": true,
+    "visual_review": "PASS: labels, legends, missingness and all scales inspected"
+  },
+  {
+    "figure": "reverse_leave_cohort",
+    "tiff_pixels": [
+      4320,
+      3000
+    ],
+    "tiff_dpi": 600,
+    "svg_editable_text": true,
+    "visual_review": "PASS: labels, legends, missingness and all scales inspected"
+  },
+  {
+    "figure": "inverse_all_GO",
+    "tiff_pixels": [
+      4320,
+      5400
+    ],
+    "tiff_dpi": 600,
+    "svg_editable_text": true,
+    "visual_review": "PASS: labels, legends, missingness and all scales inspected"
+  },
+  {
+    "figure": "inverse_all_controls",
+    "tiff_pixels": [
+      4320,
+      5400
+    ],
+    "tiff_dpi": 600,
+    "svg_editable_text": true,
+    "visual_review": "PASS: labels, legends, missingness and all scales inspected"
+  }
+]

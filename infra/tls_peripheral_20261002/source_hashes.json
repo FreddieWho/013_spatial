@@ -1,0 +1,378 @@
+{
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/KC1/filtered_feature_bc_matrix/matrix.mtx.gz": {
+    "size": 10111107,
+    "sha256": "06a1c815a155332075d8c19f10419447443f4c5435d53e22ea279d4ac0ebcdf5"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/KC1/filtered_feature_bc_matrix/features.tsv.gz": {
+    "size": 154217,
+    "sha256": "16cf09376372539a89445a3af7a62864115180349c4b4f7b821c621b56f457a7"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/KC1/filtered_feature_bc_matrix/barcodes.tsv.gz": {
+    "size": 23764,
+    "sha256": "1bf313cdb9f0692e1c6dd4f11b33571be66c95f16ba93335ba2db01f7c4d1fd4"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/KC1/spatial/tissue_positions.csv": {
+    "size": 183330,
+    "sha256": "8f5eede42fefce2b51a74b02abe65823a30c2eca6693aa6dcec65b22e833ee72"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/KC1.h5ad": {
+    "size": 284948879,
+    "sha256": "ef0f31460f030070551c4e165921734ab6b78f59f780034b395b87cd29506cf2"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/KC2/filtered_feature_bc_matrix/matrix.mtx.gz": {
+    "size": 6218107,
+    "sha256": "b738d681fe56c4cd0e19098e5114331a93d59b5c4ba20812edf68305928ef174"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/KC2/filtered_feature_bc_matrix/features.tsv.gz": {
+    "size": 154217,
+    "sha256": "0ac23d709f0db587184b41dd5abaeddcdeeb8e9ea96012b09e38a14317289222"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/KC2/filtered_feature_bc_matrix/barcodes.tsv.gz": {
+    "size": 12638,
+    "sha256": "5d0b4cff01752c1cb785e149c52bfd16b45df91b2cbcbaf299ad603bc8c0a8fc"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/KC2/spatial/tissue_positions.csv": {
+    "size": 183583,
+    "sha256": "abd94b6bfa87191c5515b2ac454a03a8320f54003cb03e60c8d6b16fe8cb9f31"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/KC2.h5ad": {
+    "size": 154815363,
+    "sha256": "3d1b81e5ba535e8f84a92f4f40caac81c9afaf38224065ae56d9d3ba238fdf45"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/KC3/filtered_feature_bc_matrix/matrix.mtx.gz": {
+    "size": 24272083,
+    "sha256": "5a6f212cf9945d573a68f4410f9fd2e22d9a5179ee84729dd73c779ccfc62721"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/KC3/filtered_feature_bc_matrix/features.tsv.gz": {
+    "size": 154217,
+    "sha256": "fc56b2e40b768e392605ac5d8f542b2a60d1b93ba8e433c5993f501e1deda80b"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/KC3/filtered_feature_bc_matrix/barcodes.tsv.gz": {
+    "size": 18476,
+    "sha256": "9afb9ed0a0fb04c13f29a797d26f45c8f51add61c87f9cb17635132d2db33b21"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/KC3/spatial/tissue_positions.csv": {
+    "size": 183581,
+    "sha256": "c7720a63fd24a020c35bb712010a845e6800877b5e57650113fa9518876e935d"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/KC3.h5ad": {
+    "size": 210869835,
+    "sha256": "b1c7b73ae8640082bd96f0d918db4cabbfc9590fae2251034aca9128c107549d"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/LC1/filtered_feature_bc_matrix/matrix.mtx.gz": {
+    "size": 7463392,
+    "sha256": "fa63a94831680ac1b0464102a2612af5330e16a3de3567a01b0868ec3af7130b"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/LC1/filtered_feature_bc_matrix/features.tsv.gz": {
+    "size": 154217,
+    "sha256": "b1754590f3956c411c21db5fda015527b2272f5a58f913f02ebf0f5dcaa10487"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/LC1/filtered_feature_bc_matrix/barcodes.tsv.gz": {
+    "size": 24810,
+    "sha256": "a31d4802104295933aaad9d69f6dc249ccd598acfd33a6a009c22df936fa72bf"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/LC1/spatial/tissue_positions.csv": {
+    "size": 183492,
+    "sha256": "df4345d0e1cb965466b27433541cb6d16026e1fd3606351f5cd183c98b209e33"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC1.h5ad": {
+    "size": 332918278,
+    "sha256": "062f9350d93c48dc04ed6dcd5c3f152fad37de4f7465d43f02faf03b2d56a453"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/LC2/filtered_feature_bc_matrix/matrix.mtx.gz": {
+    "size": 70362672,
+    "sha256": "1647d3b56547d88e1be8c1b63f4e905d85d8cf891e9f57ddf2d840ec13e678e4"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/LC2/filtered_feature_bc_matrix/features.tsv.gz": {
+    "size": 154217,
+    "sha256": "e03a802f8dec62e073b84f571814f76c070ce594c3402389c3633afd2acc9305"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/LC2/filtered_feature_bc_matrix/barcodes.tsv.gz": {
+    "size": 25343,
+    "sha256": "cb036ea5b72f7952eb3d5b660fbff3c42c374186c0bf2df8a6b81df9c27511e0"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/LC2/spatial/tissue_positions.csv": {
+    "size": 183592,
+    "sha256": "abca531af51bde071c4a53129457a581d0bb7b4b3005d324ebffb02fee26d3b0"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC2.h5ad": {
+    "size": 230959692,
+    "sha256": "15cfbf3ba338a6744cd21a2e3a0527662b99dd7719280a3abaaebed967fe9eed"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/LC3/filtered_feature_bc_matrix/matrix.mtx.gz": {
+    "size": 14830466,
+    "sha256": "8ea21067832661335f201803b95697a5b5a9983dc880663b42044d387e889dfa"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/LC3/filtered_feature_bc_matrix/features.tsv.gz": {
+    "size": 154217,
+    "sha256": "8d335e8476be56f957d2d1f9946ea3c33d163e0207954fc7f771847db6583f17"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/LC3/filtered_feature_bc_matrix/barcodes.tsv.gz": {
+    "size": 23766,
+    "sha256": "fbed15f3247cff5218269e80914acdd371d0d0363ec141627dcded280634e7c1"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/LC3/spatial/tissue_positions.csv": {
+    "size": 183452,
+    "sha256": "5f324d9658f9bfaf085970b873de2dfc68122dc72f42865a5140142a6fd0d1f5"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC3.h5ad": {
+    "size": 291380729,
+    "sha256": "a122bffbd55d8297352800a6e3dd62d808c906f53399484398bef60eccc351f1"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/LC4/filtered_feature_bc_matrix/matrix.mtx.gz": {
+    "size": 6713545,
+    "sha256": "319894054239e02739b87974808aa23ecf044c138f436b337e07671296dc41e3"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/LC4/filtered_feature_bc_matrix/features.tsv.gz": {
+    "size": 154217,
+    "sha256": "55e64fd2c648131f8cf3d0ba7cdb12144f326978759e5b33086fb0abeb23ece1"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/LC4/filtered_feature_bc_matrix/barcodes.tsv.gz": {
+    "size": 17323,
+    "sha256": "b28cafc779dd70619c43429627409402999f0989f6383746e1a7d93adf8f4634"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/LC4/spatial/tissue_positions.csv": {
+    "size": 183490,
+    "sha256": "c6c709a394eb986fc46b05ec799accc43ab18180623e4bb83289ccc2b7a91b9d"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC4.h5ad": {
+    "size": 231237704,
+    "sha256": "292faca615fcb45f0b9f5e135a74c7b8fd2fd7d40b4e276ef46dee8949918f3b"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/LC5/filtered_feature_bc_matrix/matrix.mtx.gz": {
+    "size": 23075950,
+    "sha256": "99948b5e3da3d6373805d095b3bbebc4e08c3b35e177be4b37be09d9778de557"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/LC5/filtered_feature_bc_matrix/features.tsv.gz": {
+    "size": 154217,
+    "sha256": "8970fa0d948dd5dd6afb45884b530c33962c55fa2f3c25d375f81d31fde0aefb"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/LC5/filtered_feature_bc_matrix/barcodes.tsv.gz": {
+    "size": 12543,
+    "sha256": "0b670c1446d6a2d1769ee0d5b967566c42d7f6f5491dab74bb711a5df91ef09c"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/10x_Visium/LC5/spatial/tissue_positions.csv": {
+    "size": 183747,
+    "sha256": "c68d53ea3c1576c351bb588f799dbf1de6d35743bf02b3a95700173bd53de8db"
+  },
+  "data/other_sources/zenodo_usz_tls_visium/TLS_VISIUM_USZ/h5ad_preprocessed/LC5.h5ad": {
+    "size": 165345030,
+    "sha256": "d0f7bc71f7d09233a1bdd41664124d0c2d4eb760540f76fb003f2d69ba47443a"
+  },
+  "data/GEO/GSE175540/raw/GSM5924030_ffpe_c_2_filtered_feature_bc_matrix.h5": {
+    "size": 17442356,
+    "sha256": "8a1acb88e9f85836a80b4389a9ab4a17692d6261139cb71c3e4b5ca4ac0aa6d6"
+  },
+  "data/GEO/GSE175540/raw/GSM5924030_ffpe_c_2_tissue_positions_list.csv.gz": {
+    "size": 53309,
+    "sha256": "fec025dccbdccaaa96133007d8832d0edf860aa7274030067ae7c7fcdaf9db0f"
+  },
+  "data/GEO/GSE175540/raw/GSM5924030_ffpe_c_2_TLS_annotation.csv.gz": {
+    "size": 24857,
+    "sha256": "7672457f6fcc4ec79f90678ff745016000394bef6e3b129ba1365a54aa31d29d"
+  },
+  "data/GEO/GSE175540/raw/GSM5924031_ffpe_c_3_filtered_feature_bc_matrix.h5": {
+    "size": 29467852,
+    "sha256": "151cee3d820e389a3312ac740b04c4f351adf4a6a04a4ee50e99d6de5e61b683"
+  },
+  "data/GEO/GSE175540/raw/GSM5924031_ffpe_c_3_tissue_positions_list.csv.gz": {
+    "size": 56390,
+    "sha256": "2596a94cecf6d90e1bde65b78cca2d70671793c562ddb97fd4a4afa2d762fa7c"
+  },
+  "data/GEO/GSE175540/raw/GSM5924031_ffpe_c_3_TLS_annotation.csv.gz": {
+    "size": 26343,
+    "sha256": "9a69cd935ab0352223b8dd70df14d8661a28d5d7f4ad956779e29b53e7500886"
+  },
+  "data/GEO/GSE175540/raw/GSM5924032_ffpe_c_4_filtered_feature_bc_matrix.h5": {
+    "size": 20470653,
+    "sha256": "8b8b43ddb622d0d3d1df971198c0830045b91d37955afdac8d90372cb9f00d7a"
+  },
+  "data/GEO/GSE175540/raw/GSM5924032_ffpe_c_4_tissue_positions_list.csv.gz": {
+    "size": 58414,
+    "sha256": "82ca8ba4ce41a37f7c35af937e97a9bb5760652365991b5bf3d10fcda3a9bc6a"
+  },
+  "data/GEO/GSE175540/raw/GSM5924032_ffpe_c_4_TLS_annotation.csv.gz": {
+    "size": 21452,
+    "sha256": "c939f30aa3c2b839db26c02fee90e1a1a7299d943a714d64bc4954355be21821"
+  },
+  "data/GEO/GSE175540/raw/GSM5924033_ffpe_c_7_filtered_feature_bc_matrix.h5": {
+    "size": 26670191,
+    "sha256": "4971e6b50312b8c71571670d63a21c7c59b4f3f23a5d6d2f27f39c665db6e9d2"
+  },
+  "data/GEO/GSE175540/raw/GSM5924033_ffpe_c_7_tissue_positions_list.csv.gz": {
+    "size": 53177,
+    "sha256": "9d5d0ea202cfd4d2bcc764424ba57fb6e69765e51d890d24b3805b00764e6686"
+  },
+  "data/GEO/GSE175540/raw/GSM5924033_ffpe_c_7_TLS_annotation.csv.gz": {
+    "size": 27270,
+    "sha256": "78015d0ec28b05410fa1f32f57669e5d6497cb0978d44cbbe5842e7873b62e63"
+  },
+  "data/GEO/GSE175540/raw/GSM5924035_ffpe_c_20_filtered_feature_bc_matrix.h5": {
+    "size": 15078038,
+    "sha256": "2d08971a5778475cfe0887303729da8e69e86cde1f1c40a796ce569bd0fbf7ed"
+  },
+  "data/GEO/GSE175540/raw/GSM5924035_ffpe_c_20_tissue_positions_list.csv.gz": {
+    "size": 55691,
+    "sha256": "b912741c821d91107d56376d59aca440922fc4323aaf1ec9ac0c2b37ef870215"
+  },
+  "data/GEO/GSE175540/raw/GSM5924035_ffpe_c_20_TLS_annotation.csv.gz": {
+    "size": 27058,
+    "sha256": "b42c8a7ac25891fc4328ab70e03bda96d5d474c8f4a7fe8ffe607049236aa7fa"
+  },
+  "data/GEO/GSE175540/raw/GSM5924037_ffpe_c_34_filtered_feature_bc_matrix.h5": {
+    "size": 11548829,
+    "sha256": "0ebf8b76342b860e1f45958136b41eb0b756375541a7f09a77d8eb819a1dc4f9"
+  },
+  "data/GEO/GSE175540/raw/GSM5924037_ffpe_c_34_tissue_positions_list.csv.gz": {
+    "size": 54000,
+    "sha256": "cb984ac541e6e5a49610f47a564f0ca6a3d65bd52ae138f2a6c61e73379925b7"
+  },
+  "data/GEO/GSE175540/raw/GSM5924037_ffpe_c_34_TLS_annotation.csv.gz": {
+    "size": 19874,
+    "sha256": "dde0a3949d8b53f1c47f17a6dc6a648eed5214c8d23bbbb57c04e2d379b5cb49"
+  },
+  "data/GEO/GSE175540/raw/GSM5924038_ffpe_c_36_filtered_feature_bc_matrix.h5": {
+    "size": 15254378,
+    "sha256": "920c351e46eacc8c8442c3957342d610ef73295501179d9dc6f3f59bbba5785e"
+  },
+  "data/GEO/GSE175540/raw/GSM5924038_ffpe_c_36_tissue_positions_list.csv.gz": {
+    "size": 55471,
+    "sha256": "19c5b8c6553be4ba22a1dd2e1e7bddd09a3c87ffcad7e559277177bb13cc1250"
+  },
+  "data/GEO/GSE175540/raw/GSM5924038_ffpe_c_36_TLS_annotation.csv.gz": {
+    "size": 18218,
+    "sha256": "794a4795c1c73a189963e8bb9aff3b3e010881f7321b527d012b8760f337cf5a"
+  },
+  "data/GEO/GSE175540/raw/GSM5924039_ffpe_c_39_filtered_feature_bc_matrix.h5": {
+    "size": 21409590,
+    "sha256": "c798d5af9a711660da7c4edaef070b5ac88674089ce9e9bfee8832ce4a738956"
+  },
+  "data/GEO/GSE175540/raw/GSM5924039_ffpe_c_39_tissue_positions_list.csv.gz": {
+    "size": 54108,
+    "sha256": "0835be51e95fc3fd1b4feda2f3176c39516a61ad3ec00436d7f1ad73a8b97f12"
+  },
+  "data/GEO/GSE175540/raw/GSM5924039_ffpe_c_39_TLS_annotation.csv.gz": {
+    "size": 26830,
+    "sha256": "a14425ebfbd996f76a52ee16df8bec10e37968c8b1e5aab8b2561c61ab013753"
+  },
+  "data/GEO/GSE175540/raw/GSM5924040_ffpe_c_45_filtered_feature_bc_matrix.h5": {
+    "size": 19474587,
+    "sha256": "cacd3fa9419fbfc8f745066da385d6b5b2e1b296d9059a5b94c5f6d5b66568de"
+  },
+  "data/GEO/GSE175540/raw/GSM5924040_ffpe_c_45_tissue_positions_list.csv.gz": {
+    "size": 53276,
+    "sha256": "083f8830c36ae5b9174b53b01681e869fc0eff3fa9140b6d85a35d065df4f528"
+  },
+  "data/GEO/GSE175540/raw/GSM5924040_ffpe_c_45_TLS_annotation.csv.gz": {
+    "size": 24821,
+    "sha256": "c0ccc6cefafd309164ac75e7cf7f660178d722953e21ecdb198dea772bea2e43"
+  },
+  "data/GEO/GSE175540/raw/GSM5924041_ffpe_c_51_filtered_feature_bc_matrix.h5": {
+    "size": 19998564,
+    "sha256": "4cc93ebc752be67381b1374b12c2abc9c12317e9ceb02cdb2613e487e72d9bf4"
+  },
+  "data/GEO/GSE175540/raw/GSM5924041_ffpe_c_51_tissue_positions_list.csv.gz": {
+    "size": 54297,
+    "sha256": "354d4a7bd6c2f363ddca0d2d9bce64fb7e9e570ec619a7481534fd0b906869bc"
+  },
+  "data/GEO/GSE175540/raw/GSM5924041_ffpe_c_51_TLS_annotation.csv.gz": {
+    "size": 24177,
+    "sha256": "ddb08e9b08342150d35b78dfd4656034d16fc67268cb5703af9e35e463ebd0c3"
+  },
+  "data/GEO/GSE175540/raw/GSM5924043_frozen_a_3_filtered_feature_bc_matrix.h5": {
+    "size": 7646364,
+    "sha256": "3daaed2af6f721269ad5a2b75caf40f0615bfbbaa45e86c2c8afba558bee1d09"
+  },
+  "data/GEO/GSE175540/raw/GSM5924043_frozen_a_3_tissue_positions_list.csv.gz": {
+    "size": 61022,
+    "sha256": "2a09e67e8dddb7bc2552ebfc312ff41f3375774a68e74a227c421779cc79116e"
+  },
+  "data/GEO/GSE175540/raw/GSM5924043_frozen_a_3_TLS_annotation.csv.gz": {
+    "size": 7768,
+    "sha256": "b9b4ad38df40c0a11d5b28e9fa1d1381192f1bdb6e2dc1f9c263faa229322e6f"
+  },
+  "data/GEO/GSE175540/raw/GSM5924044_frozen_a_15_filtered_feature_bc_matrix.h5": {
+    "size": 12809862,
+    "sha256": "f24bb58999a2320364f320f18fdc5fdbace800aa4510685f1b52b2a36d229059"
+  },
+  "data/GEO/GSE175540/raw/GSM5924044_frozen_a_15_tissue_positions_list.csv.gz": {
+    "size": 58465,
+    "sha256": "e7bc46fa18a12235d60bd6db3a2be6d85ae3b26a3ba5a02d0402beb4d64be276"
+  },
+  "data/GEO/GSE175540/raw/GSM5924044_frozen_a_15_TLS_annotation.csv.gz": {
+    "size": 7474,
+    "sha256": "f3696860bd5b21ca7250f9dff173e5b47cab62f8d4b93edb7770e7c7339b3944"
+  },
+  "data/GEO/GSE175540/raw/GSM5924046_frozen_b_1_filtered_feature_bc_matrix.h5": {
+    "size": 13537403,
+    "sha256": "e6c3db40beb92476ada06a08c3296c519e12aed6406393cda8782ebc113be92c"
+  },
+  "data/GEO/GSE175540/raw/GSM5924046_frozen_b_1_tissue_positions_list.csv.gz": {
+    "size": 53618,
+    "sha256": "449a0301c737524abe440788174b98b88d99f07fc366c7ac11a48dfd6d8d00f9"
+  },
+  "data/GEO/GSE175540/raw/GSM5924046_frozen_b_1_TLS_annotation.csv.gz": {
+    "size": 11375,
+    "sha256": "92657a5140cfad62976afef5c5b0aa0c5414537301d37de3a90927e7bed32184"
+  },
+  "data/GEO/GSE175540/raw/GSM5924049_frozen_b_18_filtered_feature_bc_matrix.h5": {
+    "size": 12033486,
+    "sha256": "b5ba918dd9b89ac6c9762ce16bb74897e057116bfb6a868648eeb0f64c2cc142"
+  },
+  "data/GEO/GSE175540/raw/GSM5924049_frozen_b_18_tissue_positions_list.csv.gz": {
+    "size": 56917,
+    "sha256": "0e6983f74427697bb4ea342b82999d8e1227afa03efb012627575a1ae0b403eb"
+  },
+  "data/GEO/GSE175540/raw/GSM5924049_frozen_b_18_TLS_annotation.csv.gz": {
+    "size": 6842,
+    "sha256": "aadb89a2e32448df50fef3bc543d2a629574967e44b7279caa3698d66e44c4c3"
+  },
+  "data/GEO/GSE175540/raw/GSM5924050_frozen_c_2_filtered_feature_bc_matrix.h5": {
+    "size": 2552548,
+    "sha256": "c126b77a6db3578d22a8985255d3a6a462b38bdaaf97e8f5332b698226a19a28"
+  },
+  "data/GEO/GSE175540/raw/GSM5924050_frozen_c_2_tissue_positions_list.csv.gz": {
+    "size": 61177,
+    "sha256": "91b9188966fe4e4cf75fe5141ad6476500a1d5a54b489b97f13c711b37c6ed06"
+  },
+  "data/GEO/GSE175540/raw/GSM5924050_frozen_c_2_TLS_annotation.csv.gz": {
+    "size": 8169,
+    "sha256": "c911dd920db30f34c0cd03ced35b5bd8c5e15fecf377d66a917a0c4c521530a5"
+  },
+  "data/GEO/GSE175540/raw/GSM5924051_frozen_c_5_filtered_feature_bc_matrix.h5": {
+    "size": 6490998,
+    "sha256": "6e1603b594aed58322a829cd0d3e853f2e13596a052078fc9cfe7ad2bae875df"
+  },
+  "data/GEO/GSE175540/raw/GSM5924051_frozen_c_5_tissue_positions_list.csv.gz": {
+    "size": 55467,
+    "sha256": "3cc82956cbfe7d91a849005d0660c5c6ac2da70b7a504221d930ac607c201579"
+  },
+  "data/GEO/GSE175540/raw/GSM5924051_frozen_c_5_TLS_annotation.csv.gz": {
+    "size": 11746,
+    "sha256": "712159a6b410a6763ef1b5d32908c994008cbad576d869f31f65ef4a96bf0ff5"
+  },
+  "data/GEO/GSE175540/raw/GSM5924052_frozen_c_23_filtered_feature_bc_matrix.h5": {
+    "size": 7396310,
+    "sha256": "3e090485217aebcf34e4531a49b85d6fb09a36aaeb5dd2aa6e3bdce754691216"
+  },
+  "data/GEO/GSE175540/raw/GSM5924052_frozen_c_23_tissue_positions_list.csv.gz": {
+    "size": 53726,
+    "sha256": "a08dd60a2dd02a57b05ae9bdb3090f9a64d4234427b2ea6e85f20b3c2b55acb6"
+  },
+  "data/GEO/GSE175540/raw/GSM5924052_frozen_c_23_TLS_annotation.csv.gz": {
+    "size": 14765,
+    "sha256": "535e4c4cd4dc2ada7ba7aa31bb19ea8c4d40d7008d4bae188e7c642a84b771c8"
+  },
+  "data/GEO/GSE175540/raw/GSM5924053_frozen_c_57_filtered_feature_bc_matrix.h5": {
+    "size": 3641041,
+    "sha256": "924039866fe7000f4b328974df4c09d354d298369b9df53a0ea50e3c794fe9b5"
+  },
+  "data/GEO/GSE175540/raw/GSM5924053_frozen_c_57_tissue_positions_list.csv.gz": {
+    "size": 53921,
+    "sha256": "196c999ac80f7b8b3f93492f666b31006abec7fdecb88e54f521c5ff0b0e367e"
+  },
+  "data/GEO/GSE175540/raw/GSM5924053_frozen_c_57_TLS_annotation.csv.gz": {
+    "size": 6552,
+    "sha256": "7054251d0073fef174dba3b0b631f746b637da012dbe27282fc64b3cfc55b76c"
+  }
+}

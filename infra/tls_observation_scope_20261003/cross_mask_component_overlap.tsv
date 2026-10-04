@@ -1,0 +1,7 @@
+cohort	smaller_mask_um	larger_mask_um	n_common_instances	n_new_at_larger_mask	n_lost_at_larger_mask
+USZ	230	500	9	52	1
+USZ	500	1000	61	11	0
+USZ	230	1000	10	62	0
+GSE175540	230	500	0	7	0
+GSE175540	500	1000	7	20	0
+GSE175540	230	1000	0	27	0

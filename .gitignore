@@ -94,3 +94,31 @@ infra/r16/r_integration_20260915/checkpoints/
 /infra/gobp_single_marker_20260924/section_moments/
 /infra/repair_20260921/go_aliases.json
 /infra/repair_20260921/sections.json
+
+# TLS multiscale GOBP (R-18): bulky regenerable intermediates stay local;
+# contracts, receipts, cited summary tables, figure index/QA records are tracked.
+/infra/tls_multiscale_gobp_20261002/*.log
+/infra/tls_multiscale_gobp_20261002/scores/
+/infra/tls_multiscale_gobp_20261002/forward/
+/infra/tls_multiscale_gobp_20261002/controls/*/
+/infra/tls_multiscale_gobp_20261002/halo_edge/
+/infra/tls_multiscale_gobp_20261002/bridge_calibration/*/
+/infra/tls_multiscale_gobp_20261002/geometry/
+/infra/tls_multiscale_gobp_20261002/reverse/*_features.npz
+/infra/tls_multiscale_gobp_20261002/reverse/*_queries.tsv
+/infra/tls_multiscale_gobp_20261002/reverse/models/
+/infra/tls_multiscale_gobp_20261002/reverse/summary/all_program_statuses.tsv
+/infra/tls_multiscale_gobp_20261002/reverse/summary/paired_directional_increment.tsv.gz
+/infra/tls_multiscale_gobp_20261002/summary/*.npz
+/infra/tls_multiscale_gobp_20261002/integrated/*.npz
+/infra/tls_multiscale_gobp_20261002/integrated/halo_edge_all_program_diagnostics.tsv
+/infra/tls_multiscale_gobp_20261002/figures/**/*.tiff
+/infra/tls_multiscale_gobp_20261002/figures/**/*.png
+/infra/tls_multiscale_gobp_20261002/figures/**/*.pdf
+/infra/tls_multiscale_gobp_20261002/figures/**/*.svg
+/infra/tls_multiscale_gobp_20261002/figures/*.npz
+
+# TLS forward-patient / patient-validation (20261003): unit-value npz and model
+# weights stay local; summaries, contracts, receipts are tracked.
+/infra/tls_forward_patient_20261003/*.npz
+/infra/tls_patient_validation_20261003/models/*.npz

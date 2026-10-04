@@ -1,0 +1,27 @@
+section_id	cohort	patient_id	patient_status	evidence	aggregation_unit
+usz-KC1	USZ		UNKNOWN_NO_EXPLICIT_CROSSWALK	SAMPLE only; source record gives 3 kidney/5 lung tumors	section/specimen; not asserted patient
+usz-KC2	USZ		UNKNOWN_NO_EXPLICIT_CROSSWALK	SAMPLE only; source record gives 3 kidney/5 lung tumors	section/specimen; not asserted patient
+usz-KC3	USZ		UNKNOWN_NO_EXPLICIT_CROSSWALK	SAMPLE only; source record gives 3 kidney/5 lung tumors	section/specimen; not asserted patient
+usz-LC1	USZ		UNKNOWN_NO_EXPLICIT_CROSSWALK	SAMPLE only; source record gives 3 kidney/5 lung tumors	section/specimen; not asserted patient
+usz-LC2	USZ		UNKNOWN_NO_EXPLICIT_CROSSWALK	SAMPLE only; source record gives 3 kidney/5 lung tumors	section/specimen; not asserted patient
+usz-LC3	USZ		UNKNOWN_NO_EXPLICIT_CROSSWALK	SAMPLE only; source record gives 3 kidney/5 lung tumors	section/specimen; not asserted patient
+usz-LC4	USZ		UNKNOWN_NO_EXPLICIT_CROSSWALK	SAMPLE only; source record gives 3 kidney/5 lung tumors	section/specimen; not asserted patient
+usz-LC5	USZ		UNKNOWN_NO_EXPLICIT_CROSSWALK	SAMPLE only; source record gives 3 kidney/5 lung tumors	section/specimen; not asserted patient
+gse175540-GSM5924030_ffpe_c_2	GSE175540	GSE175540:c_2	USER_CONFIRMED_PATIENT_ID_20261003	User confirmed workbook ID denotes patient; GEO title plus preparation matches workbook; D-184	patient; c_2 Frozen/FFPE grouped
+gse175540-GSM5924031_ffpe_c_3	GSE175540	GSE175540:c_3	USER_CONFIRMED_PATIENT_ID_20261003	User confirmed workbook ID denotes patient; GEO title plus preparation matches workbook; D-184	patient; c_2 Frozen/FFPE grouped
+gse175540-GSM5924032_ffpe_c_4	GSE175540	GSE175540:c_4	USER_CONFIRMED_PATIENT_ID_20261003	User confirmed workbook ID denotes patient; GEO title plus preparation matches workbook; D-184	patient; c_2 Frozen/FFPE grouped
+gse175540-GSM5924033_ffpe_c_7	GSE175540	GSE175540:c_7	USER_CONFIRMED_PATIENT_ID_20261003	User confirmed workbook ID denotes patient; GEO title plus preparation matches workbook; D-184	patient; c_2 Frozen/FFPE grouped
+gse175540-GSM5924035_ffpe_c_20	GSE175540	GSE175540:c_20	USER_CONFIRMED_PATIENT_ID_20261003	User confirmed workbook ID denotes patient; GEO title plus preparation matches workbook; D-184	patient; c_2 Frozen/FFPE grouped
+gse175540-GSM5924037_ffpe_c_34	GSE175540	GSE175540:c_34	USER_CONFIRMED_PATIENT_ID_20261003	User confirmed workbook ID denotes patient; GEO title plus preparation matches workbook; D-184	patient; c_2 Frozen/FFPE grouped
+gse175540-GSM5924038_ffpe_c_36	GSE175540	GSE175540:c_36	USER_CONFIRMED_PATIENT_ID_20261003	User confirmed workbook ID denotes patient; GEO title plus preparation matches workbook; D-184	patient; c_2 Frozen/FFPE grouped
+gse175540-GSM5924039_ffpe_c_39	GSE175540	GSE175540:c_39	USER_CONFIRMED_PATIENT_ID_20261003	User confirmed workbook ID denotes patient; GEO title plus preparation matches workbook; D-184	patient; c_2 Frozen/FFPE grouped
+gse175540-GSM5924040_ffpe_c_45	GSE175540	GSE175540:c_45	USER_CONFIRMED_PATIENT_ID_20261003	User confirmed workbook ID denotes patient; GEO title plus preparation matches workbook; D-184	patient; c_2 Frozen/FFPE grouped
+gse175540-GSM5924041_ffpe_c_51	GSE175540	GSE175540:c_51	USER_CONFIRMED_PATIENT_ID_20261003	User confirmed workbook ID denotes patient; GEO title plus preparation matches workbook; D-184	patient; c_2 Frozen/FFPE grouped
+gse175540-GSM5924043_frozen_a_3	GSE175540	GSE175540:a_3	USER_CONFIRMED_PATIENT_ID_20261003	User confirmed workbook ID denotes patient; GEO title plus preparation matches workbook; D-184	patient; c_2 Frozen/FFPE grouped
+gse175540-GSM5924044_frozen_a_15	GSE175540	GSE175540:a_15	USER_CONFIRMED_PATIENT_ID_20261003	User confirmed workbook ID denotes patient; GEO title plus preparation matches workbook; D-184	patient; c_2 Frozen/FFPE grouped
+gse175540-GSM5924046_frozen_b_1	GSE175540	GSE175540:b_1	USER_CONFIRMED_PATIENT_ID_20261003	User confirmed workbook ID denotes patient; GEO title plus preparation matches workbook; D-184	patient; c_2 Frozen/FFPE grouped
+gse175540-GSM5924049_frozen_b_18	GSE175540	GSE175540:b_18	USER_CONFIRMED_PATIENT_ID_20261003	User confirmed workbook ID denotes patient; GEO title plus preparation matches workbook; D-184	patient; c_2 Frozen/FFPE grouped
+gse175540-GSM5924050_frozen_c_2	GSE175540	GSE175540:c_2	USER_CONFIRMED_PATIENT_ID_20261003	User confirmed workbook ID denotes patient; GEO title plus preparation matches workbook; D-184	patient; c_2 Frozen/FFPE grouped
+gse175540-GSM5924051_frozen_c_5	GSE175540	GSE175540:c_5	USER_CONFIRMED_PATIENT_ID_20261003	User confirmed workbook ID denotes patient; GEO title plus preparation matches workbook; D-184	patient; c_2 Frozen/FFPE grouped
+gse175540-GSM5924052_frozen_c_23	GSE175540	GSE175540:c_23	USER_CONFIRMED_PATIENT_ID_20261003	User confirmed workbook ID denotes patient; GEO title plus preparation matches workbook; D-184	patient; c_2 Frozen/FFPE grouped
+gse175540-GSM5924053_frozen_c_57	GSE175540	GSE175540:c_57	USER_CONFIRMED_PATIENT_ID_20261003	User confirmed workbook ID denotes patient; GEO title plus preparation matches workbook; D-184	patient; c_2 Frozen/FFPE grouped

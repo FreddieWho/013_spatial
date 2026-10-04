@@ -1,0 +1,34 @@
+{
+  "status": "LOCAL_EXECUTION_COMPLETE_CONFIRMATION_BLOCKED",
+  "scientific_confirmation_proven": false,
+  "completed": [
+    "26-source full 1691 GO + 51 control scores",
+    "Full multiscale halo/edge/three bridge families",
+    "84 reverse holdout tasks",
+    "Native references and necessary calibration/power audits",
+    "All-program bidirectional integration",
+    "1742-page atlas, six bridge overviews, 78 representative panels",
+    "SHA-bound execution acceptance and 14 targeted tests"
+  ],
+  "remaining": [
+    "Freeze alternative calibration feasibility under known correlated background before any real-GO inference",
+    "USZ patient independence unknown; retain tumor-sample scope",
+    "Applicable spatial calibration and power (I-031)",
+    "Independent structure truth and support (I-034/I-035)",
+    "c_2 preparation/biological cause unresolved (I-036)"
+  ],
+  "external_metadata_request": "APPROVED_AND_LOOKUP_COMPLETE_IDENTITY_UNRESOLVED",
+  "external_data_acquired": true,
+  "GPU_used": false,
+  "report": "../../docs/TLS_MULTISCALE_GOBP_RESULTS_20261003.md",
+  "acceptance": "acceptance_audit.json",
+  "external_metadata_report": "../../docs/TLS_PATIENT_METADATA_LOOKUP_20261003.md",
+  "patient_validation": "COMPLETE_INTERNAL_ONLY_57_FOLDS",
+  "patient_validation_report": "../../docs/TLS_PATIENT_VALIDATION_20261003.md",
+  "forward_patient_summary": "COMPLETE_ALL1742",
+  "paired_c2_audit": "COMPLETE_NO_CHECKED_COMPUTATION_MISMATCH_CAUSE_UNRESOLVED",
+  "latest_report": "../../docs/TLS_BRIDGE_FAILURE_AUDIT_20261003.md",
+  "observation_scope": "COMPLETE_429_COMPONENT_MASK_ROWS",
+  "paired_mask_comparison": "COMPLETE_1744_READOUTS_19_MODEL_PAIRS",
+  "bridge_failure_diagnosis": "COMPLETE_FROZEN_METHOD_STILL_FAILED"
+}

@@ -1,0 +1,18 @@
+{
+  "sources_attempted": 26,
+  "sources_with_common_geometry": 8,
+  "common_geometries": 1242,
+  "null_settings": 48,
+  "failed_null_settings": 35,
+  "power_settings": 1776,
+  "half_sd_settings": 888,
+  "failed_half_sd_settings": 767,
+  "status_counts": {
+    "ROTATION_EXCHANGEABILITY_GATE_FAILED": 7,
+    "NO_COMMON_39_DIRECTION_GEOMETRY": 8,
+    "NECESSARY_UNIVARIATE_GATE_PASSED_ONLY": 1,
+    "NO_EVALUABLE_GEOMETRY": 10
+  },
+  "formal_spatial_p_allowed": false,
+  "joint_GO_null_validated": false
+}

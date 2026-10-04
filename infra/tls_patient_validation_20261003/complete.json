@@ -1,0 +1,412 @@
+{
+  "status": "COMPLETE_GROUPED_INTERNAL_VALIDATION",
+  "jobs": 57,
+  "refit_jobs": 3,
+  "reused_jobs": 54,
+  "metric_rows": 690096,
+  "summary_rows": 47052,
+  "GSE_patients": 17,
+  "USZ_unit": "tumor_sample_unknown_patient",
+  "scientific_confirmation": false,
+  "fold_audit": [
+    {
+      "stem": "230_leave_section_gse175540-GSM5924044_frozen_a_15",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "772a78222a77abbf920bfdfc606dd3d40b45398bfd8b6b0277ebddf2c13ac9e9",
+      "metrics_sha256": "ea4cae3da8c7779c7e5de8b38ce5f0ed34f76f460a32710fb4267555288d7120",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "230_leave_section_gse175540-GSM5924043_frozen_a_3",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "630904095eec5d767b3a7c3d49cecb15a3a26c5aa71213461f8e05775c17b319",
+      "metrics_sha256": "60825a6646eb8b4afff7d0f76b650015d44793394b18d298ff51b10e5ae29fa2",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "230_leave_section_gse175540-GSM5924046_frozen_b_1",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "06a2e0b78831efd7dedbc3f9acd33d6d60416d6e44a6ca49973ddb80660ee3c7",
+      "metrics_sha256": "cb99aaa645348c9af90dca1f9a7e0c88648506e442067b6bd468a7f92b7edf25",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "230_leave_section_gse175540-GSM5924049_frozen_b_18",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "630904095eec5d767b3a7c3d49cecb15a3a26c5aa71213461f8e05775c17b319",
+      "metrics_sha256": "cbc0fcbd2804b6e491c9d4f6193a640111bd2f95823868560ea2a157150b005a",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "230_leave_patient_GSE175540_c_2",
+      "action": "REFIT_GROUP",
+      "prediction_sha256": "7643c34f4e30f0d3f637cbf19f7bab84f228e53ee6974611787a8be5487f1f36",
+      "metrics_sha256": "9f0eafb55cde4c40541c06f776232960dbf9e998db30df294de8875e80136701",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "230_leave_section_gse175540-GSM5924035_ffpe_c_20",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "4051097a82f625f1a27e0078ca0ca4aee336320e23075e94912281b72cad7745",
+      "metrics_sha256": "9e5beac671089e9a8f12d1e75650dd9cf193d3b9a967473793e9f0a8c08fbd64",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "230_leave_section_gse175540-GSM5924052_frozen_c_23",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "b5547258cb13dc2b476f6e7e76f936a0505ec5c01362d8c59baae774fee12229",
+      "metrics_sha256": "c36f8493085eca3364e9f63349ef0758a9c1c0540c7ca00b72bb44eb063d3e71",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "230_leave_section_gse175540-GSM5924031_ffpe_c_3",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "eb5adef34c1c1c31d81c871a61338d3969ba83c9e2f330e03538a036470a1b09",
+      "metrics_sha256": "2e1276838bef46d8463d4711660ffbabc740d0fdb53b655225e28e7901e6eda7",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "230_leave_section_gse175540-GSM5924037_ffpe_c_34",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "18a65b9484b89afa11174601f12d662bd2782f128517c203156d18b601c3d053",
+      "metrics_sha256": "d53e36f439166b148a184dbe7b5369a5af4606b3983a215c5042e74c5f6aa576",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "230_leave_section_gse175540-GSM5924038_ffpe_c_36",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "3c0af701f63e7789b12088730ad6feacecee9d17cf77ae86c3b792afffee54dc",
+      "metrics_sha256": "5a73350efac633cd8225841b87bd3c61257349dba238a70e8993dad2df2c56d3",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "230_leave_section_gse175540-GSM5924039_ffpe_c_39",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "3857171e4eee4ae01847a578ff2faacc1af81e808ad43e7a2a7ea68e88a71bbe",
+      "metrics_sha256": "6baf0c92095bf57ba11cb884ad94faa85091cf190524a85218acedd285c168a3",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "230_leave_section_gse175540-GSM5924032_ffpe_c_4",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "c18222c978828dcb87e9c7082d186dc49dafe56fb85ce57789095ab18fcd7f58",
+      "metrics_sha256": "947cc76871a94f21788aabe628e71762238ee2f39a26263aa220f72002db1df3",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "230_leave_section_gse175540-GSM5924040_ffpe_c_45",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "b0d5803e3bd59d39af230887d5101cd748aa11697a419c6341326c57b72aa436",
+      "metrics_sha256": "e6409f6d2112ed754f35026a2645ddd5e224ab9db8dbffb6ede13bc415aa6d77",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "230_leave_section_gse175540-GSM5924051_frozen_c_5",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "ebac53bbb2a00aadf47ff0ab3bc6bbb52de015bbd24a492f9c24aa64e428e288",
+      "metrics_sha256": "4239d9caedc6e3d59645b2a937ab051abec1f14e7e230f56f3c7d467e1b014ae",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "230_leave_section_gse175540-GSM5924041_ffpe_c_51",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "40d8d9f57d474f0c256e923a54700507eea80c200fc8c2c89cf1f17ad33330ee",
+      "metrics_sha256": "0c8ab71415357c815b970b7f786bf2e40685da3f2bf1c85ab07dde9a470c320d",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "230_leave_section_gse175540-GSM5924053_frozen_c_57",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "6644810c7737b667a44ca225830afee81fc940390ba49aa72df9601ec4cc16d2",
+      "metrics_sha256": "a9a8c0da22af03c51e5ac87ffb719e875a9b1953dfafe66aa7144f01244c1dad",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "230_leave_section_gse175540-GSM5924033_ffpe_c_7",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "31588b72789cfd2966e6351223566f939617926821a968b8bde4ccf22290eac6",
+      "metrics_sha256": "588cf4f69fb0b61d3a36bf459e3a9431dc8d6b3618357b6af7820e6d0fbec3bb",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "230_leave_cohort_USZ",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "54ae5806f9ec9b69157cf17d04987d458029c6566828e511dee3f7ba64740bd8",
+      "metrics_sha256": "22f3d7015b6ad90bce8258db0ea16cdbacfadb18f89b4936c5598d4e2457b8c7",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "230_leave_cohort_GSE175540",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "45a905daaffe9f2feea47dfdc42f27d198dcf9ddeb831dc8bd69760b172f1c11",
+      "metrics_sha256": "0c81b4103601a66fd0820385e8c111c723b1821fba8379aa22320fd1134fd434",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "500_leave_section_gse175540-GSM5924044_frozen_a_15",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "6fab3b67b5c6946936ea87baf5889d9239309a86016d95a6ca2b6cb355decc2f",
+      "metrics_sha256": "4480248daeb6e033e949ce4e347d2b9f7c71812444293f35220f11b7736c326d",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "500_leave_section_gse175540-GSM5924043_frozen_a_3",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "c607c2fcc37ab52b49a5bf62740556e5cdf77b73573f7849327c2a09e5795665",
+      "metrics_sha256": "ede23d7064fb0d9ce718dafa26f59f2324dc57479fb08e9a09711c33b497ad5c",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "500_leave_section_gse175540-GSM5924046_frozen_b_1",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "e79c72c394cb0124f82f6771f43a95c04a3e296dab0f62a3aec9302cb9c17168",
+      "metrics_sha256": "d1096bf73aec93934b90409d34fa3fd50dccd9e320a1cc74f23ca15916a90b05",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "500_leave_section_gse175540-GSM5924049_frozen_b_18",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "c607c2fcc37ab52b49a5bf62740556e5cdf77b73573f7849327c2a09e5795665",
+      "metrics_sha256": "bce337044239a140cfeceabfeab6cc053b84236b96a5969c3815a08623d10d69",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "500_leave_patient_GSE175540_c_2",
+      "action": "REFIT_GROUP",
+      "prediction_sha256": "f1802cc4b5fcd8667ef04f556ace904a6157049cfcb0d739f5f73e45fac28d93",
+      "metrics_sha256": "aeecb46e6011e8874ab239cb48bbcb15d9ffa3334e081e98b10ec502199aaeed",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "500_leave_section_gse175540-GSM5924035_ffpe_c_20",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "f950c6856d069c37652a3461bdc25561f122bdb4b14e98a18f14edfed53b1fec",
+      "metrics_sha256": "2225f3fe83256d70a7666538a9a2783d269b08429aa70cd28117cd1575cf58e4",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "500_leave_section_gse175540-GSM5924052_frozen_c_23",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "0e182d03cf11ad4204c4e6443912a4f3cedc9f09474b1616840f847be078b611",
+      "metrics_sha256": "316420b5ee4431d8aad982f32e13f0f7c14f5e68cab46f1baf98d118252e49d0",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "500_leave_section_gse175540-GSM5924031_ffpe_c_3",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "ff0da65a3f7fc6344dee2a4a33b584574d66dace23fa2e445cf31982a82aeabc",
+      "metrics_sha256": "7bc68697edd9d89becc8ffd003a261a877a087e5a828c79b2cc88ec011d50f0b",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "500_leave_section_gse175540-GSM5924037_ffpe_c_34",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "7e62e1107935331d4f3127778d3143488e86d492844d8efffa8f51210d50754a",
+      "metrics_sha256": "f5cc34a99303039c64591e573f7ebe7fb21f55046f4062e3eb736e7fa3991ea4",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "500_leave_section_gse175540-GSM5924038_ffpe_c_36",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "67fb3612bbe559e83bac7ceefd118ff7e7065b8ca1ccbb17de78b6a5a705b191",
+      "metrics_sha256": "14d70900d4d35d84dbe87e06d99ff015bfbbd14b92be5a651a41b5728ad83ed2",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "500_leave_section_gse175540-GSM5924039_ffpe_c_39",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "9ce2e7f53d93cf464496060c0f1e5d5d06405aaaece089d61e1552321c6d9a09",
+      "metrics_sha256": "1a594683ff97e92bfe58348ca23ff1e1e38b9c3330fb4a27f38bc0b2ecb588c9",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "500_leave_section_gse175540-GSM5924032_ffpe_c_4",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "dead37082145a909dc13f43afac986c3782ab5e1af116abafe3518360fd85966",
+      "metrics_sha256": "a24da7ccb9cebb968d0c7be94a8bace07594d60035b7a485de99195914f3bbfc",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "500_leave_section_gse175540-GSM5924040_ffpe_c_45",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "5f2a90eba66f82759aaf03571985681c4669592f4de61c3a3e363cc68aa93f55",
+      "metrics_sha256": "6cb316b11c3d2745ef261e280aa9400dd8f189ae2b560b5f6502d00faa7df8c5",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "500_leave_section_gse175540-GSM5924051_frozen_c_5",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "5faff4390a8fc2ef6169c407614b876b9443386a6d1c5e9ee02db5414c278ae4",
+      "metrics_sha256": "a902ea4b3e9f1e1e4bebbad585462c550dae6f5ac428f4cb24f56baae9307cc1",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "500_leave_section_gse175540-GSM5924041_ffpe_c_51",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "2b2d6041e307ddfb0ce7862d716ca2b282bd0ff8d6f0cad043e11c14c97b2ebe",
+      "metrics_sha256": "70ce3ef0bd4b3068d70696d7fa2b550415308cd53937ae3ad42f4bc683ef9dc5",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "500_leave_section_gse175540-GSM5924053_frozen_c_57",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "530e986e4af1a369cade46c30e61a9a1d7837eda79db31795243be69579b5449",
+      "metrics_sha256": "7f6ecb34c09950ee68d6e2ceec0b6d70b722bf9ab9c2f160650580f97572602c",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "500_leave_section_gse175540-GSM5924033_ffpe_c_7",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "90c4da3245f03451a579266a7377a6ec83bce528fa5789f55e628a6f2f86a923",
+      "metrics_sha256": "7eee8b29ddab5948e2c37b8e5dc4be05a666b5990f5458e18007425ac22d6cdd",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "500_leave_cohort_USZ",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "bb1f741e144632e6ecfa35b63c4f68fae3f0f1e68853274b05535bdad35728b7",
+      "metrics_sha256": "9b72e01754e9a5af1b56637b9756bbaea15d4e86d20255e2cda11455b14f5db2",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "500_leave_cohort_GSE175540",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "700c7e86e5eba84d4c3e786b600aa5ceee8a2393c2447b8d31347373093ecc28",
+      "metrics_sha256": "72af91fe8803ffc0b6caeff191f482bd51314987bf9d29838297d3b3d4dcbc51",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "1000_leave_section_gse175540-GSM5924044_frozen_a_15",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "0ae30195f661f122c0d03390a9177c5db76480a83b2f10e26d5a6ca3aeca2579",
+      "metrics_sha256": "ca55bfab8880aedf2c341cb47feba9f371db09566107035a62ffa939a7bebcaf",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "1000_leave_section_gse175540-GSM5924043_frozen_a_3",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "b39c12b6245bfbcb7accc205037c2b029ea1ff23d2fe3db44523f2574a510e9c",
+      "metrics_sha256": "c9764e3daa85858fa8297fd820bc36155050e8b5c83bdb9380351fb006e05096",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "1000_leave_section_gse175540-GSM5924046_frozen_b_1",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "fca2f780b9fa3d3912deba1beaf20f8d70951f84fbe3ac52b2d56a636669ce88",
+      "metrics_sha256": "86431b065691bc16a5402904e6e5e720cd17d820dd09c1069aaf093e593fcf74",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "1000_leave_section_gse175540-GSM5924049_frozen_b_18",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "1d1bbf6bb313bf58349f444298a199ff2399f82ca6e44aabc6868309c85aaade",
+      "metrics_sha256": "522479e0149bddf69e07a1a2509a57e4bc3bfda9c05102d3a18366f2cd197a2b",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "1000_leave_patient_GSE175540_c_2",
+      "action": "REFIT_GROUP",
+      "prediction_sha256": "d833bbf00b3d1c1961e3b184067eb4bdba646210aa1adde8b15047ded77d6aee",
+      "metrics_sha256": "3413535b32f6a4bd64d02d75475006fded60c598f698735b36cb7eb502145c10",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "1000_leave_section_gse175540-GSM5924035_ffpe_c_20",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "50c7c5721ce6ef6989f8bf0e1f1d22579da217a6d1d6ecc3183a1d9557c6c941",
+      "metrics_sha256": "4d7dc7900256891591aaf52586bad1c3faad2f6500b43da0497237b8de3e558e",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "1000_leave_section_gse175540-GSM5924052_frozen_c_23",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "69f114c894f649d3dd53e82cf9445c9a283c843aef301e8f0e9dc30202374ac1",
+      "metrics_sha256": "d972e9fda89eb1e6c96f53775187060d8a60fb467bb2ca85d8109c20a2ff14ac",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "1000_leave_section_gse175540-GSM5924031_ffpe_c_3",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "ec64f753229466722d575537b03b28949390896a6f9c91efed901003bf0af9af",
+      "metrics_sha256": "90a3f880073387d55fca52c2a0b21252da034dfcd8e053f1d5d99f6bb9494d21",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "1000_leave_section_gse175540-GSM5924037_ffpe_c_34",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "0037be0e08e4b12e9d019447a1952be5ba18d42b3f695b210717445ced596f20",
+      "metrics_sha256": "74fabf989d323efff29c0048663cb30b0f37ad83ac713fa78e1cd2c60bad521a",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "1000_leave_section_gse175540-GSM5924038_ffpe_c_36",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "28716bc41a4194c587226014fafc40c76df3533cc519c9e4502be8b6f8f4b149",
+      "metrics_sha256": "598e33e62b657f7732157f8de10c07c406b8b13c968d68d7be76f44c926d9431",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "1000_leave_section_gse175540-GSM5924039_ffpe_c_39",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "bd05ff2c3a645f4ca4c983ced17e477f2f26833a402e212216b5c04daebe4d9a",
+      "metrics_sha256": "97b7ee5ddb8081b311ab3be9977e8a1d658a3e323cd2873b4ad2df7ea21d008b",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "1000_leave_section_gse175540-GSM5924032_ffpe_c_4",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "229f64a6299600cf2daa4f7f61c2f06b898d52b34fd7bb9561aede9452ca520f",
+      "metrics_sha256": "3cb2bb3651d5e5821ecaf0033f3a77772003749239ea4ecfb6aac9e67ac25e34",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "1000_leave_section_gse175540-GSM5924040_ffpe_c_45",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "acdbe4b04bd0f63cecb36a049ddcbbc5d89d6bfa95b044cd0b27d0bc00c2b037",
+      "metrics_sha256": "744578013d268ba8caa83440d83064c52c92f083f11022af9b8bbdce75f18e72",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "1000_leave_section_gse175540-GSM5924051_frozen_c_5",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "9dbdc748a0c66e97fc8f61e4e0e52848c91dedb4ba13e42ed56e7e92f17ffaaf",
+      "metrics_sha256": "0d136b1932eddbecdcadeadb4589a4084f1f06411ccdc7ee8046da3b24d23719",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "1000_leave_section_gse175540-GSM5924041_ffpe_c_51",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "474fe4b1e0c4177a2d769a0eb88ccb6d23806c34a7a51b1a948615d1dddd6971",
+      "metrics_sha256": "c7d9cfdec9bb699fd8e7acc70c3e4e4e7d464cc3b96d6e11dcc89f6ce3362d1e",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "1000_leave_section_gse175540-GSM5924053_frozen_c_57",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "2a9e28f38dcc2530b87cbf991b64b7f8785c0061a7349790ac78eb3378354cee",
+      "metrics_sha256": "049a6fe549b263dd1f9af53483661b3506d11fa780750928e2b98792790ae23c",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "1000_leave_section_gse175540-GSM5924033_ffpe_c_7",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "8efd73ab466822aa6b4de4b9c0ba91b265c4a4415849841436bda77895f96cd1",
+      "metrics_sha256": "82d4ee31271390110de38e8b74f81bf2a7c51afa99661221d44abdb70ab509b9",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "1000_leave_cohort_USZ",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "a7e883a1be0383dcbaa53513c5616c9c8e997683b9d995354827c43f3de34e81",
+      "metrics_sha256": "8a27a72b582855ad176513decff4cc95f4ba61eca7adcaec5890254416378d02",
+      "train_test_group_overlap": false
+    },
+    {
+      "stem": "1000_leave_cohort_GSE175540",
+      "action": "REUSE_EXACT_FOLD",
+      "prediction_sha256": "8d7387aada6d71932efbac12befb1303fac570bd035bd641e9ef0230bc028438",
+      "metrics_sha256": "129706bfdaa6eab41ebdb8f7bc3e9e9a21db30b74d0b9c7a2b8c69cf92c4c5ad",
+      "train_test_group_overlap": false
+    }
+  ]
+}

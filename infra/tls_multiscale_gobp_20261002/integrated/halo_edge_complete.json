@@ -1,0 +1,11 @@
+{
+  "status": "ALL26_ALL1742_FULL_DESCRIPTIVE_INTEGRATION",
+  "sources": 26,
+  "source_families": 52,
+  "n_bins": 373,
+  "n_contrasts": 359,
+  "n_long_contrast_rows": 625378,
+  "n_gobp": 1691,
+  "n_controls": 51,
+  "formal_p_allowed": false
+}

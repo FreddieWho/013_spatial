@@ -1,0 +1,61 @@
+[
+  {
+    "url": "https://zenodo.org/api/records/14620362",
+    "file": "zenodo14620362.json",
+    "status": "ERROR",
+    "error": "<urlopen error [Errno 1] Operation not permitted>"
+  },
+  {
+    "url": "https://zenodo.org/api/records/14620362",
+    "final_url": "https://zenodo.org/api/records/14620362",
+    "file": "zenodo14620362.json",
+    "bytes": 7547,
+    "sha256": "7471ac4844f8ea7f275cd5005ed5e38314bb59e7148032873d35a7f33b70af71",
+    "time_utc": "2026-10-03T05:55:09Z",
+    "status": "retrieved"
+  },
+  {
+    "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE175540&targ=all&form=text&view=quick",
+    "file": "GSE175540_all_quick.soft",
+    "status": "ERROR",
+    "error": "Response exceeds byte cap",
+    "transferred_bytes": 2000001
+  },
+  {
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE175nnn/GSE175540/soft/GSE175540_family.soft.gz",
+    "final_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE175nnn/GSE175540/soft/GSE175540_family.soft.gz",
+    "file": "GSE175540_family.soft.gz",
+    "bytes": 3976,
+    "sha256": "82cb69e1e856c6007e7ff6728a541ce26a34fbedf5688c431b20fad76dc352a3",
+    "time_utc": "2026-10-03T05:56:02Z",
+    "status": "retrieved"
+  },
+  {
+    "url": "https://pubmed.ncbi.nlm.nih.gov/35231421/?format=pubmed",
+    "final_url": "https://pubmed.ncbi.nlm.nih.gov/35231421/?format=pubmed",
+    "file": "PMID35231421.txt",
+    "bytes": 5590,
+    "sha256": "247fe5898e28a9a96d52f3296f7bb2321a1866480ff2c57b9a12a4e12a77d9da",
+    "time_utc": "2026-10-03T05:57:33Z",
+    "status": "retrieved",
+    "content_status": "BROWSER_CHALLENGE_NOT_METADATA"
+  },
+  {
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=bioproject&id=732692&retmode=xml",
+    "file": "PRJNA732692.xml",
+    "bytes": 3707,
+    "sha256": "84440e637f20b392fa0dc6f073156cfe0dd5d4c53060cdfe09249e22030d5794",
+    "status": "retrieved",
+    "time_utc": "2026-10-03T05:59:49.808874+00:00",
+    "retriever": "ncbi-entrez-skill"
+  },
+  {
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=35231421&retmode=xml",
+    "file": "PMID35231421.xml",
+    "bytes": 14726,
+    "sha256": "6a9a1cf6e3bb5c04a584806810eebec4ca3c54cf39d2924229678c070f2c5b91",
+    "status": "retrieved",
+    "time_utc": "2026-10-03T05:59:49.808874+00:00",
+    "retriever": "ncbi-entrez-skill"
+  }
+]

@@ -1,0 +1,51 @@
+{
+  "status": "COMPLETE_INTERNAL_VALIDATION",
+  "mask_um": 230,
+  "split": "leave_patient",
+  "job": "GSE175540_c_2",
+  "train_sections": [
+    "usz-KC1",
+    "usz-KC2",
+    "usz-KC3",
+    "usz-LC1",
+    "usz-LC2",
+    "usz-LC3",
+    "usz-LC4",
+    "usz-LC5",
+    "gse175540-GSM5924031_ffpe_c_3",
+    "gse175540-GSM5924032_ffpe_c_4",
+    "gse175540-GSM5924033_ffpe_c_7",
+    "gse175540-GSM5924035_ffpe_c_20",
+    "gse175540-GSM5924037_ffpe_c_34",
+    "gse175540-GSM5924038_ffpe_c_36",
+    "gse175540-GSM5924039_ffpe_c_39",
+    "gse175540-GSM5924040_ffpe_c_45",
+    "gse175540-GSM5924041_ffpe_c_51",
+    "gse175540-GSM5924043_frozen_a_3",
+    "gse175540-GSM5924044_frozen_a_15",
+    "gse175540-GSM5924046_frozen_b_1",
+    "gse175540-GSM5924049_frozen_b_18",
+    "gse175540-GSM5924051_frozen_c_5",
+    "gse175540-GSM5924052_frozen_c_23",
+    "gse175540-GSM5924053_frozen_c_57"
+  ],
+  "test_sections": [
+    "gse175540-GSM5924030_ffpe_c_2",
+    "gse175540-GSM5924050_frozen_c_2"
+  ],
+  "selected_GO": [
+    "GOBP_POSITIVE_REGULATION_OF_DENDRITE_EXTENSION",
+    "GOBP_POSITIVE_REGULATION_OF_ALPHA_BETA_T_CELL_PROLIFERATION",
+    "GOBP_ECTODERM_DEVELOPMENT",
+    "GOBP_NEUROMUSCULAR_JUNCTION_DEVELOPMENT",
+    "GOBP_POSITIVE_REGULATION_OF_VESICLE_FUSION",
+    "GOBP_NEGATIVE_REGULATION_OF_GLIAL_CELL_DIFFERENTIATION",
+    "GOBP_MAINTENANCE_OF_SYNAPSE_STRUCTURE",
+    "GOBP_NEGATIVE_REGULATION_OF_INTERLEUKIN_2_PRODUCTION",
+    "GOBP_LEUKOCYTE_MIGRATION_INVOLVED_IN_INFLAMMATORY_RESPONSE",
+    "GOBP_REGULATION_OF_CYTOSOLIC_CALCIUM_ION_CONCENTRATION"
+  ],
+  "n_metric_rows": 10456,
+  "n_predictions": 1374,
+  "sha256": "7643c34f4e30f0d3f637cbf19f7bab84f228e53ee6974611787a8be5487f1f36"
+}

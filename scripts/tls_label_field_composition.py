@@ -98,6 +98,7 @@ def trend_design(xy):
 
 
 def main():
+    global OUT, COMP
     ap = argparse.ArgumentParser()
     ap.add_argument("--draws", type=int, default=200)
     ap.add_argument("--sections", default="")
@@ -108,7 +109,14 @@ def main():
     ap.add_argument("--de-genes-per-class", type=int, default=100,
                     help="marker-panel variant for the nnls mode (0 = full shared panel)")
     ap.add_argument("--profile-space", choices=["proportion", "logmean"], default="proportion")
+    ap.add_argument("--output-dir", type=Path, required=True,
+                    help="New audit directory; historical outputs must not be overwritten")
     args = ap.parse_args()
+    OUT = args.output_dir
+    OUT.mkdir(parents=True, exist_ok=False)
+    COMP = OUT / "composition"
+    if args.draws < 1:
+        raise ValueError("draws must be positive")
     rng = np.random.default_rng(20261001)
 
     v9 = json.loads(CONTRACT.read_text())
@@ -166,17 +174,20 @@ def main():
 
     COMP.mkdir(parents=True, exist_ok=True)
     rows, null_rows = [], []
+    exclusions = []
     t_start = time.time()
     for row in ok:
         sid, cohort = row["section_id"], row["cohort"]
         t0 = time.time()
         loaded = hallmark.load_section_by_id(pool, cohort, sid)
         if loaded is None or loaded[0] is None:
+            exclusions.append({"section_id": sid, "reason": "loader_failed"})
             continue
         _, X, genes, xy, pitch, labels, index = loaded
         y = np.asarray(labels.get("y"), dtype=object)
         tls_mask = (y == "TLS")
         if tls_mask.sum() < 20:
+            exclusions.append({"section_id": sid, "reason": "fewer_than_20_TLS_spots"})
             continue
         gidx = dict(index)
         if args.mode == "nnls":
@@ -225,6 +236,7 @@ def main():
             continue
         B, cnt, dist, keepv = labmod.distance_bins(xy, tls_mask, pitch)
         if min(cnt[NEAR_I], cnt[FAR_I]) < MIN_BIN_SPOTS:
+            exclusions.append({"section_id": sid, "reason": "insufficient_distance_bins", "n_near": int(cnt[NEAR_I]), "n_far": int(cnt[FAR_I])})
             print(f"{sid}: bins too small, skipped", flush=True)
             continue
         Bn = B @ sparse.diags(1.0 / np.maximum(cnt, 1))
@@ -259,15 +271,19 @@ def main():
                 obs = contrast(R)
                 corr = nullmod.band_corr(R, pairs, pd) if pairs is not None else {}
                 sigma = nullmod.sigma_from_bands(corr)
-                note = ""
+                note = "NOT_CALIBRATED"
                 if np.isfinite(sigma):
                     key = (arm, round(sigma, 1))
                     if key not in cache:
                         cache[key] = nullmod.smoothed_noise(xy, sigma, args.draws, rng)
                     S_sim = nullmod.quantile_map(cache[key], R)
                 else:
-                    note = "white_fallback"
-                    S_sim = nullmod.quantile_map(rng.standard_normal((len(xy), args.draws)), R)
+                    null_rows.append({"section_id": sid, "cohort": cohort, "set_id": set_id,
+                                      "arm": arm, "obs": round(obs, 6), "null_median": "",
+                                      "p_one_sided": "", "sigma": "",
+                                      "note": "NOT_TESTABLE_SIGMA_UNFIT"})
+                    continue
+                S_sim = screen.residualize(S_sim, Q_own if arm == "own" else Q_comp)
                 means = np.asarray(Bn.T @ S_sim)
                 null_con = means[NEAR_I, :] - means[FAR_I, :]
                 p = float((1 + np.sum(null_con >= obs)) / (args.draws + 1))
@@ -282,6 +298,21 @@ def main():
                  if props is not None else "marker_proxy")
               + f" elapsed={time.time()-t0:.1f}s", flush=True)
 
+    seen = {(r["section_id"], r["set_id"]) for r in rows}
+    missing_readouts = [{"section_id": sid, "set_id": set_id,
+                         "status": "NOT_TESTABLE_NO_FINITE_SCORE"}
+                        for sid in sorted({r["section_id"] for r in rows})
+                        for set_id, _ in readouts if (sid, set_id) not in seen]
+    (OUT / "readout_exclusions.json").write_text(json.dumps(missing_readouts, indent=2) + "\n")
+    (OUT / "exclusions.json").write_text(json.dumps(exclusions, indent=2) + "\n")
+    (OUT / "audit_status.json").write_text(json.dumps({
+        "status": "NOT_CALIBRATED", "decision": "D-167", "draws": args.draws,
+        "n_sections_requested": len(ok), "excluded": len(exclusions),
+        "changes": ["Visium doubled-column geometry", "rank-aware projection",
+                    "sigma factor corrected", "project surrogate through same design",
+                    "no white-noise fallback"],
+        "interpretation": "Exploratory sensitivity only; no formal positive or negative claim."
+    }, indent=2) + "\n")
     with (OUT / f"label_field_comp_sections{args.tag}.tsv").open("w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0]), delimiter="\t")
         w.writeheader(); w.writerows(rows)
@@ -293,6 +324,7 @@ def main():
         rec = {"set_id": set_id}
         for arm in ("own", "comp"):
             sub = [r for r in null_rows if r["set_id"] == set_id and r["arm"] == arm]
+            sub = [r for r in sub if r["p_one_sided"] != ""]
             ps = np.array([float(r["p_one_sided"]) for r in sub])
             obs = np.array([float(r["obs"]) for r in sub])
             nl = np.array([float(r["null_median"]) for r in sub])
@@ -302,7 +334,9 @@ def main():
             rec[f"{arm}_n"] = len(ps)
             rec[f"{arm}_frac_p05"] = round(frac, 3) if frac == frac else ""
             rec[f"{arm}_median"] = round(med_obs, 6) if med_obs == med_obs else ""
-            rec[f"{arm}_claim"] = int(len(ps) >= MIN_SECTIONS and frac >= 0.5 and med_obs > med_null)
+            rec[f"{arm}_claim"] = ""
+            rec[f"{arm}_status"] = "NOT_CALIBRATED"
+            rec[f"{arm}_screen_rule_pass"] = int(len(ps) >= MIN_SECTIONS and frac >= 0.5 and med_obs > med_null)
         out.append(rec)
     out.sort(key=lambda r: (-(r["comp_frac_p05"] if isinstance(r["comp_frac_p05"], float) else -1),
                             -(r["comp_median"] if isinstance(r["comp_median"], float) else -9)))

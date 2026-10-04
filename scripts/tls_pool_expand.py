@@ -63,7 +63,8 @@ def aucell(X, cols, max_frac=0.05, chunk=600):
 def hex_xy(array_row, array_col, pitch_um):
     array_row = np.asarray(array_row, dtype=float)
     array_col = np.asarray(array_col, dtype=float)
-    return np.column_stack([array_col + 0.5 * (array_row % 2),
+    # Visium metadata uses doubled columns; parity already encodes the offset.
+    return np.column_stack([array_col / 2.0,
                             array_row * (3 ** 0.5) / 2]) * pitch_um
 
 

@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-08-10T08:33:12+08:00",
+  "generated_at": "2026-10-03T06:30:13.371369+00:00",
   "policy": {
     "allowed": [
       "official metadata",
@@ -418,6 +418,71 @@
       "retention_scope": "approved_local_reference_pointer",
       "status": "not_copied_external",
       "notes": "R04 h5ad reference; X and patient_id/cell_type allowlist only"
+    },
+    {
+      "source_id": "identity-20261003:14620362",
+      "accession": "14620362",
+      "official_url": "https://zenodo.org/api/records/14620362",
+      "local_path": "infra/bioinf-data-index/raw/identity_20261003/zenodo14620362.json",
+      "bytes": "7547",
+      "sha256": "7471ac4844f8ea7f275cd5005ed5e38314bb59e7148032873d35a7f33b70af71",
+      "license": "CC-BY-4.0",
+      "identity_coverage": "NO_EXPLICIT_PATIENT_CROSSWALK",
+      "retention_scope": "metadata",
+      "status": "retained",
+      "notes": "User-approved metadata-only identity lookup; does not establish patient independence"
+    },
+    {
+      "source_id": "identity-20261003:GSE175540",
+      "accession": "GSE175540",
+      "official_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE175nnn/GSE175540/soft/GSE175540_family.soft.gz",
+      "local_path": "infra/bioinf-data-index/raw/identity_20261003/GSE175540_family.soft.gz",
+      "bytes": "3976",
+      "sha256": "82cb69e1e856c6007e7ff6728a541ce26a34fbedf5688c431b20fad76dc352a3",
+      "license": "NOT_ASSERTED_IN_RETRIEVED_METADATA",
+      "identity_coverage": "NO_EXPLICIT_PATIENT_CROSSWALK",
+      "retention_scope": "metadata",
+      "status": "retained",
+      "notes": "User-approved metadata-only identity lookup; does not establish patient independence"
+    },
+    {
+      "source_id": "identity-20261003:PRJNA732692",
+      "accession": "PRJNA732692",
+      "official_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=bioproject&id=732692&retmode=xml",
+      "local_path": "infra/bioinf-data-index/raw/identity_20261003/PRJNA732692.xml",
+      "bytes": "3707",
+      "sha256": "84440e637f20b392fa0dc6f073156cfe0dd5d4c53060cdfe09249e22030d5794",
+      "license": "NOT_ASSERTED_IN_RETRIEVED_METADATA",
+      "identity_coverage": "NO_EXPLICIT_PATIENT_CROSSWALK",
+      "retention_scope": "metadata",
+      "status": "retained",
+      "notes": "User-approved metadata-only identity lookup; does not establish patient independence"
+    },
+    {
+      "source_id": "identity-20261003:35231421",
+      "accession": "35231421",
+      "official_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=35231421&retmode=xml",
+      "local_path": "infra/bioinf-data-index/raw/identity_20261003/PMID35231421.xml",
+      "bytes": "14726",
+      "sha256": "6a9a1cf6e3bb5c04a584806810eebec4ca3c54cf39d2924229678c070f2c5b91",
+      "license": "NOT_ASSERTED_IN_RETRIEVED_METADATA",
+      "identity_coverage": "NO_EXPLICIT_PATIENT_CROSSWALK",
+      "retention_scope": "metadata",
+      "status": "retained",
+      "notes": "User-approved metadata-only identity lookup; does not establish patient independence"
+    },
+    {
+      "source_id": "user:GSE175540_sd_20261003",
+      "accession": "GSE175540",
+      "official_url": "",
+      "local_path": "infra/bioinf-data-index/raw/user_gse175540_20261003/gse175540_sd.xlsx",
+      "bytes": "16562",
+      "sha256": "13d42da7005b115f0536513983a0a7f4de6dd9898dfba4c65c41d19f4054e200",
+      "license": "NOT_PROVIDED",
+      "identity_coverage": "24_GSM_TO_23_PATIENTS_USER_CONFIRMED;CURRENT18_TO17",
+      "retention_scope": "metadata",
+      "status": "retained_user_provided",
+      "notes": "Patient ID meaning explicitly confirmed by user 2026-10-03; official publication provenance not independently verified; versioned crosswalk in same directory"
     }
   ],
   "scope_contamination_incidents": [
@@ -470,5 +535,11 @@
       "retained": false,
       "deleted": true
     }
-  ]
+  ],
+  "identity_lookup_20261003": {
+    "authorization": "User explicitly permitted metadata follow-up",
+    "limit_bytes": 10000000,
+    "new_metadata_files": 4,
+    "report": "docs/TLS_PATIENT_METADATA_LOOKUP_20261003.md"
+  }
 }

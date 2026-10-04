@@ -15,9 +15,12 @@ WEAK = {"usz-LC4", "usz-LC5"}
 
 
 def main():
+    global OUT
     ap = argparse.ArgumentParser()
     ap.add_argument("--tag", default="")
+    ap.add_argument("--input-dir", type=Path, required=True)
     args = ap.parse_args()
+    OUT = args.input_dir
     null_rows = list(csv.DictReader(open(OUT / f"label_field_null{args.tag}.tsv"), delimiter="\t"))
     sec_rows = list(csv.DictReader(open(OUT / f"label_field_sections{args.tag}.tsv"), delimiter="\t"))
 
@@ -31,12 +34,12 @@ def main():
         for set_id in sorted({r["set_id"] for r in rows}):
             sub = [r for r in rows if r["set_id"] == set_id]
             p = np.array([float(r["p_one_sided"]) for r in sub if r["p_one_sided"] != ""])
-            o = np.array([float(r["obs"]) for r in sub if r["obs"] != ""])
-            n = np.array([float(r["null_median"]) for r in sub if r["null_median"] != ""])
+            o = np.array([float(r["obs"]) for r in sub if r["p_one_sided"] != ""])
+            n = np.array([float(r["null_median"]) for r in sub if r["p_one_sided"] != ""])
             frac = float((p <= 0.05).mean()) if len(p) else float("nan")
             claim = int(len(p) >= 8 and frac >= 0.5 and len(o) and len(n)
                         and np.median(o) > np.median(n))
-            per_set[set_id] = {"n_eval": len(p), "frac_p05": frac, "claim": claim,
+            per_set[set_id] = {"n_eval": len(p), "frac_p05": frac, "claim": "NOT_CALIBRATED", "screen_rule_pass": claim,
                                "med_obs": float(np.median(o)) if len(o) else float("nan")}
         return per_set
 
@@ -52,8 +55,8 @@ def main():
     for k, v in top:
         print(f"  {k[:56]:56} n_eval={v['n_eval']:2} frac_p05={v['frac_p05']:.2f} "
               f"med_obs={v['med_obs']:+.5f} claim={v['claim']}")
-    clam = [k for k, v in all_ps.items() if v["claim"]]
-    print(f"\nreadouts meeting the pre-declared claim rule: {clam if clam else 'NONE'}")
+    clam = [k for k, v in all_ps.items() if v["screen_rule_pass"]]
+    print(f"\nexploratory screen rule only (NOT_CALIBRATED): {clam if clam else 'NONE'}")
 
     # per-cohort
     coh = {}

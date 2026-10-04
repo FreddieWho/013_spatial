@@ -1,0 +1,51 @@
+{
+  "status": "COMPLETE_DESCRIPTIVE_PATIENT_AGGREGATION",
+  "receipts": [
+    {
+      "family": "bins",
+      "input_section_rows": 373,
+      "unit_rows": 366,
+      "summary_rows": 102,
+      "programs": 1742,
+      "metrics": [
+        "means"
+      ]
+    },
+    {
+      "family": "contrasts",
+      "input_section_rows": 359,
+      "unit_rows": 354,
+      "summary_rows": 110,
+      "programs": 1742,
+      "metrics": [
+        "effect_sd",
+        "reference_mean",
+        "reference_sd",
+        "native_quantile"
+      ]
+    },
+    {
+      "family": "bridges",
+      "input_section_rows": 1559,
+      "unit_rows": 1559,
+      "summary_rows": 344,
+      "programs": 1742,
+      "metrics": [
+        "raw_median",
+        "adjusted_median",
+        "positive_continuity",
+        "negative_continuity",
+        "side_asymmetry",
+        "native_z_median",
+        "native_quantile_median",
+        "tissue_z_median"
+      ]
+    }
+  ],
+  "GSE_patients": 17,
+  "USZ_tumor_samples": 8,
+  "formal_confirmation": false,
+  "calibration_status": "UNCHANGED_NOT_PASSED",
+  "missing_cases": "original source eligibility retained; index lists observed conditions only",
+  "all_program_bidirectional_rows": 3484
+}

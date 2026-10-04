@@ -1,0 +1,12 @@
+{
+  "section_id": "gse175540-GSM5924049_frozen_b_18",
+  "cohort": "GSE175540",
+  "status": "FULL_PANEL_SCORED",
+  "n_spots": 1186,
+  "n_gobp": 1691,
+  "n_controls": 51,
+  "n_covered_variable_GO": 1602,
+  "elapsed_seconds": 3.825523614883423,
+  "sha256": "5d6bc715bdf019f1adb479967adc15f051f8a1fbed811ce297073442ecdfebe5",
+  "contract_sha256": "f0d3cd78dc539a0c2d8e75ce7b8b9f197dc65b23405c12e5d32ef1b7770f1462"
+}

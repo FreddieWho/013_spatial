@@ -1,0 +1,7 @@
+amplitude_sd	family	n_settings	mean_setting_power	n_power_passed	n_power_and_matching_null_passed	n_power_and_whole_source_null_passed
+0.5	TLS_EDGE	138	0.20021739130434782	10	4	0
+0.5	TLS_REGION	618	0.22460355987055017	80	31	0
+0.5	TLS_TLS	132	0.3646212121212121	31	8	3
+1.0	TLS_EDGE	138	0.28496376811594204	19	4	0
+1.0	TLS_REGION	618	0.3404854368932039	127	35	0
+1.0	TLS_TLS	132	0.5351893939393939	49	13	6

@@ -1,0 +1,7 @@
+model	n_settings	n_failed	mean_setting_rate	min_rate	max_rate
+gaussian_150	8	7	0.1046875	0.0325	0.16
+gaussian_1500	8	4	0.0934375	0.0	0.33
+gaussian_4000	8	3	0.066875	0.0	0.245
+gaussian_500	8	7	0.16	0.0125	0.2875
+mixture	8	7	0.1021875	0.0125	0.1925
+skew_heterogeneous_gradient	8	7	0.0921875	0.0475	0.155

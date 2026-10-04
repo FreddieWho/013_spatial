@@ -1,0 +1,18 @@
+[
+  {
+    "section_id": "gse175540-GSM5924039_ffpe_c_39",
+    "reason": "fewer_than_20_TLS_spots"
+  },
+  {
+    "section_id": "gse175540-GSM5924043_frozen_a_3",
+    "reason": "insufficient_distance_bins",
+    "n_near": 29,
+    "n_far": 53
+  },
+  {
+    "section_id": "gse175540-GSM5924053_frozen_c_57",
+    "reason": "insufficient_distance_bins",
+    "n_near": 22,
+    "n_far": 30
+  }
+]

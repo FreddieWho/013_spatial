@@ -1,0 +1,29 @@
+{
+  "status": "IMPLEMENTATION_REPAIRED_SCIENTIFIC_CONFIRMATION_BLOCKED",
+  "tests": ".....                                                                    [100%]\n5 passed in 1.23s",
+  "own_contrast_max_abs_difference": 0.0,
+  "source_metadata_files": 32,
+  "readouts": 49,
+  "requested_sections": 26,
+  "evaluated_sections": 23,
+  "null_draws_per_fitted_readout": 200,
+  "outputs_claim_blank": true,
+  "unfit_p_blank": true,
+  "disk_free_bytes": 2013195079680,
+  "gpu_used": false,
+  "external_downloads": false,
+  "legacy_full_53_section_screen_rerun": "NOT_RUN_INVALIDATED",
+  "full_1691_screen_rerun": "NOT_RUN_INVALIDATED",
+  "plan_changed": false,
+  "code_sha256": {
+    "scripts/audit_halo_evidence.py": "ec85fa1346aa3682c8dc7882829980ca0cb4e03017989a1265827b53723ba40e",
+    "scripts/gobp_halo_null.py": "34cc97f84c36c3b7934934455b9552dd655dcb463dca3fe8531676d7069d0526",
+    "scripts/gobp_halo_screen.py": "491f01fa90c96171e289f619cf11ca296ad157deb8577c5331516943015c4db7",
+    "scripts/tls_field_null.py": "d2caff6555a7068e7739be08c1c9b3c5ad75812bee4fc4b05f07063b0960aae4",
+    "scripts/tls_label_field.py": "15adabeb3dff0e7b41e69538392620e2e4ad4894e4ad645368591e45086cdb18",
+    "scripts/tls_label_field_composition.py": "3630530408916e74027c972ea57692c07824cf7f3812381ad9b09cb8ca16fbec",
+    "scripts/tls_label_field_summarize.py": "6b7fe80e859ae71ac0fbfc4a084cd097d0e2a6fb4468cf4ffe0754cd1b1d7906",
+    "scripts/tls_pool_expand.py": "3bbd26f090aab787792a12be1467ce450b4fc2d5ea7b940dd536c9408512ead9"
+  },
+  "reproduction_note": "Final additions to label/comp scripts only persist missing-readout ledger derived from unchanged rows; the same ledger was generated for these completed runs."
+}

@@ -1,0 +1,14 @@
+{
+  "decision": "D-186",
+  "identity_sha256": "b414d2585c4b8f789c595e0d981cb4ee06b6ac4bedf6307103ba13c949ca576d",
+  "input_sha256": {
+    "/home/huyudi/013_spatial/infra/tls_multiscale_gobp_20261002/integrated/all_bins.tsv": "1767e1ee1dfa0e3a612fc8e5eb896116004fadcdafef390964a4194d33851e8b",
+    "/home/huyudi/013_spatial/infra/tls_multiscale_gobp_20261002/integrated/halo_edge_bins.npz": "17b9250dd4037beaf3117bd9c8281ba84a2b80e76348b101cf187ee515eceede",
+    "/home/huyudi/013_spatial/infra/tls_multiscale_gobp_20261002/integrated/all_contrasts.tsv": "4a1cbdce68f4d42a1cb29bbc021a24e0aa55d754ebe8667f098d818fd3b15e3d",
+    "/home/huyudi/013_spatial/infra/tls_multiscale_gobp_20261002/integrated/halo_edge_contrasts.npz": "b70658defcb78f17a2cb2803adfea6eb8ca1637569e1d95860cc4a0198404f09",
+    "/home/huyudi/013_spatial/infra/tls_multiscale_gobp_20261002/integrated/bridge_groups.tsv": "58010c9368665627c45ba1257b93249e58e6849ed632361c66acf25de2b9b13a",
+    "/home/huyudi/013_spatial/infra/tls_multiscale_gobp_20261002/integrated/bridge_all_programs.npz": "ccfeec93dafea4dfa7d147548c43c5471244f723ba774d42933e2c6f9ae34e3f"
+  },
+  "rule": "Within-patient finite section mean at identical condition; cohort median over available patient units. USZ tumor samples. Missing is not zero.",
+  "formal_p": null
+}

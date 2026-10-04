@@ -1,0 +1,25 @@
+{
+  "status": "COMPLETE_FROZEN_FAILURE_DIAGNOSIS",
+  "sources": 26,
+  "null_settings": 48,
+  "null_failed": 35,
+  "direction_rows": 1920,
+  "geometry_norm_rows": 1242,
+  "direct_vector_checks": 803,
+  "half_sd_settings": 888,
+  "half_sd_power_passed": 121,
+  "half_sd_power_and_matching_null_passed": 43,
+  "half_sd_power_and_source_null_passed": 3,
+  "half_sd_representatives_passing_all6_power_and_source_null": 0,
+  "operator_variance_ratio_quantiles": {
+    "min": 0.8258455570499724,
+    "q25": 0.9620867766662983,
+    "median": 0.9867215768345505,
+    "q75": 1.0150560576228458,
+    "max": 8.43393901209035
+  },
+  "signal_only_templates": 148,
+  "signal_only_templates_selected": 78,
+  "formal_p_allowed": false,
+  "method_or_threshold_changed": false
+}

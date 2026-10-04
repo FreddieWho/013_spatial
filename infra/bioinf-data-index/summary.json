@@ -1,9 +1,9 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-08-10T08:33:12+08:00",
-  "indexed_file_count": 31,
-  "indexed_bytes": 422494682,
-  "retained_metadata_files": 24,
+  "generated_at": "2026-10-03T06:30:13.371369+00:00",
+  "indexed_file_count": 36,
+  "indexed_bytes": 422541200,
+  "retained_metadata_files": 29,
   "retained_identity_crosswalk_files": 1,
   "retained_expression_files": 0,
   "retained_image_files": 0,
@@ -12,5 +12,33 @@
   "external_reference_pointer_bytes": 421061033,
   "r04_source_metadata_pointer_count": 2,
   "r04_source_metadata_pointer_bytes": 25344,
-  "deleted_scope_contamination_incidents": 5
+  "deleted_scope_contamination_incidents": 5,
+  "identity_lookup_20261003": {
+    "retained_metadata_bytes": 29956,
+    "samples_checked": 26,
+    "samples_with_confirmed_patient_mapping": 0,
+    "recorded_http_response_bytes_including_discarded_capped_response": 2035547,
+    "browser_challenge_excluded_from_metadata_index": true
+  },
+  "user_gse175540_workbook": {
+    "source": "USER_PROVIDED_LOCAL_FILE",
+    "original_path": "tmp/gse175540_sd.xlsx",
+    "retained_path": "infra/bioinf-data-index/raw/user_gse175540_20261003/gse175540_sd.xlsx",
+    "sha256": "13d42da7005b115f0536513983a0a7f4de6dd9898dfba4c65c41d19f4054e200",
+    "bytes": 16562,
+    "publication_url": null,
+    "ID_unit": "PATIENT_USER_CONFIRMED",
+    "rows": 130,
+    "geo_samples_matched": 24,
+    "distinct_table_IDs_for_GEO": 23,
+    "current_samples_matched": 18,
+    "current_distinct_table_IDs": 17,
+    "same_ID_pair": [
+      "GSM5924030",
+      "GSM5924050"
+    ],
+    "date": "2026-10-03T06:30:13.371369+00:00",
+    "confirmation_record": "infra/bioinf-data-index/raw/user_gse175540_20261003/user_confirmation.json",
+    "current_confirmed_patients": 17
+  }
 }

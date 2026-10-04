@@ -1,0 +1,13 @@
+{
+  "status": "FULL_INTERNAL_DESCRIPTIVE_SUMMARY",
+  "folds": 84,
+  "metric_rows": 815568,
+  "summary_rows": 62736,
+  "n_gobp": 1691,
+  "n_controls": 51,
+  "patient_confirmation": false,
+  "spatial_p": "NOT_CLAIMED",
+  "location_probability_calibration": "NOT_ESTABLISHED",
+  "test_set_selection": false,
+  "interpretation": "Report all masks/arms/cohorts. Inspecting this table does not create an independent validation set."
+}

@@ -1,0 +1,95 @@
+{
+  "status": "PASS_ALL1742_PAGES",
+  "reports": [
+    {
+      "book": "GO_01.pdf",
+      "pages": 128,
+      "all_expected_program_titles": true,
+      "all_four_panels": true
+    },
+    {
+      "book": "GO_02.pdf",
+      "pages": 128,
+      "all_expected_program_titles": true,
+      "all_four_panels": true
+    },
+    {
+      "book": "GO_03.pdf",
+      "pages": 128,
+      "all_expected_program_titles": true,
+      "all_four_panels": true
+    },
+    {
+      "book": "GO_04.pdf",
+      "pages": 128,
+      "all_expected_program_titles": true,
+      "all_four_panels": true
+    },
+    {
+      "book": "GO_05.pdf",
+      "pages": 128,
+      "all_expected_program_titles": true,
+      "all_four_panels": true
+    },
+    {
+      "book": "GO_06.pdf",
+      "pages": 128,
+      "all_expected_program_titles": true,
+      "all_four_panels": true
+    },
+    {
+      "book": "GO_07.pdf",
+      "pages": 128,
+      "all_expected_program_titles": true,
+      "all_four_panels": true
+    },
+    {
+      "book": "GO_08.pdf",
+      "pages": 128,
+      "all_expected_program_titles": true,
+      "all_four_panels": true
+    },
+    {
+      "book": "GO_09.pdf",
+      "pages": 128,
+      "all_expected_program_titles": true,
+      "all_four_panels": true
+    },
+    {
+      "book": "GO_10.pdf",
+      "pages": 128,
+      "all_expected_program_titles": true,
+      "all_four_panels": true
+    },
+    {
+      "book": "GO_11.pdf",
+      "pages": 128,
+      "all_expected_program_titles": true,
+      "all_four_panels": true
+    },
+    {
+      "book": "GO_12.pdf",
+      "pages": 128,
+      "all_expected_program_titles": true,
+      "all_four_panels": true
+    },
+    {
+      "book": "GO_13.pdf",
+      "pages": 128,
+      "all_expected_program_titles": true,
+      "all_four_panels": true
+    },
+    {
+      "book": "GO_14.pdf",
+      "pages": 27,
+      "all_expected_program_titles": true,
+      "all_four_panels": true
+    },
+    {
+      "book": "fixed_controls.pdf",
+      "pages": 51,
+      "all_expected_program_titles": true,
+      "all_four_panels": true
+    }
+  ]
+}

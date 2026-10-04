@@ -1,0 +1,904 @@
+{
+  "status": "COMPLETE",
+  "start": 640,
+  "end": 768,
+  "pages": 128,
+  "index": [
+    {
+      "program_index": 640,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_CALCIUM_MEDIATED_SIGNALING",
+      "book": "GO_06.pdf",
+      "page": 1,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 641,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_CANONICAL_NF_KAPPAB_SIGNAL_TRANSDUCTION",
+      "book": "GO_06.pdf",
+      "page": 2,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 642,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_CANONICAL_WNT_SIGNALING_PATHWAY",
+      "book": "GO_06.pdf",
+      "page": 3,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 643,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_CARDIAC_MUSCLE_TISSUE_GROWTH",
+      "book": "GO_06.pdf",
+      "page": 4,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 644,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_CATION_CHANNEL_ACTIVITY",
+      "book": "GO_06.pdf",
+      "page": 5,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 645,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_CELLULAR_RESPONSE_TO_INSULIN_STIMULUS",
+      "book": "GO_06.pdf",
+      "page": 6,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 646,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_CELLULAR_RESPONSE_TO_VASCULAR_ENDOTHELIAL_GROWTH_FACTOR_STIMULUS",
+      "book": "GO_06.pdf",
+      "page": 7,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 647,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_CELLULAR_SENESCENCE",
+      "book": "GO_06.pdf",
+      "page": 8,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 648,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_CELL_CYCLE_G1_S_PHASE_TRANSITION",
+      "book": "GO_06.pdf",
+      "page": 9,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 649,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_CELL_JUNCTION_ASSEMBLY",
+      "book": "GO_06.pdf",
+      "page": 10,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 650,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_CELL_MATRIX_ADHESION",
+      "book": "GO_06.pdf",
+      "page": 11,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 651,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_CELL_MIGRATION_INVOLVED_IN_SPROUTING_ANGIOGENESIS",
+      "book": "GO_06.pdf",
+      "page": 12,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 652,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_CHEMOKINE_PRODUCTION",
+      "book": "GO_06.pdf",
+      "page": 13,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 653,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_CHOLESTEROL_EFFLUX",
+      "book": "GO_06.pdf",
+      "page": 14,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 654,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_CHONDROCYTE_DIFFERENTIATION",
+      "book": "GO_06.pdf",
+      "page": 15,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 655,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_CHROMOSOME_SEGREGATION",
+      "book": "GO_06.pdf",
+      "page": 16,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 656,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_CILIUM_ASSEMBLY",
+      "book": "GO_06.pdf",
+      "page": 17,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 657,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_COLD_INDUCED_THERMOGENESIS",
+      "book": "GO_06.pdf",
+      "page": 18,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 658,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_CYTOKINE_PRODUCTION_INVOLVED_IN_IMMUNE_RESPONSE",
+      "book": "GO_06.pdf",
+      "page": 19,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 659,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_CYTOKINE_PRODUCTION_INVOLVED_IN_INFLAMMATORY_RESPONSE",
+      "book": "GO_06.pdf",
+      "page": 20,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 660,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_DNA_BINDING",
+      "book": "GO_06.pdf",
+      "page": 21,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 661,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_DNA_BINDING_TRANSCRIPTION_FACTOR_ACTIVITY",
+      "book": "GO_06.pdf",
+      "page": 22,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 662,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_DNA_REPLICATION",
+      "book": "GO_06.pdf",
+      "page": 23,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 663,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_DNA_TEMPLATED_TRANSCRIPTION_ELONGATION",
+      "book": "GO_06.pdf",
+      "page": 24,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 664,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_DOUBLE_STRAND_BREAK_REPAIR_VIA_HOMOLOGOUS_RECOMBINATION",
+      "book": "GO_06.pdf",
+      "page": 25,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 665,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_D_GLUCOSE_TRANSMEMBRANE_TRANSPORT",
+      "book": "GO_06.pdf",
+      "page": 26,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 666,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_ENDOPLASMIC_RETICULUM_STRESS_INDUCED_INTRINSIC_APOPTOTIC_SIGNALING_PATHWAY",
+      "book": "GO_06.pdf",
+      "page": 27,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 667,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_ENDOPLASMIC_RETICULUM_UNFOLDED_PROTEIN_RESPONSE",
+      "book": "GO_06.pdf",
+      "page": 28,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 668,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_ENDOTHELIAL_CELL_APOPTOTIC_PROCESS",
+      "book": "GO_06.pdf",
+      "page": 29,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 669,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_EPITHELIAL_CELL_APOPTOTIC_PROCESS",
+      "book": "GO_06.pdf",
+      "page": 30,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 670,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_EPITHELIAL_CELL_DIFFERENTIATION",
+      "book": "GO_06.pdf",
+      "page": 31,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 671,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_EPITHELIAL_TO_MESENCHYMAL_TRANSITION",
+      "book": "GO_06.pdf",
+      "page": 32,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 672,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_ERBB_SIGNALING_PATHWAY",
+      "book": "GO_06.pdf",
+      "page": 33,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 673,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_ERK1_AND_ERK2_CASCADE",
+      "book": "GO_06.pdf",
+      "page": 34,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 674,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_EXTRACELLULAR_MATRIX_ORGANIZATION",
+      "book": "GO_06.pdf",
+      "page": 35,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 675,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_EXTRINSIC_APOPTOTIC_SIGNALING_PATHWAY_VIA_DEATH_DOMAIN_RECEPTORS",
+      "book": "GO_06.pdf",
+      "page": 36,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 676,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_FATTY_ACID_BIOSYNTHETIC_PROCESS",
+      "book": "GO_06.pdf",
+      "page": 37,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 677,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_FAT_CELL_DIFFERENTIATION",
+      "book": "GO_06.pdf",
+      "page": 38,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 678,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_FIBROBLAST_GROWTH_FACTOR_RECEPTOR_SIGNALING_PATHWAY",
+      "book": "GO_06.pdf",
+      "page": 39,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 679,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_FIBROBLAST_PROLIFERATION",
+      "book": "GO_06.pdf",
+      "page": 40,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 680,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_GLIAL_CELL_DIFFERENTIATION",
+      "book": "GO_06.pdf",
+      "page": 41,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 681,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_GLUCONEOGENESIS",
+      "book": "GO_06.pdf",
+      "page": 42,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 682,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_G_PROTEIN_COUPLED_RECEPTOR_SIGNALING_PATHWAY",
+      "book": "GO_06.pdf",
+      "page": 43,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 683,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_HIPPO_SIGNALING",
+      "book": "GO_06.pdf",
+      "page": 44,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 684,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_HORMONE_SECRETION",
+      "book": "GO_06.pdf",
+      "page": 45,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 685,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_HYDROLASE_ACTIVITY",
+      "book": "GO_06.pdf",
+      "page": 46,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 686,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_INFLAMMASOME_MEDIATED_SIGNALING_PATHWAY",
+      "book": "GO_06.pdf",
+      "page": 47,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 687,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_INFLAMMATORY_RESPONSE_TO_ANTIGENIC_STIMULUS",
+      "book": "GO_06.pdf",
+      "page": 48,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 688,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_INTERLEUKIN_10_PRODUCTION",
+      "book": "GO_06.pdf",
+      "page": 49,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 689,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_INTERLEUKIN_17_PRODUCTION",
+      "book": "GO_06.pdf",
+      "page": 50,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 690,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_INTERLEUKIN_1_BETA_PRODUCTION",
+      "book": "GO_06.pdf",
+      "page": 51,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 691,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_INTERLEUKIN_2_PRODUCTION",
+      "book": "GO_06.pdf",
+      "page": 52,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 692,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_INTERLEUKIN_6_PRODUCTION",
+      "book": "GO_06.pdf",
+      "page": 53,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 693,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_INTERLEUKIN_8_PRODUCTION",
+      "book": "GO_06.pdf",
+      "page": 54,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 694,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_INTRACELLULAR_PROTEIN_TRANSPORT",
+      "book": "GO_06.pdf",
+      "page": 55,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 695,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_INTRACELLULAR_STEROID_HORMONE_RECEPTOR_SIGNALING_PATHWAY",
+      "book": "GO_06.pdf",
+      "page": 56,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 696,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_INTRINSIC_APOPTOTIC_SIGNALING_PATHWAY_BY_P53_CLASS_MEDIATOR",
+      "book": "GO_06.pdf",
+      "page": 57,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 697,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_INTRINSIC_APOPTOTIC_SIGNALING_PATHWAY_IN_RESPONSE_TO_DNA_DAMAGE",
+      "book": "GO_06.pdf",
+      "page": 58,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 698,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_JNK_CASCADE",
+      "book": "GO_06.pdf",
+      "page": 59,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 699,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_KERATINOCYTE_PROLIFERATION",
+      "book": "GO_06.pdf",
+      "page": 60,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 700,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_LEUKOCYTE_CHEMOTAXIS",
+      "book": "GO_06.pdf",
+      "page": 61,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 701,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_LIPID_CATABOLIC_PROCESS",
+      "book": "GO_06.pdf",
+      "page": 62,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 702,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_LIPID_STORAGE",
+      "book": "GO_06.pdf",
+      "page": 63,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 703,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_LIPOPROTEIN_PARTICLE_CLEARANCE",
+      "book": "GO_06.pdf",
+      "page": 64,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 704,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_MACROAUTOPHAGY",
+      "book": "GO_06.pdf",
+      "page": 65,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 705,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_MAP_KINASE_ACTIVITY",
+      "book": "GO_06.pdf",
+      "page": 66,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 706,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_MEGAKARYOCYTE_DIFFERENTIATION",
+      "book": "GO_06.pdf",
+      "page": 67,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 707,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_MEIOTIC_CELL_CYCLE",
+      "book": "GO_06.pdf",
+      "page": 68,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 708,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_MEMBRANE_PERMEABILITY",
+      "book": "GO_06.pdf",
+      "page": 69,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 709,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_MICROTUBULE_DEPOLYMERIZATION",
+      "book": "GO_06.pdf",
+      "page": 70,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 710,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_MIRNA_METABOLIC_PROCESS",
+      "book": "GO_06.pdf",
+      "page": 71,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 711,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_MONONUCLEAR_CELL_MIGRATION",
+      "book": "GO_06.pdf",
+      "page": 72,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 712,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_MRNA_PROCESSING",
+      "book": "GO_06.pdf",
+      "page": 73,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 713,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_MUSCLE_CONTRACTION",
+      "book": "GO_06.pdf",
+      "page": 74,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 714,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_MUSCLE_HYPERTROPHY",
+      "book": "GO_06.pdf",
+      "page": 75,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 715,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_MYELOID_CELL_APOPTOTIC_PROCESS",
+      "book": "GO_06.pdf",
+      "page": 76,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 716,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_MYOBLAST_DIFFERENTIATION",
+      "book": "GO_06.pdf",
+      "page": 77,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 717,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_NATURAL_KILLER_CELL_MEDIATED_IMMUNITY",
+      "book": "GO_06.pdf",
+      "page": 78,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 718,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_NEURAL_PRECURSOR_CELL_PROLIFERATION",
+      "book": "GO_06.pdf",
+      "page": 79,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 719,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_NEURON_APOPTOTIC_PROCESS",
+      "book": "GO_06.pdf",
+      "page": 80,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 720,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_NEURON_DIFFERENTIATION",
+      "book": "GO_06.pdf",
+      "page": 81,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 721,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_NF_KAPPAB_TRANSCRIPTION_FACTOR_ACTIVITY",
+      "book": "GO_06.pdf",
+      "page": 82,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 722,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_NON_CANONICAL_NF_KAPPAB_SIGNAL_TRANSDUCTION",
+      "book": "GO_06.pdf",
+      "page": 83,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 723,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_NOTCH_SIGNALING_PATHWAY",
+      "book": "GO_06.pdf",
+      "page": 84,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 724,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_NUCLEOCYTOPLASMIC_TRANSPORT",
+      "book": "GO_06.pdf",
+      "page": 85,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 725,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_NUCLEOTIDE_CATABOLIC_PROCESS",
+      "book": "GO_06.pdf",
+      "page": 86,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 726,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_ORGANIC_ACID_TRANSPORT",
+      "book": "GO_06.pdf",
+      "page": 87,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 727,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_OSTEOBLAST_DIFFERENTIATION",
+      "book": "GO_06.pdf",
+      "page": 88,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 728,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_OSTEOCLAST_DIFFERENTIATION",
+      "book": "GO_06.pdf",
+      "page": 89,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 729,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_OXIDATIVE_STRESS_INDUCED_INTRINSIC_APOPTOTIC_SIGNALING_PATHWAY",
+      "book": "GO_06.pdf",
+      "page": 90,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 730,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_PEPTIDE_SECRETION",
+      "book": "GO_06.pdf",
+      "page": 91,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 731,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_PEPTIDYL_TYROSINE_PHOSPHORYLATION",
+      "book": "GO_06.pdf",
+      "page": 92,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 732,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_PHAGOCYTOSIS",
+      "book": "GO_06.pdf",
+      "page": 93,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 733,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_PHOSPHATIDYLINOSITOL_3_KINASE_PROTEIN_KINASE_B_SIGNAL_TRANSDUCTION",
+      "book": "GO_06.pdf",
+      "page": 94,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 734,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_POTASSIUM_ION_TRANSMEMBRANE_TRANSPORT",
+      "book": "GO_06.pdf",
+      "page": 95,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 735,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_PROGRAMMED_NECROTIC_CELL_DEATH",
+      "book": "GO_06.pdf",
+      "page": 96,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 736,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_PROTEASOMAL_UBIQUITIN_DEPENDENT_PROTEIN_CATABOLIC_PROCESS",
+      "book": "GO_06.pdf",
+      "page": 97,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 737,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_PROTEIN_BINDING",
+      "book": "GO_06.pdf",
+      "page": 98,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 738,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_PROTEIN_LOCALIZATION_TO_CELL_PERIPHERY",
+      "book": "GO_06.pdf",
+      "page": 99,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 739,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_PROTEIN_LOCALIZATION_TO_NUCLEUS",
+      "book": "GO_06.pdf",
+      "page": 100,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 740,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_PROTEIN_MATURATION",
+      "book": "GO_06.pdf",
+      "page": 101,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 741,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_PROTEIN_SECRETION",
+      "book": "GO_06.pdf",
+      "page": 102,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 742,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_PROTEIN_UBIQUITINATION",
+      "book": "GO_06.pdf",
+      "page": 103,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 743,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_PROTEOLYSIS",
+      "book": "GO_06.pdf",
+      "page": 104,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 744,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_PROTEOLYSIS_INVOLVED_IN_PROTEIN_CATABOLIC_PROCESS",
+      "book": "GO_06.pdf",
+      "page": 105,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 745,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_RAS_PROTEIN_SIGNAL_TRANSDUCTION",
+      "book": "GO_06.pdf",
+      "page": 106,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 746,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_REACTIVE_OXYGEN_SPECIES_BIOSYNTHETIC_PROCESS",
+      "book": "GO_06.pdf",
+      "page": 107,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 747,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_RECEPTOR_MEDIATED_ENDOCYTOSIS",
+      "book": "GO_06.pdf",
+      "page": 108,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 748,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_RECEPTOR_SIGNALING_PATHWAY_VIA_JAK_STAT",
+      "book": "GO_06.pdf",
+      "page": 109,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 749,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_REGULATED_SECRETORY_PATHWAY",
+      "book": "GO_06.pdf",
+      "page": 110,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 750,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_RELEASE_OF_CYTOCHROME_C_FROM_MITOCHONDRIA",
+      "book": "GO_06.pdf",
+      "page": 111,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 751,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_RHO_PROTEIN_SIGNAL_TRANSDUCTION",
+      "book": "GO_06.pdf",
+      "page": 112,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 752,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_SIGNAL_TRANSDUCTION_IN_ABSENCE_OF_LIGAND",
+      "book": "GO_06.pdf",
+      "page": 113,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 753,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_SMAD_PROTEIN_SIGNAL_TRANSDUCTION",
+      "book": "GO_06.pdf",
+      "page": 114,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 754,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_SMOOTHENED_SIGNALING_PATHWAY",
+      "book": "GO_06.pdf",
+      "page": 115,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 755,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_SMOOTH_MUSCLE_CELL_DIFFERENTIATION",
+      "book": "GO_06.pdf",
+      "page": 116,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 756,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_SPROUTING_ANGIOGENESIS",
+      "book": "GO_06.pdf",
+      "page": 117,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 757,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_STEM_CELL_DIFFERENTIATION",
+      "book": "GO_06.pdf",
+      "page": 118,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 758,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_STEM_CELL_POPULATION_MAINTENANCE",
+      "book": "GO_06.pdf",
+      "page": 119,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 759,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_STEM_CELL_PROLIFERATION",
+      "book": "GO_06.pdf",
+      "page": 120,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 760,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_STEROID_BIOSYNTHETIC_PROCESS",
+      "book": "GO_06.pdf",
+      "page": 121,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 761,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_STRIATED_MUSCLE_CELL_APOPTOTIC_PROCESS",
+      "book": "GO_06.pdf",
+      "page": 122,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 762,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_STRIATED_MUSCLE_CELL_DIFFERENTIATION",
+      "book": "GO_06.pdf",
+      "page": 123,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 763,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_SYSTEMIC_ARTERIAL_BLOOD_PRESSURE",
+      "book": "GO_06.pdf",
+      "page": 124,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 764,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_TELOMERE_MAINTENANCE_VIA_TELOMERASE",
+      "book": "GO_06.pdf",
+      "page": 125,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 765,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_TISSUE_REMODELING",
+      "book": "GO_06.pdf",
+      "page": 126,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 766,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_TOLL_LIKE_RECEPTOR_4_SIGNALING_PATHWAY",
+      "book": "GO_06.pdf",
+      "page": 127,
+      "panel": "GO_BP"
+    },
+    {
+      "program_index": 767,
+      "program": "GOBP_NEGATIVE_REGULATION_OF_TOLL_LIKE_RECEPTOR_SIGNALING_PATHWAY",
+      "book": "GO_06.pdf",
+      "page": 128,
+      "panel": "GO_BP"
+    }
+  ]
+}

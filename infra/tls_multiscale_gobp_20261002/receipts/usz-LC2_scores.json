@@ -1,0 +1,12 @@
+{
+  "section_id": "usz-LC2",
+  "cohort": "USZ",
+  "status": "FULL_PANEL_SCORED",
+  "n_spots": 4456,
+  "n_gobp": 1691,
+  "n_controls": 51,
+  "n_covered_variable_GO": 1558,
+  "elapsed_seconds": 8.548200130462646,
+  "sha256": "083c78f89dd517b66366666d72e722da9182ab07f959b8a5f085b2278a5f1e1c",
+  "contract_sha256": "f0d3cd78dc539a0c2d8e75ce7b8b9f197dc65b23405c12e5d32ef1b7770f1462"
+}

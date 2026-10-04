@@ -1,0 +1,15 @@
+{
+  "status": "NOT_CALIBRATED",
+  "decision": "D-167",
+  "draws": 200,
+  "n_sections_requested": 26,
+  "excluded": 3,
+  "changes": [
+    "Visium doubled-column geometry",
+    "rank-aware projection",
+    "sigma factor corrected",
+    "project surrogate through same design",
+    "no white-noise fallback"
+  ],
+  "interpretation": "Exploratory sensitivity only; no formal positive or negative claim."
+}

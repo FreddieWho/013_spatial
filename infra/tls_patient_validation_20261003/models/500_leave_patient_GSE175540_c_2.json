@@ -1,0 +1,51 @@
+{
+  "status": "COMPLETE_INTERNAL_VALIDATION",
+  "mask_um": 500,
+  "split": "leave_patient",
+  "job": "GSE175540_c_2",
+  "train_sections": [
+    "usz-KC1",
+    "usz-KC2",
+    "usz-KC3",
+    "usz-LC1",
+    "usz-LC2",
+    "usz-LC3",
+    "usz-LC4",
+    "usz-LC5",
+    "gse175540-GSM5924031_ffpe_c_3",
+    "gse175540-GSM5924032_ffpe_c_4",
+    "gse175540-GSM5924033_ffpe_c_7",
+    "gse175540-GSM5924035_ffpe_c_20",
+    "gse175540-GSM5924037_ffpe_c_34",
+    "gse175540-GSM5924038_ffpe_c_36",
+    "gse175540-GSM5924039_ffpe_c_39",
+    "gse175540-GSM5924040_ffpe_c_45",
+    "gse175540-GSM5924041_ffpe_c_51",
+    "gse175540-GSM5924043_frozen_a_3",
+    "gse175540-GSM5924044_frozen_a_15",
+    "gse175540-GSM5924046_frozen_b_1",
+    "gse175540-GSM5924049_frozen_b_18",
+    "gse175540-GSM5924051_frozen_c_5",
+    "gse175540-GSM5924052_frozen_c_23",
+    "gse175540-GSM5924053_frozen_c_57"
+  ],
+  "test_sections": [
+    "gse175540-GSM5924030_ffpe_c_2",
+    "gse175540-GSM5924050_frozen_c_2"
+  ],
+  "selected_GO": [
+    "GOBP_FC_GAMMA_RECEPTOR_SIGNALING_PATHWAY",
+    "GOBP_BRAIN_MORPHOGENESIS",
+    "GOBP_RESPONSE_TO_ARSENIC_CONTAINING_SUBSTANCE",
+    "GOBP_REGULATION_OF_BRANCHING_INVOLVED_IN_URETERIC_BUD_MORPHOGENESIS",
+    "GOBP_TRIPARTITE_REGIONAL_SUBDIVISION",
+    "GOBP_EMBRYONIC_AXIS_SPECIFICATION",
+    "GOBP_MELANOCYTE_DIFFERENTIATION",
+    "GOBP_PORE_COMPLEX_ASSEMBLY",
+    "GOBP_REGULATION_OF_PLATELET_AGGREGATION",
+    "GOBP_ANTERIOR_POSTERIOR_AXIS_SPECIFICATION"
+  ],
+  "n_metric_rows": 10456,
+  "n_predictions": 1389,
+  "sha256": "f1802cc4b5fcd8667ef04f556ace904a6157049cfcb0d739f5f73e45fac28d93"
+}
