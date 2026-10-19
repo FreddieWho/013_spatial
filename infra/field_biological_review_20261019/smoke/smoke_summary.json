@@ -1,0 +1,170 @@
+{
+  "sections": [
+    "ZEN38",
+    "ZEN42",
+    "TENX171",
+    "NCBI642",
+    "TENX161"
+  ],
+  "split_summary": [
+    {
+      "split": "internal_0",
+      "arm": "internal",
+      "sections": [
+        "NCBI642",
+        "ZEN38",
+        "ZEN42"
+      ],
+      "seconds": 3.7,
+      "rows": 120
+    },
+    {
+      "split": "internal_1",
+      "arm": "internal",
+      "sections": [
+        "TENX171"
+      ],
+      "seconds": 1.5,
+      "rows": 40
+    },
+    {
+      "split": "internal_2",
+      "arm": "internal",
+      "sections": [],
+      "status": "trimmed_empty"
+    },
+    {
+      "split": "internal_3",
+      "arm": "internal",
+      "sections": [],
+      "status": "trimmed_empty"
+    },
+    {
+      "split": "internal_4",
+      "arm": "internal",
+      "sections": [
+        "TENX161"
+      ],
+      "seconds": 1.7,
+      "rows": 40
+    },
+    {
+      "split": "source_0",
+      "arm": "source",
+      "sections": [
+        "NCBI642"
+      ],
+      "seconds": 1.7,
+      "rows": 40
+    },
+    {
+      "split": "source_1",
+      "arm": "source",
+      "sections": [
+        "ZEN38",
+        "ZEN42"
+      ],
+      "seconds": 2.2,
+      "rows": 80
+    },
+    {
+      "split": "source_2",
+      "arm": "source",
+      "sections": [],
+      "status": "trimmed_empty"
+    },
+    {
+      "split": "source_3",
+      "arm": "source",
+      "sections": [],
+      "status": "trimmed_empty"
+    },
+    {
+      "split": "source_4",
+      "arm": "source",
+      "sections": [],
+      "status": "trimmed_empty"
+    },
+    {
+      "split": "source_5",
+      "arm": "source",
+      "sections": [],
+      "status": "trimmed_empty"
+    }
+  ],
+  "outputs": {
+    "measured_fields.tsv": {
+      "exists": true,
+      "bytes": 36421,
+      "sha256": "a491a7d057a608d68dcbcaa1a99c153d3926d5b8207d337e554e7bf2e5f3fca3"
+    },
+    "measured_module_relations.tsv": {
+      "exists": true,
+      "bytes": 296974,
+      "sha256": "efa43333b97d7512783897f8a74912f2de09be930b0ec0321f7079352f2391ba"
+    },
+    "prediction_metrics.tsv": {
+      "exists": true,
+      "bytes": 698122,
+      "sha256": "480a35c760dc511d14f45a3675ff42c85e1c7bc68a0b739c5139cc46774a0664"
+    },
+    "prediction_module_relations.tsv": {
+      "exists": true,
+      "bytes": 1678598,
+      "sha256": "d2cc2f1a6f540237d5c6f3fa65dc5a4bff0a8a9d0d1a4f06b881e15f0ba1f1d3"
+    },
+    "unit_metrics.tsv": {
+      "exists": true,
+      "bytes": 244805,
+      "sha256": "bad8cc5111717977c8e07796d60ef3ceb231e657f631d959ff2c61ba8163fd43"
+    },
+    "macro_summary.tsv": {
+      "exists": true,
+      "bytes": 2456033,
+      "sha256": "8da8aa6d56a7b11bb10302f5a057d1d9defaef620be776e65fff25f0f61514c4"
+    },
+    "macro_strata.tsv": {
+      "exists": true,
+      "bytes": 4850748,
+      "sha256": "c4e1733c617e7a36357e26896d1371607c69e02005dc88cd878346341d54a18f"
+    },
+    "within_unit_consistency.tsv": {
+      "exists": true,
+      "bytes": 48993,
+      "sha256": "95696cefc94b79569884acde1311518418560cc7448b59e85f714a755c5ddceb"
+    },
+    "diagnostic_sensitivity.tsv": {
+      "exists": true,
+      "bytes": 1118,
+      "sha256": "d29458c099e8a3b52d85397312ac09e5a14b737b4357f81c1f9d392af520bf76"
+    },
+    "measured_summary.tsv": {
+      "exists": true,
+      "bytes": 29394,
+      "sha256": "2595eb71f7ea91126718ce4eb93c8b316e763474b4d9922fef26e1d215a6a9c1"
+    },
+    "cross_stage_consistency.json": {
+      "exists": true,
+      "bytes": 52,
+      "sha256": "f997f73fa91c262d201e182ca18ef80febc038d6333f2f2c75db7ae4f88a320f"
+    },
+    "REPORT.md": {
+      "exists": true,
+      "bytes": 17472,
+      "sha256": "7b9acda3a8b9ea55324b7d61e3926e22b5bd7ec9768cbda603135695e19a4d8d"
+    },
+    "freeze_manifest.json": {
+      "exists": true,
+      "bytes": 9464,
+      "sha256": "78954b52e7603045552e2b9869e20edf66eb4aed0b733eb54a0ba963d1530a5c"
+    },
+    "STATUS": {
+      "exists": true,
+      "bytes": 59,
+      "sha256": "782de58f0590eec313ad7acc36fe2a0105e0e471d650c93ec4fc3fa6da04c357"
+    }
+  },
+  "seconds": 26.6,
+  "code_sha256": "52d11904c00fda6090d1af85d1a508ddac35dd54ae564a084a28d18c31fa9e5a",
+  "contract_sha256": "a71eb3d8a85a0ff620e660b39e0d151f20d5dc70198c22a313f79197546f6e9c"
+}

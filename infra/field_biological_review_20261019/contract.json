@@ -1,0 +1,150 @@
+{
+  "version": "field-biological-review-20261019-v1",
+  "authority": "infra/paseo_field_review_20261019/implementation_task.md (main-agent task 2026-10-19) + user boundaries 2026-10-19; see docs/FIELD_BIOLOGICAL_REVIEW_PROTOCOL_20261019.md",
+  "purpose": "descriptive inventory of measured-field eligibility and frozen four-target recovery; no training, no model selection, no biological PASS thresholds, no p-values",
+  "seed": 20261019,
+  "min_free_bytes": 200000000000,
+  "estimated_max_new_bytes": 3000000000,
+  "gpu_allowed": false,
+  "human_tls_labels_allowed": false,
+  "workers": 3,
+  "threads": 2,
+  "targets": [
+    "B_AXIS",
+    "HALLMARK_OXIDATIVE_PHOSPHORYLATION",
+    "HALLMARK_INTERFERON_GAMMA_RESPONSE",
+    "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION"
+  ],
+  "views": ["small5", "full15"],
+  "models": [
+    "gene_ridge",
+    "gene_ridge_smooth_half",
+    "fixed_point_hgb",
+    "fixed_local_hgb",
+    "train_mean"
+  ],
+  "prediction_source": "infra/field_source_holdout_20261018",
+  "prediction_scope": "11 frozen splits (internal_0..4 over 72 sections, source_0..5 over 53 sections with a known study link); 1000 stored prediction packages; stored predictions are re-read, never retrained",
+  "measured_scope": "72 qualified sections; targets and reads exactly as frozen in infra/field_discovery_20261018/cache; section identity, organ, platform, study link and known-patient flag from the frozen manifest",
+  "geometry_unit": "empirical nearest-neighbour pitch of each section (source pixels); no micrometre conversion and no native-HD or super-resolution claim",
+  "neighbourhoods": {
+    "near": "row-normalised frozen graph, edges <= 1.1 pitch (cache/{sid}_near.npz)",
+    "outer": "row-normalised frozen graph, edges in (1.1, 3.1] pitch (cache/{sid}_outer.npz)"
+  },
+  "correlogram_band_edges_pitch": [[0.0, 1.5], [1.5, 2.5], [2.5, 3.5], [3.5, 5.0], [5.0, 7.0], [7.0, 10.0]],
+  "reported_operational_quantiles": [0.75, 0.8, 0.9],
+  "threshold_semantics": "a spot counts as high when its value is strictly greater than the field's q-quantile (v > quantile(v,q)); this keeps zero-inflated readouts (many spots with no detected target transcript, value exactly 0) from filling the set with ties; geo_patch*_area_frac and geo_patch*_at_threshold_frac are reported for every field so the realised set size and the tie mass stay traceable; sets from different fields therefore need not have equal size",
+  "shuffle_reference_quantiles": [0.75],
+  "shuffle_permutations": 32,
+  "shuffle_reference_nature": "descriptive perturbation preserving the field value marginal and destroying its spatial arrangement; spatial support and density are NOT preserved; not a null model; no p-value is computed and no relation is filtered by it; cost parameter shuffle_permutations is not a scientific threshold",
+  "computability_rules": {
+    "nature": "mathematical only; decides whether a number exists, never whether recovery succeeded",
+    "constant_field": "sd == 0 -> correlation, autocorrelation, patch, centroid, decay and detail metrics not estimable",
+    "degenerate_hull": "fewer than 3 non-collinear points -> centroid_hull_radial not estimable",
+    "empty_band": "no spot pairs in a distance band -> that band value and decay not estimable",
+    "few_spots": "fewer than 10 tissue spots -> patch and hull metrics not estimable",
+    "no_target_genes": "no defined target gene present in the panel -> support and readout metrics not estimable",
+    "constant_module_vector": "fewer than 3 estimable module relations -> relation-profile metrics not estimable",
+    "zero_variance_source": "measured sd == 0 -> sd_ratio and calibration slope not estimable",
+    "empty_threshold_set": "strictly-above-threshold set is empty -> patch metrics for that quantile not estimable",
+    "sd_below_floor": "0 < sd <= sd_floor -> correlation, autocorrelation, patch, centroid and scale metrics not estimable; RMSE stays"
+  },
+  "diagnostic_markers": {
+    "nature": "reporting convenience only; NOT gates; do not filter rows, do not change any metric, do not enter any state; sensitivity to neighbouring cutoffs is reported for each marker",
+    "diag_sparse_detection": {"rule": "sup_spots_with_any_gene_frac < 0.02", "sensitivity_cutoffs": [0.01, 0.02, 0.05]},
+    "diag_few_effective_genes": {"rule": "sup_effective_gene_count < 2", "sensitivity_cutoffs": [1.5, 2.0, 3.0]},
+    "diag_dominant_gene": {"rule": "sup_top_gene_share > 0.5", "sensitivity_cutoffs": [0.4, 0.5, 0.75]}
+  },
+  "reporting_states": {
+    "nature": "readable labels derived only from the computability rules; never a biological pass/fail judgement",
+    "measured": ["DESCRIBED", "DESCRIBED_WITH_NOT_ESTIMABLE_METRICS", "NOT_TESTABLE_NO_TARGET_GENES", "NOT_TESTABLE_CONSTANT_READOUT"],
+    "prediction": ["DESCRIBED", "DESCRIBED_WITH_NOT_ESTIMABLE_METRICS", "NOT_ESTIMABLE_CONSTANT_PREDICTION"]
+  },
+  "sd_floor": 1e-6,
+  "sd_floor_nature": "computational, not biological: the frozen fields are stored in float32, so variation below this floor cannot be separated from representation noise; any field (measured or predicted) with sd <= floor gets correlation, autocorrelation, patch, centroid and scale metrics NOT_ESTIMABLE, never 0 and never 1; RMSE/MAE/bias stay reported as diagnostics",
+  "sd_floor_evidence": "the frozen source-holdout train_mean packages are stored with sd 0 or about 3e-8 (both below the floor); real target readouts in the checked sections have sd of order 1e-2",
+  "tolerances": {
+    "readout_vs_frozen_y_max_abs_diff": 1e-06,
+    "rmse_and_centered_rmse_vs_frozen_table": 1e-05,
+    "pearson_vs_frozen_table": 1e-05,
+    "gene_matrix_vs_frozen_recompute": 1e-05,
+    "pitch_vs_frozen_manifest": 1e-09,
+    "reason": "frozen tables were written from float32 arithmetic; the recompute is float64 over the same stored arrays, so differences of order 1e-7 are expected; tolerance is fixed before inspection and not relaxed to pass"
+  },
+  "denied_path_substrings": [
+    "/annotations/", "/incoming/", "tls_annotation_pack", "tls_label_field_20261001",
+    "tls_four_cancer_labels_20261008", "zenodo_st_crc_cms/Pathology_SpotAnnotations",
+    "hooknet", "HookNet"
+  ],
+  "denied_path_nature": "defense in depth on top of the allowlist: any open() whose path contains one of these substrings raises, and setup asserts that no allowlisted path matches them",
+  "evidence_roles": {
+    "measurement_eligibility": "molecular detection coverage, gene support and measured-field distribution/geometry; describes the measured field only",
+    "input_echo_relation_not_spatial_increment": "relation between a field and the visible module fields that entered the frozen model input; correlation here is partly definitional or input echo and is never evidence of a spatial increment",
+    "exploratory_reanalysis_of_developed_predictions": "frozen predictions re-read and re-scored against the frozen measured readout; not retraining, not independent marker validation and not independent-patient confirmation"
+  },
+  "model_budgets": {
+    "gene_ridge": "raw visible genes, no neighbourhood input",
+    "gene_ridge_smooth_half": "raw visible genes plus post-hoc 0.5 neighbourhood smoothing of its own prediction; autocorrelation gain is constructional",
+    "fixed_point_hgb": "module scores at the same spot, no neighbourhood input",
+    "fixed_local_hgb": "module scores plus neighbourhood means; different information budget from the point model",
+    "train_mean": "constant prior (training mean); stored with sd 0 or float noise, hence never a ranked correlation baseline"
+  },
+  "arm_separation": "internal folds and source holdouts are separate records; a section that appears in both arms yields two rows and is never merged into one recovery statement; no cross-budget verdict column is emitted (cross_budget_verdict is always 'none' in this phase)",
+  "frozen_facts_checked": {
+    "prediction_packages_selected": 1000,
+    "train_indices_excluded": true,
+    "split_section_visits": {"internal": 72, "source": 53},
+    "confirmed_sections": 14,
+    "confirmed_units": 8,
+    "source_not_testable_sections_retained_in_internal_view": 19
+  },
+  "interpretation_boundary": {
+    "user_clarification_20261019": "computation states describe whether a statistic exists; they are not biological eligibility",
+    "statement": "mathematically computable does not mean there is enough biological reference; low detection coverage, single-gene dominance, few effective genes, sparse boundary support and unconfirmed physical resolution still limit interpretation; no unified percentage rule is used to delete sections, targets or rows, and no computable cell is upgraded to biologically evaluated eligibility; this phase only produces a descriptive listing and leaves biological usability to the main agent, who combines these continuous evidence items with project context",
+    "continuous_evidence_to_read_together": [
+      "sup_spots_with_any_gene_frac", "sup_top_gene_share", "sup_top3_gene_share",
+      "sup_effective_gene_count", "sup_genes_detected", "sup_genes_absent_from_panel",
+      "sup_target_count_share_median", "dist_frac_zero", "sd_band", "geo_near_degree_min",
+      "geo_near_degree_median", "geo_near_isolated_spots", "pitch_source_pixels", "prof_n_modules"
+    ],
+    "no_unified_percentage_deletion": true,
+    "biological_usability_decision": "deferred to the main agent; not awarded by this phase",
+    "not_testable_reading": "NOT_TESTABLE / NOT_ESTIMABLE means the statistic is undefined or below numerical resolution; it is never evidence that the field is absent or that recovery failed"
+  },
+  "no_biological_pass_threshold": "this phase defines no success/significance cutoff for any metric; sparse detection and low gene support are reported continuously and never make a field NOT_TESTABLE",
+  "aggregation": {
+    "section_to_unit": "equal section weight inside a unit; estimable values only; NOT_ESTIMABLE_UNIT recorded otherwise",
+    "unit_to_macro": "equal unit weight within (arm, target, view, model); n_units and n_estimable reported; quantiles p10/p25/median/p75/p90 across unit values",
+    "section_weighted": "equal section weight sensitivity column",
+    "source_balanced": "source-arm sensitivity: equal unit weight inside a source, then equal weight over the six known sources",
+    "missing_values": "never silently dropped; reasons counted and reported"
+  },
+  "integrity_checks": [
+    "expression_sha256 of every section h5ad equals the frozen manifest value",
+    "recomputed target readout equals frozen cache y (max absolute difference reported)",
+    "prediction package barcodes and y equal the frozen cache arrays exactly",
+    "section pitch recomputed from coordinates equals the frozen manifest value",
+    "visible vocabulary and target gene set are disjoint",
+    "frozen module definitions equal the followup full15 module definitions",
+    "guard receipt contains no human-TLS, annotations or incoming path",
+    "recomputed rmse / centered_rmse / pearson equal the frozen section_metrics table for the checked rows"
+  ],
+  "not_claimed": [
+    "binary recovery success or failure",
+    "independent marker validation (existing models trained on the complete target gene set)",
+    "confirmed independent patients (8 known within-study units only)",
+    "physical scale, micrometre distance or super-resolution",
+    "formal significance from the shuffle perturbation",
+    "causal, communication or mechanism claims",
+    "spatial increment over equal-information baselines"
+  ],
+  "not_run": [
+    "training or retraining of any model",
+    "human TLS label reading and structural validation",
+    "complex null models, density- or support-preserving calibration, p-values",
+    "external data acquisition",
+    "GPU computation",
+    "calibrated uncertainty",
+    "out-of-field recovery"
+  ]
+}
