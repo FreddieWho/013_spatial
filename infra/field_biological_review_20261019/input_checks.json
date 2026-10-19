@@ -1,0 +1,2118 @@
+{
+  "n_allowed_paths": 3738,
+  "no_allowed_path_matches_denylist": true,
+  "allowed_path_matching_denylist": [],
+  "verified": {
+    "frozen_hashes": 2948,
+    "expression_hashes": 72
+  },
+  "panel_file_sha256": "c36cb2a28b7611c9d28d71694c822bc99a2d0aa33104505d6235b44599cc3ea9",
+  "identity_source_sha256": "fc753bf0b3adcc1f8c0c2974e01eb68114702e8fce42430aaf281b5b82c61dbe",
+  "protocol_sha256": "6062a19ddba7a720cb36520663c9e749f09aa3695755385d906cd5c415372278",
+  "panel_file_matches_frozen_receipt": true,
+  "visible_target_disjoint": true,
+  "module_target_disjoint": true,
+  "module_definitions_match_followup": true,
+  "confirmed_sections": 14,
+  "confirmed_units": 8,
+  "source_not_testable_sections": 19,
+  "train_indices_excluded": true,
+  "free_bytes": 888364621824,
+  "storage_reserve_ok": true,
+  "integrity": {
+    "MISC33|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.51216799577793,
+      "pitch_recomputed": 362.51216799577793,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC33|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.51216799577793,
+      "pitch_recomputed": 362.51216799577793,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC33|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.51216799577793,
+      "pitch_recomputed": 362.51216799577793,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC33|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.51216799577793,
+      "pitch_recomputed": 362.51216799577793,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC34|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.6781560129586,
+      "pitch_recomputed": 362.6781560129586,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC34|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.6781560129586,
+      "pitch_recomputed": 362.6781560129586,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC34|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.6781560129586,
+      "pitch_recomputed": 362.6781560129586,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC34|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.6781560129586,
+      "pitch_recomputed": 362.6781560129586,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC35|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.67621619290065,
+      "pitch_recomputed": 362.67621619290065,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC35|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.67621619290065,
+      "pitch_recomputed": 362.67621619290065,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC35|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.67621619290065,
+      "pitch_recomputed": 362.67621619290065,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC35|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.67621619290065,
+      "pitch_recomputed": 362.67621619290065,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC36|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.3971484338667,
+      "pitch_recomputed": 362.3971484338667,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC36|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.3971484338667,
+      "pitch_recomputed": 362.3971484338667,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC36|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.3971484338667,
+      "pitch_recomputed": 362.3971484338667,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC36|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.3971484338667,
+      "pitch_recomputed": 362.3971484338667,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC38|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.6132340566161,
+      "pitch_recomputed": 362.6132340566161,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC38|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.6132340566161,
+      "pitch_recomputed": 362.6132340566161,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC38|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.6132340566161,
+      "pitch_recomputed": 362.6132340566161,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC38|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.6132340566161,
+      "pitch_recomputed": 362.6132340566161,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC37|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.8322802962808,
+      "pitch_recomputed": 362.8322802962808,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC37|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.8322802962808,
+      "pitch_recomputed": 362.8322802962808,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC37|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.8322802962808,
+      "pitch_recomputed": 362.8322802962808,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC37|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.8322802962808,
+      "pitch_recomputed": 362.8322802962808,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC40|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.20612013189225,
+      "pitch_recomputed": 362.20612013189225,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC40|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.20612013189225,
+      "pitch_recomputed": 362.20612013189225,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC40|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.20612013189225,
+      "pitch_recomputed": 362.20612013189225,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC40|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.20612013189225,
+      "pitch_recomputed": 362.20612013189225,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC39|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.29565060121644,
+      "pitch_recomputed": 362.29565060121644,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC39|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.29565060121644,
+      "pitch_recomputed": 362.29565060121644,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC39|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.29565060121644,
+      "pitch_recomputed": 362.29565060121644,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC39|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.29565060121644,
+      "pitch_recomputed": 362.29565060121644,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC41|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.1793233979544,
+      "pitch_recomputed": 362.1793233979544,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC41|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.1793233979544,
+      "pitch_recomputed": 362.1793233979544,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC41|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.1793233979544,
+      "pitch_recomputed": 362.1793233979544,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC41|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.1793233979544,
+      "pitch_recomputed": 362.1793233979544,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC43|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.6351359438301,
+      "pitch_recomputed": 362.6351359438301,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC43|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.6351359438301,
+      "pitch_recomputed": 362.6351359438301,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC43|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.6351359438301,
+      "pitch_recomputed": 362.6351359438301,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC43|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.6351359438301,
+      "pitch_recomputed": 362.6351359438301,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC45|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.5990013251537,
+      "pitch_recomputed": 362.5990013251537,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC45|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.5990013251537,
+      "pitch_recomputed": 362.5990013251537,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC45|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.5990013251537,
+      "pitch_recomputed": 362.5990013251537,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC45|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.5990013251537,
+      "pitch_recomputed": 362.5990013251537,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC46|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.68606733234157,
+      "pitch_recomputed": 362.68606733234157,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC46|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.68606733234157,
+      "pitch_recomputed": 362.68606733234157,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC46|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.68606733234157,
+      "pitch_recomputed": 362.68606733234157,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC46|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.68606733234157,
+      "pitch_recomputed": 362.68606733234157,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC47|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.6680704170152,
+      "pitch_recomputed": 362.6680704170152,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC47|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.6680704170152,
+      "pitch_recomputed": 362.6680704170152,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC47|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.6680704170152,
+      "pitch_recomputed": 362.6680704170152,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC47|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.6680704170152,
+      "pitch_recomputed": 362.6680704170152,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC48|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.3431573434231,
+      "pitch_recomputed": 362.3431573434231,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC48|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.3431573434231,
+      "pitch_recomputed": 362.3431573434231,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC48|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.3431573434231,
+      "pitch_recomputed": 362.3431573434231,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC48|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.3431573434231,
+      "pitch_recomputed": 362.3431573434231,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC49|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 361.16816842105254,
+      "pitch_recomputed": 361.16816842105254,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC49|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 361.16816842105254,
+      "pitch_recomputed": 361.16816842105254,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC49|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 361.16816842105254,
+      "pitch_recomputed": 361.16816842105254,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC49|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 361.16816842105254,
+      "pitch_recomputed": 361.16816842105254,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC53|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 361.6403216667873,
+      "pitch_recomputed": 361.6403216667873,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC53|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 361.6403216667873,
+      "pitch_recomputed": 361.6403216667873,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC53|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 361.6403216667873,
+      "pitch_recomputed": 361.6403216667873,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC53|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 361.6403216667873,
+      "pitch_recomputed": 361.6403216667873,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC50|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 361.8161326780299,
+      "pitch_recomputed": 361.8161326780299,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC50|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 361.8161326780299,
+      "pitch_recomputed": 361.8161326780299,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC50|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 361.8161326780299,
+      "pitch_recomputed": 361.8161326780299,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC50|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 361.8161326780299,
+      "pitch_recomputed": 361.8161326780299,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC51|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.72399999999834,
+      "pitch_recomputed": 362.72399999999834,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC51|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.72399999999834,
+      "pitch_recomputed": 362.72399999999834,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC51|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.72399999999834,
+      "pitch_recomputed": 362.72399999999834,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC51|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.72399999999834,
+      "pitch_recomputed": 362.72399999999834,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC54|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 363.20264961028204,
+      "pitch_recomputed": 363.20264961028204,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC54|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 363.20264961028204,
+      "pitch_recomputed": 363.20264961028204,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC54|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 363.20264961028204,
+      "pitch_recomputed": 363.20264961028204,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC54|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 363.20264961028204,
+      "pitch_recomputed": 363.20264961028204,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC57|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.0677793533933,
+      "pitch_recomputed": 362.0677793533933,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC57|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.0677793533933,
+      "pitch_recomputed": 362.0677793533933,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC57|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.0677793533933,
+      "pitch_recomputed": 362.0677793533933,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC57|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.0677793533933,
+      "pitch_recomputed": 362.0677793533933,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC58|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 361.79984823135203,
+      "pitch_recomputed": 361.79984823135203,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC58|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 361.79984823135203,
+      "pitch_recomputed": 361.79984823135203,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC58|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 361.79984823135203,
+      "pitch_recomputed": 361.79984823135203,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC58|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 361.79984823135203,
+      "pitch_recomputed": 361.79984823135203,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC60|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.88835087719053,
+      "pitch_recomputed": 362.88835087719053,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC60|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.88835087719053,
+      "pitch_recomputed": 362.88835087719053,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC60|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.88835087719053,
+      "pitch_recomputed": 362.88835087719053,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC60|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.88835087719053,
+      "pitch_recomputed": 362.88835087719053,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC56|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.2312982456133,
+      "pitch_recomputed": 362.2312982456133,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC56|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.2312982456133,
+      "pitch_recomputed": 362.2312982456133,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC56|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.2312982456133,
+      "pitch_recomputed": 362.2312982456133,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC56|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.2312982456133,
+      "pitch_recomputed": 362.2312982456133,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC61|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 361.6620491228059,
+      "pitch_recomputed": 361.6620491228059,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC61|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 361.6620491228059,
+      "pitch_recomputed": 361.6620491228059,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC61|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 361.6620491228059,
+      "pitch_recomputed": 361.6620491228059,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC61|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 361.6620491228059,
+      "pitch_recomputed": 361.6620491228059,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC64|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.3518679551251,
+      "pitch_recomputed": 362.3518679551251,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC64|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.3518679551251,
+      "pitch_recomputed": 362.3518679551251,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC64|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.3518679551251,
+      "pitch_recomputed": 362.3518679551251,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC64|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.3518679551251,
+      "pitch_recomputed": 362.3518679551251,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC63|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.46970695368424,
+      "pitch_recomputed": 362.46970695368424,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC63|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.46970695368424,
+      "pitch_recomputed": 362.46970695368424,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC63|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.46970695368424,
+      "pitch_recomputed": 362.46970695368424,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC63|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.46970695368424,
+      "pitch_recomputed": 362.46970695368424,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC62|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.4350625891498,
+      "pitch_recomputed": 362.4350625891498,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC62|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.4350625891498,
+      "pitch_recomputed": 362.4350625891498,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC62|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.4350625891498,
+      "pitch_recomputed": 362.4350625891498,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC62|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.4350625891498,
+      "pitch_recomputed": 362.4350625891498,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC65|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.791421593579,
+      "pitch_recomputed": 362.791421593579,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC65|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.791421593579,
+      "pitch_recomputed": 362.791421593579,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC65|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.791421593579,
+      "pitch_recomputed": 362.791421593579,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC65|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.791421593579,
+      "pitch_recomputed": 362.791421593579,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC67|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.620205488925,
+      "pitch_recomputed": 362.620205488925,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC67|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.620205488925,
+      "pitch_recomputed": 362.620205488925,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC67|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.620205488925,
+      "pitch_recomputed": 362.620205488925,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC67|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.620205488925,
+      "pitch_recomputed": 362.620205488925,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC66|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.9529987871432,
+      "pitch_recomputed": 362.9529987871432,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC66|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.9529987871432,
+      "pitch_recomputed": 362.9529987871432,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC66|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.9529987871432,
+      "pitch_recomputed": 362.9529987871432,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC66|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.9529987871432,
+      "pitch_recomputed": 362.9529987871432,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC68|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.01218459844097,
+      "pitch_recomputed": 362.01218459844097,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC68|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.01218459844097,
+      "pitch_recomputed": 362.01218459844097,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC68|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.01218459844097,
+      "pitch_recomputed": 362.01218459844097,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC68|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.01218459844097,
+      "pitch_recomputed": 362.01218459844097,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC69|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.2475207680751,
+      "pitch_recomputed": 362.2475207680751,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC69|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.2475207680751,
+      "pitch_recomputed": 362.2475207680751,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC69|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.2475207680751,
+      "pitch_recomputed": 362.2475207680751,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC69|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.2475207680751,
+      "pitch_recomputed": 362.2475207680751,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC70|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.379169021897,
+      "pitch_recomputed": 362.379169021897,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC70|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.379169021897,
+      "pitch_recomputed": 362.379169021897,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC70|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.379169021897,
+      "pitch_recomputed": 362.379169021897,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC70|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.379169021897,
+      "pitch_recomputed": 362.379169021897,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC71|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.77700001240436,
+      "pitch_recomputed": 362.77700001240436,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC71|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.77700001240436,
+      "pitch_recomputed": 362.77700001240436,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC71|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.77700001240436,
+      "pitch_recomputed": 362.77700001240436,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC71|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.77700001240436,
+      "pitch_recomputed": 362.77700001240436,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC72|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 361.9560644498152,
+      "pitch_recomputed": 361.9560644498152,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC72|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 361.9560644498152,
+      "pitch_recomputed": 361.9560644498152,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC72|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 361.9560644498152,
+      "pitch_recomputed": 361.9560644498152,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC72|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 361.9560644498152,
+      "pitch_recomputed": 361.9560644498152,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "NCBI642|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 220.5521038212963,
+      "pitch_recomputed": 220.5521038212963,
+      "isolated_spots_manifest": 2,
+      "isolated_spots_recomputed": 2
+    },
+    "NCBI642|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 220.5521038212963,
+      "pitch_recomputed": 220.5521038212963,
+      "isolated_spots_manifest": 2,
+      "isolated_spots_recomputed": 2
+    },
+    "NCBI642|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 220.5521038212963,
+      "pitch_recomputed": 220.5521038212963,
+      "isolated_spots_manifest": 2,
+      "isolated_spots_recomputed": 2
+    },
+    "NCBI642|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 220.5521038212963,
+      "pitch_recomputed": 220.5521038212963,
+      "isolated_spots_manifest": 2,
+      "isolated_spots_recomputed": 2
+    },
+    "MISC73|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.7350172908599,
+      "pitch_recomputed": 362.7350172908599,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC73|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.7350172908599,
+      "pitch_recomputed": 362.7350172908599,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC73|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.7350172908599,
+      "pitch_recomputed": 362.7350172908599,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "MISC73|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 362.7350172908599,
+      "pitch_recomputed": 362.7350172908599,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "NCBI643|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 220.28500100097585,
+      "pitch_recomputed": 220.28500100097585,
+      "isolated_spots_manifest": 2,
+      "isolated_spots_recomputed": 2
+    },
+    "NCBI643|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 220.28500100097585,
+      "pitch_recomputed": 220.28500100097585,
+      "isolated_spots_manifest": 2,
+      "isolated_spots_recomputed": 2
+    },
+    "NCBI643|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 220.28500100097585,
+      "pitch_recomputed": 220.28500100097585,
+      "isolated_spots_manifest": 2,
+      "isolated_spots_recomputed": 2
+    },
+    "NCBI643|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 220.28500100097585,
+      "pitch_recomputed": 220.28500100097585,
+      "isolated_spots_manifest": 2,
+      "isolated_spots_recomputed": 2
+    },
+    "TENX128|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.3531329331381,
+      "pitch_recomputed": 467.3531329331381,
+      "isolated_spots_manifest": 1,
+      "isolated_spots_recomputed": 1
+    },
+    "TENX128|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.3531329331381,
+      "pitch_recomputed": 467.3531329331381,
+      "isolated_spots_manifest": 1,
+      "isolated_spots_recomputed": 1
+    },
+    "TENX128|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.3531329331381,
+      "pitch_recomputed": 467.3531329331381,
+      "isolated_spots_manifest": 1,
+      "isolated_spots_recomputed": 1
+    },
+    "TENX128|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.3531329331381,
+      "pitch_recomputed": 467.3531329331381,
+      "isolated_spots_manifest": 1,
+      "isolated_spots_recomputed": 1
+    },
+    "NCBI776|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 182.0109886792553,
+      "pitch_recomputed": 182.0109886792553,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "NCBI776|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 182.0109886792553,
+      "pitch_recomputed": 182.0109886792553,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "NCBI776|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 182.0109886792553,
+      "pitch_recomputed": 182.0109886792553,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "NCBI776|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 182.0109886792553,
+      "pitch_recomputed": 182.0109886792553,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX13|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 273.0,
+      "pitch_recomputed": 273.0,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX13|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 273.0,
+      "pitch_recomputed": 273.0,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX13|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 273.0,
+      "pitch_recomputed": 273.0,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX13|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 273.0,
+      "pitch_recomputed": 273.0,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX14|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 273.00183149568795,
+      "pitch_recomputed": 273.00183149568795,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX14|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 273.00183149568795,
+      "pitch_recomputed": 273.00183149568795,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX14|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 273.00183149568795,
+      "pitch_recomputed": 273.00183149568795,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX14|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 273.00183149568795,
+      "pitch_recomputed": 273.00183149568795,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX154|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.5448802478204,
+      "pitch_recomputed": 467.5448802478204,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX154|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.5448802478204,
+      "pitch_recomputed": 467.5448802478204,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX154|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.5448802478204,
+      "pitch_recomputed": 467.5448802478204,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX154|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.5448802478204,
+      "pitch_recomputed": 467.5448802478204,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX152|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 365.0054889152092,
+      "pitch_recomputed": 365.0054889152092,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX152|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 365.0054889152092,
+      "pitch_recomputed": 365.0054889152092,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX152|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 365.0054889152092,
+      "pitch_recomputed": 365.0054889152092,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX152|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 365.0054889152092,
+      "pitch_recomputed": 365.0054889152092,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX162|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.55082964973917,
+      "pitch_recomputed": 467.55082964973917,
+      "isolated_spots_manifest": 6,
+      "isolated_spots_recomputed": 6
+    },
+    "TENX162|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.55082964973917,
+      "pitch_recomputed": 467.55082964973917,
+      "isolated_spots_manifest": 6,
+      "isolated_spots_recomputed": 6
+    },
+    "TENX162|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.55082964973917,
+      "pitch_recomputed": 467.55082964973917,
+      "isolated_spots_manifest": 6,
+      "isolated_spots_recomputed": 6
+    },
+    "TENX162|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.55082964973917,
+      "pitch_recomputed": 467.55082964973917,
+      "isolated_spots_manifest": 6,
+      "isolated_spots_recomputed": 6
+    },
+    "TENX161|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.5935664505305,
+      "pitch_recomputed": 467.5935664505305,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX161|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.5935664505305,
+      "pitch_recomputed": 467.5935664505305,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX161|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.5935664505305,
+      "pitch_recomputed": 467.5935664505305,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX161|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.5935664505305,
+      "pitch_recomputed": 467.5935664505305,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX163|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.64507211957243,
+      "pitch_recomputed": 467.64507211957243,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX163|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.64507211957243,
+      "pitch_recomputed": 467.64507211957243,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX163|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.64507211957243,
+      "pitch_recomputed": 467.64507211957243,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX163|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.64507211957243,
+      "pitch_recomputed": 467.64507211957243,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX168|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.54044390121817,
+      "pitch_recomputed": 467.54044390121817,
+      "isolated_spots_manifest": 15,
+      "isolated_spots_recomputed": 15
+    },
+    "TENX168|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.54044390121817,
+      "pitch_recomputed": 467.54044390121817,
+      "isolated_spots_manifest": 15,
+      "isolated_spots_recomputed": 15
+    },
+    "TENX168|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.54044390121817,
+      "pitch_recomputed": 467.54044390121817,
+      "isolated_spots_manifest": 15,
+      "isolated_spots_recomputed": 15
+    },
+    "TENX168|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.54044390121817,
+      "pitch_recomputed": 467.54044390121817,
+      "isolated_spots_manifest": 15,
+      "isolated_spots_recomputed": 15
+    },
+    "TENX169|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.5269682632752,
+      "pitch_recomputed": 467.5269682632752,
+      "isolated_spots_manifest": 9,
+      "isolated_spots_recomputed": 9
+    },
+    "TENX169|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.5269682632752,
+      "pitch_recomputed": 467.5269682632752,
+      "isolated_spots_manifest": 9,
+      "isolated_spots_recomputed": 9
+    },
+    "TENX169|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.5269682632752,
+      "pitch_recomputed": 467.5269682632752,
+      "isolated_spots_manifest": 9,
+      "isolated_spots_recomputed": 9
+    },
+    "TENX169|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.5269682632752,
+      "pitch_recomputed": 467.5269682632752,
+      "isolated_spots_manifest": 9,
+      "isolated_spots_recomputed": 9
+    },
+    "TENX171|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.5450217902362,
+      "pitch_recomputed": 467.5450217902362,
+      "isolated_spots_manifest": 12,
+      "isolated_spots_recomputed": 12
+    },
+    "TENX171|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.5450217902362,
+      "pitch_recomputed": 467.5450217902362,
+      "isolated_spots_manifest": 12,
+      "isolated_spots_recomputed": 12
+    },
+    "TENX171|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.5450217902362,
+      "pitch_recomputed": 467.5450217902362,
+      "isolated_spots_manifest": 12,
+      "isolated_spots_recomputed": 12
+    },
+    "TENX171|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 467.5450217902362,
+      "pitch_recomputed": 467.5450217902362,
+      "isolated_spots_manifest": 12,
+      "isolated_spots_recomputed": 12
+    },
+    "TENX39|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 290.0,
+      "pitch_recomputed": 290.0,
+      "isolated_spots_manifest": 1,
+      "isolated_spots_recomputed": 1
+    },
+    "TENX39|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 290.0,
+      "pitch_recomputed": 290.0,
+      "isolated_spots_manifest": 1,
+      "isolated_spots_recomputed": 1
+    },
+    "TENX39|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 290.0,
+      "pitch_recomputed": 290.0,
+      "isolated_spots_manifest": 1,
+      "isolated_spots_recomputed": 1
+    },
+    "TENX39|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 290.0,
+      "pitch_recomputed": 290.0,
+      "isolated_spots_manifest": 1,
+      "isolated_spots_recomputed": 1
+    },
+    "TENX24|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 273.00183149568795,
+      "pitch_recomputed": 273.00183149568795,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX24|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 273.00183149568795,
+      "pitch_recomputed": 273.00183149568795,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX24|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 273.00183149568795,
+      "pitch_recomputed": 273.00183149568795,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX24|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 273.00183149568795,
+      "pitch_recomputed": 273.00183149568795,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX49|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 144.0,
+      "pitch_recomputed": 144.0,
+      "isolated_spots_manifest": 5,
+      "isolated_spots_recomputed": 5
+    },
+    "TENX49|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 144.0,
+      "pitch_recomputed": 144.0,
+      "isolated_spots_manifest": 5,
+      "isolated_spots_recomputed": 5
+    },
+    "TENX49|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 144.0,
+      "pitch_recomputed": 144.0,
+      "isolated_spots_manifest": 5,
+      "isolated_spots_recomputed": 5
+    },
+    "TENX49|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 144.0,
+      "pitch_recomputed": 144.0,
+      "isolated_spots_manifest": 5,
+      "isolated_spots_recomputed": 5
+    },
+    "TENX180|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 233.96515425539837,
+      "pitch_recomputed": 233.96515425539837,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX180|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 233.96515425539837,
+      "pitch_recomputed": 233.96515425539837,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX180|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 233.96515425539837,
+      "pitch_recomputed": 233.96515425539837,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX180|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 233.96515425539837,
+      "pitch_recomputed": 233.96515425539837,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX53|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 271.0073799733136,
+      "pitch_recomputed": 271.0073799733136,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX53|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 271.0073799733136,
+      "pitch_recomputed": 271.0073799733136,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX53|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 271.0073799733136,
+      "pitch_recomputed": 271.0073799733136,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX53|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 271.0073799733136,
+      "pitch_recomputed": 271.0073799733136,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX68|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 365.0123285589132,
+      "pitch_recomputed": 365.0123285589132,
+      "isolated_spots_manifest": 17,
+      "isolated_spots_recomputed": 17
+    },
+    "TENX68|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 365.0123285589132,
+      "pitch_recomputed": 365.0123285589132,
+      "isolated_spots_manifest": 17,
+      "isolated_spots_recomputed": 17
+    },
+    "TENX68|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 365.0123285589132,
+      "pitch_recomputed": 365.0123285589132,
+      "isolated_spots_manifest": 17,
+      "isolated_spots_recomputed": 17
+    },
+    "TENX68|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 365.0123285589132,
+      "pitch_recomputed": 365.0123285589132,
+      "isolated_spots_manifest": 17,
+      "isolated_spots_recomputed": 17
+    },
+    "TENX62|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 366.0,
+      "pitch_recomputed": 366.0,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX62|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 366.0,
+      "pitch_recomputed": 366.0,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX62|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 366.0,
+      "pitch_recomputed": 366.0,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX62|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 366.0,
+      "pitch_recomputed": 366.0,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX91|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 364.44615514503647,
+      "pitch_recomputed": 364.44615514503647,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX91|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 364.44615514503647,
+      "pitch_recomputed": 364.44615514503647,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX91|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 364.44615514503647,
+      "pitch_recomputed": 364.44615514503647,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX91|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 364.44615514503647,
+      "pitch_recomputed": 364.44615514503647,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN36|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.69230106170468,
+      "pitch_recomputed": 217.69230106170468,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN36|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.69230106170468,
+      "pitch_recomputed": 217.69230106170468,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN36|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.69230106170468,
+      "pitch_recomputed": 217.69230106170468,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN36|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.69230106170468,
+      "pitch_recomputed": 217.69230106170468,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX72|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 363.23546082396746,
+      "pitch_recomputed": 363.23546082396746,
+      "isolated_spots_manifest": 3,
+      "isolated_spots_recomputed": 3
+    },
+    "TENX72|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 363.23546082396746,
+      "pitch_recomputed": 363.23546082396746,
+      "isolated_spots_manifest": 3,
+      "isolated_spots_recomputed": 3
+    },
+    "TENX72|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 363.23546082396746,
+      "pitch_recomputed": 363.23546082396746,
+      "isolated_spots_manifest": 3,
+      "isolated_spots_recomputed": 3
+    },
+    "TENX72|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 363.23546082396746,
+      "pitch_recomputed": 363.23546082396746,
+      "isolated_spots_manifest": 3,
+      "isolated_spots_recomputed": 3
+    },
+    "ZEN38|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.54470045694003,
+      "pitch_recomputed": 217.54470045694003,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN38|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.54470045694003,
+      "pitch_recomputed": 217.54470045694003,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN38|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.54470045694003,
+      "pitch_recomputed": 217.54470045694003,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN38|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.54470045694003,
+      "pitch_recomputed": 217.54470045694003,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN39|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.6179766524124,
+      "pitch_recomputed": 217.6179766524124,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN39|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.6179766524124,
+      "pitch_recomputed": 217.6179766524124,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN39|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.6179766524124,
+      "pitch_recomputed": 217.6179766524124,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN39|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.6179766524124,
+      "pitch_recomputed": 217.6179766524124,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "TENX70|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 363.07712679264165,
+      "pitch_recomputed": 363.07712679264165,
+      "isolated_spots_manifest": 12,
+      "isolated_spots_recomputed": 12
+    },
+    "TENX70|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 363.07712679264165,
+      "pitch_recomputed": 363.07712679264165,
+      "isolated_spots_manifest": 12,
+      "isolated_spots_recomputed": 12
+    },
+    "TENX70|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 363.07712679264165,
+      "pitch_recomputed": 363.07712679264165,
+      "isolated_spots_manifest": 12,
+      "isolated_spots_recomputed": 12
+    },
+    "TENX70|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 363.07712679264165,
+      "pitch_recomputed": 363.07712679264165,
+      "isolated_spots_manifest": 12,
+      "isolated_spots_recomputed": 12
+    },
+    "ZEN43|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.5280736767782,
+      "pitch_recomputed": 217.5280736767782,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN43|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.5280736767782,
+      "pitch_recomputed": 217.5280736767782,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN43|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.5280736767782,
+      "pitch_recomputed": 217.5280736767782,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN43|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.5280736767782,
+      "pitch_recomputed": 217.5280736767782,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN42|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 218.00440457935787,
+      "pitch_recomputed": 218.00440457935787,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN42|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 218.00440457935787,
+      "pitch_recomputed": 218.00440457935787,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN42|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 218.00440457935787,
+      "pitch_recomputed": 218.00440457935787,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN42|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 218.00440457935787,
+      "pitch_recomputed": 218.00440457935787,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN40|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.46655812618684,
+      "pitch_recomputed": 217.46655812618684,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN40|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.46655812618684,
+      "pitch_recomputed": 217.46655812618684,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN40|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.46655812618684,
+      "pitch_recomputed": 217.46655812618684,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN40|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.46655812618684,
+      "pitch_recomputed": 217.46655812618684,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN45|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.3490159537195,
+      "pitch_recomputed": 217.3490159537195,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN45|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.3490159537195,
+      "pitch_recomputed": 217.3490159537195,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN45|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.3490159537195,
+      "pitch_recomputed": 217.3490159537195,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN45|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.3490159537195,
+      "pitch_recomputed": 217.3490159537195,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN44|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 218.0813216612792,
+      "pitch_recomputed": 218.0813216612792,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN44|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 218.0813216612792,
+      "pitch_recomputed": 218.0813216612792,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN44|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 218.0813216612792,
+      "pitch_recomputed": 218.0813216612792,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN44|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 218.0813216612792,
+      "pitch_recomputed": 218.0813216612792,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN46|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.86507353405662,
+      "pitch_recomputed": 217.86507353405662,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN46|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.86507353405662,
+      "pitch_recomputed": 217.86507353405662,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN46|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.86507353405662,
+      "pitch_recomputed": 217.86507353405662,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN46|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.86507353405662,
+      "pitch_recomputed": 217.86507353405662,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN48|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.80300066344344,
+      "pitch_recomputed": 217.80300066344344,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN48|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.80300066344344,
+      "pitch_recomputed": 217.80300066344344,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN48|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.80300066344344,
+      "pitch_recomputed": 217.80300066344344,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN48|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.80300066344344,
+      "pitch_recomputed": 217.80300066344344,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN47|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.58805101613436,
+      "pitch_recomputed": 217.58805101613436,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN47|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.58805101613436,
+      "pitch_recomputed": 217.58805101613436,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN47|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.58805101613436,
+      "pitch_recomputed": 217.58805101613436,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN47|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.58805101613436,
+      "pitch_recomputed": 217.58805101613436,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN49|B_AXIS": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.56303533688816,
+      "pitch_recomputed": 217.56303533688816,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN49|HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.56303533688816,
+      "pitch_recomputed": 217.56303533688816,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN49|HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.56303533688816,
+      "pitch_recomputed": 217.56303533688816,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    },
+    "ZEN49|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "readout_max_abs_diff": 0.0,
+      "pitch_manifest": 217.56303533688816,
+      "pitch_recomputed": 217.56303533688816,
+      "isolated_spots_manifest": 0,
+      "isolated_spots_recomputed": 0
+    }
+  },
+  "timings_seconds": {
+    "MISC33": 1.355875015258789,
+    "MISC34": 2.107743740081787,
+    "MISC35": 2.419823169708252,
+    "MISC36": 2.0522518157958984,
+    "MISC38": 1.1657004356384277,
+    "MISC37": 1.853900671005249,
+    "MISC40": 2.54959774017334,
+    "MISC39": 2.7122550010681152,
+    "MISC41": 2.5926756858825684,
+    "MISC43": 0.6670961380004883,
+    "MISC45": 1.5816757678985596,
+    "MISC46": 1.8937809467315674,
+    "MISC47": 1.6292343139648438,
+    "MISC48": 1.5793864727020264,
+    "MISC49": 1.8439545631408691,
+    "MISC53": 0.4714040756225586,
+    "MISC50": 2.3269495964050293,
+    "MISC51": 1.5929975509643555,
+    "MISC54": 0.36049890518188477,
+    "MISC57": 0.5858070850372314,
+    "MISC58": 0.5408096313476562,
+    "MISC60": 0.4544997215270996,
+    "MISC56": 1.3252618312835693,
+    "MISC61": 0.7813642024993896,
+    "MISC64": 1.8899214267730713,
+    "MISC63": 2.909498453140259,
+    "MISC62": 3.1495442390441895,
+    "MISC65": 2.1869194507598877,
+    "MISC67": 1.9318804740905762,
+    "MISC66": 2.3093464374542236,
+    "MISC68": 0.9751734733581543,
+    "MISC69": 0.97572922706604,
+    "MISC70": 1.4546012878417969,
+    "MISC71": 1.4574692249298096,
+    "MISC72": 2.2267088890075684,
+    "NCBI642": 1.3266654014587402,
+    "MISC73": 2.106776714324951,
+    "NCBI643": 1.5622658729553223,
+    "TENX128": 2.6415233612060547,
+    "NCBI776": 3.018794536590576,
+    "TENX13": 2.2594473361968994,
+    "TENX14": 2.3920679092407227,
+    "TENX154": 2.4309420585632324,
+    "TENX152": 3.7059266567230225,
+    "TENX162": 3.2601113319396973,
+    "TENX161": 4.556064605712891,
+    "TENX163": 3.2137060165405273,
+    "TENX168": 2.3308398723602295,
+    "TENX169": 2.078503131866455,
+    "TENX171": 1.8137447834014893,
+    "TENX39": 1.4754858016967773,
+    "TENX24": 2.1221413612365723,
+    "TENX49": 1.8729825019836426,
+    "TENX180": 4.296186208724976,
+    "TENX53": 2.3358776569366455,
+    "TENX68": 1.151902198791504,
+    "TENX62": 2.3693370819091797,
+    "TENX91": 2.7843027114868164,
+    "ZEN36": 1.253528118133545,
+    "TENX72": 5.193057537078857,
+    "ZEN38": 0.5163459777832031,
+    "ZEN39": 0.6089935302734375,
+    "TENX70": 6.905520439147949,
+    "ZEN43": 0.627849817276001,
+    "ZEN42": 0.9133498668670654,
+    "ZEN40": 1.1961302757263184,
+    "ZEN45": 0.49883270263671875,
+    "ZEN44": 0.6955225467681885,
+    "ZEN46": 1.2121829986572266,
+    "ZEN48": 1.3400862216949463,
+    "ZEN47": 1.4125986099243164,
+    "ZEN49": 1.3665592670440674
+  },
+  "measured_rows": 288,
+  "relation_rows": 5760,
+  "human_tls_files_opened": [],
+  "guard_scope": "repository Python-open allowlist plus explicit HDF5 path/field allowlist; a denylist also rejects annotation/TLS/HookNet paths; not an OS sandbox"
+}

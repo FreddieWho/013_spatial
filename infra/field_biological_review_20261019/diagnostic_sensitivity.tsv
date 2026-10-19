@@ -1,0 +1,10 @@
+marker	field	cutoff	direction	n_sections_targets	n_flagged	nature
+diag_sparse_detection	sup_spots_with_any_gene_frac	0.01	lt	288	0	diagnostic marker only; gates no metric, state or filter
+diag_sparse_detection	sup_spots_with_any_gene_frac	0.02	lt	288	0	diagnostic marker only; gates no metric, state or filter
+diag_sparse_detection	sup_spots_with_any_gene_frac	0.05	lt	288	0	diagnostic marker only; gates no metric, state or filter
+diag_few_effective_genes	sup_effective_gene_count	1.5	lt	288	8	diagnostic marker only; gates no metric, state or filter
+diag_few_effective_genes	sup_effective_gene_count	2.0	lt	288	18	diagnostic marker only; gates no metric, state or filter
+diag_few_effective_genes	sup_effective_gene_count	3.0	lt	288	38	diagnostic marker only; gates no metric, state or filter
+diag_dominant_gene	sup_top_gene_share	0.4	gt	288	58	diagnostic marker only; gates no metric, state or filter
+diag_dominant_gene	sup_top_gene_share	0.5	gt	288	39	diagnostic marker only; gates no metric, state or filter
+diag_dominant_gene	sup_top_gene_share	0.75	gt	288	13	diagnostic marker only; gates no metric, state or filter
