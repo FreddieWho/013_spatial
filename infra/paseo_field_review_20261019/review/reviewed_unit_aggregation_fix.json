@@ -1,0 +1,99 @@
+{
+  "status": "ACCEPTED_FOR_DESCRIPTIVE_ANALYSIS_WITH_LIMITS",
+  "allow_descriptive_result_analysis": true,
+  "round": 3,
+  "reviewed_at": "2026-10-19",
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "reasoning": "xhigh"
+  },
+  "git_scope": {
+    "commit": "5fee80f7e0ee3b8b38bfde174ae7bb1030e93809",
+    "short": "5fee80f",
+    "parent": "6a89be3",
+    "subject": "聚合键修复：既定 unit_id 不再因标题/source_key 重复赋权；单位元数据冲突标 mixed，来源均衡与分层改用划分级 held_source（复用全量表仅重跑 summarize）",
+    "reviewed_paths": [
+      "scripts/field_biological_review_20261019.py",
+      "docs/FIELD_BIOLOGICAL_REVIEW_PROTOCOL_20261019.md",
+      "infra/field_biological_review_20261019/unit_metrics.tsv",
+      "infra/field_biological_review_20261019/macro_summary.tsv",
+      "infra/field_biological_review_20261019/macro_strata.tsv",
+      "infra/field_biological_review_20261019/REPORT.md",
+      "infra/paseo_field_review_20261019/full_run_handoff.md",
+      "infra/paseo_field_review_20261019/full_run_derived/denominators_by_arm_model_metric.tsv",
+      "infra/paseo_field_review_20261019/full_run_derived/unit_key_fix_impact.tsv"
+    ],
+    "working_tree": "上述脚本和协议相对该提交无未提交 diff。预测明细、splits、smoke 与部分大表仍未提交，按交接如实保留；本次未把它们改写成新版本。其他协作者对 AGENTS.md、STATUS.md、docs 的未提交改动不在本审核范围。"
+  },
+  "checks_performed": [
+    "读 5fee80f 对聚合函数和协议 §5 的 diff",
+    "点算 unit_metrics、prediction_metrics、measured_fields、denominators、macro_strata",
+    "核对 singleton::TENX13 的切片、mixed 标记和来源臂是否被拆开",
+    "用来源留出 splits.json 的 held_source 对照 source_split_key",
+    "用修复前 macro_summary 对照来源臂臂级均值",
+    "点算 B_AXIS 近邻指数符号和衰减尺度可评片数，并对照 REPORT 用词"
+  ],
+  "closed": [
+    {
+      "id": "U-01",
+      "item": "singleton::TENX13 两片合成一个完整单位",
+      "evidence": "unit_metrics 中该单位 40 行，全部 n_sections=2，section_ids=TENX13;TENX14，只在内部臂。source_key=mixed，source_key_n_distinct=2。没有因两个标题变成两个单位。"
+    },
+    {
+      "id": "U-02",
+      "item": "内部 65、来源 47",
+      "evidence": "每个臂×目标×视图×模型：内部 40 组都是 65 单位，来源 40 组都是 47 单位。单位行 4480=2600+1880。预测明细仍是内部 2880 行（72 片）和来源 2120 行（53 片），共 5000 行、5 个模型各 1000。实测场仍是 72 片×4 目标=288 行。"
+    },
+    {
+      "id": "U-03",
+      "item": "剩余聚合键不再拆开既定 unit_id",
+      "evidence": "身份键只剩 split、arm、target、view、model、model_class、cross_organ_extrapolation、unit_id。同一划分内的同一 unit_id 没有出现不同的外推标记。来源臂 source_key 没有 mixed。唯一 mixed 是内部臂 TENX13 的标题，40 行，不是新的患者或研究。"
+    },
+    {
+      "id": "U-04",
+      "item": "来源均衡和来源分层使用 held_source",
+      "evidence": "6 个来源划分的 source_split_key 与 splits.json 的 held_source 对应，包括乳腺 source_5 和肝脏 source_0 的外推划分。source_metadata 层另有 1480 行 mixed，只展示切片标题冲突，不进入来源等权。"
+    },
+    {
+      "id": "U-05",
+      "item": "部分可评和全空层仍按原合同",
+      "evidence": "partial_unit_metrics 共 28 行，全部是 geo_decay_half_pitch，其中 TENX13 占 2 行。macro_strata 78440 行，其中 15294 行 reason=no_estimable_units_in_stratum，空均值没有写成 0。"
+    },
+    {
+      "id": "U-06",
+      "item": "来源臂汇总未变",
+      "evidence": "修复前与当前来源臂臂级均值 1480 对 1480，mean 字符串一致，无不一致。影响表来源臂 34 行 delta 全为 0，单位数保持 47。"
+    }
+  ],
+  "documentation_only": [
+    {
+      "id": "D-01",
+      "severity": "记录文字，不是计算错误",
+      "item": "交接仍写 rec_decay_half_pitch_delta 内部 528",
+      "evidence": "528=修复前 66 单位×8 个目标视图。修复后分母表是每个模型内部 520 行、complete=0、missing=520；来源 376 与交接一致。主代理应引用 denominators_by_arm_model_metric.tsv，不要引用 528。"
+    },
+    {
+      "id": "D-02",
+      "severity": "记录文字，不是计算错误",
+      "item": "交接有效基因数中位数与 measured_summary 的 all 行不一致",
+      "evidence": "表中 B_AXIS 中位 2.865137249436958，最小 1.1854099301532606。交接写 2.90（1.19）。EMT/IFN/OXPHOS 的交接中位数 32.83、24.74、75.41 也不是该表四舍五入。REPORT 的 2.87、32.79、24.66、75.21 才是该表的两位小数。最小值和检出基因数中位与表一致。主代理引用 measured_summary.tsv 的精确数。"
+    }
+  ],
+  "interpretation_limits": [
+    {
+      "id": "I-01",
+      "item": "geo_autocorr 与 geo_corr_band 是细节分量，不是原场自相关",
+      "evidence": "协议把它们定义在 dv=v-neighbor_mean(v) 上。实测 B_AXIS 的 geo_autocorr_near 72/72 为负；geo_decay_half_pitch 在 288 个实测场里 286 个不可评、2 个可评。这不能解释成原场不聚集或没有空间尺度。负值只说明扣除近邻均值后的局部残差在近邻上反向。",
+      "report_wording": "REPORT 表头写“自相关差”，没有写明这是细节分量，也没有声称原场不聚集。读 REPORT 时不得把该列当成原场 Moran 或尺度缺失的证据。精确数以表为准，语义以协议为准。"
+    },
+    {
+      "id": "I-02",
+      "item": "描述性输出不是生物学成功",
+      "evidence": "不授予恢复成功、独立标志基因验证、独立患者确认、正式显著性、物理微米尺度或空间增量。DESCRIBED 只表示统计量可算。mixed 不是新患者或新研究。"
+    }
+  ],
+  "unclosed_result_affecting": [],
+  "fix_required_from_executor": false,
+  "hypothesis_impact": "本复核只确认单位权重已被纠正，不新增恢复证据，不改变 HF-01、HF-02、HF-04 的现有限定。"
+}

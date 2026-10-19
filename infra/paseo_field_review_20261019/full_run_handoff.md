@@ -58,16 +58,16 @@
 
 - 恢复/关系类指标：内部 520 + 来源 376 单位组在 4 个非 `train_mean` 模型下全部可评；`train_mean` 按 `sd_floor` 结构性不可评。
 - `partial_unit_metrics`：修复后 **28** 个单位行（修复前 26），**全部为 `geo_decay_half_pitch`**；合并后的 `singleton::TENX13` 因两片衰减可用性不同而正确暴露为 partial（不再被拆成两个 1 片单位而隐藏）。
-- **`rec_decay_half_pitch_delta` 全库不可评**（内部 528 + 来源 376）：实测 `geo_decay_half_pitch` 仅 2/288 可评（多数为「首带 ≤0」或「band 上限内未衰减」）；空间尺度由 `geo_corr_band1..6` 与 `geo_patch75/90_*_radius_pitch` 承担。
+- **`rec_decay_half_pitch_delta` 全库不可评**（内部 520 + 来源 376）：实测 `geo_decay_half_pitch` 仅 2/288 可评（多数为「首带 ≤0」或「band 上限内未衰减」）；空间尺度由 `geo_corr_band1..6` 与 `geo_patch75/90_*_radius_pitch` 承担。
 
 ## 5. 实测场资格与连续证据（72 片 × 4 目标，未受修复影响）
 
 | 目标 | 任意目标基因检出点占比 中位（最小） | 有效基因数 中位（最小） | 检出基因数 中位 |
 |---|---|---|---|
-| B_AXIS | 0.999（0.612） | 2.90（1.19） | 47 |
-| EMT | 1.000（0.962） | 32.83（7.66） | 199 |
-| IFN-γ | 1.000（0.950） | 24.74（10.83） | 195 |
-| OXPHOS | 1.000（0.919） | 75.41（4.20） | 191 |
+| B_AXIS | 0.999（0.612） | 2.87（1.19） | 47 |
+| EMT | 1.000（0.962） | 32.79（7.66） | 199 |
+| IFN-γ | 1.000（0.950） | 24.66（10.83） | 195 |
+| OXPHOS | 1.000（0.919） | 75.21（4.20） | 191 |
 
 实测状态：`DESCRIBED` 2、`DESCRIBED_WITH_NOT_ESTIMABLE_METRICS` 286、`NOT_TESTABLE_*` 0。诊断标记（非门槛）：首位基因占比 >0.5 共 21 场；有效基因数 <2 共 18 场。预测状态：`NOT_ESTIMABLE_CONSTANT_PREDICTION` 1 000（全部 `train_mean`）、`DESCRIBED_WITH_NOT_ESTIMABLE_METRICS` 3 994、`DESCRIBED` 6。
 
@@ -142,3 +142,7 @@
 ## 10. 边界（不替主代理判定）
 
 本轮产物是既有开发材料的**描述性再分析**：无生物学成功/失败二分门槛、无正式空间 p 值、无独立 marker 验证、无 TLS 真值；预测与可见模块的相关含输入回声，不作为新关系；**数学上可算不等于有足够生物学参照**。本文件（含修复与前后影响）供独立 Grok 复核；复核完成前不宣布任何科学结论，也不替主代理判定 HF-01/HF-02/HF-04 的成立与否。
+
+## 主代理记录勘误与复核结果（2026-10-19）
+
+Grok对Git `5fee80f` 复核为 `ACCEPTED_FOR_DESCRIPTIVE_ANALYSIS_WITH_LIMITS`，无未关闭的结果相关问题，详见 `review/reviewed_unit_aggregation_fix.json`。根据审核更正本文件中内部衰减指标分母528→520，以及四目标有效基因数中位数；仅修正文档旧数，数据和代码未变。科学解释见 `docs/FIELD_BIOLOGICAL_REVIEW_RESULTS_20261019.md`；半衰尺度与自相关是细节分量指标，不代表原场的生物尺度。
