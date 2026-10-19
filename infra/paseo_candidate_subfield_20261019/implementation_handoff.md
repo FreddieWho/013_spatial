@@ -3,7 +3,8 @@
 - 执行代理：Pi `opencode-go/deepseek-v4.1-flash`（thinking `max`），cwd `/home/huyudi/013_spatial`
 - 版本：**Git `054a16b`**（代码+产物）；口径写死在 `f46e60d`/`df20880`，权威科学合同为 `4732584`（D-279）
 - 放行依据：`infra/paseo_candidate_subfield_20261019/review/preflight.json` = `FIT_RELEASED`（`computation_authorized=true`）；`run` 阶段有释放门强制校验
-- 结论上限：**只称候选场**；不是独立病理真值、独立生物场或 HF-01；未使用 2026-10-06 FC-03 分数/因子/K=8/0.5 线
+- 复核状态：**已复核，无必改项、不需重跑**（Grok `high`，`infra/paseo_candidate_subfield_20261019/review/implementation_and_results.json`，范围 `054a16b`）
+- 结论上限：**描述性结果可用，但不能称候选场已被核验**；不是独立病理真值、独立生物场或 HF-01；未使用 2026-10-06 FC-03 分数/因子/K=8/0.5 线
 
 ## 1 按 D-279 实现的口径
 
@@ -78,3 +79,18 @@ python scripts/field_candidate_verify.py main                          # 473 项
 6. 口径边界：报告是否只称候选场、是否避免 FC-03 与 HF-01 表述（`REPORT.md`）。
 
 已知限制：技术协变量可能带走真实生物变化，本轮只并列报告；B 基因在训练片缺失（625 行）与测试片稀疏（7 475 行）使部分基因无法评价；OXPHOS 的分量技术相关最高，其相对优势需谨慎解读。
+
+## 6 复核结论（Grok `high`，2026-10-19，范围 `054a16b`）
+
+状态 `DESCRIPTIVE_RESULTS_USABLE_NO_CANDIDATE_ADVANTAGE`：`allow_descriptive_report=true`、`allow_scientific_claim=false`、`required_fix=false`。已关闭项：A/B 33/16 与 134/66 且交集为空、A/B 图用排除整面板的外部文库、抽查可用 A 不含 B、Ridge 特征只来自 A 且标准化/投影都在训练期冻结、折内配对只用 A 载荷、跨折脚本不读测试图或测试 B、44 单元全部可运行且单位不跨训练测试、任一片不可评即剔除该基因该单位、全量验证按 11 划分×4 目标而非 smoke 单单元期望。
+
+独立重算的中位差与其一致：B_AXIS −0.0141（K2 更高 29.7%）、EMT +0.0111（70.0%）、IFN-γ +0.0017（54.9%）、OXPHOS −0.0007（44.5%）；对全 A Ridge：B_AXIS −0.0183、EMT +0.0029、IFN −0.0082、OXPHOS +0.0222（K2 更高 86.9%）。
+
+使用边界（按复核原文）：
+
+- 固定 K=2 **没有稳定优于同一批 A 基因的简单均值**；全 A Ridge 在 B_AXIS、EMT、IFN-γ 上至少不弱于 K=2。
+- OXPHOS 的 +0.0222 与该目标**最高的深度/检出技术相关同时出现**，不能写成"更干净的分子身份"。
+- 折内重抽样接近 1 只说明同一次拟合可重复，**不是跨单位发现了场**；两分量载荷余弦仅报告，不命名两个场。
+- 内部与来源分开后方向不变；乳腺 source_5、肝脏 source_0 仍是器官外推，不当同器官复现；可用 A 的 26–30 是半数训练单位规则，不是旧可行性表的 16–18。
+- 该结论限制的是**这次固定的两分量表示**，不是所有场发现，也不支持 HF-01；旧 FC-03 的氧化磷酸化优势仍不计入。
+- 复核不承诺无缺陷（`defect_free_guarantee=false`）。代码与产物保持冻结，不再修改。
