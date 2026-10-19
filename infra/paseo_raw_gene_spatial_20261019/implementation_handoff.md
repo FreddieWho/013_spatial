@@ -15,7 +15,8 @@
 ## 2. Git 范围与未提交状态
 
 - 我的实现（本次提交）：`scripts/field_raw_gene_spatial_20261019.py`、`scripts/run_field_raw_gene_spatial_20261019.sh`、`infra/field_raw_gene_spatial_20261019/{contract.json,input_checks.json}`、`infra/field_raw_gene_spatial_20261019/checks/`、`infra/field_raw_gene_spatial_20261019/archive/`（失败历史）、`infra/field_raw_gene_spatial_20261019/smoke/`（小样本产物）、`infra/paseo_raw_gene_spatial_20261019/implementation_handoff.md`。
-- 未提交（工作区，按项目惯例）：`checks/tiny/*.npz`、`smoke/splits/*.npz`、`smoke/evaluation/*`、`prepare.log`、`check.log`、`smoke.log`、`stages.log`（`*.log` 被 `.gitignore` 排除）；逐文件清单见 `smoke/freeze_manifest.json` 与 `input_checks.json`。
+- 未提交（工作区，按项目惯例）：`checks/tiny/*.npz`、`smoke/splits/*.npz`、`smoke/evaluation/*`、`smoke/{PREPARED,STATUS,contract.json,input_checks.json}`、`evaluation/`、`PREPARED` 等标记与中间产物；逐文件清单见 `smoke/freeze_manifest.json` 与 `input_checks.json`。
+- 运行与失败日志默认被 `.gitignore` 的 `*.log` 排除，但按“保留失败与修复记录”的要求**已用 `git add -f` 强制入库**：`stages.log`（含全部返回码）、`prepare.log`、`check.log`、`smoke.log`、`archive/*.log`（两轮检查失败与两轮 smoke 失败的原始日志），共约 8 KB。
 - 我**未**修改既有冻结脚本/预测/根文档；科学合同与 `AGENTS.md` 由主代理提交（`6c970cc`、`1a39583`）。
 
 ## 3. 固定候选与精确参数（不可调）
