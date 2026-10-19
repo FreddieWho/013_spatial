@@ -1,0 +1,3 @@
+fit exit=0 wall_s=1048 user_s=5130.39 sys_s=812.89 max_rss_kb=5188180
+audit exit=1 wall_s=1
+STOPPED_AT_audit

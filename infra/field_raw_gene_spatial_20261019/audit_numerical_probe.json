@@ -1,0 +1,28 @@
+{
+  "case": "source_0 / HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION (target index 3)",
+  "point_gram_min_eig": 6.229e-11,
+  "point_gram_max_eig": 4507000.0,
+  "point_gram_raw_rcond": 1.38e-17,
+  "point_ridge_regularised_rcond_approx": 2.2e-06,
+  "coefficient_l2_norm": 0.07346,
+  "train_rmse_cholesky": 0.0611007661,
+  "train_rmse_lsqr": 0.0611007661,
+  "cholesky_vs_lsqr_max_abs": {
+    "NCBI642": 5.454e-06,
+    "NCBI643": 6.348e-06
+  },
+  "fresh_refit_vs_frozen_max_abs": {
+    "NCBI642": 2.089e-05,
+    "NCBI643": 2.396e-05
+  },
+  "stored_run_vs_frozen_max_abs": {
+    "NCBI642": 0.0002275,
+    "NCBI643": 0.0002288
+  },
+  "stored_run_vs_fresh_refit_max_abs": {
+    "NCBI642": 0.0002079,
+    "NCBI643": 0.0002078
+  },
+  "note": "the stored run prediction sits about 2e-4 from a fresh execution of the same frozen pipeline, while two independent solver fits agree to about 6e-6; the raw point Gram is numerically singular (rcond 1.4e-17) and the ridge weight alpha=10 puts O(1) weight on roundoff-determined near-null directions, which makes individual predictions environment-sensitive",
+  "warnings": "36 LinAlgWarning lines, rcond 3.15e-8 .. 4.51e-8, from the three-block designs"
+}
