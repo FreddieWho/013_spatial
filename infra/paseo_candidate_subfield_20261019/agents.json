@@ -1,0 +1,16 @@
+{
+  "cwd": "/home/huyudi/013_spatial",
+  "transport": "Paseo MCP",
+  "implementation": {
+    "agent_id": "41f406bd-bd3a-44e6-8dd8-2fa5c0ea93a6",
+    "provider": "pi",
+    "model": "opencode-go/deepseek-v4.1-flash",
+    "effective_thinking_option": "max"
+  },
+  "review": {
+    "agent_id": "a5bcb012-6618-488e-8f88-f700773fd4c4",
+    "provider": "pi",
+    "model": "xai/grok-4.7",
+    "effective_thinking_option": "xhigh"
+  }
+}
