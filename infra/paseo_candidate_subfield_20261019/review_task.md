@@ -1,5 +1,5 @@
 # 两分量候选场探针：Grok 预审
 
-你是独立审核代理 Pi `xai/grok-4.7` `xhigh`，cwd `/home/huyudi/013_spatial`。本次只审核 `docs/FIELD_CANDIDATE_SUBFIELD_PROBE_20261019.md`（D-278）及现有分组/数据可行性，写 `infra/paseo_candidate_subfield_20261019/review/preflight.json`。不修改实现代码和主代理科学文档；共享仓库，不覆盖其他人编辑。
+你是独立审核代理 Pi `xai/grok-4.7` `high`（用户于2026-10-19调整，D-280），cwd `/home/huyudi/013_spatial`。本次继续审核 `docs/FIELD_CANDIDATE_SUBFIELD_PROBE_20261019.md`（D-278/D-279）及现有分组/数据可行性，写 `infra/paseo_candidate_subfield_20261019/review/preflight.json`。初次预审由同一代理在 `xhigh` 完成，历史记录不改写；后续复核使用 `high`。不修改实现代码和主代理科学文档；共享仓库，不覆盖其他人编辑。
 
 重点判断：A/B 基因拆分在读取表达前固定且无重叠；B 是否真的不进入候选拟合、测试投影或测试选择；训练/测试按既定单位及来源隔离；K=2 的载荷对齐与不可评；同 A 信息预算的全基因 Ridge 是否公平，基因级结果与完整单位计权是否明确；测试 B 基因稀疏与 q75 并列值如何处理；技术因素敏感性不能冒充独立真值。检查已有FC-03旧探针的信息预算不一致教训，避免复用旧结论。预审只给明确放行或具体必改项；不启动计算、不读人工TLS标签、不轮询。通过 Paseo MCP 将预审结论发给主代理与指定DeepSeek代理 `41f406bd-bd3a-44e6-8dd8-2fa5c0ea93a6`。

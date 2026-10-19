@@ -11,6 +11,8 @@
     "agent_id": "a5bcb012-6618-488e-8f88-f700773fd4c4",
     "provider": "pi",
     "model": "xai/grok-4.7",
-    "effective_thinking_option": "xhigh"
+    "effective_thinking_option": "high",
+    "previous_preflight_thinking_option": "xhigh",
+    "changed_by_user": "2026-10-19"
   }
 }
