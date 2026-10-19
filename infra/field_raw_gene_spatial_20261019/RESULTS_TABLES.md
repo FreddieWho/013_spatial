@@ -1,4 +1,4 @@
-# 同原始基因输入空间对照：描述性结果表（PENDING_INDEPENDENT_REVIEW）
+# 同原始基因输入空间对照：描述性结果表（REVIEWED：只允许描述性报告，不得声称真实邻域排列带来恢复；见 review/result_comparison_review.json）
 
 来源：`infra/field_raw_gene_spatial_20261019/` 的 evaluate/summarize 产物；同一批 500 个预测包、5 个模型；内部 65 单位 / 来源 47 单位；无显著性、无 PASS 阈值。
 已知数值边界：single-case（source_0/EMT point）1/2 线程 vs 8 线程的逐点差约 2.1e-4、每片 RMSE 差约 1.9e-4；该证据只覆盖这一个 case 的 point 模型，未覆盖 candidate/background/permuted，也不假定同批误差相消。下表中 |Δ| ≤ 2e-4 的配对差标 `~num`（处在已知数值波动内，结论未确定）。

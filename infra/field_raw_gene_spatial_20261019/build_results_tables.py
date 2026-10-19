@@ -78,7 +78,7 @@ def main():
     pair_index = {(r['arm'], r['target'], r['baseline'], r['metric']): r for r in paired
                   if r['aggregate'] == 'arm'}
     out = []
-    out.append('# 同原始基因输入空间对照：描述性结果表（PENDING_INDEPENDENT_REVIEW）\n')
+    out.append('# 同原始基因输入空间对照：描述性结果表（REVIEWED：只允许描述性报告，不得声称真实邻域排列带来恢复；见 review/result_comparison_review.json）\n')
     out.append('来源：`infra/field_raw_gene_spatial_20261019/` 的 evaluate/summarize 产物；'
                '同一批 500 个预测包、5 个模型；内部 65 单位 / 来源 47 单位；无显著性、无 PASS 阈值。')
     out.append('已知数值边界：single-case（source_0/EMT point）1/2 线程 vs 8 线程的逐点差约 2.1e-4、'
