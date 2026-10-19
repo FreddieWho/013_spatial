@@ -1,0 +1,99 @@
+{
+  "splits": [
+    "internal_0",
+    "source_0"
+  ],
+  "train_limit": 8,
+  "test_limit": 2,
+  "stages": [
+    {
+      "stage": "fit/internal_0",
+      "seconds": 49.2,
+      "info": {
+        "split": "internal_0",
+        "seconds": 49.0,
+        "test": 2
+      }
+    },
+    {
+      "stage": "fit/source_0",
+      "seconds": 45.5,
+      "info": {
+        "split": "source_0",
+        "seconds": 45.4,
+        "test": 2
+      }
+    },
+    {
+      "stage": "evaluate/internal_0",
+      "seconds": 0.8,
+      "info": {
+        "split": "internal_0",
+        "rows": 40,
+        "paired": 32
+      }
+    },
+    {
+      "stage": "evaluate/source_0",
+      "seconds": 0.5,
+      "info": {
+        "split": "source_0",
+        "rows": 40,
+        "paired": 32
+      }
+    },
+    {
+      "stage": "summarize",
+      "seconds": 0.7,
+      "info": null
+    }
+  ],
+  "outputs": {
+    "prediction_metrics.tsv": {
+      "exists": true,
+      "rows": 80
+    },
+    "paired_metrics.tsv": {
+      "exists": true,
+      "rows": 64
+    },
+    "unit_metrics.tsv": {
+      "exists": true,
+      "rows": 80
+    },
+    "unit_paired.tsv": {
+      "exists": true,
+      "rows": 64
+    },
+    "macro_summary.tsv": {
+      "exists": true,
+      "rows": 1680
+    },
+    "macro_paired.tsv": {
+      "exists": true,
+      "rows": 896
+    },
+    "readout_claim_summary.tsv": {
+      "exists": true,
+      "rows": 40
+    },
+    "denominators.tsv": {
+      "exists": true,
+      "rows": 210
+    },
+    "summary.json": {
+      "exists": true,
+      "rows": 10
+    },
+    "REPORT.md": {
+      "exists": true,
+      "rows": 110
+    },
+    "freeze_manifest.json": {
+      "exists": true,
+      "rows": 177
+    }
+  },
+  "seconds": 96.9,
+  "note": "truncated training/test sets; smoke only, not a fold result"
+}

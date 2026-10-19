@@ -1,0 +1,11 @@
+{
+  "sections": 4,
+  "units": 4,
+  "section_rows": 80,
+  "paired_rows": 64,
+  "unit_rows": 80,
+  "macro_rows": 1680,
+  "states": {
+    "DESCRIBED": 80
+  }
+}

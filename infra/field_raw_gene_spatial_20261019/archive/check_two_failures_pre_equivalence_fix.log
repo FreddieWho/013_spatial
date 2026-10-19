@@ -1,0 +1,19 @@
+{"split": "internal_0", "section": "MISC33"}
+{
+ "n_checks": 38,
+ "n_failed": 2,
+ "failures": [
+  {
+   "check": "train_constant_column_removed",
+   "expected": "1",
+   "observed": "2",
+   "passed": false
+  },
+  {
+   "check": "triple_copy_block_equivalence",
+   "expected": "<=1e-06",
+   "observed": "6.183981895446777e-06",
+   "passed": false
+  }
+ ]
+}

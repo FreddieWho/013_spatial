@@ -1,0 +1,63 @@
+{"split": "internal_0", "section": "MISC33"}
+{"split": "internal_0", "section": "MISC34"}
+{"split": "source_0", "section": "NCBI642"}
+{"split": "source_0", "section": "NCBI643"}
+{"section_rows": 80, "unit_rows": 80, "macro_rows": 1680, "paired_units": 64, "states": {"DESCRIBED": 80}}
+{
+ "stages": [
+  {
+   "stage": "fit/internal_0",
+   "seconds": 49.2,
+   "info": {
+    "split": "internal_0",
+    "seconds": 49.0,
+    "test": 2
+   }
+  },
+  {
+   "stage": "fit/source_0",
+   "seconds": 45.5,
+   "info": {
+    "split": "source_0",
+    "seconds": 45.4,
+    "test": 2
+   }
+  },
+  {
+   "stage": "evaluate/internal_0",
+   "seconds": 0.8,
+   "info": {
+    "split": "internal_0",
+    "rows": 40,
+    "paired": 32
+   }
+  },
+  {
+   "stage": "evaluate/source_0",
+   "seconds": 0.5,
+   "info": {
+    "split": "source_0",
+    "rows": 40,
+    "paired": 32
+   }
+  },
+  {
+   "stage": "summarize",
+   "seconds": 0.7,
+   "info": null
+  }
+ ],
+ "outputs": {
+  "prediction_metrics.tsv": 80,
+  "paired_metrics.tsv": 64,
+  "unit_metrics.tsv": 80,
+  "unit_paired.tsv": 64,
+  "macro_summary.tsv": 1680,
+  "macro_paired.tsv": 896,
+  "readout_claim_summary.tsv": 40,
+  "denominators.tsv": 210,
+  "summary.json": 10,
+  "REPORT.md": 110,
+  "freeze_manifest.json": 177
+ }
+}

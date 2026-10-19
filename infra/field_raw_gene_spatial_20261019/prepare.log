@@ -1,0 +1,31 @@
+{
+ "n_allowed_paths": 3665,
+ "raw_hdf5_allowlisted": false,
+ "no_allowed_path_matches_denylist": true,
+ "visible_target_disjoint": true,
+ "visible_dim": {
+  "B_AXIS": 1641,
+  "HALLMARK_OXIDATIVE_PHOSPHORYLATION": 1511,
+  "HALLMARK_INTERFERON_GAMMA_RESPONSE": 1494,
+  "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": 1492
+ },
+ "target_genes": {
+  "B_AXIS": 49,
+  "HALLMARK_OXIDATIVE_PHOSPHORYLATION": 200,
+  "HALLMARK_INTERFERON_GAMMA_RESPONSE": 200,
+  "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": 200
+ },
+ "splits": 11,
+ "internal_sections": 72,
+ "source_sections": 53,
+ "internal_units": 65,
+ "source_units": 47,
+ "known_sections": 14,
+ "known_units": 8,
+ "source_not_testable_sections": 19,
+ "free_bytes": 883339206656,
+ "storage_reserve_ok": true,
+ "verified": {
+  "frozen_hashes": 2513
+ }
+}

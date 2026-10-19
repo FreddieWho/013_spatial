@@ -1,0 +1,15 @@
+/home/huyudi/013_spatial/scripts/field_raw_gene_spatial_20261019.py:303: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+  n_iter = int(getattr(ridge, 'n_iter_', -1))
+{"split": "internal_0", "section": "MISC33"}
+{
+ "n_checks": 43,
+ "n_failed": 1,
+ "failures": [
+  {
+   "check": "permutation_self_fallback_at_isolated",
+   "expected": "own value at the permuted isolated rows",
+   "observed": "3.95542573928833",
+   "passed": false
+  }
+ ]
+}

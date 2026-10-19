@@ -1,0 +1,11 @@
+prepare exit=0
+smoke exit=1
+smoke exit=1
+smoke exit=1
+smoke exit=1
+smoke exit=0
+smoke exit=0
+check exit=1
+check exit=1
+check exit=1
+check exit=1

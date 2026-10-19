@@ -1,0 +1,296 @@
+{
+  "n_checks": 43,
+  "n_failed": 0,
+  "results": [
+    {
+      "check": "raw_hdf5_not_allowlisted",
+      "expected": "False",
+      "observed": "False",
+      "passed": true
+    },
+    {
+      "check": "denylist_clean",
+      "expected": "True",
+      "observed": "True",
+      "passed": true
+    },
+    {
+      "check": "split_unit_counts",
+      "expected": "65 internal / 47 source",
+      "observed": "(65, 47)",
+      "passed": true
+    },
+    {
+      "check": "internal_folds_partition_72",
+      "expected": "72",
+      "observed": "72",
+      "passed": true
+    },
+    {
+      "check": "source_folds_partition_53",
+      "expected": "53",
+      "observed": "53",
+      "passed": true
+    },
+    {
+      "check": "visible_target_disjoint",
+      "expected": "True",
+      "observed": "True",
+      "passed": true
+    },
+    {
+      "check": "identity_flags",
+      "expected": "14 sections / 8 units",
+      "observed": "(14, 8)",
+      "passed": true
+    },
+    {
+      "check": "source_not_testable_sections",
+      "expected": "19",
+      "observed": "19",
+      "passed": true
+    },
+    {
+      "check": "visible_matrix_dim_matches_vocabulary",
+      "expected": "1641",
+      "observed": "1641",
+      "passed": true
+    },
+    {
+      "check": "visible_matrix_rows_match_barcodes",
+      "expected": "3385",
+      "observed": "3385",
+      "passed": true
+    },
+    {
+      "check": "qc_columns",
+      "expected": "2",
+      "observed": "2",
+      "passed": true
+    },
+    {
+      "check": "features_independent_of_heldout_target",
+      "expected": "bitwise identical",
+      "observed": "True",
+      "passed": true
+    },
+    {
+      "check": "sampling_independent_of_target",
+      "expected": "identical indices",
+      "observed": "True",
+      "passed": true
+    },
+    {
+      "check": "barcode_order_mismatch_detected",
+      "expected": "raises",
+      "observed": "True",
+      "passed": true
+    },
+    {
+      "check": "train_constant_columns_removed",
+      "expected": "2",
+      "observed": "2",
+      "passed": true
+    },
+    {
+      "check": "constant_column_rule_is_train_only",
+      "expected": "[ones=constant, zeros=constant, varying kept]",
+      "observed": "[False, False, True]",
+      "passed": true
+    },
+    {
+      "check": "triple_copy_block_equivalence_within_solver_floor",
+      "expected": "residual <= max(2*solver_floor, 1e-5) = 1.00e-05 and wrong-scale control >> residual",
+      "observed": "{'residual': 6.183981895446777e-06, 'solver_floor': 3.3974647521972656e-06, 'wrong_scale_control': 0.00021079182624816895, 'ridge_gram_conditioning': 516814.1426667769}",
+      "passed": true
+    },
+    {
+      "check": "frozen_point_prediction_agreement",
+      "expected": "<=0.0001",
+      "observed": "1.6808509826660156e-05",
+      "passed": true
+    },
+    {
+      "check": "frozen_point_section_rmse_agreement",
+      "expected": "<=1e-05",
+      "observed": "2.0455705255217893e-06",
+      "passed": true
+    },
+    {
+      "check": "permutation_preserves_nnz",
+      "expected": "(11516, 55078)",
+      "observed": "(11516, 55078)",
+      "passed": true
+    },
+    {
+      "check": "permutation_preserves_degree_multiset",
+      "expected": "equal",
+      "observed": "True",
+      "passed": true
+    },
+    {
+      "check": "permutation_preserves_weights",
+      "expected": "equal",
+      "observed": "True",
+      "passed": true
+    },
+    {
+      "check": "permutation_preserves_symmetry",
+      "expected": "both symmetric",
+      "observed": "(True, True)",
+      "passed": true
+    },
+    {
+      "check": "permutation_self_fallback_at_isolated",
+      "expected": "own value at the permuted isolated rows",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "permutation_preserves_isolated_count",
+      "expected": "count preserved",
+      "observed": "(2, 2)",
+      "passed": true
+    },
+    {
+      "check": "permutation_changes_neighbour_values",
+      "expected": ">0",
+      "observed": "5.366419315338135",
+      "passed": true
+    },
+    {
+      "check": "permutation_keeps_point_block",
+      "expected": "identical",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "candidate_uses_real_graph",
+      "expected": "candidate != permuted design",
+      "observed": "5.454998016357422",
+      "passed": true
+    },
+    {
+      "check": "candidate_point_block_matches_point_design",
+      "expected": "identical",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "local_detail_pearson_binding",
+      "expected": "-0.623529624",
+      "observed": "-0.623529624",
+      "passed": true
+    },
+    {
+      "check": "jaccard_threshold_is_strict",
+      "expected": "nonzero set",
+      "observed": "150",
+      "passed": true
+    },
+    {
+      "check": "zero_is_a_value_not_missing",
+      "expected": "0.0",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "abs_radius_is_absolute_on_real_section",
+      "expected": "abs(signed delta)",
+      "observed": "(-6.245213537666537, 6.245213537666537)",
+      "passed": true
+    },
+    {
+      "check": "mean_of_abs_not_abs_of_mean",
+      "expected": "mean_abs=0.266667 vs abs_mean=0.0",
+      "observed": "(0.266667, 0.0)",
+      "passed": true
+    },
+    {
+      "check": "zero_radius_delta_is_estimable",
+      "expected": "3 of 3 sections counted",
+      "observed": "(3, 3)",
+      "passed": true
+    },
+    {
+      "check": "radius_missing_side_is_not_testable_unit",
+      "expected": "None + partial recorded",
+      "observed": "(None, True)",
+      "passed": true
+    },
+    {
+      "check": "aggregation_matches_reviewed_module",
+      "expected": "0.2",
+      "observed": "0.2",
+      "passed": true
+    },
+    {
+      "check": "unit_metadata_conflict_mixed",
+      "expected": "mixed",
+      "observed": "mixed",
+      "passed": true
+    },
+    {
+      "check": "unit_key_excludes_source_key",
+      "expected": "1",
+      "observed": "1",
+      "passed": true
+    },
+    {
+      "check": "partial_unit_metric_not_estimable",
+      "expected": "None + recorded",
+      "observed": "(None, True)",
+      "passed": true
+    },
+    {
+      "check": "tiny_fit_evaluate_ran",
+      "expected": "rows>0",
+      "observed": "20",
+      "passed": true
+    },
+    {
+      "check": "no_nonconverged_fit",
+      "expected": "all converged",
+      "observed": "['True']",
+      "passed": true
+    },
+    {
+      "check": "solver_recorded",
+      "expected": "non-empty",
+      "observed": "['auto']",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "setup_checks": {
+    "n_allowed_paths": 3665,
+    "raw_hdf5_allowlisted": false,
+    "no_allowed_path_matches_denylist": true,
+    "visible_target_disjoint": true,
+    "visible_dim": {
+      "B_AXIS": 1641,
+      "HALLMARK_OXIDATIVE_PHOSPHORYLATION": 1511,
+      "HALLMARK_INTERFERON_GAMMA_RESPONSE": 1494,
+      "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": 1492
+    },
+    "target_genes": {
+      "B_AXIS": 49,
+      "HALLMARK_OXIDATIVE_PHOSPHORYLATION": 200,
+      "HALLMARK_INTERFERON_GAMMA_RESPONSE": 200,
+      "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": 200
+    },
+    "splits": 11,
+    "internal_sections": 72,
+    "source_sections": 53,
+    "internal_units": 65,
+    "source_units": 47,
+    "known_sections": 14,
+    "known_units": 8,
+    "source_not_testable_sections": 19,
+    "free_bytes": 850608676864,
+    "storage_reserve_ok": true,
+    "verified": {
+      "frozen_hashes": 154
+    }
+  }
+}
