@@ -54,7 +54,7 @@ bash scripts/run_field_raw_gene_spatial_20261019.sh fit      # 见 fit_full.log 
 
 ## 5. 数值影响证据（定位到环境敏感的近似零方向，而非参数/管线差异）
 
-> **追加（受控线程探针，review N-01 minimal_verification）**：已在 `infra/field_blas_probe_20261019/` 完成受控探针（脚本 `probe_source0_emt_threads.py`，结果 `probe_results.{tsv,json}`，交接 `handoff.md`）。要点：**设计身份与 fit_diagnostics 逐项一致（25803 行 / 1500 列 / 剔除 2 列 / float32 / scaled=0 / ctx=6），划分文件与冻结相同**；同设置重复噪声 ≤1.2e-7；**仅把生效线程从 1 改为 8 就产生 2.07–2.08e-4 的预测变化**；**t=8 预测与存盘包差 1.2e-7–4.8e-7（即存盘 ≡ 8 线程），t=1 与存盘差 2.07e-4**；t=1 与冻结包仍差 1.8–2.4e-5（冻结轮次合同 `threads=2`，t=2 未测，为尚未定因的残差）。设计 Gram 原始 rcond 1.9e-18、ridge rcond 2.2e-6。**未改启动器、未全量重拟合、未 evaluate/summarize**，是否按线程设置重算 500 包待 Grok 判断。
+> **追加（受控线程探针，review N-01 minimal_verification）**：已在 `infra/field_blas_probe_20261019/` 完成受控探针，并按要求补测旧冻结合同的 **2 线程**（脚本 `probe_source0_emt_threads.py`，1/8 原结果另存 `probe_results_threads_1_8_original.*`，1/2/8 结果 `probe_results_t128.*`，交接 `handoff.md`）。要点：**设计身份与 fit_diagnostics 逐项一致（25803 行 / 1500 列 / 剔除 2 列 / float32 / scaled=0 / ctx=6），划分文件与冻结相同，库版本也与冻结轮次记录相同**；同设置重复噪声 ≤1.8e-7；**t1↔t2 仅 1.0–1.6e-6，而 t1↔t8 与 t2↔t8 均为 2.07e-4**；t=8 与存盘包差 ≤4.8e-7（存盘 ≡ 8 线程），t=1/t=2 与存盘差 ≈2.07e-4；按原定界限逐项：**t=1/t=2 vs 冻结：max_abs 2.4e-5 通过 1e-4，但每片 RMSE 差 1.25–1.31e-5 仍未通过 1e-5；t=8 vs 冻结：两项均未通过**。即线程解释超界部分，**残余 ≈1e-5 稳定偏移尚未定因**（非库版本、非线程噪声）。**未改启动器、未全量重拟合、未 evaluate/summarize**，待 Grok 判断。
 
 运行日志保留 **36 条 `LinAlgWarning: Ill-conditioned matrix (rcond=3.15e-8 … 4.51e-8)`**（来自三块设计；point 设计本身未触发）。
 

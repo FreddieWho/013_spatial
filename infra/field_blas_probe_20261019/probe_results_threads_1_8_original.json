@@ -1,0 +1,115 @@
+{
+  "scope": {
+    "split": "source_0",
+    "target": "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION",
+    "target_index": 3,
+    "sections": [
+      "NCBI642",
+      "NCBI643"
+    ],
+    "threads": [
+      1,
+      8
+    ],
+    "repeats": 2,
+    "solver": "auto",
+    "alpha": 10.0,
+    "seed": 20261018,
+    "train_spots_per_section": 512
+  },
+  "design_identity": {
+    "split": "source_0",
+    "target": "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION",
+    "target_index": 3,
+    "sections": [
+      "NCBI642",
+      "NCBI643"
+    ],
+    "n_train_rows": 25803,
+    "n_features": 1500,
+    "n_columns_dropped_train_constant": 2,
+    "n_context_columns": 6,
+    "scaled_width": 0,
+    "dtype": "float32",
+    "y_dtype": "float32",
+    "weights_sum": 25802.999999999996,
+    "weights_len": 25803,
+    "design_sha256": "ab6bf43ba60b2856b033dc50dbe4bd70ff0e86b6aa9080a14fcd9eed0c897291",
+    "y_sha256": "62f87eea42f4d9807b3f8a7ba6ceece40e63600ed6446e0159ff96509f694680",
+    "weights_sha256": "442e3e3b899e016860e6f922c52d75490c2d553cce8ad9af7350af04a4e90b64",
+    "keep_mask_sha256": "e9bbe4790f56c2057fcc78d8dbbfa36e37c9614b43976ace178022232d070929",
+    "diagnostic_row": {
+      "n_train_rows": "25803",
+      "n_features": "1500",
+      "n_scaled_columns": "0",
+      "n_context_columns": "6",
+      "n_columns_dropped_train_constant": "2",
+      "solver": "auto",
+      "alpha": "10.0",
+      "block_scale": "1.0",
+      "train_rmse": "0.06110076233744621",
+      "converged": "True"
+    },
+    "matches_diagnostics": {
+      "rows": true,
+      "features": true,
+      "dropped": true,
+      "scaled_columns": true,
+      "context_columns": true
+    },
+    "sources": {
+      "genes": {
+        "NCBI642_t3": "d483f7bdf7e123d21917c2a4f4a2016dce81b665c1297dd99cf6a8b67a00d753"
+      },
+      "splits_run": "30a768a7f9046b7084c8e9b6e73881fec2bb2f4893940d6bdefdde1b5347e9a0",
+      "splits_frozen": "30a768a7f9046b7084c8e9b6e73881fec2bb2f4893940d6bdefdde1b5347e9a0",
+      "splits_identical": true,
+      "contract_sha256": "7ac69f06b022f755f288e9f5ebb2a3da34e6cd08dcac2220aac8ccc7988cf0ca",
+      "implementation_sha256": "4ae150a47c8073249eaa62a440381351fcfe1f860e63980a725a94b6699931d0",
+      "frozen_package_templates": "/home/huyudi/013_spatial/infra/field_source_holdout_20261018/source_0/{sid}_t3_full15.npz",
+      "stored_package_templates": "/home/huyudi/013_spatial/infra/field_raw_gene_spatial_20261019/splits/source_0/{sid}_t3.npz"
+    },
+    "env": {
+      "OMP_NUM_THREADS": "8",
+      "OPENBLAS_NUM_THREADS": "2",
+      "MKL_NUM_THREADS": "2",
+      "NUMEXPR_NUM_THREADS": null,
+      "CUDA_VISIBLE_DEVICES": "-1"
+    }
+  },
+  "conditioning": {
+    "gram_min_eig": 8.765444967084868e-12,
+    "gram_max_eig": 4507111.5,
+    "raw_rcond": 1.944803156532359e-18,
+    "ridge_rcond": 2.2187109888226368e-06
+  },
+  "within_setting_floor": 1.1920928955078125e-07,
+  "across_threads": {
+    "NCBI642/point": 0.0002078711986541748,
+    "NCBI642/smooth": 0.00020736455917358398,
+    "NCBI643/point": 0.0002079010009765625,
+    "NCBI643/smooth": 0.0002073049545288086
+  },
+  "vs_frozen": {
+    "NCBI642/point": 0.00022751092910766602,
+    "NCBI642/smooth": 0.0002237558364868164,
+    "NCBI643/point": 0.00022879242897033691,
+    "NCBI643/smooth": 0.00022646784782409668
+  },
+  "vs_stored": {
+    "NCBI642/point": 0.0002079010009765625,
+    "NCBI642/smooth": 0.00020742416381835938,
+    "NCBI643/point": 0.0002078413963317871,
+    "NCBI643/smooth": 0.0002073049545288086
+  },
+  "threadpool_effective": {
+    "1": [
+      "1"
+    ],
+    "8": [
+      "8"
+    ]
+  },
+  "elapsed_seconds": 172.0,
+  "note": "within_setting_floor is the same-design repeat floor; across_threads is the controlled thread contrast; vs_frozen and vs_stored compare with the frozen and stored packages"
+}

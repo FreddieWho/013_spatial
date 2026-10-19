@@ -1,0 +1,170 @@
+{
+  "scope": {
+    "split": "source_0",
+    "target": "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION",
+    "target_index": 3,
+    "sections": [
+      "NCBI642",
+      "NCBI643"
+    ],
+    "threads": [
+      1,
+      2,
+      8
+    ],
+    "repeats": 2,
+    "solver": "auto",
+    "alpha": 10.0,
+    "seed": 20261018,
+    "train_spots_per_section": 512
+  },
+  "limits": {
+    "max_abs": 0.0001,
+    "section_rmse": 1e-05
+  },
+  "conditioning": {
+    "gram_min_eig": 8.765444967084868e-12,
+    "gram_max_eig": 4507111.5,
+    "raw_rcond": 1.944803156532359e-18,
+    "ridge_rcond": 2.2187109888226368e-06
+  },
+  "within_setting_floor": 1.7881393432617188e-07,
+  "pairwise": {
+    "t1_vs_t2/NCBI642/point": {
+      "max_abs": 1.519918441772461e-06,
+      "section_rmse_diff": 5.090132102758549e-07
+    },
+    "t1_vs_t2/NCBI642/smooth": {
+      "max_abs": 1.043081283569336e-06,
+      "section_rmse_diff": 5.143308741684116e-07
+    },
+    "t1_vs_t2/NCBI643/point": {
+      "max_abs": 1.6093254089355469e-06,
+      "section_rmse_diff": 6.010991175364744e-07
+    },
+    "t1_vs_t2/NCBI643/smooth": {
+      "max_abs": 1.1920928955078125e-06,
+      "section_rmse_diff": 6.003760494588395e-07
+    },
+    "t1_vs_t8/NCBI642/point": {
+      "max_abs": 0.0002078711986541748,
+      "section_rmse_diff": 0.00019803748127894538
+    },
+    "t1_vs_t8/NCBI642/smooth": {
+      "max_abs": 0.00020736455917358398,
+      "section_rmse_diff": 0.00020030975304663468
+    },
+    "t1_vs_t8/NCBI643/point": {
+      "max_abs": 0.0002079010009765625,
+      "section_rmse_diff": 0.0001940946667145782
+    },
+    "t1_vs_t8/NCBI643/smooth": {
+      "max_abs": 0.0002073049545288086,
+      "section_rmse_diff": 0.00019394455327553795
+    },
+    "t2_vs_t8/NCBI642/point": {
+      "max_abs": 0.00020706653594970703,
+      "section_rmse_diff": 0.00019752846806866953
+    },
+    "t2_vs_t8/NCBI642/smooth": {
+      "max_abs": 0.000206679105758667,
+      "section_rmse_diff": 0.00019979542217246626
+    },
+    "t2_vs_t8/NCBI643/point": {
+      "max_abs": 0.0002072453498840332,
+      "section_rmse_diff": 0.00019349356759704173
+    },
+    "t2_vs_t8/NCBI643/smooth": {
+      "max_abs": 0.0002065896987915039,
+      "section_rmse_diff": 0.0001933441772260791
+    }
+  },
+  "limit_report": {
+    "t1_vs_frozen_point": {
+      "worst_max_abs": 2.396106719970703e-05,
+      "passes_1e4": true,
+      "worst_section_rmse_diff": 1.2527655032124052e-05,
+      "passes_1e5": false
+    },
+    "t1_vs_frozen_smooth": {
+      "worst_max_abs": 2.1576881408691406e-05,
+      "passes_1e4": true,
+      "worst_section_rmse_diff": 1.2517232736625195e-05,
+      "passes_1e5": false
+    },
+    "t1_vs_stored_point": {
+      "worst_max_abs": 0.0002079010009765625,
+      "passes_1e4": false,
+      "worst_section_rmse_diff": 0.00019804339823667472,
+      "passes_1e5": false
+    },
+    "t1_vs_stored_smooth": {
+      "worst_max_abs": 0.00020742416381835938,
+      "passes_1e4": false,
+      "worst_section_rmse_diff": 0.00020031684663762706,
+      "passes_1e5": false
+    },
+    "t2_vs_frozen_point": {
+      "worst_max_abs": 2.4378299713134766e-05,
+      "passes_1e4": true,
+      "worst_section_rmse_diff": 1.3128754149660526e-05,
+      "passes_1e5": false
+    },
+    "t2_vs_frozen_smooth": {
+      "worst_max_abs": 2.2172927856445312e-05,
+      "passes_1e4": true,
+      "worst_section_rmse_diff": 1.3117608786084034e-05,
+      "passes_1e5": false
+    },
+    "t2_vs_stored_point": {
+      "worst_max_abs": 0.00020712614059448242,
+      "passes_1e4": false,
+      "worst_section_rmse_diff": 0.00019753438502639886,
+      "passes_1e5": false
+    },
+    "t2_vs_stored_smooth": {
+      "worst_max_abs": 0.0002067089080810547,
+      "passes_1e4": false,
+      "worst_section_rmse_diff": 0.00019980251576345864,
+      "passes_1e5": false
+    },
+    "t8_vs_frozen_point": {
+      "worst_max_abs": 0.00022879242897033691,
+      "passes_1e4": false,
+      "worst_section_rmse_diff": 0.00020819563189022894,
+      "passes_1e5": false
+    },
+    "t8_vs_frozen_smooth": {
+      "worst_max_abs": 0.00022646784782409668,
+      "passes_1e4": false,
+      "worst_section_rmse_diff": 0.00021052493158646435,
+      "passes_1e5": false
+    },
+    "t8_vs_stored_point": {
+      "worst_max_abs": 4.76837158203125e-07,
+      "passes_1e4": true,
+      "worst_section_rmse_diff": 5.943795761131909e-09,
+      "passes_1e5": true
+    },
+    "t8_vs_stored_smooth": {
+      "worst_max_abs": 2.384185791015625e-07,
+      "passes_1e4": true,
+      "worst_section_rmse_diff": 7.101935595166253e-09,
+      "passes_1e5": true
+    }
+  },
+  "threadpool_effective": {
+    "1": [
+      "1"
+    ],
+    "2": [
+      "2"
+    ],
+    "8": [
+      "8"
+    ]
+  },
+  "frozen_round_contract_threads": 2,
+  "elapsed_seconds": 23.8,
+  "note": "within_setting_floor is the same-design repeat floor; pairwise is the controlled thread contrast; limit_report lists the pre-registered bounds against the frozen and stored packages for every setting"
+}
