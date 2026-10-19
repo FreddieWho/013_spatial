@@ -1,0 +1,132 @@
+{
+  "n_checks": 21,
+  "n_failed": 0,
+  "results": [
+    {
+      "check": "section_target_rows",
+      "expected": "288",
+      "observed": "288",
+      "passed": true
+    },
+    {
+      "check": "sections_covered",
+      "expected": "72",
+      "observed": "72",
+      "passed": true
+    },
+    {
+      "check": "targets_covered",
+      "expected": "4",
+      "observed": "4",
+      "passed": true
+    },
+    {
+      "check": "unit_rows_per_target",
+      "expected": "65 for each target",
+      "observed": "{'B_AXIS': 65, 'HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION': 65, 'HALLMARK_INTERFERON_GAMMA_RESPONSE': 65, 'HALLMARK_OXIDATIVE_PHOSPHORYLATION': 65}",
+      "passed": true
+    },
+    {
+      "check": "units_distinct",
+      "expected": "65",
+      "observed": "65",
+      "passed": true
+    },
+    {
+      "check": "unit_states_present",
+      "expected": "COMPLETE/INCOMPLETE/NOT_ESTIMABLE keys",
+      "observed": "{'COMPLETE': 4044, 'NOT_ESTIMABLE_UNIT': 112, 'INCOMPLETE_UNIT': 4}",
+      "passed": true
+    },
+    {
+      "check": "frozen_readout_reproduced",
+      "expected": "<=1e-6",
+      "observed": "5.9600345991839276e-08",
+      "passed": true
+    },
+    {
+      "check": "approved_support_table_joined",
+      "expected": "288",
+      "observed": "288",
+      "passed": true
+    },
+    {
+      "check": "approved_support_values_match",
+      "expected": "0",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "support_source_stated",
+      "expected": "one source path recorded",
+      "observed": "['infra/field_biological_review_20261019/measured_fields.tsv']",
+      "passed": true
+    },
+    {
+      "check": "deletion_rows",
+      "expected": "288",
+      "observed": "288",
+      "passed": true
+    },
+    {
+      "check": "subset_rows",
+      "expected": "288",
+      "observed": "288",
+      "passed": true
+    },
+    {
+      "check": "draws_per_case",
+      "expected": "10 for every evaluated case",
+      "observed": "{10: 288}",
+      "passed": true
+    },
+    {
+      "check": "each_subset_at_least_three_genes",
+      "expected": ">=3 per half",
+      "observed": "True",
+      "passed": true
+    },
+    {
+      "check": "ten_distinct_split_seeds_per_case",
+      "expected": "10 distinct",
+      "observed": "True",
+      "passed": true
+    },
+    {
+      "check": "control_evaluable_recorded",
+      "expected": "0..10 recorded",
+      "observed": "(0.0, 10.0)",
+      "passed": true
+    },
+    {
+      "check": "not_testable_reasons_recorded",
+      "expected": "structured reasons only",
+      "observed": "{}",
+      "passed": true
+    },
+    {
+      "check": "barcode_order_matches_cache",
+      "expected": "equal",
+      "observed": "True",
+      "passed": true
+    },
+    {
+      "check": "same_formula_for_every_map",
+      "expected": "<=1e-6 vs frozen target_readout",
+      "observed": "True",
+      "passed": true
+    },
+    {
+      "check": "residual_orthogonal_to_both_covariates",
+      "expected": "<=1e-8",
+      "observed": "4.790107336074668e-16",
+      "passed": true
+    },
+    {
+      "check": "technical_covariates_exclude_target_genes",
+      "expected": "0.0",
+      "observed": "0.0",
+      "passed": true
+    }
+  ]
+}

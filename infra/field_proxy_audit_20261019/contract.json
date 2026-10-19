@@ -1,0 +1,61 @@
+{
+  "version": "field-proxy-audit-20261019-v2",
+  "authority": "docs/FIELD_PROXY_AUDIT_CONTRACT_20261019.md incl. the D-277 pre-review clauses (Grok P-01..P-05) + infra/paseo_proxy_audit_20261019/implementation_task.md",
+  "scope": "segment 1 only: molecular and spatial consistency of the four pre-set proxy fields; no training, no candidate-field proposal, no held-out split, no use of segment-1 results to fix segment-2 members, weights or candidate counts",
+  "targets": [
+    "B_AXIS",
+    "HALLMARK_INTERFERON_GAMMA_RESPONSE",
+    "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION",
+    "HALLMARK_OXIDATIVE_PHOSPHORYLATION"
+  ],
+  "sections": "all 72 qualified sections, 65 established units (frozen manifest); the 19 sections without a verifiable source stay in the internal description; lung cannot enter any source holdout; breast and liver sources are cross-organ",
+  "target_definition_source": "infra/tls_multiscale_gobp_20261002/panel_controls.json (frozen panel; B_AXIS 49 genes, each Hallmark up to 200)",
+  "expression_source": "data/other_sources/hest1k/st/{sid}.h5ad fields X, var/_index, obs/_index, obs/in_tissue only",
+  "readout_formula": "gene map = log1p(1e4 * raw gene count / all-gene library of that spot); set map = arithmetic mean of those gene maps",
+  "same_formula_rule": "single-gene, leave-one-out and disjoint-subset maps use the same raw counts, the same all-gene library denominator, the same tissue spots and the same frozen barcode order; only the set of averaged genes changes; zero-library spots follow the old definition and are never filled in",
+  "support_gene_reuse": "infra/field_biological_review_20261019/measured_fields.tsv (reviewed support columns sup_*) with its source stated; values from a different formula are never correlated with these maps",
+  "panel_accounting": "panel-absent genes (n_absent) and in-panel zero-count genes (n_in_panel_zero_counts) are reported separately; undetected is never a biological negative",
+  "measurable_gene": "in panel, at least 20 tissue spots with a positive count, and a gene map with variance > 0; only measurable genes enter the within-section synergy, leave-one-out and disjoint-subset checks; defined but unmeasurable genes stay in the original proxy definition and coverage record",
+  "subset_minimum": "each disjoint subset needs at least 3 measurable genes (at least 6 in total); otherwise that section x target subset consistency is NOT_ESTIMABLE with the reason and denominator kept; never relaxed for B_AXIS",
+  "technical_control": "sensitivity analysis only: per spot, log1p of the total counts of all genes EXCLUDING this target's set, and the non-target gene detection fraction; each measurable gene map is regressed on those two covariates plus an intercept within the section; synergy among residual maps is reported next to the uncontrolled maps; the original proxy and the leave-one-out/subset maps are never replaced by residuals",
+  "technical_control_caveat": "the regression can also remove biological signal coupled to cell density, and the shared all-gene normalisation denominator can still induce dependence; residual similarity or its disappearance cannot by itself decide biological versus technical origin",
+  "fixed_controls": {
+    "draws": 10,
+    "split_seeds": "10 fixed per-section, per-target seeds derived from draw indices 0..9 (recorded); all draws reported as a distribution, the best-looking draw is never selected",
+    "matching": "out-of-target measurable genes are matched to each subset using the joint quartile bins of detection fraction and mean normalised expression; bins are defined on the section's measurable genes of the whole panel union; a single control draw samples without replacement; if a bin lacks candidates that draw's control is NOT_ESTIMABLE and the number of evaluable draws is recorded; bins are never changed and no top-up with the most similar gene",
+    "role": "descriptive only; never a formal significance test or an independent biological reference"
+  },
+  "geometry": "frozen per-section coordinates and the empirical nearest-neighbour pitch of that section; no micrometre conversion and no super-resolution claim",
+  "barcodes": "every per-section matrix is built in the frozen cache barcode order and asserted against the cache barcodes",
+  "operational_quantile": 0.75,
+  "quantile_rule": "high-value spots are the strictly-above-quantile set (v > quantile(v, q)); the realised fraction is reported; it is an operational threshold, not a biological truth",
+  "unit_rule": "each metric is computed per section first; if any section of an established unit is not estimable the unit's metric does not enter the complete-unit mean and the reason and denominator are kept; complete units are equally weighted; 0 is a valid value",
+  "stratification": "internal 72 sections / 65 units; source 53 sections / 47 units in six sources, each source reported separately and equally weighted inside the source arm; the 19 source-insufficient sections stay internal; lung is not testable as a source; breast and liver are cross-organ",
+  "identity": "only 8 within-study confirmed units; 57 units unknown and never upgraded; section counts are never reported as patient counts",
+  "no_pass_threshold": "no single correlation threshold is used to name a real field; only distributions, denominators and explicit not-estimable states are reported",
+  "structural_not_testable": {
+    "NO_PANEL_GENES": "none of the defined genes is present in the section panel",
+    "FEWER_THAN_THREE_MEASURABLE": "cannot run the synergy/leave-one-out checks",
+    "FEWER_THAN_SIX_MEASURABLE": "each disjoint subset needs at least 3 measurable genes",
+    "CONSTANT_MAP": "zero-variance map gives no correlation",
+    "DEGENERATE_TECHNICAL_RESIDUAL": "residualisation leaves no variance",
+    "CONTROL_BIN_INSUFFICIENT": "that control draw has too few matched candidates; the number of evaluable draws is recorded",
+    "BARCODE_OR_COORDINATE_MISMATCH": "hard failure, the section is not evaluated"
+  },
+  "no_segment2_locking": "segment 1 is descriptive only; nothing here selects or fixes the gene membership, weights or candidate counts of segment 2; if segment 2 is authorised it must reuse the existing split files and fit every learnable definition on training units only, assert that an established unit never crosses training and test, and never modify candidate matching or naming from test results",
+  "min_free_bytes": 200000000000,
+  "estimated_max_new_bytes": 3000000000,
+  "workers": 4,
+  "threads": 2,
+  "gpu_allowed": false,
+  "human_tls_labels_allowed": false,
+  "not_run": [
+    "candidate field proposal (segment 2)",
+    "any model training or held-out split",
+    "human TLS labels, old manual evaluation or HookNet outputs",
+    "external data",
+    "GPU computation"
+  ],
+  "seed": 20261019,
+  "seed_note": "fixed before computation; used only to derive the 10 per-section, per-target subset split seeds (recorded per draw)"
+}

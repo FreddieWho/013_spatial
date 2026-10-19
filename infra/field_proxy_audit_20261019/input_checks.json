@@ -1,0 +1,24 @@
+{
+  "targets": {
+    "B_AXIS": 49,
+    "HALLMARK_INTERFERON_GAMMA_RESPONSE": 200,
+    "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": 200,
+    "HALLMARK_OXIDATIVE_PHOSPHORYLATION": 200
+  },
+  "frozen_target_order": [
+    "B_AXIS",
+    "HALLMARK_OXIDATIVE_PHOSPHORYLATION",
+    "HALLMARK_INTERFERON_GAMMA_RESPONSE",
+    "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION"
+  ],
+  "n_sections": 72,
+  "n_units": 65,
+  "known_sections": 14,
+  "known_units": 8,
+  "source_not_testable": 19,
+  "free_bytes": 774858756096,
+  "storage_reserve_ok": true,
+  "verified": {
+    "sections": 72
+  }
+}

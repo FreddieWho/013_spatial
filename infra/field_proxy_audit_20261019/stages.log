@@ -1,0 +1,3 @@
+prepare exit=0 wall_s=80 user_s=34.44 sys_s=8.80 max_rss_kb=165024
+audit exit=0 wall_s=78 user_s=237.76 sys_s=59.97 max_rss_kb=2523820
+summarize exit=0 wall_s=3 user_s=2.55 sys_s=0.19 max_rss_kb=205764
