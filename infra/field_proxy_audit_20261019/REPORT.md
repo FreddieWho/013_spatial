@@ -41,12 +41,21 @@
 
 | 目标 | 片数 | 两半相关中位 | q10–q90（片间） | q75 Jaccard 中位 | 匹配对照相关中位 | 可评对照次数中位 |
 |---|---:|---:|---|---:|---:|---:|
-| B_AXIS | 72 | 0.599 | 0.498–0.643 | 0.392 | 0.313 | 10.0 |
-| HALLMARK_INTERFERON_GAMMA_RESPONSE | 72 | 0.790 | 0.771–0.804 | 0.497 | 0.781 | 10.0 |
-| HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | 72 | 0.916 | 0.894–0.925 | 0.676 | 0.797 | 0.0 |
-| HALLMARK_OXIDATIVE_PHOSPHORYLATION | 72 | 0.873 | 0.870–0.881 | 0.576 | 0.922 | 0.0 |
+| B_AXIS | 72 | 0.599 | 0.498–0.643 | 0.392 | 0.286 | 10.0 |
+| HALLMARK_INTERFERON_GAMMA_RESPONSE | 72 | 0.790 | 0.771–0.804 | 0.497 | 0.724 | 10.0 |
+| HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | 72 | 0.916 | 0.894–0.925 | 0.676 | 0.682 | 0.0 |
+| HALLMARK_OXIDATIVE_PHOSPHORYLATION | 72 | 0.873 | 0.870–0.881 | 0.576 | 0.836 | 0.0 |
 
-**对照可评覆盖（必须与上表同读）**：288 个切片×目标中 **126 个（44%）没有任何可评对照抽取**（四分位档在本片目标外可测基因中候选不足）；按目标：{"HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": 60, "HALLMARK_OXIDATIVE_PHOSPHORYLATION": 41, "HALLMARK_INTERFERON_GAMMA_RESPONSE": 21, "B_AXIS": 4}。可比较的 162 个 case 中，观测减对照的相关差中位 +0.047，观测更高的比例 64%（仅描述；不是显著性，也不是独立生物参照）。
+**对照可评覆盖（必须与上表同读，且不得跨目标合并）**
+
+| 目标 | 切片×目标 | 有可评对照 | 无可评对照 | 可比切片里观测更高 | 观测减对照中位 |
+|---|---:|---:|---:|---:|---:|
+| B_AXIS | 72 | 66 | 6 | 92% | +0.264 |
+| HALLMARK_INTERFERON_GAMMA_RESPONSE | 72 | 38 | 34 | 82% | +0.050 |
+| HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | 72 | 2 | 70 | 100% | +0.164 |
+| HALLMARK_OXIDATIVE_PHOSPHORYLATION | 72 | 7 | 65 | 57% | +0.007 |
+
+全体 288 个切片×目标中 175 个没有任何可评对照抽取（四分位档在本片目标外可测基因中候选不足，逐次记录在 `subset_draws.tsv`）。**每个目标单独读；不给跨目标合并的差，也不把该差当显著性、生物参照或 HF-01。**单次对照内两半不重复取同一基因（`control_shared_genes` 全为 0）。
 
 每个互斥子集至少 3 个可测基因（合计 ≥6），否则该片该目标为 NOT_ESTIMABLE（见 `not_testable.tsv`）；对照档位候选不足只让**该次抽取**不可评，逐次计数保存在 `subset_draws.tsv`，不得改档位或补抽。
 
@@ -67,34 +76,34 @@
 - deletion_jaccard_q75：完整单位 260/260，单位均值 0.944
 - subset_corr_median：完整单位 260/260，单位均值 0.775
 - subset_jaccard_q75_median：完整单位 260/260，单位均值 0.534
-- control_corr_median：完整单位 144/260，单位均值 0.614
+- control_corr_median：完整单位 100/260，单位均值 0.485
 
 ### 6 个可辨来源（仅 ELIGIBLE；乳腺/肝脏为器官外推）
 
 | 来源 | 目标 | 单位数 | 完整 | 两半相关中位 | 匹配对照中位 |
 |---|---|---:|---:|---:|---:|
-| https://www.biorxiv.org/content/10.1101/2022.11.09.5（器官外推） | B_AXIS | 2 | 2 | 0.460 | 0.235 |
-| https://www.biorxiv.org/content/10.1101/2022.11.09.5（器官外推） | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | 2 | 2 | 0.857 | 0.620 |
-| https://www.biorxiv.org/content/10.1101/2022.11.09.5（器官外推） | HALLMARK_INTERFERON_GAMMA_RESPONSE | 2 | 2 | 0.541 | 0.659 |
-| https://www.biorxiv.org/content/10.1101/2022.11.09.5（器官外推） | HALLMARK_OXIDATIVE_PHOSPHORYLATION | 2 | 2 | 0.816 | 0.932 |
-| https://www.biorxiv.org/content/10.1101/2023.01.23.5 | B_AXIS | 6 | 6 | 0.609 | 0.275 |
+| https://www.biorxiv.org/content/10.1101/2022.11.09.5（器官外推） | B_AXIS | 2 | 2 | 0.460 | 0.201 |
+| https://www.biorxiv.org/content/10.1101/2022.11.09.5（器官外推） | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | 2 | 2 | 0.857 | NA |
+| https://www.biorxiv.org/content/10.1101/2022.11.09.5（器官外推） | HALLMARK_INTERFERON_GAMMA_RESPONSE | 2 | 2 | 0.541 | 0.601 |
+| https://www.biorxiv.org/content/10.1101/2022.11.09.5（器官外推） | HALLMARK_OXIDATIVE_PHOSPHORYLATION | 2 | 2 | 0.816 | NA |
+| https://www.biorxiv.org/content/10.1101/2023.01.23.5 | B_AXIS | 6 | 6 | 0.609 | 0.269 |
 | https://www.biorxiv.org/content/10.1101/2023.01.23.5 | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | 6 | 6 | 0.911 | NA |
-| https://www.biorxiv.org/content/10.1101/2023.01.23.5 | HALLMARK_INTERFERON_GAMMA_RESPONSE | 6 | 6 | 0.732 | 0.753 |
-| https://www.biorxiv.org/content/10.1101/2023.01.23.5 | HALLMARK_OXIDATIVE_PHOSPHORYLATION | 6 | 6 | 0.820 | 0.907 |
-| https://www.biorxiv.org/content/10.1101/2024.06.04.5 | B_AXIS | 2 | 2 | 0.723 | 0.341 |
+| https://www.biorxiv.org/content/10.1101/2023.01.23.5 | HALLMARK_INTERFERON_GAMMA_RESPONSE | 6 | 6 | 0.732 | 0.665 |
+| https://www.biorxiv.org/content/10.1101/2023.01.23.5 | HALLMARK_OXIDATIVE_PHOSPHORYLATION | 6 | 6 | 0.820 | NA |
+| https://www.biorxiv.org/content/10.1101/2024.06.04.5 | B_AXIS | 2 | 2 | 0.723 | 0.316 |
 | https://www.biorxiv.org/content/10.1101/2024.06.04.5 | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | 2 | 2 | 0.927 | NA |
-| https://www.biorxiv.org/content/10.1101/2024.06.04.5 | HALLMARK_INTERFERON_GAMMA_RESPONSE | 2 | 2 | 0.828 | 0.793 |
-| https://www.biorxiv.org/content/10.1101/2024.06.04.5 | HALLMARK_OXIDATIVE_PHOSPHORYLATION | 2 | 2 | 0.915 | 0.948 |
-| https://www.cell.com/cell/fulltext/S0092-8674(21)013 | B_AXIS | 2 | 2 | 0.565 | 0.402 |
+| https://www.biorxiv.org/content/10.1101/2024.06.04.5 | HALLMARK_INTERFERON_GAMMA_RESPONSE | 2 | 2 | 0.828 | 0.665 |
+| https://www.biorxiv.org/content/10.1101/2024.06.04.5 | HALLMARK_OXIDATIVE_PHOSPHORYLATION | 2 | 2 | 0.915 | NA |
+| https://www.cell.com/cell/fulltext/S0092-8674(21)013 | B_AXIS | 2 | 2 | 0.565 | 0.433 |
 | https://www.cell.com/cell/fulltext/S0092-8674(21)013 | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | 2 | 2 | 0.952 | NA |
-| https://www.cell.com/cell/fulltext/S0092-8674(21)013 | HALLMARK_INTERFERON_GAMMA_RESPONSE | 2 | 2 | 0.772 | 0.874 |
-| https://www.cell.com/cell/fulltext/S0092-8674(21)013 | HALLMARK_OXIDATIVE_PHOSPHORYLATION | 2 | 2 | 0.880 | 0.952 |
-| https://www.cell.com/cell/fulltext/S0092-8674(23)012 | B_AXIS | 34 | 34 | 0.544 | 0.278 |
-| https://www.cell.com/cell/fulltext/S0092-8674(23)012 | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | 34 | 34 | 0.904 | 0.767 |
-| https://www.cell.com/cell/fulltext/S0092-8674(23)012 | HALLMARK_INTERFERON_GAMMA_RESPONSE | 34 | 34 | 0.779 | 0.770 |
-| https://www.cell.com/cell/fulltext/S0092-8674(23)012 | HALLMARK_OXIDATIVE_PHOSPHORYLATION | 34 | 34 | 0.892 | 0.921 |
-| https://www.nature.com/articles/s41467-023-43458-x（器官外推） | B_AXIS | 1 | 1 | 0.856 | 0.360 |
-| https://www.nature.com/articles/s41467-023-43458-x（器官外推） | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | 1 | 1 | 0.947 | 0.897 |
+| https://www.cell.com/cell/fulltext/S0092-8674(21)013 | HALLMARK_INTERFERON_GAMMA_RESPONSE | 2 | 2 | 0.772 | 0.825 |
+| https://www.cell.com/cell/fulltext/S0092-8674(21)013 | HALLMARK_OXIDATIVE_PHOSPHORYLATION | 2 | 2 | 0.880 | NA |
+| https://www.cell.com/cell/fulltext/S0092-8674(23)012 | B_AXIS | 34 | 34 | 0.544 | 0.295 |
+| https://www.cell.com/cell/fulltext/S0092-8674(23)012 | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | 34 | 34 | 0.904 | 0.682 |
+| https://www.cell.com/cell/fulltext/S0092-8674(23)012 | HALLMARK_INTERFERON_GAMMA_RESPONSE | 34 | 34 | 0.779 | 0.740 |
+| https://www.cell.com/cell/fulltext/S0092-8674(23)012 | HALLMARK_OXIDATIVE_PHOSPHORYLATION | 34 | 34 | 0.892 | 0.886 |
+| https://www.nature.com/articles/s41467-023-43458-x（器官外推） | B_AXIS | 1 | 1 | 0.856 | 0.371 |
+| https://www.nature.com/articles/s41467-023-43458-x（器官外推） | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | 1 | 1 | 0.947 | NA |
 | https://www.nature.com/articles/s41467-023-43458-x（器官外推） | HALLMARK_INTERFERON_GAMMA_RESPONSE | 1 | 1 | 0.859 | NA |
 | https://www.nature.com/articles/s41467-023-43458-x（器官外推） | HALLMARK_OXIDATIVE_PHOSPHORYLATION | 1 | 1 | 0.916 | NA |
 

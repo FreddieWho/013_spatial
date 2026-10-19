@@ -221,6 +221,7 @@ def build_bins(union_stats):
 
 
 def match_cells(needed, pool_by_cell, rng):
+    """Sample pool genes for one half only (kept for reference; the control uses the joint rule)."""
     chosen = []
     for cell, count in needed.items():
         candidates = pool_by_cell.get(cell, [])
@@ -229,6 +230,23 @@ def match_cells(needed, pool_by_cell, rng):
         picks = rng.choice(len(candidates), size=count, replace=False)
         chosen.extend(candidates[int(i)] for i in picks)
     return chosen
+
+
+def match_cells_joint(pool_by_cell, needed_a, needed_b, rng):
+    """D-277 no-reuse rule: both halves are sampled in one pass, so a pool gene used by one
+    half can never be used by the other half of the same control draw."""
+    chosen_a, chosen_b = [], []
+    for cell in sorted(set(needed_a) | set(needed_b)):
+        na, nb = needed_a.get(cell, 0), needed_b.get(cell, 0)
+        candidates = pool_by_cell.get(cell, [])
+        if len(candidates) < na + nb:
+            return None
+        picks = rng.choice(len(candidates), size=na + nb, replace=False)
+        chosen_a.extend(candidates[int(i)] for i in picks[:na])
+        chosen_b.extend(candidates[int(i)] for i in picks[na:])
+    if set(chosen_a) & set(chosen_b):
+        return None
+    return chosen_a, chosen_b
 
 
 def audit_section(job):
@@ -405,20 +423,26 @@ def audit_section(job):
                     cell = (int(np.searchsorted(det_edges, det_m[i])),
                             int(np.searchsorted(expr_edges, mean_m[i])))
                     needed[cell] = needed.get(cell, 0) + 1
-                chosen_a = match_cells(needed, pool_by_cell, rng)
                 needed_b = {}
                 for i in np.flatnonzero(~mask):
                     cell = (int(np.searchsorted(det_edges, det_m[i])),
                             int(np.searchsorted(expr_edges, mean_m[i])))
                     needed_b[cell] = needed_b.get(cell, 0) + 1
-                chosen_b = match_cells(needed_b, pool_by_cell, rng)
-                if chosen_a and chosen_b:
+                control_seed = seed_for(c['seed'], row['section_id'], target, 'control_draw', draw)
+                sampled = match_cells_joint(pool_by_cell, needed, needed_b,
+                                            np.random.default_rng(control_seed))
+                if sampled is not None:
+                    chosen_a, chosen_b = sampled
                     ctrl_a = z_u[:, [pool_cols[i] for i in chosen_a]].mean(axis=1)
                     ctrl_b = z_u[:, [pool_cols[i] for i in chosen_b]].mean(axis=1)
                     control_corr = corr(ctrl_a, ctrl_b)
                     control_jac = jaccard_high(ctrl_a, ctrl_b, c['operational_quantile'])
+                    shared = len(set(chosen_a) & set(chosen_b))
+                else:
+                    shared = None
             controls.append(dict(draw=draw, corr=control_corr, jaccard=control_jac,
-                                 evaluable=control_corr is not None))
+                                 evaluable=control_corr is not None, shared=shared,
+                                 control_seed=control_seed))
         for obs, ctl in zip(observed, controls):
             draw_rows.append(dict(base_row, draw=obs['draw'],
                                   split_seed=seed_for(c['seed'], row['section_id'], target,
@@ -427,7 +451,9 @@ def audit_section(job):
                                   corr=obs['corr'], jaccard_q75=obs['jaccard'],
                                   corr_residual=obs['corr_residual'], centroid_shift_pitch=obs['centroid'],
                                   control_corr=ctl['corr'], control_jaccard_q75=ctl['jaccard'],
-                                  control_evaluable=ctl['evaluable']))
+                                  control_evaluable=ctl['evaluable'],
+                                  control_shared_genes=ctl['shared'],
+                                  control_seed=ctl['control_seed']))
         obs_corr = distribution([o['corr'] for o in observed])
         obs_jac = distribution([o['jaccard'] for o in observed])
         obs_res = distribution([o['corr_residual'] for o in observed])
@@ -458,6 +484,136 @@ def audit_section(job):
     (out / 'COMPLETE').write_text('SECTION_AUDIT_DONE\n')
     return dict(sid=row['section_id'], seconds=round(time.time() - started, 1),
                 targets=len(summaries))
+
+
+# --------------------------------------------------------------------------- control recompute
+CONTROL_DRAW_COLUMNS = ['control_corr', 'control_jaccard_q75', 'control_evaluable',
+                        'control_shared_genes', 'control_seed']
+CONTROL_SUMMARY_COLUMNS = ['control_corr_median', 'control_corr_q10', 'control_corr_q90',
+                           'control_jaccard_q75_median', 'n_evaluable_control_draws']
+
+
+def recompute_controls_section(job):
+    """Recompute only the matched-control columns under the D-277 no-reuse rule.
+
+    The target's 10 splits, the bins, the technical regression and every other column are
+    untouched: the target half masks are regenerated from the same seeds and asserted against
+    the stored half sizes before any control value is replaced.
+    """
+    ctx = setup(verify='none')
+    c, panels = ctx['c'], ctx['panels']
+    row = ctx['byid'][job['sid']]
+    out = Path(job['out'])
+    draws_path, subset_path = out / 'subset_draws.tsv', out / 'subset_consistency.tsv'
+    if not draws_path.exists() or not subset_path.exists():
+        return dict(sid=job['sid'], status='no_subset_rows')
+    draws = list(csv.DictReader(draws_path.open(), delimiter='\t'))
+    subsets = list(csv.DictReader(subset_path.open(), delimiter='\t'))
+    if not draws:
+        return dict(sid=job['sid'], status='no_draws')
+    union_genes = sorted({g for t_ in c['targets'] for g in panels[t_]})
+    data = read_section(row, union_genes)
+    cache = base.load_cache(row)
+    review.assert_aligned(data['barcodes'], cache['barcodes'])
+    z_u = data['z_union']
+    counts_u = data['matrix'][:, data['positions']].tocsr()
+    n_any_u = np.asarray((counts_u > 0).sum(axis=0)).ravel()
+    det_u = np.asarray((counts_u > 0).mean(axis=0)).ravel()
+    mean_u = z_u.mean(axis=0)
+    measurable_u = (n_any_u >= 20) & (np.std(z_u, axis=0) > 0)
+    union_stats = [(g, float(det_u[i]), float(mean_u[i]))
+                   for i, g in enumerate(data['present']) if measurable_u[i]]
+    det_edges, expr_edges = build_bins(union_stats)
+    changed = 0
+    for target in c['targets']:
+        tdraws = [r for r in draws if r['target'] == target]
+        tsubset = [r for r in subsets if r['target'] == target]
+        if not tdraws or not tsubset:
+            continue
+        members = [g for g in panels[target] if g in data['index']]
+        cols = [data['index'][g] for g in members]
+        n_any = n_any_u[cols]
+        measurable = (n_any >= 20) & (np.std(z_u[:, cols], axis=0) > 0)
+        zm = z_u[:, cols][:, measurable]
+        det_m = det_u[cols][measurable]
+        mean_m = mean_u[cols][measurable]
+        pool_genes = [g for g in data['present'] if g not in set(members)]
+        pool_cols = [data['index'][g] for g in pool_genes if measurable_u[data['index'][g]]]
+        pool_by_cell = defaultdict(list)
+        if det_edges is not None:
+            for j, col in enumerate(pool_cols):
+                cell = (int(np.searchsorted(det_edges, det_u[col])),
+                        int(np.searchsorted(expr_edges, mean_u[col])))
+                pool_by_cell[cell].append(j)
+        for r in tdraws:
+            draw = int(r['draw'])
+            rng = np.random.default_rng(seed_for(c['seed'], row['section_id'], target,
+                                                 'subset_split', draw))
+            order = rng.permutation(zm.shape[1])
+            half = zm.shape[1] // 2
+            mask = np.zeros(zm.shape[1], bool)
+            mask[order[:half]] = True
+            if int(np.count_nonzero(mask)) != int(r['n_half_a']) or \
+                    int(np.count_nonzero(~mask)) != int(r['n_half_b']):
+                raise ValueError(f'Target split changed while recomputing controls: '
+                                 f'{row["section_id"]}/{target}/{draw}')
+            needed_a, needed_b = {}, {}
+            for i in np.flatnonzero(mask):
+                cell = (int(np.searchsorted(det_edges, det_m[i])),
+                        int(np.searchsorted(expr_edges, mean_m[i])))
+                needed_a[cell] = needed_a.get(cell, 0) + 1
+            for i in np.flatnonzero(~mask):
+                cell = (int(np.searchsorted(det_edges, det_m[i])),
+                        int(np.searchsorted(expr_edges, mean_m[i])))
+                needed_b[cell] = needed_b.get(cell, 0) + 1
+            control_seed = seed_for(c['seed'], row['section_id'], target, 'control_draw', draw)
+            sampled = match_cells_joint(pool_by_cell, needed_a, needed_b,
+                                        np.random.default_rng(control_seed)) \
+                if (pool_cols and det_edges is not None) else None
+            if sampled is None:
+                r['control_corr'] = ''
+                r['control_jaccard_q75'] = ''
+                r['control_evaluable'] = 'False'
+                r['control_shared_genes'] = ''
+            else:
+                chosen_a, chosen_b = sampled
+                ctrl_a = z_u[:, [pool_cols[i] for i in chosen_a]].mean(axis=1)
+                ctrl_b = z_u[:, [pool_cols[i] for i in chosen_b]].mean(axis=1)
+                r['control_corr'] = corr(ctrl_a, ctrl_b)
+                r['control_jaccard_q75'] = jaccard_high(ctrl_a, ctrl_b,
+                                                        c['operational_quantile'])
+                r['control_evaluable'] = 'True'
+                r['control_shared_genes'] = 0
+            r['control_seed'] = control_seed
+            changed += 1
+        corr_values = [num_ for num_ in (float(r['control_corr']) for r in tdraws
+                                         if r['control_corr'] not in ('', 'None'))] \
+            if any(r['control_corr'] not in ('', 'None') for r in tdraws) else []
+        corr_stats = distribution(corr_values)
+        jac_values = [float(r['control_jaccard_q75']) for r in tdraws
+                      if r['control_jaccard_q75'] not in ('', 'None')]
+        for s in tsubset:
+            s['control_corr_median'] = corr_stats['median']
+            s['control_corr_q10'] = corr_stats['q10']
+            s['control_corr_q90'] = corr_stats['q90']
+            s['control_jaccard_q75_median'] = (distribution(jac_values)['median']
+                                               if jac_values else '')
+            s['n_evaluable_control_draws'] = sum(1 for r in tdraws
+                                                 if r['control_evaluable'] == 'True')
+    base.tsv_write(draws_path, draws)
+    base.tsv_write(subset_path, subsets)
+    return dict(sid=job['sid'], status='controls_recomputed', draws=changed)
+
+
+def recompute_controls(sids=None, workers=None):
+    ctx = setup(verify='none')
+    c = ctx['c']
+    root = WORK / 'sections'
+    jobs = [dict(sid=s, out=str(root / s)) for s in (sids or sorted(ctx['byid']))]
+    with multiprocessing.get_context('spawn').Pool(processes=workers or c['workers']) as pool:
+        for info in pool.imap_unordered(recompute_controls_section, jobs):
+            print(json.dumps(info), flush=True)
+    (WORK / 'CONTROLS_RECOMPUTED').write_text('D277_NO_REUSE_CONTROLS\n')
 
 
 # --------------------------------------------------------------------------- commands
@@ -692,18 +848,25 @@ def write_report(per_section, collected, units, c, out, arms):
                      f"{show(med(rows, 'subset_jaccard_q75_median'))} | "
                      f"{show(med(rows, 'control_corr_median'))} | "
                      f"{show(med(srs, 'n_evaluable_control_draws'), 1)} |")
-    comparable = [r for r in subset_rows if review.numeric(r.get('control_corr_median')) is not None]
     zero_draws = [r for r in subset_rows if int(r['n_evaluable_control_draws']) == 0]
-    by_target_zero = Counter(r['target'] for r in zero_draws)
-    diffs = [review.numeric(r['corr_median']) - review.numeric(r['control_corr_median'])
-             for r in comparable]
-    lines += ['', f'**对照可评覆盖（必须与上表同读）**：{len(subset_rows)} 个切片×目标中 '
-              f'**{len(zero_draws)} 个（{100*len(zero_draws)/max(len(subset_rows),1):.0f}%）没有任何可评对照抽取**'
-              f'（四分位档在本片目标外可测基因中候选不足）；按目标：'
-              f'{json.dumps(dict(by_target_zero), ensure_ascii=False)}。'
-              f'可比较的 {len(comparable)} 个 case 中，观测减对照的相关差中位 '
-              f'{np.median(diffs):+.3f}，观测更高的比例 {100*np.mean([d > 0 for d in diffs]):.0f}%'
-              '（仅描述；不是显著性，也不是独立生物参照）。', '',
+    lines += ['', '**对照可评覆盖（必须与上表同读，且不得跨目标合并）**', '',
+              '| 目标 | 切片×目标 | 有可评对照 | 无可评对照 | 可比切片里观测更高 | 观测减对照中位 |',
+              '|---|---:|---:|---:|---:|---:|']
+    for target in c['targets']:
+        rows = [r for r in subset_rows if r['target'] == target]
+        if not rows:
+            continue
+        comparable = [r for r in rows
+                      if review.numeric(r.get('control_corr_median')) is not None]
+        diffs = [review.numeric(r['corr_median']) - review.numeric(r['control_corr_median'])
+                 for r in comparable]
+        lines.append(f"| {target} | {len(rows)} | {len(comparable)} | {len(rows)-len(comparable)} | "
+                     f"{(100*np.mean([d > 0 for d in diffs])) if diffs else float('nan'):.0f}% | "
+                     f"{(np.median(diffs)) if diffs else float('nan'):+.3f} |")
+    lines += ['', f'全体 288 个切片×目标中 {len(zero_draws)} 个没有任何可评对照抽取'
+              '（四分位档在本片目标外可测基因中候选不足，逐次记录在 `subset_draws.tsv`）。'
+              '**每个目标单独读；不给跨目标合并的差，也不把该差当显著性、生物参照或 HF-01。**'
+              '单次对照内两半不重复取同一基因（`control_shared_genes` 全为 0）。', '',
               '每个互斥子集至少 3 个可测基因（合计 ≥6），否则该片该目标为 NOT_ESTIMABLE'
               '（见 `not_testable.tsv`）；对照档位候选不足只让**该次抽取**不可评，'
               '逐次计数保存在 `subset_draws.tsv`，不得改档位或补抽。', '',
@@ -768,7 +931,8 @@ def smoke(sids=('MISC33', 'ZEN38')):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', choices=['prepare', 'audit', 'summarize', 'smoke'])
+    parser.add_argument('command', choices=['prepare', 'audit', 'summarize', 'smoke',
+                                             'recompute-controls'])
     parser.add_argument('--sections', nargs='*', default=None)
     parser.add_argument('--workers', type=int, default=None)
     parser.add_argument('--force', action='store_true')
@@ -781,5 +945,7 @@ if __name__ == '__main__':
         audit(sids=args.sections, workers=args.workers, force=args.force)
     elif args.command == 'summarize':
         summarize()
+    elif args.command == 'recompute-controls':
+        recompute_controls(sids=args.sections, workers=args.workers)
     else:
         smoke()

@@ -110,6 +110,10 @@ def main():
         seeds.setdefault((r['section_id'], r['target']), set()).add(r['split_seed'])
     distinct = all(len(v) == 10 for v in seeds.values())
     record('ten_distinct_split_seeds_per_case', '10 distinct', distinct, distinct)
+    shared = [num(r.get('control_shared_genes')) for r in draws
+              if r.get('control_shared_genes') not in (None, '', 'None')]
+    record('control_halves_share_no_pool_gene', 'all 0', (len(shared), max(shared) if shared else None),
+           bool(shared) and max(shared) == 0)
     evaluable = [num(r['n_evaluable_control_draws']) for r in subset]
     record('control_evaluable_recorded', '0..10 recorded', (min(evaluable), max(evaluable)),
            all(v is not None and 0 <= v <= 10 for v in evaluable))

@@ -1,34 +1,42 @@
-# 四个代理场体检（第一段）：执行交接
+# 四个代理场体检（第一段）：执行交接（R-01 对照修复后）
 
-**状态：第一段已完成（72 片 × 4 目标），PENDING_INDEPENDENT_REVIEW。** 第二段未授权、未执行；本文件不锁定第二段的任何基因成员、权重或候选数。
-授权：合同 `docs/FIELD_PROXY_AUDIT_CONTRACT_20261019.md`（含 Git `827d163` 的 D-277 补充口径，P-01～P-05 已关闭）；预审 `infra/paseo_proxy_audit_20261019/review/preflight.json` = `STAGE1_RELEASED`。
-**声明上限：片内基因同向、留一相似或超过随机对照，都不是生物协同、独立病理真值或 HF-01；本段不检验 HF-01 增量。** 整片切片数不冒称患者数。
+**状态：第一段描述性表可用；匹配对照比较仅按目标单独读。** 复核文件 `infra/paseo_proxy_audit_20261019/review/implementation_and_results.json`：
+`allow_descriptive_proxy_report=true`、**`allow_matched_control_contrast=false`（R-01 未关闭前）**、`allow_scientific_claim=false`、`stage2_authorized=false`。
+本版已按 R-01 的 minimal_fix **只重算对照列**（两半合计不重复取同一基因），未改目标集合的 10 次拆分、未改分档、未重跑技术回归、未启动第二段；**本文件不宣布 R-01 已关闭，等待复核**。
+
+**声明上限：片内同向、留一相似、两半相关高于对照，都不是生物协同、独立病理真值或 HF-01。** 切片数不冒称患者数。
+
+## R-01 修复（本轮唯一改动）
+
+- **缺陷**：`match_cells` 对两半分别从同一目标外基因池抽取，同一次对照可能把同一基因同时放进两张对照图 → 对照相关被抬高（审核独立指出）。
+- **修复**：新增 `match_cells_joint`——每次抽取在**一次抽样**中按“分档单元”取 `n_half_a + n_half_b` 个，前 `n_half_a` 给 A 半、其余给 B 半，**两半合计不重复**；若某档候选不足则整次对照不可评（不改档、不补抽）。对照种子独立记录（`control_seed`），逐次写入 `control_shared_genes`（应恒为 0）。
+- **范围控制**：新增命令 `recompute-controls` 只重写 `subset_draws.tsv` 的对照列与 `subset_consistency.tsv` 的对照汇总列；目标两半的掩码用同一批种子重生成并**断言与存档的 `n_half_a`/`n_half_b` 完全一致**（不符即报错），因此目标集合的 10 次拆分未变。
+- **未变证据**：与存档 `archive/pre_r01_controls/` 逐行比较，**非对照列 0 处变化**（draws 2 880 行、consistency 288 行）。
+- **对照证据**：1 130 次可评对照抽取，`control_shared_genes` 最大值为 **0**；可评覆盖因规则更严而下降（见下），这正是修复生效的表现。
+- **被取代的旧结论（不得再用）**：修复前“OXPHOS 低于对照（可评 31 片、中位差 −0.039）”与“跨目标 +0.047 / 64%”已作废，存档保留但不用于解释。
 
 ## 1. 实现与版本
 
-- 计算脚本 `scripts/field_proxy_audit_20261019.py`；机器合同 `infra/field_proxy_audit_20261019/contract.json`（v2，逐条写入 D-277 规则）；定向验证 `infra/field_proxy_audit_20261019/verify_results.py`。
-- 旧代理读数沿用已审定义（每个基因图 = `log1p(1e4 × 该基因原始计数 / 同点全基因文库)`，集合图为这些图的算术平均）；单基因/留一/互斥子集图使用**同一原始计数、同一全基因文库分母、同一组织点与条码顺序**，仅改变纳入平均的基因；零文库点按旧定义处理，不补值。
-- **已审支持表复用**：`infra/field_biological_review_20261019/measured_fields.tsv`，逐行记录来源（列 `approved_support_source`）；该表的有效基因数/首位份额按**原始计数总额**加权，本表的“读出加权”列按 log1p 均值计算，两者定义不同、分列报告。
-- 面板外缺失（`n_absent`）与面板内零计数（`n_in_panel_zero_counts`）分开；未检出不是生物阴性。
-- 可测基因 = 面板内 + **≥20 个组织点计数非零** + 基因图方差 > 0；只有可测基因进入片内协同、留一与两半检查。互斥子集各需 ≥3 个可测基因（合计 ≥6），否则 `NOT_ESTIMABLE`（本轮实际 0 例，B_AXIS 也不例外，见 §4）。
-- 技术对照 = **每张可测基因图一次片内回归**（截距 + 排除本目标基因后的点级文库 log1p + 非目标检出比例）；原图与残差图分开报告，残差**不替代**原图。
-- 固定对照 = 每个（切片 × 目标）**10 次固定种子**均分，全部逐次报告（`subset_draws.tsv`），不挑选最好一次；非目标对照按**检出比例 × 平均标准化表达的四分位档**同时匹配、每次抽样不重复取同一基因，某档候选不足则该次对照不可评（逐次记录，不改档不补抽）。
-
-### 实现中发现的真实缺陷（已在正式运行前修复）
-首版用 `c['targets'].index(target)` 取冻结 `y` 列，而本合同的四目标顺序与冻结 cache 的列顺序不同（cache：B_AXIS, OXPHOS, IFN-γ, EMT）→ 首轮 smoke 中 IFN/OXPHOS/EMT 的 `readout_max_abs_diff` 达 0.55–0.65。修复为读取冻结 cache 合同的列顺序并断言目标集合一致；正式运行后该差为 **≤6.0e-08**（§5 第 1 项）。
+- 计算脚本 `scripts/field_proxy_audit_20261019.py`（含 `recompute-controls`）；机器合同 `infra/field_proxy_audit_20261019/contract.json`（v2，逐条写入 D-277）；定向验证 `verify_results.py`。
+- 旧代理读数沿用已审定义（基因图 = `log1p(1e4 × 原始计数 / 同点全基因文库)`；集合图为算术平均）；单基因/留一/两半图同计数、同分母、同组织点与条码顺序，仅换基因集合；零文库点不补值。
+- 已审支持表复用 `infra/field_biological_review_20261019/measured_fields.tsv`（逐行记录 `approved_support_source`）；其有效基因数/首位份额按**原始计数总额**加权，本表“读出加权”列按 log1p 均值，二者分列、不混用。
+- 面板外缺失与面板内零计数分列；未检出不是生物阴性。
+- 可测基因 = 面板内 + ≥20 个组织点非零 + 方差>0；互斥子集各需 ≥3（合计 ≥6），否则 `NOT_ESTIMABLE`（本轮 0 例）。
+- 技术对照 = **每张可测基因图一次片内回归**（截距 + 排除本目标基因后的点级文库 log1p + 非目标检出比例）；原图与残差分开，残差不替代原图。
+- 固定对照 = 每（切片×目标）**10 次固定种子**均分并全部逐次入库；非目标对照按检出比例×平均标准化表达的四分位档匹配，**单次两半不重复**。
 
 ## 2. 覆盖与分母
 
 | 项 | 值 |
 |---|---|
-| 切片 × 目标 | **72 × 4 = 288** 行（`section_metrics.tsv`） |
+| 切片 × 目标 | **72 × 4 = 288** 行 |
 | 单位 | **65**（每目标 65 行，共 260 单位×目标行） |
 | 臂 | 内部 72 片/65 单位；来源 53 片/47 单位（6 个可辨来源）；来源不足 19 片仅内部 |
-| 身份 | 确认 **14 片 / 8 单位**；其余 57 单位未知，不升级 |
-| 器官外推 | `source_0`（肝）、`source_5`（乳腺）；肺切片全在来源不足集内 → **肺来源不可评** |
-| 单位×指标状态 | COMPLETE **4044**、INCOMPLETE_UNIT **4**、NOT_ESTIMABLE_UNIT **112**（全部来自 `control_corr_median` 的对照不可评） |
-| 结构化不可评价 | `not_testable.tsv` **0** 行（无切片×目标低于 ≥6 可测基因的下限） |
-| 对照可评覆盖 | 288 个 case 中 **126 个（44%）零可评对照抽取**；124 个为满 10 次，其余 1–9 次；靶标分布：EMT 60、OXPHOS 41、IFN-γ 21、B_AXIS 4 |
+| 身份 | 确认 14 片 / 8 单位；其余 57 单位未知 |
+| 器官外推 | `source_0`（肝）、`source_5`（乳腺）；肺来源不可评 |
+| 单位×指标状态 | COMPLETE 4 044、INCOMPLETE_UNIT 4、NOT_ESTIMABLE_UNIT（对照不可评）随修复后覆盖变化 |
+| 结构化不可评价 | `not_testable.tsv` **0** 行（无切片×目标低于 ≥6 可测基因） |
+| **对照可评覆盖（修复后）** | 288 个 case 中 **175 个无可评对照抽取**；B_AXIS 66/72、IFN-γ 38/72、**EMT 2/72**、**OXPHOS 7/72** |
 
 ## 3. 主要描述性结果（详见 `REPORT.md`）
 
@@ -36,61 +44,68 @@
 
 | 目标 | 面板内 | 任意检出 | 可测（≥20 点且方差>0） | 已审有效基因数 | 已审首位份额 | 读出加权首位份额 |
 |---|---:|---:|---:|---:|---:|---:|
-| B_AXIS | 47 | 47 | **38** | **2.87** | **0.535** | 0.236 |
+| B_AXIS | 47 | 47 | 38 | 2.87 | 0.535 | 0.236 |
 | IFN-γ | 196 | 195 | 188 | 24.66 | 0.120 | 0.044 |
 | EMT | 200 | 199 | 190 | 32.79 | 0.100 | 0.033 |
 | OXPHOS | 191 | 191 | 191 | 75.21 | 0.055 | 0.022 |
 
-**技术梯度对“聚合代理图”本身的解释力（`proxy_technical_r2`，单次片内回归）**：B_AXIS 中位 **0.11**（0.001–0.40）、EMT **0.17**、IFN-γ **0.43**、OXPHOS **0.76**（0.40–0.93）。即 OXPHOS（及部分 IFN-γ）的聚合代理图在片内大部分方差可由**排除目标基因后的深度/检出**解释；B_AXIS 与 EMT 较小。该回归也可能去掉与细胞密度耦合的生物信号，因此不能说“纯技术”。
+**聚合代理图自身的技术可解释方差（`proxy_technical_r2`，片内一次回归的 R²）**：B_AXIS 中位 **0.11**、EMT **0.17**、IFN-γ **0.43**、OXPHOS **0.76**（0.40–0.93）。逐基因技术 R² 中位仅 0.007–0.051——**两者不可混为“基因都被技术梯度主导”**；聚合图的高 R² 不能外推到逐基因，残差变小也不能单独判定生物或技术来源。
 
-**片内基因对协同（中位相关，原图 → 残差图）**：B_AXIS 0.037 → **0.032**；IFN-γ 0.022 → 0.009；EMT 0.037 → **0.030**；OXPHOS 0.063 → 0.011。逐基因技术可解释方差中位 0.007–0.051（远小于聚合图）。
+**片内基因对协同（中位相关，原图 → 残差图）**：B_AXIS 0.037→0.032；IFN-γ 0.022→0.009；EMT 0.037→0.030；OXPHOS 0.063→0.011。
 
-**删除最大贡献基因**：B_AXIS 被删份额 0.236，剩余图与可测均值相关中位 **0.985**、q75 Jaccard 0.869、质心位移 0.34 pitch；三个 Hallmark 删除份额 0.022–0.044，相关 ≈1.000、Jaccard 0.976–0.983。
+**删除最大贡献基因**：B_AXIS 被删份额 0.236，剩余图与可测均值相关 0.985、q75 Jaccard 0.869、质心位移 0.34 pitch；三个 Hallmark 删除份额 0.022–0.044，相关 ≈1.000、Jaccard 0.976–0.983。注意 B_AXIS 的 0.985 是 **log1p 均值图** 的留一稳定性，**不推翻已审的计数加权有效基因数 2.87 / 首位份额 0.535**。
 
-**互斥两半 vs 四分位档匹配对照（单位宏平均）**
-| 目标 | 臂 | 两半相关 | 匹配对照 | 对照可评单位 |
-|---|---|---:|---:|---:|
-| B_AXIS | 内部 | **0.576** | **0.320** | 61/65 |
-| B_AXIS | 来源 | **0.548** | **0.303** | 46/47 |
-| IFN-γ | 内部 | 0.790 | 0.781 | — |
-| OXPHOS | 内部 | 0.872 | **0.908** | 28/65 |
+**互斥两半 vs 匹配对照（修复后；仅按目标单独读，不跨目标合并）**
 
-EMT 在可评对照的少数切片上为 0.90–0.95 vs 0.62–0.90，但**多数切片无任何可评对照**（34 片大来源仅 5 个可评）。观测减对照的可比 162 个 case 中，相关差中位 **+0.047**、观测更高的比例 **64%**（描述性，非显著性）。
+| 目标 | 两半相关中位 | 可评对照切片 | 可比切片里观测更高 | 观测减对照中位 |
+|---|---:|---:|---:|---:|
+| B_AXIS | 0.599 | 66/72 | 92% | **+0.264** |
+| IFN-γ | 0.790 | 38/72 | 82% | +0.050 |
+| EMT | 0.916 | **2/72** | 100% | +0.164（仅 2 片） |
+| OXPHOS | 0.873 | **7/72** | 57% | +0.007 |
+
+EMT 的对照中位（0.68）只来自 2 片、OXPHOS（0.84）只来自 7 片；**不能读成全体切片**。B_AXIS 是唯一覆盖较高（66/72）且差值较大的目标，但它同时是已审支持最窄的目标（有效基因数 2.87）。
 
 ## 4. 解释边界
 
-- 以上全部是**描述性**：没有 PASS 阈值、没有显著性、没有独立病理或生物真值；高值集合是操作阈值（严格 > q75）。
-- **不能**把“两半相关高于匹配对照”写成生物协同：B_AXIS 的差值在内部与来源臂一致（+0.25 量级），但该检验只能说明“同集合的基因图在同一切片更一致”，不是独立分子身份或场间关系证据。
-- **OXPHOS/IFN-γ 的聚合代理图对非目标深度/检出高度敏感**（R² 中位 0.76/0.43），其代理图解释必须与这一技术成分一起读；B_AXIS 的“有效基因数 2.87 / 首位份额 0.535”（已审口径）说明其分子支持很窄，删除首位基因后图样仍稳定（0.985）但那是**同一已审定义的重新加权**，不是独立性证据。
-- 肺来源、未知患者、乳腺/肝脏器官外推限制照旧；切片数不等于患者数。
-- **第一段不锁定第二段**：本报告不提供候选基因成员、权重或候选数；第二段若启动须另按既有划分在训练单位拟合。
+- 全部为描述性：无 PASS 阈值、无显著性、无独立病理真值；高值集合是操作阈值（严格 > q75）。
+- **R-01 未关闭**：本版对照已按“单次两半不重复”重算，但在独立复核确认前，**对照差一律不作结论**；报告只按目标列出覆盖率与差值，不给跨目标合并值。
+- B_AXIS 的差值在内部与来源臂一致，但只说明“同集合的基因图在同一切片更一致”，不是独立分子身份或场间关系证据。
+- OXPHOS/IFN-γ 的聚合代理图对非目标深度/检出高度敏感（R² 0.76/0.43），其代理图解释必须与技术成分同读；B_AXIS 支持窄。
+- **第一段不锁定第二段**：不提供候选基因成员、权重或候选数；第二段未授权。
 
-## 5. 定向验证（`verify_results.py`，21 项 / 0 失败）
+## 5. 定向验证（`verify_results.py`，22 项 / 0 失败）
 
-覆盖 288 行/72 片/4 目标；每目标 65 单位；单位状态键合法；冻结读数复现 **≤6.0e-08**；已审支持表 **288/288 连接**且 `approved_genes_detected`/`approved_genes_in_panel` 与 `measured_fields.tsv` **逐行相等**、来源逐行记录；删除表 288 行、子集表 288 行、**每 case 恰 10 次抽取且 10 个不同种子**、每半 ≥3 基因；对照可评次数 0–10 全部记录；`not_testable` 原因集合合法（本轮为空）；条码顺序与冻结 cache 相等；每张图与 `base.target_readout` 一致（同一公式）；**残差对两个协变量正交（4.8e-16）**；技术协变量确实排除目标基因（重建差 0.0）。
+覆盖 288 行/72 片/4 目标、每目标 65 单位、单位状态键合法；冻结读数复现 **≤6.0e-08**；已审支持表 288/288 连接且 `approved_genes_detected`/`in_panel` 逐行相等、来源逐行记录；删除表/子集表各 288 行；**每 case 恰 10 次抽取且 10 个不同种子**、每半 ≥3 基因；**`control_shared_genes` 全部为 0（1 130 次可评对照）**；对照可评次数 0–10 全部记录；`not_testable` 原因集合合法（空）；条码与冻结 cache 相等；每张图与 `base.target_readout` 一致；残差对两协变量正交 4.8e-16；技术协变量确实排除目标基因（重建差 0.0）。
+另：`recompute-controls` 与存档比较**非对照列 0 处变化**（draws 2 880 行、consistency 288 行）。
 
 ## 6. 命令、计时与资源
 
 ```bash
 cd /home/huyudi/013_spatial
 export PYTHONNOUSERSITE=1 OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=-1
-/opt/anaconda3/bin/python scripts/field_proxy_audit_20261019.py prepare    # 冻结输入哈希核对
-/opt/anaconda3/bin/python scripts/field_proxy_audit_20261019.py audit      # 72 片，4 workers
-/opt/anaconda3/bin/python scripts/field_proxy_audit_20261019.py summarize
-/opt/anaconda3/bin/python infra/field_proxy_audit_20261019/verify_results.py
+PY=/opt/anaconda3/bin/python
+$PY scripts/field_proxy_audit_20261019.py prepare              # 冻结输入哈希核对
+$PY scripts/field_proxy_audit_20261019.py audit                # 72 片，4 workers
+$PY scripts/field_proxy_audit_20261019.py summarize
+$PY scripts/field_proxy_audit_20261019.py recompute-controls   # R-01：只重算对照列
+$PY scripts/field_proxy_audit_20261019.py summarize            # 单位/分层/报告重算
+$PY infra/field_proxy_audit_20261019/verify_results.py
 ```
 | 阶段 | 退出码 | 墙钟 | 进程 User | 进程 Sys | 最大 RSS |
 |---|---:|---:|---:|---:|---:|
 | prepare | 0 | 80 s | 34.4 s | 8.8 s | 165 MB |
-| audit | 0 | 78 s | 237.8 s | 60.0 s | **2.52 GB** |
+| audit | 0 | 78 s | 237.8 s | 60.0 s | 2.52 GB |
 | summarize | 0 | 3 s | 2.6 s | 0.2 s | 206 MB |
+| recompute-controls | 0 | 29 s | — | — | — |
 | verify | 0 | ~5 s | — | — | — |
 
-CPU、本地数据；人工 TLS / annotations / incoming / HookNet 未读取；磁盘余量充足（≥200 GB，产物约 22 MB）。
+CPU、本地数据；人工 TLS / annotations / incoming / HookNet 未读取；产物约 22 MB，磁盘余量 ≥200 GB。
 
 ## 7. 交付物
 
-- 结果：`REPORT.md`、`section_metrics.tsv`(288)、`synergy.tsv`(288)、`gene_coherence.tsv`(43 014)、`deletion_sensitivity.tsv`(288)、`subset_consistency.tsv`(288)、`subset_draws.tsv`(2 880 = 288×10)、`not_testable.tsv`(0)、`unit_metrics.tsv`(260)、`unit_macro.tsv`、`unit_strata.tsv`。
-- 核对：`verify_results.json`、`input_checks.json`、`prepare_receipt.json`、`stages.log`、`*_time.txt`。
-- 未提交（工作区）：`sections/`（72 个逐片中间目录）、`smoke/`（2 片贯通检查，非正式结果）。
-- 第二段：**未执行、未授权**；本段不提供任何候选场定义。
+- 结果：`REPORT.md`、`section_metrics.tsv`(288)、`synergy.tsv`(288)、`gene_coherence.tsv`(43 014)、`deletion_sensitivity.tsv`(288)、`subset_consistency.tsv`(288)、`subset_draws.tsv`(2 880)、`not_testable.tsv`(0)、`unit_metrics.tsv`(260)、`unit_macro.tsv`、`unit_strata.tsv`。
+- 核对：`verify_results.json`（22 项）、`input_checks.json`、`prepare_receipt.json`、`recompute_controls.log`、`stages.log`、`*_time.txt`。
+- R-01 证据：`archive/pre_r01_controls/`（修复前的 draws/consistency/unit/REPORT 副本，仅作对照，不用于解释）。
+- 未提交：`sections/`（逐片中间目录）、`smoke/`（2 片贯通检查）。
+- 第二段：未执行、未授权。

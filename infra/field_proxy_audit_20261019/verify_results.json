@@ -1,5 +1,5 @@
 {
-  "n_checks": 21,
+  "n_checks": 22,
   "n_failed": 0,
   "results": [
     {
@@ -35,7 +35,7 @@
     {
       "check": "unit_states_present",
       "expected": "COMPLETE/INCOMPLETE/NOT_ESTIMABLE keys",
-      "observed": "{'COMPLETE': 4044, 'NOT_ESTIMABLE_UNIT': 112, 'INCOMPLETE_UNIT': 4}",
+      "observed": "{'COMPLETE': 4000, 'NOT_ESTIMABLE_UNIT': 157, 'INCOMPLETE_UNIT': 3}",
       "passed": true
     },
     {
@@ -90,6 +90,12 @@
       "check": "ten_distinct_split_seeds_per_case",
       "expected": "10 distinct",
       "observed": "True",
+      "passed": true
+    },
+    {
+      "check": "control_halves_share_no_pool_gene",
+      "expected": "all 0",
+      "observed": "(1130, 0.0)",
       "passed": true
     },
     {
