@@ -200,11 +200,11 @@ small5 与 full15 改变基因数与可见归一化分母；因此**跨预算只
 ## 5. 分层与聚合
 
 1. **切片内**：所有指标在 `n_s` 个组织内点上计算，不在单位内混池。条码顺序逐点断言；预测包 `barcodes`/`y` 与冻结 cache 必须完全相等，不一致即终止（不静默重排）。
-2. **切片 → 单位**：单位内切片等权平均（沿用冻结协议；切片数逐单位记录）。**某指标若在该单位任一切片不可评价，则该单位的该指标为 `NOT_ESTIMABLE_UNIT`（不取部分切片的均值、不让剩余切片获得整单位权重），并记入 `partial_unit_metrics`；`complete_for_all_metrics` 标出单位是否全指标完整。**
+2. **切片 → 单位**：单位内切片等权平均（沿用冻结协议；切片数逐单位记录）。**单位身份只由既定 `unit_id` 与分析键（`split, arm, target, view, model, model_class, cross_organ_extrapolation`）确定；切片级元数据（`source_key`、`organ`、`platform`、`patient_known`、`confirmed_unit`）作为元数据保留，同一单位内不一致时标 `mixed`（并给 `*_n_distinct`），不得因标题或 source_key 把一个既定单位重复赋权。** **某指标若在该单位任一切片不可评价，则该单位的该指标为 `NOT_ESTIMABLE_UNIT`（不取部分切片的均值、不让剩余切片获得整单位权重），并记入 `partial_unit_metrics`；`complete_for_all_metrics` 标出单位是否全指标完整。**
 3. **单位 → 宏平均**：`(arm, target, view, model)` 内单位等权；报告 `n_units`、`n_estimable`、`n_units_partial`、均值、中位、p10/p25/p75/p90。**分层（strata）在某一层全不可评价时仍保留行，`mean` 为空并给 `reason='no_estimable_units_in_stratum'`，不静默消失。**
 4. **敏感性口径**（同表并列）：
    - `section_weighted`：切片等权（切片多的单位权重更大）；
-   - `source_balanced`（仅来源臂）：先在各来源内做单位等权，再对 6 个来源等权，避免大来源主导。
+   - `source_balanced`（仅来源臂）：先在各来源内做单位等权，再对来源等权。**来源归组使用划分级 `held_source`（`source_split_key`），不用切片级 `source_key`（后者可为 `mixed`）。**
 5. **缺失值**：任何指标不可评价时该单位该指标记 `NOT_ESTIMABLE_UNIT`，并保留原因计数；**绝不静默删除行或改分母**。宏平均只对可评价单位求值，同时报告可评价单位数。
 6. **臂不合并**：内部臂与来源臂分别出记录；同一片同时出现在两臂时是两行，不合并为一条恢复结论。`summarize` 断言 `(arm, section, target, view, model)` 唯一且两臂均存在。**臂级宏平均的来源外推标记为 `true`/`false`/`mixed`（来源臂同时含器官外推与非外推来源时为 `mixed`）；划分级行保留单一布尔值（同一划分内一致）。**
 7. **身份与器官外推**：`patient_known`/`confirmed_unit` 取自修正身份表（`patient_confirmed_within_study`），仅用于分层计数：确认 14 片 / 8 单位，其余为未知单位，不升级为独立患者；来源臂再带 `cross_organ_extrapolation`（留出器官无同器官训练时为 True，乳腺与肝脏属于此类）。来源身份不足的 19 片保留在实测清单与内部臂，不进入来源分母。
@@ -251,9 +251,9 @@ small5 与 full15 改变基因数与可见归一化分母；因此**跨预算只
 | `measured_module_relations.tsv` | 逐（切片 × 目标 × 视图 × 模块）：实测场与可见模块场的关系 |
 | `prediction_metrics.tsv` | 逐（划分 × 切片 × 目标 × 视图 × 模型）：恢复指标 + 几何差 + 不可评价清单 |
 | `prediction_module_relations.tsv` | 逐（划分 × 切片 × 目标 × 视图 × 模型 × 模块）：预测场与可见模块场的关系 |
-| `unit_metrics.tsv` | 单位级聚合（含可评价计数与原因） |
-| `macro_summary.tsv` | 单位宏平均与分位（含 section_weighted / source_balanced 敏感性口径） |
-| `macro_strata.tsv` | 按来源、器官、平台、臂的分层宏平均 |
+| `unit_metrics.tsv` | 单位级聚合（含可评价计数与原因；元数据冲突标 `mixed` 并给 `*_n_distinct`） |
+| `macro_summary.tsv` | 单位宏平均与分位（含 section_weighted / source_balanced 敏感性口径；后者按 `source_split_key` 归组） |
+| `macro_strata.tsv` | 按来源划分（`source_split`）、切片级来源元数据（`source_metadata`）、器官、平台、身份、外推标记的分层宏平均；全不可评层保留行并给 reason |
 | `within_unit_consistency.tsv` | 同单位多切片的实测与预测关系轮廓一致性。读数使用各表真实列名：实测表 `rel_pearson`，预测表 `measured_rel_pearson` / `predicted_rel_pearson`（`profile_column` 标明）；列缺失时失败关闭（`KeyError`），不静默产生空值。仅描述，不升级为独立重复 |
 | `cross_stage_consistency.json` | `prepare` 实测表与 `run` 阶段重算的实测描述量逐字段一致性（7 个字段，最大绝对差必须 ≤1e-12，否则中止） |
 | `diagnostic_sensitivity.tsv` | 诊断标记相邻切点的计数敏感性（证明标记不门槛化） |

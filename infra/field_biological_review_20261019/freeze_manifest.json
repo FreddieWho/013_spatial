@@ -1,7 +1,7 @@
 {
-  "code_sha256": "52d11904c00fda6090d1af85d1a508ddac35dd54ae564a084a28d18c31fa9e5a",
+  "code_sha256": "57d678bd3097643145e34718d675e0c6ee39eadb0f5ab7d8d85b4e2276810983",
   "contract_sha256": "a71eb3d8a85a0ff620e660b39e0d151f20d5dc70198c22a313f79197546f6e9c",
-  "protocol_sha256": "6062a19ddba7a720cb36520663c9e749f09aa3695755385d906cd5c415372278",
+  "protocol_sha256": "5fe088c5cb35317034a64782974f6203880fe984b3c11b65f852037fa1daaf7f",
   "files": {
     "PREPARED": {
       "bytes": 42,
@@ -9,11 +9,15 @@
     },
     "REPORT.md": {
       "bytes": 17591,
-      "sha256": "98061bc564e8029986e1cd8b4ac8c084fa63405a0f970265fa406a1d7dec2cdf"
+      "sha256": "05224fbd499ee5f3ee62d2ff64f04d02625f87b1213ab20bc2ce4a913c7c8d21"
     },
     "RUN_COMPLETE": {
       "bytes": 47,
       "sha256": "5c9b6a8cff6f0cfd315268f69e062af6f6d09d8217ca3587fc5e7802aff06604"
+    },
+    "STATUS": {
+      "bytes": 59,
+      "sha256": "782de58f0590eec313ad7acc36fe2a0105e0e471d650c93ec4fc3fa6da04c357"
     },
     "checks/archive/run-08c20cf71466c8/check.log": {
       "bytes": 2227,
@@ -80,28 +84,28 @@
       "sha256": "c74d8d53840735340501066e849a1cfda1584938911a870730d4d9df871c5cbd"
     },
     "checks/check.log": {
-      "bytes": 723,
-      "sha256": "c2a1d8419bfc691e319d55fc4ff137cb6c7fd09829e0047400cf04a251bd8b87"
+      "bytes": 795,
+      "sha256": "8c8b3407c6cf9e40c57e1ce0cffd572a3dfa56c21c70b07c3d76ea79268fc534"
     },
     "checks/check_run_08c20cf7.log": {
       "bytes": 2227,
       "sha256": "339f589029f9144a1d77f74bde06b401316186703cee98057222d30016f2d84b"
     },
     "checks/checks.json": {
-      "bytes": 318161,
-      "sha256": "ef8baa6119449300d29571917b66c5bdce4bacc5e8a1ceaa452a6647bae89962"
+      "bytes": 404616,
+      "sha256": "30d3f10cc17dbdc404dbd191620f11f4b44836ec167eb8875f0c8a94d3c53682"
     },
     "checks/checks_run_08c20cf7.json": {
       "bytes": 256673,
       "sha256": "bf5f70bdec159a221be2b072c4f80b1c502549d61c7a5e62c746c73f602139df"
     },
     "checks/prediction_metrics_sample.tsv": {
-      "bytes": 705037,
-      "sha256": "32dbf3b598d8c3aa6e33be8fc28607a57d997fd48a74bceeddd6cbe228b231d0"
+      "bytes": 874766,
+      "sha256": "5487497b4ca2532e074e74327cc9034a61ce9c22dcd4ad8876a586b1d6de653e"
     },
     "checks/prediction_module_relations_sample.tsv": {
-      "bytes": 1698399,
-      "sha256": "24b4e19e34b6dae4bff319ee47d98f88147af6c2b651bd90eccbad6b70bc8541"
+      "bytes": 2072315,
+      "sha256": "af7abb67450f7ce560f3eb40aece8f45a44b384b6ad9dc196d2a1df7d51e2873"
     },
     "contract.json": {
       "bytes": 11864,
@@ -116,20 +120,20 @@
       "sha256": "9fb7bbeede49e4b3768230b002f45ee9ed0acf13f99a1edd1b8daff6beb57d1a"
     },
     "full_run_stages.log": {
-      "bytes": 50,
-      "sha256": "57802448c2fa2dce875072cff65d04f07f03b8e29d10ada14c2bdb48864c7e53"
+      "bytes": 78,
+      "sha256": "56760c34658c81ad88c4f53a57b79e81bebf41280a6ee054de5d68425e88984a"
     },
     "input_checks.json": {
       "bytes": 75124,
       "sha256": "02a34f48940be88a919b1efa60a3156924247f7792c1aeebdfa3c150b13a9aa5"
     },
     "macro_strata.tsv": {
-      "bytes": 12713991,
-      "sha256": "76e92e96b82c66ac823852950aefc0ad54b53dd518ab69cdf1d323cd2a79c7e2"
+      "bytes": 15009699,
+      "sha256": "7eaabeb395d9ffd57e53aff71bc25a8f6d7efad4e6e104cdfc3557dd7c93f114"
     },
     "macro_summary.tsv": {
-      "bytes": 4674376,
-      "sha256": "be18daa9c3b3d56a4154ffa2083d9aca10c6421472ecf467ae45b992c6362030"
+      "bytes": 4675315,
+      "sha256": "c4da34c1109f46343435478d0164ceda29c6dbbff414d5e6c388c9dc0fd30566"
     },
     "measured_fields.tsv": {
       "bytes": 508523,
@@ -584,12 +588,16 @@
       "sha256": "6ed0f16c5f6e23d695c105b4e2af04fb44b95efc5e95d459e4466cc580d3289d"
     },
     "summarize.log": {
+      "bytes": 229,
+      "sha256": "61399887083147d11e18ccb90b8757341740e6e813f31a9582e6d838966bf238"
+    },
+    "summarize_fix.log": {
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "unit_metrics.tsv": {
-      "bytes": 4738604,
-      "sha256": "c5af9bc39a198f8cc73f08a1f9187b0b20ac8a5297454370d18ed05191519aa1"
+      "bytes": 5060165,
+      "sha256": "94b64cc0ebde639430830d40102b27c1725fbeca56b99e6dffb677b3a05130e5"
     },
     "within_unit_consistency.tsv": {
       "bytes": 314077,

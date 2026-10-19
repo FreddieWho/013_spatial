@@ -1027,7 +1027,8 @@ MACRO_METRICS = ['rec_rmse', 'rec_centered_rmse', 'rec_mae', 'rec_bias', 'rec_sd
                  'geo_autocorr_near', 'geo_autocorr_outer', 'geo_decay_half_pitch',
                  'geo_centroid_shift_pitch', 'geo_patch75_n', 'geo_patch75_largest_share']
 UNIT_KEYS = ['split', 'arm', 'target', 'view', 'model', 'model_class', 'cross_organ_extrapolation',
-             'unit_id', 'source_key', 'organ', 'platform', 'patient_known', 'confirmed_unit']
+             'unit_id']
+UNIT_METADATA_FIELDS = ['organ', 'platform', 'source_key', 'patient_known', 'confirmed_unit']
 FORBIDDEN_WORDS = ('pass', 'success', 'significant', 'p_value', 'pvalue', 'truth', 'positive_')
 MEASURED_SUMMARY_METRICS = ['sup_genes_detected', 'sup_spots_with_any_gene_frac',
                             'sup_effective_gene_count', 'sup_top_gene_share', 'dist_sd',
@@ -1051,13 +1052,19 @@ def check_column_names(columns):
     return bad
 
 
-def aggregate_units(records):
+def aggregate_units(records, split_source=None):
     """Unit-level aggregation.
+
+    Grouping uses the established unit identity only (`unit_id` plus the analysis keys);
+    section-level metadata such as `source_key`, `organ`, `platform` and the patient flags
+    are carried as metadata and labelled `mixed` when the sections of one unit disagree.
+    A section title must therefore never give the same unit a second unit weight.
 
     A unit metric is estimable only when every section of that unit produces it; a unit with
     a partial metric keeps the metric as NOT_ESTIMABLE_UNIT (recorded in
     `partial_unit_metrics`) instead of silently up-weighting the remaining section.
     """
+    split_source = split_source or {}
     groups = defaultdict(list)
     for r in records:
         groups[tuple(r[k] for k in UNIT_KEYS)].append(r)
@@ -1066,6 +1073,13 @@ def aggregate_units(records):
         unit = dict(zip(UNIT_KEYS, key))
         sections = sorted({r['section_id'] for r in rows})
         unit['n_sections'] = len(sections)
+        unit['section_ids'] = ';'.join(sections)
+        for field in UNIT_METADATA_FIELDS:
+            values = sorted({str(r.get(field)) for r in rows if r.get(field) not in (None, '')})
+            unit[field] = values[0] if len(values) == 1 else ('mixed' if values else 'unknown')
+            unit[f'{field}_n_distinct'] = len(values)
+        unit['source_split_key'] = (split_source.get(unit['split'], '')
+                                    if unit['arm'] == 'source' else '')
         missing, partial = [], []
         for metric in MACRO_METRICS:
             per_section = {}
@@ -1147,7 +1161,7 @@ def macro_rows(units, records, aggregate='split'):
                 per_source = defaultdict(list)
                 for u in group:
                     if u[metric] is not None:
-                        per_source[u['source_key']].append(u[metric])
+                        per_source[u.get('source_split_key') or 'unknown'].append(u[metric])
                 row['source_balanced_mean'] = (float(np.mean([np.mean(v) for v in per_source.values()]))
                                                if per_source else None)
                 row['n_sources_estimable'] = len(per_source)
@@ -1160,7 +1174,8 @@ def macro_rows(units, records, aggregate='split'):
 
 def strata_rows(units):
     rows = []
-    for stratum, key in [('source', 'source_key'), ('organ', 'organ'), ('platform', 'platform'),
+    for stratum, key in [('source_split', 'source_split_key'), ('source_metadata', 'source_key'),
+                         ('organ', 'organ'), ('platform', 'platform'),
                          ('patient_known', 'patient_known'),
                          ('cross_organ_extrapolation', 'cross_organ_extrapolation')]:
         groups = defaultdict(list)
@@ -1405,7 +1420,8 @@ def summarize():
         raise RuntimeError(f'Output column names suggest a pass/fail or significance claim: {bad_columns}')
     base.tsv_write(WORK / 'prediction_metrics.tsv', records)
     base.tsv_write(WORK / 'prediction_module_relations.tsv', relations)
-    units = aggregate_units(records)
+    units = aggregate_units(records, split_source={s['name']: s.get('held_source', '')
+                                                   for s in ctx['splits']})
     base.tsv_write(WORK / 'unit_metrics.tsv', units)
     macro = macro_rows(units, records, 'split') + macro_rows(units, records, 'arm')
     base.tsv_write(WORK / 'macro_summary.tsv', macro)
@@ -1850,6 +1866,22 @@ def check_real(ctx, sids, c):
            sorted({r['profile_column'] for r in real_within}),
            sorted({r['profile_column'] for r in real_within})
            <= ['measured_rel_pearson', 'predicted_rel_pearson'])
+    split_source = {s['name']: s.get('held_source', '') for s in ctx['splits']}
+    unit_rows = aggregate_units(store, split_source=split_source)
+    expected_groups = len({(r['arm'], r['split'], r['target'], r['view'], r['model'], r['unit_id'])
+                           for r in store})
+    record('unit_groups_equal_established_unit_identity', expected_groups, len(unit_rows),
+           len(unit_rows) == expected_groups)
+    before_fix = len({(r['arm'], r['split'], r['target'], r['view'], r['model'], r['unit_id'],
+                       r['source_key']) for r in store})
+    record('before_fix_key_would_split_units', 'before_fix > after_fix',
+           (before_fix, len(unit_rows)), before_fix > len(unit_rows))
+    two_section = [u for u in unit_rows if u['n_sections'] >= 2]
+    record('real_two_section_unit_merged_mixed_source_key',
+           'singleton::TENX13: n_sections=2, source_key=mixed',
+           [(u['unit_id'], u['n_sections'], u['source_key']) for u in two_section],
+           any(u['unit_id'] == 'singleton::TENX13' and u['n_sections'] == 2
+               and u['source_key'] == 'mixed' for u in unit_rows))
     record('internal_and_source_arms_separated', 'both present',
            sorted({r['arm'] for r in store}), {r['arm'] for r in store} == {'internal', 'source'})
     record('organ_extrapolation_flagged', 'at least one True row',
@@ -1998,12 +2030,40 @@ def check_aggregation_contracts(seed):
     except KeyError:
         closed = True
     record('within_unit_fails_closed_on_missing_columns', 'raises KeyError', closed, closed)
+
+    # Unit identity: a section title / source_key must never split one established unit.
+    conflicting = [aggregation_record('internal_3', 'internal', 'TENX13', 'singleton::TENX13',
+                                      source_key='title:A Section 1', rec_rmse=0.1),
+                   aggregation_record('internal_3', 'internal', 'TENX14', 'singleton::TENX13',
+                                      source_key='title:A Section 2', rec_rmse=0.3)]
+    merged = aggregate_units(conflicting)
+    record('conflicting_source_key_single_unit_group', 1, len(merged), len(merged) == 1)
+    record('conflicting_source_key_two_sections', 2, merged[0]['n_sections'],
+           merged[0]['n_sections'] == 2)
+    record('conflicting_source_key_labelled_mixed', 'mixed', merged[0]['source_key'],
+           merged[0]['source_key'] == 'mixed')
+    record('conflicting_source_key_distinct_count', 2, merged[0]['source_key_n_distinct'],
+           merged[0]['source_key_n_distinct'] == 2)
+    agreeing = [aggregation_record('source_1', 'source', 'S1', 'u2', source_key='https://study'),
+                aggregation_record('source_1', 'source', 'S2', 'u2', source_key='https://study')]
+    same = aggregate_units(agreeing, split_source={'source_1': 'https://study'})
+    record('agreeing_source_key_kept_as_value', 'https://study', same[0]['source_key'],
+           same[0]['source_key'] == 'https://study')
+    record('source_split_key_used_for_balancing', 'https://study', same[0]['source_split_key'],
+           same[0]['source_split_key'] == 'https://study')
+    merged_metrics = aggregate_units(conflicting)
+    record('merged_unit_metric_is_section_mean', 0.2, merged_metrics[0]['rec_rmse'],
+           abs(merged_metrics[0]['rec_rmse'] - 0.2) < 1e-12)
+    strata_mixed = strata_rows([dict(u, source_split_key='https://study') for u in merged])
+    values = sorted({r['value'] for r in strata_mixed if r['stratum'] == 'source_split'})
+    record('strata_source_split_avoids_mixed_metadata', "['https://study']", values,
+           values == ['https://study'])
     return results
 
 
 def check_command(sids=None):
     if sids is None:
-        sids = ['MISC33', 'TENX154', 'TENX161', 'NCBI642', 'TENX171']
+        sids = ['MISC33', 'TENX154', 'TENX161', 'NCBI642', 'TENX171', 'TENX13', 'TENX14']
     ctx = setup(verify='sample', sids=sids)
     c = ctx['c']
     out = WORK / 'checks'

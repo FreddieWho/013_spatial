@@ -1,0 +1,12 @@
+check	before	after	note
+unit_identity_key	split,arm,target,view,model,model_class,cross_organ_extrapolation,unit_id,source_key,organ,platform,patient_known,confirmed_unit	split,arm,target,view,model,model_class,cross_organ_extrapolation,unit_id	metadata fields moved out of the key; conflicts labelled mixed
+unit_rows_total	4520	4480	difference equals the 40 spurious TENX13 rows in the internal arm
+internal_units_per_target_view_model	66	65	source arm unchanged at 47
+two_section_unit_singleton_TENX13	2 rows x n_sections=1, source_key=title:...Section 1/2	1 row x n_sections=2, source_key=mixed, n_distinct=2	sections TENX13;TENX14; unit rec_rmse=0.092598 == mean of section values 0.092598
+partial_unit_rows	26	28	all geo_decay_half_pitch; merged unit now exposes per-section decay availability as partial instead of hiding it
+strata_rows	69560	78440	added source_split stratum; source_metadata kept separately
+strata_source_split_values	(absent)	6 held_source values + empty for internal arm	balancing/strata use split-level held_source, never metadata mixed
+strata_metadata_mixed_rows	0	1480	TENX13 unit metadata conflict stays visible
+stale_empty_stratum_rows_kept	13570	15294	rows with no_estimable_units_in_stratum are retained
+frozen_artifacts_unchanged	148	138	10 changed, all aggregation/check/log artifacts
+changed_files	(pre-fix)	REPORT.md;checks/check.log;checks/checks.json;checks/prediction_metrics_sample.tsv;checks/prediction_module_relations_sample.tsv;full_run_stages.log;macro_strata.tsv;macro_summary.tsv;summarize.log;unit_metrics.tsv	measured/prediction/split tables byte-identical

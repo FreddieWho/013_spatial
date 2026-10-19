@@ -1,6 +1,6 @@
 {
   "candidate_hashes": {
-    "script": "52d11904c00fda6090d1af85d1a508ddac35dd54ae564a084a28d18c31fa9e5a",
+    "script": "57d678bd3097643145e34718d675e0c6ee39eadb0f5ab7d8d85b4e2276810983",
     "contract": "a71eb3d8a85a0ff620e660b39e0d151f20d5dc70198c22a313f79197546f6e9c"
   },
   "check_sections": [
@@ -8,9 +8,11 @@
     "TENX154",
     "TENX161",
     "NCBI642",
-    "TENX171"
+    "TENX171",
+    "TENX13",
+    "TENX14"
   ],
-  "n_checks": 1550,
+  "n_checks": 1969,
   "n_failed": 0,
   "results": [
     {
@@ -286,7 +288,7 @@
     {
       "check": "empty_stratum_row_kept",
       "expected": "row with reason",
-      "observed": "5",
+      "observed": "6",
       "passed": true
     },
     {
@@ -317,6 +319,54 @@
       "check": "within_unit_fails_closed_on_missing_columns",
       "expected": "raises KeyError",
       "observed": "True",
+      "passed": true
+    },
+    {
+      "check": "conflicting_source_key_single_unit_group",
+      "expected": "1",
+      "observed": "1",
+      "passed": true
+    },
+    {
+      "check": "conflicting_source_key_two_sections",
+      "expected": "2",
+      "observed": "2",
+      "passed": true
+    },
+    {
+      "check": "conflicting_source_key_labelled_mixed",
+      "expected": "mixed",
+      "observed": "mixed",
+      "passed": true
+    },
+    {
+      "check": "conflicting_source_key_distinct_count",
+      "expected": "2",
+      "observed": "2",
+      "passed": true
+    },
+    {
+      "check": "agreeing_source_key_kept_as_value",
+      "expected": "https://study",
+      "observed": "https://study",
+      "passed": true
+    },
+    {
+      "check": "source_split_key_used_for_balancing",
+      "expected": "https://study",
+      "observed": "https://study",
+      "passed": true
+    },
+    {
+      "check": "merged_unit_metric_is_section_mean",
+      "expected": "0.2",
+      "observed": "0.2",
+      "passed": true
+    },
+    {
+      "check": "strata_source_split_avoids_mixed_metadata",
+      "expected": "['https://study']",
+      "observed": "['https://study']",
       "passed": true
     },
     {
@@ -9272,21 +9322,2487 @@
       "passed": true
     },
     {
-      "check": "no_arm_row_duplication",
-      "expected": "unique",
-      "observed": "320",
+      "check": "TENX13_pitch_matches_manifest",
+      "expected": "273.0",
+      "observed": "273.0",
       "passed": true
     },
     {
-      "check": "within_unit_runs_on_real_prediction_relation_rows",
+      "check": "TENX13_isolated_spots_match_manifest",
       "expected": "0",
       "observed": "0",
       "passed": true
     },
     {
+      "check": "TENX13_confirmed_unit_matches_identity_table",
+      "expected": "False",
+      "observed": "False",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_readout_matches_frozen",
+      "expected": "<=1e-6",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_support_denominators_consistent",
+      "expected": "0",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_detected_denominator_consistent",
+      "expected": "0",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_measured_descriptor_shuffle_invariance",
+      "expected": "all identical",
+      "observed": "(44, 0.0)",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_frozen_edge_set_matches_dense_pairs",
+      "expected": "11098",
+      "observed": "11098",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_stored_weights_match_uniform_within_float32",
+      "expected": "<=1e-6",
+      "observed": "9.934107481068821e-09",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_outer_isolated_spots",
+      "expected": "recorded",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_autocorr_near_matches_dense_same_weights",
+      "expected": "<=1e-12",
+      "observed": "4.718447854656915e-16",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_autocorr_near_uniform_vs_stored_weight_residual",
+      "expected": "<=1e-6",
+      "observed": "4.256772961896971e-09",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_autocorr_outer_matches_dense_same_weights",
+      "expected": "<=1e-12",
+      "observed": "1.1275702593849246e-17",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_autocorr_outer_uniform_vs_stored_weight_residual",
+      "expected": "<=1e-6",
+      "observed": "1.8616137190813342e-10",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_sd_matches_dense",
+      "expected": "0.11690223982796057",
+      "observed": "0.11690223982796057",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_centroid_matches_dense",
+      "expected": "0.31292413231175625",
+      "observed": "0.31292413231175625",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_patch75_matches_bruteforce",
+      "expected": "99",
+      "observed": "99",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_patch90_matches_bruteforce",
+      "expected": "65",
+      "observed": "65",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_small5_gene_ridge_rmse_matches_frozen",
+      "expected": "0.09586532141406777",
+      "observed": "0.09586532309854517",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_small5_gene_ridge_centered_rmse_matches_frozen",
+      "expected": "0.09263286481220254",
+      "observed": "0.0926328686382024",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_small5_gene_ridge_pearson_matches_frozen",
+      "expected": "0.6702637672424316",
+      "observed": "0.6702638346598011",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_small5_gene_ridge_smooth_half_rmse_matches_frozen",
+      "expected": "0.081320146967294",
+      "observed": "0.08132014927738107",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_small5_gene_ridge_smooth_half_centered_rmse_matches_frozen",
+      "expected": "0.07749488158013235",
+      "observed": "0.07749488210594013",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_small5_gene_ridge_smooth_half_pearson_matches_frozen",
+      "expected": "0.7487163543701172",
+      "observed": "0.7487164166766571",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_small5_fixed_point_hgb_rmse_matches_frozen",
+      "expected": "0.15468217330007222",
+      "observed": "0.15468218013969523",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_small5_fixed_point_hgb_centered_rmse_matches_frozen",
+      "expected": "0.09456623903724831",
+      "observed": "0.0945662396007366",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_small5_fixed_point_hgb_pearson_matches_frozen",
+      "expected": "0.6113612055778503",
+      "observed": "0.6113612157779964",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_small5_fixed_local_hgb_rmse_matches_frozen",
+      "expected": "0.15683499736195325",
+      "observed": "0.15683499679910762",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_small5_fixed_local_hgb_centered_rmse_matches_frozen",
+      "expected": "0.08559944299164732",
+      "observed": "0.08559944248733335",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_small5_fixed_local_hgb_pearson_matches_frozen",
+      "expected": "0.684603750705719",
+      "observed": "0.684603760866293",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_small5_train_mean_rmse_matches_frozen",
+      "expected": "0.17531526577819684",
+      "observed": "0.1753152678690046",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_small5_train_mean_centered_rmse_matches_frozen",
+      "expected": "0.11690223862838339",
+      "observed": "0.11690223982796057",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_small5_train_mean_constant_pearson_artifact",
+      "expected": "recompute None, frozen <= 1e-6",
+      "observed": "9.627708408288527e-09",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_small5_train_mean_degenerate_state",
+      "expected": "NOT_ESTIMABLE_*",
+      "observed": "NOT_ESTIMABLE_CONSTANT_PREDICTION",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_small5_train_mean_rmse_kept",
+      "expected": "not None",
+      "observed": "0.1753152678690046",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_small5_train_mean_sd_below_floor",
+      "expected": "<1e-06",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_full15_gene_ridge_rmse_matches_frozen",
+      "expected": "0.08129404529329616",
+      "observed": "0.08129404720856562",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_full15_gene_ridge_centered_rmse_matches_frozen",
+      "expected": "0.07602098693539859",
+      "observed": "0.07602098743645971",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_full15_gene_ridge_pearson_matches_frozen",
+      "expected": "0.7726700305938721",
+      "observed": "0.7726700337004244",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_full15_gene_ridge_smooth_half_rmse_matches_frozen",
+      "expected": "0.07320737329224716",
+      "observed": "0.073207371970196",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_full15_gene_ridge_smooth_half_centered_rmse_matches_frozen",
+      "expected": "0.06732470314951647",
+      "observed": "0.06732470176137144",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_full15_gene_ridge_smooth_half_pearson_matches_frozen",
+      "expected": "0.8190553188323975",
+      "observed": "0.8190554402824367",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_full15_fixed_point_hgb_rmse_matches_frozen",
+      "expected": "0.11186733501964609",
+      "observed": "0.11186733732376652",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_full15_fixed_point_hgb_centered_rmse_matches_frozen",
+      "expected": "0.08276152256338185",
+      "observed": "0.08276151924850496",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_full15_fixed_point_hgb_pearson_matches_frozen",
+      "expected": "0.7243425846099854",
+      "observed": "0.7243425922455331",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_full15_fixed_local_hgb_rmse_matches_frozen",
+      "expected": "0.10991147150018113",
+      "observed": "0.10991147298404258",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_full15_fixed_local_hgb_centered_rmse_matches_frozen",
+      "expected": "0.0767081984850608",
+      "observed": "0.07670819889983944",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_full15_fixed_local_hgb_pearson_matches_frozen",
+      "expected": "0.7578324675559998",
+      "observed": "0.7578324448537823",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_full15_train_mean_rmse_matches_frozen",
+      "expected": "0.17531526577819684",
+      "observed": "0.1753152678690046",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_full15_train_mean_centered_rmse_matches_frozen",
+      "expected": "0.11690223862838339",
+      "observed": "0.11690223982796057",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_full15_train_mean_constant_pearson_artifact",
+      "expected": "recompute None, frozen <= 1e-6",
+      "observed": "9.627708408288527e-09",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_full15_train_mean_degenerate_state",
+      "expected": "NOT_ESTIMABLE_*",
+      "observed": "NOT_ESTIMABLE_CONSTANT_PREDICTION",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_full15_train_mean_rmse_kept",
+      "expected": "not None",
+      "observed": "0.1753152678690046",
+      "passed": true
+    },
+    {
+      "check": "TENX13_B_AXIS_full15_train_mean_sd_below_floor",
+      "expected": "<1e-06",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_readout_matches_frozen",
+      "expected": "<=1e-6",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_support_denominators_consistent",
+      "expected": "0",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_detected_denominator_consistent",
+      "expected": "0",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_measured_descriptor_shuffle_invariance",
+      "expected": "all identical",
+      "observed": "(44, 0.0)",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_frozen_edge_set_matches_dense_pairs",
+      "expected": "11098",
+      "observed": "11098",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_stored_weights_match_uniform_within_float32",
+      "expected": "<=1e-6",
+      "observed": "9.934107481068821e-09",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_outer_isolated_spots",
+      "expected": "recorded",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_autocorr_near_matches_dense_same_weights",
+      "expected": "<=1e-12",
+      "observed": "2.7755575615628914e-17",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_autocorr_near_uniform_vs_stored_weight_residual",
+      "expected": "<=1e-6",
+      "observed": "4.932080716057996e-09",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_autocorr_outer_matches_dense_same_weights",
+      "expected": "<=1e-12",
+      "observed": "1.734723475976807e-18",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_autocorr_outer_uniform_vs_stored_weight_residual",
+      "expected": "<=1e-6",
+      "observed": "1.089415250718484e-10",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_sd_matches_dense",
+      "expected": "0.12825153180876095",
+      "observed": "0.12825153180876095",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_centroid_matches_dense",
+      "expected": "2.088543150034864",
+      "observed": "2.088543150034864",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_patch75_matches_bruteforce",
+      "expected": "101",
+      "observed": "101",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_patch90_matches_bruteforce",
+      "expected": "111",
+      "observed": "111",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_gene_ridge_rmse_matches_frozen",
+      "expected": "0.051823841568746025",
+      "observed": "0.051823840480733074",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_gene_ridge_centered_rmse_matches_frozen",
+      "expected": "0.04991113282981612",
+      "observed": "0.04991113259331815",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_gene_ridge_pearson_matches_frozen",
+      "expected": "0.9292196035385132",
+      "observed": "0.9292196150792177",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_gene_ridge_smooth_half_rmse_matches_frozen",
+      "expected": "0.04654178300116294",
+      "observed": "0.046541782394364774",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_gene_ridge_smooth_half_centered_rmse_matches_frozen",
+      "expected": "0.044380124377158686",
+      "observed": "0.0443801224171643",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_gene_ridge_smooth_half_pearson_matches_frozen",
+      "expected": "0.9396625757217407",
+      "observed": "0.9396626398264328",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_fixed_point_hgb_rmse_matches_frozen",
+      "expected": "0.08396173327217864",
+      "observed": "0.08396173055606033",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_fixed_point_hgb_centered_rmse_matches_frozen",
+      "expected": "0.06613219031611872",
+      "observed": "0.06613218816418387",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_fixed_point_hgb_pearson_matches_frozen",
+      "expected": "0.8601373434066772",
+      "observed": "0.8601373608343789",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_fixed_local_hgb_rmse_matches_frozen",
+      "expected": "0.08026099839557703",
+      "observed": "0.08026099499147979",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_fixed_local_hgb_centered_rmse_matches_frozen",
+      "expected": "0.06604345880422387",
+      "observed": "0.06604346230513426",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_fixed_local_hgb_pearson_matches_frozen",
+      "expected": "0.8640426993370056",
+      "observed": "0.8640426775654567",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_train_mean_rmse_matches_frozen",
+      "expected": "0.2060713919426814",
+      "observed": "0.20607139504517125",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_train_mean_centered_rmse_matches_frozen",
+      "expected": "0.12825152993776864",
+      "observed": "0.12825153180876095",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_train_mean_degenerate_state",
+      "expected": "NOT_ESTIMABLE_*",
+      "observed": "NOT_ESTIMABLE_CONSTANT_PREDICTION",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_train_mean_rmse_kept",
+      "expected": "not None",
+      "observed": "0.20607139504517125",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_train_mean_sd_below_floor",
+      "expected": "<1e-06",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_gene_ridge_rmse_matches_frozen",
+      "expected": "0.0494611923400708",
+      "observed": "0.0494611902512415",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_gene_ridge_centered_rmse_matches_frozen",
+      "expected": "0.042498565524274584",
+      "observed": "0.042498565989312835",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_gene_ridge_pearson_matches_frozen",
+      "expected": "0.9460539817810059",
+      "observed": "0.9460539263658116",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_gene_ridge_smooth_half_rmse_matches_frozen",
+      "expected": "0.04743715061042114",
+      "observed": "0.04743714924557198",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_gene_ridge_smooth_half_centered_rmse_matches_frozen",
+      "expected": "0.04009305697661287",
+      "observed": "0.04009305799795466",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_gene_ridge_smooth_half_pearson_matches_frozen",
+      "expected": "0.9499552845954895",
+      "observed": "0.9499553405226571",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_fixed_point_hgb_rmse_matches_frozen",
+      "expected": "0.07183397420572311",
+      "observed": "0.07183397399781194",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_fixed_point_hgb_centered_rmse_matches_frozen",
+      "expected": "0.054351189774231395",
+      "observed": "0.054351190350212596",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_fixed_point_hgb_pearson_matches_frozen",
+      "expected": "0.9074984192848206",
+      "observed": "0.9074983813024879",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_fixed_local_hgb_rmse_matches_frozen",
+      "expected": "0.07254067478226701",
+      "observed": "0.0725406756922181",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_fixed_local_hgb_centered_rmse_matches_frozen",
+      "expected": "0.05726157173745761",
+      "observed": "0.05726157138615001",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_fixed_local_hgb_pearson_matches_frozen",
+      "expected": "0.8998184204101562",
+      "observed": "0.8998183516604004",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_train_mean_rmse_matches_frozen",
+      "expected": "0.2060713919426814",
+      "observed": "0.20607139504517125",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_train_mean_centered_rmse_matches_frozen",
+      "expected": "0.12825152993776864",
+      "observed": "0.12825153180876095",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_train_mean_degenerate_state",
+      "expected": "NOT_ESTIMABLE_*",
+      "observed": "NOT_ESTIMABLE_CONSTANT_PREDICTION",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_train_mean_rmse_kept",
+      "expected": "not None",
+      "observed": "0.20607139504517125",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_train_mean_sd_below_floor",
+      "expected": "<1e-06",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_readout_matches_frozen",
+      "expected": "<=1e-6",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_support_denominators_consistent",
+      "expected": "0",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_detected_denominator_consistent",
+      "expected": "0",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_measured_descriptor_shuffle_invariance",
+      "expected": "all identical",
+      "observed": "(44, 0.0)",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_frozen_edge_set_matches_dense_pairs",
+      "expected": "11098",
+      "observed": "11098",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_stored_weights_match_uniform_within_float32",
+      "expected": "<=1e-6",
+      "observed": "9.934107481068821e-09",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_outer_isolated_spots",
+      "expected": "recorded",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_autocorr_near_matches_dense_same_weights",
+      "expected": "<=1e-12",
+      "observed": "7.494005416219807e-16",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_autocorr_near_uniform_vs_stored_weight_residual",
+      "expected": "<=1e-6",
+      "observed": "4.943921438904653e-09",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_autocorr_outer_matches_dense_same_weights",
+      "expected": "<=1e-12",
+      "observed": "3.686287386450715e-18",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_autocorr_outer_uniform_vs_stored_weight_residual",
+      "expected": "<=1e-6",
+      "observed": "5.189532202402869e-11",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_sd_matches_dense",
+      "expected": "0.08311527042302175",
+      "observed": "0.08311527042302175",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_centroid_matches_dense",
+      "expected": "1.2283538950708752",
+      "observed": "1.2283538950708752",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_patch75_matches_bruteforce",
+      "expected": "111",
+      "observed": "111",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_patch90_matches_bruteforce",
+      "expected": "85",
+      "observed": "85",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_gene_ridge_rmse_matches_frozen",
+      "expected": "0.0745682518156268",
+      "observed": "0.07456824637451478",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_gene_ridge_centered_rmse_matches_frozen",
+      "expected": "0.06491173159433561",
+      "observed": "0.06491172735375687",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_gene_ridge_pearson_matches_frozen",
+      "expected": "0.6840204000473022",
+      "observed": "0.684020409077276",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_gene_ridge_smooth_half_rmse_matches_frozen",
+      "expected": "0.06941392367772532",
+      "observed": "0.06941392366333027",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_gene_ridge_smooth_half_centered_rmse_matches_frozen",
+      "expected": "0.058943246561278244",
+      "observed": "0.05894324617678701",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_gene_ridge_smooth_half_pearson_matches_frozen",
+      "expected": "0.7113182544708252",
+      "observed": "0.7113182548057766",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_fixed_point_hgb_rmse_matches_frozen",
+      "expected": "0.10652175835550927",
+      "observed": "0.10652175363970157",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_fixed_point_hgb_centered_rmse_matches_frozen",
+      "expected": "0.06927909334251836",
+      "observed": "0.06927909516379303",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_fixed_point_hgb_pearson_matches_frozen",
+      "expected": "0.5785530805587769",
+      "observed": "0.5785530955384223",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_fixed_local_hgb_rmse_matches_frozen",
+      "expected": "0.11050575590192031",
+      "observed": "0.11050575758342977",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_fixed_local_hgb_centered_rmse_matches_frozen",
+      "expected": "0.06569777197582735",
+      "observed": "0.06569777284722879",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_fixed_local_hgb_pearson_matches_frozen",
+      "expected": "0.6125384569168091",
+      "observed": "0.6125384572150878",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_train_mean_rmse_matches_frozen",
+      "expected": "0.17549578481350628",
+      "observed": "0.17549578356295295",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_train_mean_centered_rmse_matches_frozen",
+      "expected": "0.08311526972514797",
+      "observed": "0.08311527042302175",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_train_mean_degenerate_state",
+      "expected": "NOT_ESTIMABLE_*",
+      "observed": "NOT_ESTIMABLE_CONSTANT_PREDICTION",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_train_mean_rmse_kept",
+      "expected": "not None",
+      "observed": "0.17549578356295295",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_train_mean_sd_below_floor",
+      "expected": "<1e-06",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_gene_ridge_rmse_matches_frozen",
+      "expected": "0.05789264201821609",
+      "observed": "0.057892642015874664",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_gene_ridge_centered_rmse_matches_frozen",
+      "expected": "0.057790155136007555",
+      "observed": "0.05779015556722067",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_gene_ridge_pearson_matches_frozen",
+      "expected": "0.74820876121521",
+      "observed": "0.7482088275068725",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_gene_ridge_smooth_half_rmse_matches_frozen",
+      "expected": "0.05422377030287774",
+      "observed": "0.05422377019414004",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_gene_ridge_smooth_half_centered_rmse_matches_frozen",
+      "expected": "0.05411075985535589",
+      "observed": "0.054110757575104376",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_gene_ridge_smooth_half_pearson_matches_frozen",
+      "expected": "0.7611935138702393",
+      "observed": "0.7611935119662405",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_fixed_point_hgb_rmse_matches_frozen",
+      "expected": "0.07235608689327758",
+      "observed": "0.07235608607533019",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_fixed_point_hgb_centered_rmse_matches_frozen",
+      "expected": "0.06906003188128913",
+      "observed": "0.06906003241616597",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_fixed_point_hgb_pearson_matches_frozen",
+      "expected": "0.6187989115715027",
+      "observed": "0.6187989129266177",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_fixed_local_hgb_rmse_matches_frozen",
+      "expected": "0.062304804765955665",
+      "observed": "0.06230480495562567",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_fixed_local_hgb_centered_rmse_matches_frozen",
+      "expected": "0.06225195853784131",
+      "observed": "0.062251958515018205",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_fixed_local_hgb_pearson_matches_frozen",
+      "expected": "0.6710895299911499",
+      "observed": "0.6710894956901967",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_train_mean_rmse_matches_frozen",
+      "expected": "0.17549578481350628",
+      "observed": "0.17549578356295295",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_train_mean_centered_rmse_matches_frozen",
+      "expected": "0.08311526972514797",
+      "observed": "0.08311527042302175",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_train_mean_degenerate_state",
+      "expected": "NOT_ESTIMABLE_*",
+      "observed": "NOT_ESTIMABLE_CONSTANT_PREDICTION",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_train_mean_rmse_kept",
+      "expected": "not None",
+      "observed": "0.17549578356295295",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_train_mean_sd_below_floor",
+      "expected": "<1e-06",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_readout_matches_frozen",
+      "expected": "<=1e-6",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_support_denominators_consistent",
+      "expected": "0",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_detected_denominator_consistent",
+      "expected": "0",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_measured_descriptor_shuffle_invariance",
+      "expected": "all identical",
+      "observed": "(44, 0.0)",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_frozen_edge_set_matches_dense_pairs",
+      "expected": "11098",
+      "observed": "11098",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_stored_weights_match_uniform_within_float32",
+      "expected": "<=1e-6",
+      "observed": "9.934107481068821e-09",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_outer_isolated_spots",
+      "expected": "recorded",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_autocorr_near_matches_dense_same_weights",
+      "expected": "<=1e-12",
+      "observed": "8.326672684688674e-17",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_autocorr_near_uniform_vs_stored_weight_residual",
+      "expected": "<=1e-6",
+      "observed": "4.780686291283587e-09",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_autocorr_outer_matches_dense_same_weights",
+      "expected": "<=1e-12",
+      "observed": "5.421010862427522e-19",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_autocorr_outer_uniform_vs_stored_weight_residual",
+      "expected": "<=1e-6",
+      "observed": "2.4489690657325536e-11",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_sd_matches_dense",
+      "expected": "0.10912675688760473",
+      "observed": "0.10912675688760473",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_centroid_matches_dense",
+      "expected": "1.150215901871436",
+      "observed": "1.150215901871436",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_patch75_matches_bruteforce",
+      "expected": "149",
+      "observed": "149",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_patch90_matches_bruteforce",
+      "expected": "120",
+      "observed": "120",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_gene_ridge_rmse_matches_frozen",
+      "expected": "0.08443469644444589",
+      "observed": "0.08443469878275314",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_gene_ridge_centered_rmse_matches_frozen",
+      "expected": "0.08276234966110878",
+      "observed": "0.08276235046224213",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_gene_ridge_pearson_matches_frozen",
+      "expected": "0.7522566318511963",
+      "observed": "0.7522566424817361",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_gene_ridge_smooth_half_rmse_matches_frozen",
+      "expected": "0.06654431911897642",
+      "observed": "0.066544318055319",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_gene_ridge_smooth_half_centered_rmse_matches_frozen",
+      "expected": "0.06440564776689212",
+      "observed": "0.064405648653636",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_gene_ridge_smooth_half_pearson_matches_frozen",
+      "expected": "0.8084034323692322",
+      "observed": "0.8084034536669689",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_fixed_point_hgb_rmse_matches_frozen",
+      "expected": "0.1233980979081541",
+      "observed": "0.12339809977929836",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_fixed_point_hgb_centered_rmse_matches_frozen",
+      "expected": "0.09572186578479884",
+      "observed": "0.09572186639883189",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_fixed_point_hgb_pearson_matches_frozen",
+      "expected": "0.5879852175712585",
+      "observed": "0.5879851953538922",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_fixed_local_hgb_rmse_matches_frozen",
+      "expected": "0.11091453707478542",
+      "observed": "0.11091453911261899",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_fixed_local_hgb_centered_rmse_matches_frozen",
+      "expected": "0.08968012879149498",
+      "observed": "0.08968012753673224",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_fixed_local_hgb_pearson_matches_frozen",
+      "expected": "0.5738338828086853",
+      "observed": "0.573833857492622",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_train_mean_rmse_matches_frozen",
+      "expected": "0.12619041802639747",
+      "observed": "0.1261904126233322",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_train_mean_centered_rmse_matches_frozen",
+      "expected": "0.10912675444458726",
+      "observed": "0.10912675688760473",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_train_mean_constant_pearson_artifact",
+      "expected": "recompute None, frozen <= 1e-6",
+      "observed": "-6.503361049681189e-08",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_train_mean_degenerate_state",
+      "expected": "NOT_ESTIMABLE_*",
+      "observed": "NOT_ESTIMABLE_CONSTANT_PREDICTION",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_train_mean_rmse_kept",
+      "expected": "not None",
+      "observed": "0.1261904126233322",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_train_mean_sd_below_floor",
+      "expected": "<1e-06",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_gene_ridge_rmse_matches_frozen",
+      "expected": "0.0668994978293127",
+      "observed": "0.06689949721206463",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_gene_ridge_centered_rmse_matches_frozen",
+      "expected": "0.061703162095963625",
+      "observed": "0.06170316158650405",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_gene_ridge_pearson_matches_frozen",
+      "expected": "0.8505739569664001",
+      "observed": "0.8505739750794696",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_gene_ridge_smooth_half_rmse_matches_frozen",
+      "expected": "0.06161649795660057",
+      "observed": "0.06161649566362353",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_gene_ridge_smooth_half_centered_rmse_matches_frozen",
+      "expected": "0.0558742520055052",
+      "observed": "0.055874250661369924",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_gene_ridge_smooth_half_pearson_matches_frozen",
+      "expected": "0.8590043783187866",
+      "observed": "0.859004359918217",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_fixed_point_hgb_rmse_matches_frozen",
+      "expected": "0.11180787282973258",
+      "observed": "0.11180787266657043",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_fixed_point_hgb_centered_rmse_matches_frozen",
+      "expected": "0.08524835684282063",
+      "observed": "0.08524835761657541",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_fixed_point_hgb_pearson_matches_frozen",
+      "expected": "0.6394136548042297",
+      "observed": "0.6394136539962849",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_fixed_local_hgb_rmse_matches_frozen",
+      "expected": "0.10070832223554137",
+      "observed": "0.10070832474722892",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_fixed_local_hgb_centered_rmse_matches_frozen",
+      "expected": "0.08157908901692751",
+      "observed": "0.08157908910484667",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_fixed_local_hgb_pearson_matches_frozen",
+      "expected": "0.667026162147522",
+      "observed": "0.6670261333289493",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_train_mean_rmse_matches_frozen",
+      "expected": "0.12619041802639747",
+      "observed": "0.1261904126233322",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_train_mean_centered_rmse_matches_frozen",
+      "expected": "0.10912675444458726",
+      "observed": "0.10912675688760473",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_train_mean_constant_pearson_artifact",
+      "expected": "recompute None, frozen <= 1e-6",
+      "observed": "-6.503361049681189e-08",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_train_mean_degenerate_state",
+      "expected": "NOT_ESTIMABLE_*",
+      "observed": "NOT_ESTIMABLE_CONSTANT_PREDICTION",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_train_mean_rmse_kept",
+      "expected": "not None",
+      "observed": "0.1261904126233322",
+      "passed": true
+    },
+    {
+      "check": "TENX13_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_train_mean_sd_below_floor",
+      "expected": "<1e-06",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "TENX14_pitch_matches_manifest",
+      "expected": "273.00183149568795",
+      "observed": "273.00183149568795",
+      "passed": true
+    },
+    {
+      "check": "TENX14_isolated_spots_match_manifest",
+      "expected": "0",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "TENX14_confirmed_unit_matches_identity_table",
+      "expected": "False",
+      "observed": "False",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_readout_matches_frozen",
+      "expected": "<=1e-6",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_support_denominators_consistent",
+      "expected": "0",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_detected_denominator_consistent",
+      "expected": "0",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_measured_descriptor_shuffle_invariance",
+      "expected": "all identical",
+      "observed": "(44, 0.0)",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_frozen_edge_set_matches_dense_pairs",
+      "expected": "11720",
+      "observed": "11720",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_stored_weights_match_uniform_within_float32",
+      "expected": "<=1e-6",
+      "observed": "9.934107481068821e-09",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_outer_isolated_spots",
+      "expected": "recorded",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_autocorr_near_matches_dense_same_weights",
+      "expected": "<=1e-12",
+      "observed": "4.718447854656915e-16",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_autocorr_near_uniform_vs_stored_weight_residual",
+      "expected": "<=1e-6",
+      "observed": "4.534141118117674e-09",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_autocorr_outer_matches_dense_same_weights",
+      "expected": "<=1e-12",
+      "observed": "5.204170427930421e-18",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_autocorr_outer_uniform_vs_stored_weight_residual",
+      "expected": "<=1e-6",
+      "observed": "1.5182320895271162e-10",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_sd_matches_dense",
+      "expected": "0.11230996271722507",
+      "observed": "0.11230996271722507",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_centroid_matches_dense",
+      "expected": "0.46459759644557785",
+      "observed": "0.46459759644557785",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_patch75_matches_bruteforce",
+      "expected": "122",
+      "observed": "122",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_patch90_matches_bruteforce",
+      "expected": "85",
+      "observed": "85",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_small5_gene_ridge_rmse_matches_frozen",
+      "expected": "0.089331326584612",
+      "observed": "0.08933132682162426",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_small5_gene_ridge_centered_rmse_matches_frozen",
+      "expected": "0.08860123841529413",
+      "observed": "0.08860123640143486",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_small5_gene_ridge_pearson_matches_frozen",
+      "expected": "0.6917328238487244",
+      "observed": "0.6917328947774755",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_small5_gene_ridge_smooth_half_rmse_matches_frozen",
+      "expected": "0.07242647518539243",
+      "observed": "0.07242647418880693",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_small5_gene_ridge_smooth_half_centered_rmse_matches_frozen",
+      "expected": "0.07151665349649575",
+      "observed": "0.07151665397691548",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_small5_gene_ridge_smooth_half_pearson_matches_frozen",
+      "expected": "0.7730172276496887",
+      "observed": "0.7730172970434153",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_small5_fixed_point_hgb_rmse_matches_frozen",
+      "expected": "0.1439528296382834",
+      "observed": "0.14395283080469712",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_small5_fixed_point_hgb_centered_rmse_matches_frozen",
+      "expected": "0.09100212336744475",
+      "observed": "0.09100212195311458",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_small5_fixed_point_hgb_pearson_matches_frozen",
+      "expected": "0.6067904233932495",
+      "observed": "0.6067904335528875",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_small5_fixed_local_hgb_rmse_matches_frozen",
+      "expected": "0.14652193859394377",
+      "observed": "0.1465219433190412",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_small5_fixed_local_hgb_centered_rmse_matches_frozen",
+      "expected": "0.08520094361425616",
+      "observed": "0.08520094368235547",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_small5_fixed_local_hgb_pearson_matches_frozen",
+      "expected": "0.6530346274375916",
+      "observed": "0.6530346359029593",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_small5_train_mean_rmse_matches_frozen",
+      "expected": "0.15871929803901236",
+      "observed": "0.1587193009568015",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_small5_train_mean_centered_rmse_matches_frozen",
+      "expected": "0.11230996160976803",
+      "observed": "0.11230996271722507",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_small5_train_mean_constant_pearson_artifact",
+      "expected": "recompute None, frozen <= 1e-6",
+      "observed": "5.921807400000034e-08",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_small5_train_mean_degenerate_state",
+      "expected": "NOT_ESTIMABLE_*",
+      "observed": "NOT_ESTIMABLE_CONSTANT_PREDICTION",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_small5_train_mean_rmse_kept",
+      "expected": "not None",
+      "observed": "0.1587193009568015",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_small5_train_mean_sd_below_floor",
+      "expected": "<1e-06",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_full15_gene_ridge_rmse_matches_frozen",
+      "expected": "0.07429668450556741",
+      "observed": "0.07429668279807508",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_full15_gene_ridge_centered_rmse_matches_frozen",
+      "expected": "0.07148338640290275",
+      "observed": "0.07148338531412789",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_full15_gene_ridge_pearson_matches_frozen",
+      "expected": "0.7857528924942017",
+      "observed": "0.7857529591932902",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_full15_gene_ridge_smooth_half_rmse_matches_frozen",
+      "expected": "0.06463644299638802",
+      "observed": "0.06463644554981521",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_full15_gene_ridge_smooth_half_centered_rmse_matches_frozen",
+      "expected": "0.06136138706487964",
+      "observed": "0.061361387811442965",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_full15_gene_ridge_smooth_half_pearson_matches_frozen",
+      "expected": "0.8381509780883789",
+      "observed": "0.8381509800245737",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_full15_fixed_point_hgb_rmse_matches_frozen",
+      "expected": "0.10559958713719007",
+      "observed": "0.105599592104887",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_full15_fixed_point_hgb_centered_rmse_matches_frozen",
+      "expected": "0.08173692216734553",
+      "observed": "0.08173692430379693",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_full15_fixed_point_hgb_pearson_matches_frozen",
+      "expected": "0.694373369216919",
+      "observed": "0.6943734473370595",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_full15_fixed_local_hgb_rmse_matches_frozen",
+      "expected": "0.10657747620699827",
+      "observed": "0.10657748059442575",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_full15_fixed_local_hgb_centered_rmse_matches_frozen",
+      "expected": "0.0774782590981325",
+      "observed": "0.07747826168388315",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_full15_fixed_local_hgb_pearson_matches_frozen",
+      "expected": "0.7245192527770996",
+      "observed": "0.7245192385461179",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_full15_train_mean_rmse_matches_frozen",
+      "expected": "0.15871929803901236",
+      "observed": "0.1587193009568015",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_full15_train_mean_centered_rmse_matches_frozen",
+      "expected": "0.11230996160976803",
+      "observed": "0.11230996271722507",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_full15_train_mean_constant_pearson_artifact",
+      "expected": "recompute None, frozen <= 1e-6",
+      "observed": "5.921807400000034e-08",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_full15_train_mean_degenerate_state",
+      "expected": "NOT_ESTIMABLE_*",
+      "observed": "NOT_ESTIMABLE_CONSTANT_PREDICTION",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_full15_train_mean_rmse_kept",
+      "expected": "not None",
+      "observed": "0.1587193009568015",
+      "passed": true
+    },
+    {
+      "check": "TENX14_B_AXIS_full15_train_mean_sd_below_floor",
+      "expected": "<1e-06",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_readout_matches_frozen",
+      "expected": "<=1e-6",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_support_denominators_consistent",
+      "expected": "0",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_detected_denominator_consistent",
+      "expected": "0",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_measured_descriptor_shuffle_invariance",
+      "expected": "all identical",
+      "observed": "(44, 0.0)",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_frozen_edge_set_matches_dense_pairs",
+      "expected": "11720",
+      "observed": "11720",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_stored_weights_match_uniform_within_float32",
+      "expected": "<=1e-6",
+      "observed": "9.934107481068821e-09",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_outer_isolated_spots",
+      "expected": "recorded",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_autocorr_near_matches_dense_same_weights",
+      "expected": "<=1e-12",
+      "observed": "3.885780586188048e-16",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_autocorr_near_uniform_vs_stored_weight_residual",
+      "expected": "<=1e-6",
+      "observed": "5.098623440114025e-09",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_autocorr_outer_matches_dense_same_weights",
+      "expected": "<=1e-12",
+      "observed": "1.214306433183765e-17",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_autocorr_outer_uniform_vs_stored_weight_residual",
+      "expected": "<=1e-6",
+      "observed": "3.099583090193647e-10",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_sd_matches_dense",
+      "expected": "0.10138357062809669",
+      "observed": "0.10138357062809669",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_centroid_matches_dense",
+      "expected": "0.9276401734620309",
+      "observed": "0.9276401734620309",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_patch75_matches_bruteforce",
+      "expected": "83",
+      "observed": "83",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_patch90_matches_bruteforce",
+      "expected": "94",
+      "observed": "94",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_gene_ridge_rmse_matches_frozen",
+      "expected": "0.05232164232774966",
+      "observed": "0.05232164286918144",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_gene_ridge_centered_rmse_matches_frozen",
+      "expected": "0.0522370040865508",
+      "observed": "0.052237002569333384",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_gene_ridge_pearson_matches_frozen",
+      "expected": "0.8764346241950989",
+      "observed": "0.8764346711528557",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_gene_ridge_smooth_half_rmse_matches_frozen",
+      "expected": "0.04715911622228888",
+      "observed": "0.04715911649087053",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_gene_ridge_smooth_half_centered_rmse_matches_frozen",
+      "expected": "0.04706692891207065",
+      "observed": "0.04706692856122503",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_gene_ridge_smooth_half_pearson_matches_frozen",
+      "expected": "0.8891655802726746",
+      "observed": "0.8891656481375164",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_fixed_point_hgb_rmse_matches_frozen",
+      "expected": "0.0937393997080511",
+      "observed": "0.0937394008562769",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_fixed_point_hgb_centered_rmse_matches_frozen",
+      "expected": "0.06182636320909712",
+      "observed": "0.06182636358655995",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_fixed_point_hgb_pearson_matches_frozen",
+      "expected": "0.7937992215156555",
+      "observed": "0.7937992471671743",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_fixed_local_hgb_rmse_matches_frozen",
+      "expected": "0.08555489136747597",
+      "observed": "0.08555489106159245",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_fixed_local_hgb_centered_rmse_matches_frozen",
+      "expected": "0.06259187263991033",
+      "observed": "0.06259187108643746",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_fixed_local_hgb_pearson_matches_frozen",
+      "expected": "0.7936051487922668",
+      "observed": "0.7936050152062804",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_train_mean_rmse_matches_frozen",
+      "expected": "0.22159190687597374",
+      "observed": "0.22159190996456699",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_train_mean_centered_rmse_matches_frozen",
+      "expected": "0.1013835697129627",
+      "observed": "0.10138357062809669",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_train_mean_degenerate_state",
+      "expected": "NOT_ESTIMABLE_*",
+      "observed": "NOT_ESTIMABLE_CONSTANT_PREDICTION",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_train_mean_rmse_kept",
+      "expected": "not None",
+      "observed": "0.22159190996456699",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_small5_train_mean_sd_below_floor",
+      "expected": "<1e-06",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_gene_ridge_rmse_matches_frozen",
+      "expected": "0.04512708893825465",
+      "observed": "0.045127086174920686",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_gene_ridge_centered_rmse_matches_frozen",
+      "expected": "0.04328062519464285",
+      "observed": "0.04328062525504405",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_gene_ridge_pearson_matches_frozen",
+      "expected": "0.9091030955314636",
+      "observed": "0.9091031456347562",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_gene_ridge_smooth_half_rmse_matches_frozen",
+      "expected": "0.04289528136174586",
+      "observed": "0.04289528168618024",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_gene_ridge_smooth_half_centered_rmse_matches_frozen",
+      "expected": "0.040937882211862876",
+      "observed": "0.04093788236866544",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_gene_ridge_smooth_half_pearson_matches_frozen",
+      "expected": "0.9148592948913574",
+      "observed": "0.9148594262875419",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_fixed_point_hgb_rmse_matches_frozen",
+      "expected": "0.08058746813967557",
+      "observed": "0.08058747070488477",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_fixed_point_hgb_centered_rmse_matches_frozen",
+      "expected": "0.0561972604313477",
+      "observed": "0.05619725998842039",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_fixed_point_hgb_pearson_matches_frozen",
+      "expected": "0.8333093523979187",
+      "observed": "0.8333093313249411",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_fixed_local_hgb_rmse_matches_frozen",
+      "expected": "0.07833298476005081",
+      "observed": "0.0783329827742216",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_fixed_local_hgb_centered_rmse_matches_frozen",
+      "expected": "0.05919751002791661",
+      "observed": "0.05919751055169347",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_fixed_local_hgb_pearson_matches_frozen",
+      "expected": "0.8161818385124207",
+      "observed": "0.816181853070075",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_train_mean_rmse_matches_frozen",
+      "expected": "0.22159190687597374",
+      "observed": "0.22159190996456699",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_train_mean_centered_rmse_matches_frozen",
+      "expected": "0.1013835697129627",
+      "observed": "0.10138357062809669",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_train_mean_degenerate_state",
+      "expected": "NOT_ESTIMABLE_*",
+      "observed": "NOT_ESTIMABLE_CONSTANT_PREDICTION",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_train_mean_rmse_kept",
+      "expected": "not None",
+      "observed": "0.22159190996456699",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_OXIDATIVE_PHOSPHORYLATION_full15_train_mean_sd_below_floor",
+      "expected": "<1e-06",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_readout_matches_frozen",
+      "expected": "<=1e-6",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_support_denominators_consistent",
+      "expected": "0",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_detected_denominator_consistent",
+      "expected": "0",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_measured_descriptor_shuffle_invariance",
+      "expected": "all identical",
+      "observed": "(44, 0.0)",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_frozen_edge_set_matches_dense_pairs",
+      "expected": "11720",
+      "observed": "11720",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_stored_weights_match_uniform_within_float32",
+      "expected": "<=1e-6",
+      "observed": "9.934107481068821e-09",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_outer_isolated_spots",
+      "expected": "recorded",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_autocorr_near_matches_dense_same_weights",
+      "expected": "<=1e-12",
+      "observed": "4.163336342344337e-16",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_autocorr_near_uniform_vs_stored_weight_residual",
+      "expected": "<=1e-6",
+      "observed": "4.509573325872651e-09",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_autocorr_outer_matches_dense_same_weights",
+      "expected": "<=1e-12",
+      "observed": "4.336808689942018e-19",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_autocorr_outer_uniform_vs_stored_weight_residual",
+      "expected": "<=1e-6",
+      "observed": "2.2026800847695094e-11",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_sd_matches_dense",
+      "expected": "0.0778976947352967",
+      "observed": "0.0778976947352967",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_centroid_matches_dense",
+      "expected": "0.9285007341407947",
+      "observed": "0.9285007341407947",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_patch75_matches_bruteforce",
+      "expected": "114",
+      "observed": "114",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_patch90_matches_bruteforce",
+      "expected": "72",
+      "observed": "72",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_gene_ridge_rmse_matches_frozen",
+      "expected": "0.07220389332761847",
+      "observed": "0.07220389369828803",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_gene_ridge_centered_rmse_matches_frozen",
+      "expected": "0.06282494681430467",
+      "observed": "0.06282494867551246",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_gene_ridge_pearson_matches_frozen",
+      "expected": "0.6730217933654785",
+      "observed": "0.6730218462486535",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_gene_ridge_smooth_half_rmse_matches_frozen",
+      "expected": "0.06645033579098195",
+      "observed": "0.06645033570987356",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_gene_ridge_smooth_half_centered_rmse_matches_frozen",
+      "expected": "0.05608634179574408",
+      "observed": "0.05608634404610719",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_gene_ridge_smooth_half_pearson_matches_frozen",
+      "expected": "0.7040782570838928",
+      "observed": "0.7040782491626396",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_fixed_point_hgb_rmse_matches_frozen",
+      "expected": "0.10513212649261973",
+      "observed": "0.10513212106873833",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_fixed_point_hgb_centered_rmse_matches_frozen",
+      "expected": "0.06796765833558974",
+      "observed": "0.06796765799098418",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_fixed_point_hgb_pearson_matches_frozen",
+      "expected": "0.5375668406486511",
+      "observed": "0.5375667908481835",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_fixed_local_hgb_rmse_matches_frozen",
+      "expected": "0.10996370600032215",
+      "observed": "0.10996370881986382",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_fixed_local_hgb_centered_rmse_matches_frozen",
+      "expected": "0.06865000591937044",
+      "observed": "0.06865000525759249",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_fixed_local_hgb_pearson_matches_frozen",
+      "expected": "0.4940721094608307",
+      "observed": "0.49407209864369644",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_train_mean_rmse_matches_frozen",
+      "expected": "0.1687662631163088",
+      "observed": "0.16876626096018243",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_train_mean_centered_rmse_matches_frozen",
+      "expected": "0.07789769483982592",
+      "observed": "0.0778976947352967",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_train_mean_constant_pearson_artifact",
+      "expected": "recompute None, frozen <= 1e-6",
+      "observed": "-2.5308594331363565e-07",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_train_mean_degenerate_state",
+      "expected": "NOT_ESTIMABLE_*",
+      "observed": "NOT_ESTIMABLE_CONSTANT_PREDICTION",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_train_mean_rmse_kept",
+      "expected": "not None",
+      "observed": "0.16876626096018243",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_small5_train_mean_sd_below_floor",
+      "expected": "<1e-06",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_gene_ridge_rmse_matches_frozen",
+      "expected": "0.055425084919675176",
+      "observed": "0.055425084439764065",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_gene_ridge_centered_rmse_matches_frozen",
+      "expected": "0.05539501361449952",
+      "observed": "0.0553950148115045",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_gene_ridge_pearson_matches_frozen",
+      "expected": "0.7389457821846008",
+      "observed": "0.7389457840661234",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_gene_ridge_smooth_half_rmse_matches_frozen",
+      "expected": "0.0510987366093412",
+      "observed": "0.05109873798381882",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_gene_ridge_smooth_half_centered_rmse_matches_frozen",
+      "expected": "0.0510679824697894",
+      "observed": "0.051067982488027186",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_gene_ridge_smooth_half_pearson_matches_frozen",
+      "expected": "0.7578560709953308",
+      "observed": "0.7578560748114062",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_fixed_point_hgb_rmse_matches_frozen",
+      "expected": "0.06995145169523947",
+      "observed": "0.0699514548056648",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_fixed_point_hgb_centered_rmse_matches_frozen",
+      "expected": "0.06584408115838684",
+      "observed": "0.06584407891143682",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_fixed_point_hgb_pearson_matches_frozen",
+      "expected": "0.6147764921188354",
+      "observed": "0.6147765148615137",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_fixed_local_hgb_rmse_matches_frozen",
+      "expected": "0.06083754210611242",
+      "observed": "0.060837540022140923",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_fixed_local_hgb_centered_rmse_matches_frozen",
+      "expected": "0.06036150535603147",
+      "observed": "0.060361505074424456",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_fixed_local_hgb_pearson_matches_frozen",
+      "expected": "0.6474640965461731",
+      "observed": "0.6474640100769091",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_train_mean_rmse_matches_frozen",
+      "expected": "0.1687662631163088",
+      "observed": "0.16876626096018243",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_train_mean_centered_rmse_matches_frozen",
+      "expected": "0.07789769483982592",
+      "observed": "0.0778976947352967",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_train_mean_constant_pearson_artifact",
+      "expected": "recompute None, frozen <= 1e-6",
+      "observed": "-2.5308594331363565e-07",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_train_mean_degenerate_state",
+      "expected": "NOT_ESTIMABLE_*",
+      "observed": "NOT_ESTIMABLE_CONSTANT_PREDICTION",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_train_mean_rmse_kept",
+      "expected": "not None",
+      "observed": "0.16876626096018243",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_INTERFERON_GAMMA_RESPONSE_full15_train_mean_sd_below_floor",
+      "expected": "<1e-06",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_readout_matches_frozen",
+      "expected": "<=1e-6",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_support_denominators_consistent",
+      "expected": "0",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_detected_denominator_consistent",
+      "expected": "0",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_measured_descriptor_shuffle_invariance",
+      "expected": "all identical",
+      "observed": "(44, 0.0)",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_frozen_edge_set_matches_dense_pairs",
+      "expected": "11720",
+      "observed": "11720",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_stored_weights_match_uniform_within_float32",
+      "expected": "<=1e-6",
+      "observed": "9.934107481068821e-09",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_outer_isolated_spots",
+      "expected": "recorded",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_autocorr_near_matches_dense_same_weights",
+      "expected": "<=1e-12",
+      "observed": "1.1102230246251565e-16",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_autocorr_near_uniform_vs_stored_weight_residual",
+      "expected": "<=1e-6",
+      "observed": "4.58270529857252e-09",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_autocorr_outer_matches_dense_same_weights",
+      "expected": "<=1e-12",
+      "observed": "2.168404344971009e-19",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_autocorr_outer_uniform_vs_stored_weight_residual",
+      "expected": "<=1e-6",
+      "observed": "9.69763926279843e-11",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_sd_matches_dense",
+      "expected": "0.09841292816112017",
+      "observed": "0.09841292816112017",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_centroid_matches_dense",
+      "expected": "0.5304257042582512",
+      "observed": "0.5304257042582512",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_patch75_matches_bruteforce",
+      "expected": "165",
+      "observed": "165",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_patch90_matches_bruteforce",
+      "expected": "108",
+      "observed": "108",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_gene_ridge_rmse_matches_frozen",
+      "expected": "0.08538176189976608",
+      "observed": "0.08538176147533487",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_gene_ridge_centered_rmse_matches_frozen",
+      "expected": "0.08054673214760072",
+      "observed": "0.08054673365732272",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_gene_ridge_pearson_matches_frozen",
+      "expected": "0.7337222695350647",
+      "observed": "0.7337222911887051",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_gene_ridge_smooth_half_rmse_matches_frozen",
+      "expected": "0.06790231425746586",
+      "observed": "0.0679023134270264",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_gene_ridge_smooth_half_centered_rmse_matches_frozen",
+      "expected": "0.061725255164634486",
+      "observed": "0.06172525546993602",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_gene_ridge_smooth_half_pearson_matches_frozen",
+      "expected": "0.7868743538856506",
+      "observed": "0.7868743880572",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_fixed_point_hgb_rmse_matches_frozen",
+      "expected": "0.14130383465707214",
+      "observed": "0.1413038337114028",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_fixed_point_hgb_centered_rmse_matches_frozen",
+      "expected": "0.09388097911770495",
+      "observed": "0.09388097703556575",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_fixed_point_hgb_pearson_matches_frozen",
+      "expected": "0.515013575553894",
+      "observed": "0.51501358090819",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_fixed_local_hgb_rmse_matches_frozen",
+      "expected": "0.12447524190910998",
+      "observed": "0.12447524125652247",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_fixed_local_hgb_centered_rmse_matches_frozen",
+      "expected": "0.08268983748938823",
+      "observed": "0.0826898368793498",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_fixed_local_hgb_pearson_matches_frozen",
+      "expected": "0.550868809223175",
+      "observed": "0.5508687638720267",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_train_mean_rmse_matches_frozen",
+      "expected": "0.14031268247239922",
+      "observed": "0.1403126856583496",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_train_mean_centered_rmse_matches_frozen",
+      "expected": "0.09841292960197809",
+      "observed": "0.09841292816112017",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_train_mean_constant_pearson_artifact",
+      "expected": "recompute None, frozen <= 1e-6",
+      "observed": "2.425651643989113e-07",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_train_mean_degenerate_state",
+      "expected": "NOT_ESTIMABLE_*",
+      "observed": "NOT_ESTIMABLE_CONSTANT_PREDICTION",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_train_mean_rmse_kept",
+      "expected": "not None",
+      "observed": "0.1403126856583496",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_small5_train_mean_sd_below_floor",
+      "expected": "<1e-06",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_gene_ridge_rmse_matches_frozen",
+      "expected": "0.062334041496823214",
+      "observed": "0.062334044681573365",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_gene_ridge_centered_rmse_matches_frozen",
+      "expected": "0.05760604540533093",
+      "observed": "0.05760604388070302",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_gene_ridge_pearson_matches_frozen",
+      "expected": "0.8418892025947571",
+      "observed": "0.8418892366205392",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_gene_ridge_smooth_half_rmse_matches_frozen",
+      "expected": "0.05688219514859419",
+      "observed": "0.05688219554982009",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_gene_ridge_smooth_half_centered_rmse_matches_frozen",
+      "expected": "0.0516972344748723",
+      "observed": "0.05169723303594126",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_gene_ridge_smooth_half_pearson_matches_frozen",
+      "expected": "0.8509466052055359",
+      "observed": "0.8509465588796555",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_fixed_point_hgb_rmse_matches_frozen",
+      "expected": "0.11860895737232892",
+      "observed": "0.11860895832238616",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_fixed_point_hgb_centered_rmse_matches_frozen",
+      "expected": "0.07826904190736007",
+      "observed": "0.07826903957117323",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_fixed_point_hgb_pearson_matches_frozen",
+      "expected": "0.6125395894050598",
+      "observed": "0.6125395387468849",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_fixed_local_hgb_rmse_matches_frozen",
+      "expected": "0.10502750762309211",
+      "observed": "0.1050275054757402",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_fixed_local_hgb_centered_rmse_matches_frozen",
+      "expected": "0.0736923750938304",
+      "observed": "0.07369237266860769",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_fixed_local_hgb_pearson_matches_frozen",
+      "expected": "0.6691019535064697",
+      "observed": "0.66910196605605",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_train_mean_rmse_matches_frozen",
+      "expected": "0.14031268247239922",
+      "observed": "0.1403126856583496",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_train_mean_centered_rmse_matches_frozen",
+      "expected": "0.09841292960197809",
+      "observed": "0.09841292816112017",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_train_mean_constant_pearson_artifact",
+      "expected": "recompute None, frozen <= 1e-6",
+      "observed": "2.425651643989113e-07",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_train_mean_degenerate_state",
+      "expected": "NOT_ESTIMABLE_*",
+      "observed": "NOT_ESTIMABLE_CONSTANT_PREDICTION",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_train_mean_rmse_kept",
+      "expected": "not None",
+      "observed": "0.1403126856583496",
+      "passed": true
+    },
+    {
+      "check": "TENX14_HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION_full15_train_mean_sd_below_floor",
+      "expected": "<1e-06",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "no_arm_row_duplication",
+      "expected": "unique",
+      "observed": "400",
+      "passed": true
+    },
+    {
+      "check": "within_unit_runs_on_real_prediction_relation_rows",
+      "expected": "80",
+      "observed": "80",
+      "passed": true
+    },
+    {
       "check": "within_unit_real_profile_columns",
       "expected": "['measured_rel_pearson', 'predicted_rel_pearson']",
-      "observed": "[]",
+      "observed": "['measured_rel_pearson', 'predicted_rel_pearson']",
+      "passed": true
+    },
+    {
+      "check": "unit_groups_equal_established_unit_identity",
+      "expected": "360",
+      "observed": "360",
+      "passed": true
+    },
+    {
+      "check": "before_fix_key_would_split_units",
+      "expected": "before_fix > after_fix",
+      "observed": "(400, 360)",
+      "passed": true
+    },
+    {
+      "check": "real_two_section_unit_merged_mixed_source_key",
+      "expected": "singleton::TENX13: n_sections=2, source_key=mixed",
+      "observed": "[('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed'), ('singleton::TENX13', 2, 'mixed')]",
       "passed": true
     },
     {
@@ -9316,28 +11832,32 @@
   ],
   "failures": [],
   "timings_seconds": {
-    "MISC33": 7.223046064376831,
-    "TENX154": 8.041154384613037,
-    "TENX161": 5.969137668609619,
-    "NCBI642": 4.323132038116455,
-    "TENX171": 3.109327554702759
+    "MISC33": 7.296710729598999,
+    "TENX154": 7.848379135131836,
+    "TENX161": 5.94735860824585,
+    "NCBI642": 3.9852800369262695,
+    "TENX171": 2.9594433307647705,
+    "TENX13": 4.196659326553345,
+    "TENX14": 4.404543161392212
   },
   "extrapolation": {
     "measured_section_seconds": {
-      "MISC33": 7.223046064376831,
-      "TENX154": 8.041154384613037,
-      "TENX161": 5.969137668609619,
-      "NCBI642": 4.323132038116455,
-      "TENX171": 3.109327554702759
+      "MISC33": 7.296710729598999,
+      "TENX154": 7.848379135131836,
+      "TENX161": 5.94735860824585,
+      "NCBI642": 3.9852800369262695,
+      "TENX171": 2.9594433307647705,
+      "TENX13": 4.196659326553345,
+      "TENX14": 4.404543161392212
     },
-    "mean_seconds_per_section_run_stage": 5.73315954208374,
+    "mean_seconds_per_section_run_stage": 5.234053475516183,
     "split_section_visits": {
       "internal": 72,
       "source": 53
     },
-    "projected_run_cpu_seconds": 716.6449427604675,
-    "projected_run_wall_hours": 0.07,
-    "projected_prepare_cpu_seconds": 412.8,
+    "projected_run_cpu_seconds": 654.2566844395229,
+    "projected_run_wall_hours": 0.06,
+    "projected_prepare_cpu_seconds": 376.9,
     "note": "run-stage projection uses split test-section visits (72 internal + 53 source); prepare reads the same sections once each"
   },
   "setup_checks": {
@@ -9345,12 +11865,12 @@
     "no_allowed_path_matches_denylist": true,
     "allowed_path_matching_denylist": [],
     "verified": {
-      "frozen_hashes": 90,
-      "expression_hashes": 5
+      "frozen_hashes": 126,
+      "expression_hashes": 7
     },
     "panel_file_sha256": "c36cb2a28b7611c9d28d71694c822bc99a2d0aa33104505d6235b44599cc3ea9",
     "identity_source_sha256": "fc753bf0b3adcc1f8c0c2974e01eb68114702e8fce42430aaf281b5b82c61dbe",
-    "protocol_sha256": "6062a19ddba7a720cb36520663c9e749f09aa3695755385d906cd5c415372278",
+    "protocol_sha256": "5fe088c5cb35317034a64782974f6203880fe984b3c11b65f852037fa1daaf7f",
     "panel_file_matches_frozen_receipt": true,
     "visible_target_disjoint": true,
     "module_target_disjoint": true,
@@ -9359,7 +11879,7 @@
     "confirmed_units": 8,
     "source_not_testable_sections": 19,
     "train_indices_excluded": true,
-    "free_bytes": 889415340032,
+    "free_bytes": 886960652288,
     "storage_reserve_ok": true
   }
 }
