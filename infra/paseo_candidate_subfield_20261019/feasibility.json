@@ -1,0 +1,282 @@
+{
+  "fold_file_rows": 74,
+  "manifest_rows": 72,
+  "fold_file_extra_sections": [
+    "TENX23",
+    "TENX28"
+  ],
+  "manifest_missing_from_fold_file": [],
+  "folds": {
+    "0": 16,
+    "3": 15,
+    "1": 15,
+    "4": 12,
+    "2": 14
+  },
+  "units": 65,
+  "source_eligible": 53,
+  "targets": {
+    "B_AXIS": {
+      "panel": 49,
+      "n_a": 33,
+      "n_b": 16,
+      "overlap": 0,
+      "A_measurable_fraction": {
+        "n": 33,
+        "median": 0.8055555555555556,
+        "q10": 0.5027777777777778,
+        "q90": 1.0,
+        "all_sections": 5,
+        "at_least_80pct": 17,
+        "at_least_half": 29,
+        "never": 0
+      },
+      "B_measurable_fraction": {
+        "n": 16,
+        "median": 0.8263888888888888,
+        "q10": 0.4236111111111111,
+        "q90": 1.0,
+        "all_sections": 4,
+        "at_least_80pct": 9,
+        "at_least_half": 13,
+        "never": 0
+      },
+      "per_section_measurable": {
+        "A_min": 15,
+        "A_median": 26.0,
+        "A_max": 33,
+        "B_min": 5,
+        "B_median": 13.0,
+        "B_max": 16
+      },
+      "per_fold_usable_A": {
+        "fold0_rule100": 6,
+        "fold0_rule80": 17,
+        "fold0_rule50": 29,
+        "fold1_rule100": 5,
+        "fold1_rule80": 17,
+        "fold1_rule50": 29,
+        "fold2_rule100": 5,
+        "fold2_rule80": 16,
+        "fold2_rule50": 30,
+        "fold3_rule100": 5,
+        "fold3_rule80": 16,
+        "fold3_rule50": 29,
+        "fold4_rule100": 6,
+        "fold4_rule80": 18,
+        "fold4_rule50": 30
+      },
+      "B_evaluable_section_counts": {
+        "10": 12,
+        "13": 12,
+        "14": 6,
+        "16": 12,
+        "5": 2,
+        "15": 8,
+        "12": 2,
+        "8": 3,
+        "9": 3,
+        "11": 4,
+        "6": 3,
+        "7": 5
+      }
+    },
+    "HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "panel": 200,
+      "n_a": 134,
+      "n_b": 66,
+      "overlap": 0,
+      "A_measurable_fraction": {
+        "n": 134,
+        "median": 1.0,
+        "q10": 0.7861111111111111,
+        "q90": 1.0,
+        "all_sections": 80,
+        "at_least_80pct": 120,
+        "at_least_half": 129,
+        "never": 3
+      },
+      "B_measurable_fraction": {
+        "n": 66,
+        "median": 0.9722222222222222,
+        "q10": 0.8194444444444444,
+        "q90": 1.0,
+        "all_sections": 28,
+        "at_least_80pct": 60,
+        "at_least_half": 63,
+        "never": 1
+      },
+      "per_section_measurable": {
+        "A_min": 101,
+        "A_median": 126.0,
+        "A_max": 131,
+        "B_min": 39,
+        "B_median": 62.0,
+        "B_max": 65
+      },
+      "per_fold_usable_A": {
+        "fold0_rule100": 84,
+        "fold0_rule80": 120,
+        "fold0_rule50": 129,
+        "fold1_rule100": 86,
+        "fold1_rule80": 120,
+        "fold1_rule50": 129,
+        "fold2_rule100": 82,
+        "fold2_rule80": 119,
+        "fold2_rule50": 129,
+        "fold3_rule100": 80,
+        "fold3_rule80": 119,
+        "fold3_rule50": 128,
+        "fold4_rule100": 81,
+        "fold4_rule80": 121,
+        "fold4_rule50": 129
+      },
+      "B_evaluable_section_counts": {
+        "59": 4,
+        "62": 17,
+        "63": 8,
+        "65": 8,
+        "64": 11,
+        "52": 3,
+        "56": 3,
+        "58": 3,
+        "39": 1,
+        "61": 7,
+        "55": 1,
+        "57": 1,
+        "45": 1,
+        "54": 2,
+        "53": 1,
+        "60": 1
+      }
+    },
+    "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "panel": 200,
+      "n_a": 134,
+      "n_b": 66,
+      "overlap": 0,
+      "A_measurable_fraction": {
+        "n": 134,
+        "median": 0.9722222222222222,
+        "q10": 0.7361111111111112,
+        "q90": 1.0,
+        "all_sections": 49,
+        "at_least_80pct": 114,
+        "at_least_half": 132,
+        "never": 0
+      },
+      "B_measurable_fraction": {
+        "n": 66,
+        "median": 0.9861111111111112,
+        "q10": 0.8263888888888888,
+        "q90": 1.0,
+        "all_sections": 32,
+        "at_least_80pct": 62,
+        "at_least_half": 65,
+        "never": 0
+      },
+      "per_section_measurable": {
+        "A_min": 65,
+        "A_median": 127.0,
+        "A_max": 134,
+        "B_min": 37,
+        "B_median": 64.0,
+        "B_max": 66
+      },
+      "per_fold_usable_A": {
+        "fold0_rule100": 50,
+        "fold0_rule80": 113,
+        "fold0_rule50": 132,
+        "fold1_rule100": 63,
+        "fold1_rule80": 115,
+        "fold1_rule50": 132,
+        "fold2_rule100": 52,
+        "fold2_rule80": 113,
+        "fold2_rule50": 132,
+        "fold3_rule100": 50,
+        "fold3_rule80": 111,
+        "fold3_rule50": 132,
+        "fold4_rule100": 49,
+        "fold4_rule80": 113,
+        "fold4_rule50": 132
+      },
+      "B_evaluable_section_counts": {
+        "61": 8,
+        "65": 20,
+        "64": 13,
+        "66": 9,
+        "57": 2,
+        "63": 7,
+        "49": 1,
+        "37": 1,
+        "62": 5,
+        "44": 1,
+        "54": 2,
+        "60": 2,
+        "58": 1
+      }
+    },
+    "HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "panel": 200,
+      "n_a": 134,
+      "n_b": 66,
+      "overlap": 0,
+      "A_measurable_fraction": {
+        "n": 134,
+        "median": 1.0,
+        "q10": 0.8652777777777778,
+        "q90": 1.0,
+        "all_sections": 88,
+        "at_least_80pct": 124,
+        "at_least_half": 128,
+        "never": 0
+      },
+      "B_measurable_fraction": {
+        "n": 66,
+        "median": 1.0,
+        "q10": 0.9583333333333334,
+        "q90": 1.0,
+        "all_sections": 46,
+        "at_least_80pct": 62,
+        "at_least_half": 63,
+        "never": 0
+      },
+      "per_section_measurable": {
+        "A_min": 110,
+        "A_median": 128.0,
+        "A_max": 134,
+        "B_min": 56,
+        "B_median": 63.0,
+        "B_max": 66
+      },
+      "per_fold_usable_A": {
+        "fold0_rule100": 90,
+        "fold0_rule80": 124,
+        "fold0_rule50": 128,
+        "fold1_rule100": 92,
+        "fold1_rule80": 124,
+        "fold1_rule50": 128,
+        "fold2_rule100": 88,
+        "fold2_rule80": 124,
+        "fold2_rule50": 128,
+        "fold3_rule100": 88,
+        "fold3_rule80": 123,
+        "fold3_rule50": 128,
+        "fold4_rule100": 89,
+        "fold4_rule80": 126,
+        "fold4_rule50": 128
+      },
+      "B_evaluable_section_counts": {
+        "63": 30,
+        "62": 12,
+        "57": 1,
+        "61": 3,
+        "60": 2,
+        "66": 18,
+        "59": 2,
+        "56": 1,
+        "58": 3
+      }
+    }
+  }
+}
