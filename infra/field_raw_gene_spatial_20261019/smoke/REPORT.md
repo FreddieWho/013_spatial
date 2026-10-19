@@ -9,7 +9,7 @@
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|
 | point_ridge | B_AXIS | internal | 2 | 0.2525 | 0.3161 | 1.7195 | 10.0629 | 0.9025 | 0.1037 |
 | point_ridge_smooth_half | B_AXIS | internal | 2 | 0.2585 | 0.3606 | 1.6533 | 3.9967 | 0.6578 | 0.0891 |
-| local_ridge | B_AXIS | internal | 2 | 0.1498 | 0.2620 | 1.8039 | 7.0673 | 1.0463 | 0.1316 |
+| local_ridge | B_AXIS | internal | 2 | 0.1498 | 0.2620 | 1.8040 | 7.0673 | 1.0463 | 0.1316 |
 | background_ridge | B_AXIS | internal | 2 | 0.2552 | 0.3085 | 1.8663 | 6.1802 | 0.8626 | 0.1107 |
 | permuted_ridge | B_AXIS | internal | 2 | 0.1400 | 0.2439 | 1.7708 | 12.0682 | 1.2797 | 0.1780 |
 | point_ridge | HALLMARK_OXIDATIVE_PHOSPHORYLATION | internal | 2 | 0.7893 | 0.6752 | 0.5514 | 1.5512 | 0.9671 | 0.0675 |
@@ -21,16 +21,16 @@
 | point_ridge_smooth_half | HALLMARK_INTERFERON_GAMMA_RESPONSE | internal | 2 | 0.5839 | 0.5578 | 0.7510 | 7.6739 | 0.8250 | 0.0612 |
 | local_ridge | HALLMARK_INTERFERON_GAMMA_RESPONSE | internal | 2 | 0.4763 | 0.4510 | 0.6197 | 6.0030 | 1.0234 | 0.0795 |
 | background_ridge | HALLMARK_INTERFERON_GAMMA_RESPONSE | internal | 2 | 0.6078 | 0.5071 | 0.5516 | 7.3186 | 0.9096 | 0.0831 |
-| permuted_ridge | HALLMARK_INTERFERON_GAMMA_RESPONSE | internal | 2 | 0.4118 | 0.4008 | 0.9821 | 8.5465 | 1.0939 | 0.0882 |
+| permuted_ridge | HALLMARK_INTERFERON_GAMMA_RESPONSE | internal | 2 | 0.4118 | 0.4008 | 0.9822 | 8.5465 | 1.0939 | 0.0882 |
 | point_ridge | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | internal | 2 | 0.6299 | 0.6105 | 1.2049 | 3.7635 | 1.0451 | 0.0959 |
 | point_ridge_smooth_half | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | internal | 2 | 0.6299 | 0.6417 | 1.2926 | 2.7321 | 0.8848 | 0.0857 |
 | local_ridge | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | internal | 2 | 0.5153 | 0.5434 | 1.2392 | 6.2459 | 1.1220 | 0.1132 |
-| background_ridge | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | internal | 2 | 0.6343 | 0.6172 | 1.1490 | 3.8223 | 1.0209 | 0.0938 |
+| background_ridge | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | internal | 2 | 0.6343 | 0.6172 | 1.1489 | 3.8223 | 1.0209 | 0.0938 |
 | permuted_ridge | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | internal | 2 | 0.4413 | 0.4786 | 1.2896 | 5.4300 | 1.1744 | 0.1372 |
 | point_ridge | B_AXIS | source | 2 | 0.1501 | 0.3183 | 0.6062 | 2.7524 | 1.7072 | 0.0676 |
 | point_ridge_smooth_half | B_AXIS | source | 2 | 0.1546 | 0.3480 | 0.9347 | 1.7083 | 1.2308 | 0.0505 |
 | local_ridge | B_AXIS | source | 2 | 0.0960 | 0.2003 | 1.4275 | 5.5902 | 2.3238 | 0.2878 |
-| background_ridge | B_AXIS | source | 2 | 0.1496 | 0.3249 | 0.7462 | 3.0142 | 1.7610 | 0.0997 |
+| background_ridge | B_AXIS | source | 2 | 0.1496 | 0.3249 | 0.7462 | 3.0142 | 1.7610 | 0.0996 |
 | permuted_ridge | B_AXIS | source | 2 | 0.0295 | 0.2070 | 0.4310 | 10.2719 | 2.8646 | 0.4390 |
 | point_ridge | HALLMARK_OXIDATIVE_PHOSPHORYLATION | source | 2 | 0.3456 | 0.2564 | 0.5752 | 9.8112 | 0.8165 | 0.2729 |
 | point_ridge_smooth_half | HALLMARK_OXIDATIVE_PHOSPHORYLATION | source | 2 | 0.3516 | 0.2891 | 0.7016 | 6.8365 | 0.5880 | 0.2714 |
@@ -45,14 +45,14 @@
 | point_ridge | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | source | 2 | 0.3495 | 0.4082 | 0.4627 | 1.0187 | 1.1338 | 0.1991 |
 | point_ridge_smooth_half | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | source | 2 | 0.3685 | 0.4597 | 0.8533 | 0.5768 | 0.8240 | 0.1958 |
 | local_ridge | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | source | 2 | 0.2304 | 0.2768 | 0.9174 | 5.6048 | 1.5119 | 0.3169 |
-| background_ridge | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | source | 2 | 0.3458 | 0.4106 | 0.4364 | 1.1167 | 1.0882 | 0.3599 |
+| background_ridge | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | source | 2 | 0.3458 | 0.4106 | 0.4364 | 1.1167 | 1.0882 | 0.3598 |
 | permuted_ridge | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | source | 2 | 0.1689 | 0.2787 | 0.5950 | 7.5931 | 1.8600 | 0.1526 |
 
 ## 候选减基线（单位等权配对差值）
 
 | 目标 | 臂 | 基线 | 局部细节Δ | q75 Jaccard Δ | 质心位移 Δ | 半径绝对偏差 Δ |
 |---|---|---|---:|---:|---:|---:|
-| B_AXIS | internal | point_ridge | -0.1027 | -0.0541 | +0.0844 | -2.9956 |
+| B_AXIS | internal | point_ridge | -0.1027 | -0.0541 | +0.0845 | -2.9956 |
 | B_AXIS | internal | point_ridge_smooth_half | -0.1086 | -0.0987 | +0.1507 | +3.0706 |
 | B_AXIS | internal | background_ridge | -0.1054 | -0.0465 | -0.0624 | +0.8871 |
 | B_AXIS | internal | permuted_ridge | +0.0098 | +0.0181 | +0.0332 | -5.0009 |
@@ -61,7 +61,7 @@
 | B_AXIS | source | background_ridge | -0.0536 | -0.1246 | +0.6813 | +2.5760 |
 | B_AXIS | source | permuted_ridge | +0.0666 | -0.0067 | +0.9965 | -4.6818 |
 | HALLMARK_OXIDATIVE_PHOSPHORYLATION | internal | point_ridge | -0.1007 | -0.0874 | -0.0366 | +1.2050 |
-| HALLMARK_OXIDATIVE_PHOSPHORYLATION | internal | point_ridge_smooth_half | -0.0784 | -0.0827 | +0.2226 | -0.9711 |
+| HALLMARK_OXIDATIVE_PHOSPHORYLATION | internal | point_ridge_smooth_half | -0.0784 | -0.0827 | +0.2225 | -0.9711 |
 | HALLMARK_OXIDATIVE_PHOSPHORYLATION | internal | background_ridge | -0.1106 | -0.0988 | +0.1710 | +0.6279 |
 | HALLMARK_OXIDATIVE_PHOSPHORYLATION | internal | permuted_ridge | +0.0704 | +0.0504 | -0.3068 | -0.1089 |
 | HALLMARK_OXIDATIVE_PHOSPHORYLATION | source | point_ridge | -0.0759 | -0.0613 | +0.2838 | +2.5182 |
@@ -78,12 +78,12 @@
 | HALLMARK_INTERFERON_GAMMA_RESPONSE | source | permuted_ridge | +0.0522 | -0.0372 | +0.6168 | -2.4041 |
 | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | internal | point_ridge | -0.1146 | -0.0670 | +0.0342 | +2.4824 |
 | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | internal | point_ridge_smooth_half | -0.1146 | -0.0983 | -0.0535 | +3.5138 |
-| HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | internal | background_ridge | -0.1190 | -0.0737 | +0.0901 | +2.4236 |
+| HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | internal | background_ridge | -0.1190 | -0.0737 | +0.0902 | +2.4236 |
 | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | internal | permuted_ridge | +0.0740 | +0.0649 | -0.0504 | +0.8159 |
 | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | source | point_ridge | -0.1191 | -0.1314 | +0.4547 | +4.5861 |
 | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | source | point_ridge_smooth_half | -0.1381 | -0.1829 | +0.0641 | +5.0280 |
 | HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | source | background_ridge | -0.1154 | -0.1338 | +0.4809 | +4.4880 |
-| HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | source | permuted_ridge | +0.0615 | -0.0019 | +0.3223 | -1.9883 |
+| HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION | source | permuted_ridge | +0.0615 | -0.0019 | +0.3224 | -1.9883 |
 
 ## 仅描述：候选是否同时优于四个对照（不构成阈值或显著性）
 

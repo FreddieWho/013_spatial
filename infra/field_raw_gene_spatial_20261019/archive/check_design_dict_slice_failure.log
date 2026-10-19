@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/home/huyudi/013_spatial/scripts/field_raw_gene_spatial_20261019.py", line 1259, in <module>
+    main()
+  File "/home/huyudi/013_spatial/scripts/field_raw_gene_spatial_20261019.py", line 1255, in main
+    sys.exit(check())
+             ^^^^^^^
+  File "/home/huyudi/013_spatial/scripts/field_raw_gene_spatial_20261019.py", line 1040, in check
+    pred = model_predict(model_point, design)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huyudi/013_spatial/scripts/field_raw_gene_spatial_20261019.py", line 331, in model_predict
+    return model['ridge'].predict(prepare_scaled(model, x))
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huyudi/013_spatial/scripts/field_raw_gene_spatial_20261019.py", line 324, in prepare_scaled
+    scaled = np.array(model['scaler'].transform(x[:, model['keep']]))
+                                                ~^^^^^^^^^^^^^^^^^^
+TypeError: unhashable type: 'slice'

@@ -1,0 +1,12 @@
+/home/huyudi/013_spatial/scripts/field_raw_gene_spatial_20261019.py:315: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+  n_iter = int(getattr(ridge, 'n_iter_', -1))
+Traceback (most recent call last):
+  File "/home/huyudi/013_spatial/scripts/field_raw_gene_spatial_20261019.py", line 1258, in <module>
+    main()
+  File "/home/huyudi/013_spatial/scripts/field_raw_gene_spatial_20261019.py", line 1254, in main
+    sys.exit(check())
+             ^^^^^^^
+  File "/home/huyudi/013_spatial/scripts/field_raw_gene_spatial_20261019.py", line 1031, in check
+    stack = stack_training(ctx, train_rows, idx, ti, perms, ['point_ridge'])['point_ridge']
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+TypeError: tuple indices must be integers or slices, not str

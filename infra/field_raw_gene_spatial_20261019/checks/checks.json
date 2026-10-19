@@ -1,5 +1,5 @@
 {
-  "n_checks": 43,
+  "n_checks": 49,
   "n_failed": 0,
   "results": [
     {
@@ -99,21 +99,39 @@
       "passed": true
     },
     {
-      "check": "triple_copy_block_equivalence_within_solver_floor",
-      "expected": "residual <= max(2*solver_floor, 1e-5) = 1.00e-05 and wrong-scale control >> residual",
-      "observed": "{'residual': 6.183981895446777e-06, 'solver_floor': 3.3974647521972656e-06, 'wrong_scale_control': 0.00021079182624816895, 'ridge_gram_conditioning': 516814.1426667769}",
+      "check": "block_and_context_column_layout",
+      "expected": "(dX+6) point, (3*dX+6) local, context last",
+      "observed": "(1649, 4935, 6)",
+      "passed": true
+    },
+    {
+      "check": "context_columns_same_standardisation_and_penalty_as_point",
+      "expected": "0.0",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "x_block_scaled_by_one_over_sqrt3_only",
+      "expected": "0.0",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "triple_copy_block_equivalence_fixed_tolerance",
+      "expected": "residual <= fixed 1e-5, wrong-scale control >> residual (solver floor recorded, not used to expand)",
+      "observed": "{'residual': 5.766749382019043e-06, 'solver_floor_indicator_only': 3.4570693969726562e-06, 'wrong_scale_control': 0.00014904141426086426, 'ridge_gram_conditioning': 17601.619233643934}",
       "passed": true
     },
     {
       "check": "frozen_point_prediction_agreement",
       "expected": "<=0.0001",
-      "observed": "1.6808509826660156e-05",
+      "observed": "1.6868114471435547e-05",
       "passed": true
     },
     {
       "check": "frozen_point_section_rmse_agreement",
       "expected": "<=1e-05",
-      "observed": "2.0455705255217893e-06",
+      "observed": "2.0398730665033282e-06",
       "passed": true
     },
     {
@@ -159,7 +177,13 @@
       "passed": true
     },
     {
-      "check": "permutation_keeps_point_block",
+      "check": "permutation_keeps_x_block",
+      "expected": "identical",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "permutation_keeps_context_block",
       "expected": "identical",
       "observed": "0.0",
       "passed": true
@@ -171,9 +195,21 @@
       "passed": true
     },
     {
-      "check": "candidate_point_block_matches_point_design",
+      "check": "candidate_x_block_matches_x",
       "expected": "identical",
       "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "candidate_neighbour_blocks_are_graph_aggregates_of_x",
+      "expected": "W[Z,QC] and V[Z,QC]",
+      "observed": "(0.0, 0.0)",
+      "passed": true
+    },
+    {
+      "check": "context_block_appended_once_unscaled",
+      "expected": "(3*dX+6) width, context last, unscaled",
+      "observed": "(4929, 4929, 6, 0.0)",
       "passed": true
     },
     {
@@ -287,7 +323,7 @@
     "known_sections": 14,
     "known_units": 8,
     "source_not_testable_sections": 19,
-    "free_bytes": 850608676864,
+    "free_bytes": 850302521344,
     "storage_reserve_ok": true,
     "verified": {
       "frozen_hashes": 154

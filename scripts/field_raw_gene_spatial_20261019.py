@@ -79,6 +79,7 @@ FAVOURABLE_LOW = {'rec_rmse', 'rec_centered_rmse', 'rec_mae', 'rec_bias',
 FAVOURABLE_HIGH = {'rec_pearson', 'rec_spearman', 'rec_local_pattern_pearson', 'rec_jaccard_q75',
                    'rec_jaccard_q80', 'rec_jaccard_q90'}
 VIEW = 'full15'
+CONTEXT_DIM = len(base.ORGANS) + len(base.PLATFORMS)
 MODEL_CLASS = {'point_ridge': 'raw_gene_point_ridge',
                'point_ridge_smooth_half': 'posthoc_neighbourhood_smoothing',
                'local_ridge': 'raw_gene_local_ridge',
@@ -237,33 +238,37 @@ def context_block(row, n):
 
 
 def full_features(row, ti, cache, perm=None):
-    """Point / near / outer blocks for every tissue spot of the section.
+    """Point X, organ/platform indicators E, and the two graph aggregates of X.
 
-    Uses only the frozen visible matrix, QC, context and the frozen graphs. A permutation
-    relabels the graphs (P W P^T) while expression rows, barcodes and targets keep their order.
+    X = frozen visible genes + QC (never raw counts). E = the existing organ/platform indicator
+    columns reused from the frozen point input. The graph aggregates act on X only; E never enters
+    the multiplication and is appended once, outside the block scaling, by raw_design.
     """
     z, qc = visible_matrices(row['section_id'], ti)
     if len(z) != len(cache['barcodes']):
         raise ValueError(f'Visible matrix rows differ from barcodes: {row["section_id"]}')
-    point = np.c_[z, qc, context_block(row, len(z))]
-    spatial = np.c_[z, qc]
+    x = np.c_[z, qc].astype(np.float32)
+    e = context_block(row, len(x)).astype(np.float32)
     near_graph, outer_graph = cache['near'], cache['outer']
     if perm is not None:
         near_graph = sparse.csr_matrix(near_graph[perm][:, perm])
         outer_graph = sparse.csr_matrix(outer_graph[perm][:, perm])
-    near = np.asarray(base.neighbor_mean(near_graph, spatial), np.float32)
-    outer = np.asarray(base.neighbor_mean(outer_graph, spatial), np.float32)
-    background = np.broadcast_to(spatial.mean(axis=0), spatial.shape)
-    return dict(point=point, near=near, outer=outer, spatial=spatial, background=background)
+    near = np.asarray(base.neighbor_mean(near_graph, x), np.float32)
+    outer = np.asarray(base.neighbor_mean(outer_graph, x), np.float32)
+    background = np.broadcast_to(x.mean(axis=0), x.shape)
+    return dict(x=x, e=e, near=near, outer=outer, background=background)
 
 
 def raw_design(blocks, kind):
+    """[X, WX, VX]/sqrt(3) then E once (point: [X, E]); returns (design, scaled_width)."""
+    x, e = blocks['x'], blocks['e']
+    width = x.shape[1]
     if kind == 'point_ridge':
-        return blocks['point']
+        return np.c_[x, e], 0
     if kind == 'background_ridge':
-        return np.c_[blocks['point'], blocks['background'], blocks['background']]
+        return np.c_[x, blocks['background'], blocks['background'], e], 3 * width
     if kind in ('local_ridge', 'permuted_ridge'):
-        return np.c_[blocks['point'], blocks['near'], blocks['outer']]
+        return np.c_[x, blocks['near'], blocks['outer'], e], 3 * width
     raise ValueError(kind)
 
 
@@ -274,25 +279,32 @@ def section_designs(row, ti, cache, perm, kinds):
     out = {}
     for kind in kinds:
         blocks = permuted if (kind == 'permuted_ridge' and permuted is not None) else plain
-        out[kind] = raw_design(blocks, kind)
+        design, scaled_width = raw_design(blocks, kind)
+        out[kind] = dict(design=design, scaled_width=scaled_width)
     del plain, permuted
     return out
 
 
-MODEL_BLOCKS = {'point_ridge': 1, 'local_ridge': 3, 'background_ridge': 3, 'permuted_ridge': 3}
+def scaled_width_of(design, kind):
+    return 0 if kind == 'point_ridge' else design.shape[1] - CONTEXT_DIM
 
 
-def fit_linear(c, x_train, y_train, weights, n_blocks):
-    """Training-only column rule, training-only standardisation, uniform block scaling."""
+def fit_linear(c, x_train, y_train, weights, scaled_width):
+    """Training-only column rule, training-only standardisation, block scaling on X blocks only.
+
+    `scaled_width` counts the leading columns that receive 1/sqrt(3); the trailing indicator
+    columns E keep exactly the same standardisation and penalty as in the point model.
+    """
     std = x_train.std(axis=0)
     keep = std > 0
     dropped = int(np.count_nonzero(~keep))
     x_keep = x_train[:, keep]
+    kept_scaled = int(np.count_nonzero(keep[:scaled_width]))
     scaler = StandardScaler()
     scaler.fit(x_keep, sample_weight=weights)
     scaled = scaler.transform(x_keep)
-    if n_blocks > 1:
-        scaled *= c['block_scale']
+    if kept_scaled:
+        scaled[:, :kept_scaled] *= c['block_scale']
     solver = c['solver']
     ridge = Ridge(alpha=c['alpha'], fit_intercept=True, solver=solver,
                   tol=c['solver_tol'], max_iter=c['solver_max_iter'])
@@ -300,19 +312,23 @@ def fit_linear(c, x_train, y_train, weights, n_blocks):
     converged = True
     n_iter = -1
     if solver == 'lsqr':
-        n_iter = int(getattr(ridge, 'n_iter_', -1))
+        n_iter = int(np.ravel(getattr(ridge, 'n_iter_', [-1]))[0])
         converged = bool(n_iter < c['solver_max_iter'])
-    return dict(scaler=scaler, ridge=ridge, keep=keep, n_blocks=n_blocks, dropped=dropped,
-                block_scale=(c['block_scale'] if n_blocks > 1 else 1.0),
+    return dict(scaler=scaler, ridge=ridge, keep=keep, dropped=dropped,
+                scaled_width=kept_scaled, block_scale=c['block_scale'],
                 solver=str(ridge.solver), n_iter=n_iter, converged=converged,
                 train_rmse=float(np.sqrt(np.mean((y_train - ridge.predict(scaled)) ** 2))))
 
 
+def prepare_scaled(model, x):
+    scaled = np.array(model['scaler'].transform(x[:, model['keep']]))
+    if model['scaled_width']:
+        scaled[:, :model['scaled_width']] *= model['block_scale']
+    return scaled
+
+
 def model_predict(model, x):
-    scaled = model['scaler'].transform(x[:, model['keep']])
-    if model['n_blocks'] > 1:
-        scaled = scaled * model['block_scale']
-    return model['ridge'].predict(scaled)
+    return model['ridge'].predict(prepare_scaled(model, x))
 
 
 def stack_training(ctx, train, indexes, ti, perms, kinds):
@@ -323,13 +339,14 @@ def stack_training(ctx, train, indexes, ti, perms, kinds):
         designs = section_designs(row, ti, cache, perms[sid], kinds)
         keep_rows = indexes[sid]
         for kind in kinds:
-            stacks[kind].append(designs[kind][keep_rows])
+            stacks[kind].append(designs[kind]['design'][keep_rows])
         del designs
-    out = {}
+    out, widths = {}, {}
     for kind in kinds:
         out[kind] = np.concatenate(stacks[kind])
+        widths[kind] = scaled_width_of(out[kind], kind)
         del stacks[kind]
-    return out
+    return out, widths
 
 
 def target_vector(rows, indexes, ti):
@@ -364,11 +381,11 @@ def run_split_fit(job):
     with threadpool_limits(limits=c['threads']):
         for ti, target in enumerate(c['targets']):
             y_train = target_vector(train, indexes, ti)
-            stacks = stack_training(ctx, train, indexes, ti, perms, FIT_MODELS)
+            stacks, widths = stack_training(ctx, train, indexes, ti, perms, FIT_MODELS)
             models = {}
             for kind in FIT_MODELS:
                 t0 = time.time()
-                model = fit_linear(c, stacks[kind], y_train, weights, MODEL_BLOCKS[kind])
+                model = fit_linear(c, stacks[kind], y_train, weights, widths[kind])
                 if not model['converged']:
                     raise RuntimeError(f'Non-converged fit: {split["name"]}/{target}/{kind} '
                                        f'n_iter={model["n_iter"]}')
@@ -376,9 +393,11 @@ def run_split_fit(job):
                 diagnostics.append(dict(split=split['name'], arm=split['arm'], target=target,
                                         model=kind, n_train_rows=int(stacks[kind].shape[0]),
                                         n_features=int(stacks[kind].shape[1]),
+                                        n_scaled_columns=int(widths[kind]),
+                                        n_context_columns=CONTEXT_DIM,
                                         n_columns_dropped_train_constant=model['dropped'],
                                         solver=model['solver'], alpha=c['alpha'],
-                                        block_scale=(c['block_scale'] if MODEL_BLOCKS[kind] > 1 else 1.0),
+                                        block_scale=(c['block_scale'] if widths[kind] else 1.0),
                                         train_rmse=model['train_rmse'], n_iter=model['n_iter'],
                                         converged=model['converged'],
                                         intercept=float(model['ridge'].intercept_),
@@ -388,7 +407,7 @@ def run_split_fit(job):
                 sid = row['section_id']
                 cache = base.load_cache(row)
                 designs = section_designs(row, ti, cache, perms[sid], FIT_MODELS)
-                predictions = {k: model_predict(models[k], designs[k]).astype(np.float32)
+                predictions = {k: model_predict(models[k], designs[k]['design']).astype(np.float32)
                                for k in FIT_MODELS}
                 predictions['point_ridge_smooth_half'] = (
                     0.5 * (predictions['point_ridge']
@@ -918,7 +937,7 @@ def check():
     tampered['y'] = cache['y'].copy()
     tampered['y'][:, ti] = np.random.default_rng(0).random(len(cache['y'])).astype(np.float32)
     designs_tampered = section_designs(row, ti, tampered, perms[sid], ['point_ridge', 'local_ridge'])
-    same = all(np.array_equal(designs[k], designs_tampered[k]) for k in designs)
+    same = all(np.array_equal(designs[k]['design'], designs_tampered[k]['design']) for k in designs)
     record('features_independent_of_heldout_target', 'bitwise identical', same, same)
     indexes = base.sample_indices(row['n_spots'], sid, c['seed'], 512)
     indexes2 = base.sample_indices(row['n_spots'], sid, c['seed'], 512)
@@ -946,36 +965,58 @@ def check():
                                                 c['train_spots_per_section']) for r in train_rows}
     weights = follow.weights(train_rows, idx)
     y_train = target_vector(train_rows, idx, ti)
-    stack = stack_training(ctx, train_rows, idx, ti, perms, ['point_ridge'])['point_ridge']
-    model_point = fit_linear(c, stack, y_train, weights, 1)
-    triple = np.concatenate([stack, stack, stack], axis=1)
-    model_triple = fit_linear(c, triple, y_train, weights, 3)
+    stacks, widths = stack_training(ctx, train_rows, idx, ti, perms, ['point_ridge', 'local_ridge'])
+    stack, local_stack = stacks['point_ridge'], stacks['local_ridge']
+    d_x = stack.shape[1] - CONTEXT_DIM
+    model_point = fit_linear(c, stack, y_train, weights, widths['point_ridge'])
+    model_local = fit_linear(c, local_stack, y_train, weights, widths['local_ridge'])
+    record('block_and_context_column_layout', '(dX+6) point, (3*dX+6) local, context last',
+           (stack.shape[1], local_stack.shape[1], CONTEXT_DIM),
+           stack.shape[1] == d_x + CONTEXT_DIM and local_stack.shape[1] == 3 * d_x + CONTEXT_DIM
+           and widths['point_ridge'] == 0 and widths['local_ridge'] == 3 * d_x)
+    scaled_point = prepare_scaled(model_point, stack)
+    scaled_local = prepare_scaled(model_local, local_stack)
+    context_diff = float(np.max(np.abs(scaled_point[:, -CONTEXT_DIM:]
+                                       - scaled_local[:, -CONTEXT_DIM:])))
+    record('context_columns_same_standardisation_and_penalty_as_point', '0.0', context_diff,
+           context_diff == 0.0)
+    x_only = stack[:, :d_x]
+    scaled_x = prepare_scaled(model_point, np.c_[x_only, np.zeros((len(x_only), CONTEXT_DIM),
+                                                                 np.float32)]
+                              )[:, :d_x]
+    neighbourhood_ratio = float(np.max(np.abs(scaled_local[:, :d_x]
+                                              - scaled_x * c['block_scale'])))
+    record('x_block_scaled_by_one_over_sqrt3_only', '0.0', neighbourhood_ratio,
+           neighbourhood_ratio == 0.0)
+    # D-270: replicate only the gene/QC block; E stays once and unscaled
+    triple = np.c_[x_only, x_only, x_only, stack[:, d_x:]]
+    model_triple = fit_linear(c, triple, y_train, weights, 3 * d_x)
     test_row = ctx['byid'][real_split['test'][0]]
     test_cache = base.load_cache(test_row)
     test_design = section_designs(test_row, ti, test_cache,
-                                  perms[test_row['section_id']],
-                                  ['point_ridge'])['point_ridge']
-    triple_design = np.concatenate([test_design] * 3, axis=1)
+                                  perms[test_row['section_id']], ['point_ridge'])['point_ridge']['design']
+    test_x, test_e = test_design[:, :d_x], test_design[:, d_x:]
+    triple_design = np.c_[test_x, test_x, test_x, test_e]
     model_point_lsqr = fit_linear(dict(c, solver='lsqr', solver_tol=1e-12, solver_max_iter=20000),
-                                  stack, y_train, weights, 1)
+                                  stack, y_train, weights, widths['point_ridge'])
     p_point = model_predict(model_point, test_design)
     p_triple = model_predict(model_triple, triple_design)
     p_point_lsqr = model_predict(model_point_lsqr, test_design)
-    model_wrong = fit_linear(dict(c, block_scale=1.0), triple, y_train, weights, 3)
+    model_wrong = fit_linear(dict(c, block_scale=1.0), triple, y_train, weights, 3 * d_x)
     p_wrong = model_predict(model_wrong, triple_design)
     floor = float(np.max(np.abs(p_point - p_point_lsqr)))
     diff = float(np.max(np.abs(p_point - p_triple)))
     wrong = float(np.max(np.abs(p_point - p_wrong)))
-    gram = model_point['scaler'].transform(stack[:, model_point['keep']])
+    gram = prepare_scaled(model_point, stack)[:, :d_x]
     eig = np.linalg.eigvalsh(gram.T @ gram)
     conditioning = float(eig.max() / max(eig.min() + c['alpha'], 1e-12))
-    tolerance = max(2.0 * floor, 1e-05)
-    record('triple_copy_block_equivalence_within_solver_floor',
-           f'residual <= max(2*solver_floor, 1e-5) = {tolerance:.2e} and wrong-scale control >> residual',
-           dict(residual=diff, solver_floor=floor, wrong_scale_control=wrong,
+    tolerance = float(c['tolerances']['block_equivalence_prediction_max_abs_diff'])
+    record('triple_copy_block_equivalence_fixed_tolerance',
+           f'residual <= fixed 1e-5, wrong-scale control >> residual (solver floor recorded, not used to expand)',
+           dict(residual=diff, solver_floor_indicator_only=floor, wrong_scale_control=wrong,
                 ridge_gram_conditioning=conditioning),
            diff <= tolerance and wrong > 10 * diff)
-    del stack, triple
+    del stack, local_stack, triple
 
     # ---- frozen point/smoothing agreement (hard tolerances, fixed before the run)
     probe_splits = ['internal_0']
@@ -987,14 +1028,15 @@ def check():
                                                     c['train_spots_per_section']) for r in train_rows}
         weights = follow.weights(train_rows, idx)
         y_train = target_vector(train_rows, idx, ti)
-        stack = stack_training(ctx, train_rows, idx, ti, perms, ['point_ridge'])['point_ridge']
-        model_point = fit_linear(c, stack, y_train, weights, 1)
-        del stack
+        stacks_probe, widths_probe = stack_training(ctx, train_rows, idx, ti, perms, ['point_ridge'])
+        stack = stacks_probe['point_ridge']
+        model_point = fit_linear(c, stack, y_train, weights, widths_probe['point_ridge'])
+        del stack, stacks_probe
         max_pred_diff, max_rmse_diff = 0.0, 0.0
         for s in split['test']:
             trow = ctx['byid'][s]
             tcache = base.load_cache(trow)
-            design = section_designs(trow, ti, tcache, perms[s], ['point_ridge'])['point_ridge']
+            design = section_designs(trow, ti, tcache, perms[s], ['point_ridge'])['point_ridge']['design']
             pred = model_predict(model_point, design)
             smooth = 0.5 * (pred + base.neighbor_mean(tcache['near'], pred))
             with np.load(PRED / split['name'] / f'{s}_t{ti}_full15.npz', allow_pickle=False) as z:
@@ -1050,19 +1092,33 @@ def check():
     blocks_perm = full_features(perm_row, ti, perm_cache, perm=perm)
     changed = float(np.max(np.abs(blocks_real['near'] - blocks_perm['near'])))
     record('permutation_changes_neighbour_values', '>0', changed, changed > 0)
-    record('permutation_keeps_point_block', 'identical',
-           float(np.max(np.abs(blocks_real['point'] - blocks_perm['point']))),
-           float(np.max(np.abs(blocks_real['point'] - blocks_perm['point']))) == 0.0)
-    local_design = section_designs(perm_row, ti, perm_cache, perm, ['local_ridge'])['local_ridge']
-    perm_design = section_designs(perm_row, ti, perm_cache, perm, ['permuted_ridge'])['permuted_ridge']
+    record('permutation_keeps_x_block', 'identical',
+           float(np.max(np.abs(blocks_real['x'] - blocks_perm['x']))),
+           float(np.max(np.abs(blocks_real['x'] - blocks_perm['x']))) == 0.0)
+    record('permutation_keeps_context_block', 'identical',
+           float(np.max(np.abs(blocks_real['e'] - blocks_perm['e']))),
+           float(np.max(np.abs(blocks_real['e'] - blocks_perm['e']))) == 0.0)
+    local_design, local_width = raw_design(blocks_real, 'local_ridge')
+    perm_design, perm_width = raw_design(blocks_perm, 'permuted_ridge')
+    d_x_perm = blocks_real['x'].shape[1]
     record('candidate_uses_real_graph', 'candidate != permuted design',
            float(np.max(np.abs(local_design - perm_design))),
            float(np.max(np.abs(local_design - perm_design))) > 0)
-    record('candidate_point_block_matches_point_design', 'identical',
-           float(np.max(np.abs(local_design[:, :blocks_real['point'].shape[1]]
-                            - blocks_real['point']))),
-           float(np.max(np.abs(local_design[:, :blocks_real['point'].shape[1]]
-                            - blocks_real['point']))) == 0.0)
+    record('candidate_x_block_matches_x', 'identical',
+           float(np.max(np.abs(local_design[:, :d_x_perm] - blocks_real['x']))),
+           float(np.max(np.abs(local_design[:, :d_x_perm] - blocks_real['x']))) == 0.0)
+    record('candidate_neighbour_blocks_are_graph_aggregates_of_x', 'W[Z,QC] and V[Z,QC]',
+           (float(np.max(np.abs(local_design[:, d_x_perm:2 * d_x_perm] - blocks_real['near']))),
+            float(np.max(np.abs(local_design[:, 2 * d_x_perm:3 * d_x_perm]
+                                 - blocks_real['outer'])))),
+           float(np.max(np.abs(local_design[:, d_x_perm:2 * d_x_perm] - blocks_real['near']))) == 0.0
+           and float(np.max(np.abs(local_design[:, 2 * d_x_perm:3 * d_x_perm]
+                                    - blocks_real['outer']))) == 0.0)
+    record('context_block_appended_once_unscaled', '(3*dX+6) width, context last, unscaled',
+           (local_width, perm_width, CONTEXT_DIM,
+            float(np.max(np.abs(local_design[:, -CONTEXT_DIM:] - blocks_real['e'])))),
+           local_width == 3 * d_x_perm and perm_width == 3 * d_x_perm
+           and float(np.max(np.abs(local_design[:, -CONTEXT_DIM:] - blocks_real['e']))) == 0.0)
 
     # ---- metric binding: detail-component Pearson, strict-above Jaccard, per-section abs radius
     rng = np.random.default_rng(3)
