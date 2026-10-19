@@ -1,90 +1,71 @@
-# 同原始基因输入空间对照：全量运行交接（在冻结基线复现关卡处停止）
+# 同原始基因输入空间对照：全量描述性结果交接
 
-授权：`review/reviewed_implementation_round2.json` = `ACCEPTED_FOR_FROZEN_DESCRIPTIVE_RUN`，`allow_full_run=true`，R-01 已关闭，未关闭结果问题为空；只允许按 Git `0e6e5f5` 及其冻结合同运行。
-结果：**fit 全量完成（44/44 case，500 个预测包，全部收敛、全部有限）；随后按任务约定执行逐 case 冻结基线复现核对——11/44 case 超出预定界，链条在 evaluate/summarize 之前停止。未放宽任何容差、未更换求解器或参数、未做广泛重跑。本轮无科学结论，交 Grok 判断。**
+**状态：PENDING_INDEPENDENT_REVIEW。** 本轮数字均为**未审核描述性结果**，不构成科学结论，不支持或否定 HF-01/HF-04；主代理负责解释，Grok 复核关闭前不得引用为结论。
+授权：D-275（旧逐位复现失败**保留**为已披露失败，不再作为读取 500 包与计算的先决条件）；`review/result_comparison_review.json`（`allow_scientific_claim=false`）。实现冻结版：Git `0e6e5f5`（R-01 修复，已通过第二轮复核）；本轮只做必要最小代码修改，未重拟合、未换线程/求解器、未新增模型。
 
-## 1. 版本与范围
+## 1. 本轮最重要修复：评价产物被旧探针污染（结果有效性问题）
 
-- 运行前核实：`git diff 0e6e5f5` 对已审路径（脚本、启动器、机器合同、交接、科学合同）**为空**；HEAD = `0e6e5f5`。
-- 本提交（仅我拥有的新成果与运行记录）：`infra/field_raw_gene_spatial_20261019/{audit_frozen_agreement.py,audit_frozen_agreement.tsv,audit_frozen_agreement.json,audit_numerical_probe.json,fit_package_inventory.tsv,fit_full.log,fit_time.txt,fit_diagnostics(逐划分),full_run_stages.log}` 与本文件。
-- 未提交（工作区）：500 个预测包（40.3 MB，逐包 sha256 见 `fit_package_inventory.tsv`）、`splits/*/split_receipt.json` 之外的中间产物（无）；未修改主代理合同/根文档。
+- **现象**：首轮 evaluate 后内部臂只有 57 片/51 单位、`section_rows` 2200（应 2500）；`evaluation/internal_0/prediction_metrics.tsv` 时间戳 **16:27:52**，其余划分均为 18:33。
+- **根因**：`check` 命令的 tiny 探针调用 `run_split_evaluate` 时只把预测来源目录重定向到 `checks/tiny/`，**指标仍写入 `WORK/evaluation/internal_0`**（test_limit=1），并留下 `COMPLETE` 标记；随后全量 evaluate 命中该标记而跳过 internal_0（16 片只算了 1 片）。
+- **修复（最小）**：`run_split_evaluate` 新增 `metrics_root` 参数（探针写入自身目录，永不落生产目录）；新增 `evaluation_receipt.json` 记录 `n_sections/rows/paired/expected_*`，跳过前逐项校验，**陈旧/不完整目录一律重算而不被接受**。
+- **处置**：陈旧目录**归档未删除** → `archive/evaluation_stale_partial_1843/`；随后重跑 evaluate+summarize。
+- **重算后核对**（`verify_results.py`，17 项 / 0 失败）：`section_rows` **2500**（125 访问 × 4 目标 × 5 模型）、`paired_rows` **2000**、`unit_rows` **2240**、`unit_paired` **1792**；内部 **72 片/65 单位**、来源 **53 片/47 单位**；确认身份 **14 片/8 单位**、未知 **58 片**；来源身份不足 **19 片**仅留内部；器官外推划分 = {source_0, source_5}。
+- 该污染也解释了首轮验证脚本的 `local-detail Pearson` 重算差 0.233 与 q75 差 0.184：它们落在 internal_0 的**陈旧行**上（那些行来自 tiny 3 片训练模型）；重算后两项重算误差 ≤1e-9（通过的 17 项含这两项）。
 
-## 2. 实际命令、返回码、阶段计时
+## 2. 冻结基线复现：保留的失败与已知数值边界（不改写成通过）
+
+- 逐 case 核对（`audit_frozen_agreement.{json,tsv}`）：44/44 覆盖，**11 个 case 超出旧逐点 1e-4 / 每片 RMSE 1e-5 界**，最差 source_0/EMT **2.29e-4 / 2.08e-4**；容差**未放宽、未改写成通过**。按 D-275，审计脚本新增 `--no-fail`：**仍输出 `status: FAIL`**，仅不再作为描述性计算的硬阻塞（`disclosure` 字段写明）。
+- 单 case 受控线程证据（`infra/field_blas_probe_20261019/`）：仅 source_0/EMT 的 point 及其派生 smooth。1↔2 线程 1.0–1.6e-6；1/2 ↔ 8 线程 **2.07e-4**；存盘包 ≡ 8 线程（≤4.8e-7）。**边界**：该证据不覆盖 candidate/background/permuted，也不覆盖另外 43 个 case；不假定同批数值误差相消。冻结包在任意线程设置下与重拟合仍有 ~1.25–1.31e-5 每片 RMSE 的稳定残差（未定因，非线程、非库版本）。
+
+## 3. 结果表（同一批 500 包；内部/来源分开；65/47 单位口径）
+
+完整表：**`RESULTS_TABLES.md`**（覆盖与分母／主次读出／候选减四基线／来源分层／方向合取／限制）与 **`RESULTS_SOURCE_TABLE.tsv`**（四目标 × 6 来源，候选减同点）。表内方向标注遵循 C-01：**有符号半径差只作描述、不标方向**，范围一律用“逐片绝对值再按完整单位聚合”的读数；C-02：每行给出可评单位数，来源分层单独列出，器官外推单独标注。
+
+描述性要点（**不构成结论**）：
+- 局部细节 Pearson（内部臂，单位等权）：EMT local 0.6485 > point 0.6252、background 0.6465；IFN-γ local 0.5390 > point 0.4904、background 0.5299；OXPHOS local 0.6933 > point 0.6773 但 < background 0.6985；B_AXIS local 0.3283 < point 0.3449 < background 0.3635。
+- q75 Jaccard：IFN-γ/EMT/OXPHOS 内部臂 local 略高于 point（+0.005～+0.027）；B_AXIS 略低（−0.004）。
+- 置换对照（permuted）在全部四目标、两臂均**差于**候选，说明置换确实破坏了信息；但**整片背景对照在 B_AXIS/EMT/OXPHOS 与候选同量级或更好**。
+- 来源臂：候选相对同点的局部细节差异在 source_2/4（肠）为负、source_0/5（肝/乳腺，器官外推）为正负参差；**未与内部臂合并**，按来源逐项见 `RESULTS_SOURCE_TABLE.tsv`。
+- 方向合取（`readout_claim_summary.tsv`，仅描述）：内部臂 IFN-γ 与 EMT 的 local-detail/q75/质心/半径绝对偏差四项“同时优于四对照”为 True（EMT 的 RMSE 否）；B_AXIS 与 OXPHOS 为 False；来源臂逐目标可见。**这不是阈值、不是显著性、不含 PASS 判定**。
+- 数值参考：主要读出配对差为 0.002–0.09 量级，远大于单 case 已知 2e-4 波动参考；但该参考只覆盖一个 point case，故仅把 |Δ|≤2e-4 的行标 `~num`，其余仍**未定**而非“通过”。
+
+## 4. 有效 N、缺失与限制
+
+- 内部臂：72 片 / **65 单位**（含 `singleton::TENX13` 两片合并为一单位、`source_key` 冲突标 `mixed`）；来源臂：53 片 / **47 单位** / 6 来源。
+- 分母（`denominators.tsv`）：五个模型的主读出均为**完整 260（内部）／188（来源）单位组，0 部分、0 缺失**；`train_mean` 类常量基线不在本轮模型集内（本轮无该模型）。
+- 身份：**确认 14 片 / 8 单位**，未知 **58 片 / 57 单位**；切片数不冒称患者数，未知不升级。
+- 来源身份不足 19 片（含全部 6 片肺）仅留内部，不进来源分母；乳腺（source_5）与肝脏（source_0）为器官外推，单独标注。
+- 受限读出：`rec_calibration_slope`/`rec_sd_ratio` 仅描述（C-01 方向不设）；有符号半径差仅描述；接口固定的 `rec_decay_half_pitch_delta` 不属本轮指标集。
+
+## 5. 命令、计时、资源
 
 ```bash
-bash scripts/run_field_raw_gene_spatial_20261019.sh fit      # 见 fit_full.log / fit_time.txt
-/opt/anaconda3/bin/python infra/field_raw_gene_spatial_20261019/audit_frozen_agreement.py
-# 链条随后在 audit 返回码 1 处按约定停止，未执行 evaluate / summarize
+cd /home/huyudi/013_spatial
+bash scripts/run_field_raw_gene_spatial_20261019.sh evaluate     # exit 0
+bash scripts/run_field_raw_gene_spatial_20261019.sh summarize    # exit 0
+PYTHONNOUSERSITE=1 OMP_NUM_THREADS=2 CUDA_VISIBLE_DEVICES=-1 \
+  /opt/anaconda3/bin/python infra/field_raw_gene_spatial_20261019/verify_results.py    # exit 0
+/opt/anaconda3/bin/python infra/field_raw_gene_spatial_20261019/build_results_tables.py
+/opt/anaconda3/bin/python infra/field_raw_gene_spatial_20261019/audit_frozen_agreement.py --no-fail
 ```
-| 阶段 | 返回码 | 墙钟 | 进程 User | 进程 Sys | CPU% | 最大 RSS |
+| 阶段 | 退出码 | 墙钟 | 进程 User | 进程 Sys | CPU% | 最大 RSS |
 |---|---:|---:|---:|---:|---:|---:|
-| fit | 0 | **1048 s (17:27.98)** | **5130.39 s** | **812.89 s** | 567% | **5.19 GB** |
-| audit | **1** | 1 s | — | — | — | — |
-| evaluate / summarize | 未执行 | — | — | — | — | — |
+| fit（含 500 包，先前完成） | 0 | 1048 s | 5130.4 s | 812.9 s | 567% | 5.19 GB |
+| audit（--no-fail，披露） | 0 | 6 s | — | — | — | — |
+| evaluate | 0 | 25 s | 68.5 s | 2.5 s | — | 281 MB |
+| summarize | 0 | 4 s | 3.4 s | 0.2 s | — | 196 MB |
+| verify_results | 0 | 4 s | — | — | — | — |
 
-说明：进程 CPU 秒取自 `/usr/bin/time -v`（含被回收子进程），**不是**把 8 线程墙钟当成 CPU；`fit` 的实际并行度 ≈5.7 核。磁盘：运行前 844.5 GB 可用，运行后 **827.4 GB**（净增约 17 GB，仍 ≫ 200 GB 下限）。
+说明：进程 CPU 取自 `/usr/bin/time -v`（含被回收子进程），**不是**把并行墙钟当成 CPU 分钟。磁盘：运行前 844.5 GB → 结束后 **827 GB 可用**（≫200 GB）。全程 CPU、本地数据；人工 TLS/annotations/incoming/HookNet 未读取。
 
-## 3. 覆盖与规模（真实行数）
+## 6. 交付物与复核清单
 
-- 44/44（11 划分 × 4 目标）case 均有 fit 诊断；**176** 条诊断行 = 44 × 4 个拟合模型；**500** 个预测包 = 125 次切片访问 × 4 目标（每包 5 模型）；全部 `converged=True`、`solver=auto`、**0 个非有限数组**。
-- 因此实现交接中旧成本口径的 **5000 行已按 2500 行纠正**（full15 单视图：125×4×5=2500）；本轮 evaluate 未运行，所以逐片记录尚未产生。
-- 训练行常量列剔除（仅训练行决定）：44 个 case 中 20 个剔除 0 列、12 个剔除 1 列、8 个剔除 2 列、4 个剔除 3 列——被剔除者恒为某些折里恒定的器官/平台指示列；按合同该列在训练中系数为 0，剔除与保留在预测上等价。
+- 实现（本轮最小修改）：`scripts/field_raw_gene_spatial_20261019.py`（metrics_root 隔离、evaluation_receipt 校验、C-01 方向集、claim 行方向与可评单位列）。
+- 脚本：`infra/field_raw_gene_spatial_20261019/{audit_frozen_agreement.py,verify_results.py,build_results_tables.py}`。
+- 结果：`RESULTS_TABLES.md`、`RESULTS_SOURCE_TABLE.tsv`、`prediction_metrics.tsv`(2500)、`paired_metrics.tsv`(2000)、`unit_metrics.tsv`(2240)、`unit_paired.tsv`(1792)、`macro_summary.tsv`、`macro_paired.tsv`、`readout_claim_summary.tsv`、`denominators.tsv`、`summary.json`、`REPORT.md`、`freeze_manifest.json`、`evaluation/*/evaluation_receipt.json`。
+- 核对与披露：`audit_frozen_agreement.{json,tsv,log}`、`verify_results.{json,log}`、`full_run_stages.log`、`*_time.txt`、`fit_package_inventory.tsv`、`archive/evaluation_stale_partial_1843/`（污染证据，保留）。
+- 未提交（工作区大文件）：500 个预测包（40 MB，清单在 `fit_package_inventory.tsv`）；其余本轮产物见 Git。
 
-## 4. 冻结基线复现核对（停止原因）
+## 7. NOT_RUN
 
-容差在看结果前写定（本轮未改）：逐点 `1e-4`、每片 RMSE 绝对差 `1e-5`（point 与固定平滑同界）。逐 case 结果：`audit_frozen_agreement.tsv`；汇总：`audit_frozen_agreement.json`。
-
-**11/44 case 超出；通过者也在界边**（通过 case 最差：逐点 7.27e-5、每片 RMSE 8.86e-6）：
-
-| 划分 | 目标 | 片数 | point max\|Δ\| | point RMSE差 | smooth max\|Δ\| | smooth RMSE差 |
-|---|---|---:|---:|---:|---:|---:|
-| source_0 | EMT | 2 | **2.29e-4** | **2.08e-4** | 2.26e-4 | 2.11e-4 |
-| source_4 | B_AXIS | 34 | 1.10e-4 | 5.06e-6 | 5.74e-5 | 5.21e-6 |
-| source_5 | OXPHOS | 1 | 1.06e-4 | 1.56e-5 | 7.70e-5 | 1.51e-5 |
-| source_5 | B_AXIS | 1 | 1.05e-4 | 4.88e-5 | 1.00e-4 | 4.92e-5 |
-| internal_4 | OXPHOS | 12 | 5.89e-5 | 1.03e-5 | 5.46e-5 | 9.86e-6 |
-| source_0 | B_AXIS | 2 | 5.75e-5 | 4.47e-5 | 5.50e-5 | 4.56e-5 |
-| source_0 | OXPHOS | 2 | 5.61e-5 | 3.05e-5 | 5.08e-5 | 3.07e-5 |
-| internal_1 | OXPHOS | 15 | 5.22e-5 | 1.55e-5 | 4.18e-5 | 1.53e-5 |
-| internal_1 | B_AXIS | 15 | 5.13e-5 | 1.94e-5 | 4.47e-5 | 2.18e-5 |
-| source_2 | EMT | 2 | 4.16e-5 | 1.23e-5 | 2.91e-5 | 1.25e-5 |
-| source_0 | IFN-γ | 2 | 3.89e-5 | 2.10e-5 | 3.65e-5 | 2.28e-5 |
-
-未超界的 case 中，逐点最差 7.27e-5 与界 1e-4 只差 1.4 倍，每片 RMSE 最差 8.86e-6 与界 1e-5 只差 1.1 倍——即整个语料都贴着这两条界，不是个别离群。
-
-## 5. 数值影响证据（定位到环境敏感的近似零方向，而非参数/管线差异）
-
-> **追加（受控线程探针，review N-01 minimal_verification）**：已在 `infra/field_blas_probe_20261019/` 完成受控探针，并按要求补测旧冻结合同的 **2 线程**（脚本 `probe_source0_emt_threads.py`，1/8 原结果另存 `probe_results_threads_1_8_original.*`，1/2/8 结果 `probe_results_t128.*`，交接 `handoff.md`）。要点：**设计身份与 fit_diagnostics 逐项一致（25803 行 / 1500 列 / 剔除 2 列 / float32 / scaled=0 / ctx=6），划分文件与冻结相同，库版本也与冻结轮次记录相同**；同设置重复噪声 ≤1.8e-7；**t1↔t2 仅 1.0–1.6e-6，而 t1↔t8 与 t2↔t8 均为 2.07e-4**；t=8 与存盘包差 ≤4.8e-7（存盘 ≡ 8 线程），t=1/t=2 与存盘差 ≈2.07e-4；按原定界限逐项：**t=1/t=2 vs 冻结：max_abs 2.4e-5 通过 1e-4，但每片 RMSE 差 1.25–1.31e-5 仍未通过 1e-5；t=8 vs 冻结：两项均未通过**。即线程解释超界部分，**残余 ≈1e-5 稳定偏移尚未定因**（非库版本、非线程噪声）。**未改启动器、未全量重拟合、未 evaluate/summarize**，待 Grok 判断。
-
-运行日志保留 **36 条 `LinAlgWarning: Ill-conditioned matrix (rcond=3.15e-8 … 4.51e-8)`**（来自三块设计；point 设计本身未触发）。
-
-对最差 case（source_0 / EMT）做了**一次有界、只读的重拟合探针**（不写任何冻结产物，`audit_numerical_probe.json`）：
-
-| 量 | NCBI642 | NCBI643 |
-|---|---:|---:|
-| 同设计换求解器（cholesky↔lsqr） | 5.45e-6 | 6.35e-6 |
-| 新重拟合 vs 冻结 `gene_ridge` | 2.09e-5 | 2.40e-5 |
-| **运行存盘 vs 冻结 `gene_ridge`** | **2.28e-4** | **2.29e-4** |
-| **运行存盘 vs 新重拟合（同代码同种子）** | **2.08e-4** | **2.08e-4** |
-
-- point 设计的原始 Gram 最小/最大特征值 = **6.23e-11 / 4.51e6 → 原始 rcond ≈ 1.4e-17（数值上奇异）**；ridge（α=10）把系统条件数抬到 ≈2e-6，但**近零方向完全由舍入决定**，其上分到的系数权重 ≈O(1)；系数 L2 范数 7.35e-2，cholesky 与 lsqr 的训练 RMSE 相同到 1e-10。
-- 关键判读依据：同一次重拟合内部两种求解器只差 ~6e-6，**而运行存盘与新重拟合（同 Git 代码、同种子、同数据、同权重、同 alpha、同列剔除）差 ~2e-4** ⇒ 差异不是参数或管线差别，而是**该病态设计下近零方向舍入导致的环境（BLAS/线程）敏感性**；冻结产物恰好落在另一个舍入实现上。
-- 该敏感性对**候选/背景/置换**更需留意：三块设计的 rcond（3e-8）比 point 更差，但同一次运行内四种模型共享同一环境，配对差值内部一致；受影响的是「相对冻结基线/跨环境复现」这一层面。
-- 上表所有量都远大于数值噪声下限，也不满足预定的 1e-4 / 1e-5 复现界限；按任务约定**停在此处交 Grok 判断**，不自行放宽容差、不换求解器/参数、不重跑。
-
-## 6. 保留物 / 复核所需文件
-
-- 关卡证据：`audit_frozen_agreement.py`、`audit_frozen_agreement.tsv`、`audit_frozen_agreement.json`、`audit_frozen_agreement.log`、`audit_numerical_probe.json`。
-- 运行记录：`fit_full.log`（含 36 条警告原文）、`fit_time.txt`（墙钟/CPU/RSS）、`full_run_stages.log`（阶段返回码）、`splits/*/fit_diagnostics.tsv`（176 行）、`fit_package_inventory.tsv`（500 包逐包 sha256/size）。
-- 授权与历史：`review/reviewed_implementation_round2.json`、`review/reviewed_implementation_round1.json`、`review/preflight.md`、`implementation_handoff.md`。
-- 未提交：500 个预测包（40.3 MB，清单见 inventory）、`smoke/` 与大中间产物；未提交状态如实记录，不构成本轮实现版本。
-
-## 7. NOT_RUN / 未产生
-
-- **evaluate 与 summarize 未运行**（按停止约定）；因此无 `prediction_metrics.tsv`/`macro_*/unit_*/*paired*` 等 2500 行逐片记录与配对表，也无该轮的 freeze manifest。
-- 未运行：全量配对比较、readout_claim_summary（本轮不存在）、任何显著性、独立 marker、人工 TLS、物理尺度、视野外推断。
-- 未做：容差放宽、求解器更换、参数/划分/缩放调整、广泛重跑、另开重复训练（仅对最差 case 做了一次只读重拟合探针）。
-
-## 8. 交付后冻结
-
-本文件交付后停止修改实现/合同/检查/运行记录，等待 Grok 就"冻结基线复现超界 + 近零方向环境敏感性"给出处置判断（例如：是否需要在合同层固定 BLAS 线程/求解器以实现跨环境可复现、或如何界定哪些读出在此分辨率下可解释）；在得到指令前不继续 evaluate/summarize、不宣布科学结论。
+人工 TLS 与结构验证、独立 marker 隔离与重训、未知患者身份补齐、正式空间显著性、原场物理尺度与视野外推断、输入规模搜索、shuffle 参考（本轮 `do_shuffle=False`）。数值边界之外的一切“改善/失败”解读均属未定，等待独立复核。

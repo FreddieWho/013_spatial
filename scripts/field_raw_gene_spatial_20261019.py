@@ -72,10 +72,26 @@ MACRO_METRICS = ['rec_rmse', 'rec_centered_rmse', 'rec_mae', 'rec_bias', 'rec_sd
                  'rec_patch90_largest_radius_abs_delta', 'geo_patch75_largest_radius_pitch',
                  'geo_patch75_largest_share', 'geo_autocorr_near', 'dist_sd']
 # favourable direction for the candidate-vs-baseline descriptive conjunction (contract claim rule)
+# Favourable-direction sets for the descriptive four-control conjunction.
+# C-01: the *signed* radius deviation is predicted minus measured radius, so a negative value is
+# NOT an improvement; it carries no direction and is descriptive only. Only the per-section
+# absolute radius deviation (lower is better) may enter the conjunction.
 FAVOURABLE_LOW = {'rec_rmse', 'rec_centered_rmse', 'rec_mae', 'rec_bias',
-                  'rec_centroid_displacement_pitch', 'rec_patch75_largest_radius_pitch_delta',
-                  'rec_patch90_largest_radius_pitch_delta', 'rec_patch75_largest_radius_abs_delta',
+                  'rec_centroid_displacement_pitch', 'rec_patch75_largest_radius_abs_delta',
                   'rec_patch90_largest_radius_abs_delta'}
+DIRECTION_LABEL = {'rec_rmse': 'lower_is_better', 'rec_centered_rmse': 'lower_is_better',
+                   'rec_mae': 'lower_is_better', 'rec_bias': 'lower_is_better',
+                   'rec_centroid_displacement_pitch': 'lower_is_better',
+                   'rec_patch75_largest_radius_abs_delta': 'lower_is_better',
+                   'rec_patch90_largest_radius_abs_delta': 'lower_is_better',
+                   'rec_pearson': 'higher_is_better', 'rec_spearman': 'higher_is_better',
+                   'rec_local_pattern_pearson': 'higher_is_better',
+                   'rec_jaccard_q75': 'higher_is_better', 'rec_jaccard_q80': 'higher_is_better',
+                   'rec_jaccard_q90': 'higher_is_better',
+                   'rec_patch75_largest_radius_pitch_delta': 'descriptive_only_signed_no_direction',
+                   'rec_patch90_largest_radius_pitch_delta': 'descriptive_only_signed_no_direction',
+                   'rec_sd_ratio': 'descriptive_only',
+                   'rec_calibration_slope': 'descriptive_only'}
 FAVOURABLE_HIGH = {'rec_pearson', 'rec_spearman', 'rec_local_pattern_pearson', 'rec_jaccard_q75',
                    'rec_jaccard_q80', 'rec_jaccard_q90'}
 VIEW = 'full15'
@@ -505,14 +521,26 @@ def run_split_evaluate(job):
     ctx = setup(verify='none')
     c, byid = ctx['c'], ctx['byid']
     src = Path(job['out'])
-    out = WORK / 'evaluation' / split['name']
+    metrics_root = Path(job['metrics_root']) if job.get('metrics_root') else WORK / 'evaluation'
+    out = metrics_root / split['name']
     out.mkdir(parents=True, exist_ok=True)
-    if (out / 'COMPLETE').exists() and not job.get('force'):
-        return dict(split=split['name'], status='already_complete')
-    records, paired = [], []
     sections = [byid[s] for s in split['test']]
     if job.get('test_limit'):
         sections = sections[:job['test_limit']]
+    expected_rows = len(sections) * len(c['targets']) * len(MODELS)
+    expected_paired = len(sections) * len(c['targets']) * len(BASELINES)
+    receipt_path = out / 'evaluation_receipt.json'
+    if (out / 'COMPLETE').exists() and not job.get('force'):
+        receipt = json.loads(receipt_path.read_text()) if receipt_path.exists() else {}
+        complete = (receipt.get('rows') == expected_rows
+                    and receipt.get('paired') == expected_paired
+                    and receipt.get('n_sections') == len(sections)
+                    and receipt.get('test_limit') == job.get('test_limit'))
+        if complete:
+            return dict(split=split['name'], status='already_complete')
+        return dict(split=split['name'], status='STALE_PARTIAL_RECOMPUTED',
+                    previous_rows=receipt.get('rows'), expected_rows=expected_rows)
+    records, paired = [], []
     for row in sections:
         sid = row['section_id']
         cache = base.load_cache(row)
@@ -569,8 +597,17 @@ def run_split_evaluate(job):
         print(json.dumps(dict(split=split['name'], section=sid)), flush=True)
     base.tsv_write(out / 'prediction_metrics.tsv', records)
     base.tsv_write(out / 'paired_metrics.tsv', paired)
+    base.json_write(receipt_path, dict(split=split['name'], n_sections=len(sections),
+                                       rows=len(records), paired=len(paired),
+                                       expected_rows=expected_rows,
+                                       expected_paired=expected_paired,
+                                       test_limit=job.get('test_limit'),
+                                       metrics_root=str(metrics_root),
+                                       note='row counts recorded so a partial or stale evaluation '
+                                            'cannot be mistaken for a complete one'))
     (out / 'COMPLETE').write_text('EVALUATION_DONE\n')
-    return dict(split=split['name'], rows=len(records), paired=len(paired))
+    return dict(split=split['name'], rows=len(records), paired=len(paired),
+                status=('RECOMPUTED' if (out / 'COMPLETE').exists() else 'EVALUATED'))
 
 
 def evaluate(limit_splits=None, test_limit=None, work=None):
@@ -691,6 +728,11 @@ def favourable(metric, delta):
     return None
 
 
+def direction_label(metric):
+    base_metric = metric[len('delta_'):] if metric.startswith('delta_') else metric
+    return DIRECTION_LABEL.get(base_metric, 'descriptive_only')
+
+
 def claim_summary(paired_macro):
     index = {(r['arm'], r['target'], r['baseline'], r['metric']): r for r in paired_macro}
     rows = []
@@ -701,17 +743,25 @@ def claim_summary(paired_macro):
             for readout in readouts:
                 favourable_all = True
                 details = {}
+                estimable = []
                 for base_name in BASELINES:
                     r = index.get((arm, target, base_name, f'delta_{readout}'))
                     value = None if r is None else review.numeric(r['mean'])
                     verdict = favourable(readout, value)
                     details[base_name] = value
+                    if r is not None:
+                        estimable.append(int(r['n_estimable']))
                     if verdict is not True:
                         favourable_all = False
                 rows.append(dict(arm=arm, target=target, readout=readout,
+                                 direction=direction_label(readout),
                                  favourable_vs_all_four=bool(favourable_all),
+                                 min_n_estimable_units=(min(estimable) if estimable else None),
                                  **{f'delta_vs_{k}': v for k, v in details.items()},
-                                 note='descriptive conjunction only; not a threshold, not a p-value'))
+                                 note='descriptive conjunction only; not a threshold, not a p-value; '
+                                      'the signed radius deviation carries no direction and is '
+                                      'excluded; per-source detail is in macro_strata.tsv and '
+                                      'estimable-unit counts in denominators.tsv'))
     return rows
 
 
@@ -1213,7 +1263,8 @@ def check():
     tiny_train = train_rows[:3]
     info = run_split_fit(dict(split=real_split, out=str(tiny_dir), train_limit=3, test_limit=1,
                               force=True))
-    info = run_split_evaluate(dict(split=real_split, out=str(tiny_dir), test_limit=1, force=True))
+    info = run_split_evaluate(dict(split=real_split, out=str(tiny_dir), test_limit=1, force=True,
+                                   metrics_root=str(tiny_dir)))
     record('tiny_fit_evaluate_ran', 'rows>0', info['rows'], info['rows'] > 0)
     diag = list(csv.DictReader((tiny_dir / 'fit_diagnostics.tsv').open(), delimiter='\t'))
     record('no_nonconverged_fit', 'all converged',

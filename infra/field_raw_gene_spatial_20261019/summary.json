@@ -1,0 +1,11 @@
+{
+  "sections": 72,
+  "units": 65,
+  "section_rows": 2500,
+  "paired_rows": 2000,
+  "unit_rows": 2240,
+  "macro_rows": 5460,
+  "states": {
+    "DESCRIBED": 2500
+  }
+}

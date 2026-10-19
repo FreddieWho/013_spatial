@@ -48,5 +48,6 @@
     "point_ridge section-RMSE diff 1.558e-05 > 1.0e-05 at source_5/HALLMARK_OXIDATIVE_PHOSPHORYLATION/NCBI776",
     "point_ridge_smooth_half section-RMSE diff 1.513e-05 > 1.0e-05 at source_5/HALLMARK_OXIDATIVE_PHOSPHORYLATION/NCBI776"
   ],
-  "status": "FAIL"
+  "status": "FAIL",
+  "disclosure": "D-275: this FAIL is recorded as a disclosure. The frozen-baseline bounds are NOT relaxed and the failure is NOT re-marked as passing; descriptive evaluation may proceed with this limitation disclosed. Thread evidence exists for one point case (source_0/EMT) only and is not generalised to all models or splits."
 }

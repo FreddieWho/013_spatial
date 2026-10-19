@@ -1,0 +1,108 @@
+{
+  "n_checks": 17,
+  "n_failed": 0,
+  "results": [
+    {
+      "check": "section_rows",
+      "expected": "2500",
+      "observed": "2500",
+      "passed": true
+    },
+    {
+      "check": "paired_rows",
+      "expected": "2000",
+      "observed": "2000",
+      "passed": true
+    },
+    {
+      "check": "unit_rows",
+      "expected": "2240",
+      "observed": "2240",
+      "passed": true
+    },
+    {
+      "check": "unit_paired_rows",
+      "expected": "1792",
+      "observed": "1792",
+      "passed": true
+    },
+    {
+      "check": "readout_claim_rows",
+      "expected": "40",
+      "observed": "40",
+      "passed": true
+    },
+    {
+      "check": "denominator_rows",
+      "expected": "210",
+      "observed": "210",
+      "passed": true
+    },
+    {
+      "check": "unit_group_counts",
+      "expected": "internal 65 / source 47",
+      "observed": "([65], [47])",
+      "passed": true
+    },
+    {
+      "check": "sections_per_arm",
+      "expected": "internal 72 / source 53",
+      "observed": "(72, 53)",
+      "passed": true
+    },
+    {
+      "check": "identity_split",
+      "expected": "confirmed 14 / unknown 58",
+      "observed": "(14, 58)",
+      "passed": true
+    },
+    {
+      "check": "source_not_testable_sections_kept_internal",
+      "expected": "19",
+      "observed": "19",
+      "passed": true
+    },
+    {
+      "check": "cross_organ_extrapolation_splits",
+      "expected": "['source_0', 'source_5']",
+      "observed": "['source_0', 'source_5']",
+      "passed": true
+    },
+    {
+      "check": "finite_numeric_values",
+      "expected": "no non-finite values",
+      "observed": "(25000, 0)",
+      "passed": true
+    },
+    {
+      "check": "barcode_and_readout_alignment",
+      "expected": "0 mismatches",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "check": "local_detail_pearson_recompute",
+      "expected": "<=1e-9",
+      "observed": "4.440892098500626e-16",
+      "passed": true
+    },
+    {
+      "check": "jaccard_q75_strict_above_recompute",
+      "expected": "<=1e-9",
+      "observed": "0.0",
+      "passed": true
+    },
+    {
+      "check": "two_section_unit_equal_weighted_mean",
+      "expected": "all checked units match",
+      "observed": "(20, 20)",
+      "passed": true
+    },
+    {
+      "check": "partial_units_excluded_from_complete_mean",
+      "expected": "partial metric value is empty and listed",
+      "observed": "0",
+      "passed": true
+    }
+  ]
+}

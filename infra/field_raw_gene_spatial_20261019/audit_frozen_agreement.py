@@ -34,6 +34,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--work', default=str(DEFAULT_WORK))
     parser.add_argument('--pred', default=str(DEFAULT_PRED))
+    parser.add_argument('--no-fail', action='store_true',
+                        help='D-275: keep reporting the outcome truthfully (status PASS/FAIL) but exit 0, '
+                             'so the recorded reproduction difference is a disclosure rather than a hard '
+                             'block for descriptive evaluation. Bounds are never relaxed.')
     args = parser.parse_args()
     work, pred = Path(args.work), Path(args.pred)
     contract = json.loads((work / 'contract.json').read_text())
@@ -108,14 +112,21 @@ def main():
         worst_smooth_section_rmse_diff=max([r['smooth_section_rmse_diff'] for r in rows], default=None),
         limits=dict(point_max_abs=tol['point_prediction_max_abs_diff_vs_frozen'],
                     section_rmse_abs=tol['point_section_rmse_abs_diff_vs_frozen']),
-        n_failures=len(failures), failures=failures[:40], status='PASS' if not failures else 'FAIL')
+        n_failures=len(failures), failures=failures[:40],
+        status='PASS' if not failures else 'FAIL',
+        disclosure=('D-275: this FAIL is recorded as a disclosure. The frozen-baseline bounds are NOT '
+                    'relaxed and the failure is NOT re-marked as passing; descriptive evaluation may '
+                    'proceed with this limitation disclosed. Thread evidence exists for one point case '
+                    '(source_0/EMT) only and is not generalised to all models or splits.'))
     with (work / 'audit_frozen_agreement.tsv').open('w', newline='') as handle:
         writer = csv.DictWriter(handle, list(rows[0]), delimiter='\t')
         writer.writeheader()
         writer.writerows(rows)
     (work / 'audit_frozen_agreement.json').write_text(json.dumps(summary, indent=2) + '\n')
     print(json.dumps(summary, indent=2), flush=True)
-    return 0 if not failures else 1
+    if failures and not args.no_fail:
+        return 1
+    return 0
 
 
 if __name__ == '__main__':

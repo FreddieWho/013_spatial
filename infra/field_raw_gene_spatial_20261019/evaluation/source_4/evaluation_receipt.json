@@ -1,0 +1,11 @@
+{
+  "split": "source_4",
+  "n_sections": 34,
+  "rows": 680,
+  "paired": 544,
+  "expected_rows": 680,
+  "expected_paired": 544,
+  "test_limit": null,
+  "metrics_root": "/home/huyudi/013_spatial/infra/field_raw_gene_spatial_20261019/evaluation",
+  "note": "row counts recorded so a partial or stale evaluation cannot be mistaken for a complete one"
+}
