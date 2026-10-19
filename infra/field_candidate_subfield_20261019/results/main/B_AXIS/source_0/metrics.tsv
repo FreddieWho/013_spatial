@@ -1,0 +1,161 @@
+gene	arm	section	unit	pearson	jaccard	status
+SWAP70	A_mean	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.012995	0.109986	OK
+SWAP70	A_mean	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.156498	0.186975	OK
+CD38	A_mean	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.038233	0.032258	OK
+CD38	A_mean	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.019492	0.083535	OK
+SPIB	A_mean	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+SPIB	A_mean	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.006499	0.010327	OK
+TCL1A	A_mean	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+TCL1A	A_mean	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a			NOT_TESTABLE_SPARSE_OR_CONSTANT
+CD83	A_mean	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.034500	0.030741	OK
+CD83	A_mean	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.069744	0.038462	OK
+CD79B	A_mean	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.076340	0.057658	OK
+CD79B	A_mean	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.141470	0.099440	OK
+CD27	A_mean	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.185384	0.076786	OK
+CD27	A_mean	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.106132	0.048387	OK
+SPCS3	A_mean	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	-0.048547	0.137300	OK
+SPCS3	A_mean	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.010907	0.180773	OK
+VPREB3	A_mean	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+VPREB3	A_mean	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.012889	0.068966	OK
+CD1C	A_mean	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.036408	0.033149	OK
+CD1C	A_mean	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.213954	0.089231	OK
+CR2	A_mean	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+CR2	A_mean	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a			NOT_TESTABLE_SPARSE_OR_CONSTANT
+IRF7	A_mean	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.113053	0.166667	OK
+IRF7	A_mean	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.133378	0.183246	OK
+SSR4	A_mean	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.032811	0.161215	OK
+SSR4	A_mean	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.204607	0.225597	OK
+LY86	A_mean	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.117865	0.068740	OK
+LY86	A_mean	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.140797	0.121444	OK
+CXCR5	A_mean	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+CXCR5	A_mean	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a			NOT_TESTABLE_SPARSE_OR_CONSTANT
+LILRA4	A_mean	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+LILRA4	A_mean	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.023517	0.012090	OK
+SWAP70	K1	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.011357	0.102011	OK
+SWAP70	K1	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.145661	0.179541	OK
+CD38	K1	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.057328	0.045372	OK
+CD38	K1	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.013765	0.079614	OK
+SPIB	K1	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+SPIB	K1	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	-0.000716	0.012069	OK
+TCL1A	K1	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+TCL1A	K1	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a			NOT_TESTABLE_SPARSE_OR_CONSTANT
+CD83	K1	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.048755	0.036364	OK
+CD83	K1	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.064315	0.036866	OK
+CD79B	K1	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.069751	0.050089	OK
+CD79B	K1	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.156851	0.104079	OK
+CD27	K1	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.184321	0.069149	OK
+CD27	K1	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.095355	0.054572	OK
+SPCS3	K1	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	-0.057340	0.139908	OK
+SPCS3	K1	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.012373	0.161357	OK
+VPREB3	K1	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+VPREB3	K1	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.012281	0.074667	OK
+CD1C	K1	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.043601	0.033149	OK
+CD1C	K1	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.250899	0.095975	OK
+CR2	K1	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+CR2	K1	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a			NOT_TESTABLE_SPARSE_OR_CONSTANT
+IRF7	K1	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.094048	0.155814	OK
+IRF7	K1	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.164678	0.188223	OK
+SSR4	K1	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.018065	0.154472	OK
+SSR4	K1	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.237506	0.230937	OK
+LY86	K1	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.140474	0.084718	OK
+LY86	K1	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.167879	0.140156	OK
+CXCR5	K1	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+CXCR5	K1	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a			NOT_TESTABLE_SPARSE_OR_CONSTANT
+LILRA4	K1	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+LILRA4	K1	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.028169	0.012090	OK
+SWAP70	single_gene	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	-0.032029	0.066759	OK
+SWAP70	single_gene	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.099858	0.180773	OK
+CD38	single_gene	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.035447	0.032258	OK
+CD38	single_gene	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	-0.046099	0.065476	OK
+SPIB	single_gene	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+SPIB	single_gene	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	-0.003585	0.008591	OK
+TCL1A	single_gene	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+TCL1A	single_gene	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a			NOT_TESTABLE_SPARSE_OR_CONSTANT
+CD83	single_gene	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.034292	0.023339	OK
+CD83	single_gene	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.027536	0.032110	OK
+CD79B	single_gene	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.079753	0.037102	OK
+CD79B	single_gene	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.158552	0.082759	OK
+CD27	single_gene	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.086786	0.056042	OK
+CD27	single_gene	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.059239	0.043796	OK
+SPCS3	single_gene	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.098436		NOT_ESTIMABLE_TIES_OR_CONSTANT
+SPCS3	single_gene	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	-0.013640		NOT_ESTIMABLE_TIES_OR_CONSTANT
+VPREB3	single_gene	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+VPREB3	single_gene	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	-0.000296	0.057743	OK
+CD1C	single_gene	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	-0.007165	0.021858	OK
+CD1C	single_gene	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.231034	0.080916	OK
+CR2	single_gene	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+CR2	single_gene	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a			NOT_TESTABLE_SPARSE_OR_CONSTANT
+IRF7	single_gene	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.023525	0.124434	OK
+IRF7	single_gene	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.124527	0.185729	OK
+SSR4	single_gene	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	-0.043700	0.129545	OK
+SSR4	single_gene	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.227134	0.229597	OK
+LY86	single_gene	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.072835	0.063518	OK
+LY86	single_gene	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.132766	0.115343	OK
+CXCR5	single_gene	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+CXCR5	single_gene	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a			NOT_TESTABLE_SPARSE_OR_CONSTANT
+LILRA4	single_gene	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+LILRA4	single_gene	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.014047	0.010345	OK
+SWAP70	K2	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.019398	0.108382	OK
+SWAP70	K2	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.140696	0.180773	OK
+CD38	K2	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.034889	0.049180	OK
+CD38	K2	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	-0.003262	0.083535	OK
+SPIB	K2	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+SPIB	K2	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	-0.007195	0.012069	OK
+TCL1A	K2	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+TCL1A	K2	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a			NOT_TESTABLE_SPARSE_OR_CONSTANT
+CD83	K2	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.043775	0.038251	OK
+CD83	K2	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.082951	0.046512	OK
+CD79B	K2	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.068178	0.048214	OK
+CD79B	K2	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.147295	0.099440	OK
+CD27	K2	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.175050	0.067257	OK
+CD27	K2	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.102574	0.059259	OK
+SPCS3	K2	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	-0.032340	0.154472	OK
+SPCS3	K2	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.014872	0.179541	OK
+VPREB3	K2	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+VPREB3	K2	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.005413	0.068966	OK
+CD1C	K2	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.003508	0.020000	OK
+CD1C	K2	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.234479	0.087558	OK
+CR2	K2	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+CR2	K2	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a			NOT_TESTABLE_SPARSE_OR_CONSTANT
+IRF7	K2	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.083770	0.158508	OK
+IRF7	K2	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.169266	0.193242	OK
+SSR4	K2	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.037507	0.149133	OK
+SSR4	K2	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.180795	0.212446	OK
+LY86	K2	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.148913	0.090150	OK
+LY86	K2	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.166007	0.138889	OK
+CXCR5	K2	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+CXCR5	K2	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a			NOT_TESTABLE_SPARSE_OR_CONSTANT
+LILRA4	K2	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+LILRA4	K2	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	-0.036987	0.010345	OK
+SWAP70	full_A_ridge	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.011592	0.095714	OK
+SWAP70	full_A_ridge	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.106038	0.162551	OK
+CD38	full_A_ridge	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.009283	0.037838	OK
+CD38	full_A_ridge	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	-0.028263	0.082225	OK
+SPIB	full_A_ridge	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+SPIB	full_A_ridge	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	-0.009050	0.010327	OK
+TCL1A	full_A_ridge	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+TCL1A	full_A_ridge	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a			NOT_TESTABLE_SPARSE_OR_CONSTANT
+CD83	full_A_ridge	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.029965	0.043956	OK
+CD83	full_A_ridge	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.080191	0.044892	OK
+CD79B	full_A_ridge	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.033843	0.055755	OK
+CD79B	full_A_ridge	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.100429	0.105634	OK
+CD27	full_A_ridge	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.172062	0.069149	OK
+CD27	full_A_ridge	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.096000	0.051471	OK
+SPCS3	full_A_ridge	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.014490	0.146482	OK
+SPCS3	full_A_ridge	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.006086	0.150713	OK
+VPREB3	full_A_ridge	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+VPREB3	full_A_ridge	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	-0.028437	0.077540	OK
+CD1C	full_A_ridge	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	-0.015106	0.025594	OK
+CD1C	full_A_ridge	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.058769	0.053571	OK
+CR2	full_A_ridge	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+CR2	full_A_ridge	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a			NOT_TESTABLE_SPARSE_OR_CONSTANT
+IRF7	full_A_ridge	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.050203	0.163934	OK
+IRF7	full_A_ridge	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.127096	0.173416	OK
+SSR4	full_A_ridge	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.085122	0.145161	OK
+SSR4	full_A_ridge	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.093518	0.154239	OK
+LY86	full_A_ridge	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0.153206	0.074013	OK
+LY86	full_A_ridge	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.111503	0.140156	OK
+CXCR5	full_A_ridge	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+CXCR5	full_A_ridge	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a			NOT_TESTABLE_SPARSE_OR_CONSTANT
+LILRA4	full_A_ridge	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b			NOT_TESTABLE_SPARSE_OR_CONSTANT
+LILRA4	full_A_ridge	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0.006612	0.008606	OK

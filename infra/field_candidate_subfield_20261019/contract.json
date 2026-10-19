@@ -1,7 +1,7 @@
 {
-  "version": "field-candidate-subfield-20261019-v1",
-  "authority": "docs/FIELD_CANDIDATE_SUBFIELD_PROBE_20261019.md (D-278) + the Grok preflight in infra/paseo_candidate_subfield_20261019/review/preflight.json (S-01..S-06)",
-  "scope": "single fixed K=2 two-component candidate field per target and fold; candidate molecular identity repeatability only (HF-03). Not field-to-field spatial recovery, not TLS structure, not HF-01",
+  "version": "field-candidate-subfield-20261019-v3-d279-released",
+  "authority": "docs/FIELD_CANDIDATE_SUBFIELD_PROBE_20261019.md §预审后固定口径（S-01～S-06，D-279, commit 4732584） + D-279/D-280 + review/preflight.json status FIT_RELEASED (computation_authorized=true); this file supersedes the pre-release machine contract and never overrides the science contract",
+  "scope": "single fixed K=2 two-component candidate field per target and fold; candidate molecular identity repeatability only (HF-03). Not field-to-field spatial recovery, not TLS structure, not an independent biological field, not HF-01",
   "targets": [
     "B_AXIS",
     "HALLMARK_INTERFERON_GAMMA_RESPONSE",
@@ -10,63 +10,68 @@
   ],
   "panel_source": "infra/tls_multiscale_gobp_20261002/panel_controls.json (B_AXIS 49, each Hallmark 200)",
   "expression_source": "data/other_sources/hest1k/st/{sid}.h5ad fields X, var/_index, obs/_index, obs/in_tissue only",
-  "split_file": "infra/field_source_holdout_20261018/splits.json (frozen 11 splits; internal_0..4 over 72 sections / 65 units, source_0..5 over 53 sections / 47 units); never re-drawn",
+  "split_file": "infra/field_source_holdout_20261018/splits.json (frozen 11 splits: internal_0..4 over 72 sections / 65 units, source_0..5 over 53 sections / 47 units); never re-drawn; TENX23/TENX28 are absent from the 72 qualified sections",
   "gene_split": {
-    "rule": "S-01 closed: genes_t = sorted(set(panel[target])); perm = numpy.random.default_rng(0).permutation(len(genes_t)); order = genes_t[perm]; n_a = ceil(2 * n / 3); A = sorted(order[:n_a]); B = sorted(order[n_a:])",
-    "remainder": "the remainder n - n_a = floor(n/3) genes go to B (A takes the ceiling), so B_AXIS 49 -> A 33 / B 16 and each Hallmark 200 -> A 134 / B 66",
-    "properties": "computed once per target before any expression is read, from gene names and literal seed 0 only; A and B are disjoint and their union is the full panel; never recomputed after seeing detection or any held-out score; the old FC-03 gene lists are not reused",
-    "cross_target_note": "targets are analysed independently; a symbol can be A for one target and B for another (B_AXIS B ∩ IFN A = 2 genes; IFN B ∩ EMT A = 2; IFN A ∩ EMT B = 1). This is documented so target-wise results are not read as independent across targets"
+    "rule": "S-01: genes_t = sorted(set(panel[target])); perm = numpy.random.default_rng(0).permutation(len(genes_t)); order = genes_t[perm]; n_a = ceil(2*n/3); A = order[:n_a]; B = order[n_a:] (both kept in permuted order for loadings, sorted for reporting)",
+    "remainder": "the remainder n - n_a = floor(n/3) goes to B; B_AXIS 49 -> A 33 / B 16; each Hallmark 200 -> A 134 / B 66",
+    "invariants": "name-only, expression-free, computed once per target before any read; A and B disjoint; union equals the panel; never re-split after seeing detection or any held-out score; FC-03 gene lists not reused",
+    "cross_target_note": "targets analysed independently; a symbol can be A for one target and B for another (B_AXIS-B ∩ IFN-A = 2; IFN-B ∩ EMT-A = 2; IFN-A ∩ EMT-B = 1); target-wise results are not independent across targets"
   },
   "normalisation": {
-    "S-02 closed": true,
-    "library": "per target and section, library_A(s) = sum of counts over all genes EXCEPT that target's B set; B never enters the denominator",
-    "gene_map": "log1p(1e4 * raw count / library_A) for A genes and for B genes alike, so A and B maps share one denominator that is independent of every B gene",
-    "zero_library": "library_A == 0 follows the old definition (no fills; log1p of zero count is zero)"
+    "D-279_rule": "A and B gene maps both use log1p(1e4 * raw count / L_external), where per point L_external = total counts of ALL genes at that point MINUS counts of ALL panel genes of this target (A union B)",
+    "why": "B cannot enter the A denominator and A cannot enter the B denominator; stronger than excluding only B",
+    "not_old_proxy_scale": "this denominator differs from the old proxy whole-library denominator; results are never compared to old readout scores as the same scale",
+    "zero_or_negative": "points with L_external <= 0 are NOT_TESTABLE on both sides; no imputation with old proxy scores",
+    "common_library_caveat": "the shared external library can still induce technical correlation; reported as a separate sensitivity, never as independent truth"
   },
-  "measurability": {
-    "gene_measurable": "in panel, at least 20 tissue spots with a positive count, and gene map variance > 0",
-    "usable_A_rule": "A gene is usable in a fold (or source split) only when it is measurable in at least 80% of that split's training sections; the list is frozen on training units and test units may neither add nor remove A genes",
-    "rule_sensitivity": "counts of A genes passing 50% / 80% / 100% of training sections are reported as a descriptive sensitivity; the 80% rule itself is never changed after seeing any result",
-    "B_test_rule": "S-05 closed: a B gene is evaluable in a test section only when measurable there (>= 20 nonzero spots and variance > 0); otherwise that gene x section is NOT_TESTABLE_SPARSE_OR_CONSTANT, never imputed and never treated as a negative"
+  "measurability_and_sampling": {
+    "usable_A_rule": "D-279: an A gene counts as measurable in a training UNIT only when EVERY section of that unit has >= 20 non-zero tissue spots (points with L_external > 0) and the unit-level training map variance > 0; the gene is usable in the fold only when it is measurable in at least HALF of the training units",
+    "A_fewer_than_6": "if usable A < 6 in a fold, all four representations are NOT_TESTABLE; K is not lowered and the split is not changed",
+    "training_sample": "per training unit at most 512 tissue points, using one COMMON fixed count n_sample = min(512, min available points over training units); equal per unit; a two-section unit shares the budget split as evenly as possible across its sections; seed 0",
+    "test_sampling": "test units are NOT subsampled (all tissue points evaluated); no test-side gene selection or re-scaling",
+    "scaling": "per-gene positive-value mean over the fold's training sample (a gene with no positive value is unusable); the SAME training scale is applied to test points",
+    "unit_rule_note": "per-section threshold inside every unit; a two-section unit is measurable only if both sections pass; feasibility.json counts (16-18 etc.) are diagnostics only and are NOT the usable gene list"
   },
-  "candidate_model": {
-    "K": 2,
-    "K_is_fixed": "no K scan; K=1 is a separate reference fit, not a search step",
-    "algorithm": "S-03 closed: sklearn NMF(n_components=2, init='nndsvda', solver='cd', beta_loss='frobenius', max_iter=2000, tol=1e-6, random_state=seed_ft) on the training-spot matrix of usable A maps scaled by positive per-gene training max-abs (no centering, the model requires non-negative input)",
-    "training_rows": "at most 512 spots per established unit, sampled with the frozen sample_indices seed, the budget shared across the unit's sections; unit weight does not grow with section count",
-    "projection": "test units use only A expression projected onto the frozen training loadings (NMF.transform, NNLS with the training H); no B, no test-side refitting or gene selection",
-    "alignment": "S-03 closed: components are matched to the arm's fold-0 reference loadings by linear_sum_assignment on -|cosine(H_i, H_ref_j)|; ties broken by larger loading norm then lower index; matching uses training loadings only, never a test map or a test B gene",
-    "alignment_conflict": "if two components pick the same reference component, the one with the smaller matched cosine is reported as UNALIGNED and is not used as a second field",
+  "model": {
+    "K": [
+      1,
+      2
+    ],
+    "settings": "sklearn NMF(n_components=K, init='nndsvda', solver='cd', random_state=0, max_iter=500, tol=1e-4); no algorithm switch on failure",
+    "training_input": "sampled training points x usable A genes, non-negative after scaling",
+    "projection": "test points projected onto the frozen training loadings using A only (NMF.transform); no B, no test-side refit",
     "not_testable": {
-      "NOT_TESTABLE_INSUFFICIENT_A": "fewer than 10 usable A genes in that split's training units; no K=2 and no K=1 fit",
-      "NOT_TESTABLE_ZERO_COMPONENT": "a component has all-zero loadings or a maximum loading below 1e-8",
-      "NOT_TESTABLE_NOT_CONVERGED": "NMF reports n_iter_ == max_iter",
-      "no_K_change": "a NOT_TESTABLE case is reported as such; K is never changed and no success line is defined"
+      "INSUFFICIENT_A": "usable A < 6 (all four representations)",
+      "NOT_CONVERGED": "n_iter_ >= max_iter",
+      "ZERO_LOADING": "a component loading vector is all zero",
+      "NON_FINITE": "any NaN/Inf in loadings or training factor"
     }
   },
+  "alignment": {
+    "cross_fold": "pairwise cosine between training loadings, descriptive only; never used for test prediction or model selection",
+    "cross_fold_floor": "shared measurable A < 6 makes cross-fold matching NOT_ESTIMABLE",
+    "similarity": "component similarity is reported only; no post-hoc 'two fields' threshold",
+    "in_fold_resamples": "fixed 5 resamples, each a 90% without-replacement row subsample of the frozen training sample with seeds 0-4; each refit is paired to the full-training fit by the larger sum of cosines over the two 1-1 pairings on shared A genes; ties keep the original order; resample loadings are never used for prediction"
+  },
   "references": {
-    "S-04 closed": true,
-    "arms": [
-      "A_mean: arithmetic mean of the usable A maps",
-      "K1_nmf: NMF(n_components=1) fitted with the same settings",
-      "single_gene: the usable A gene with the highest training-unit contribution to the A readout (mean of its map over training spots); ties by gene name; chosen on training units only and never by a test B gene",
-      "K2: the two aligned candidate component scores",
-      "full_A_ridge: Ridge(alpha=10) on all usable A genes with StandardScaler fitted on training spots; declared a stronger reference (more parameters), not a parameter-matched control"
-    ],
-    "B_mapping": "for each arm and each B gene, a training-unit Ridge(alpha=10) with StandardScaler fitted on training spots maps the arm features to that B gene's map; evaluation happens on test units only after projection; B never enters candidate fitting, training standardisation, test projection, component matching or model selection",
-    "B_assignment": "if a B gene is pre-associated with one component, the rule and the assignment of every B gene are determined on training units only and applied unchanged on test units; negative associations and unassignable genes are kept",
-    "aggregation": "per gene -> per section -> per unit (mean over sections; any NOT_ESTIMABLE section excludes that gene x unit and keeps the reason) -> complete units equally weighted; gene x section rows are never averaged directly; all B genes and all four targets are reported with denominators"
+    "same_information": "A_mean, K=1, K=2, single_gene (highest training A contribution among usable A) and all usable A genes all come from the SAME fold, SAME A list and SAME training sample",
+    "single_gene_rule": "chosen by the mean of the UNSCALED training gene map among usable A genes (never by a test B gene); the represented map used for B mapping is that gene's training-scaled map so all arms share one input scale",
+    "B_mapping": "for each B gene, each representation is fitted with StandardScaler (training points) + Ridge(alpha=10) to that B gene map; test uses the training transform",
+    "full_A_ridge": "the all-A Ridge is a stronger same-information reference; no claim of equal parameter count",
+    "B_role": "B maps are target values only; B never enters any representation, training standardisation, test projection or model selection; parameters, B-component association and direction come only from training units"
   },
-  "readouts": {
-    "per_gene_pearson": "Pearson between predicted and measured B map on a test section (NOT_ESTIMABLE if either map is constant)",
-    "per_gene_q75_jaccard": "strictly-above-q75 set overlap; NOT_ESTIMABLE if the strict set is empty or a map is constant",
-    "gene_specificity": "same readouts for the A_mean/K1/single-gene/K2 arms relative to full_A_ridge, reported per gene without any post-hoc composite score",
-    "composition_stability": "loadings compared across folds and training resamples with the fixed matching rule; gene overlap, missing genes and direction flips reported; no test-based pairing",
-    "non_redundancy": "cosine between the two aligned loadings, correlation between their training maps, and each component's technical correlation are reported descriptively; no threshold is defined and no name is assigned from a threshold",
-    "technical": "S-06 closed: point-level depth = log1p(sum of counts of genes outside the target's A union B) and detection = fraction of those genes with a positive count; correlations of candidate scores with both are reported next to the raw results; a residualised sensitivity may be reported separately but never replaces the raw maps and never decides biological versus technical origin"
+  "B_evaluation": {
+    "test_evaluable": "a B gene in a test section needs >= 20 non-zero tissue spots and gene-map variance > 0; otherwise NOT_TESTABLE for that gene x section (no imputation, never written as negative)",
+    "q75": "high set = v > quantile(v, 0.75) per map; an empty high set or a constant map makes the Jaccard NOT_ESTIMABLE",
+    "per_gene_metrics": "Pearson (NOT_ESTIMABLE if either map constant), q75 Jaccard, gene-specificity vs the all-A reference; all B genes and all reasons reported",
+    "aggregation": "per B gene per section; a gene x unit is excluded if any necessary section is not evaluable; then complete units equally weighted; gene x section rows are never averaged directly"
   },
-  "claim_ceiling": "even with stable, non-redundant, B-supported composition this is only a candidate field; molecular co-direction is not independent pathology truth, not an independent biological field, not HF-01",
-  "old_probe_not_used": "the 2026-10-06 FC-03 scores, its learned factors (4213 panel-external genes vs 23 fixed panel scores), K=8 stability and the 0.5 success line are not reused, not a baseline to beat, and not a reason to keep or drop a target",
+  "technical": {
+    "covariates": "point-level depth = total counts of genes OUTSIDE the target's whole A union B panel, detection = fraction of those genes with a positive count",
+    "reporting": "raw maps and technical sensitivity reported separately; residual changes cannot alone decide biological vs technical origin; no post-hoc thresholds"
+  },
+  "claim_ceiling": "even a stable, non-redundant, B-supported composition is only a candidate field; molecular co-direction is not independent pathology truth, not an independent biological field, not HF-01",
+  "old_probe_not_used": "2026-10-06 FC-03 scores, its 4213 vs 23 learned-factor information budget, K=8 stability and the 0.5 success line are not reused, not a baseline, and not a reason to keep or drop a target",
   "identity_and_scope": "8 within-study confirmed units; 57 units unknown and never upgraded; 19 source-insufficient sections stay internal; lung cannot enter a source holdout; breast (source_5) and liver (source_0) are cross-organ; section counts are never patient counts",
   "resources": {
     "min_free_bytes": 200000000000,
@@ -75,10 +80,11 @@
     "workers": 3,
     "threads": 2
   },
+  "release_gate": "the run stage refuses to start without a review release file (review/preflight.json with implementation_approved=true and computation_authorized=true)",
   "not_run": [
     "K scan or model-family search",
-    "field-to-field spatial recovery (hidden-field recovery is a later round)",
-    "human TLS labels, old manual evaluation, HookNet",
+    "field-to-field spatial recovery",
+    "human TLS labels / old manual evaluation / HookNet",
     "external data",
     "GPU"
   ]

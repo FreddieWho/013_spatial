@@ -122,3 +122,7 @@ infra/r16/r_integration_20260915/checkpoints/
 # weights stay local; summaries, contracts, receipts are tracked.
 /infra/tls_forward_patient_20261003/*.npz
 /infra/tls_patient_validation_20261003/models/*.npz
+
+# candidate-field probe cache and test projections: derived, locally regenerable
+infra/field_candidate_subfield_20261019/cache/
+infra/field_candidate_subfield_20261019/results/*/*/*/scores.npz

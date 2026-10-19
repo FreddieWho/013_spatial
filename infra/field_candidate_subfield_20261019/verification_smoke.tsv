@@ -1,0 +1,85 @@
+check	scope	outcome	detail
+S01_split_deterministic	B_AXIS	PASS	
+S01_A_B_disjoint	B_AXIS	PASS	
+S01_union_equals_panel	B_AXIS	PASS	
+S01_ceil_rule	B_AXIS	PASS	A=33 B=16 n=49
+S01_split_deterministic	HALLMARK_INTERFERON_GAMMA_RESPONSE	PASS	
+S01_A_B_disjoint	HALLMARK_INTERFERON_GAMMA_RESPONSE	PASS	
+S01_union_equals_panel	HALLMARK_INTERFERON_GAMMA_RESPONSE	PASS	
+S01_ceil_rule	HALLMARK_INTERFERON_GAMMA_RESPONSE	PASS	A=134 B=66 n=200
+S01_split_deterministic	HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION	PASS	
+S01_A_B_disjoint	HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION	PASS	
+S01_union_equals_panel	HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION	PASS	
+S01_ceil_rule	HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION	PASS	A=134 B=66 n=200
+S01_split_deterministic	HALLMARK_OXIDATIVE_PHOSPHORYLATION	PASS	
+S01_A_B_disjoint	HALLMARK_OXIDATIVE_PHOSPHORYLATION	PASS	
+S01_union_equals_panel	HALLMARK_OXIDATIVE_PHOSPHORYLATION	PASS	
+S01_ceil_rule	HALLMARK_OXIDATIVE_PHOSPHORYLATION	PASS	A=134 B=66 n=200
+S02_units_disjoint	internal_0	PASS	train_units=50 test_units=15
+S02_split_file_unchanged	internal_0	PASS	code_sha256=0a0333e58661
+S02_units_disjoint	internal_1	PASS	train_units=52 test_units=13
+S02_split_file_unchanged	internal_1	PASS	code_sha256=0a0333e58661
+S02_units_disjoint	internal_2	PASS	train_units=52 test_units=13
+S02_split_file_unchanged	internal_2	PASS	code_sha256=0a0333e58661
+S02_units_disjoint	internal_3	PASS	train_units=52 test_units=13
+S02_split_file_unchanged	internal_3	PASS	code_sha256=0a0333e58661
+S02_units_disjoint	internal_4	PASS	train_units=54 test_units=11
+S02_split_file_unchanged	internal_4	PASS	code_sha256=0a0333e58661
+S02_units_disjoint	source_0	PASS	train_units=45 test_units=2
+S02_split_file_unchanged	source_0	PASS	code_sha256=0a0333e58661
+S02_source_holdout_excludes_held	source_0	PASS	
+S02_units_disjoint	source_1	PASS	train_units=41 test_units=6
+S02_split_file_unchanged	source_1	PASS	code_sha256=0a0333e58661
+S02_source_holdout_excludes_held	source_1	PASS	
+S02_units_disjoint	source_2	PASS	train_units=45 test_units=2
+S02_split_file_unchanged	source_2	PASS	code_sha256=0a0333e58661
+S02_source_holdout_excludes_held	source_2	PASS	
+S02_units_disjoint	source_3	PASS	train_units=45 test_units=2
+S02_split_file_unchanged	source_3	PASS	code_sha256=0a0333e58661
+S02_source_holdout_excludes_held	source_3	PASS	
+S02_units_disjoint	source_4	PASS	train_units=13 test_units=34
+S02_split_file_unchanged	source_4	PASS	code_sha256=0a0333e58661
+S02_source_holdout_excludes_held	source_4	PASS	
+S02_units_disjoint	source_5	PASS	train_units=46 test_units=1
+S02_split_file_unchanged	source_5	PASS	code_sha256=0a0333e58661
+S02_source_holdout_excludes_held	source_5	PASS	
+S02_Lexternal_matches	MISC33|B_AXIS	PASS	ok_points=3385 of 3385
+S02_A_map_recomputed	MISC33|B_AXIS	PASS	max_abs_diff=0.000e+00
+S02_B_map_recomputed_same_denominator	MISC33|B_AXIS	PASS	max_abs_diff=0.000e+00
+S02_Lexternal_matches	MISC33|HALLMARK_INTERFERON_GAMMA_RESPONSE	PASS	ok_points=3385 of 3385
+S02_A_map_recomputed	MISC33|HALLMARK_INTERFERON_GAMMA_RESPONSE	PASS	max_abs_diff=0.000e+00
+S02_B_map_recomputed_same_denominator	MISC33|HALLMARK_INTERFERON_GAMMA_RESPONSE	PASS	max_abs_diff=0.000e+00
+S02_Lexternal_matches	MISC33|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION	PASS	ok_points=3385 of 3385
+S02_A_map_recomputed	MISC33|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION	PASS	max_abs_diff=0.000e+00
+S02_B_map_recomputed_same_denominator	MISC33|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION	PASS	max_abs_diff=0.000e+00
+S02_Lexternal_matches	MISC33|HALLMARK_OXIDATIVE_PHOSPHORYLATION	PASS	ok_points=3385 of 3385
+S02_A_map_recomputed	MISC33|HALLMARK_OXIDATIVE_PHOSPHORYLATION	PASS	max_abs_diff=0.000e+00
+S02_B_map_recomputed_same_denominator	MISC33|HALLMARK_OXIDATIVE_PHOSPHORYLATION	PASS	max_abs_diff=0.000e+00
+S02_Lexternal_matches	ZEN38|B_AXIS	PASS	ok_points=387 of 387
+S02_A_map_recomputed	ZEN38|B_AXIS	PASS	max_abs_diff=0.000e+00
+S02_B_map_recomputed_same_denominator	ZEN38|B_AXIS	PASS	max_abs_diff=0.000e+00
+S02_Lexternal_matches	ZEN38|HALLMARK_INTERFERON_GAMMA_RESPONSE	PASS	ok_points=387 of 387
+S02_A_map_recomputed	ZEN38|HALLMARK_INTERFERON_GAMMA_RESPONSE	PASS	max_abs_diff=0.000e+00
+S02_B_map_recomputed_same_denominator	ZEN38|HALLMARK_INTERFERON_GAMMA_RESPONSE	PASS	max_abs_diff=0.000e+00
+S02_Lexternal_matches	ZEN38|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION	PASS	ok_points=387 of 387
+S02_A_map_recomputed	ZEN38|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION	PASS	max_abs_diff=0.000e+00
+S02_B_map_recomputed_same_denominator	ZEN38|HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION	PASS	max_abs_diff=0.000e+00
+S02_Lexternal_matches	ZEN38|HALLMARK_OXIDATIVE_PHOSPHORYLATION	PASS	ok_points=387 of 387
+S02_A_map_recomputed	ZEN38|HALLMARK_OXIDATIVE_PHOSPHORYLATION	PASS	max_abs_diff=0.000e+00
+S02_B_map_recomputed_same_denominator	ZEN38|HALLMARK_OXIDATIVE_PHOSPHORYLATION	PASS	max_abs_diff=0.000e+00
+S00_all_cells_present	smoke	FAIL	1 of 44
+S00_status_counts	smoke	PASS	{'OK': 1}
+S03_nsample_common	B_AXIS|internal_0	PASS	n_sample=512
+S03_equal_rows_per_unit	B_AXIS|internal_0	PASS	rows_per_unit=[512]
+S05_test_not_subsampled	B_AXIS|internal_0	PASS	test_sections=16
+S03_scale_is_training_positive_mean	B_AXIS|internal_0|HMGA1	PASS	1.330166 vs 1.330166
+S03_scale_is_training_positive_mean	B_AXIS|internal_0|CD22	PASS	0.696764 vs 0.696764
+S03_scale_is_training_positive_mean	B_AXIS|internal_0|IGHG4	PASS	1.518687 vs 1.518687
+S03_usable_A_rule	B_AXIS|internal_0	PASS	expected=30 built=30
+S04_projection_uses_frozen_training_loadings	B_AXIS|internal_0|MISC33	PASS	max_abs_diff=4.274e-07
+S02_features_are_A_only	B_AXIS|internal_0	PASS	n_usable=30
+S00_cells_reassembled	smoke	PASS	1 OK cells reassembled
+S05_metric_status_counts	B_AXIS|internal_0	PASS	{'A_mean|NOT_TESTABLE_GENE_ABSENT': 1, 'A_mean|NOT_TESTABLE_SPARSE_OR_CONSTANT': 53, 'A_mean|OK': 202, 'K1|NOT_TESTABLE_GENE_ABSENT': 1, 'K1|NOT_TESTABLE_SPARSE_OR_CONSTANT': 53, 'K1|OK': 202, 'K2|NOT_TESTABLE_GENE_ABSENT': 1, 'K2|NOT_TESTABLE_SPARSE_OR_CONSTANT': 53, 'K2|OK': 202, 'full_A_ridge|NOT
+S05_q75_strict	B_AXIS|internal_0|SWAP70	PASS	high_set=337 of 3385
+S00_release_gate_blocks	gate	PASS	
+S00_old_probe_not_used	spec	PASS	

@@ -1,0 +1,94 @@
+{
+  "usable_A": 29,
+  "n_sample": 512,
+  "train_units": 46,
+  "test_units": 1,
+  "status": "OK",
+  "genes_dropped_no_positive": [],
+  "usable_A_names": [
+    "HMGA1",
+    "CD79A",
+    "MZB1",
+    "CD19",
+    "BCL11A",
+    "BLK",
+    "HLA-DRA",
+    "TNFRSF13B",
+    "PAX5",
+    "BANK1",
+    "IGHA1",
+    "HLA-DOB",
+    "CD74",
+    "IGLV3-1",
+    "IL3RA",
+    "CD22",
+    "PTPRC",
+    "GNG7",
+    "STAG3",
+    "DERL3",
+    "TCF4",
+    "MS4A1",
+    "IGKC",
+    "JCHAIN",
+    "CD37",
+    "SELL",
+    "TNFRSF13C",
+    "ADAM28",
+    "IGHG4"
+  ],
+  "target": "B_AXIS",
+  "split": "source_5",
+  "mode": "main",
+  "nmf_k1": {
+    "k": 1,
+    "n_iter": 2,
+    "status": "OK"
+  },
+  "nmf_k2": {
+    "k": 2,
+    "n_iter": 50,
+    "status": "OK"
+  },
+  "stability": [
+    {
+      "resample": 0,
+      "k": 2,
+      "cos_sum": 1.9999833057751943,
+      "order": "[0, 1]",
+      "status": "OK"
+    },
+    {
+      "resample": 1,
+      "k": 2,
+      "cos_sum": 1.999973357800298,
+      "order": "[0, 1]",
+      "status": "OK"
+    },
+    {
+      "resample": 2,
+      "k": 2,
+      "cos_sum": 1.999982502470945,
+      "order": "[0, 1]",
+      "status": "OK"
+    },
+    {
+      "resample": 3,
+      "k": 2,
+      "cos_sum": 1.999972617417745,
+      "order": "[0, 1]",
+      "status": "OK"
+    },
+    {
+      "resample": 4,
+      "k": 2,
+      "cos_sum": 1.999984580974499,
+      "order": "[0, 1]",
+      "status": "OK"
+    }
+  ],
+  "similarity": {
+    "k1_component_cosine": NaN,
+    "k2_component_cosine": 0.22312034071311923
+  },
+  "single_gene": "IGKC"
+}

@@ -1,0 +1,5 @@
+section	unit	component	depth_corr	detection_corr
+NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	0	0.2927372900234693	0.3246886205528208
+NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	1	0.6939911906388138	0.7073068780294387
+NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	0	0.11467266030589196	0.11007617707733004
+NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	1	0.7011221715531352	0.6617000408175445
