@@ -69,9 +69,13 @@ REPORT_FA05.md  缺口可恢复范围
 | 预审 | 观测合同 / 复用裁定 / FA-00 范围 | 放行，7 项 GAP | 写入 `docs/FA_CONTRACT_ADDENDUM_20261020.md` |
 | FA-00 第一轮 | `cb7256c` | `allow_next_node=true`，F1/F2 MAJOR、F3/F4 MINOR | 全部修复 + N1（测试未调用生产函数）修复 |
 | FA-00 第二轮 | `f50ee49` | F1–F4 关闭，`allow_next_node=true` | 残留项（方阵绕过、数字入 JSON）一并处理 |
-| FA-01～06 批次 | `9465644` | `allow_phase_conclusion=true`，G1 MAJOR | G1 修正：FA-05 改单位等权主口径，可恢复边界 8→约 4 pitch |
+| FA-01～06 批次 | `9465644` | `allow_phase_conclusion=true`，G1 MAJOR；**一次批量覆盖，非逐节点** | G1 修正：FA-05 改单位等权主口径，可恢复边界 8→约 4 pitch |
 | G1 修复复核 | `6b26f28` | **G1 关闭**，`allow_phase_conclusion=true`；新增 G2 MINOR（措辞） | G2 按复核给出的口径改为「未超过单场空间参照」；属措辞修改，未再送第三轮 |
 
 复核明确未覆盖：合成生成与真实切片的重新拟合、FA-03A 全部 CV 逐种子复算、实现的其他潜在缺陷。复核也不构成"无缺陷"保证。
+
+**记录缺口（不追溯改写历史 JSON）**：`review/fa00_fix_review.json` 与 `review/g1_fix_review.json` 的 `scope.read` / `scope.ran` 为空数组，只有结论文本；按用户 2026-10-20 决定，保留原文件，在下一次复核中要求显式列出读过的文件与跑过的命令，并以此为准。
+
+**覆盖缺口（用户 2026-10-20 决定）**：FA-01、FA-04、FA-05 补做逐节点复核（高风险：尺度拟合逻辑、A/B 隔离与深度对照、汇总口径）；FA-02、FA-03A、FA-03B、FA-03C、FA-06 以批量复核为准，逐节点复核缺口如实保留。
 
 **总体**：阶段结论（AF-01/02/03 本轮未获支持）在修正后仍成立；唯一被修正的是 FA-05 的可恢复边界（由 8 pitch 收紧为约 4 pitch），方向上是让负结果更硬而非更软。
