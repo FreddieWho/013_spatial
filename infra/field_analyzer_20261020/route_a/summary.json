@@ -1,0 +1,80 @@
+{
+  "n_fits": 20,
+  "selection_rule": "blocked spatial CV (4 quadrants), simplest model within 5% of the best CV SSE",
+  "by_field": {
+    "circular": {
+      "A0_ring": {
+        "pearson": 0.6864970924050696,
+        "centre_error_pitch": 1.4361414692537333,
+        "cv_sse": 6984.962059419444,
+        "angular_amplitude": 0.0
+      },
+      "A1_ring": {
+        "pearson": 0.7396535884422886,
+        "centre_error_pitch": 2.7316590221416366,
+        "cv_sse": 12213.043316613195,
+        "angular_amplitude": 0.1746335190411908
+      }
+    },
+    "sided": {
+      "A0_ring": {
+        "pearson": 0.6132706404378194,
+        "centre_error_pitch": 1.7874753240217442,
+        "cv_sse": 9377.252900678996,
+        "angular_amplitude": 0.0
+      },
+      "A1_ring": {
+        "pearson": 0.6684488452421911,
+        "centre_error_pitch": 2.7937674825667624,
+        "cv_sse": 12088.487506025756,
+        "angular_amplitude": 0.33628635289920233
+      }
+    },
+    "unimodal": {
+      "A0_gauss1": {
+        "pearson": 0.6178490320654005,
+        "centre_error_pitch": 2.5056673593454546,
+        "cv_sse": 4836.7921641975045,
+        "angular_amplitude": 0.0
+      },
+      "A1_gauss2": {
+        "pearson": 0.9106573610608878,
+        "centre_error_pitch": 2.8800108477335735,
+        "cv_sse": 3487.6266758838974,
+        "angular_amplitude": 0.0
+      },
+      "A1_gauss3": {
+        "pearson": 0.9237907847044883,
+        "centre_error_pitch": 2.975576732473277,
+        "cv_sse": 4584.730756198179,
+        "angular_amplitude": 0.0
+      }
+    },
+    "bimodal": {
+      "A0_gauss1": {
+        "pearson": 0.6069086053287986,
+        "centre_error_pitch": 2.5547238612926684,
+        "cv_sse": 5169.299111100177,
+        "angular_amplitude": 0.0
+      },
+      "A1_gauss2": {
+        "pearson": 0.8760068481411514,
+        "centre_error_pitch": 2.9072097218574156,
+        "cv_sse": 4661.928815248741,
+        "angular_amplitude": 0.0
+      },
+      "A1_gauss3": {
+        "pearson": 0.8959323089131868,
+        "centre_error_pitch": 2.9731900200415717,
+        "cv_sse": 5833.989654678928,
+        "angular_amplitude": 0.0
+      }
+    }
+  },
+  "notes": [
+    "A0 is the legitimate strong reference (radial ring / single Gaussian)",
+    "BIC is reported but not used for selection: spatially correlated residuals make an iid penalty over-select",
+    "truth is used only for scoring; fitting sees the visible field score",
+    "curve-band (spline tube) support is NOT implemented in this iteration"
+  ]
+}

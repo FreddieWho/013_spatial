@@ -11,13 +11,14 @@ Nothing here downloads data, reads human labels, or uses a GPU.
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 from pathlib import Path
 
 import numpy as np
 from scipy import sparse
 
-from . import assets, geometry, poisoning, scales, synthetic
+from . import assets, geometry, poisoning, route_a, scales, synthetic
 from .adapters import read_h5ad_counts
 from .observation import fingerprint_arrays, visible_mean_std
 from .pipeline import InputSpec, build_inputs
@@ -350,6 +351,117 @@ def _manifest_row(sample, base: Path) -> dict:
     }
 
 
+
+def _load_synth_sample(sample_dir: Path, field_ids: list[str]) -> tuple[np.ndarray, np.ndarray, dict[str, np.ndarray], dict[str, np.ndarray]]:
+    obs = np.load(sample_dir / "observed_inputs" / "counts_visible.npz")
+    truth = np.load(sample_dir / "latent_truth" / "fields.npz")
+    counts = obs["counts"]
+    genes = obs["genes"].astype(str)
+    xy = obs["xy"]
+    visible = obs["visible_mask"].astype(bool)
+    counts = np.nan_to_num(counts, nan=0.0)
+    from scipy import sparse as _sp
+    import json as _json
+
+    meta = _json.loads((sample_dir / "meta.json").read_text())
+    sets = {
+        fid: [f"{fid}_m{k}" for k in range(meta["markers_per_field"])]
+        for fid in field_ids if f"latent_truth/{fid}" or True
+    }
+    sets = {fid: sets[fid] for fid in field_ids}
+    spec = InputSpec(fields=sets, witness_genes=frozenset(), k_neighbors=6, min_library_genes=50)
+    inputs = build_inputs(_sp.csr_matrix(counts), genes, xy, visible, visible, spec)
+    scores = {fid: inputs.arrays[f"field::{fid}"] for fid in field_ids}
+    truths = {fid: np.asarray(truth[fid], dtype=np.float64) for fid in field_ids}
+    return xy, visible, scores, truths
+
+
+def cmd_route_a(args: argparse.Namespace) -> int:
+    out = Path(args.out) / "route_a"
+    out.mkdir(parents=True, exist_ok=True)
+    synth_root = Path(args.out) / "synth"
+    manifest = list(csv.DictReader(open(synth_root / "scenario_manifest.tsv"), delimiter="\t"))
+    fit_rows, rec_rows, sel_rows = [], [], []
+    kinds = {"circular": "ring", "sided": "ring", "unimodal": "blob", "bimodal": "blob"}
+
+    for row in sorted(manifest, key=lambda r: r["base_id"]):
+        if row["scenario"] != "S1":
+            continue
+        sample_dir = synth_root / row["path"]
+        field_ids = row["field_ids"].split(",")
+        xy, visible, scores, truths = _load_synth_sample(sample_dir, field_ids)
+        for fid in field_ids:
+            kind = kinds.get(fid, "blob")
+            cands = route_a.candidates_for(kind, scores[fid], xy)
+            chosen = route_a.select_by_cv(cands)
+            truth = truths[fid]
+            for cand in cands:
+                fit_rows.append({
+                    "base_id": row["base_id"], "seed": row["seed"], "field_id": fid, "model": cand.name,
+                    "n_params": cand.n_params, "in_sample_sse": cand.in_sse, "cv_sse": cand.cv_sse,
+                    "bic": cand.bic, "selected": cand is chosen,
+                    "params": json.dumps(cand.params, ensure_ascii=False),
+                })
+            centre_true = route_a.centered(truth, xy)
+            centre_pred = route_a.centered(chosen.prediction, xy)
+            peaks = (
+                route_a.peak_distances(chosen.prediction, truth, xy)
+                if kind == "blob"
+                else {"pred_to_truth": float("nan"), "truth_to_pred": float("nan"), "n_pred": 0, "n_truth": 0}
+            )
+            rec_rows.append({
+                "base_id": row["base_id"], "seed": row["seed"], "field_id": fid, "kind": kind,
+                "selected_model": chosen.name, "n_params": chosen.n_params,
+                "cv_sse": chosen.cv_sse, "in_sample_sse": chosen.in_sse,
+                "pearson": route_a.pearson(chosen.prediction, truth),
+                "rmse_scaled": route_a.scaled_rmse(chosen.prediction, truth),
+                "centre_error_pitch": float(np.linalg.norm(centre_pred - centre_true)),
+                "peak_pred_to_truth_pitch": peaks["pred_to_truth"],
+                "peak_truth_to_pred_pitch": peaks["truth_to_pred"],
+                "n_peaks_pred": peaks["n_pred"], "n_peaks_truth": peaks["n_truth"],
+                "angular_amplitude": route_a.angular_amplitude(chosen.params),
+            })
+            for cand in cands:
+                sel_rows.append({
+                    "base_id": row["base_id"], "seed": row["seed"], "field_id": fid, "kind": kind,
+                    "model": cand.name, "cv_sse": cand.cv_sse, "n_params": cand.n_params,
+                    "pearson": route_a.pearson(cand.prediction, truth),
+                    "centre_error_pitch": float(np.linalg.norm(route_a.centered(cand.prediction, xy) - centre_true)),
+                    "angular_amplitude": route_a.angular_amplitude(cand.params),
+                    "selected": cand is chosen,
+                })
+
+    assets.write_tsv(fit_rows, out / "fits.tsv")
+    assets.write_tsv(rec_rows, out / "recovery.tsv")
+    assets.write_tsv(sel_rows, out / "model_comparison.tsv")
+
+    def mean_for(field_id: str, model: str, key: str) -> float:
+        vals = [float(r[key]) for r in sel_rows if r["field_id"] == field_id and r["model"] == model and r[key] not in ("", "None")]
+        return float(np.nanmean(vals)) if vals else float("nan")
+
+    summary = {
+        "n_fits": len(fit_rows),
+        "selection_rule": "blocked spatial CV (4 quadrants), simplest model within 5% of the best CV SSE",
+        "by_field": {
+            fid: {
+                m: {k: mean_for(fid, m, k) for k in ("pearson", "centre_error_pitch", "cv_sse", "angular_amplitude")}
+                for m in ("A0_ring", "A1_ring", "A0_gauss1", "A1_gauss2", "A1_gauss3")
+                if any(r["field_id"] == fid and r["model"] == m for r in sel_rows)
+            }
+            for fid in ("circular", "sided", "unimodal", "bimodal")
+        },
+        "notes": [
+            "A0 is the legitimate strong reference (radial ring / single Gaussian)",
+            "BIC is reported but not used for selection: spatially correlated residuals make an iid penalty over-select",
+            "truth is used only for scoring; fitting sees the visible field score",
+            "curve-band (spline tube) support is NOT implemented in this iteration",
+        ],
+    }
+    (out / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False))
+    print(json.dumps({k: summary[k] for k in ("n_fits", "selection_rule")}, indent=2, ensure_ascii=False))
+    return 0
+
+
 def cmd_geometry_smoke(args: argparse.Namespace) -> int:
     out = Path(args.out) / "geometry_smoke"
     out.mkdir(parents=True, exist_ok=True)
@@ -498,6 +610,10 @@ def build_parser() -> argparse.ArgumentParser:
     p_synth.add_argument("--out", default="infra/field_analyzer_20261020")
     p_synth.add_argument("--seeds", default="0,1")
     p_synth.set_defaults(func=cmd_synth)
+
+    p_ra = sub.add_parser("route-a", help="fit A0/A1 geometry on S1 samples")
+    p_ra.add_argument("--out", default="infra/field_analyzer_20261020")
+    p_ra.set_defaults(func=cmd_route_a)
 
     p_geo = sub.add_parser("geometry-smoke", help="synthetic geometry with a hole and a masked field")
     p_geo.add_argument("--out", default="infra/field_analyzer_20261020")
