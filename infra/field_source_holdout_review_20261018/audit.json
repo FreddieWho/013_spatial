@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "checks": {
+    "reused_frozen_inputs": 797,
+    "disjoint_visible_budgets": 8,
+    "group_partitions": 11,
+    "prior_train_normalizers_identical": 20,
+    "prediction_packages": 1000,
+    "recomputed_metrics": 5000,
+    "prior_ridge_differences_measured": 288,
+    "guard_receipts": 12
+  },
+  "max_metric_difference": 1.9468567868941022e-08,
+  "max_prior_ridge_difference": 4.601478576660156e-05,
+  "max_prior_section_rmse_difference": 4.121466686421438e-06,
+  "prior_bitwise_reproduction": false,
+  "free_bytes": 1041506824192,
+  "limitations": [
+    "untouched external validation",
+    "confirmed independent-patient validation",
+    "human TLS validation",
+    "calibrated uncertainty",
+    "lung study holdout"
+  ],
+  "audit_scope": "stored prediction recomputation, source/unit partitions, target exclusion, identical prior training indices/scalers and quantified Ridge differences (not exact reproduction); not a full independent training rerun"
+}

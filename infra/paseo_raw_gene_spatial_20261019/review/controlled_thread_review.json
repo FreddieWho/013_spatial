@@ -1,0 +1,48 @@
+{
+  "status": "THREAD_CAUSE_CONFIRMED_FOR_ONE_POINT_CASE_ONLY",
+  "allow_evaluate_and_summarize": false,
+  "allow_launcher_change_or_full_refit": false,
+  "reviewed_at": "2026-10-19",
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "reasoning": "xhigh"
+  },
+  "git_scope": {
+    "probe_commit": "f417aea51b552f965cef789acf54ed3289fb2f25",
+    "reviewed_files": [
+      "infra/field_blas_probe_20261019/probe_source0_emt_threads.py",
+      "infra/field_blas_probe_20261019/probe_results.tsv",
+      "infra/field_blas_probe_20261019/probe_results.json",
+      "infra/field_blas_probe_20261019/handoff.md"
+    ],
+    "uncommitted_not_endorsed": "工作区里的 probe_source0_emt_threads.py 已改，并出现 probe_results_threads_1_8_original.*。本审核只认 f417aea 中已提交的 1/8 结果。未见 threads=2 的结果，不替未见材料背书。"
+  },
+  "confirmed": [
+    "已提交探针只拟合 source_0 / EMT 的 point，并用同一预测按冻结近邻公式派生 smooth。真实、背景、置换和其余 43 个 case 不在这次对照里。",
+    "1 与 8 共用同一次构造的训练设计。诊断标量与 source_0 EMT point 的 fit_diagnostics 一致：25803 行、1500 列、剔除 2 列、缩放列 0、上下文 6、alpha 10、solver auto。划分文件哈希相同。原拟合没有保存设计矩阵，所以这是重建后的标量一致，不是与当时内存字节的直接比对。",
+    "脚本用 threadpool_limits 设置线程，并用 threadpool_info 记录生效线程。结果表里 1 和 8 两个设置的 effective_threads 分别是 1 和 8。正式合同 threads=8，启动器还有 OPENBLAS/MKL=2；正式拟合代码用 threadpool_limits(8)，因此 8 线程会覆盖那两个环境变量。",
+    "仅改生效线程时，两片 point 与 smooth 的最大逐点差都是 2.07e-4 到 2.08e-4。同设置重复差最多 1.19e-7。8 线程相对当前存盘包的最大逐点差是 1.19e-7 到 4.77e-7。因此当前存盘的这个 point/smooth 对应 8 线程实现，而不是 1 线程实现。",
+    "8 线程相对冻结包的最大逐点差是 2.24e-4 到 2.29e-4，超过事先写死的逐点界限 1e-4。这与先前独立重算的存盘对冻结差一致。"
+  ],
+  "metric_correction": {
+    "error": "不能把最大逐点差直接拿去和每片 RMSE 界限 1e-5 比较。1e-4 只约束逐点最大绝对差；1e-5 只约束两个每片 RMSE 的绝对差。",
+    "committed_probe_records_only_max_abs": true,
+    "t1_vs_frozen_max_abs": "1.83e-5 到 2.40e-5，低于逐点界限 1e-4。这不说明它通过或失败了 RMSE 界限。",
+    "stored_vs_frozen_rmse_previously_verified": "NCBI642 存盘 point 的每片 RMSE 差是 2.082e-4，超过 1e-5。那是存盘对冻结，不是 1 线程对冻结。",
+    "t1_vs_frozen_rmse": "已提交结果没有这个数，保持未测。"
+  },
+  "pending": [
+    "threads=2 尚未交付。冻结轮次若是 2 线程，当前证据不能决定正式配置该钉在 1、2 还是 8。",
+    "1 线程相对冻结包的每片 RMSE 差未测。",
+    "三块设计的病态警告没有被这次 point 探针解释，不能外推到候选、背景或置换。"
+  ],
+  "formal_config_and_recompute": {
+    "now": "不改启动器，不全量重算，不对当前 500 包做 evaluate/summarize，不放宽 1e-4 或 1e-5。",
+    "next_allowed_probe": "同一脚本只增加 threads=2。两片都要同时报告 point 与 smooth 的最大逐点差和每片 RMSE 差，对照冻结包和存盘包。不要只报一个最大逐点差。",
+    "precondition_for_launcher_pin_and_refit": "只有 2 线程在这个 EMT point/smooth 上同时满足逐点 1e-4 和每片 RMSE 1e-5，才可以讨论把正式拟合钉到该线程并重算全部 44 个拟合与 500 个包。即使如此，三块模型仍要等重算后的审计，不能提前视为已复现。",
+    "if_threads_2_fails_either_limit": "停止，不要为了压过界限而全量重拟合或更换求解器。"
+  },
+  "hypothesis_impact": "这次只确认一个 point 案例的线程敏感性，没有新的空间对照结果，不改变 HF-01 的现有判断。",
+  "defect_free_guarantee": false
+}

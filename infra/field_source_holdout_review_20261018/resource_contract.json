@@ -1,0 +1,8 @@
+{
+  "min_free_bytes": 200000000000,
+  "authority": "User reconfirmed 200GB in this turn; D-259",
+  "gpu_used": false,
+  "workers": 3,
+  "threads_per_worker": 2,
+  "free_bytes_during_run": 1041558237184
+}

@@ -1,0 +1,66 @@
+{
+  "status": "DESCRIPTIVE_RESULTS_REVIEWED_NO_ARRANGEMENT_CLAIM",
+  "allow_scientific_claim": false,
+  "allow_descriptive_reporting": true,
+  "old_reproduction_failure_retained": true,
+  "reviewed_at": "2026-10-19",
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "reasoning": "xhigh"
+  },
+  "git_scope": {
+    "delivery": "0604dfcdcb821c83fb7d524175702caac33634a2",
+    "parent": "f56474620e5b416e7639d1b2c2320ed63be586e3",
+    "implementation_not_retuned": "0e6e5f504059f44d9b10efe981d2140321e01eb1",
+    "authority": "D-275"
+  },
+  "coverage_checked": {
+    "section_rows": 2500,
+    "paired_rows": 2000,
+    "unit_rows": 2240,
+    "internal": "72 片 / 65 单位",
+    "source": "53 片 / 47 单位",
+    "internal_0_sections": 16,
+    "tenx13": "内部 20 行，两片合并，source_key=mixed",
+    "source_not_testable_only_internal": 19,
+    "organ_extrapolation": ["source_0", "source_5"],
+    "unknown_internal_units": 57,
+    "stale_archive_retained": "infra/field_raw_gene_spatial_20261019/archive/evaluation_stale_partial_1843/",
+    "audit_status": "FAIL",
+    "audit_worst_point_max_abs": 0.0002288222312927246,
+    "audit_worst_point_section_rmse": 0.00020820154884795827
+  },
+  "independent_checks": [
+    "自行点算 2500/2000/2240，不是只读 verify_results.json。内部每组 65，来源每组 47。",
+    "抽查 MISC33、TENX13、TENX14、NCBI642、NCBI776 的 t0 包，条码和 y 与冻结 cache 一致。",
+    "有符号半径差已不在 FAVOURABLE_LOW。正式合取使用局部细节、q75、质心位移、半径绝对偏差和 RMSE。",
+    "来源表含六个来源，source_0 与 source_5 标为器官外推。来源臂没有并入内部臂。",
+    "verify_results.py 的条码和指标重算只抽了少量行。本审核不把 17/0 写成全库证明。"
+  ],
+  "descriptive_findings": {
+    "internal_local_detail_means": {
+      "B_AXIS": {"local": 0.328256, "point": 0.344917, "background": 0.36355, "permuted": 0.310833},
+      "IFN": {"local": 0.538952, "point": 0.490409, "background": 0.52989, "smooth": 0.4857, "permuted": 0.478086},
+      "OXPHOS": {"local": 0.69333, "point": 0.677348, "background": 0.698545, "permuted": 0.656485},
+      "EMT": {"local": 0.64851, "point": 0.625216, "background": 0.646473, "permuted": 0.609486}
+    },
+    "arrangement_claim": "不能宣称收益依赖真实邻域排列。内部 EMT 相对背景只高 0.00204；IFN 相对背景高 0.00906，但来源臂 IFN 相对背景为负。B_AXIS 和 OXPHOS 的内部局部细节也不高于背景。来源臂四目标的局部细节和 q75 都没有同时优于四个对照。"
+  },
+  "undetermined": [
+    {
+      "id": "U-01",
+      "item": "内部 EMT 相对背景的 0.002 局部细节差",
+      "reason": "与背景同量级。三块模型的数值敏感性未测，不能把 source_0 EMT point 的 2e-4 当成这个差的上界，也不能假定误差抵消。",
+      "minimal_verification": "不必全量重跑。若要判断这 0.002 是否稳定，只对一个已有 EMT 划分比较 local 与 background 的单位配对差在两次数值实现下是否变号。未做之前保持未确定。"
+    },
+    {
+      "id": "U-02",
+      "item": "内部 IFN 的 q75 相对固定平滑只高 0.00093",
+      "reason": "合取列为真，但相对平滑的边际过小，不能单独支持高值区域依赖真实邻域。"
+    }
+  ],
+  "numerical_uncertainty": "旧复现失败保留，不再阻塞描述性比较，也不改写成通过。数值误差没有证明同批四个模型的配对差会互相抵消。当前主比较已经由背景对照挡住空间排列主张，因此不需要为这个主张再做线程扫描或全量重拟合。",
+  "hypothesis_impact": "这次描述性结果不支持 HF-01 的真实邻域增量。它也不否定其他空间方法。HF-04 仍只是来源边界描述，乳腺和肝脏仍是器官外推。",
+  "defect_free_guarantee": false
+}

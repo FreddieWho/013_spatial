@@ -1,0 +1,71 @@
+{
+  "status": "ACCEPTED_FOR_FROZEN_DESCRIPTIVE_RUN",
+  "allow_full_run": true,
+  "round": 2,
+  "reviewed_at": "2026-10-19",
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "reasoning": "xhigh"
+  },
+  "git_scope": {
+    "commit": "0e6e5f504059f44d9b10efe981d2140321e01eb1",
+    "parent_handoff": "1758023b203412322d9cab7a6b58f666df4e203e",
+    "science_contract_included": "6c970cc2e3153e6eeadf2847eb31d9a627e9d33c 之后的 D-270 补充也在本提交内",
+    "reviewed_paths": [
+      "scripts/field_raw_gene_spatial_20261019.py",
+      "infra/field_raw_gene_spatial_20261019/contract.json",
+      "infra/field_raw_gene_spatial_20261019/checks/checks.json",
+      "infra/field_raw_gene_spatial_20261019/checks/solver_diagnostics.tsv",
+      "infra/field_raw_gene_spatial_20261019/smoke/smoke_summary.json",
+      "infra/paseo_raw_gene_spatial_20261019/implementation_handoff.md",
+      "docs/FIELD_RAW_GENE_SPATIAL_CONTRACT_20261019.md"
+    ],
+    "working_tree": "上述脚本、机器合同和交接相对该提交无未提交 diff。预测包和 evaluation 中间产物仍未提交，不构成另一版实现。",
+    "round1_preserved": "infra/paseo_raw_gene_spatial_20261019/review/reviewed_implementation_round1.json"
+  },
+  "r01_closed": true,
+  "r01_evidence": [
+    "代码把 X 定为冻结基因加 QC。点模型是 [X, E]，缩放宽度 0。真实、背景和置换都是先排 [X, 对应两块, E]，缩放宽度为 3 倍 X 列数。E 不进入图乘。",
+    "四个目标的定向拟合诊断都满足：邻域、背景、置换的特征数等于 3×(点特征数−6)+6，缩放列数等于特征数−6，指示列数为 6，点模型缩放列数为 0、块缩放记为 1。",
+    "检查记录：点设计 1649、邻域设计 4935、E 宽 6；标准化后 E 列差 0.0；X 块相对同点标准化再乘 1/sqrt(3) 的差为 0.0；邻域块与 W[Z,QC]、V[Z,QC] 的差为 0.0。置换不改变 X 和 E。",
+    "复制块检查比较的是 [X,X,X,E] 对正式 [X,E]，不是把整份点设计复制三遍。残差 5.77e-6，固定界限 1e-5。错缩放对照 1.49e-4，约为残差的 26 倍。"
+  ],
+  "equivalence_bound": {
+    "fixed_at": 1e-05,
+    "measured_residual": 5.766749382019043e-06,
+    "wrong_scale_control": 0.00014904141426086426,
+    "solver_floor_recorded_not_used_to_expand": 3.4570693969726562e-06,
+    "history": "1e-6 曾使 6.18e-6 失败，随后界限被放到 1e-5。这是检查容差变更，不是没有放宽。本版不再用求解器地板自适应加宽。alpha 和 1/sqrt(3) 没有按内部或来源分数选择。",
+    "frozen_point_limits_unchanged": {
+      "point_max_abs": 0.0001,
+      "section_rmse_abs": 1e-05,
+      "observed_on_internal_0_target0": [1.6868114471435547e-05, 2.0398730665033282e-06]
+    }
+  },
+  "checks": {
+    "n_checks": 49,
+    "n_failed": 0,
+    "source": "infra/field_raw_gene_spatial_20261019/checks/checks.json",
+    "not_a_full_rerun": "未重跑已关闭范围的广泛测试，只核对 R-01 结构、容差和短贯通记录。"
+  },
+  "smoke": {
+    "splits": ["internal_0", "source_0"],
+    "truncated": "训练 8 片、测试 2 片，不是科学结果",
+    "prediction_rows": 80,
+    "view": "full15",
+    "range_rows_estimable": "交接记录 80/80；本复核未重算全表",
+    "fit_layout_matches_formal_design": true,
+    "all_recorded_fits_converged": true
+  },
+  "unclosed_result_affecting": [],
+  "full_run_permission": {
+    "allowed": true,
+    "meaning": "只允许按本提交的冻结对照运行全量描述性分析。不是 HF-01 已经成立，不是生物学成功，不是独立标志基因验证，也不是正式显著性。",
+    "expected_rows": 2500,
+    "row_basis": "125 次切片访问 × 4 目标 × 5 模型；full15 只有一个视图。不要引用旧的 5000 行估算。",
+    "constraints": ["本地数据", "CPU", "至少 200000000000 bytes 余量", "人工 TLS 封存", "不改 alpha、缩放、划分或目标"]
+  },
+  "hypothesis_impact": "允许全量不产生新的恢复证据，也不改变 HF-01 至 HF-05 的现有判断。",
+  "defect_free_guarantee": false
+}

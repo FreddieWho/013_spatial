@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "checks": {
+    "frozen_hashes": 995,
+    "matched_disjoint_gene_budgets": 4,
+    "outer_group_partitions": 5,
+    "unit_balanced_dictionary_samples": 5,
+    "unit_crossfit_residual_partitions": 20,
+    "training_only_dictionary_statistics": 20,
+    "aligned_prediction_packages": 288,
+    "latent_field_recomputations": 288,
+    "independent_metric_recomputations": 6624
+  },
+  "max_metric_absolute_difference": 3.932008710294532e-08,
+  "max_latent_absolute_difference": 1.5285126366393342e-05,
+  "n_sections": 72,
+  "n_units": 65,
+  "known_patient_units": 8,
+  "human_tls_labels_read": false,
+  "run_freeze_sha256": "4e1aa2acbc9f1f85e5df88fe9a85837eaa2017a3c95f92c4868bfb3be8387de0",
+  "audit_code_sha256": "bf9613d72e3cd3f0cf8fc64224e02d432b556d6c192d396cd3daf565d8552fa8",
+  "scope": "artifact recomputation and representation provenance; no independent retraining or biological validation"
+}

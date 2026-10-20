@@ -1,0 +1,47 @@
+{
+  "status": "DESCRIPTIVE_RESULTS_USABLE_NO_CANDIDATE_ADVANTAGE",
+  "allow_descriptive_report": true,
+  "allow_scientific_claim": false,
+  "required_fix": false,
+  "reviewed_at": "2026-10-19",
+  "reviewer": {
+    "provider": "pi",
+    "model": "xai/grok-4.7",
+    "reasoning": "high",
+    "agent_id": "a5bcb012-6618-488e-8f88-f700773fd4c4"
+  },
+  "git": {
+    "code_and_products": "054a16bef0838c2df9fcfdacb97b61272d8a9779",
+    "handoff": "c9d60a77795e5aa9641e2deea8ed870cb2db1173",
+    "contract": "473258402a9b55b25011f1ba1ea95a2f1385b8bc"
+  },
+  "checked": [
+    "split_genes、cache_section、assemble、fit_nmf、pair_sum、run_split 的入口",
+    "summary_macro.tsv 的独立配对重算",
+    "B_AXIS internal_0 的可用 A 与 B 交集",
+    "verification_main.tsv 473 项、0 失败，只作对照，不代替上述检查"
+  ],
+  "closed": [
+    "A/B 为 33/16 与 134/66，交集为空，读基因名和种子 0 即可复算。",
+    "A 与 B 图使用排除本目标全部面板基因后的外部文库。抽查的可用 A 名单不含 B。",
+    "Ridge 的特征只来自 A 的均值、K=1、单基因、K=2 或全部 A。标准化只在训练抽样上拟合。测试投影使用训练冻结载荷。",
+    "折内配对只比较 A 载荷。跨折脚本不读测试图或测试 B。",
+    "44 个目标×划分全部可运行。单位不跨训练和测试。任一片不可评则该基因该单位不进完整均值。",
+    "全量验证仍要求 11 个划分乘 4 个目标，没有沿用烟雾测试的单单位期望。"
+  ],
+  "independent_paired_medians": {
+    "B_AXIS": {"K2_minus_A_mean": -0.0141, "K2_higher_than_A_mean": 0.297, "K2_minus_full_A_ridge": -0.0183},
+    "EMT": {"K2_minus_A_mean": 0.0111, "K2_higher_than_A_mean": 0.700, "K2_minus_full_A_ridge": 0.0029},
+    "IFN": {"K2_minus_A_mean": 0.0017, "K2_higher_than_A_mean": 0.549, "K2_minus_full_A_ridge": -0.0082},
+    "OXPHOS": {"K2_minus_A_mean": -0.0007, "K2_higher_than_A_mean": 0.445, "K2_minus_full_A_ridge": 0.0222, "K2_higher_than_ridge": 0.869}
+  },
+  "interpretation": "固定 K=2 没有稳定优于同一批 A 基因的均值。全 A Ridge 在 B 细胞轴、EMT 和干扰素 γ 上至少不弱于 K=2。氧化磷酸化上 K=2 相对全 A Ridge 的中位差是 +0.022，但该目标与排除目标后的深度/检出相关最高，不能把这个差写成更干净的分子身份。折内重抽样相关接近 1 只说明同一次拟合可重复，不是跨单位发现了场。",
+  "limits": [
+    "内部与来源分开后，上述方向不变。乳腺 source_5 和肝脏 source_0 仍是器官外推，不能当成同器官复现。",
+    "两分量载荷余弦只报告，不命名两个场。",
+    "可用 A 的 26–30 是半数训练单位规则，不是旧可行性表的 16–18。",
+    "单位方差是两片合并后计算的。每片仍必须至少 20 个非零点。这不改变本轮描述性结论。"
+  ],
+  "hypothesis_impact": "本固定 K=2 表示没有提供可重复、且强于同信息普通参照的候选组成。这限制的是这次表示，不是所有场发现，也不支持 HF-01。旧 FC-03 的氧化磷酸化优势仍然不能计入。",
+  "defect_free_guarantee": false
+}

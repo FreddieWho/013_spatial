@@ -1,0 +1,152 @@
+{
+  "status": "ACCEPTED_FOR_DESCRIPTIVE_RUN_ONLY",
+  "round": 2,
+  "allow_full_descriptive_analysis": true,
+  "decision": "允许按已绑定哈希做本地、CPU、人工TLS封存条件下的全量描述性分析。这不是生物学成功、不是独立标志基因验证、也不是无缺陷保证。首轮不通过记录保留，不转写成这一版已经通过。",
+  "reviewed_at": "2026-10-19",
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "reasoning": "xhigh",
+    "paseo_agent_id_from_D261": "a5bcb012-6618-488e-8f88-f700773fd4c4",
+    "note": "本进程环境为 xai/grok-4.7/xhigh。未再查询 Paseo。"
+  },
+  "round1_record": {
+    "path": "infra/paseo_field_review_20261019/review/reviewed_revision_round1.json",
+    "sha256": "59fc861e22990aad7e22cdaa4ad830b32bd0f6bc080503ce1fe14496392eb208",
+    "status": "NOT_ACCEPTED",
+    "bound_script": "146c08c7f13cc6c82be1329524c8551a893dfc1a2a280ca449ee0b8bcbe9f637",
+    "preserved": true,
+    "not_transferred": "首轮已关闭项和 1281/0 不构成本版本通过。"
+  },
+  "binding": {
+    "rule": "只为下列当前磁盘哈希背书。交接表与磁盘逐项复算一致。版本不一致则本许可无效。",
+    "script": {
+      "path": "scripts/field_biological_review_20261019.py",
+      "sha256": "52d11904c00fda6090d1af85d1a508ddac35dd54ae564a084a28d18c31fa9e5a"
+    },
+    "protocol": {
+      "path": "docs/FIELD_BIOLOGICAL_REVIEW_PROTOCOL_20261019.md",
+      "sha256": "6062a19ddba7a720cb36520663c9e749f09aa3695755385d906cd5c415372278"
+    },
+    "contract": {
+      "path": "infra/field_biological_review_20261019/contract.json",
+      "sha256": "a71eb3d8a85a0ff620e660b39e0d151f20d5dc70198c22a313f79197546f6e9c"
+    },
+    "smoke_driver": {
+      "path": "scripts/smoke_field_biological_review_20261019.py",
+      "sha256": "a9e0c495a931d3ec2a87a56615ec92c1b4b072468645fb924810a7241d418191"
+    },
+    "checks_json": {
+      "path": "infra/field_biological_review_20261019/checks/checks.json",
+      "sha256": "ef8baa6119449300d29571917b66c5bdce4bacc5e8a1ceaa452a6647bae89962",
+      "n_checks": 1550,
+      "n_failed": 0,
+      "candidate_matches_binding": true,
+      "use": "自测绑定当前哈希，但不是关闭依据。"
+    },
+    "smoke_freeze": {
+      "path": "infra/field_biological_review_20261019/smoke/freeze_manifest.json",
+      "sha256": "78954b52e7603045552e2b9869e20edf66eb4aed0b733eb54a0ba963d1530a5c",
+      "listed_files": 58,
+      "listed_hashes_match_disk": true,
+      "embedded_code_sha256": "52d11904c00fda6090d1af85d1a508ddac35dd54ae564a084a28d18c31fa9e5a",
+      "embedded_protocol_sha256": "6062a19ddba7a720cb36520663c9e749f09aa3695755385d906cd5c415372278",
+      "embedded_contract_sha256": "a71eb3d8a85a0ff620e660b39e0d151f20d5dc70198c22a313f79197546f6e9c"
+    }
+  },
+  "scope": [
+    "交接哈希与当前磁盘逐项核对",
+    "R-01 至 R-04 的当前函数和烟测真实表",
+    "有效 0 与空值/NaN 的区分",
+    "烟测报告、冻结清单、跨阶段一致性是否真实存在",
+    "证据角色和数学可算边界是否仍写在输出里"
+  ],
+  "not_in_scope": [
+    "未重跑 1550 项自测",
+    "未运行全量 prepare/run/summarize",
+    "未把 5 片烟测外推成 72 片基因矩阵行序证明",
+    "未读取人工 TLS、annotations/incoming 或 HookNet"
+  ],
+  "closed": [
+    {
+      "id": "R-01",
+      "status": "closed_on_this_hash",
+      "evidence": "当前 within_unit_rows 按实测表 rel_pearson、预测表 measured_rel_pearson/predicted_rel_pearson 读取；缺列调用得到 KeyError。烟测 within_unit_consistency.tsv 有 168 行，三种 profile_column 都在，且全部来自同一个双切片单位。预测关系表没有 rel_pearson 列。summarize 已写出该表，没有在这里中断。"
+    },
+    {
+      "id": "R-02",
+      "status": "closed_on_this_hash",
+      "evidence": "独立调用：一片相关 0.8、另一片为空时，单位值为空、贡献片数 1、partial_unit_metrics 含该指标，不再用 0.8 充当整单位。两片都是 0 时均值保留为 0.0。烟测真实表有 3 行 partial_unit_metrics=geo_decay_half_pitch，值是空字符串而不是剩余切片的数，__n=1，n_sections=2。交接说烟测中该列为空，与磁盘不符；磁盘行为符合修复，不因此重新打开。全空分层 6159 行保留，mean 是空字符串，不是 0。"
+    },
+    {
+      "id": "R-03",
+      "status": "closed_on_this_hash",
+      "evidence": "外环自相关改为 graph_neighbor_mean。独立重算 TENX171 目标 0：旧直接乘法 0.02885662447505749，冻结回填规则 0.031850767427933614，外环孤立点 9。烟测实测表同一格是 0.031850767427933614，与修复后的规则一致，不是旧值。"
+    },
+    {
+      "id": "R-04",
+      "status": "closed_on_this_hash",
+      "evidence": "独立调用混合臂得到 mixed，划分级保留 True/False。烟测臂级 rec_rmse 为 internal=false、source=mixed。划分级 source_0 全部 True，source_1 与三个内部划分全部 False。source_0 的切片是 NCBI642，与来源留出中 same_organ_train_sections=0 的划分一致。"
+    }
+  ],
+  "zero_versus_missing": {
+    "numeric_zero_kept": true,
+    "empty_nan_are_missing": true,
+    "smoke_example": "unit_metrics 中 dist_frac_zero=0.0 的行没有把该指标列入 not_estimable_metrics。部分缺失单位的 geo_decay_half_pitch 是空字符串。"
+  },
+  "smoke_coverage": {
+    "sections": ["ZEN38", "ZEN42", "TENX171", "NCBI642", "TENX161"],
+    "covers": ["双切片单位", "内部臂与来源臂", "外环孤立点 TENX171=9 与 NCBI642=2", "来源外推 source_0", "报告", "冻结清单", "跨阶段一致性"],
+    "cross_stage": {"compared": 1920, "max_abs_difference": 0.0},
+    "report_contains_computable_is_not_biological_reference": true,
+    "evidence_roles_separated": true,
+    "prediction_rows": 320,
+    "not_full_cohort": "11 个划分里 6 个在烟测中被裁成空表。乳腺 source_5 不在这 5 片里。这不是全量替代。"
+  },
+  "full_run_permission": {
+    "allowed_command_scope": "仅对绑定哈希执行既定 prepare、run、summarize",
+    "local_data_only": true,
+    "cpu_only": true,
+    "human_tls_sealed": true,
+    "minimum_free_bytes": 200000000000,
+    "no_new_models_or_thresholds": true,
+    "outputs_are_descriptive_inventory_only": true,
+    "described_is_not_biological_eligibility": true,
+    "quantiles_are_operating_thresholds_not_biological_positives": true,
+    "do_not_claim": [
+      "恢复成功或失败",
+      "独立标志基因验证",
+      "独立患者确认",
+      "物理尺度或超分辨率",
+      "空间增量或因果",
+      "打乱参考是显著性"
+    ]
+  },
+  "unclosed_limitations": [
+    {
+      "id": "L-02",
+      "severity": "限制，不阻断本次描述性全量",
+      "item": "可见基因矩阵行序没有在全部 72 片上独立重算。已有保障只覆盖抽样片、条码断言和冻结构建约束。全量模块关系不能写成已经全库证明行序。"
+    },
+    {
+      "id": "L-03",
+      "severity": "限制",
+      "item": "sd_floor=1e-6 仍是数值分辨率，不是生物学资格线。低于该值只表示相关等统计量不可算，不表示场不存在。"
+    },
+    {
+      "id": "L-04",
+      "severity": "限制",
+      "item": "冻结图权重仍是 float32。与 float64 均匀权重的残差是表示差异，不是新的孤立点逻辑错误。本轮未要求改成全 float64。"
+    },
+    {
+      "id": "L-05",
+      "severity": "限制",
+      "item": "section_weighted_mean 仍只平均可算切片，并且 n_sections_estimable 单独报告。它不是单位等权主均值，不能用来绕过 NOT_ESTIMABLE_UNIT。"
+    }
+  ],
+  "unclosed_result_affecting": [],
+  "hypothesis_impact": "本复核没有新的全量恢复结果，不改变 HF-01、HF-02、HF-04 的现有限定。允许的下一步只产生描述性清单。",
+  "defect_free_guarantee": false,
+  "production_full_run_not_yet_present": true
+}

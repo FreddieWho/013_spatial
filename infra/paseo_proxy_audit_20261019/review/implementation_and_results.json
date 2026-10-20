@@ -1,0 +1,41 @@
+{
+  "status": "R01_CLOSED_DESCRIPTIVE_CONTROL_USABLE_WITH_COVERAGE_LIMITS",
+  "allow_descriptive_proxy_report": true,
+  "allow_matched_control_contrast": true,
+  "allow_scientific_claim": false,
+  "stage2_authorized": false,
+  "reviewed_at": "2026-10-19",
+  "reviewer": {
+    "provider": "pi",
+    "model": "xai/grok-4.7",
+    "reasoning": "xhigh",
+    "agent_id": "a5bcb012-6618-488e-8f88-f700773fd4c4"
+  },
+  "git": "a46b50a43d33e4e4fd992971c210a9747fb8e2a7",
+  "parent": "d184488e236250ca8207be4050ee76fff02cbdbd",
+  "closed": [
+    {
+      "id": "R-01",
+      "resolution": "同一次对照改为按分档一次抽取两半所需基因，前一段给 A、其余给 B。某档不够则整次不可评。独立重算 MISC33 的 20 次可评对照，基因交集为 0，相关与存档差为 0。存档可评抽取 1130 次，记录的共享基因最大为 0。"
+    }
+  ],
+  "independent_checks": [
+    "与 archive/pre_r01_controls 比较，subset_draws、subset_consistency 和 unit_metrics 的非对照列差异为 0。",
+    "半边数量断言本身只能证明可测基因数没变。目标拆分的相关列没有变化，所以 10 次拆分结果没有被改写。",
+    "按目标重算：B_AXIS 66/72，中位差 +0.264，观测更高 92%；IFN 38/72，+0.050，82%；EMT 2/72，+0.164；OXPHOS 7/72，+0.007，57%。175/288 没有任何可评对照。"
+  ],
+  "control_contrast_limits": [
+    "只能按目标读，不能恢复已作废的跨目标 +0.047，也不能恢复修复前 OXPHOS 低于对照的说法。",
+    "EMT 的对照只来自 2/72 片，OXPHOS 只来自 7/72 片，不能代表全体切片。",
+    "IFN 的 +0.050 和 OXPHOS 的 +0.007 都只是可评切片上的描述差，不是显著性。",
+    "B_AXIS 在 66/72 片上高于匹配对照，仍只说明预设集合的两半图比这些匹配的目标外基因更同向，不是独立病理真值，也不是生物协同或 HF-01。"
+  ],
+  "unchanged_limits": [
+    "聚合图技术可解释方差中位仍是 B_AXIS 0.11、EMT 0.17、IFN 0.43、OXPHOS 0.75；逐基因只有 0.007 到 0.051，不能混写。",
+    "B_AXIS 留一相关 0.985 不推翻已审计数加权有效基因数 2.87 和首位份额 0.535。",
+    "第一段没有锁定第二段的基因、权重或候选数。"
+  ],
+  "superseded": "d184488 的对照差不可用。其余描述表仍可用。",
+  "hypothesis_impact": "可用描述仍只支持 HF-03 的疑点：预设集合不是干净的单一分子身份。匹配对照没有提供可以称作独立场或 HF-01 的证据。",
+  "defect_free_guarantee": false
+}

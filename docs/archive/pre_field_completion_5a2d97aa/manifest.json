@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-06",
+  "head": "5a2d97aa8d1ef3315b32773dabf89f6d717b3ce7",
+  "worktree_before": "Only user-provided zip and extracted package were untracked; tracked files clean.",
+  "files": {
+    "STATUS.md": {
+      "sha256": "5378314fc92386d2ebb55099a5834db26b4b0a9b571604775c2a2de734684dcc",
+      "snapshot": "STATUS.md"
+    },
+    "AGENTS.md": {
+      "sha256": "0312d3a25f930471afe1a7543ad70a8caebe68025608c23bc7f940f861a0ac5e",
+      "snapshot": "AGENTS.md"
+    },
+    "TODO.md": {
+      "sha256": "79b249d68b9770dadf712713d9a02af815ee73c7c2d9ff549bb6793bac673196",
+      "snapshot": "TODO.md"
+    },
+    "LEADS.md": {
+      "sha256": "76f67b1077cff4c7b4d80f06f80fffb73fc7bbb8c09e229d21dcf45512bd2961",
+      "snapshot": "LEADS.md"
+    },
+    "docs/plan.md": {
+      "sha256": "237bf421897139516977df040bbd9395c8a06fc59294d2390be669327e270d8c",
+      "snapshot": "docs/plan.md"
+    },
+    "docs/roadmap.md": {
+      "sha256": "8de28d399edb47c081dfee5b386f092aa1422391b4635a514bcd82e1583d94bb",
+      "snapshot": "docs/roadmap.md"
+    },
+    "docs/decisions.md": {
+      "sha256": "ee709e7847335c2141c633d6ea3655f1cbb140c754929bad1899744c4a8cce78",
+      "snapshot": "docs/decisions.md"
+    },
+    "docs/ISSUES.md": {
+      "sha256": "ff838ee94ba45e33323362f023a258ca89af58812a651facbe02ad230cc68887",
+      "snapshot": "docs/ISSUES.md"
+    }
+  },
+  "source_files": {
+    "docs/013_spatial_field_completion_20261006.zip": "1ed51c372deb2c31b7a3b329825a2ae7e0dba7230a00de6307e47796a76a9f5a",
+    "docs/field_completion_20261006/01_SCIENCE.md": "0a9062bcb2b3761b116330f767716d98267cca92cb5baa87489f26bdd72bad0b",
+    "docs/field_completion_20261006/03_UPDATE_PROJECT_PROMPT.md": "2cb4a50575131a44d04af8fdc47d85f76daeb7ec3110e5c8545284a4917f0b32",
+    "docs/field_completion_20261006/02_ROADMAP.md": "2be6a462c2c5e576c1b908d347b7aa1b978983804296b2b348c6023279bfc7d9",
+    "docs/field_completion_20261006/00_README.md": "7afed5b7ddadc12f0e1c237f10b101482779271f211c0d8a3885aa88f7601ac8"
+  }
+}

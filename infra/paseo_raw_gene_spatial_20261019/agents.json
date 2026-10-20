@@ -14,8 +14,8 @@
     "thinking": "xhigh"
   },
   "dispatch": "authenticated Paseo MCP; native catalog unavailable",
-  "waiting": "single persistent paseo wait completion listener; no periodic agent polling",
-  "state": "implementation delivered; independent code review running; full_run NOT_RUN",
-  "implementation_commit": "7ba553f",
+  "waiting": "MCP only; no polling or periodic CLI reads; one sync MCP request timed out after 30s; finish callback unavailable to this top-level Codex caller",
+  "state": "Grok round2 accepted 0e6e5f5; full run dispatched via MCP; final outputs pending",
+  "implementation_commit": "0e6e5f5",
   "handoff_correction_commit": "1758023"
 }

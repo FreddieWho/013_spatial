@@ -1,0 +1,49 @@
+{
+  "status": "BASELINE_REPRODUCTION_FAILED",
+  "allow_evaluate_and_summarize": false,
+  "reviewed_at": "2026-10-19",
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "reasoning": "xhigh"
+  },
+  "git_scope": {
+    "full_run_commit": "1df03a35f032001f05718e0378ce29c1163361d8",
+    "accepted_implementation": "0e6e5f504059f44d9b10efe981d2140321e01eb1",
+    "note": "本审核不放宽容差，不改执行代码。当前失败记录保留。"
+  },
+  "decision": "不允许对这 500 个预测包做 evaluate 或 summarize。11/44 个基线复现超过事先写死的界限，审计脚本没有算错。执行者关于 BLAS 的解释只是推测，不能当作已经证实。",
+  "proven": [
+    "审计比较的是 point_ridge 对冻结 gene_ridge，以及 point_ridge_smooth_half 对冻结 gene_ridge_smooth_half。目标顺序与机器合同一致，EMT 是第 4 个目标。",
+    "每片 RMSE 差是两个 RMSE 的绝对差，分母是同一份实测 y。独立重算 NCBI642 的 point 最大差 2.275e-4、RMSE 差 2.082e-4，与审计 JSON 一致；NCBI643 最大差 2.288e-4。两片 y 与条码都和冻结包相同。",
+    "合同界限仍是逐点 1e-4、每片 RMSE 1e-5。44 个 case 中 11 个超界。未超界 case 的最差逐点差 7.27e-5、最差 RMSE 差 8.86e-6。失败清单有 35 条切片级记录，不是审计把 11 个 case 数错。",
+    "NCBI642 存盘平滑与 0.5 乘以存盘同点预测加冻结近邻均值的差只有 4.9e-8。平滑超界是同点预测超界带出来的，不是另一套平滑公式。",
+    "fit_full.log 有 36 行 sklearn Ridge 病态警告，rcond 约 3.15e-8 到 4.68e-8。这只证明日志里有这些行，不能当成 132 个三块拟合里恰好 36 个病态。"
+  ],
+  "inferred_not_proven": [
+    "近零方向会让预测对舍入敏感。探针 JSON 给出的原始 Gram 条件数和系数权重没有配套脚本，本审核未重算。",
+    "同一次 cholesky 与 lsqr 只差约 6e-6，而存盘与新重拟合差约 2e-4。若探针设计确实相同，这支持“不是换了 alpha 或抽样”。它不证明差异全部来自 BLAS。"
+  ],
+  "untested": [
+    "探针代码未入库。未独立确认它使用了相同的 25803 训练行、1500 列、剔除 2 列、相同权重和相同 dtype。",
+    "未做线程数 1 与 8 的受控对照，所以环境敏感性还不是已证实原因。",
+    "未比较同一次运行里候选减同点、与另一次数值实现的配对差。三块设计的警告 rcond 比探针里的同点正则条件数更差，同环境配对不能保证空间增量在 1e-4 分辨率下稳定。"
+  ],
+  "unclosed": [
+    {
+      "id": "N-01",
+      "severity": "阻断",
+      "item": "存盘同点预测未通过冻结基线复现关卡",
+      "impact": "这些包不能当作已核实的强基线。直接汇总会把数值漂移写成模型差别。"
+    }
+  ],
+  "required_fix": {
+    "owner": "DeepSeek",
+    "do_not": ["放宽 1e-4 或 1e-5", "用当前 500 包做 evaluate/summarize", "只凭同一次换求解器的小差异宣布原因已定"],
+    "minimal_verification": "只对 source_0 的 EMT 做受控探针，并保存脚本。固定同一训练设计后，比较线程数 1 与 8 的预测最大差，以及它们相对冻结包和当前存盘包的差。记录训练行数、列数、剔除列数和权重是否与 fit_diagnostics 一致。",
+    "recompute_if_confirmed": "只有线程或 BLAS 设置能复现约 2e-4 的差距时，才把该设置写入启动器并重算全部 44 个拟合和 500 个包，然后重跑审计。evaluate 尚未产生，不必回滚汇总表。",
+    "if_not_confirmed": "停止全量重拟合，先找出设计或保存路径差异。不要换求解器来压过界限。"
+  },
+  "hypothesis_impact": "本审核没有新的空间对照结果，不改变 HF-01 的现有判断。",
+  "defect_free_guarantee": false
+}

@@ -1,0 +1,18 @@
+import h5py
+import numpy as np
+for sid in ["NCBI642", "NCBI643", "NCBI828"]:
+    p = f"/home/huyudi/013_spatial/data/other_sources/hest1k/st/{sid}.h5ad"
+    f = h5py.File(p, "r")
+    X = f["X"]
+    if isinstance(X, h5py.Group):
+        import scipy.sparse as sp
+        m = sp.csr_matrix((X["data"][:], X["indices"][:], X["indptr"][:]),
+                          shape=tuple(X.attrs["shape"]))
+    else:
+        m = X[:]
+    lib = np.asarray(m.sum(axis=1)).ravel()
+    det = np.asarray((m > 0).sum(axis=1)).ravel()
+    obs = list(f["obs"].keys())
+    print(f"{sid}: shape={m.shape} lib_med={np.median(lib):.0f} "
+          f"det_med={np.median(det):.0f} frac_spots_lib>500={(lib > 500).mean():.2f} "
+          f"obs_keys={obs[:8]}", flush=True)

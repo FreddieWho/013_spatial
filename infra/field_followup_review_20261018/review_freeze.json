@@ -1,0 +1,38 @@
+{
+  "files": {
+    "README.md": {
+      "sha256": "628bb25d51d2bc67ced47c89ef918124b4b2297ad0cd079a2e13482864eb832c",
+      "bytes": 717
+    },
+    "audit.json": {
+      "sha256": "5c15adb60bd72110f8165d76e2d0aa2d693f615f1b7ef0cf7f0e887e2767ee85",
+      "bytes": 921
+    },
+    "audit_source.py": {
+      "sha256": "bf9613d72e3cd3f0cf8fc64224e02d432b556d6c192d396cd3daf565d8552fa8",
+      "bytes": 7538
+    },
+    "executed_source.py": {
+      "sha256": "3397035aed13ce2927cbbcf05e908f572adda02519bc40e2953c15ef7e13b0d8",
+      "bytes": 21354
+    },
+    "prior_integrity.json": {
+      "sha256": "5a8c7f86c91f42624e294db3cb44403050bda0620298ef0e9832604e7cf74066",
+      "bytes": 147
+    },
+    "resource_receipt.json": {
+      "sha256": "3db625ef44f50a65ef11d8f88c36de9d02bac0a6a89194da0a27fde1a3e988d0",
+      "bytes": 159
+    },
+    "test_source.py": {
+      "sha256": "7f7020040a8916db2c2f003161a453a84ec07c22dd8bbb11c6c2dadbed958770",
+      "bytes": 1843
+    },
+    "train_test_diagnosis.tsv": {
+      "sha256": "96c4ef7163185bcbb9db1b0953ec199ba371927d26cfbbf37c41dc5b0513f0b2",
+      "bytes": 1814
+    }
+  },
+  "run_manifest_sha256": "4e1aa2acbc9f1f85e5df88fe9a85837eaa2017a3c95f92c4868bfb3be8387de0",
+  "result_document_sha256": "32e4f00c15235a239d9d74e5477b99e7bb7b9947331877b1f4460ad041795354"
+}

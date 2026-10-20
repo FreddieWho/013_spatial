@@ -1,0 +1,429 @@
+# 问题日志：空间结构反演
+
+本文档记录尚未解决、但当前未造成硬阻塞的问题和证据缺口。它不是任务清单：执行顺序属于 `roadmap.md`，历史技术理由属于 `decisions.md`。每个问题必须写明影响、当前证据、下一次判定点和升级为硬阻塞的条件；状态变化时更新原条目。
+
+允许状态：`OPEN`、`RESOLVED`、`HARD_BLOCKED`、`WONT_FIX`。
+
+## I-001｜validation 谱系缺少可审计的结构 GT（training 与三个公开沉积 validation 谱系已解除）
+
+- **状态：** `OPEN`
+- **发现日期：** 2026-07-31
+- **影响节点：** R-04 完成判据（队列间一致性）、R-08、R-10，以及所有 internal/external validation 主张的确认性证据等级。
+- **当前事实：** training 谱系（HTAN Vanderbilt CRC）已于 2026-07-31 解除（Heiser 42 个逐 spot 病理标注 CSV，42 个可审计 source、195 个确认性实例）。2026-08-03 经用户批准的三条公开沉积路径（D-037）再解除三个 validation 谱系：GSE175540（Meylan ccRCC，作者沉积逐 spot TLS 标注，18 个可审计 source、35 个 TLS 组件/18 患者，external）、TLS_VISIUM_USZ（Zenodo 14620362，h5ad `obs/ground_truth` 人工标签，8 个 source、108 个 TLS 组件/8 患者，external）、ST_CRC_CMS（Zenodo 7760264，病理医生逐 spot 类别，12 个 source、551 个肿瘤—基质边界组件/6 患者，internal）。确认性实例合计 889（TLS 147、TSB 742），可审计 GT source 合计 80，机器门禁保持 `PARTIAL_GT_READY`。剩余缺口按角色分层：internal validation 的 GSE274103 有 Loupe/HALO 标注（覆盖 LA/TLS、血管、坏死、侵袭前沿四类结构）存在但未沉积，只能向作者索取（lead contact Linghua Wang）——其独占剩余价值已降为未冻结结构（血管/坏死/侵袭前沿）的标注，索取邮件由必需降为可选；external validation 的 GSE211956 有 QuPath 几何未沉积，同样只能索取（可选）；internal validation 的 GSE226997 原论文无独立标注流程，没有任何可索取对象；discovery 角色的 GSE274557 已明确放弃索取，无主张损失。此前记录的其他事实不变：87 条 Table S4 TLS ID 仍只是汇总属性，19 个本地 STOmics 文件仍在 R-01 冻结核心之外。
+- **污染与泄漏：** Table S2 的 TLS presence/count、Table S4 的 TLS ID/maturation/location/size 和 `repo/data/ST_*_maturation_location.csv` 的 Cluster/Location 都是目标或目标派生字段，进入输入会造成直接 target leakage；表达派生标签反过来验证表达模型会造成循环验证。GSE211956 的 sample title 编码 treatment response，属于 outcome leakage；patient/site/treatment/TNM/sample/file identifiers 均是 shortcut 风险。GSE274103/GSE274557 的官方 metadata 说明预处理已删除 acellular stromal-interface spots，因此肿瘤—基质边界还存在选择偏差。上述字段全部禁止作为普通模型输入。
+- **当前影响：** R-04 至 R-07 的工作可在分子-only 输入与冻结外层切分内启动；R-04 的队列间方向一致性判据与 R-05 的两来源一致性判据恢复可执行，限四个有 GT 的谱系（HTAN Vanderbilt CRC、GSE175540、TLS_VISIUM_USZ、ST_CRC_CMS）。GSE226997、GSE274103、GSE211956 保持 GT-less，不得承担任何确认性主张；血管与坏死无公开 GT，第二结构以外的结构主张仍冻结。R-01 的身份 gate 仍有效。
+- **下一判定点：** R-04 启动时确认队列间一致性的谱系组合（四个有 GT 的谱系）；若未来需要血管或坏死的确认性检验，再评估是否向 Wang 实验室索取 GSE274103 的 HALO/Loupe 血管/坏死标注（唯一一封仍有独占价值的邮件）。GSE211956 的 QuPath 索取仅在外部验证层需要第三独立谱系时再考虑。
+- **解除条件：** 至少一个结构在至少一个独立 validation lineage 中具有内容寻址、可重放空间几何、physical-unit 映射、已知标注模态与生成方法、可执行输入排除规则——2026-08-03 起已对三个 validation 谱系满足；本条目对 GSE226997/GSE274103/GSE211956 三个冻结 GT-less 单元保持 OPEN。
+- **2026-09-24 资格补充：** GSE175540 的18条可审计 TLS 来源均通过本地 SHA-256 核验并映射到冻结 `external_validation` 角色；18条均为患者链接物理样本，但 `block_id` 为空且 `block_level_eligible=no`。这不撤销 R-02 允许的患者级外部验证用途，但不能据此提出块级独立重复主张。详见[候选重叠与标签审计](GOBP_OVERLAP_AND_LABEL_AUDIT_20260924.md)。
+
+## I-002｜serial-section 与配准相关 metadata 覆盖未知（R-11 范围已升级硬阻塞）
+
+- **状态：** `HARD_BLOCKED`
+- **发现日期：** 2026-07-31
+- **影响节点：** R-03、R-11、R-12，以及 H-06/H-07 的可测性。
+- **当前事实：** 数据库存量大，但尚未确认自带 metadata 是否足以恢复同一组织块的切片顺序、切片间距、厚度、相邻关系和配准依据。HEST 中 29/492 条记录包含统一为 3.0 的 `z_step_size`，主要来自 Xenium；该字段描述采集或分割的 z-step，不能污染性地解释为组织切片间距或顺序。
+- **当前影响：** 不阻塞主关键路径 R-01；H-06/H-07 保持未判定，不得因字段缺失提前判为失败或默认可测。
+- **下一判定点：** R-03 形成组织块级 serial-section 清单。
+- **硬阻塞条件：** 若现有数据均无法建立可审计的相邻切片关系，R-11 的邻近平面检验不可执行；届时提出针对性外部数据申请或取消三维相关叙事。
+
+**2026-09-11 升级为 HARD_BLOCKED（R-11 邻近平面范围）：** R-03 普查（`infra/r03/serial_section_census_20260911.json`）确认已下载数据中零对已知切片间距：22 个多切片块（HTAN 14、ST-CRC 7、Block-A 1）全部无间距/顺序记录，HEST z_step 系采集步进。R-11 的邻近平面预测、抽中间平面、栈外外推不可执行（同平面遮蔽不受影响）。对 roadmap 与结论的影响：H-06 保持未判定；三维相关叙事冻结，等待"是否申请带记录间距的 serial-section 数据"的用户决策（R-03 投入上限条款）。
+
+## I-003｜第二个 claim-bearing 结构尚未确定
+
+- **状态：** `RESOLVED`
+- **发现日期：** 2026-07-31
+- **影响节点：** R-02、R-08、R-09，以及 H-04/H-05 的方法级通用性。
+- **当前事实：** 按既定判据逐项比较后（D-035），第二 claim-bearing 结构于 2026-07-31 冻结为 TUMOR_STROMA_BOUNDARY：Heiser 标注的 carcinoma_border/carcinoma_edge 在 training 谱系给出 191 个可审计连通域组件、19 位患者、30 个 piece，输入隔离规则可执行；血管与坏死在所有已查来源中可审计实例仍为 0，不能入选；adenoma_border 仅癌前上下文，登记为非确认 context。此前记录的 GSE274103/GSE274557 acellular-interface 选择偏差事实不变，validation 侧的边界主张仍需原始空间审计。
+- **解除方式：** 范围更新获批后获得 Heiser 逐 spot 病理标注，经 piece 级 crosswalk 与坐标重放建立可审计 GT；`structure_ontology.tsv` 中 TLS 与 TUMOR_STROMA_BOUNDARY 均为 FROZEN_CLAIM_BEARING，机器检查 `second_structure_frozen=true`。
+- **剩余限制：** 第二结构的 GT 只覆盖 training 谱系；validation 谱系的 TSB 确认性检验并入 I-001 跟踪，未解除前 R-08/R-10 不得声称跨队列完成。
+- **再次硬阻塞条件：** 若 Heiser 标注语义被证明不等于肿瘤—基质边界、commit 内容漂移或 crosswalk 失效，第二结构回退为未冻结并按 D-035 复查条件重审。
+
+## I-004｜聚合来源之间的物理样本重复范围未知
+
+- **状态：** `OPEN`
+- **发现日期：** 2026-07-31
+- **影响节点：** R-01、R-02 及所有患者或组织块级外层验证。
+- **当前事实：** HEST、论文 atlas、GEO、10x、HTAN/OSF、STOmicsDB 和 SpatialDB 可能收录同一患者、组织块、切片或其重处理版本。相同校验和只能确认资产级重复；不同校验和不能证明物理样本独立。
+- **已确认或冲突证据：** `repo/data_meta/ST_CRC_cohort_meta2.csv` 的 48 行中有 12 行自带 `duplicated=Yes`；本地 HTAN 49 个 h5ad 与该表 48 个资产名之间存在两个本地独有和一个 metadata 独有文件。HEST 有 6 条 `patient` 与 `subseries` 的显式 P 编号冲突。HEST 与本地 10x manifest 之间有 90 条记录共享 35 个数据源页面：47 条仅确认同一来源数据集谱系，15 条保留为可能物理相关并保守同组，28 条经显式映射审计后没有逐条关系证据且不建立 leakage edge。四个新增 GEO accession 均与既有 Atlas 行及本地镜像合并为同一 canonical source lineage，未重复计数；GSE274103 与 GSE274557 共享研究团队，但因 BioProject、论文与队列均不同，当前不合并患者，保留 provenance 风险。
+- **当前影响：** 不阻塞 metadata 来源盘点；在物理身份澄清前，不得因来源数据库、目录或文件格式不同而把样本分配到相互独立的 claim-bearing 角色。
+- **下一判定点：** 针对性外部 metadata 获批后，用 patient↔block crosswalk 复核 `r01_metadata_request.tsv` 的 provenance group；同一 PMID、accession 或 DOI 目前只代表来源重叠，不自动证明或否定物理独立。
+- **硬阻塞条件：** 若候选核心队列无法形成彼此物理独立且身份可审计的训练与验证组，则 R-01 升级为 `BLOCKED_INDEPENDENCE`，后续确认性 benchmark 不得启动。
+
+## I-005｜存储安全余量有限
+
+- **状态：** `OPEN`
+- **发现日期：** 2026-07-31
+- **影响节点：** 所有需要解包、复制或生成派生数据的节点。
+- **当前事实：** 2026-07-31 在 R-02 结束前复查，项目所在文件系统有 3,098,826,780,672 bytes（约 3.10 TB）可用，满足至少保留 2 TB 的要求，安全余量约 1.10 TB。2026-08-03 三路径数据落盘（GSE175540 解包 1.1 GB、两个 Zenodo 数据集 5.6 GB）后复查：2,982,261,653,504 bytes（约 2.98 TB）可用，仍满足要求，安全余量约 0.98 TB。
+- **当前影响：** 不阻塞小型 metadata 扫描和注册表输出；禁止无估算的大包解压、全量复制或大规模派生物落盘。
+- **下一判定点：** 每个预计产生显著落盘的新任务开始前检查可用空间，并记录预计峰值。
+- **2026-08-13 D-057 更新：** 用户批准将当前运行时硬下限从历史的 2 TB 调整为 1.2 TB，1.4 TB 作为软提醒线；历史复查数字不改写。
+- **硬阻塞条件：** 任务预计峰值会使可用空间低于 1.2 TB，或运行中实际余量接近该阈值时，升级为 `BLOCKED_STORAGE` 并停止新增落盘。
+
+## I-006｜patient/block 可追溯核心单元不足
+
+- **状态：** `RESOLVED`
+- **发现日期：** 2026-07-31
+- **影响节点：** R-01 的完成判定和角色冻结，并影响 R-02、R-05、R-10 的独立性。
+- **当前事实：** 用户已批准 metadata-only 获取。956 条 physical-unit 记录中，121 条来自 6 个合格逻辑单元：HTAN Vanderbilt CRC 与 10x Breast Block A 有真实 patient+block；GSE211956、GSE226997、GSE274103、GSE274557 以 E2 patient-linked physical specimen 条件计入，`block_id` 全部保持空。四个 GEO 研究各只计 1 个单元，PDX、scRNA、Atlas/GEO 镜像和同患者多 specimen 未增加逻辑计数。
+- **当前影响：** 6 个 outcome-blind 角色已冻结，独立 external lineage 为 GSE211956，机器 gate 为 `COMPLETE_WITH_EXCLUSIONS`。R-01 身份阻塞解除，但这不证明任何结构 GT，也不提高 plan.md 假设可信度。
+- **解除方式：** 使用官方 GEO sample/series metadata、稳定 BioSample locator 和一个官方 patient—GSM supplement crosswalk建立 E2 互证；没有下载或保留表达矩阵、图像、结果表，也没有联系作者或访问受控/付费数据。
+- **下一判定点：** R-02 审计结构 GT；若真实 block crosswalk 后续出现，替换 specimen equivalence 并重跑 leakage audit。
+- **再次硬阻塞条件：** 任一 equivalence 的 patient、实体组织或 locator 证据失效，发现跨 study specimen 复用，或 external lineage 与其他 claim-bearing 角色共享 leakage group 时，R-01 回退为 `BLOCKED_IDENTITY`/`BLOCKED_INDEPENDENCE`。
+
+## I-007｜三个 metadata extractor 的可选输出路径未统一加固
+
+- **状态：** `OPEN`
+- **发现日期：** 2026-07-31
+- **影响节点：** R-01 的非默认复跑和未来复用这些 extractor 的工程安全性。
+- **当前事实：** Atlas、HEST、HTAN extractor 的默认输出均位于可重建的 `infra/sample-registry/staging/`，但自定义 CLI 输出路径尚未统一采用项目根边界和原子替换；中断时可能留下部分多文件输出。
+- **当前影响：** 不影响当前注册表、机器 gate 或科学结论；默认路径已通过两次确定性构建。未加固前不得把自定义输出指向不可重建资产或项目外路径。
+- **下一判定点：** R-01 解阻后、首次修改 extractor 或使用非默认输出路径前，统一复用已有的根目录校验与原子写入实现。
+- **硬阻塞条件：** 后续任务必须覆盖不可重建文件、写到项目边界之外，或多文件原子性成为交付前提时，先修复再运行。
+
+## I-008｜Atlas 与官方 GEO metadata 存在来源污染和错误归因
+
+- **状态：** `OPEN`
+- **发现日期：** 2026-07-31
+- **影响节点：** R-01、R-02 及任何依赖 Atlas 患者数、论文或 accession 的队列选择。
+- **当前事实：** GSE242311 的官方 GEO metadata 对应 5 位患者、6 份乳腺肿瘤 specimen 和 16 个 GSM，并引用 PMID 39456890；bundled Atlas 将 16 行近似当作 16 位患者，且关联 PMID 36674951。GSE246011 的官方 GEO 当前包含 7 个 GSM（4 STAD、2 BLCA、1 LUAD），而 Atlas 记录为 20 条 STAD。两组均未进入 R-01 核心集。
+- **当前影响：** 这是明确的 metadata provenance 污染风险：若直接信任 Atlas，会夸大独立患者数、错配论文/癌种并制造虚假验证独立性。当前 gate 未受污染，因为这两组保持排除。
+- **下一判定点：** 任何后续节点尝试使用 GSE242311 或 GSE246011 前，必须以官方 accession metadata 重建行级 crosswalk并解释 Atlas 差异。
+- **硬阻塞条件：** 若计划中的核心/验证 lineage 只能依赖无法解释的 Atlas—官方来源冲突，则相关 lineage 先排除，核心集不足时 R-01 回退为 `BLOCKED_IDENTITY`。
+
+## I-009｜外部补充包曾短暂越过 metadata-only 范围
+
+- **状态：** `RESOLVED`
+- **发现日期：** 2026-07-31
+- **影响节点：** R-01 的数据边界、外部数据索引与污染审计。
+- **当前事实：** Europe PMC 的 PMC11508537 `supplementaryFiles` 端点曾返回一个含 7 JPG、7 GIF 和嵌套 ZIP 的混合包；未解读图像，发现后立即删除。随后仅解包无图像 supplement，发现两份 XLSX 都是表达结果表而非身份 crosswalk，也立即删除。另有 4 份核验来源时下载的 PMC 全文 XML 超出交付边界，已删除。保留的 PMC10991508 官方 crosswalk 工作簿含未使用的测序统计列；提取器只读取 `Sample matrix` 中 patient 与 Visium GSM 两列，未将统计列写入证据或角色选择。混合包和两份结果表的 SHA-256 已记录；四份全文 XML 删除前没有计算 SHA-256，manifest 诚实记录路径、删除状态和 `not_computed_before_deletion`，不补造校验和。
+- **当前影响：** 保留索引中表达文件、图像文件和结果文件均为 0；这些内容未进入注册表、角色选择或科学判断。污染已清除，但事件作为范围防护回归证据保留。
+- **下一判定点：** 下次调用返回混合 supplement 的端点前先检查清单和 MIME/成员列表，仅提取 allowlisted metadata/crosswalk。
+- **再次硬阻塞条件：** 若无法在不读取表达或图像内容的情况下提取所需身份信息，则停止并重新申请范围，不得静默扩大。
+
+## I-010｜会话上下文含与本项目无关的 WSDM 标签
+
+- **状态：** `RESOLVED`
+- **发现日期：** 2026-07-31
+- **影响节点：** 全项目的任务边界和上下文污染审计。
+- **当前事实：** 本次会话注入的 agent context 中出现 `$CMEM wsdm2027` 标签，同时明确写着没有历史 session；该标签与本项目无关。项目工作区排除大型 data 和独立上游 repo 后检索不到 WSDM 字符串。
+- **当前影响：** 这是会话级上下文污染，不是样本或训练/验证泄漏。该标签未用于来源选择、角色冻结、代码、文档内容或科学判断，本项目也不与 WSDM 建立任何关系。
+- **下一判定点：** 后续会话初始化时继续忽略不属于 `/home/huyudi/013_spatial` 的竞赛/项目标签，并以本仓库 `STATUS.md`、`docs/plan.md` 和 `docs/roadmap.md` 为控制面。
+- **再次硬阻塞条件：** 若外部上下文开始改变数据选择、指标、角色或科学问题，立即停止并清除污染后重审相关产物。
+
+## I-011｜R-04 真实数据 input manifest 与冻结 gene universe
+- **状态：** `RESOLVED`
+- **发现日期：** 2026-08-07
+- **解决日期：** 2026-08-10
+- **影响节点：** R-04 的真实 discovery、HTAN training 和独立 validation。
+- **解决事实：** 已从冻结 `outer_splits.tsv`、HTAN replay index 和显式 override table 生成 71 个 eligible molecule-only locator：HTAN training 47、ST_CRC_CMS internal validation 14、TLS_VISIUM_USZ external validation 8、TENX breast serial validation 2。ST_CRC 只抽取 filtered H5，乳腺只抽取坐标；没有读取图像、原始矩阵或 GT。
+- **预检证据：** `infra/r04/preflight_gate.json` 为 `READY`；71 个 section 均通过整数 counts、有限坐标、barcode/坐标交集、重复 ID 和患者分组检查。HTAN 30 患者训练数据冻结 4,000 个 gene universe；ST_CRC/乳腺覆盖率为 99.375%，USZ 为 90.825%。一个 HTAN section 的 1 个零 library spot 被确定性剔除并记录。
+- **当前影响：** 真实 CPU pilot 和后续冻结 discovery 已解除输入阻塞；该结果只证明输入可审计，不提高或降低 H-01/H-03/H-05 的科学信心。当前双模型 pilot 仍为 `FIT_COMPLETE_NOT_VALIDATED`。
+- **下一判定点：** 对当前冻结接口做五次 restart、患者/组织块 bootstrap、lengthscale sensitivity，并在未参与拟合的 validation rows 上只推断场值；同时补齐共享 loading、dispersion/profile 和 model-selection uncertainty。
+- **再次硬阻塞条件：** 若任一后续 lineage 的 gene coverage 低于 80%、输入 hash 与 manifest 不一致、或出现非整数/目标派生输入，立即回退为 `BLOCKED_INPUT_CONTRACT`，不得用聚类或图平滑替代。
+
+## I-012｜组成参考的 posterior uncertainty 尚未接入正式估计器
+- **状态：** `WONT_FIX`
+- **发现日期：** 2026-08-07
+- **影响节点：** R-04 的 composition/state 拆分与 H-03。
+- **当前事实：** 005/006 参考 adapter 已实现 donor/type cap、gene intersection 和 h5ad allowlist；组成调整函数支持 posterior draws，但 cell2location/RCTD 的正式运行和多重插补尚未接入。当前 deterministic reference 只能产生 `POINT_REFERENCE_NO_POSTERIOR`。
+- **当前影响：** raw latent field discovery 可以继续；组成之外的强结论和 cell-intrinsic state 结论必须保持 `PARTIAL_RAW_FIELD_ONLY` 或 `STATE_NOT_IDENTIFIABLE`。
+- **下一判定点：** 在冻结候选后运行 cell2location，保存 provenance、cell-type vocabulary、posterior draws 和 gene-fold cross-fit manifest，再运行 RCTD sensitivity。
+
+**2026-09-11 R-04 关闭处置：** 无 surviving candidate，按 finalization §6/§7 不再升级到 cell2location/RCTD；NNLS 路线已判死（L-003）；R-04 闭合采用 marker-proxy nested 调整＋LOPO spread＋bootstrap CI。本条目记 WONT_FIX（正式 deconvolution 路径放弃），不是证据缺口未填。
+- **硬阻塞条件：** 若参考无法排除物理重叠或不能提供可审计 cell-type uncertainty，停止组成/状态 gate，但不回滚无标签 raw field discovery。
+
+## I-013｜双模型当前的后验不确定性主要覆盖诱导权重
+- **状态：** `RESOLVED`
+- **发现日期：** 2026-08-07
+- **影响节点：** R-04 候选 uncertainty、患者 bootstrap 和最终 gate。
+- **当前事实：** TensorFlow 实现已对 section-specific inducing weights 做 variational draws，并输出 field mean/SD；共享 loading、dispersion、长度尺度和模型选择不确定性尚未由同一后验完整覆盖。合成 smoke 不等于完整科学不确定性。
+- **当前影响：** 当前输出可用于工程 smoke 和方法调试，不能单独签署 `PASS_R04_STABLE_FIELD`。
+- **下一判定点：** 加入 loading/dispersion 的变分或外层 bootstrap、5 restart、patient/block bootstrap 和 lengthscale sensitivity，并把 uncertainty coverage 写入 gate。
+- **硬阻塞条件：** 若最终 uncertainty 只能依赖单次点估计，R-04 只能保留连续 field 的探索性输出，不能进入强确认性结论。
+
+**2026-09-11 R-04 关闭处置：** R-04 以探索级阴性完成关闭（D-110），不确定性由 spot field SD＋内层 LOPO 经验 spread＋test-spot bootstrap CI 覆盖，满足闭合要求；loading/dispersion 全后验覆盖仍缺失，记为 limitation——未来任何确认性主张须先补齐，本条目届时重开。
+
+## I-014｜signed residual adapter 仍是 pilot likelihood，不是完整 NB-GP 后验
+- **状态：** `WONT_FIX`
+- **发现日期：** 2026-08-07
+- **影响节点：** R-04 双模型一致性、signed-only 候选解释和最终 gate。
+- **当前事实：** signed 路线仍先用固定过度离散参数构造 NB Pearson nuisance residual，再对残差做 MSE 拟合；diagonal variational inducing-weight GP-KL 已纳入训练，fit 与 frozen infer 已统一为按 spot 平均、按 gene 求和的目标尺度，但还没有把完整 NB observation likelihood、dispersion uncertainty 和 loading uncertainty 统一纳入后验。
+- **当前影响：** signed-only 或 `BOTH` 候选可用于方法调试和探索性发现，不能把该适配器的输出写成已完成的 signed NB-GP 科学证据；gate 继续保持关闭。
+- **下一判定点：** 在真实 manifest 冻结后比较完整 signed NB likelihood、当前 residual pilot 和非空间残差基线，并传播 dispersion、loading、lengthscale 与 inducing weights 的不确定性。
+- **硬阻塞条件：** 若 signed 路线无法在 grouped held-out likelihood 上超过 nuisance/非空间基线，删除 signed 模型贡献，不得用普通聚类或调参后的 marker program 替代。
+
+**2026-09-11 R-04 关闭处置：** signed NB-GP 统一明确不在闭合要求内（finalization §7）；signed adapter 永久保持 pilot 身份，不得被引用为科学证据。本条目记 WONT_FIX。
+## I-015｜R-04 正式 restart 的 CPU 时间可行性
+- **状态：** `RESOLVED`
+- **发现日期：** 2026-08-10
+- **影响节点：** R-04 五次 restart、后续 bootstrap 和 validation。
+- **当前事实：** 47 个 training section 的 4,000-gene panel 已分段物化并通过 47/47 loader 验证。修正 full-library offset 后，缓存单 mNSF、单 step 实测 wall time 为 69.54 秒，峰值 RSS 为 14,103,928 KiB；双模型 3-step 原始读取校准在 120 秒外层上限内未落盘，状态为 `NOT_RUN/BLOCKED_TIMEOUT`。
+- **当前影响：** 正式 300-step×5 restart 暂不启动；这不是科学阴性结果。GPU 当前仍被项目政策禁止，需用户明确批准后才可提交租用申请。
+- **下一判定点：** 先完成等价性与多 seed 诊断，给出 CPU cache/线程优化后的完整时间估计；若仍超出可接受窗口，提交 GPU 需求、预计时长和成本供用户审核。
+- **解除条件：** 完整训练在可接受资源窗口内可重复、可恢复，并通过 factor collapse、ELBO 和 checkpoint preflight。
+
+**2026-08-13 更新：** D-049 修正了 gene-minibatch likelihood 目标，因此 2026-08-10 的 69.54 秒单步历史测量不能直接作为当前正式训练时间。修正目标后，对同一 47-section、4,000-gene cache 的单 mNSF step 为 93.63 秒、峰值 RSS 14,713,848 KiB；该 run 仍为 `FIT_COMPLETE_NOT_VALIDATED`，没有解除本条硬阻塞。当前只保存资源重测，不据此授权正式 restart。
+
+**2026-08-13 D-050 更新：** 科学校准已通过，但 inducing 参数化与初始化再次改变，旧 93.63 秒结果不能作为最终版本资源依据。对同一 cache、K=2、16 inducing points、lengthscale=3.0 的新版单步实测为 95.55 秒、峰值 RSS 16,277,456 KiB。按线性下限，600-step 单 restart 约 15.9 小时、五次 mNSF restart 约 79.6 小时，且不含 signed 模型和验证。CPU 时间硬阻塞仍成立；下一解除条件为用户明确批准 GPU，或明确接受多日 CPU 运行并确认调度方式。
+
+**2026-08-13 D-056 解决：** 旧估计错误地把包含冷缓存读取、构建和写盘的 1-step 总墙钟逐步相乘。当前代码新增 optimizer 内部计时；同一 47-section、4,000-gene、K=2 配置的 20-step run 总墙钟 272.31 秒、峰值 RSS 16,264,992 KiB，其中 optimizer 92.80 秒（4.64 秒/步），固定成本约 179.51 秒。按固定成本加实测斜率，600-step 单 mNSF restart 规划值约 0.82 小时、五次约 4.12 小时；不含 signed、真实 K 搜索和 validation，且不是运行时保证。CPU 时间已从多日硬阻塞降为可调度的小时级工作，本 issue 关闭，暂不申请 GPU。若真实首个 600-step 的每步斜率超过当前两倍或影响系统正常工作，按 D-056 重新打开并提交资源选择。
+## I-016｜factor collapse 与不规则场恢复尚未通过科学校准
+- **状态：** `RESOLVED`
+- **发现日期：** 2026-08-10
+- **影响节点：** R-04 候选场发现、跨 restart 稳定性和 H-01/H-03/H-05 信心。
+- **当前事实：** 47-section 单步 mNSF calibration 的 loading cosine 为 0.9974、effective rank participation 约 1.00；这只能触发告警，不能代替平台期、多 seed 和 planted-factor 判定。三个独立 seed 的 20-step planted-factor 诊断仍有 loading cosine 0.9964–0.9978、effective rank participation 1.0022–1.0036，matched field absolute correlation 约为 [0.248, 0.396]、[0.487, 0.214]、[0.567, 0.103]；这说明重复方向不是单一 seed 的偶然现象，但尚未达到平台期判定。crescent、branch、disconnected 三类支持的 10-step synthetic calibration 也均未恢复 planted fields：mNSF 平均 matched absolute correlation 分别约 0.107、0.147、0.096，signed 分别约 0.054、0.080、0.053；所有 artifact 均明确为 `CALIBRATION_COMPLETE_NOT_VALIDATED`。
+- **当前影响：** 不加入强制正交惩罚，不命名重复方向，不把低相关结果写成“模型不支持不规则场”；正式 restart 保持科学门禁。
+- **下一判定点：** 完成 tiny dense oracle、至少 3 个诊断 seed、planted-factor recovery、训练平台期和 crescent/branch/disconnected sensitivity；若有效秩稳定低于设定 factors，比较降低 K 后的 held-out 预测损失。
+- **解除条件：** planted control 可恢复且平台期无未解释 duplicate/inactive factor；否则保留较小 K 或收缩候选 claim。
+
+**2026-08-13 更新：** objective oracle 已通过，dense 与所有 3-gene batch 组合误差约 `1.9e-6`；但修正后的正确指定双场控制在 crescent、branch、disconnected 上 300 steps 均未达到平台，1000-step disconnected 仍未平台。三种几何的第二 canonical correlation 分别约为 0.019、0.100、0.197，而各自 coordinate-permutation null 的 95% 上界约为 0.197、0.193、0.243；K=0、K=1 和共线控制已生成但尚未到平台。一次 2-fold、单 seed、20-step 的 K=1/2/4 held-out 比较给出 K=4 的探索性 one-SE 候选，但最终状态仍为 `K_NOT_IDENTIFIABLE`。当前状态仍为 `OPEN`，不能将其解释为真实数据只有一个 factor，也不能加入正交惩罚掩盖问题。
+
+**2026-08-13 D-050/D-051 解决：** 根因包括 inducing-value 参数化、核尺度、K 依赖初始化、合成 gene effect 共线及 held-out 评价泄漏；均已修正。三个数据/优化 seed、三种不规则几何的双独立场达到平台并恢复两个 effect directions；单场和共线双源只支持一个方向。无泄漏 K=1/2/3/4 聚合选择 K=2，无场 K=0/1/2 聚合选择 K=0；18-control 科学门禁为 `PASS_SCIENTIFIC_CALIBRATION`。本 issue 关闭。该结果只证明方法校准通过，不代表真实数据 K=2，也不提高 H-01/H-03/H-05 的科学信心。
+
+**2026-08-13 D-052/D-054/D-055 最终审计：** 上述首版 K 聚合因 split seed 间接包含 K 而被撤回；随后又修复浮点重放、best loss/参数错位和 NaN 绕过。所有进入门禁的 18 个控制、24 个双场 K 单元和 12 个无场单元均用最终数值语义重跑。K=2 与 K=0 仍分别在三个独立 data seed 上一致最佳，K=4 支持比例为 0；v10 总门禁核验 hash、重放 generator、重新聚合 shards 并检查有限性后通过，I-016 继续保持 `RESOLVED`。若同题、有限性或重放约束失效则立即重新打开。本结果仍只恢复方法可测性，不改变患者级假设信心。
+## I-017｜缺失 gene 的条件推断接口已实现，但真实 USZ 可测性未完成
+- **状态：** `OPEN`
+- **发现日期：** 2026-08-10
+- **影响节点：** R-04 external validation 与最终跨队列结论。
+- **当前事实：** infer 现在可在所有 validation section 的 common observed panel 上冻结模型参数并推断，禁止 zero-fill，并记录 panel hash、coverage、retained loading energy、rank loss 和 offset source；但尚未在真实 USZ 上完成 full-versus-mask technical control，也未证明每个 factor 的 retained energy 与最差 patient 阈值。
+- **当前影响：** USZ 结果只能保持 `NOT_TESTABLE`/`INFERENCE_COMPLETE_NOT_VALIDATED`，不能被写成独立验证阴性或阳性。
+- **下一判定点：** 用完整 gene 技术样本施加 USZ 同一 mask，比较 full/masked field correlation、factor loading energy 和 rank；通过后再运行真实 external validation。
+- **解除条件：** common observed panel 不造成 factor-specific 信息丢失，且 full/masked 判定一致；否则仅保留覆盖充分的 validation lineage。
+
+**2026-09-11 R-04 关闭处置：** USZ 技术对照与真实 external validation 在 R-04 闭合中未使用（外层验证只用 HTAN 留出）；本条目保持 OPEN 作为未来跨平台验证选项，不再是 R-04 阻塞项。
+
+## I-018｜D-049 之前的 minibatch 校准结果与当前目标不再可直接比较
+- **状态：** `RESOLVED`
+- **发现日期：** 2026-08-13
+- **影响节点：** R-04 历史 calibration、资源外推和 factor gate。
+- **当前事实：** 旧实现把 spot-gene 联合均值直接乘以 `G/B`；D-049 已改为先按 spot 求和 gene loss 再缩放，并由 objective oracle 验证。旧的 20/80/300-step 结果仍保留为历史诊断，但不能与修正目标下的结果合并或用于正式资源外推。
+- **当前影响：** 需要以修正目标重新生成进入 gate 的 calibration 和资源基准；旧结果不支持真实数据结论，也不自动构成回归失败。
+- **下一判定点：** 完成修正目标下的 dense/full-batch/minibatch 梯度与 checkpoint 一致性复核，并确认所有正式输入的 config hash 已更新。
+- **解除条件：** 新目标下的 oracle、平台期控制和资源基准均有独立 provenance，历史 artifact 被明确标记为不可合并。
+
+**2026-08-13 D-050 更新：** objective v3 同时通过 objective 和平均 minibatch gradient oracle；fit/infer 已统一 dense 缩放，D-050 后的合成校准与 47-section 资源重测均有独立 artifact。D-049 之前及 D-049 到 D-050 之间的 artifacts 继续保留但不合并。本 issue 关闭。
+
+## I-019｜R-04 全局表示秩、fold 异质性与下游 K 稳健性（2026-09-11 已关闭）
+- **状态：** `RESOLVED`
+- **发现日期：** 2026-08-13
+- **影响节点：** R-04 正式候选发现及 H-01/H-03/H-05。
+- **当前事实：** 合成校准只证明方法在受控数据上能识别效应维度，不能给真实数据指定 K。真实数据已有五 seed 的 K=0/K=3 极端 fold 诊断和 restart 2–4 的冻结留出推断；fold 方向可重复，但幅度存在异质性，前两类子空间方向较稳定，第三方向较弱且不稳定。严格训练审计仍为 `STOPPED_OFF_PLATFORM`，冻结 practical acceptance 仅覆盖 held-out inference/scoring；当前冻结 cell 没有 GT 对齐的 held-out spot×gene 空间效应矩阵。
+- **当前影响：** `selected_k=null` 保留，且不单独构成永久硬阻塞；现有证据可以支持 K 作为模型表示容量的诊断，但还不能计算受完整门禁支持的 `K_eff`，也不能判断主要结构读出是否依赖第三方向。R-04 科学节点仍未完成。
+- **下一判定点：** 已完成最新面板的 provenance-checked 聚合；下一步在 training-role GT 的嵌套 cross-fitting 中使用旋转稳健的空间效应表示，比较共享成分与结构特异残余以及完整 K=3 与稳定子空间版本。只有下游结论对第三方向敏感或无法判定时，才触发 K=2 bridge；随后再进入空间 null、组成拆分和独立 lineage 复现。
+- **硬阻塞条件：** 只有当合理 K、seed 或 fold 的变化导致主要结构结论方向不稳定，或空间置换 null 后稳定表示不优于 K=0/非空间基线时，才将 R-04 的科学路径判为硬阻塞；`selected_k=null` 本身不是硬阻塞。
+- **历史记录边界：** 下方带日期的条目保留当时的诊断状态和停止决定；不将历史的“尚未运行”描述改写成当前事实。
+- **2026-08-13 执行更新：** 已实现真实 training manifest/cache 的患者分组 K 搜索入口和同 nuisance 的 K=0；一折 K=0/1、2-step wiring smoke 产出 47-section/30-patient 路径结果，但 fit/inference 均未平台，已明确标为 `WIRING_ONLY_NOT_SCIENTIFIC`。正式 5-fold K=0 向上搜索、空间置换 null、五次 restart 和组成拆分仍未运行。
+- **2026-08-13 当前状态：** 完整 5-fold、K=0–4 粗筛已启动为持久 CPU 任务（PID 2623526），但在 `r04_real_k_search.json` 完成前仍保持 `NOT_RUN`；运行中断或任一 K 未平台时不得从部分 cell 推断真实 K。
+- **2026-08-14 当前状态：** 完整 5-fold、K=0–4 粗筛已完成 25 个 cell，但 25/25 个 fit platform 均未通过 600-step 平台期门禁；机器结果为 `K_NOT_IDENTIFIABLE_NOT_CONVERGED`、`selected_k=null`。K=3 的较高原始预测分数仅作诊断信号，不能进入科学候选。当前正式 R-04 gate 因训练收敛处于硬阻塞；一个独立的持久 CPU 哨兵任务正在以 K=0/2/3、fold 0、1200 steps 诊断步数不足与优化波动，默认学习率仍为 0.05，尚未改变正式协议。空间置换 null、五次 restart、组成拆分和独立 lineage 复现继续保持未运行。
+- **2026-08-16 诊断更新：** 0.05 学习率的 1200-step 哨兵已正常结束，但 K=0/2/3 的 3 个 fit 仍全部未平台；最佳步为 1182、1184、1200，支持“训练仍未走完/优化参数需要诊断”的判断，但该单 fold 任务仍为 wiring-only。已启动下一轮独立低学习率哨兵：完整输入、K=0/1/3、fold 0/4、1200 steps、learning rate 0.01；结果完成前不改变 `K_NOT_IDENTIFIABLE_NOT_CONVERGED`，不进入空间 null 或 restart。
+- **2026-08-18 诊断更新：** 修复了 fold 子集最终 JSON 的 `wiring_only` 标记并通过回归测试；真实训练入口新增 gene batch、学习率衰减和梯度/参数轨迹记录。当前已持久启动 K=0/3、fold 0 的 batch=256、512 和短程 full-batch 诊断，均为 wiring-only，尚未改变 `K_NOT_IDENTIFIABLE_NOT_CONVERGED`。
+- **2026-08-18 诊断完成更新：** 三个 batch 任务均以 systemd `success` 正常结束，共生成 6 个 `FIT_AND_SCORED` cell；但 K=0/3 的 fit 与 inference 收敛门禁全部为 false，因此没有科学 K 结果。batch=512 的末段 loss 波动较 batch=256 低约 35%–44%，full-batch 只作为短程噪声参照。下一轮固定 batch=512，单独比较固定学习率与线性衰减的 2400-step wiring-only 运行。
+- **2026-08-18 2400-step 更新：** 固定 lr=0.01 与早期线性衰减两个任务均以 `success` 完成，生成 4 个 cell；K=0/3 的 fit 和 inference 仍全部未平台。固定 lr 的末段损失优于衰减方案，K=3 有效秩参与度约 1.83 且未出现 collapse 告警，但末段仍未达到 0.1% 平台门槛。下一步保持同一协议延长到 4800 steps，仍不进入正式 K 聚合。
+- **2026-08-19 continuation 更新：** 4800-step 延长任务也正常完成，但 K=0/3 fit 与 inference 仍未平台；K=0 和 K=3 的共同失败优先指向共享优化时程。已实现并通过回归测试的显式 checkpoint continuation 将从同一 K=0、fold 0、4800-step checkpoint 分叉 control/lr-step-down 两条 fit-only 诊断，保留 Adam state；不运行 K=3、inference 或正式聚合。
+- **2026-08-20 staged optimizer:** implemented and regression-tested, but no real-data evidence yet. The first representative K=0/K=3 run remains required; until it passes the existing fit and inference gates, R04 stays `K_NOT_IDENTIFIABLE_NOT_CONVERGED`.
+- **2026-08-20 staged run started:** K=0/3, fold 0, 2400 steps, batch 512, learning rate 0.01, and 600 shared-first steps is `RUNNING`; it remains wiring-only and cannot change the R04 status before fit and inference gates are evaluated.
+- **2026-08-20 staged run completed:** both cells finished normally, but fit and inference platform gates were false for K=0 and K=3. K=0 matched joint training; K=3 had lower best fit loss but worse held-out score and no convergence recovery. Staged training is rejected as the common protocol; R04 remains `K_NOT_IDENTIFIABLE_NOT_CONVERGED`.
+- **2026-08-20 checkpoint audit started:** deterministic full-panel objective audit is `RUNNING` for existing K=0/K=3 fold-0 checkpoints. It is read-only diagnostic evidence; until repeatability and checkpoint-to-checkpoint drift are assessed, no optimizer change or gate relaxation is authorized.
+- **2026-08-20 checkpoint audit completed:** K=0 dense objective was effectively flat from step 6600 to 7200 with zero repeated-evaluation spread, despite the raw minibatch gate being false. K=3 still declined materially from step 3600 to 4800. The old gate is therefore unreliable for K=0, while K=3 remains genuinely unresolved; deterministic monitoring must be added before further optimizer comparisons.
+- **2026-08-20 K=3 continuation:** the first service attempt failed before model import because it used a system Python without SciPy; no scientific computation or checkpoint was produced. A second service was relaunched with the verified Anaconda environment and is currently `RUNNING`; its output remains diagnostic-only until completion and replay checks.
+- **2026-08-21 K=3 continuation completed:** the inherited-state fit reached step 7200 and produced a final checkpoint. The dense objective was nearly flat in the last 600 steps, but the original fit gate remained false and inference was not run. A top-level summary serialization bug incorrectly wrote `k_model=0`; it was fixed, the existing artifact was corrected, and 11 targeted regression tests passed. The identical-checkpoint repeat audit is now `RUNNING`; no scientific gate has been changed.
+- **2026-08-21 deterministic platform audit completed:** under the same dense objective and fixed draws, step 6600→7200 decreased only 0.036%, and repeating step 7200 gave exactly the same objective. The unresolved issue is now a scientific gate-definition conflict, not a runtime failure: the deterministic full objective is stable while the stochastic minibatch gate is false. Escalate to a hard decision before inference, K selection, or the 25-cell campaign.
+- **2026-08-21 dual-gate decision resolved:** user approved recording the deterministic full objective as the primary optimization-platform measure while retaining the minibatch gate as a warning. K=0 and K=3 fold-0 held-out inference (1200 steps, inherited 7200-step checkpoints) is now running; results remain diagnostic-only and cannot select K.
+- **2026-08-21 first dual-gate inference completed:** K=0 inference platformed at 1200 steps; K=3 remained descending by about 0.36% and had a temporarily worse fold-0 held-out mean than K=0. This is not yet evidence against K=3 because inference length was insufficient. K=3 is being extended to 2400 steps; K=0 receives a 7200→7800 objective continuation before its matched 2400-step inference.
+- **2026-08-31 five-seed restart audit:** all 20 cells are complete and all held-out inference runs platformed. Fold 0 is K0-favouring in 5/5 seeds and fold 4 is K3-favouring in 5/5, but fold-4 effect size varies from `+2.06` to `+59.36`; one patient in each fold changes sign across seeds. Cross-seed subspace diagnostics show a recurrent first direction, a weaker second direction and an unstable third direction. Replaying canonical external audits under the current two-sided rule gives 8/20 dense-objective passes; restart 2-4 account for the 12 failures. Because optimization seed jointly changes initialization, minibatch order and variational draws, this is overall optimization-randomness stability rather than pure initialization stability. The hard R-04 state is `K_UNDECIDED_OPTIMIZATION_NOT_RESOLVED`; no K, spatial null, composition split or field naming is authorized.
+- **2026-08-31 next decision point:** run a bounded, seed-preserving, fit-only continuation for restart 2-4 from step 7200 to 8400 with dense evaluation every 400 steps. If all paired K0/K3 cells platform, rerun inference and reassess top-1/2/3 subspaces; if any remain off-platform, stop and decide between further optimization diagnosis and a matched dense/full-batch tail. A later K=2 bridge is permitted only after optimization error is resolved and the third direction remains unstable.
+- **2026-08-31 step-8400 hard block:** all 12 bounded fit-only continuations and frozen-checkpoint repeat audits completed with valid source/checkpoint provenance, but only 10/12 passed the combined gate. Restart 3/K=3/fold 0 remains above the `0.1%` dense-objective threshold in one final interval; restart 2/K=3/fold 4 has a one-draw bitwise repeat mismatch of `0.000488`. D-081 therefore triggered its stop condition. Held-out inference, score recomputation, K expansion, spatial null, composition split and field naming are `NOT_RUN`; the next action requires a new decision and cannot be silently replaced by a relaxed tolerance or an extension of only the failing K=3 cell.
+- **2026-08-31 strict-audit update:** after fail-closed schema, ridge, checkpoint-bundle and frozen-inference hardening, all 12 repeats were rerun rather than patched. The strict artifact set has no provenance or structural errors, records `ridge=1e-5`, and is exactly repeatable in 12/12 within-run pairs; 11/12 cells pass the full gate. Restart 3/K=3/fold 0 still fails because 7600→8000 changes by `0.1006526%`, above the fixed `0.1%` threshold. The first audit's intermittent `0.000488` repeat difference remains a numerical-risk observation even though it did not recur. The hard block and all downstream `NOT_RUN` states remain unchanged.
+- **2026-08-31 practical-acceptance update:** the user accepted the single marginal restart 3/K=3/fold 0 exception for the limited purpose of frozen held-out inference. The strict artifact remains `STOPPED_OFF_PLATFORM`, 11/12; a separate hash-bound artifact authorizes no fit updates and no K selection. Restart 2-4 frozen inference/scoring is now `RUNNING` under three CPU workers, so the optimization hard block is lifted to `OPEN`; it returns to `HARD_BLOCKED` if any cell or gene split is incomplete/off-platform, provenance changes, or the completed five-seed score/subspace assessment remains non-identifiable. Spatial null, K expansion, composition splitting and field naming remain `NOT_RUN`.
+- **2026-09-01 frozen inference completion:** the authorized restart 2–4 GPU panel completed 12/12 cells with no failed cell; remote results were recovered as 27 files and all SHA-256 checks passed. The outputs remain `FROZEN_HELDOUT_DIAGNOSTIC_NOT_K_SELECTION`, `selected_k=null`, and strict audit remains `STOPPED_OFF_PLATFORM`. The CPU/GPU equivalence pilot was intentionally stopped at user request to avoid rented-GPU idle cost and is `NOT_RUN`; the practical diagnostic can be used, but no cross-device numerical-equivalence claim is allowed. The next unresolved issue is aggregation of patient-level K3-K0 scores and cross-seed subspace stability; K expansion, spatial null, composition splitting and field naming remain `NOT_RUN`.
+- **2026-09-01 semantic and evidence-integration update:** the five-seed panel was aggregated with the recovered frozen cells, explicit historical endpoint exceptions and separate endpoint/environment strata. The new semantics artifact records `K_model` as representation capacity, leaves `K_eff` uncomputed because the frozen cells lack GT-aligned held-out spatial-effect matrices, and records structure readout/downstream K robustness as `not_tested`; this is an evidence gap, not a negative result. No K=2 bridge is triggered in this round because no downstream structure readout has yet shown sensitivity to the third direction. The next issue-closing evidence is the training-role nested cross-fitted readout; spatial null, composition split and independent lineage replication remain pending.
+- **2026-09-01 training-role readout update:** all 10 K=3 training-effect exports (five seeds × folds 0/4) were recovered from frozen checkpoints with the primary centered spatial-rate contribution, zero fit updates, complete array/hash checks and validation GT sealed. The shared-versus-specific readout ran by patient-level inner cross-fitting, but the paired TLS/boundary support is only two patients per extreme outer fold. Therefore `downstream_k_robust=not_tested`; the mixed descriptive rank-2/rank-3 increments are not evidence that the third direction is biologically meaningful or meaningless. Single-factor naming remains forbidden.
+- **2026-09-01 conditional bridge update:** because the training-role evidence cannot judge third-direction sensitivity, the six-cell K=2 Stage-A manifest is frozen. Its first K=2 CPU fit was stopped before the first checkpoint; no K=2 score, readout or K conclusion was produced. The stage artifact is `BLOCKED_CPU_RUNTIME`, with historical matched CPU fit estimates of approximately 1.25–6.9 hours per cell. The current linked handoff is `k_semantics_and_downstream_robustness_20260901_final.json`. The next decision is a bounded GPU approval or explicit acceptance of the corresponding CPU runtime; spatial null and composition split remain downstream and are not silently substituted.
+- **2026-09-01 Torch backend migration:** R-04 active compute has been refactored from TensorFlow/TFP to PyTorch (D-094); `environment.lock.json` `backend=torch` is now the single enforced backend, CPU/CUDA share one `torch.autograd`/`torch.optim` implementation, and no `import tensorflow`/`tensor_probability` remains in active code. Legacy TensorFlow checkpoints/artifacts are sealed as historical evidence and are not consumed by Torch training. Current `selected_k=null` is preserved; no new K=2/K=3 scientific result has been produced under Torch, and formal K comparison requires matched Torch reruns.
+- **2026-09-02 Torch migration audit update:** the new checkpoint contract is now fail-closed against mixing `params` with `best_state`, malformed parameter layouts, missing parameter tensors, one-sided nuisance tensors and explicit library-size changes. The isolated Torch environment (including the existing h5ad reader dependency) passes the full 178-test R-04 suite and the objective oracle; this is engineering/provenance evidence, not a new real-data result. The issue remains `OPEN`: matched Torch K=0/K=3 real-data reruns are still required before the old fold-heterogeneity signal can be reassessed, and the K=2 bridge remains conditional.
+
+## I-020｜frozen 4000 基因 panel 不含经典 TLS 标记基因（阳性对照证实）
+
+- **状态：** `OPEN`
+- **发现日期：** 2026-09-14
+- **影响节点：** 一切 TLS 相关读出与注册场评分（field registry 的 TLS 行）；H-01/H-03 证据归因。
+- **当前事实：** TLS 阳性对照（`infra/r04/tls_positive_control_20260912.json`，exploratory）核验 frozen 4000-gene panel：CXCL13、MS4A1（CD20）、CD3D/E/G、CD19、CCL19、CCL21、LTB、CR2、CXCR5、CCR7、SELL、BANK1、FCRL5、IGHG2/3/4 家族部分均不在 panel；可用的是浆细胞模块（IGHM/IGKC/JCHAIN/MZB1/SDC1/IGLC3/IGHA2）、PTPRC、CD68、LYZ、ICAM1、CLU、CXCL12、PECAM1。panel 为 R-06 时代历史冻结，不回溯修改。
+- **当前影响：** TLS 读出只能用组成型代理信号（白细胞富集＋非上皮），任何 TLS 阴性结论的归因都受限：分不清"信号不存在"与"panel 不覆盖"。R-04 的 TLS DOES_NOT_SURVIVE 不受此改变（其零发现另有外层 null 支撑），但解释口径必须带本缺口。
+- **2026-09-14 机理查明（用户追问 4000 基因来历）：** panel 来自 D-042（2026-08-10）：HTAN 训练患者内 ≥5% spot 检出且 ≥70% 患者满足 → 训练侧 log1p 方差取前 4000。**两阶段过滤共同致死**：(1) prevalence 关杀掉 14 个经典 TLS 基因中的 12 个（CXCL13 仅 34% 患者 ≥5%、MS4A1 21%、CD19 30%、CCL19 37%、CD79A 53%、CCL21 57%、CD3E 63%，均 <70%）；(2) 方差前 4000 关杀掉剩余 2 个（LTB 排名 ~7809、CD3D ~8582，共 9454 个基因过 prevalence 地板）。方差榜前 20 被免疫球蛋白/持家/上皮/基质霸占（IGKC、EEF1A1、IGHG1、FTL、ACTB、COL1A1、KRT8/18、CEACAM5）。机理：log1p 方差随稀疏性压缩，小型/稀有结构的 marker 在两项指标上都被系统性压低——panel 对"小而稀有"的生物学存在结构性盲区。地板实测：5%→9454 基因、1%→13392、0.5%→14626、0.1%→18129（union 19468）。
+- **下一判定点：** R-16 普查是否扩大 gene universe（需修订设计方案并追加 decision，冻结 R-04 资产不动）；field registry 回填 TLS 行时须把 panel 覆盖缺口与本质写入 notes。
+- **硬阻塞条件：** 若某一 claim 依赖的经典标记被证实在 panel 中缺失且无可替代代理，该 claim 保持 NOT_TESTABLE，不得以代理信号替代。
+
+
+## I-021｜连续信号的零假设机器尚未换代（现存量产的是开关检验）
+
+- **状态：** `OPEN`
+- **发现日期：** 2026-09-14
+- **影响节点：** R-16（Lane A/B 全部连续信号检验）；任何未来连续场 claim。
+- **当前事实：** 现存 null 机器（`scripts/r04_explore_readout_null.py`）做患者内联合置换结构标签——开关变量检验，对 R-04 的标签读出任务正确，但对连续信号不适用；naive 值置换会破坏空间自相关使 p 值反保守（D-113 第 2 条）。
+- **当前影响：** 换代完成前，任何连续信号（距离函数、残余结构）的显著性结论没有合法 null 可用，只能登记为 NOT_TESTED。
+- **2026-09-14 细化（设计方案 v1.1 §6）：** 按检验目的分两类——(1) **自相关检验**（第①步 mask 一致性、Lane B 残余筛查）：零假设即"无自相关"，值置换合法（Cliff & Ord 教科书 null），不涉及反保守问题；(2) **关联检验**（Lane A 信号~距离）：两个自相关场的关联，必须用空间保持 null（60° 旋转＋凸包内平移＋重映射）。本条目随此细化部分解除对第①步的阻塞，Lane A 实施前仍须落地空间保持 null。
+- **下一判定点：** Lane A 开工前冻结空间保持 null 的实现与验收测试（重映射接受率 ≥95% spot 落在 0.5 跳内）。
+- **硬阻塞条件：** 无合法 null 就产出连续信号 claim 时，按方法论违规处理，claim 自动降级为描述性。
+
+## I-022｜Lane A 观察/null 统计量失配＋患者权重错误（恢复包 A05/A06/A07/A09）
+
+- **状态：** `SEALED_NOT_CALIBRATED`（关联 p 封存；项目不关闭）
+- **发现日期：** 2026-09-18（恢复包审计，基准 7399652）
+- **影响节点：** R-16 Lane A；D-126 的普遍否证外推。
+- **当前事实：** `scripts/r16_laneA_screen.py` 观察值=多切片汇总曲线峰值，null=单片峰值混合（A05）；peak_agree 按切片投票、多片患者多票（A06）；仅正向 argmax＋固定峰位条件，非设计函数族（A07）；remap 只取 `[0]` 丢弃接受诊断（A09）。
+- **当前影响：** D-126 历史数字保留，但"六轴距离尺全线阴性"的外推标记为 `METHOD_LIMITED_PENDING_REANALYSIS`；T2 修复前不得据此否定连续距离关系。
+- **下一判定点：** T2 交付 `laneA_corrected_small.json`＋`legacy_vs_corrected.md` 后复核。
+- **2026-09-19 T6现状（D-133）：** T2-small已交付，机械关闭；主surrogate未做，关联p维持NOT_CALIBRATED；旧D-126外推维持METHOD_LIMITED。本条目保持OPEN，直至T2P2落地或Lane A正式关闭。
+- **升级条件：** 若 T2 校准后仍无复现且功效足够，维持范围内阴性；若 surrogate 不合格，关联 p 记 `NOT_CALIBRATED`，不关闭项目。
+- **2026-09-28 T2P2（D-150）：** 变异函数匹配已跑。正确高斯场误报 6.0%，过门；图平滑与零膨胀场误报 20.5%/18.3%，不过事先门槛。关联 p 永久 `NOT_CALIBRATED`。这不是无空间场的证据，也不关闭项目。旧 D-126 外推仍为 `METHOD_LIMITED`。
+
+## I-023｜PC 工厂符号/新奇性/稳定性三问题（RESOLVED 2026-09-18，D-128）（恢复包 A02/A03/A10/A11/A12）
+
+- **状态：** `RESOLVED`
+- **发现日期：** 2026-09-18（恢复包审计，基准 7399652）
+- **影响节点：** R-16 Tier-1 v2；D-118 的 NEW=0 外推。
+- **当前事实：** 分组用 signed cosine 而非文档的绝对余弦、组内平均未定向（A02）；NEW 判据用单轴 max 相关，六轴均衡混合（各 ~0.408）可被误判新（A03）；q-Jaccard 0.7083 系嵌套分位代数必然（A10）；LISA 两侧绝对值合并显著点（A11）；augment 系矩阵相加非 BANKSY 拼接（A12，应改名）。
+- **当前影响：** D-118 历史数字保留，"无共享新轴"的可信阴性外推同样标记 `METHOD_LIMITED_PENDING_REANALYSIS`；T1 仅重算 matching/registry 派生，不重训 PCA/LISA。
+- **下一判定点：** T1 交付 `pc_matching_reanalysis.json`＋`old_to_new_groups.tsv` 后复核。
+- **2026-09-18 T1 完成（D-128）：** 857→772 组，91 合并（符号对）＋8 分裂；复现仍 2 组，joint R²=0.02/0.08，NEW=0 维持。A11/A12 转名备注（LISA 两侧合并仅描述、augment 改自定义平滑名）随 T3 程序卡落实，本条目 RESOLVED。
+- **升级条件：** T1 完成后本条目可 RESOLVED（遗留旋转混合限制转 LEADS L-008 有边界诊断）。
+
+## I-024｜残差置换条件分布未校准＋轴自包含（降级为方法备注 2026-09-18，D-131）
+
+- **状态：** `PARTIALLY_REPAIRED / SPATIAL_P_NOT_CALIBRATED`
+- **发现日期：** 2026-09-18（恢复包审计，基准 7399652）
+- **影响节点：** R-16 Lane B；D-127 的 191 候选。
+- **2026-09-18 降级（D-131）：** T4 以独立留出预测为主证据，残差 p 永久记筛查指标；A15 以程序级 leave-module-out 替代（separability.json）；A18 以全表效应表替代。本条目不再阻塞任何任务。
+- **当前事实：** OLS 拟合残差直接值置换（A13，协方差 σ²(I-H) 非可交换）；待测基因/模块未 leave-out 轴定义（A15）；coherent_patients 截断前 10（A18）。
+- **当前影响：** 191 保留为候选基因（非 191 新场），正式条件 p 需校准；T3 整理程序时执行 leave-g/module-out，不可分则记 `NOT_SEPARABLE_WITH_THIS_PROXY`。
+- **下一判定点：** T3 程序定义冻结后，正式推断以 T4 独立预测为主，残差 p 仅作筛查指标。
+- **升级条件：** T4 无增量则候选收缩；有增量则本条目降级为方法备注。
+
+- **2026-09-21 更新：** T4/GO 的 input/readout 已从组成与 QC 中排除；旧发现阶段的条件 p 仍不可作为校准空间推断。分子留一患者预测不能替代隐藏结构验证。旧候选生成未重训，相关发现完整性不作新保证。
+
+**2026-09-22 补充：** D-143 的方向对照仅为已知锚点上的描述；普通值置换和90度旋转尚未验证不规则支持上的空间交换性，不得输出正式空间 p。三位患者的有限方向效应不解除本条。后续先校准误报率与检出能力。
+
+- **2026-09-22 全GO更新：** 已完成已知空间协方差下的模拟校准，正确模型误报率3.4%–5.8%，忽略相关性最高62%；不能据此认定真实数据空间p已校准。T2P2仍NOT_RUN。本阶段条件性的患者符号翻转与Holm结果不替代逐点空间null。
+- **2026-09-28：** T2P2 已跑并失败（D-150）。真实表达式的空间关联 p 仍不可用，不因为本条原先说的 NOT_RUN。
+
+## I-025｜分析路径无深度校正的归因待定（恢复包 A14 已定位上游）
+
+- **状态：** `RESOLVED`（当前冻结程序与两比较队列的评分敏感性已量化）
+- **发现日期：** 2026-09-18（T0 实测）
+- **影响节点：** R-16 全部基于 `log1p_zscore` 的分析。
+- **当前事实：** 源 X=int64 原始 counts（已验 8270_AS_2 行和 301..13991），cache 原样拷贝，r16 路径从未做 library-size 校正——这是分析选择，不是数据缺失。深度混杂是否实际成立尚未检验（T3 敏感性分析）。
+- **当前影响：** 不得把"未校正"直接写成"深度混杂已确认"；T3 候选图卡须含深度/QC 对照层。
+- **下一判定点：** T3 triage 时以总量归一化+log1p 重算对照。
+- **2026-09-19 T6现状（D-133）：** T3已用Q（含log10 libsize+检测基因数）三层对照替代总量归一化重算；深度独立解释力未单独量化。本条目保持OPEN，直至深度敏感性量化完成。
+- **升级条件：** 敏感性分析显示结论稳定则 RESOLVED；若深度解释掉候选则改判并记录。
+
+- **2026-09-21 更新：** 已对两个完整匹配程序执行背景深度归一化敏感性。基质的增量保留，USZ 抗原呈递从原始评分 −7.73% 变为 +2.07%，存在口径敏感性。四个原程序受 I-027 限制；全 GO 深度敏感性未跑，本条保持 OPEN。
+
+- **2026-09-22 解除范围：** 全6870代表的深度归一化敏感性完成；原双队列>20%计数629降为45，已收缩稳健候选表述。说明评分处理敏感，不能断言差异全由深度造成；不代表所有技术混杂已排除。四原程序覆盖仍归I-027，固定细胞类型与真实空间null另行保留。
+
+## I-026｜既有实现审计与修复（2026-09-21）
+
+- **状态：** `RESOLVED_IMPLEMENTATION / SCIENTIFIC_CLAIMS_RESTRICTED`
+- **依据：** [修复最终报告](IMPLEMENTATION_REPAIR_20260921.md)、`infra/repair_20260921/validation_receipt.json`。F01–F11 已修复并完成受影响的完整尝试；另修复源缓存缺失补零、静默基因截断、R04 同 fold 冒充跨 fold 复现的问题。33 测试通过，显式加权最小二乘的 45 个误差项与批量方法一致。
+- **已恢复的使用范围：** 完整覆盖程序的分子预测、合法信息预算下的局部遮蔽预测、修正自然样条的描述性曲线和明确标注的患者级汇总。
+- **仍禁止复用：** 旧隐藏表达泄漏下的预测优势、旧窗口 McNemar 群体显著性、错误 spline 支持的梯度否证、由特异增量阴性推导的所有残余场不存在。这些旧强结论已撤回，不因工程修复而恢复。
+- **科学影响：** 基质程序保留当前代理基线下的分子增量，但两个完整程序均未超过邻域平滑；通用窗结构验证不可测。H-01/H-03 支持收缩，H-04 的共同场仍未测试；不构成相反的普遍阴性或阳性。
+- **边界：** T2P2、完整噪声功效/空间 null、全 GO 深度敏感性、旧 PCA/LISA/R04 重训及新走廊/几何任务未执行。R04 操作停止与 K 搜索关闭保持。基因/标注资格的硬阻塞分别见 I-027/I-028。
+
+## I-027｜四个冻结程序不具备完整跨队列基因覆盖
+
+- **状态：** `HARD_BLOCKED_EXACT_PROGRAM_REPLICATION`（限四个原程序的完整匹配面板比较）
+- **依据：** `infra/repair_20260921/six_source_coverage.tsv` 与 D-141。USZ 的 epi 缺 CEACAM6/KRT19，smmhc 缺 MYH11；stress 的 DEPRECATED 条目在两外部源都不存在；plasma 缺多项。只有 stromal/mhc2 具备本轮完整匹配面板资格。
+- **区分：** ST-CRC 的 epi/smmhc 源数据覆盖完整，不能将其标成所有任务都不可用；缺失也不能用零或静默删基因替代。发现缓存的源缺失已按逐程序×切片资格处理。
+- **当前影响：** 不能恢复“六程序全部跨队列复现”的表述；四程序的完整比较显式 NOT_TESTABLE，不是已完成的阴性。
+- **解除条件：** 数据自带 metadata 支持完整可核验的映射，或另行冻结可测的新程序/终点。若需要新增外部数据，按项目约束先说明缺口与规模并取得用户批准；本轮未获取。
+
+## I-028｜当前固定窗口不具备 TLS 二分类的标注条件
+
+- **状态：** `HARD_BLOCKED_CURRENT_WINDOW_BENCHMARK`
+- **依据：** `infra/repair_20260921/masked_structure_windows.tsv`。D-140 口径下，USZ 96 个固定窗为 93 UNKNOWN、3 NEGATIVE、0 POSITIVE；焦点居中对照仅 2 患者有合格对照。
+- **当前影响：** 本轮通用窗 TLS 判别无法估计 AUC，不能宣称定位成立或已被否证；原 p=3.3e-08 撤回。该阻塞针对当前窗设计与标注资格，不代表所有 USZ 数据或所有结构关联任务无用。
+- **解除条件：** 在结果查看前重新冻结具有合格独立标签和患者覆盖的验证设计；unknown 必须保留，不允许通过放宽事后门槛把未知当阴性。
+
+**I-028 2026-09-22 补充：** 新的方向描述有11焦点/3患者合格，但不是原来的窗口分类任务，也不是盲定位；该结果不解除原窗口硬阻塞。USZ 中3469个原始条形码未出现在预处理标注文件、13205个显式 UNASSIGNED 保持未知。ST-CRC 的12片已有病理类别另行清点，不把缓存空标签当作源数据无标注。
+
+## I-029｜当前三患者方向确认的检验分辨率不足
+
+- **状态：** `HARD_BLOCKED_CURRENT_DIRECTIONAL_CONFIRMATION`
+- **依据：** D-143/D-145资格不变：11焦点来自3独立患者；双侧精确患者符号翻转检验最小p=0.25。6870代表全量方向测试和已知模型注入均不能跨越该离散分辨率，增加焦点或通路数不增加患者数。
+- **影响：** 当前设计不能给出0.05水平的确认性方向显著性，更不能支撑多重校正后的走廊发现。局部效应描述和分子预测仍可报告，不将整个GO阶段或所有空间假设标成失败。H-01/H-05定位与迁移信心不升级。
+- **解除条件：** 获得足够且有资格的独立患者/标注，并在看结果前冻结端点和适用校准；或另行论证有可审计假设与误报率的检验设计。不能把未知当阴性、重复焦点当患者，也不能靠事后选通路恢复显著性。新增外部数据仍需先批准。
+
+**I-028 全GO阶段补充：** 所有程序共享的原USZ窗口仍93未知、3阴性、0阳性。全量通路分析未解除结构AUC不可测状态。
+
+## I-030｜GSE175540标签—矩阵缺口与GO符号歧义（2026-09-25）
+- **状态：** `OPEN_PARTIAL_PATIENT_AND_PROGRAM_ELIGIBILITY`（不是全队列硬阻塞）
+- **依据：** 本地资格核查中，18/18个R-02标签来源哈希匹配，18位患者均映射到冻结外部角色；其中GSM5924043有9个明确TLS/NO_TLS条码不在过滤表达矩阵中，GSM5924049只有78个TLS点和1108个空白未知点、没有明确NO_TLS。45项候选符号均存在，但14项在部分矩阵中有一符号对应多个feature ID；31项在18份矩阵中均为一对一映射。
+- **影响：** 当前严格、无映射歧义的TLS/NO_TLS患者级比较最多为16位患者×31项候选。对18位患者或45项直接评分会需要决定如何处理缺失标签点和重复feature符号；把空白当NO_TLS或让程序默认挑一个feature会改变证据。GSE175540为肾癌，而候选筛选使用的USZ来源含肾癌样本，故即使将来完成评分，也不能称为未见癌种或跨平台验证。当前没有任何GSE175540分数或假设检验结果。
+- **解除条件：** 在查看外部评分结果前，冻结feature ID到基因符号的处理、患者级TLS/NO_TLS端点、每位患者的汇总方法与缺失处理；未知标签保持未知。可以先限于16位完整患者和31项无歧义候选，或在明确且可复核的同符号feature聚合规则后扩大候选范围。不得把患者或spot升级为组织块重复。
+
+
+## I-031｜当前场检验的空间校准与普遍否证硬阻塞（2026-10-02）
+- **状态：** `HARD_BLOCKED_CONFIRMATORY_FIELD_CONCLUSION`。
+- **依据：** D-167 与 `infra/conclusion_audit_20261002/`。旧 Visium 几何、QR 多扣方向、sigma 缩半已修；拟合失败改为不可测，不再白噪声补位。模拟与观测经过相同残差算子，但有限组织支持、边际映射及回归后空间协方差未获误报率校准。
+- **影响：** 历史空间 p 与“无独立场”不再作为正式证据。未过 ≥50% 切片显著阈值不是患者级等价检验，也不符合 plan H-01/H-03 的完整否证判据。原 v5 注入只判统计量>0.002，不能证明 v8/v9 检验的功效。R-05/R-06/R-07 保持 NOT_TRIGGERED；H-02 未测。
+- **解除条件：** 同操作点、同掩膜/缺失/筛选流程下完成适用的误报率与功效验证，并提供患者级效应与不确定性；探索性重算完成不解除本条。不通过扩大 draw 数或用白噪声替代相关性来解除。
+
+## I-032｜组成代理与读数重叠，不能解释为已排除组成（2026-10-02）
+- **状态：** `OPEN_PROXY_INTERPRETATION_LIMIT`；对正式“组成之外”结论不可用。
+- **依据：** `covariate_overlap.tsv`：49 个读数中 36 个与 T/Mye/Epi/Stromal/Plasma 代理至少重叠一个基因；另有检测签名重叠逐项记录。读数和 proxy 均为表达模块分，非实测细胞比例；调整可扣掉真实同向生物状态。
+- **影响：** 本轮 comp 臂只表示在这些表达代理条件下的残差敏感性，不能写成细胞组成已排除，也不能用调整后的 B 轴归零单独证明原信号由挑锚点造成。参考自重建成功不排除实际映射/归一化/平台问题，CRC NNLS 异常的唯一原因不能定为领域不匹配。
+- **升级/解除条件：** 若用此代理支持 H-01/H-03 正式组成独立结论则升级硬阻塞；需预先定义无直接读数重叠的控制与适用性验证。当前不为挽救阴性而事后改 marker 或重定义目标。
+
+**2026-10-02 D-168 目标调整：** 用户认可外围组成信息本身可有价值。I-032 仅限制“组成之外”的次级机制解释，不再阻塞 H-01 外围信息主分析；无需先修好反卷积才画外围曲线。I-031 仍阻塞正式空间显著性及不存在的结论。下一步可先做metadata/mask资格与描述性设计，误报率、功效、患者级重复性门槛保留。新主分析不回归掉检测签名与组成代理，旧own/comp结果不能替代新分析。
+
+## I-033｜R-17 严格患者级复现缺少可追溯的身份交叉表（2026-10-02）
+- **状态：** `HARD_BLOCKED_PATIENT_LEVEL_CONFIRMATION`，不阻塞切片级描述与空间校准实验。
+- **来源与冲突：** USZ历史identity_evidence将SAMPLE编号解释为患者编号并标E3 explicit，但随数据JSON仅有SAMPLE；Zenodo说明3个肾肿瘤/5个肺肿瘤，没有患者与样本的一一对应字段。GSE175540 GEO标题是样本别名；本地atlas Table S2有24个不同患者的队列级旁证，但未找到GSM到R_P的逐例对应，不能虚构具体患者编号。
+- **隔离：** 本轮 `infra/tls_peripheral_20261002/identity.tsv` 的严格patient_id保持空白、按样本描述。源字段和限制亦写入sample-registry的本轮restriction overlay；不改变历史冻结结果的ID，不把其历史重复数自动转为当前独立患者数。
+- **影响：** 不能完成所需的跨患者置信区间、患者级独立重复或进入定位确认；跨样本同向只为描述。不能靠样本bootstrap或同片TLS数量解除。
+- **解除条件：** 本地原始metadata提供明确的患者对应/样本独立性证明，或用户在本项目明确确认；若需要外部数据，先按规则申请。
+
+**I-031 2026-10-02 R-17执行更新（D-170）：** 新的未扣组成主分析与候选空间null已完整执行。24片×两mask×六模型的288个误报设置中56个未过预先上界门；0.5SD注入576个设置中510个未达到检出能力门。不是“校准未跑”，而是该候选`FAILED`；所有正式p仍留空。B轴21/24片近高远低是描述性线索，不能解除本条或I-033。下一校准方法需另立决策，不继续默认调参。
+
+**I-031 2026-10-03 多尺度桥更新（D-175至D-177）：** 26片的404049个合格原位旋转参考已全1691 GO及51对照评分。全部39个方向共有支持的严格搜索仅覆盖8片、1242种几何；六类场×400次的48个误报设置中35个未过，0.5SD的888个功效设置中767个未过。该旋转方法必要门失败，不能提供正式桥p，也不能普遍否证桥。其余几何保持校准未覆盖，而非阴性；一片通过必要单场门不等于联合GO适用性。详见 `docs/TLS_MULTISCALE_BRIDGE_CALIBRATION_20261003.md`。这不阻止其他全量描述与已经完成的反向内部预测，但仍硬阻塞正式桥确认。
+
+## I-034｜多尺度桥中短而窄连接的可测范围不足（2026-10-03）
+
+全尺度几何核查已包括不足500μm及500–1000μm的候选，没有毫米级入选门槛。当前五段、每段中心和双侧各至少5点、真实核心遮蔽的规则下，半宽100μm的走廊在长度不足1000μm时均缺少支持；半宽250μm在不足500μm时也均不可测。短而很宽的合格走廊仍存在，但不能据此声称已验证短而窄的桥。完整计数见 `infra/tls_multiscale_gobp_20261002/summary/length_width_support.tsv` 和 `scale_qualification.tsv`。
+
+这是当前数据与算子的适用范围，不是这些尺度没有桥；不阻塞其他可测长度/宽度及全量GO分析。若后续要对上述短而窄范围作存在或不存在的确认，升级为该范围的硬阻塞：须另立分辨率适配的检验并校准，或在用户批准后取得更密集且有合适标签的数据，不能事后降低点数要求后沿用原合同。
+
+## I-035｜肿瘤界面仅由稀疏类别标注中的相邻片段定义（2026-10-03）
+
+USZ的8片虽均有TUM标签，但按TUM邻接明确NOR/INFL/LN的既定规则，只有KC2、KC3、LC1、LC4、LC5共5片有界面点（分别2、21、52、30、1点）。其中只有KC3、LC1、LC4有至少2点的连通界面端点，可用于TLS到界面的桥；其余3片没有明确类别直接相邻的界面，不能沿UNASSIGNED/空标签补出边缘。GSE175540无肿瘤类别标签。证据见 `infra/tls_multiscale_gobp_20261002/summary/source_annotation_support.tsv`。
+
+现有边分析只能解释“可观测的类别相邻界面片段”，不是完整肿瘤外缘，也不是额外病理边界真值。单点界面距离曲线保留其锚点数量，不升级成连续边界。该缺口不阻止可用片段的全量分析；若结论要求完整肿瘤外缘、或把没有可用界面的切片纳入边缘确认，升级为对应主张的硬阻塞，须有可追溯完整边界依据后另立分析，不能由表达静默补标。
+
+**I-031/I-033 2026-10-03 全量执行关门：** D-179晕/边背景也已完成。晕126个、界面12个可测误报设置通过必要单场门；0.5SD功效分别745/756与144/144个未过，不能用阴性否证。全GO真实联合空间适用性仍未证明。94个本地输入SHA复核不变，26行严格patient_id仍全部为空；该身份缺口自R-17起持续存在，完成全量预测、校准和图表均未解除。当前授权范围内本地交付已完成，正式确认需要不可由现有表达推断的身份/独立验证依据。已备好患者对应模板和不超过10MB的官方元数据检索方案，尚待批准，未下载新数据。
+
+**I-033 2026-10-03 已批准补查结果（D-182）：** 已取得并登记USZ官方JSON、GSE175540全样本SOFT、关联BioProject和论文书目XML，共29956字节。24个GEO样本字段覆盖当前18个GSM，但未提供明确患者对应；USZ8个亦未提供。26行仍UNKNOWN。Cell补充入口403，不能声称已核查其全部附件。授权等待已解除，身份材料缺口仍在；见 `docs/TLS_PATIENT_METADATA_LOOKUP_20261003.md`。
+
+**I-033 2026-10-03 用户补充表更新（D-183）：** 用户提供的Excel可将全部24个GSM匹配到23个表内ID，当前18片到17个ID。GSM5924030/5924050共同对应c_2，表中明确Frozen / FFPE；旧逐片留出不是按该ID分组验证，不能据此确认患者独立性。当前缺口收窄为原出版出处及ID单位的图注确认，USZ身份缺口不变。待确认后按组重新验证，未重跑前旧数值不改称患者级性能。详见 `docs/GSE175540_USER_TABLE_AUDIT_20261003.md`。
+
+**I-033 2026-10-03 用户确认：** D-184：用户明确确认补充表ID为患者，GSE当前18片对应17位患者，身份依据缺口对这18片解除；USZ8片仍未知。版本化overlay位于`infra/bioinf-data-index/raw/user_gse175540_20261003/current_26_source_identity_confirmed.tsv`。旧逐片留出尚未按患者分组重算，不能升级为患者验证。
+
+**I-033 2026-10-03 分组验证完成（D-185）：** GSE的17位患者已作分组留出，同c_2两片不跨训练/测试；原逐片性能不可冒充患者性能的问题已有新版本结果。USZ仍8个肿瘤样本、患者身份未知，不能阻塞GSE内部分组验证。新结果仍非独立盲验/空间确认；500μm仅5位、1000μm13位患者可评，缺测与查询相关性限制保留。
+
+## I-036｜c_2两种制备的外围预测存在强烈差异（2026-10-03）
+- 状态：`OPEN_PAIRED_PREPARATION_HETEROGENEITY`，不阻塞全量描述。
+- 证据：患者整体留出后，1000μm B轴AUC在FFPE/Frozen片分别0.5952/0.0161，GO组合0.5337/0.0280；Frozen有5个正查询，阴性结果未翻转或删除。见 `docs/TLS_PATIENT_VALIDATION_20261003.md`。
+- 含义：同患者的不同制备切片不可认为预测表现等价，患者均值提高不代表这一失败被解决。当前不能从此直接归因于制备技术或生物差异。
+- 升级条件：若将跨制备可迁移性作为确认性主张，必须先审计适用标签、可见支持与技术条件，必要时增加独立依据；不能事后翻转方向或只保留较好切片。
+
+**I-036 2026-10-03 D-186核查更新：** 两源原始counts全1742项评分、barcode顺序/标签/坐标、三mask查询资格和固定特征、1000μm固定模型预测均重算一致，未发现所查计算/对齐错误。Frozen的5个正查询来自同一个较小TLS，较大TLS直径1868μm无法满足1000μm完整核心+130隔离带遮蔽；近外围低、远处高的B特征与模型权重相反，另一个150点TLS核心仍在可见域。已找到可复核的输入/评分差异，但无法判定生物/技术原因，保持OPEN。不得把5个查询作为5个独立TLS，也不能用该失败否定所有患者外围信息。
+
+## I-037｜跨mask性能混有目标选择与支持范围变化（2026-10-03）
+- 状态：`OPEN_SCALE_COMPARABILITY_LIMIT`，不阻塞完整描述。
+- D-187：GSE500μm只有7个TLS实例贡献正查询，1000μm保留7个并新增20个；USZ61→72。患者可计算AUC数量分别5→13，不能把两档均值直接写为同一结构的距离衰减。USZ另有14个连通域被固定网格漏采；b_18缺明确非TLS标签，保持仅正类不可算AUC。
+- 解除范围：固定共同患者/片内TLS实例/共同查询的配对比较可解决评估对象不同这一层，训练操作点和空间校准仍另有限制；若要确认纯距离效应或普遍可定位性，需要更完整的预定设计和独立依据，不能靠挑子集解除。证据见 `docs/TLS_OBSERVATION_SCOPE_20261003.md`。
+
+**I-037 2026-10-03 D-188更新：** 已完成共同患者/片内TLS/正负查询的配对，测试人群不一致这一层已在新敏感性表中排除。GSE共同5位患者GO组合来源留出下降0.1467、B轴提高0.0643，不能把所有变化归于新纳入的TLS；训练操作点/特征/选集不同仍保留，状态为`TEST_POPULATION_MATCHING_RESOLVED / TRAINING_SCALE_INTERPRETATION_OPEN`。完整人群表及c_2 Frozen失败未删；共同子集不能替代全量或称新盲验。
+
+**I-031 2026-10-03 桥失效诊断（D-189）：** 原方向35/48设置高于方向平均尾部率，LC1高斯1500模拟实际方向33%而方向平均5%；不能用方向平均替代失败的实际方向。半SD的121个功效通过中仅43个对应误报也过，整源六场误报+同代表六场功效全过0/148。无噪声模板也仅78/148个目标胜过完整参考搜索，半宽1000μm为5/21。线性算子方差大多近似相等，不能称独立噪声归一化已修复相关场校准。硬阻塞保持；未来替代方法须新冻结合同，理想已知背景通过也不直接解锁真实GO正式p。

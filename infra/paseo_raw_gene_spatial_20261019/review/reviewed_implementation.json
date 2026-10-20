@@ -1,77 +1,11 @@
 {
-  "status": "NOT_ACCEPTED",
-  "allow_full_run": false,
-  "reviewed_at": "2026-10-19",
-  "reviewer": {
-    "provider": "xai",
-    "model": "grok-4.7",
-    "reasoning": "xhigh"
-  },
-  "git_scope": {
-    "implementation": "7ba553f9a6dcff7668f305c0aaa30c47974f89cd",
-    "handoff_errata": "1758023b203412322d9cab7a6b58f666df4e203e",
-    "science_contract": "6c970cc2e3153e6eeadf2847eb31d9a627e9d33c",
-    "head": "1758023b203412322d9cab7a6b58f666df4e203e",
-    "script_matches_head": true,
-    "uncommitted": "review_task.md 有主代理补充的两行工作区 diff。checks/tiny、smoke 预测包和 evaluation 中间产物未提交。本审核不把这些未提交大文件写成新的实现版本。"
-  },
-  "decision": "不允许全量。基因和 QC 的来源、置换孤立点、固定平滑容差、范围绝对偏差和留出目标隔离已关闭。器官/平台指示列的惩罚与科学合同的 X 不一致，而且复制块检查没有覆盖正式邻域设计。这会改变候选相对同点模型的比较。",
-  "closed": [
-    {
-      "id": "B-01-source",
-      "item": "可见基因和 QC 来自冻结 full15 矩阵，不从原始计数重建",
-      "evidence": "输入允许表不含原始 HDF5。邻域算子作用在 [Z, QC] 上，不是只作用在基因上。交接写 WZ/VZ 漏了 QC，以代码为准。"
-    },
-    {
-      "id": "B-03",
-      "item": "置换和背景",
-      "evidence": "片内一次置换同时用于近邻和外环；置换图的孤立行回填差为 0。背景均值来自全片 [Z, QC]，不是 512 个训练行。"
-    },
-    {
-      "id": "B-04",
-      "item": "固定平滑和冻结预测界限",
-      "evidence": "平滑公式是 0.5 乘以同点预测加近邻均值。科学合同的逐点 1e-4 和每片 RMSE 1e-5 仍在机器合同和检查里，没有放宽。抽查 internal_0、目标 0 的实测差为 1.68e-5 和 2.05e-6。该抽查不是四个目标的全库证明。"
-    },
-    {
-      "id": "B-05",
-      "item": "范围绝对偏差",
-      "evidence": "真实可评例的记录是 (-6.245, 6.245)，不是空值。另有 ±0.4 与有效 0 的三片例子：逐片绝对值再平均为 0.266667，先平均再取绝对值是 0。0 计入三片分母，缺失片不进入完整单位均值。失败日志仍在 archive/。"
-    },
-    {
-      "id": "B-06",
-      "item": "留出目标不进入特征",
-      "evidence": "篡改片内目标读出后设计矩阵按记录为位级相同。划分文件是既有 splits.json，不重抽。检查范围是定向样本，不是全库重跑。"
-    }
-  ],
-  "equivalence_tolerance_judgment": {
-    "id": "B-02-tolerance",
-    "changed_the_check_gate": true,
-    "not_accepted_as_wording": "交接说这不是放宽。这个说法不成立。原先机器界限是 1e-6，实测复制块残差 6.18e-6，按旧界限失败。现行规则 max(2×求解器地板, 1e-5) 的实际生效值是 1e-5，所以检查由失败变成通过。",
-    "independent_basis": "同一正式训练设计上，cholesky 与 lsqr 的预测差是 3.40e-6，正则化 Gram 条件数约 5.2e5。错缩放对照残差 2.11e-4，约为复制块残差的 34 倍，检查仍能区分错误缩放。alpha 和 1/sqrt(3) 没有按内部或来源分数改过。",
-    "judgment": "数值上，复制三份同点设计再乘 1/sqrt(3) 与同点模型的差别处在这个病态设计的求解器分辨率内。依据足够支持“缩放公式在该分辨率下成立”。依据不够支持“检查界限没有放宽”。1e-5 是看到 6.18e-6 之后写下的，不是事先唯一确定的常数。",
-    "holdout_tuning": false,
-    "frozen_prediction_limits_unchanged": {
-      "point_max_abs": 0.0001,
-      "section_rmse_abs": 1e-05
-    },
-    "blocks_full_run": false
-  },
-  "row_count_note": {
-    "severity": "交接文字，不是代码会跑错行数",
-    "expected_full_rows": 2500,
-    "basis": "full15 只有一个视图。125 次切片访问 × 4 目标 × 5 模型 = 2500。烟测 80 行也是这个口径：2 个划分 × 2 个测试片 × 4 × 5，视图只有 full15。",
-    "handoff_5000": "成本估计中的 5000 行是旧的两视图口径，不能引用。按代码，evaluate 不会因为这个句子变成 5000 行。墙钟估计里的评价时间大约高了一倍，不改变科学对照。"
-  },
-  "unclosed_result_affecting": [
-    {
-      "id": "R-01",
-      "severity": "阻断",
-      "item": "器官/平台指示列的惩罚与合同 X 不一致，复制块检查也没有覆盖正式邻域设计",
-      "evidence": "合同里的 X 是基因加 QC，不包含标签。代码的邻域块是 W[Z, QC] 和 V[Z, QC]，这一部分与 X 一致。点模型另外拼接 4 个器官和 2 个平台指示，这是为了复用冻结同点输入。三个块模型把拼接后的整张矩阵，包括这些指示列，统一乘 1/sqrt(3)；同点模型不乘。因此候选、背景和置换之间的指示列惩罚相同，但它们相对同点模型和平滑基线更强。复制块检查复制的是整份点设计三遍，包含指示列；正式候选的三块宽度并不相同。检查通过不能证明正式邻域设计的惩罚已经配平。",
-      "impact": "内部比较混合了多个器官。相对同点模型的差异里会混入指示列惩罚变化，而不只是邻域排列。这足以改变“是否超过同点”的描述。",
-      "required_fix": "把器官/平台指示放到 1/sqrt(3) 缩放之外，并使同点模型与三个块模型对这几列使用相同的训练期标准化和惩罚。邻域块保持 W[Z, QC]、V[Z, QC]。交接改为这个结构，不再写 WZ/VZ。复制块等价仍只检验三份相同的基因/QC 设计，并保留错缩放负对照；不要用评价分数选择新的 alpha 或缩放。科学合同的逐点 1e-4 和每片 RMSE 1e-5 继续有效。修复后换 Git 版本再审，本文件不替新代码背书。"
-    }
-  ],
-  "hypothesis_impact": "本审核没有全量恢复结果，不改变 HF-01 的现有判断。允许全量只会被理解为按冻结对照运行，不是空间增量已经成立；当前甚至还不允许运行。",
-  "defect_free_guarantee": false
+  "status": "ACCEPTED_FOR_FROZEN_DESCRIPTIVE_RUN",
+  "allow_full_run": true,
+  "current_round": 2,
+  "current_record": "infra/paseo_raw_gene_spatial_20261019/review/reviewed_implementation_round2.json",
+  "round1_preserved": "infra/paseo_raw_gene_spatial_20261019/review/reviewed_implementation_round1.json",
+  "git_commit": "0e6e5f504059f44d9b10efe981d2140321e01eb1",
+  "r01_closed": true,
+  "unclosed_result_affecting": [],
+  "decision": "R-01 已关闭。允许按 Git 0e6e5f5 运行全量描述性对照。这不是科学假设成立。详细证据见 round2 记录；首轮不通过记录保留。"
 }

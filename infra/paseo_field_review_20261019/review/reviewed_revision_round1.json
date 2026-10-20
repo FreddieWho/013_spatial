@@ -1,0 +1,156 @@
+{
+  "status": "NOT_ACCEPTED",
+  "allow_full_descriptive_analysis": false,
+  "decision": "不允许进入全量描述性分析。执行者自测 1281/0 不能代替本次审核。当前磁盘版本相对交接文本已经变化；汇总阶段仍有未关闭、且能改变结果或中断交付的缺陷。",
+  "reviewed_at": "2026-10-19",
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "reasoning": "xhigh",
+    "paseo_agent_id_from_D261": "a5bcb012-6618-488e-8f88-f700773fd4c4",
+    "note": "本进程环境为 xai/grok-4.7/xhigh。未再查询 Paseo 以核对代理 ID。"
+  },
+  "binding": {
+    "rule": "只为下列当前磁盘哈希背书范围内的结论。交接文件中的哈希表已过期，不能用来声明本审核通过，也不能把早期快照审查转写成当前代码通过。",
+    "script": {
+      "path": "scripts/field_biological_review_20261019.py",
+      "sha256": "146c08c7f13cc6c82be1329524c8551a893dfc1a2a280ca449ee0b8bcbe9f637",
+      "bytes": 99229
+    },
+    "protocol": {
+      "path": "docs/FIELD_BIOLOGICAL_REVIEW_PROTOCOL_20261019.md",
+      "sha256": "f86e3e681ec4ecc97076583f6c3b4375a80e1e10894c4a7bd91653453288d7b1",
+      "bytes": 30244
+    },
+    "contract": {
+      "path": "infra/field_biological_review_20261019/contract.json",
+      "sha256": "a71eb3d8a85a0ff620e660b39e0d151f20d5dc70198c22a313f79197546f6e9c",
+      "bytes": 11864
+    },
+    "executor_checks_on_this_hash": {
+      "path": "infra/field_biological_review_20261019/checks/checks.json",
+      "sha256": "559caf28843308e79456f40fc0bb35f8a6ea276abec94b03655f6c6fdd304b2a",
+      "candidate_script_sha256": "146c08c7f13cc6c82be1329524c8551a893dfc1a2a280ca449ee0b8bcbe9f637",
+      "candidate_contract_sha256": "a71eb3d8a85a0ff620e660b39e0d151f20d5dc70198c22a313f79197546f6e9c",
+      "n_checks": 1281,
+      "n_failed": 0,
+      "sections": ["MISC33", "TENX154", "TENX161", "NCBI642"],
+      "use": "仅证明该自测记录绑定的是当前脚本/合同哈希。不是独立验收，也没有覆盖 summarize。"
+    }
+  },
+  "not_this_revision": {
+    "handoff": "infra/paseo_field_review_20261019/implementation_handoff.md",
+    "handoff_claimed_script": "bc784e44ec2666f3213a4f79ba1978a57be314d59a663675ed7a13823ef488c5",
+    "handoff_claimed_protocol": "630702bced11d9de18f6e5173f4d08c9c2e9c6804eee5a75c8a486e2127ead66",
+    "handoff_claimed_contract": "e412a4190936310d4be42d5acbec27e8b7221b259babd4a9e8bfcf4dcdb6de17",
+    "handoff_claimed_checks_json": "aa2fd2d7bf35106e687915f4bfef851b68b0d8734f7a09c05d0a78fa0a39280e",
+    "early_snapshot_matches_handoff_claims": true,
+    "current_files_match_handoff_claims": false,
+    "current_vs_snapshot_diff": "协议新增 §6.1，合同新增 interpretation_boundary，脚本只在报告文字中加入同一科学边界。指标函数在该差异之前与早期快照相同。交接文本没有改到这一步，不能再当作版本绑定。"
+  },
+  "scope": [
+    "当前脚本、协议、合同与交接文本的差异",
+    "预审 P-01 至 P-13 在当前代码中的落实，只抽查能改变结果的路径",
+    "隔离点近邻修复、两条浮点权重对照的设计、常数预测、严格分位、身份门、单位权重与缺失处理",
+    "独立小反例：within_unit_rows 的列名、双切片单位的部分缺失平均、常数场、85% 零值场的 q75、全孤立图、NCBI642 及 72 片外环孤立点对自相关的影响",
+    "checks.json 的哈希绑定、失败数，以及它没有调用 summarize"
+  ],
+  "not_in_scope": [
+    "未重跑 1281 项自测",
+    "未运行 prepare/run/summarize",
+    "未重读人工 TLS、annotations/incoming、HookNet 或病理点注释",
+    "未把 4 片抽样外推成 72 片基因矩阵行序已全部证明",
+    "未审核交接声称的旧哈希 bc784e44 作为当前版本"
+  ],
+  "scientific_boundary": {
+    "source": "用户 2026-10-19 补充；已写入当前协议 §6.1、合同 interpretation_boundary 和报告文字",
+    "statement": "不可评价只描述统计量能否计算。数学上可算不等于有足够生物学参照。低覆盖、单基因主导、有效基因数少、边界或孤立点支撑不足、物理尺度未确认，都仍限制解释。不得用统一百分比删除切片、目标或行，也不得把 DESCRIBED 或任何可算格子升级为已具生物学评价资格。NOT_TESTABLE/NOT_ESTIMABLE 也不是场不存在或恢复失败。本阶段即使日后允许全量，产出仍只是描述性清单；生物学可用性由主代理结合连续证据判断。",
+    "code_status": "当前状态名仍然是计算标签。diag_* 不删行、不改指标。此边界已写入当前三份文件，但不弥补下面未关闭的计算缺陷。"
+  },
+  "closed_on_this_hash": [
+    {
+      "id": "C-01",
+      "preflight": ["P-09", "P-05"],
+      "item": "常数预测与零膨胀分位",
+      "evidence": "用当前模块独立调用 describe_field：常数场自相关和连通片为 None，不是 0 或 1；85% 零值场的 q75 面积占比为 0.15，掩膜等于非零点，并列占比 0.85。全孤立图的细节分量为 0，自相关不可算。sd_floor=1e-6 作为 float32 噪声分辨率可以保留，但它不是生物学资格线。",
+      "status": "这部分计算规则未发现会把常数写成可排名相关，或把并列零值写成全片阳性。"
+    },
+    {
+      "id": "C-02",
+      "preflight": ["P-06", "P-13"],
+      "item": "近邻孤立点已改用冻结 neighbor_mean",
+      "evidence": "当前 neighbor_mean 调用 scripts/field_discovery_20261018.py 的冻结函数。独立重算 NCBI642 目标 0：直接矩阵乘法与孤立点回填自身值的邻域均值最大差 0.184；由此得到的近邻自相关分别为 -0.21235 与 -0.21725，差约 0.0049。当前近邻路径使用回填规则。",
+      "status": "近邻孤立点缺陷在当前代码中已修复。这不自动覆盖外环自相关。"
+    },
+    {
+      "id": "C-03",
+      "preflight": ["P-08"],
+      "item": "身份门与来源外推标记的行级规则",
+      "evidence": "setup 断言确认身份为 14 片 / 8 单位；当前 checks.json 的 setup_checks 同为 14/8，来源不足 19，拒读白名单命中 0。source_0 与 source_5 的 same_organ_train_sections 为 0，其余来源臂大于 0。抽样中 cross_organ_extrapolation 为 True 的行数是 40，等于 NCBI642 在来源臂的 4×2×5 行，不是内部臂误标。",
+      "status": "行级身份和行级外推标记未发现算错。patient_known 仍是片级标记，不能数成患者数。臂级汇总标签另见未关闭项。"
+    }
+  ],
+  "unclosed_result_affecting": [
+    {
+      "id": "R-01",
+      "severity": "阻断",
+      "preflight": ["P-08", "P-12"],
+      "file": "scripts/field_biological_review_20261019.py",
+      "lines": [1149, 1155],
+      "defect": "summarize 调用的 within_unit_rows 对预测关系行读取 rel_pearson。预测关系输出只有 measured_rel_pearson 和 predicted_rel_pearson。7 个双切片单位会进入该分支。",
+      "independent_evidence": "用与输出模式一致的两行预测关系调用当前 within_unit_rows，得到 KeyError: rel_pearson。1281 项自测没有调用 summarize，所以 0 失败没有覆盖这里。",
+      "impact": "全量 summarize 会在写出单位内一致性表之前中断，随后的诊断敏感性、实测汇总、报告和冻结清单也不会完成。单位内关系轮廓要么缺失，要么在修复时若读错列就会把空值当成关系。",
+      "required_fix": "只按协议比较实测关系轮廓，或显式读取预测关系行实际存在的列。用抽样关系表的真实列名做一次会失败关闭的检查。修复后必须换新哈希再审。"
+    },
+    {
+      "id": "R-02",
+      "severity": "阻断",
+      "preflight": ["P-08", "P-09"],
+      "file": "scripts/field_biological_review_20261019.py",
+      "lines": [1054, 1058, 1136],
+      "defect": "单位聚合在一个单位的两片里只保留非空值再平均。一片缺失时，另一片获得整个单位的权重，且该指标不进入 not_estimable_metrics，也不写合同要求的 NOT_ESTIMABLE_UNIT。分层汇总在该层全不可算时直接不写行。",
+      "independent_evidence": "两片单位中一片 rec_pearson 为空、一片为 0.8。当前 aggregate_units 给出单位值 0.8、贡献片数 1、单位切片数 2，缺失串中没有该指标，也没有 NOT_ESTIMABLE_UNIT。",
+      "impact": "7 个双切片单位只要有一个指标在一片上不可算，单位等权宏平均的分母就变了。这会改变单位级和臂级描述，而不是只留下可追溯的空值。",
+      "required_fix": "一片不可算则该单位该指标为 NOT_ESTIMABLE_UNIT，或单独标出部分单位且不把它当作完整单位进入等权均值。空层保留行和原因，不静默消失。修复后换新哈希再审。"
+    },
+    {
+      "id": "R-03",
+      "severity": "高",
+      "preflight": ["P-06", "P-13"],
+      "file": "scripts/field_biological_review_20261019.py",
+      "lines": [475],
+      "defect": "近邻自相关对孤立点回填自身值；外环自相关仍是 geo.outer 直接乘向量，孤立点贡献 0 而不是细节分量自身。冻结特征构造对 near 和 outer 都使用 neighbor_mean。",
+      "independent_evidence": "72 片中 13 片外环有孤立点。在同一近邻细节分量上，只改外环孤立点规则，5 片绝对差超过 1e-6，最大为 TENX171 的 0.00299（0.02886 对 0.03185）。",
+      "impact": "geo_autocorr_outer 和 rec_autocorr_outer_delta 在这些切片上会改变约千分位。不能把该列说成与冻结外环邻域完全同一规则。",
+      "required_fix": "外环使用与 neighbor_mean 相同的孤立点规则，或在该列标明 NOT_COMPARABLE 并不进入与模型邻域的比较。修复后用上述切片复核差值。"
+    },
+    {
+      "id": "R-04",
+      "severity": "高",
+      "preflight": ["P-08"],
+      "file": "scripts/field_biological_review_20261019.py",
+      "lines": [1097],
+      "defect": "臂级宏平均的 cross_organ_extrapolation 取 group[0]。来源臂同时含 same_organ 为 0 的 source_0/source_5 和其他来源，该布尔值不能代表整臂，而且单位行顺序不稳定。",
+      "independent_evidence": "splits.json 中 source_0、source_5 的 same_organ_train_sections 为 0，source_1 至 source_4 不为 0。代码确认使用 group[0]。",
+      "impact": "不改变均值本身，但会把整臂均值误标成器官外推或非外推，读者会错读 HF-04 的适用范围。",
+      "required_fix": "臂级取消单一布尔值，或改成 mixed/true/false 且与分来源表一致。划分级行可以保留，因为同一划分内该标记是一致的。"
+    }
+  ],
+  "accepted_with_limits": [
+    {
+      "id": "L-01",
+      "preflight": ["P-07"],
+      "item": "同权重与 float64 均匀权重两条对照",
+      "limit": "设计与当前哈希上的自测记录一致：同权重残差约 1e-16，均匀权重残差约 1e-9 至 1.5e-8，存储权重偏离 1/度最大约 9.93e-9。本审核没有重跑全部 16 组稠密循环。未发现用放宽容差掩盖逻辑错误的证据。这不是对全部切片的证明。"
+    },
+    {
+      "id": "L-02",
+      "preflight": ["P-01", "P-02", "P-03", "P-04", "P-11"],
+      "item": "语料锁定、三本账、禁读和连续覆盖报告",
+      "limit": "代码按 1000 个预测包选文件、排除 train_indices、内部与来源分账，关系行使用 input_echo 角色。全量基因矩阵行序只在自测的 2 片上由执行者报告差为 0；prepare 不会对 72 片重复该核对。因此不能把模块关系的行序说成已经全库证明。"
+    }
+  ],
+  "re_review_required": "修复 R-01 至 R-04 后提交新哈希。不得用本文件为新代码背书，也不得用 1281/0 或交接中的旧哈希宣布通过。",
+  "hypothesis_impact": "本审核没有新的恢复或迁移结果，不改变 HF-01、HF-02、HF-04 的现有限定。不允许把可计算或 DESCRIBED 写成生物学评价资格。",
+  "defect_free_guarantee": false
+}
