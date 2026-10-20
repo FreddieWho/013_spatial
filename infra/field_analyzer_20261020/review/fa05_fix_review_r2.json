@@ -1,0 +1,62 @@
+{
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "thinking": "xhigh",
+    "cwd": "/home/huyudi/013_spatial"
+  },
+  "node": "FA-05",
+  "commit_reviewed": "7f02d47",
+  "scope": {
+    "read": [
+      "7f02d47 对 TODO.md、STATUS.md、REPORT_FA05.md、REPORT_FA06.md 的 diff",
+      "TODO.md 第 51 行",
+      "STATUS.md 补洞段",
+      "infra/field_analyzer_20261020/REPORT_FA05.md §2.3",
+      "infra/field_analyzer_20261020/REPORT_FA06.md 第 26、32、81 行",
+      "docs/roadmap.md 的 FA-05 行",
+      "infra/field_analyzer_20261020/block_recovery/summary.json 的单位等权主口径与 EMT 12 pitch"
+    ],
+    "ran": [
+      "从 summary.json 复算混合中位：4 pitch 多场 +0.137123 低于固定带宽核 +0.158826、高于自适应核 +0.129348；8 pitch 多场 −0.004205 高于该半径最好单场 −0.037566；12 pitch 多场 −0.082421 高于自适应核 −0.203908",
+      "核对 EMT 12 pitch 的 kernel 单位等权为 +0.117206，与 STATUS 的 +0.12 一致",
+      "在 STATUS、TODO 现行条目、roadmap、FA05、FA06 中检索「约 4 pitch」「共同截止」「任何半径」"
+    ],
+    "not_checked": [
+      "未重跑 block-recovery",
+      "未重读 recovery_metrics.tsv；本轮提交不改表，数字沿用 summary.json"
+    ]
+  },
+  "items": [
+    {
+      "id": "K3",
+      "closed": true,
+      "verdict": "已与报告一致",
+      "evidence": "TODO.md 第 51 行已改为：4 pitch 高于可见均值 +0.137 与自适应核 +0.129，低于固定带宽核 +0.159 和 IDW +0.156；8、12 pitch 上最好的单场参照本身已不优于均值，多场只是没那么差。不再写「任何半径都不超过可见均值」。与 REPORT_FA05 §2.3 的数字和限定一致。",
+      "residual_risk": "变更记录第 115 行仍留着交付当天的「约 4 pitch」。那是历史记录，不是现行条目。"
+    },
+    {
+      "id": "K5",
+      "closed": true,
+      "verdict": "已限定在 4 pitch",
+      "evidence": "REPORT_FA05 删掉了「没有任何半径上多场超过最好的单场参照」。现写明该比较只在 4 pitch。8 pitch 多场 −0.004 高于该半径最好单场 −0.038，12 pitch −0.082 高于自适应核 −0.204，与 summary.json 的 −0.004205/−0.037566 和 −0.082421/−0.203908 一致。并写明这两个参照都在零以下，不能说多场恢复得更好。",
+      "residual_risk": "「单场平滑本身已经不优于可见均值」指的是混合中位。EMT 自己的核在 8 和 12 pitch 仍为正，这一点已写在 §2.2，不把 K5 重新打开。"
+    },
+    {
+      "id": "K6",
+      "closed": true,
+      "verdict": "共同截止已去掉",
+      "evidence": "STATUS 改为没有统一的能补多远：混合中位 8 个间距起不再占优，EMT 到 12 个间距仍为 +0.12，氧化磷酸化到 8 个间距已更差。FA06 第 81 行改为不存在统一截止，并把「可恢复到 8 pitch」和「约 4 pitch 是共同截止」都标成已作废的旧说法。roadmap 写的是按场无共同截止。现行结论里不再把约 4 pitch 当成全体截止。",
+      "residual_risk": "FA06 第 81 行把 FA-05 写成了 FO-05。不影响科学结论。"
+    }
+  ],
+  "answers": {
+    "1": "是。TODO 第 51 行与报告 §2.3 一致，旧的「任何半径都不超过可见均值」已不在现行条目里。",
+    "2": "是。不超过最好单场参照只用于 4 pitch。8 和 12 pitch 写了多场高于该半径的负参照，并说明这不是恢复得更好。",
+    "3": "没有。STATUS 和 FA06 现在写的是没有统一截止。剩下的「约 4 pitch」「共同截止」都是在说旧说法已作废，或是变更记录里的历史句子。"
+  },
+  "new_findings": [],
+  "claims_that_do_not_hold": [],
+  "allow_node_conclusion": true,
+  "limitations": "K3、K5、K6 可以关闭。节点结论可以用：混合中位在 8 pitch 转负，但没有四个场的共同截止；4 pitch 上多场不优于最好的单场参照。FA06 第 81 行的 FO-05 是笔误，不必为此重跑，也不改变放行。未重跑拟合。本复核不证明实现没有其他缺陷。"
+}

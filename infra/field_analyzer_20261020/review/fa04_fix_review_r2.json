@@ -1,0 +1,45 @@
+{
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "thinking": "xhigh",
+    "agent_id": "6fd409ab-9717-44f9-8092-5c69138287e2",
+    "cwd": "/home/huyudi/013_spatial"
+  },
+  "commit_reviewed": "7f02d47",
+  "node": "FA-04",
+  "scope": {
+    "read": [
+      "infra/field_analyzer_20261020/REPORT_FA04.md §2.2、§3.2、§5",
+      "infra/field_analyzer_20261020/real_validation/cross_field_validation.tsv",
+      "docs/roadmap.md FA-04 行"
+    ],
+    "ran": [
+      "git rev-parse --short HEAD；git diff --stat 7371407..7f02d47",
+      "从 cross_field_validation.tsv 按单位重算 r_A、r_B、abs_gap 中位、单位内 |r_A−r_B| 的中位，以及符号冲突行"
+    ],
+    "not_checked": [
+      "未重跑 real-validation；本提交只改了报告，TSV 未变"
+    ]
+  },
+  "items": [
+    {
+      "id": "J3",
+      "closed": false,
+      "evidence": "r_A、r_B 已是单位中位，与 TSV 一致：EMT~IFN +0.499/+0.516，B_AXIS~EMT +0.303/+0.443，IFN~OXPHOS +0.287/+0.144，B_AXIS~IFN +0.261/+0.550，B_AXIS~OXPHOS −0.104/−0.165，EMT~OXPHOS −0.038/−0.045。符号计数和冲突实例也一致。|差| 不是同一口径。报告的 0.029 是 8 个单位各自 |单位内 r_A−r_B| 的中位（0.0288）。按报告自己写的“先单位内中位再单位间中位”去算 abs_gap，B_AXIS~OXPHOS 是 0.0458；两列相减是 |−0.104−(−0.165)|=0.061。三数都不是 0.029 的读者读法。§3.2 仍写 B_AXIS~IFN 强度差 0.220，那是旧的片级 |差| 中位，不是表现在的 0.228。"
+    },
+    {
+      "id": "K1",
+      "closed": true,
+      "evidence": "§5 已写 cross_field_validation.tsv 84 行（14 片 × 6 对）。文件 85 行含表头，数据 84 行。正文里不再把现行清单写成 168。"
+    },
+    {
+      "id": "K2",
+      "closed": false,
+      "evidence": "§2.2 已写清：不能概括成弱相关都不稳；NCBI642 为 +0.124 对 −0.199；ZEN45 为 +0.036 对 −0.123；EMT~OXPHOS 单位中位 −0.038/−0.045 且 8/8，片级中位 +0.031/+0.029，符号会翻转。但 §3.2 仍写“弱相关对不稳定”。roadmap 的 FA-04 行仍写“弱相关对 6/8”，会把同样近零且 8/8 的 EMT~OXPHOS 算进去。"
+    }
+  ],
+  "new_findings": [],
+  "allow_node_conclusion": false,
+  "limitations": "§2.2 的相关系数、符号计数和 EMT~OXPHOS 的翻转说明可以用。不能引用 |差| 列，也不能引用 §3.2 的 0.220 和“弱相关对不稳定”。K1 已关闭。未重跑拟合。"
+}
