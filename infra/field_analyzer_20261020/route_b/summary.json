@@ -1,0 +1,61 @@
+{
+  "n_rows": 4,
+  "B0_by_construction": "stationary operator returns displacement 0 for every input",
+  "same_point_cases": {
+    "B1_displacement": [
+      0.7734321669120564,
+      0.5181662627432029
+    ],
+    "B1_class": [
+      "same_point",
+      "same_point"
+    ]
+  },
+  "offset_cases": {
+    "B1_displacement": [
+      0.35543135069842474,
+      0.144044319608129
+    ],
+    "B1_class": [
+      "same_point",
+      "same_point"
+    ],
+    "truth": [
+      7.0,
+      7.0
+    ]
+  },
+  "prediction_gain": {
+    "B1_minus_B0_pearson": [
+      0.007939814214742658,
+      0.0525538882386703,
+      0.0072627179879936055,
+      0.05079811547965174
+    ],
+    "B1_minus_B0_cv_sse": [
+      4298.188087390252,
+      2723.6491096295904,
+      4179.194068744242,
+      2460.5911593933524
+    ]
+  },
+  "capability_sweep": {
+    "recovered": 15,
+    "total": 18,
+    "by_noise": {
+      "0.0": {
+        "recovered": 8,
+        "total": 9
+      },
+      "0.15": {
+        "recovered": 7,
+        "total": 9
+      }
+    }
+  },
+  "notes": [
+    "B0 is a stationarity-respecting reference and cannot represent displacement by construction",
+    "B1 is a ridge-fitted 2-D lag operator on visible data only; the displacement is read from the weight centroid",
+    "classification threshold is 3 pitch; the S2 design's achievable separation is 7 pitch"
+  ]
+}

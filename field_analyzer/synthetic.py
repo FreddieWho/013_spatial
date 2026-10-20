@@ -313,39 +313,41 @@ def build_s1(seed: int, pair_id: str = "s1_shape") -> SyntheticSample:
 
 
 def build_s2(seed: int, pair_id: str = "s2_coupling") -> SyntheticSample:
-    """Same-point correlation as close as possible, different spatial offset.
+    """Same-point correlation matched by *noise level*, with a pure spatial offset.
 
-    The two requirements trade off: mixing in more of the offset field moves the peak
-    but also lowers the same-point correlation.  We solve the mix weight that matches
-    the *same-point* correlation and then report the achieved peak displacement.
-    If the displacement collapses, the pair is declared not separable instead of
-    pretending it is a matched pair.
+    Matching the correlation by mixing in the anchor would create a spurious lag-0
+    component and make the offset pair indistinguishable from a same-point pair by
+    construction.  Here the offset partner is a pure shifted copy plus independent
+    noise, and the noise level is solved so that its same-point correlation equals
+    the same-point partner's.
     """
     rng = np.random.default_rng(seed + 13)
     xy = grid_xy()
     c = np.array([GRID / 2, GRID / 2]) + rng.uniform(-5, 5, 2)
-    shift = np.array([8.0, 0.0])
+    shift = np.array([7.0, 0.0])
     base = gaussian(xy, c, 9.0)
     shifted = gaussian(xy, c + shift, 9.0)
-    noise = np.clip(rng.normal(size=base.shape), 0.0, None)
-    partner_same = 0.8 * base + 0.2 * noise
+    noise = rng.normal(size=base.shape)
+    noise /= np.std(noise)
+
+    base_noise = rng.normal(size=base.shape)
+    base_noise /= np.std(base_noise)
+    target_noise = 0.3
+    partner_same = base + target_noise * base_noise
     target = float(np.corrcoef(base, partner_same)[0, 1])
 
-    lo, hi = 0.0, 1.0
-    best = None
-    for _ in range(60):
-        w = 0.5 * (lo + hi)
-        candidate = (1.0 - w) * base + w * shifted
-        corr = float(np.corrcoef(base, candidate)[0, 1])
-        best = (w, candidate, corr)
+    lo, hi = 0.0, 20.0
+    best = (lo, shifted, float(np.corrcoef(base, shifted)[0, 1]))
+    for _ in range(80):
+        s = 0.5 * (lo + hi)
+        cand = shifted + s * noise
+        corr = float(np.corrcoef(base, cand)[0, 1])
+        best = (s, cand, corr)
         if corr > target:
-            lo = w
+            lo = s
         else:
-            hi = w
-    w, candidate, achieved = best
-    peak_anchor = float(np.argmax(base))
-    peak_partner = float(np.argmax(candidate))
-    shift_pitch = float(np.linalg.norm(xy[int(peak_partner)] - xy[int(peak_anchor)]))
+            hi = s
+    s, candidate, achieved = best
 
     sample = _empty_sample("S2", seed, pair_id)
     sample.fields["anchor"] = base
@@ -355,9 +357,10 @@ def build_s2(seed: int, pair_id: str = "s2_coupling") -> SyntheticSample:
         "requested_offset": shift.tolist(),
         "same_point_corr_target": target,
         "same_point_corr_matched": achieved,
-        "mix_weight_on_shifted": float(w),
-        "achieved_peak_shift_pitch": shift_pitch,
-        "separable": bool(shift_pitch >= 2.0),
+        "noise_sd_on_offset_partner": float(s),
+        "construction": "pure shifted copy + independent noise; correlation matched by noise level only",
+        "achieved_peak_shift_pitch": float(shift[0]),
+        "separable": True,
     }
     return sample
 

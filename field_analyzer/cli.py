@@ -18,7 +18,7 @@ from pathlib import Path
 import numpy as np
 from scipy import sparse
 
-from . import assets, geometry, poisoning, route_a, scales, synthetic
+from . import assets, geometry, poisoning, route_a, route_b, scales, synthetic
 from .adapters import read_h5ad_counts
 from .observation import fingerprint_arrays, visible_mean_std
 from .pipeline import InputSpec, build_inputs
@@ -462,6 +462,88 @@ def cmd_route_a(args: argparse.Namespace) -> int:
     return 0
 
 
+
+def cmd_route_b(args: argparse.Namespace) -> int:
+    out = Path(args.out) / "route_b"
+    out.mkdir(parents=True, exist_ok=True)
+    synth_root = Path(args.out) / "synth"
+    manifest = list(csv.DictReader(open(synth_root / "scenario_manifest.tsv"), delimiter="\t"))
+    rows = []
+    for row in sorted(manifest, key=lambda r: r["base_id"]):
+        if row["scenario"] != "S2":
+            continue
+        sample_dir = synth_root / row["path"]
+        field_ids = row["field_ids"].split(",")
+        xy, visible, scores, truths = _load_synth_sample(sample_dir, field_ids)
+        n = int(round(np.sqrt(len(xy))))
+        anchor = scores["anchor"]
+        truth_struct = json.loads(np.load(sample_dir / "evaluation_only" / "answers.npz")["structures"].item())
+        for partner_id in ("partner_same_point", "partner_offset"):
+            target = scores[partner_id]
+            b0 = route_b.fit_isotropic_operator(anchor, target, n)
+            b1 = route_b.fit_lag_operator(anchor, target, n, max_lag=12, step=4)
+            b0_cv = route_b.blocked_cv(anchor, target, n, lambda train_mask: route_b.fit_isotropic_operator(anchor, target, n, train_mask=train_mask))
+            b1_cv = route_b.blocked_cv(anchor, target, n, lambda train_mask: route_b.fit_lag_operator(anchor, target, n, max_lag=12, step=4, train_mask=train_mask))
+            truth_disp = 0.0 if partner_id == "partner_same_point" else float(np.hypot(*truth_struct["requested_offset"]))
+            rows.append({
+                "base_id": row["base_id"], "seed": row["seed"], "partner_id": partner_id,
+                "truth_displacement_pitch": truth_disp,
+                "truth_partner_separable": truth_struct.get("separable"),
+                "B0_displacement": 0.0, "B0_class": "same_point",
+                "B1_displacement": float(np.hypot(*b1.displacement)),
+                "B1_class": route_b.classify_displacement(b1),
+                "B0_pearson": route_b.pearson(b0.prediction, target),
+                "B1_pearson": route_b.pearson(b1.prediction, target),
+                "B1_minus_B0_pearson": route_b.pearson(b1.prediction, target) - route_b.pearson(b0.prediction, target),
+                "B0_cv_sse": b0_cv, "B1_cv_sse": b1_cv,
+                "B1_minus_B0_cv_sse": b1_cv - b0_cv,
+                "B1_weight_peak": json.dumps(b1.to_dict()["weight_peak"]),
+                "B1_top_weights": json.dumps(b1.to_dict()["top_weights"], ensure_ascii=False),
+                "B1_displacement_vector": json.dumps([round(b1.displacement[0], 2), round(b1.displacement[1], 2)]),
+            })
+    assets.write_tsv(rows, out / "displacement_recovery.tsv")
+    sweep = route_b.capability_sweep(max_lag=20)
+    assets.write_tsv(sweep, out / "capability_sweep.tsv")
+    same = [r for r in rows if r["partner_id"] == "partner_same_point"]
+    off = [r for r in rows if r["partner_id"] == "partner_offset"]
+    summary = {
+        "n_rows": len(rows),
+        "B0_by_construction": "stationary operator returns displacement 0 for every input",
+        "same_point_cases": {
+            "B1_displacement": [r["B1_displacement"] for r in same],
+            "B1_class": [r["B1_class"] for r in same],
+        },
+        "offset_cases": {
+            "B1_displacement": [r["B1_displacement"] for r in off],
+            "B1_class": [r["B1_class"] for r in off],
+            "truth": [r["truth_displacement_pitch"] for r in off],
+        },
+        "prediction_gain": {
+            "B1_minus_B0_pearson": [r["B1_minus_B0_pearson"] for r in rows],
+            "B1_minus_B0_cv_sse": [r["B1_minus_B0_cv_sse"] for r in rows],
+        },
+        "capability_sweep": {
+            "recovered": sum(1 for r in sweep if r["recovered"]),
+            "total": len(sweep),
+            "by_noise": {
+                str(nz): {
+                    "recovered": sum(1 for r in sweep if r["noise_sd"] == nz and r["recovered"]),
+                    "total": sum(1 for r in sweep if r["noise_sd"] == nz),
+                }
+                for nz in sorted({r["noise_sd"] for r in sweep})
+            },
+        },
+        "notes": [
+            "B0 is a stationarity-respecting reference and cannot represent displacement by construction",
+            "B1 is a ridge-fitted 2-D lag operator on visible data only; the displacement is read from the weight centroid",
+            "classification threshold is 3 pitch; the S2 design's achievable separation is 7 pitch",
+        ],
+    }
+    (out / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False))
+    print(json.dumps(summary, indent=2, ensure_ascii=False))
+    return 0
+
+
 def cmd_geometry_smoke(args: argparse.Namespace) -> int:
     out = Path(args.out) / "geometry_smoke"
     out.mkdir(parents=True, exist_ok=True)
@@ -614,6 +696,10 @@ def build_parser() -> argparse.ArgumentParser:
     p_ra = sub.add_parser("route-a", help="fit A0/A1 geometry on S1 samples")
     p_ra.add_argument("--out", default="infra/field_analyzer_20261020")
     p_ra.set_defaults(func=cmd_route_a)
+
+    p_rb = sub.add_parser("route-b", help="displacement recovery on S2 samples")
+    p_rb.add_argument("--out", default="infra/field_analyzer_20261020")
+    p_rb.set_defaults(func=cmd_route_b)
 
     p_geo = sub.add_parser("geometry-smoke", help="synthetic geometry with a hole and a masked field")
     p_geo.add_argument("--out", default="infra/field_analyzer_20261020")
