@@ -1,0 +1,60 @@
+{
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "thinking": "xhigh",
+    "cwd": "/home/huyudi/013_spatial"
+  },
+  "node": "FA-01",
+  "commit_reviewed": "8bf50d3",
+  "scope": {
+    "read": [
+      "field_analyzer/scales.py",
+      "field_analyzer/cli.py 的 cmd_scales",
+      "infra/field_analyzer_20261020/REPORT_FA01.md",
+      "infra/field_analyzer_20261020/scales/scale_fits.tsv",
+      "infra/field_analyzer_20261020/scales/direction_curves.tsv",
+      "infra/field_analyzer_20261020/scales/direction_anisotropy.tsv",
+      "infra/field_analyzer_20261020/scales/cross_field.tsv",
+      "infra/field_analyzer_20261020/scales/summary.json",
+      "docs/field_analyzer_killtest_20261020/08_REAL_DATA_AND_SCALE.md §3 只核对尺度不得混用的要求"
+    ],
+    "ran": [
+      "从 scale_fits.tsv、direction_curves.tsv、cross_field.tsv 和 summary.json 复算状态计数、range 中位、方向可测率和跨场中位"
+    ],
+    "not_checked": [
+      "未重跑 scales 命令，也未重开 h5ad",
+      "direction_anisotropy.tsv 的 status 列没有对应的 cmd_scales 写出代码，来源未完全追溯"
+    ]
+  },
+  "findings": [
+    {
+      "id": "H1",
+      "severity": "MINOR",
+      "topic": "pitch 片间范围与产物不符",
+      "evidence": "summary.json 里 14 张片的 pitch 是 217.3–220.6，中位 217.7。报告写片间 176–260。用产物 pitch 去除 range 后，2.52/5.01/4.18/5.49 仍然成立。",
+      "required_fix": "把片间范围改成产物里的 217–221。不必重拟合。"
+    },
+    {
+      "id": "H2",
+      "severity": "MINOR",
+      "topic": "极小 sill 仍可能被标成 OK",
+      "evidence": "sill≤1e-9 的检查写在平台判断之后。本批 30 个未识别都是没到平台，没有一例因 range≥80% 跨度被剔除。残差里有 1 例 sill 远小于 nugget 仍为 OK。它不改变原场 30/56。",
+      "required_fix": "若 sill 相对 nugget 可忽略，应标不可识别。不要求重写已报告的原场中位。"
+    }
+  ],
+  "answers": {
+    "1": "分开了。quadratic_trend 只扣二次趋势，raw 与 residual 分别拟合、分别入库。summary 和报告都写明残差尺度不是原场尺度。报告的 2.52/5.01/4.18/5.49 来自原场 OK 行，不是残差。",
+    "2": "判定与代码一致：最大 gamma 不到 nugget+0.8×sill，或 range≥80% 观测跨度，就标未识别。本批 30 例全部是没到平台，范围规则没有误伤。把已到平台但尺度接近窗口的场标成未识别，是偏保守，这次没有发生。",
+    "3": "指数模型的 nugget、sill、range 可以互相补偿。近零 sill 的拦截太晚，见 H2。原场 30/56 OK、26 例未识别与表一致，不受那 1 例残差影响。",
+    "4": "4 个 45° 箱、至少 30 对，可测 2520/2688=93.75%，与表一致。2–6 pitch 的轴向比中位 0.995、1 例超过 1.5，能从 direction_curves 复算。这个带宽不在 cmd_scales 里，没有看到对其它带宽的搜索。各向异性表把 55/56 标成 UNIDENTIFIABLE，报告没有引用这个状态。",
+    "5": "cross_corr 是标准化交叉协方差，最近箱就是同点相关。报告的六对中位与 lag<1.5 的表一致，并写明 1 pitch 一箱不能分离位移。产物里没有位移估计。这句与产物一致。",
+    "6": "14 片、8 个单位。报告中位是按片，双片单位算两次。改成单位等权后，原场 range 中位约 2.56/5.10/4.18/5.71，仍在 2.5–5.5 附近，没有翻号。",
+    "7": "30/56、26 例、四个原场 range 中位、93.75%、0.995、六对跨场相关都与产物一致。176–260 不一致，见 H1。"
+  },
+  "claims_that_do_not_hold": [
+    "pitch 片间范围 176–260"
+  ],
+  "allow_node_conclusion": true,
+  "limitations": "没有 BLOCKER。结论仍是描述性尺度，不是位移或因果。未重拟合半变异函数。"
+}

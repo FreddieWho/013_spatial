@@ -9,7 +9,8 @@
     },
     "residual": {
       "NOT_IDENTIFIED_WITHIN_FOV": 4,
-      "OK": 52
+      "OK": 51,
+      "UNIDENTIFIABLE": 1
     }
   },
   "sections": [

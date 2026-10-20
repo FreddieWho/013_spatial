@@ -209,16 +209,22 @@ def fit_variogram(centers: np.ndarray, gamma: np.ndarray, counts: np.ndarray) ->
     nugget, sill, rng = (float(x) for x in popt)
     plateau = nugget + 0.8 * sill
     reached = float(np.nanmax(g)) >= plateau
-    if not reached or rng >= 0.8 * span:
+    if sill <= 1e-9 or (nugget > 0 and sill <= 0.05 * nugget):
+        # a sill that is negligible next to the nugget means there is no spatial
+        # structure above noise; the length parameter is then meaningless and this
+        # must be reported as unidentifiable rather than as "no plateau".
+        status = UNIDENTIFIABLE
+        reason = (
+            f"fitted sill {sill:.3g} is negligible relative to nugget {nugget:.3g}; "
+            "no spatial structure above noise"
+        )
+    elif not reached or rng >= 0.8 * span:
         status = NOT_IDENTIFIED
         reason = (
             f"no plateau inside FOV: max gamma {float(np.nanmax(g)):.3g} < 80% of sill {plateau:.3g}"
             if not reached
             else f"fitted range {rng:.3g} >= 80% of observed span {span:.3g}"
         )
-    elif sill <= 1e-9:
-        status = UNIDENTIFIABLE
-        reason = "fitted sill is zero; no spatial structure above nugget"
     else:
         status = OK
         reason = "plateau reached inside the field of view"
