@@ -1,0 +1,322 @@
+"""Command line entry points for the FA round.
+
+    python -m field_analyzer.cli assets  --out infra/field_analyzer_20261020
+    python -m field_analyzer.cli units   --out infra/field_analyzer_20261020
+    python -m field_analyzer.cli poison  --section ZEN36 --out infra/field_analyzer_20261020
+    python -m field_analyzer.cli geometry-smoke --out infra/field_analyzer_20261020
+
+Nothing here downloads data, reads human labels, or uses a GPU.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+from pathlib import Path
+
+import numpy as np
+from scipy import sparse
+
+from . import assets, geometry, poisoning
+from .adapters import read_h5ad_counts
+from .observation import fingerprint_arrays, visible_mean_std
+from .pipeline import InputSpec, build_inputs
+from .roles import build_field_splits, build_gene_roles
+
+
+def repo_root_default() -> Path:
+    return Path(__file__).resolve().parent.parent
+
+
+def load_panel(repo: Path) -> dict[str, list[str]]:
+    panel = json.loads((repo / "infra/tls_multiscale_gobp_20261002/panel_controls.json").read_text())
+    return {k: list(v) for k, v in panel.items()}
+
+
+PILOT_FIELDS = (
+    "B_AXIS",
+    "HALLMARK_INTERFERON_GAMMA_RESPONSE",
+    "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION",
+    "HALLMARK_OXIDATIVE_PHOSPHORYLATION",
+)
+
+
+def cmd_assets(args: argparse.Namespace) -> int:
+    repo, out = Path(args.repo), Path(args.out)
+    identity = assets.read_identity(repo / "infra/field_discovery_review_20261018/identity_review.tsv")
+    sections = sorted(s for v in identity.units.values() for s in v)
+    rows = assets.asset_rows(repo, sections)
+    assets.write_tsv(rows, out / "reuse_resolution.tsv")
+    detail = assets.section_rows(repo, sections)
+    assets.write_tsv(detail, out / "section_asset_check.tsv")
+    summary = {
+        "n_confirmed_units": identity.n_units,
+        "n_confirmed_sections": identity.n_sections,
+        "n_sections_present": sum(1 for r in detail if r["exists"]),
+        "n_axis_consistent": sum(1 for r in detail if r["axis_consistent"]),
+        "states": {r["path"]: r["availability"] for r in rows},
+    }
+    (out / "asset_summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False))
+    print(json.dumps(summary, indent=2, ensure_ascii=False))
+    return 0
+
+
+def cmd_units(args: argparse.Namespace) -> int:
+    repo, out = Path(args.repo), Path(args.out)
+    identity = assets.read_identity(repo / "infra/field_discovery_review_20261018/identity_review.tsv")
+    rows = assets.unit_role_rows(identity.units)
+    assets.write_tsv(rows, out / "unit_role_assertions.tsv")
+
+    # assertions actually checked, not merely stated
+    problems: list[str] = []
+    by_unit: dict[str, set[int]] = {}
+    for row in rows:
+        by_unit.setdefault(row["unit_id"], set()).add(int(row["fold"]))
+    for unit, folds in by_unit.items():
+        if len(folds) != 1:
+            problems.append(f"unit {unit} spans folds {sorted(folds)}")
+    present = [r for r in rows if (repo / "data/other_sources/hest1k/st" / f"{r['section_id']}.h5ad").exists()]
+    summary = {
+        "n_units": identity.n_units,
+        "n_sections": identity.n_sections,
+        "n_sections_present": len(present),
+        "units_per_fold": {
+            str(f): len({r["unit_id"] for r in rows if int(r["fold"]) == f}) for f in sorted({int(r["fold"]) for r in rows})
+        },
+        "assertions": {
+            "same_unit_same_fold": not problems,
+            "duplicate_mask_not_extra_patient": "mask_group is unit-scoped by construction",
+            "statistics_unit": "unit, not spot",
+            "unknown_identity_not_upgraded": True,
+        },
+        "problems": problems,
+    }
+    (out / "unit_role_summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False))
+    print(json.dumps(summary, indent=2, ensure_ascii=False))
+    return 0 if not problems else 1
+
+
+def _block_mask(xy: np.ndarray, tissue_support: np.ndarray, radius_multiplier: float = 6.0) -> tuple[np.ndarray, float, np.ndarray]:
+    pitch = geometry.estimate_pitch(xy[tissue_support]) if tissue_support.sum() > 2 else geometry.estimate_pitch(xy)
+    center = np.median(xy[tissue_support], axis=0) if tissue_support.any() else np.median(xy, axis=0)
+    dist = np.linalg.norm(xy - center, axis=1)
+    radius = radius_multiplier * pitch
+    visible = ~((dist <= radius) & tissue_support)
+    return visible, float(radius), center
+
+
+def cmd_poison(args: argparse.Namespace) -> int:
+    repo, out = Path(args.repo), Path(args.out)
+    panel = load_panel(repo)
+    section = args.section
+    table = read_h5ad_counts(repo / "data/other_sources/hest1k/st" / f"{section}.h5ad")
+
+    fields = {fid: panel[fid] for fid in PILOT_FIELDS if fid in panel}
+    splits = build_field_splits(fields, table.genes, seed=args.seed)
+    roles = build_gene_roles(splits, table.genes)
+    spec = InputSpec(
+        fields={fid: list(split.a_genes) for fid, split in splits.items()},
+        witness_genes=frozenset(roles.witness_genes),
+        excluded_genes=frozenset(),
+        k_neighbors=args.k,
+        coordinate_unit="source_pixels",
+    )
+
+    tissue_support = np.ones(table.n_obs, dtype=bool)
+    if "in_tissue" in table.aux:
+        tissue_support = np.asarray(table.aux["in_tissue"]).astype(bool)
+    visible, radius, center = _block_mask(table.xy, tissue_support, args.radius_pitch)
+    if (~visible).sum() < 20:
+        visible, radius, center = _block_mask(table.xy, tissue_support, 10.0)
+
+    report = poisoning.run_poisoning(
+        table.counts,
+        table.genes,
+        table.xy,
+        tissue_support,
+        visible,
+        spec,
+        package_dir=Path(__file__).resolve().parent,
+        section_id=section,
+        seed=args.seed,
+    )
+    report["mask"] = {
+        "center": center.tolist(),
+        "radius": radius,
+        "radius_pitch": args.radius_pitch,
+        "rule": "geometric disc around the median tissue coordinate; no expression used",
+    }
+    report["fields"] = {fid: split.to_dict() for fid, split in splits.items()}
+    report["read_report"] = table.report.to_dict()
+    out.mkdir(parents=True, exist_ok=True)
+    (out / f"poisoning_report_{section}.json").write_text(json.dumps(report, indent=2, ensure_ascii=False))
+    (out / "poisoning_report.json").write_text(json.dumps(report, indent=2, ensure_ascii=False))
+    print(
+        json.dumps(
+            {
+                "section": section,
+                "passed": report["passed"],
+                "n_hidden": report["n_hidden"],
+                "scenarios": [
+                    (s["scenario"], s["identical"], s["max_abs_delta"]) for s in report["scenarios"]
+                ],
+                "metric_changed": report["evaluation"]["metric_changed"],
+                "prediction_max_abs_delta": report["evaluation"]["prediction_max_abs_delta"],
+            },
+            indent=2,
+        )
+    )
+    return 0 if report["passed"] else 1
+
+
+def cmd_geometry_smoke(args: argparse.Namespace) -> int:
+    out = Path(args.out) / "geometry_smoke"
+    out.mkdir(parents=True, exist_ok=True)
+    n = args.grid
+    yy, xx = np.mgrid[0:n, 0:n]
+    xy = np.column_stack([xx.ravel(), yy.ravel()]).astype(float)
+    # a disc hole plus a narrow neck: the neck connects nothing across the hole
+    hole = ((xx - n / 2) ** 2 + (yy - n / 2) ** 2) <= (n / 6) ** 2
+    support = ~hole.ravel()
+    neck = (np.abs(yy.ravel() - n / 2) <= 1) & (np.abs(xx.ravel() - n / 2) <= n / 6)
+    support = support | neck
+
+    adj = geometry.build_adjacency(xy, support, k=6, unit="synthetic_pitch")
+    region = geometry.region_classes(support, support.copy())
+
+    # a smooth field with a masked disc; statistics must not see the masked part
+    r = np.linalg.norm(xy - np.array([n / 2, n / 2]), axis=1)
+    field = np.exp(-(r / (n / 4)) ** 2)
+    visible = ~(((xx - n / 3) ** 2 + (yy - n / 3) ** 2) <= (n / 8) ** 2).ravel()
+    masked_values = field.copy()
+    masked_values[~visible] = np.nan
+    mean_all, std_all = visible_mean_std(masked_values.reshape(-1, 1), visible)
+    visible_only = field[visible]
+    mean_visible = float(np.nanmean(visible_only))
+    leaks = bool(np.isfinite(masked_values[~visible]).any())
+
+    direction = geometry.local_direction(field, visible, xy, adj)
+    direction_all = geometry.local_direction(field, np.ones_like(visible), xy, adj)
+
+    assets.write_tsv(
+        [
+            {
+                "n_points": int(len(xy)),
+                "n_support": int(support.sum()),
+                "n_visible": int(visible.sum()),
+                "n_hidden": int((~visible).sum()),
+                "pitch": adj.pitch,
+                "n_edges": adj.notes["n_edges"],
+                "median_degree": float(np.median(adj.degrees[support])),
+                "n_isolated": adj.n_isolated,
+                "unit": adj.unit,
+            }
+        ],
+        out / "adjacency_summary.tsv",
+    )
+    pairs = geometry.distance_pairs(xy, support, max_distance=6 * adj.pitch, n_bins=12)
+    assets.write_tsv(
+        [
+            {
+                "bin_low": float(pairs["bin_edges"][i]),
+                "bin_high": float(pairs["bin_edges"][i + 1]),
+                "n_pairs": int(pairs["counts"][i]),
+            }
+            for i in range(len(pairs["counts"]))
+        ],
+        out / "distance_pairs.tsv",
+    )
+    assets.write_tsv(
+        [
+            {
+                "masked_stats_scope": "visible_only",
+                "mean_masked_array": float(mean_all[0]),
+                "mean_direct_visible": mean_visible,
+                "std_direct_visible": float(np.nanstd(visible_only)),
+                "std_masked_array": float(std_all[0]),
+                "hidden_values_finite": leaks,
+                "difference": abs(float(mean_all[0]) - mean_visible),
+            }
+        ],
+        out / "masked_stats_check.tsv",
+    )
+    rows = []
+    for label, res in (("visible_only", direction), ("unmasked_reference", direction_all)):
+        measurable = int(np.asarray(res["measurable"]).sum())
+        rows.append(
+            {
+                "variant": label,
+                "n_points": int(len(xy)),
+                "n_measurable": measurable,
+                "measurable_fraction": measurable / len(xy),
+                "n_unmeasurable_hidden": int((~visible & ~np.asarray(res["measurable"])).sum()),
+                "angle_defined_outside_visible": int(
+                    np.isfinite(np.asarray(res["angle_mod_pi"])[~visible]).sum()
+                ),
+            }
+        )
+    assets.write_tsv(rows, out / "direction_measurability.tsv")
+    edges_bad = 0
+    try:
+        edges_bad = geometry.assert_edges_avoid_non_tissue(adj.graph, region)
+    except Exception:
+        edges_bad = int(((region[adj.graph.tocoo().row] == geometry.NON_TISSUE)).sum())
+    summary = {
+        "n_points": int(len(xy)),
+        "n_support": int(support.sum()),
+        "n_visible": int(visible.sum()),
+        "pitch": adj.pitch,
+        "n_isolated": adj.n_isolated,
+        "hidden_values_finite": leaks,
+        "masked_stats_matches_visible": float(mean_all[0]) == mean_visible,
+        "measurable_fraction_visible_vs_unmasked": [
+            float(np.asarray(direction["measurable"]).sum()) / len(xy),
+            float(np.asarray(direction_all["measurable"]).sum()) / len(xy),
+        ],
+        "edges_touching_non_tissue": edges_bad,
+        "notes": [
+            "direction is undefined (NaN) where the disc is masked",
+            "the neck is supported tissue and may be traversed; the disc hole may not",
+        ],
+    }
+    (out / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False))
+    print(json.dumps(summary, indent=2, ensure_ascii=False))
+    return 0
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description="FA observability adapter CLI")
+    parser.add_argument("--repo", default=str(repo_root_default()))
+    sub = parser.add_subparsers(dest="command", required=True)
+
+    p_assets = sub.add_parser("assets", help="inventory local assets (five states)")
+    p_assets.add_argument("--out", default="infra/field_analyzer_20261020")
+    p_assets.set_defaults(func=cmd_assets)
+
+    p_units = sub.add_parser("units", help="write unit role assertions")
+    p_units.add_argument("--out", default="infra/field_analyzer_20261020")
+    p_units.set_defaults(func=cmd_units)
+
+    p_poison = sub.add_parser("poison", help="run the hidden/witness poisoning counterexample")
+    p_poison.add_argument("--section", default="ZEN36")
+    p_poison.add_argument("--out", default="infra/field_analyzer_20261020")
+    p_poison.add_argument("--seed", type=int, default=0)
+    p_poison.add_argument("--k", type=int, default=6)
+    p_poison.add_argument("--radius-pitch", type=float, default=6.0, dest="radius_pitch")
+    p_poison.set_defaults(func=cmd_poison)
+
+    p_geo = sub.add_parser("geometry-smoke", help="synthetic geometry with a hole and a masked field")
+    p_geo.add_argument("--out", default="infra/field_analyzer_20261020")
+    p_geo.add_argument("--grid", type=int, default=64)
+    p_geo.set_defaults(func=cmd_geometry_smoke)
+    return parser
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = build_parser()
+    args = parser.parse_args(argv)
+    return int(args.func(args))
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

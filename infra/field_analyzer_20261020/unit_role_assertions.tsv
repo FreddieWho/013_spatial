@@ -1,0 +1,15 @@
+unit_id	section_id	fold	role	is_replicate_of	note
+https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	NCBI643	0	grouped_holdout		same unit => same fold; mask/rotation variants inherit the unit role
+https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	NCBI642	1	grouped_holdout		same unit => same fold; mask/rotation variants inherit the unit role
+https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 1	ZEN48	2	grouped_holdout		same unit => same fold; mask/rotation variants inherit the unit role
+https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 1	ZEN49	2	grouped_holdout		same unit => same fold; mask/rotation variants inherit the unit role
+https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 2	ZEN46	3	grouped_holdout		same unit => same fold; mask/rotation variants inherit the unit role
+https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 2	ZEN47	3	grouped_holdout		same unit => same fold; mask/rotation variants inherit the unit role
+https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 3	ZEN44	4	grouped_holdout		same unit => same fold; mask/rotation variants inherit the unit role
+https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 3	ZEN45	4	grouped_holdout		same unit => same fold; mask/rotation variants inherit the unit role
+https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 4	ZEN39	0	grouped_holdout		same unit => same fold; mask/rotation variants inherit the unit role
+https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 4	ZEN43	0	grouped_holdout		same unit => same fold; mask/rotation variants inherit the unit role
+https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5	ZEN38	1	grouped_holdout		same unit => same fold; mask/rotation variants inherit the unit role
+https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5	ZEN42	1	grouped_holdout		same unit => same fold; mask/rotation variants inherit the unit role
+https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7	ZEN36	2	grouped_holdout		same unit => same fold; mask/rotation variants inherit the unit role
+https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7	ZEN40	2	grouped_holdout		same unit => same fold; mask/rotation variants inherit the unit role

@@ -1,0 +1,20 @@
+{
+  "n_confirmed_units": 8,
+  "n_confirmed_sections": 14,
+  "n_sections_present": 14,
+  "n_axis_consistent": 14,
+  "states": {
+    "data/other_sources/hest1k/st/{section_id}.h5ad": "VERIFIED_LOCAL",
+    "infra/field_discovery_review_20261018/identity_review.tsv": "VERIFIED_LOCAL",
+    "infra/field_source_holdout_20261018": "VERIFIED_LOCAL",
+    "infra/tls_multiscale_gobp_20261002/panel_controls.json": "VERIFIED_LOCAL",
+    "scripts/field_discovery_20261018.py": "VERIFIED_LOCAL",
+    "scripts/field_candidate_subfield_20261019.py": "VERIFIED_LOCAL",
+    "scripts/field_biological_review_20261019.py": "VERIFIED_LOCAL",
+    "scripts/tls_multiscale_gobp.py": "VERIFIED_LOCAL",
+    "scripts/tls_multiscale_forward.py": "VERIFIED_LOCAL",
+    "infra/r16/t2p2_20260928": "VERIFIED_LOCAL",
+    "docs/TLS_MULTISCALE_BRIDGE_CALIBRATION_20261003.md": "VERIFIED_LOCAL",
+    "docs/TLS_PATIENT_VALIDATION_20261003.md": "VERIFIED_LOCAL"
+  }
+}

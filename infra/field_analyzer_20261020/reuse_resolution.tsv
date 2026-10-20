@@ -1,0 +1,13 @@
+path	what	availability	exists	bytes	mtime	manifest_version	reuse_decision	provenance	notes
+data/other_sources/hest1k/st/{section_id}.h5ad	raw Visium counts + spatial coordinates (HEST 1k)	VERIFIED_LOCAL	True	838920502		identity_review.tsv	ADAPT	R06; read via field_analyzer.adapters with explicit axis	14/14 confirmed sections present
+infra/field_discovery_review_20261018/identity_review.tsv	corrected within-study patient identity	VERIFIED_LOCAL	True	8901	1792263588.117513		REUSE	R08; unknown stays unknown	
+infra/field_source_holdout_20261018	previous source holdout splits and cached predictions	VERIFIED_LOCAL	True	4096	1792304723.522072	contract.json:version=source-holdout-v1	REBUILD	R16; full-channel predictions are not block-recovery predictions	
+infra/tls_multiscale_gobp_20261002/panel_controls.json	51 fixed gene-set definitions (4 proxy fields among them)	VERIFIED_LOCAL	True	97082	1791131128.9214249		ADAPT	R07; A/B split and witness exclusion applied on top	
+scripts/field_discovery_20261018.py	legacy reader / feature views / neighbor graphs	VERIFIED_LOCAL	True	34189	1792263155.5978634		ADAPT	R06; silent transpose and self-fallback removed	
+scripts/field_candidate_subfield_20261019.py	legacy candidate subfield probe (A/B cache)	VERIFIED_LOCAL	True	27063	1792413852.0242026		REBUILD	R07; whole-cache load forbidden, role registry replaces it	
+scripts/field_biological_review_20261019.py	legacy field descriptors (centroid, patch stats, band autocorr)	VERIFIED_LOCAL	True	113547	1792390675.6620111		ADAPT	R08; residual scale may not be reported as field scale	
+scripts/tls_multiscale_gobp.py	legacy tissue graph and label-derived endpoints	VERIFIED_LOCAL	True	11687	1791131129.8734274		SEALED	R09; human-label endpoints barred from discovery	
+scripts/tls_multiscale_forward.py	legacy corridor path and sideband operators	VERIFIED_LOCAL	True	14888	1791131129.8734274		HISTORICAL_ONLY	R10; label-defined endpoints, symmetric sidebands	
+infra/r16/t2p2_20260928	legacy variogram matched null	VERIFIED_LOCAL	True	4096	1791131128.7934246		HISTORICAL_ONLY	R11; p-values and weak-sill lengths not reused	
+docs/TLS_MULTISCALE_BRIDGE_CALIBRATION_20261003.md	historical bridge calibration failure	VERIFIED_LOCAL	True	5796	1791131128.561424		HISTORICAL_ONLY	R12; negative evidence, not evidence of absence	
+docs/TLS_PATIENT_VALIDATION_20261003.md	historical GSE patient metadata	VERIFIED_LOCAL	True	5558	1791131128.561424		HISTORICAL_ONLY	R13; no labels or scores enter selection	

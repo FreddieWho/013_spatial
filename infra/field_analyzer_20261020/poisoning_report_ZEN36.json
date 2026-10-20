@@ -1,0 +1,254 @@
+{
+  "section_id": "ZEN36",
+  "n_obs": 1691,
+  "n_visible": 1569,
+  "n_hidden": 122,
+  "scenarios": [
+    {
+      "scenario": "P1_hidden_extreme",
+      "description": "hidden expression set to +1000x max; inputs must be bit-identical",
+      "arrays_compared": 22,
+      "max_abs_delta": 0.0,
+      "identical": true,
+      "per_array_delta": {
+        "degree": 0.0,
+        "depth": 0.0,
+        "detection": 0.0,
+        "field::B_AXIS": 0.0,
+        "field::HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": 0.0,
+        "field::HALLMARK_INTERFERON_GAMMA_RESPONSE": 0.0,
+        "field::HALLMARK_OXIDATIVE_PHOSPHORYLATION": 0.0,
+        "isolated": 0.0,
+        "library": 0.0,
+        "neighbor::B_AXIS": 0.0,
+        "neighbor::HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": 0.0,
+        "neighbor::HALLMARK_INTERFERON_GAMMA_RESPONSE": 0.0,
+        "neighbor::HALLMARK_OXIDATIVE_PHOSPHORYLATION": 0.0,
+        "neighbor_struct::B_AXIS": 0.0,
+        "neighbor_struct::HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": 0.0,
+        "neighbor_struct::HALLMARK_INTERFERON_GAMMA_RESPONSE": 0.0,
+        "neighbor_struct::HALLMARK_OXIDATIVE_PHOSPHORYLATION": 0.0,
+        "pitch": 0.0,
+        "query_eligible": 0.0,
+        "score_genes": 0.0,
+        "slide_mean": 0.0,
+        "slide_std": 0.0
+      },
+      "changed_arrays": []
+    },
+    {
+      "scenario": "P2_hidden_permute",
+      "description": "hidden rows permuted among themselves; inputs must be bit-identical",
+      "arrays_compared": 22,
+      "max_abs_delta": 0.0,
+      "identical": true,
+      "per_array_delta": {
+        "degree": 0.0,
+        "depth": 0.0,
+        "detection": 0.0,
+        "field::B_AXIS": 0.0,
+        "field::HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": 0.0,
+        "field::HALLMARK_INTERFERON_GAMMA_RESPONSE": 0.0,
+        "field::HALLMARK_OXIDATIVE_PHOSPHORYLATION": 0.0,
+        "isolated": 0.0,
+        "library": 0.0,
+        "neighbor::B_AXIS": 0.0,
+        "neighbor::HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": 0.0,
+        "neighbor::HALLMARK_INTERFERON_GAMMA_RESPONSE": 0.0,
+        "neighbor::HALLMARK_OXIDATIVE_PHOSPHORYLATION": 0.0,
+        "neighbor_struct::B_AXIS": 0.0,
+        "neighbor_struct::HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": 0.0,
+        "neighbor_struct::HALLMARK_INTERFERON_GAMMA_RESPONSE": 0.0,
+        "neighbor_struct::HALLMARK_OXIDATIVE_PHOSPHORYLATION": 0.0,
+        "pitch": 0.0,
+        "query_eligible": 0.0,
+        "score_genes": 0.0,
+        "slide_mean": 0.0,
+        "slide_std": 0.0
+      },
+      "changed_arrays": []
+    },
+    {
+      "scenario": "P3_witness_permute",
+      "description": "witness (B) genes permuted across spots; inputs must be bit-identical",
+      "arrays_compared": 22,
+      "max_abs_delta": 0.0,
+      "identical": true,
+      "per_array_delta": {
+        "degree": 0.0,
+        "depth": 0.0,
+        "detection": 0.0,
+        "field::B_AXIS": 0.0,
+        "field::HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": 0.0,
+        "field::HALLMARK_INTERFERON_GAMMA_RESPONSE": 0.0,
+        "field::HALLMARK_OXIDATIVE_PHOSPHORYLATION": 0.0,
+        "isolated": 0.0,
+        "library": 0.0,
+        "neighbor::B_AXIS": 0.0,
+        "neighbor::HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": 0.0,
+        "neighbor::HALLMARK_INTERFERON_GAMMA_RESPONSE": 0.0,
+        "neighbor::HALLMARK_OXIDATIVE_PHOSPHORYLATION": 0.0,
+        "neighbor_struct::B_AXIS": 0.0,
+        "neighbor_struct::HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": 0.0,
+        "neighbor_struct::HALLMARK_INTERFERON_GAMMA_RESPONSE": 0.0,
+        "neighbor_struct::HALLMARK_OXIDATIVE_PHOSPHORYLATION": 0.0,
+        "pitch": 0.0,
+        "query_eligible": 0.0,
+        "score_genes": 0.0,
+        "slide_mean": 0.0,
+        "slide_std": 0.0
+      },
+      "changed_arrays": []
+    }
+  ],
+  "input_fingerprints": {
+    "degree": "73763498732c35f53b55e1e29758db24a20fc8e9b3d05f45477e73539326dfd5",
+    "depth": "f856132df15cb6a7bcd4b483a8e5f08c23b38fd99a9910b687d6faa1de44b840",
+    "detection": "4c6ae3c7bc89f43d14fa7e719edd085e4fae4b02c38d8bd9f5b9abbd642efb48",
+    "field::B_AXIS": "b127aafc54b014633540085a9d00ed34b576670f1514765161a39b7289753afa",
+    "field::HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": "2a938688a191b2d307f2f40e0c8e6033f9494381ae632063da72b70fd96e0616",
+    "field::HALLMARK_INTERFERON_GAMMA_RESPONSE": "aba6b742edcda4874e14e847c8ab6a5e034019a5d37b25551268c283d5803b06",
+    "field::HALLMARK_OXIDATIVE_PHOSPHORYLATION": "4558df09713600cc858abc716fc6bd67d5ef153f4dc2ca02c8c4b7f1565c1dbf",
+    "isolated": "4b9af4b1e2313aba5a9a139ae3ecfc8fcae09a440c65802207a26775700f6eca",
+    "library": "f856132df15cb6a7bcd4b483a8e5f08c23b38fd99a9910b687d6faa1de44b840",
+    "neighbor::B_AXIS": "daaadaff933a25d1b460c2406820c38aa1d86e996753e2302b72fb6174ac81a4",
+    "neighbor::HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": "c11d4b8beaf5bf8d6240fd899f4533588b52d62ab66a995ef4ee17bd9d01fefc",
+    "neighbor::HALLMARK_INTERFERON_GAMMA_RESPONSE": "46a43bdcbacea74fab027228a4b33606b89cfe64f23fd783d4f8de699c0120bd",
+    "neighbor::HALLMARK_OXIDATIVE_PHOSPHORYLATION": "c5fbd5c7ff94da199a4ed2e15d67773311335137fd6c25c922269a9df4fc366d",
+    "neighbor_struct::B_AXIS": "d43deda9aecbfe02f2e001cafba23273efda034c7385f26ea3521a4a070060b5",
+    "neighbor_struct::HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": "7e14ad938676635f5adc8ae4791a2e451a74c70442df22583d1872973b081008",
+    "neighbor_struct::HALLMARK_INTERFERON_GAMMA_RESPONSE": "474c50a2aa1b38d53402678a8f8fd2ba8ae456b38035b7f994dd9caf195f4cd2",
+    "neighbor_struct::HALLMARK_OXIDATIVE_PHOSPHORYLATION": "338b5e56700d9650e4da4834f6c5bffddb47680cc9047da42463cad01b8c215c",
+    "pitch": "b4c0c2ba78fa7e8c8627fd8e4cb7b63c6e66e2628da7c48a10aed01f86e800f9",
+    "query_eligible": "41282de6dc5ad268bc351949493f4d2f7104873ea7449f88ba7661155bfa159a",
+    "score_genes": "ed2268d0646be3981276a62976d66f9a21ffc81f90d97bd81f1bb461ca622ded",
+    "slide_mean": "9ffb7d7cd9fc38cac20e8d3cd95c7feda4b278c4d4060e14dca0c6b3b8af11ad",
+    "slide_std": "99cbfcbb2e3c30a6bc1a11c7a4b9dc8108d09e9cde40de2ce9516afb72e9498e"
+  },
+  "entry_points": {
+    "library_size": true,
+    "depth": true,
+    "detection": true,
+    "whole_slide_stats": true,
+    "expression_weighted_adjacency": true,
+    "structural_adjacency": true,
+    "query_eligibility": true
+  },
+  "evaluation": {
+    "prediction_max_abs_delta": 0.0,
+    "truth_under_poisoning": {
+      "B_AXIS": {
+        "base_mean_hidden": 0.4042387190772837,
+        "poisoned_mean_hidden": 0.24532220994909182,
+        "truth_max_abs_delta": 0.5468967253323072
+      },
+      "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+        "base_mean_hidden": 0.9908429167487978,
+        "poisoned_mean_hidden": 0.24532262502300373,
+        "truth_max_abs_delta": 1.0906855231092583
+      },
+      "HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+        "base_mean_hidden": 0.5106345773818555,
+        "poisoned_mean_hidden": 0.24532213372612957,
+        "truth_max_abs_delta": 0.3499081404033328
+      },
+      "HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+        "base_mean_hidden": 0.7947781514738644,
+        "poisoned_mean_hidden": 0.24532218262249753,
+        "truth_max_abs_delta": 0.6949151526167178
+      }
+    },
+    "metric_changed": true
+  },
+  "static_source_check": {
+    "forbidden_patterns": [
+      "import\\s+tls",
+      "from\\s+tls",
+      "load_tls",
+      "read_tls",
+      "tls_label",
+      "human_label",
+      "annotation_tsv",
+      "hooknet"
+    ],
+    "hits": {},
+    "clean": true
+  },
+  "passed": true,
+  "notes": [
+    "input arrays are compared bit-for-bit (dtype+shape+bytes)",
+    "the reverse assertion requires the evaluation quantity to change, otherwise the hidden region was never read by the metric"
+  ],
+  "mask": {
+    "center": [
+      5664.413,
+      8295.437
+    ],
+    "radius": 1306.153806370228,
+    "radius_pitch": 6.0,
+    "rule": "geometric disc around the median tissue coordinate; no expression used"
+  },
+  "fields": {
+    "B_AXIS": {
+      "field_id": "B_AXIS",
+      "n_defined": 49,
+      "n_present": 48,
+      "n_a": 32,
+      "n_b": 16
+    },
+    "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "field_id": "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION",
+      "n_defined": 200,
+      "n_present": 200,
+      "n_a": 133,
+      "n_b": 67
+    },
+    "HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "field_id": "HALLMARK_INTERFERON_GAMMA_RESPONSE",
+      "n_defined": 200,
+      "n_present": 196,
+      "n_a": 131,
+      "n_b": 65
+    },
+    "HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "field_id": "HALLMARK_OXIDATIVE_PHOSPHORYLATION",
+      "n_defined": 200,
+      "n_present": 200,
+      "n_a": 133,
+      "n_b": 67
+    }
+  },
+  "read_report": {
+    "path": "/home/huyudi/013_spatial/data/other_sources/hest1k/st/ZEN36.h5ad",
+    "bytes": 78198779,
+    "encoding": "csr_matrix",
+    "axis_order": "obs_by_gene",
+    "n_obs": 1691,
+    "n_genes": 36601,
+    "n_duplicate_symbols": 0,
+    "duplicate_policy": "error",
+    "duplicate_examples": [],
+    "zero_depth_spots": 0,
+    "zero_depth_examples": [],
+    "aux_kept": [
+      "array_col",
+      "array_row",
+      "in_tissue"
+    ],
+    "aux_dropped": [
+      "log1p_n_genes_by_counts",
+      "log1p_total_counts",
+      "log1p_total_counts_mito",
+      "n_genes_by_counts",
+      "pct_counts_in_top_100_genes",
+      "pct_counts_in_top_200_genes",
+      "pct_counts_in_top_500_genes",
+      "pct_counts_in_top_50_genes",
+      "pct_counts_mito",
+      "total_counts"
+    ],
+    "spatial_key": "spatial",
+    "negative_values": 0,
+    "notes": []
+  }
+}

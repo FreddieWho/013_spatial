@@ -1,0 +1,2 @@
+masked_stats_scope	mean_masked_array	mean_direct_visible	std_direct_visible	std_masked_array	hidden_values_finite	difference
+visible_only	0.18373141476871646	0.18373141476871646	0.24384843504269024	0.24384843504269024	False	0.0

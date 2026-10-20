@@ -1,0 +1,18 @@
+{
+  "n_points": 4096,
+  "n_support": 3802,
+  "n_visible": 3895,
+  "pitch": 1.0,
+  "n_isolated": 294,
+  "hidden_values_finite": false,
+  "masked_stats_matches_visible": true,
+  "measurable_fraction_visible_vs_unmasked": [
+    0.88525390625,
+    0.927978515625
+  ],
+  "edges_touching_non_tissue": 0,
+  "notes": [
+    "direction is undefined (NaN) where the disc is masked",
+    "the neck is supported tissue and may be traversed; the disc hole may not"
+  ]
+}

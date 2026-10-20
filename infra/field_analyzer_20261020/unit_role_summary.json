@@ -1,0 +1,19 @@
+{
+  "n_units": 8,
+  "n_sections": 14,
+  "n_sections_present": 14,
+  "units_per_fold": {
+    "0": 2,
+    "1": 2,
+    "2": 2,
+    "3": 1,
+    "4": 1
+  },
+  "assertions": {
+    "same_unit_same_fold": true,
+    "duplicate_mask_not_extra_patient": "mask_group is unit-scoped by construction",
+    "statistics_unit": "unit, not spot",
+    "unknown_identity_not_upgraded": true
+  },
+  "problems": []
+}
