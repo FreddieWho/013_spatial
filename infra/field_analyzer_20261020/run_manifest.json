@@ -1,0 +1,158 @@
+{
+  "run_id": "FA00-20261020",
+  "status": "COMPLETED",
+  "git_commit": "cb7256c",
+  "task": "INTEGRATION",
+  "observation_contract": {
+    "known_coordinates": true,
+    "hidden_expression_available": false,
+    "witness_available_to_model": false,
+    "human_tls_used": false,
+    "coordinate_unit": "source_pixels"
+  },
+  "input_assets": [
+    {
+      "path": "data/other_sources/hest1k/st/{section_id}.h5ad",
+      "availability": "VERIFIED_LOCAL",
+      "reuse_decision": "ADAPT",
+      "provenance": "R06; read via field_analyzer.adapters with explicit axis"
+    },
+    {
+      "path": "infra/field_discovery_review_20261018/identity_review.tsv",
+      "availability": "VERIFIED_LOCAL",
+      "reuse_decision": "REUSE",
+      "provenance": "R08; unknown stays unknown"
+    },
+    {
+      "path": "infra/field_source_holdout_20261018",
+      "availability": "VERIFIED_LOCAL",
+      "reuse_decision": "REBUILD",
+      "provenance": "R16; full-channel predictions are not block-recovery predictions"
+    },
+    {
+      "path": "infra/tls_multiscale_gobp_20261002/panel_controls.json",
+      "availability": "VERIFIED_LOCAL",
+      "reuse_decision": "ADAPT",
+      "provenance": "R07; A/B split and witness exclusion applied on top"
+    },
+    {
+      "path": "scripts/field_discovery_20261018.py",
+      "availability": "VERIFIED_LOCAL",
+      "reuse_decision": "ADAPT",
+      "provenance": "R06; silent transpose and self-fallback removed"
+    },
+    {
+      "path": "scripts/field_candidate_subfield_20261019.py",
+      "availability": "VERIFIED_LOCAL",
+      "reuse_decision": "REBUILD",
+      "provenance": "R07; whole-cache load forbidden, role registry replaces it"
+    },
+    {
+      "path": "scripts/field_biological_review_20261019.py",
+      "availability": "VERIFIED_LOCAL",
+      "reuse_decision": "ADAPT",
+      "provenance": "R08; residual scale may not be reported as field scale"
+    },
+    {
+      "path": "scripts/tls_multiscale_gobp.py",
+      "availability": "VERIFIED_LOCAL",
+      "reuse_decision": "SEALED",
+      "provenance": "R09; human-label endpoints barred from discovery"
+    },
+    {
+      "path": "scripts/tls_multiscale_forward.py",
+      "availability": "VERIFIED_LOCAL",
+      "reuse_decision": "HISTORICAL_ONLY",
+      "provenance": "R10; label-defined endpoints, symmetric sidebands"
+    },
+    {
+      "path": "infra/r16/t2p2_20260928",
+      "availability": "VERIFIED_LOCAL",
+      "reuse_decision": "HISTORICAL_ONLY",
+      "provenance": "R11; p-values and weak-sill lengths not reused"
+    },
+    {
+      "path": "docs/TLS_MULTISCALE_BRIDGE_CALIBRATION_20261003.md",
+      "availability": "VERIFIED_LOCAL",
+      "reuse_decision": "HISTORICAL_ONLY",
+      "provenance": "R12; negative evidence, not evidence of absence"
+    },
+    {
+      "path": "docs/TLS_PATIENT_VALIDATION_20261003.md",
+      "availability": "VERIFIED_LOCAL",
+      "reuse_decision": "HISTORICAL_ONLY",
+      "provenance": "R13; no labels or scores enter selection"
+    }
+  ],
+  "training_role": "NO_FIT_ANALYSIS",
+  "models": [
+    {
+      "model_id": "field_analyzer.pipeline.build_inputs",
+      "implementation_status": "COMPLETED",
+      "official_or_adapted": "proposed"
+    },
+    {
+      "model_id": "field_analyzer.pipeline.ridge_predict (invariance reference)",
+      "implementation_status": "COMPLETED",
+      "official_or_adapted": "classical_baseline"
+    },
+    {
+      "model_id": "route_A_deformable_geometry",
+      "implementation_status": "NOT_RUN",
+      "official_or_adapted": "proposed"
+    },
+    {
+      "model_id": "route_B_cross_field_operator",
+      "implementation_status": "NOT_RUN",
+      "official_or_adapted": "proposed"
+    },
+    {
+      "model_id": "route_C_connectivity",
+      "implementation_status": "NOT_RUN",
+      "official_or_adapted": "proposed"
+    },
+    {
+      "model_id": "misty_like / lsgi_like (self-written simplifications)",
+      "implementation_status": "NOT_RUN",
+      "official_or_adapted": "adapted_like"
+    }
+  ],
+  "results_scope": "ENGINEERING_ONLY",
+  "limitations": [
+    "infrastructure node: no AF hypothesis is tested or supported",
+    "poisoning counterexample run on 2 of 14 confirmed sections (ZEN36, NCBI642) plus synthetic tests",
+    "no real fitting, no block recovery, no scale curves (FA-01 not started)",
+    "58 unknown-identity units excluded from the pilot scope",
+    "4 legacy test failures pre-exist in numpy 2.x incompatibility; scripts/ untouched",
+    "independent review pending (Grok xhigh, D-283); this manifest does not claim absence of defects"
+  ],
+  "metrics_paths": [
+    "infra/field_analyzer_20261020/REPORT_FA00.md",
+    "infra/field_analyzer_20261020/poisoning_report_ZEN36.json",
+    "infra/field_analyzer_20261020/poisoning_report_NCBI642.json",
+    "infra/field_analyzer_20261020/reuse_resolution.tsv",
+    "infra/field_analyzer_20261020/section_asset_check.tsv",
+    "infra/field_analyzer_20261020/unit_role_assertions.tsv",
+    "infra/field_analyzer_20261020/geometry_smoke/summary.json"
+  ],
+  "review": {
+    "status": "PENDING",
+    "reviewer": "xai/grok-4.7",
+    "thinking": "xhigh",
+    "agent": "a5bcb012-6618-488e-8f88-f700773fd4c4"
+  },
+  "runtime": {
+    "gpu": false,
+    "downloads": false,
+    "single_section_poison_seconds": [
+      26.8,
+      27.5
+    ],
+    "peak_rss_gb": [
+      1.29,
+      1.4
+    ],
+    "disk_free_gb_after": 697.9,
+    "blas_threads": "not pinned (no heavy linear algebra in this node)"
+  }
+}

@@ -577,7 +577,7 @@ Git0604dfc修复小探针污染正式internal_0评价的问题并重算，恢复
 
 ## I-053｜真实 pilot 资产与身份清单尚未现场核验（2026-10-20）
 
-- **状态：** OPEN；FA-00 的首要核查项，不阻塞合成路线（FA-02/FA-03A）。
+- **状态：** RESOLVED_FOR_PILOT（2026-10-20，FA-00 定向清点完成；限制仍在，见下方结论文）。
 - **证据：** 施工包源码指向 `data/other_sources/hest1k/st/{section_id}.h5ad`、身份表 `infra/field_discovery_review_20261018/identity_review.tsv`、来源留出根 `infra/field_source_holdout_20261018/`、面板 `infra/tls_multiscale_gobp_20261002/panel_controls.json`。GitHub 侧 `infra/field_source_holdout_20261018` 在 8b174e2 返回 404，故该目录记为 `REFERENCED_LOCAL_NOT_VERIFIED`；“8 个已确认单位／14 片”的计数来自源码文字核查，未按修正 manifest 验收。
 - **处置：** FA-00 只做一次定向清点（相对路径、存在性、字节数、已有 manifest 版本、来源与掩膜前处理范围），优先用既有 freeze 指纹，不全盘逐字节 hash；不得据仓库文档声称本地已有。缺缓存时的降级顺序为：已有原始计数 → 最小新缓存 → 仅有可证明逐点且无监督选择的旧评分（限评分层）→ 报该真实分支不可执行。禁止自动外部下载。
 - **升级条件：** 若“已确认单位”实际少于 manifest 所述、或原始计数与 barcode/xy 无法对齐，则真实数据相关 AF 主张为硬阻塞；只能在如实报告缺失的前提下做合成与工程贯通，不得用未知身份凑独立患者，也不得把缺片补成阴性。
@@ -601,3 +601,17 @@ Git0604dfc修复小探针污染正式internal_0评价的问题并重算，恢复
 审核代理 `a5bcb012`（`xai/grok-4.7`，`high`）对 `05_COMMON_PROTOCOL.md`、`reuse_register.tsv` 与 FA-00 范围出 `allow_fa00_implementation = true`，无 BLOCKER；10 项中 3 项 PASS、7 项 GAP。GAP 已在 [FA 合同补充条款](FA_CONTRACT_ADDENDUM_20261020.md) 以固定断言关闭：①掩膜覆盖文库分母/深度检出/整片统计/表达加权邻接/查询资格；②核验组改为显式基因角色表并禁读旧整包缓存；③轴顺序必须报错而非静默转置；④FA-00 交付 `unit_role_assertions.tsv`；⑤毒化反例的指纹对象清单与"评价必须随动"双向断言；⑥资产状态增列 `PRESENT_BUT_INSUFFICIENT`；⑦**B 路线精度式 `Q = τI + ΣLᵀWL` 漏掉观测项 `MᵀR⁻¹M`**，与已写对的右端项不自洽，修正为带观测项或真做块条件化（FA-03B 前置）。
 
 预审明确未覆盖：实现正确性、本地原始文件是否存在、毒化反例未运行、`NOT_ASSESSABLE_FROM_DOCS` 项。实现完成后仍须独立复核，本条不构成"合同无缺陷"的证明。后续若复核发现新的泄漏语义缺口，重新 Open 并标记受影响结果重算范围。
+
+
+### I-053 清点结论（2026-10-20，FA-00）
+
+`field_analyzer.cli assets` 实测：身份表 72 行中 `patient_confirmed_within_study` 为真的 8 单位 / 14 片**全部存在**，均为 `csr_matrix`，行数 = barcode 数 = `obsm['spatial']` 行数，14/14 轴一致，基因轴统一 36,601；单文件 86–110 MB。`infra/field_source_holdout_20261018`、`identity_review.tsv`、`panel_controls.json`、legacy 脚本均在本机。因此"路径只在源码里出现、本地不可读"的风险对本 pilot 不成立。
+
+仍未解除的限制：58 个 unknown 身份单位不升级为独立患者；只给出 14 片的存在性与形状核验，未做逐点内容校验或全量 hash；其余 478 个 h5ad 未清点，扩大队列前需重跑同一清点；`PRESENT_BUT_INSUFFICIENT` 分支本轮未被触发（无缺片），其行为只有单元测试覆盖。
+
+## I-056｜legacy 测试在 numpy 2.x 下失败（2026-10-20）
+
+- **状态：** OPEN；不影响 FA 节点，但影响"全库测试是否全绿"的表述。
+- **证据：** 全库 `pytest tests/` 得 438 passed / 4 failed（746 s）。失败项为 `tests/test_r16_graphst_bridge.py`(2)、`tests/test_tls_multiscale.py`(1)、`tests/test_tls_patient_validation.py`(1)，错误为 `solve: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (m,m),(m,n)->(m,n)`，属 numpy 2.x 与 legacy 调用签名不兼容。运行前后 `git status scripts/` 为空，FA 代码不导入这些模块。
+- **处置：** 本轮不修 legacy 测试；在 `REPORT_FA00` 与状态文档中如实区分"FA 定向测试 32 全过"与"全库 4 项既有失败"。FA 各节点只要求本节点测试通过，不把 legacy 失败算作新回归。
+- **升级条件：** 若某 FA 节点需要复用这些 legacy 模块（如 `tls_multiscale_forward` 的路径几何），必须先修对应失败并单独记录，不能在带失败的情况下引用其结果。
