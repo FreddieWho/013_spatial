@@ -1,0 +1,18 @@
+{
+  "base_id": "3e58be8b24cc",
+  "scenario": "S3p",
+  "pair_id": "s3_parallel",
+  "seed": 0,
+  "role": "train",
+  "n_fields": 3,
+  "field_ids": [
+    "corridor",
+    "support_on_corridor",
+    "support_parallel_right"
+  ],
+  "n_points": 4096,
+  "n_visible": 4096,
+  "n_genes": 164,
+  "markers_per_field": 12,
+  "background_genes": 128
+}

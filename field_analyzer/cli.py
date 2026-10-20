@@ -296,6 +296,11 @@ def cmd_synth(args: argparse.Namespace) -> int:
             manifest.append(_manifest_row(sample, base))
             diagnostics.extend(synthetic.pair_diagnostics([sample]))
 
+    parallel = synthetic.build_s3_parallel(seeds[0] if seeds else 0)
+    parallel.counts = synthetic.counts_from_fields(parallel, seed=parallel.seed)
+    base = synthetic.materialise(parallel, out)
+    manifest.append(_manifest_row(parallel, base))
+
     for n_distractors in (0, 4, 16, 32):
         sample = synthetic.build_s4(seeds[0] if seeds else 0, n_distractors=n_distractors)
         sample.counts = synthetic.counts_from_fields(sample, seed=sample.seed)
@@ -552,7 +557,42 @@ def cmd_route_c(args: argparse.Namespace) -> int:
     manifest = list(csv.DictReader(open(synth_root / "scenario_manifest.tsv"), delimiter="\t"))
     rows = []
     for row in sorted(manifest, key=lambda r: r["base_id"]):
-        if row["scenario"] != "S3":
+        if row["scenario"] not in ("S3", "S3p"):
+            continue
+        if row["scenario"] == "S3p":
+            sample_dir = synth_root / row["path"]
+            field_ids = row["field_ids"].split(",")
+            xy, visible, scores, truths = _load_synth_sample(sample_dir, field_ids)
+            n = int(round(np.sqrt(len(xy))))
+            truth = truths["corridor"]
+            # background-subtracted support (a visible-data operation): the counts
+            # model has a positive floor, so raw scores never reach zero.
+            def contrast(a: np.ndarray) -> np.ndarray:
+                a = np.asarray(a, dtype=float)
+                return np.clip(a - np.median(a), 0.0, None)
+
+            u_full = contrast(scores["support_on_corridor"])
+            v_full = contrast(scores["support_parallel_right"])
+            u, v = u_full, v_full
+            xs = xy[:, 0]
+            start = int(np.flatnonzero(xs < 20)[np.argmax(u_full[xs < 20])])
+            goal = int(np.flatnonzero(xs > 44)[np.argmax(v_full[xs > 44])])
+            modes = {
+                "C0_single_corridor": route_c.support_cost(u),
+                "C0_max_aggregate": route_c.support_cost(np.maximum(u, v)),
+                "C1_offset_aware": route_c.support_cost(route_c.offset_aware_support(u, v, n)),
+            }
+            for mode, cost in modes.items():
+                res = route_c.dijkstra(n, cost, start, goal)
+                metrics = route_c.path_metrics(res.path, n, truth, support_field=np.maximum(u, v))
+                if len(res.path):
+                    metrics["mean_abs_y_offset_from_centre"] = float(np.mean(np.abs(res.path[:, 1] - n / 2)))
+                    metrics["start"] = f"{res.path[0,0]:.0f},{res.path[0,1]:.0f}"
+                    metrics["goal"] = f"{res.path[-1,0]:.0f},{res.path[-1,1]:.0f}"
+                rows.append({
+                    "base_id": row["base_id"], "seed": row["seed"], "variant": "parallel_companion",
+                    "cost_mode": mode, "n_nodes": res.nodes, "cost": res.cost, **metrics,
+                })
             continue
         sample_dir = synth_root / row["path"]
         field_ids = row["field_ids"].split(",")

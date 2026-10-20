@@ -11,6 +11,7 @@ fb2e1fb8509a	S5	s5_nonidentifiable	0	train	1	bridge	4096	3899	samples/S5_fb2e1fb
 6d47edae8fe2	S5	s5_nonidentifiable	0	train	1	bridge	4096	3899	samples/S5_6d47edae8fe2
 cadea24175c9	S5	s5_nonidentifiable	8	development	1	bridge	4096	3899	samples/S5_cadea24175c9
 2793581527e5	S5	s5_nonidentifiable	8	development	1	bridge	4096	3899	samples/S5_2793581527e5
+3e58be8b24cc	S3p	s3_parallel	0	train	3	corridor,support_on_corridor,support_parallel_right	4096	4096	samples/S3p_3e58be8b24cc
 050ceacc3a9b	S4	s4_distractors_n0	0	train	8	bridge_broken,bridge_continuous,bridge_redundant,bridge_wrong_end,bridge_y_branch,endpoint_left,endpoint_right,endpoint_wrong	4096	4096	samples/S4_050ceacc3a9b
 49215e91bbd4	S4	s4_distractors_n4	0	train	12	bridge_broken,bridge_continuous,bridge_redundant,bridge_wrong_end,bridge_y_branch,distractor_00,distractor_01,distractor_02,distractor_03,endpoint_left,endpoint_right,endpoint_wrong	4096	4096	samples/S4_49215e91bbd4
 8d8b50534d2f	S4	s4_distractors_n16	0	train	24	bridge_broken,bridge_continuous,bridge_redundant,bridge_wrong_end,bridge_y_branch,distractor_00,distractor_01,distractor_02,distractor_03,distractor_04,distractor_05,distractor_06,distractor_07,distractor_08,distractor_09,distractor_10,distractor_11,distractor_12,distractor_13,distractor_14,distractor_15,endpoint_left,endpoint_right,endpoint_wrong	4096	4096	samples/S4_8d8b50534d2f

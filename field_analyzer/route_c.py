@@ -125,3 +125,36 @@ def path_metrics(
         out["variant_support_min_along_path"] = float(np.min(own))
         out["variant_support_below_0.05_fraction"] = float(np.mean(own < 0.05))
     return out
+
+
+def offset_aware_support(
+    u: np.ndarray,
+    v: np.ndarray,
+    n: int,
+    *,
+    offsets: tuple[tuple[int, int], ...] = ((0, 2), (0, -2), (0, 4), (0, -4), (0, 6), (0, -6), (2, 0), (-2, 0)),
+) -> np.ndarray:
+    """Common support that allows a *known small parallel offset* between fields.
+
+    q(s) = max_δ sqrt(u(s) · v(s − δ)) over the allowed offsets δ.  With δ = 0 this
+    reduces to plain co-localisation; the offset set must come from training, not
+    from the hidden truth.
+    """
+    uu = np.clip(np.asarray(u, dtype=float), 0.0, None)
+    vv = np.clip(np.asarray(v, dtype=float), 0.0, None)
+    best = np.zeros(n * n, dtype=float)
+    for dy, dx in offsets:
+        shifted = grid_shift(vv, n, dy, dx)
+        best = np.maximum(best, np.sqrt(np.maximum(uu, 0.0) * np.maximum(shifted, 0.0)))
+    return best
+
+
+def grid_shift(field: np.ndarray, n: int, dy: int, dx: int) -> np.ndarray:
+    img = np.asarray(field, dtype=float).reshape(n, n)
+    out = np.zeros_like(img)
+    ys = slice(max(0, dy), n + min(0, dy))
+    yd = slice(max(0, -dy), n + min(0, -dy))
+    xs = slice(max(0, dx), n + min(0, dx))
+    xd = slice(max(0, -dx), n + min(0, -dx))
+    out[yd, xd] = img[ys, xs]
+    return out.ravel()

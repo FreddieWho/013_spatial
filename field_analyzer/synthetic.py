@@ -450,6 +450,45 @@ def build_s5(seed: int, pair_id: str = "s5_nonidentifiable") -> SyntheticSample:
     return sample
 
 
+def build_s3_parallel(seed: int, pair_id: str = "s3_parallel") -> SyntheticSample:
+    """Bridge supported by a *parallel* companion field on one half only.
+
+    Neither field alone lies on the corridor for the whole route: field A covers the
+    left half on the corridor, field B covers the right half but sits 3 pitch to the
+    side.  A single-field or max-aggregate router follows B off the corridor; a
+    relation-aware common support can use the known parallel offset to stay on it.
+
+    This is our own extension (not one of the package's S0-S5).
+    """
+    rng = np.random.default_rng(seed + 71)
+    xy = grid_xy()
+    left = np.array([12.0, GRID / 2])
+    right = np.array([GRID - 12.0, GRID / 2])
+    path = bezier([left, [GRID / 2, GRID / 2 + 4.0], right])
+    corridor = tube(xy, path, 1.6)
+
+    xs = xy[:, 0]
+    on_left = (xs <= GRID / 2 + 2).astype(float)
+    on_right = (xs >= GRID / 2 - 2).astype(float)
+    field_a = corridor * on_left
+    companion = np.zeros_like(corridor)
+    shifted = tube(xy - np.array([0.0, 6.0]), path, 1.6)
+    companion = shifted * on_right
+    noise = 0.02 * rng.normal(size=corridor.shape)
+    sample = _empty_sample("S3p", seed, pair_id)
+    sample.fields["corridor"] = corridor
+    sample.fields["support_on_corridor"] = np.clip(field_a + noise, 0, None)
+    sample.fields["support_parallel_right"] = np.clip(companion + noise, 0, None)
+    sample.structures = {
+        "left": left.tolist(),
+        "right": right.tolist(),
+        "parallel_offset_pitch": [0.0, 6.0],
+        "coverage": "field A left half, field B right half offset +6 pitch in y",
+        "extension": "our own S3 variant, not part of the package's S0-S5",
+    }
+    return sample
+
+
 def make_s5_pair(seed: int) -> tuple[SyntheticSample, SyntheticSample]:
     """Two samples with bit-identical visible counts and different hidden structure."""
     a = build_s3(seed, pair_id="s5_nonidentifiable")
