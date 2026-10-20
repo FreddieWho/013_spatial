@@ -141,16 +141,27 @@ def evaluate_section(
 ) -> list[dict[str, Any]]:
     pitch = geometry.estimate_pitch(xy[support])
     rows: list[dict[str, Any]] = []
+    skipped: list[dict[str, Any]] = []
     names = sorted(field_scores)
     for ci, center in enumerate(centers):
         dist_center = np.linalg.norm(xy - center, axis=1)
         core = dist_center <= core_radius_pitch * pitch
         if core.sum() < 5:
+            skipped.append({"center_index": ci, "reason": "core has fewer than 5 points", "n_core": int(core.sum())})
             continue
         for radius_pitch in radii_pitch:
             hidden = (dist_center <= radius_pitch * pitch) & support
             visible = support & ~hidden
             if visible.sum() < 50 or hidden.sum() < 10:
+                skipped.append(
+                    {
+                        "center_index": ci,
+                        "radius_pitch": float(radius_pitch),
+                        "reason": "fewer than 50 visible points or fewer than 10 hidden points",
+                        "n_visible": int(visible.sum()),
+                        "n_hidden": int(hidden.sum()),
+                    }
+                )
                 continue
             vis_xy = xy[visible]
             q_xy = xy[core]
@@ -199,4 +210,4 @@ def evaluate_section(
                             ),
                         }
                     )
-    return rows
+    return rows, skipped

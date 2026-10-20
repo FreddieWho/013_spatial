@@ -1,0 +1,96 @@
+{
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "thinking": "xhigh",
+    "agent_id": "6fd409ab-9717-44f9-8092-5c69138287e2",
+    "cwd": "/home/huyudi/013_spatial"
+  },
+  "node": "FA-04",
+  "commit_reviewed": "9feaf00",
+  "scope": {
+    "read": [
+      "infra/field_analyzer_20261020/review_task_fa01_node.md",
+      "infra/field_analyzer_20261020/review_task_fa04_node.md",
+      "field_analyzer/real_validation.py",
+      "field_analyzer/roles.py",
+      "field_analyzer/pipeline.py",
+      "field_analyzer/cli.py（cmd_real_validation、cmd_scales、real-validation/scales 默认参数）",
+      "field_analyzer/scales.py（fit_variogram 及 lag/pairs）",
+      "field_analyzer/observation.py（visible_library_size）",
+      "field_analyzer/geometry.py（estimate_pitch）",
+      "infra/field_analyzer_20261020/REPORT_FA04.md",
+      "infra/field_analyzer_20261020/real_validation/summary.json",
+      "infra/field_analyzer_20261020/real_validation/map_agreement.tsv",
+      "infra/field_analyzer_20261020/real_validation/cross_field_validation.tsv",
+      "infra/field_analyzer_20261020/real_validation/scale_agreement.tsv",
+      "infra/field_analyzer_20261020/scales/summary.json",
+      "infra/field_analyzer_20261020/scales/scale_fits.tsv",
+      "docs/FA_CONTRACT_ADDENDUM_20261020.md §1–2",
+      "docs/field_analyzer_killtest_20261020/05_COMMON_PROTOCOL.md §4",
+      "docs/field_analyzer_killtest_20261020/08_REAL_DATA_AND_SCALE.md §5"
+    ],
+    "ran": [
+      "git rev-parse --short HEAD；git diff 8665985..HEAD -- field_analyzer/cli.py（确认 cmd_real_validation 函数体未改）",
+      "用 TSV 重算片级/单位级图一致、关系差、符号一致、range 差与深度相关",
+      "对 14 张片重建 half_specs 与 build_inputs：比较 feature_mask、外部文库掩膜与文库数值、score_genes 交集、A/B 两半 depth_corr；A 半 depth_corr 与 map_agreement.tsv 最大绝对差为 0",
+      "seed=0 的基因名划分：检查跨场 A/B 冲突基因",
+      "把 FA-04 的 A 半 status/range_pitch 与 FA-01 scales/summary.json 的 raw 拟合逐格对照"
+    ],
+    "not_checked": [
+      "未把 python -m field_analyzer.cli real-validation 再写回仓库；输入重建只在内存中对照已有 TSV",
+      "未重拟合变差函数。A 半与 FA-01 raw 产物 56/56 一致，故未再跑拟合",
+      "未做协议要求的匹配噪声或技术梯度反例；产物中没有这项。符号一致能否在去掉共享文库后仍在，记 NOT_ASSESSABLE",
+      "未追查这 14 个 h5ad 为什么 in_tissue 全为真；只确认列存在且 14/14 片 n_visible=n_obs",
+      "未审 FA-04 以外节点，也未逐行读 observation.py / geometry.py 的其余函数"
+    ]
+  },
+  "findings": [
+    {
+      "id": "J1",
+      "severity": "MAJOR",
+      "topic": "“6 对符号 8/8 单位一致”不成立，且被写成了超出设计的方向重复性",
+      "evidence": "cross_field_validation.tsv 有 84 行（14 片 × 6 对），不是报告写的 168 行。np.sign 比较：B_AXIS~OXPHOS 只有 12/14 片、6/8 单位同号。反例：Patient b / NCBI642 为 +0.124 对 −0.199；Patient 2 的单位均值是 +0.120 对 −0.002（ZEN46 为 +0.069 对 −0.051）。IFN~OXPHOS 也是 12/14 片；若要求单位内每片都同号则 6/8，若只看单位均值的符号则 7/8。反例：Patient 3 / ZEN45 为 +0.036 对 −0.123，该单位均值 +0.136 对 −0.046。summary.json 的 relation_sign_agreement_median 全是 1.0，因为单位内先取平均、再对 8 个单位取中位，少数冲突单位进不了中位。报告把这个中位写成“8 个单位 × 6 个场对全部一致”和“关系方向的重复性很好”。另外两半用的是同一批点、数值相同的外部文库（14/14 片文库最大绝对差为 0）。协议写明共享分母可以诱导相关，A/B 不是正交模态。完全同号的 4 对里，正相关那几对不能从这次设计里分离出“生物学方向已被重复”。",
+      "required_fix": "删掉 8/8 与“方向重复性很好”。按对报告发生符号冲突的单位数，并写明冲突多在弱相关上。共享文库/深度未做反例之前，符号一致只记分子内部同号，不记独立重复。summary.json 的中位 1.0 不能再译成全单位一致。"
+    },
+    {
+      "id": "J2",
+      "severity": "MAJOR",
+      "topic": "0.72–4.44 pitch 不是两边都已识别的 range 差",
+      "evidence": "field_range 只要 fit['range'] 为真就写入 range_pitch，NOT_IDENTIFIED_WITHIN_FOV 也进入 abs_gap。56 行里 A、B 各有 26 行未识别。两边都 OK 的片数：EMT 8、B_AXIS 9、OXPHOS 5、IFN 3。只在这些片上、再按单位取中位，差约为 EMT 0.53、B_AXIS 1.67、OXPHOS 0.46、IFN 0.75，而且 IFN 只有 3 个单位有可比较的 OK 对。报告引用的 4.44 是含未识别参数的单位均值中位。IFN 的极端值来自边界拟合：ZEN38 为 575 对 5.93（差 569），ZEN43 为 7.17 对 298（差 291）；575 是拟合上界 50×span，不是识别出的尺度。ZEN46 的 IFN 两半都钉在 575，差为 0，这是两次未识别，不是尺度一致。A 半 status 与 range_pitch 和 FA-01 raw 拟合 56/56 逐格相同，所以这不是另一个拟合器；错在把未识别的 range 参数当成尺度差。",
+      "required_fix": "非 OK 的 range 不要进入差的中位。分开写未识别比例，以及两边都 OK 时的差。结论只保留“这个视野里尺度常常识别不出，不能当稳定判据”。不要再引用 0.72–4.44 pitch 作为尺度不一致的大小。"
+    },
+    {
+      "id": "J3",
+      "severity": "MINOR",
+      "topic": "报告把片级中位和单位级中位写成同一批数，|差|列也不是表内两列之差",
+      "evidence": "6 个单位各 2 片、2 个单位各 1 片。summarise() 是单位内平均再对单位取中位；本批每单位最多 2 片，单位内平均与单位内中位数值相同。报告 2.1 的 0.926/0.793/0.738/0.578 是 14 片中位，不是 summary.json 的单位中位 0.894/0.790/0.682/0.565。紧接着的总体中位 0.776 却是 32 个单位均值的中位；56 个片级相关的中位是 0.786。2.2 的 |差| 是片级 |r_A−r_B| 的中位，不是表内两个中位之差：B_AXIS~IFN 显示 0.241 对 0.552（差 0.311），列上却是 0.220。报告又写“0.24 对 0.55，差 0.22”。2.3 和 2.4 用的是单位级中位。排序没有因此翻面，但这些数字不能当成同一个汇总。",
+      "required_fix": "每个中位标明是 14 片还是 8 个单位。|差|列改成与表内两列同一口径，或改列名，避免读者用两列相减。"
+    },
+    {
+      "id": "J4",
+      "severity": "MINOR",
+      "topic": "深度相关只算了 A 半，IFN 的 0.44 不能代表 B 半",
+      "evidence": "depth_corr 用 inputs_a 的 log1p(library)，文库是排除 A∪B 的外部文库（14/14 片 35967 个基因，与 A∪B 交集为空，且与 B 半文库数值相同）。它与 A 半评分做 Pearson，没有对 B 半写入产物。重算的 B 半单位中位：OXPHOS 0.716（A 为 0.786），IFN 0.273（A 为 0.443），EMT 0.082，B_AXIS −0.065。OXPHOS 两边都高，把它当成深度混杂而不是生物信号，方向是对的。IFN“强烈依赖深度”只覆盖 A 半。",
+      "required_fix": "写明 0.79/0.44 是 A 半对外部文库。若保留“IFN 强烈依赖深度”，补上 B 半，或改成 A 半 0.44、B 半 0.27。"
+    }
+  ],
+  "answers": {
+    "1": "分母对称，没有把 B 放进 A 的后门。spec_A 的场是 A、witness 是全部 B；spec_B 相反。external_library 默认为真，两边的文库掩膜都是排除 A∪B。14/14 片文库掩膜相同、数值最大绝对差为 0、与 A∪B 的交集为 0。score_genes 两边无交集，B-only 基因没有进入 A 的评分。witness 只用于排除，不进入评分。feature_mask 两次不一致：0/14 片相同，各挡住自己的 witness（差 634 个基因）。在外部文库打开时，这个不一致不进入分母，也不进入对方的 score_genes。seed=0 时没有“一场为 A、另一场为 B”的基因，所以“冲突基因从两边都删掉”这条更严的路径本次没有触发。",
+    "2": "两半不是独立验证。它们是同一批文献基因的不相交子集，打在同一批点上，并用同一份外部文库。报告第 1 节的“独立”指两次分开评分；第 3.5 节写明只是分子内部核验、不构成 AF-01，这一点没有把两半一致升级成独立队列验证。超出设计的是第 3.2 节的方向重复性，见 J1。",
+    "3": "Pearson 只在两边都有限的点上算。这 14 片 in_tissue 都存在，且 n_visible=n_obs、场评分在可见点上全部有限，所以本次等于用了全部点，不是漏滤了组织外点。depth_corr 用的是与目标无关的外部文库，不是场基因自己的文库；但只对 A 半评分。OXPHOS 的 0.79 被解释成深度混杂而不是生物耦合，这个方向对；B 半单位中位仍有 0.72，不是 A 半独有。报告没有把 0.79 写成氧化磷酸化的生物学信号。",
+    "4": "summarise() 先在单位内取平均，再对单位取中位，不是先单位内中位。本批没有单位超过 2 片，所以单位内平均和中位相同，这一步不改变数字。不均衡影响的是报告里未标明的片级中位：IFN 图一致片级 0.738、单位级 0.682。0.776 是单位级总中位，不是 14 片表的总中位（那是 0.786）。见 J3。",
+    "5": "拟合函数是同一个 scales.fit_variogram。默认都是 12 pitch、12 箱、seed 0。FA-04 不扣二次趋势，只拟合原场。在这 14 片上，A 半的 status 和 range_pitch 与 FA-01 raw 逐格相同（56/56，差为 0）；代码虽各自估计 pitch，但本批可见点与有限评分点是同一集合，所以没有产生第二套数。B 半没有 FA-01 对照。0.72–4.44 的解读过度：只能说明尺度不稳、很多 range 在视野内未识别，不能把这个区间当成已识别尺度的差。见 J2。",
+    "6": "是，这句超出了证据，而且字面为假。4 对确实 8/8 同号；另外 2 对不是。即便同号，共享点与共享文库也可以诱导正相关，本次没有技术梯度反例，不能把同号写成关系方向已被重复。见 J1。",
+    "7": "数字能在产物里找到，但不是同一个口径。0.776 对齐 summary.json 的单位级总中位 0.7763457580705883，不对齐 56 个片级值的中位 0.7863019595955262。0.926/0.793/0.738/0.578 对齐 map_agreement.tsv 的片级中位（0.926488/0.792545/0.738131/0.578360），不对齐单位级 0.894/0.790/0.682/0.565。0.049/0.109/0.161/0.220/0.040/0.022 对齐片级 |r_A−r_B| 中位，不对齐 summary.json 的单位级差（0.041/0.112/0.168/0.228/0.046/0.036），也不是表内两个中位之差。−0.06/0.10/0.44/0.79 对齐 A 半单位级深度中位（−0.0593/0.1036/0.4428/0.7858）。0.72–4.44 对齐 summary.json 的 range_gap_pitch_median（0.722/2.917/3.473/4.441），这个量包含未识别 range。"
+  },
+  "claims_that_do_not_hold": [
+    "6 个场对的符号在 8 个单位全部一致",
+    "关系方向的重复性很好",
+    "两半 range 差 0.72–4.44 pitch 是可比较的尺度差",
+    "总体中位 0.776 是前面那张 14 片表的总中位",
+    "cross_field_validation.tsv 有 168 行"
+  ],
+  "allow_node_conclusion": false,
+  "limitations": "没有 BLOCKER，也没有发现 B 通过 witness、分母或 score_genes 进入 A。图一致性的高低顺序（EMT 高、B_AXIS 低）和 OXPHOS 随外部文库走，在两种汇总下都还在；这两点可以在改写后当作描述保留。不能按现稿引用符号全一致或 4.44 pitch。未做技术梯度反例，因此不判断同号里有多少是共享分母造成的。本复核不证明实现没有其他缺陷。FA-04 产物对应 8665985；HEAD 9feaf00 在 cmd_real_validation 之后另有插入，该函数体与当时一致。"
+}

@@ -98,6 +98,7 @@ class SectionValidation:
     range_b: dict[str, dict[str, Any]]
     pitch: float
     depth_corr: dict[str, float]
+    depth_corr_b: dict[str, float]
 
 
 def validate_section(
@@ -125,7 +126,9 @@ def validate_section(
     range_a = {fid: field_range(scores_a[fid], xy, support, max_lag_pitch=max_lag_pitch) for fid in scores_a}
     range_b = {fid: field_range(scores_b[fid], xy, support, max_lag_pitch=max_lag_pitch) for fid in scores_b}
     log_lib = np.log1p(inputs_a.arrays["library"])
+    log_lib_b = np.log1p(inputs_b.arrays["library"])
     depth_corr = {fid: pearson(scores_a[fid], log_lib) for fid in scores_a}
+    depth_corr_b = {fid: pearson(scores_b[fid], log_lib_b) for fid in scores_b}
     return SectionValidation(
         section_id=section_id,
         unit_id=unit_id,
@@ -138,6 +141,7 @@ def validate_section(
         range_b=range_b,
         pitch=float(inputs_a.meta["pitch"]),
         depth_corr=depth_corr,
+        depth_corr_b=depth_corr_b,
     )
 
 
@@ -158,29 +162,52 @@ def summarise(results: Sequence[SectionValidation]) -> dict[str, Any]:
         fid: per_unit({r.section_id: r.map_agreement[fid] for r in results}, unit_of) for fid in field_ids
     }
     relation_gap = {}
-    relation_sign = {}
+    sign_consistent_units = {}
+    sign_conflict_units = {}
     for pair in pair_ids:
-        gap = {}
-        sign = {}
+        gap: dict[str, float] = {}
+        agree: dict[str, float] = {}
         for r in results:
             a, b = r.relation_a[pair], r.relation_b[pair]
             if np.isfinite(a) and np.isfinite(b):
                 gap[r.section_id] = abs(a - b)
-                sign[r.section_id] = float(np.sign(a) == np.sign(b))
+                agree[r.section_id] = float(np.sign(a) == np.sign(b))
         relation_gap["~".join(pair)] = per_unit(gap, unit_of)
-        relation_sign["~".join(pair)] = per_unit(sign, unit_of)
+        # count units where *every* section agrees in sign, vs units with a conflict
+        by_unit_all: dict[str, bool] = {}
+        for section, ok in agree.items():
+            unit = unit_of[section]
+            by_unit_all[unit] = by_unit_all.get(unit, True) and bool(ok)
+        sign_consistent_units["~".join(pair)] = int(sum(1 for v in by_unit_all.values() if v))
+        sign_conflict_units["~".join(pair)] = sorted(u for u, v in by_unit_all.items() if not v)
 
-    def range_gap(which: str) -> dict[str, dict[str, float]]:
+    def range_gap_both_ok() -> dict[str, dict[str, float]]:
+        """Only sections where BOTH halves reached a plateau (status OK)."""
         out: dict[str, dict[str, float]] = {}
         for fid in field_ids:
             gaps: dict[str, float] = {}
             for r in results:
                 ra = r.range_a[fid]
                 rb = r.range_b[fid]
-                if ra.get("range_pitch") and rb.get("range_pitch"):
+                if ra["status"] == scales.OK and rb["status"] == scales.OK and ra.get("range_pitch") and rb.get("range_pitch"):
                     gaps[r.section_id] = abs(ra["range_pitch"] - rb["range_pitch"])
             out[fid] = per_unit(gaps, unit_of)
         return out
+
+    both_ok_sections = {
+        fid: sum(
+            1
+            for r in results
+            if r.range_a[fid]["status"] == scales.OK and r.range_b[fid]["status"] == scales.OK
+        )
+        for fid in field_ids
+    }
+    unident_a = {
+        fid: sum(1 for r in results if r.range_a[fid]["status"] != scales.OK) for fid in field_ids
+    }
+    unident_b = {
+        fid: sum(1 for r in results if r.range_b[fid]["status"] != scales.OK) for fid in field_ids
+    }
 
     def median_of(nested: dict[str, dict[str, float]]) -> dict[str, float]:
         return {
@@ -191,25 +218,35 @@ def summarise(results: Sequence[SectionValidation]) -> dict[str, Any]:
     depth_corr = {
         fid: per_unit({r.section_id: r.depth_corr[fid] for r in results}, unit_of) for fid in field_ids
     }
+    depth_corr_b = {
+        fid: per_unit({r.section_id: r.depth_corr_b[fid] for r in results}, unit_of) for fid in field_ids
+    }
     ok_a = {fid: sum(1 for r in results if r.range_a[fid]["status"] == scales.OK) for fid in field_ids}
     ok_b = {fid: sum(1 for r in results if r.range_b[fid]["status"] == scales.OK) for fid in field_ids}
     return {
         "n_sections": len(results),
         "n_units": len({r.unit_id for r in results}),
         "map_agreement_median_by_unit": median_of(map_agreement),
-        "map_agreement_median_overall": float(
-            np.median([v for fid in field_ids for v in map_agreement[fid].values()])
+        "map_agreement_median_by_unit": median_of(map_agreement),
+        "map_agreement_median_over_all_sections": float(
+            np.median([r.map_agreement[fid] for r in results for fid in field_ids])
         ),
-        "relation_gap_median": median_of(relation_gap),
-        "relation_sign_agreement_median": median_of(relation_sign),
-        "range_gap_pitch_median": median_of(range_gap("both")),
-        "depth_corr_median": median_of(depth_corr),
+        "relation_gap_median_by_unit": median_of(relation_gap),
+        "sign_consistent_units": sign_consistent_units,
+        "sign_conflict_units": sign_conflict_units,
+        "range_gap_pitch_median_by_unit_both_ok": median_of(range_gap_both_ok()),
+        "n_sections_both_ok_per_field": both_ok_sections,
+        "n_sections_not_ok_A": unident_a,
+        "n_sections_not_ok_B": unident_b,
+        "depth_corr_median_A": median_of(depth_corr),
+        "depth_corr_median_B": median_of(depth_corr_b),
         "n_sections_with_ok_range_A": ok_a,
         "n_sections_with_ok_range_B": ok_b,
         "notes": [
             "unit-level numbers aggregate sections within a within-study unit, then take the median over units",
             "the two halves share one target-independent library; neither half enters the other's denominator",
-            "depth_corr is the Pearson correlation of each field score with log library size; a high value means the field partly tracks sequencing depth",
+            "depth_corr_* is the Pearson correlation of each field score with log library size, computed separately for the A and B halves",
+            "map_agreement_median_by_unit: per-unit median first, then median over units; map_agreement_median_over_all_sections is the raw 56-section median",
             "no displacement claim: FA-03B showed it is not identifiable from this observation",
         ],
     }

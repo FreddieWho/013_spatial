@@ -1,0 +1,90 @@
+{
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "thinking": "xhigh",
+    "cwd": "/home/huyudi/013_spatial"
+  },
+  "node": "FA-05",
+  "commit_reviewed": "9feaf00",
+  "scope": {
+    "read": [
+      "field_analyzer/block_recovery.py",
+      "field_analyzer/cli.py 的 cmd_block_recovery、_unit_level、_skill_units、_skill",
+      "field_analyzer/pipeline.py 的 build_inputs 场分数算子",
+      "field_analyzer/roles.py 的按基因名划分",
+      "field_analyzer/geometry.py 的 estimate_pitch",
+      "field_analyzer/adapters.py 的 in_tissue 与表达派生 obs 列",
+      "infra/field_analyzer_20261020/REPORT_FA05.md",
+      "infra/field_analyzer_20261020/block_recovery/recovery_metrics.tsv",
+      "infra/field_analyzer_20261020/block_recovery/summary.json",
+      "infra/field_analyzer_20261020/review/fa01_06_review.json 的 G1",
+      "infra/field_analyzer_20261020/review/g1_fix_review.json 的 G2",
+      "STATUS.md 补洞段",
+      "docs/roadmap.md 的 FA-05 行",
+      "TODO.md 的 FA-05 条目",
+      "docs/field_analyzer_killtest_20261020/05_COMMON_PROTOCOL.md 的 BLOCK_RECOVER",
+      "docs/field_analyzer_killtest_20261020/08_REAL_DATA_AND_SCALE.md §3.3 与 §4"
+    ],
+    "ran": [
+      "从 recovery_metrics.tsv 复算单位等权技能、行级技能、按场单位等权技能，以及先配对再汇总的技能",
+      "核对 2500 行、8 个单位、缺行位置、840 组 n_core 是否随半径变化、42 个中心坐标是否随半径变化",
+      "用 14 张 h5ad 的 spatial 坐标测中心到局部边界和凸包边界的距离、4/12 pitch 环是否完整、中心最小间隔",
+      "用同一 build_inputs 与五个预测函数做隐藏区计数毒化：比较可见分数、深度、检出和核心上的预测值",
+      "比较 PYTHONHASHSEED=1 与 2 下整数字符串哈希和整数元组哈希"
+    ],
+    "not_checked": [
+      "未重跑 block-recovery，避免覆盖已有表",
+      "未对 14 张真实 h5ad 做隐藏区毒化；毒化用的是同一算子的合成网格",
+      "未另报整块 H 的误差，本节点评分只在固定核心 Q",
+      "未审 FA-05 以外节点的实现"
+    ]
+  },
+  "findings": [
+    {
+      "id": "K1",
+      "severity": "MAJOR",
+      "topic": "约 4 pitch 不是四个场的共同截止",
+      "evidence": "主口径把四个场的 RMSE 混在一个单位中位里，kernel 为 +0.129348/−0.079719/−0.203908。同一单位规则按场分开后，EMT 的 kernel 是 +0.4715/+0.2778/+0.1172：8 pitch 有 6/8 个单位为正，12 pitch 仍有 5/8 为正。B_AXIS 在 8 pitch 是 +0.1091（5/8）。若先在同一中心、同一场内和背景配对，再按单位汇总，8 pitch 的 kernel 是 −0.000，8 个单位里 4 个为正，不是 −0.080。报告第 45 行把混合中位写成到 8 pitch 已经全部差于均值，第 48 行据此说更大缺口在这批数据上没有立足点。对 EMT 不成立。网格也没有 5–7 pitch，所以即便混合中位，4 也只是最后一个测到的正半径，不是拟合阈值。",
+      "required_fix": "用现有 TSV 补按场的单位等权技能。主句只描述混合场中位，并写明 EMT 到 12 pitch 仍优于可见均值。不要把 4 pitch 写成四个场的共同截止，也不要据此否决所有更大缺口。不必重跑。"
+    },
+    {
+      "id": "K2",
+      "severity": "MINOR",
+      "topic": "多场在 4 pitch 上高于自适应核，不是低于它",
+      "evidence": "单位等权 multifield +0.137123，kernel_k16 +0.129348，kernel_local_bw2 +0.158826，idw_k8 +0.156495。报告第 47 行把多场写成低于局部核 +0.159 和 kernel +0.129。后半句不成立。8 个单位里有 3 个多场超过该单位最好的单场参照，中位仍然不超过最好的那个。STATUS 和 roadmap 的「不及单场平滑」只在「最好的单场参照」这个读法下成立，不覆盖 kernel_k16。",
+      "required_fix": "改成高于自适应核 +0.129，低于固定带宽核 +0.159 和 IDW +0.156。不必重跑。"
+    },
+    {
+      "id": "K3",
+      "severity": "MINOR",
+      "topic": "TODO 仍写任何半径都不超过可见均值",
+      "evidence": "TODO.md 第 49 行仍是「任何半径都不超过可见均值」。报告第 47 行、STATUS 的补洞段和 roadmap 的 FA-05 行已经写成 4 pitch 超过可见均值。变更记录第 115 行说这句已改，清单本身没改。报告、STATUS、roadmap 没有把「8 pitch 可恢复」留成正结论。",
+      "required_fix": "改 TODO.md 第 49 行，与报告一致。不必重跑。"
+    },
+    {
+      "id": "K4",
+      "severity": "MINOR",
+      "topic": "拒绝数被写成 0，有一个中心半径被静默丢掉",
+      "evidence": "满表应是 14×3×3×4×5=2520 行，实际 2500 行。缺的是 ZEN45 中心 2、半径 12 的 20 行。该片 328 个点，12 pitch 圆盘留下 49 个可见点，低于代码里的 50，于是整组跳过。summary.json 把 n_refused_or_unscored 写死为 0。保留下来的 840 组 n_core 不随半径变化，42 个中心坐标也不变。这个缺口不改变已复算的单位等权符号。",
+      "required_fix": "不要写死 0。记下 ZEN45 中心 2 在 12 pitch 因可见点不足被跳过。已有表不必重跑。"
+    }
+  ],
+  "answers": {
+    "1": "G1 已落实。_unit_level 先在单位内对 RMSE 取中位，_skill_units 再对每个单位算 1−(RMSE/RMSE₀)²，最后对 8 个单位取中位，写入 skill_vs_background_units_primary。从 2500 行复算，kernel 为 +0.129348/−0.079719/−0.203908，multifield 为 +0.137123/−0.004205/−0.082421，与 summary.json 一致。报告、STATUS、roadmap 不再把「8 pitch 可恢复」当成正结论，也不再写「多场从未超过均值」。TODO.md 第 49 行还有这句的残留，见 K3。",
+    "2": "评分用的遮挡是真的。hidden 是圆盘且落在组织支持内，visible 是支持区去掉这个圆盘。核心 Q 在半径循环之外按 2 pitch 定义，不随半径改。840 组的 n_core 跨半径不变，42 个中心坐标也不变。预测只吃可见点的逐点场分数。把隐藏区计数改成 1e6 后，可见点分数、深度、检出和五个预测在核心上的最大绝对差都是 0。隐藏区真值会变，所以 RMSE 会变，那是评价，不是泄漏。深度、检出、全片均值和邻域和在 build_inputs 里按全支持算过，block-recovery 不读取它们。邻域和在可见点上会随隐藏区改变；当前路径没用到。这 14 张片的 h5ad 没有组织外点，所以核心没有混进组织外坐标。",
+    "3": "多场特征只用其他场的核平滑，目标场不在特征里。拟合行是可见且有限的行。把隐藏区的目标值改成 1e6，岭回归预测不变；去掉可见掩膜就会变。alpha=1 是函数默认值，这次调用不覆盖，也没有在核心上搜索。四个场共用 k=8、k=16 和 2 pitch 带宽。岭回归用全部可见行估系数，单场平滑只用 k 个近邻，这是模型差别，不是多看了隐藏区。训练时可见点的平滑包含自身，隐藏查询点不包含，这会让大缺口上的多场参照偏保守，不会把负结果做成假阳性。四个场的 A 基因有 1–7 个交叉，只以可见点的值进入其他场分数，不是隐藏区泄漏。",
+    "4": "背景均值是可见区均值，不是含隐藏区的全片均值。合成对照里两者不同（4.333 对 4.456），预测等于可见均值。IDW 和核的 k、带宽对四个场是同一次调用，没有按场改参数。支持上的场分数有限，所以近邻集合不因场而变。",
+    "5": "中心键是取整坐标和种子组成的整数元组，不读表达。交付的 42 个中心都落在组织点上，最小间隔 5.30 pitch，大于代码要求的 4 pitch。整数元组哈希在 PYTHONHASHSEED=1 和 2 下不变，所以这个键不是进程盐。算法不把中心往组织内部推。这批中心里 18/42 距局部边界不到 4 pitch，16/42 的 4 pitch 环不完整。最近可见点距离除以半径是 217.35–220.55，正好是各片 pitch，边缘没有把洞缩短。因此不是靠避开边缘来抬高性能。3 个中心仍然覆盖不了结构目标，报告已经写了。",
+    "6": "一致。单位等权 kernel 为 +0.129348/−0.079719/−0.203908，multifield 为 +0.137123/−0.004205/−0.082421。n_units=8，行数 2500。满表是 2520，少的 20 行是 K4 的那一组，不是汇总算错。行级 kernel +0.245098/+0.081826/−0.142149 仍在次要口径里，与报告的对照列一致。",
+    "7": "「约 4 pitch」只被混合场的单位等权中位支持：4 pitch 为正，8 pitch 为负。它不是拟合阈值，也不是四个场的共同范围。EMT 到 12 pitch 仍优于可见均值，见 K1。报告第 4 节写了这批数据和经典参照的边界，但主句没有把截止绑在「混合场中位、只测了 4/8/12、这个观测量级」上。第 48 行的「更大缺口没有立足点」对 EMT 不成立。"
+  },
+  "claims_that_do_not_hold": [
+    "可恢复范围只有约 4 pitch，到 8 pitch 四个场都已经不优于可见均值",
+    "更大缺口在这批数据上没有立足点",
+    "多场岭回归低于 kernel_k16 的 +0.129",
+    "任何半径的多场回归都不超过可见均值"
+  ],
+  "allow_node_conclusion": false,
+  "limitations": "没有需要重跑的泄漏。主表的单位等权算术是对的，G1 的口径可以保留。4 pitch 上多场中位仍低于最好的单场参照（+0.137 对 +0.159 和 +0.156），这一点不因 K1 翻转。不能按现稿把 4 pitch 当成所有场的截止，也不能引用「低于 kernel +0.129」。未报整块 H 的误差。未对 14 张真实矩阵做毒化。本复核不证明实现没有其他缺陷。"
+}

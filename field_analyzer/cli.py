@@ -667,7 +667,9 @@ def cmd_real_validation(args: argparse.Namespace) -> int:
             results.append(res)
             for fid, value in res.map_agreement.items():
                 map_rows.append({"unit_id": unit, "section_id": section, "field_id": fid,
-                                 "map_agreement_pearson": value, "depth_corr": res.depth_corr[fid],
+                                 "map_agreement_pearson": value,
+                                 "depth_corr_A": res.depth_corr[fid],
+                                 "depth_corr_B": res.depth_corr_b[fid],
                                  "n_visible": res.n_visible})
             for pair in sorted(res.relation_a):
                 rel_rows.append({"unit_id": unit, "section_id": section,
@@ -692,8 +694,10 @@ def cmd_real_validation(args: argparse.Namespace) -> int:
     summary["settings"] = {"seed": args.seed, "max_lag_pitch": args.max_lag, "fields": list(fields)}
     (out / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False))
     print(json.dumps({k: summary[k] for k in (
-        "n_sections", "n_units", "map_agreement_median_overall",
-        "relation_gap_median", "relation_sign_agreement_median", "range_gap_pitch_median", "depth_corr_median")}, indent=2, ensure_ascii=False))
+        "n_sections", "n_units", "map_agreement_median_by_unit", "map_agreement_median_over_all_sections",
+        "relation_gap_median_by_unit", "sign_consistent_units", "sign_conflict_units",
+        "range_gap_pitch_median_by_unit_both_ok", "n_sections_both_ok_per_field",
+        "depth_corr_median_A", "depth_corr_median_B")}, indent=2, ensure_ascii=False))
     return 0
 
 
@@ -748,7 +752,7 @@ def cmd_block_recovery(args: argparse.Namespace) -> int:
     fields = {fid: panel[fid] for fid in PILOT_FIELDS if fid in panel}
     identity = assets.read_identity(repo / "infra/field_discovery_review_20261018/identity_review.tsv")
     radii = [float(r) for r in args.radii.split(",")]
-    rows = []
+    rows, skipped = [], []
     for unit in sorted(identity.units):
         for section in sorted(identity.units[unit]):
             table = read_h5ad_counts(repo / "data/other_sources/hest1k/st" / f"{section}.h5ad")
@@ -762,11 +766,14 @@ def cmd_block_recovery(args: argparse.Namespace) -> int:
             inputs = build_inputs(table.counts, table.genes, table.xy, support, support, spec)
             scores = {fid: inputs.arrays[f"field::{fid}"] for fid in spec.fields}
             centers = block_recovery.geometric_centers(table.xy, support, args.centers, seed=args.seed)
-            for row in block_recovery.evaluate_section(
+            section_rows, section_skipped = block_recovery.evaluate_section(
                 table.xy, support, scores, centers=centers, radii_pitch=radii,
                 core_radius_pitch=args.core, bandwidth_pitch=args.bandwidth,
-            ):
+            )
+            for row in section_rows:
                 rows.append({"unit_id": unit, "section_id": section, **row})
+            for skip in section_skipped:
+                skipped.append({"unit_id": unit, "section_id": section, **skip})
     assets.write_tsv(rows, out / "recovery_metrics.tsv")
     def med(sel):
         vals = [r["rmse"] for r in sel]
@@ -799,7 +806,17 @@ def cmd_block_recovery(args: argparse.Namespace) -> int:
         },
         "n_units": len({r["unit_id"] for r in rows}),
         "n_rows": len(rows),
-        "n_refused_or_unscored": 0,
+        "skill_vs_background_units_by_field": {
+            fid: {
+                pred: {str(rad): _skill_units(
+                    [r for r in rows if r["target_field"] == fid], pred, rad) for rad in radii}
+                for pred in sorted({r["predictor"] for r in rows})
+            }
+            for fid in sorted({r["target_field"] for r in rows})
+        },
+        "n_rows_expected": int(args.centers) * 3 * 4 * 5 * len(identity.units),
+        "skipped": skipped,
+        "n_skipped_groups": len(skipped),
         "notes": [
             "PRIMARY aggregation is unit-equal (per-unit median RMSE, then median over units); rows are not independent",
             "core Q is fixed (r <= core radius) across mask radii; only the hidden disc changes",
