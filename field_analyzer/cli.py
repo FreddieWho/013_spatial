@@ -17,7 +17,7 @@ from pathlib import Path
 import numpy as np
 from scipy import sparse
 
-from . import assets, geometry, poisoning
+from . import assets, geometry, poisoning, scales
 from .adapters import read_h5ad_counts
 from .observation import fingerprint_arrays, visible_mean_std
 from .pipeline import InputSpec, build_inputs
@@ -169,6 +169,103 @@ def cmd_poison(args: argparse.Namespace) -> int:
     return 0 if report["passed"] else 1
 
 
+
+def cmd_scales(args: argparse.Namespace) -> int:
+    repo, out = Path(args.repo), Path(args.out) / "scales"
+    out.mkdir(parents=True, exist_ok=True)
+    panel = load_panel(repo)
+    fields_def = {fid: panel[fid] for fid in PILOT_FIELDS if fid in panel}
+    identity = assets.read_identity(repo / "infra/field_discovery_review_20261018/identity_review.tsv")
+
+    curve_rows, fit_rows, dir_rows, cross_rows = [], [], [], []
+    status_tally: dict[str, dict[str, int]] = {"raw": {}, "residual": {}}
+    per_section = []
+
+    for unit in sorted(identity.units):
+        for section in sorted(identity.units[unit]):
+            table = read_h5ad_counts(repo / "data/other_sources/hest1k/st" / f"{section}.h5ad")
+            support = np.ones(table.n_obs, dtype=bool)
+            if "in_tissue" in table.aux:
+                support = np.asarray(table.aux["in_tissue"]).astype(bool)
+            splits = build_field_splits(fields_def, table.genes, seed=args.seed)
+            roles = build_gene_roles(splits, table.genes)
+            spec = InputSpec(
+                fields={fid: list(split.a_genes) for fid, split in splits.items()},
+                witness_genes=frozenset(roles.witness_genes),
+                k_neighbors=args.k,
+                coordinate_unit="source_pixels",
+            )
+            inputs = build_inputs(table.counts, table.genes, table.xy, support, support, spec)
+            pitch = inputs.meta["pitch"]
+            pairs = scales.pairs_within(table.xy, support, args.max_lag * pitch)
+            edges = scales.lag_edges(pitch, args.max_lag, args.bins)
+
+            scores = {fid: inputs.arrays[f"field::{fid}"] for fid in spec.fields}
+            section_status = {"section_id": section, "unit_id": unit, "pitch": pitch, "n_pairs": int(len(pairs.distance)), "fields": {}}
+
+            for fid, score in scores.items():
+                trend = scales.quadratic_trend(table.xy, score, support)
+                residual = score - trend
+                for label, values in (("raw", score), ("residual", residual)):
+                    gamma, counts, centers = scales.empirical_variogram(values, pairs, edges)
+                    for row in scales.summarise_curve(gamma, counts, centers, pitch):
+                        curve_rows.append({"unit_id": unit, "section_id": section, "field_id": fid,
+                                           "component": label, **row})
+                    fit = scales.fit_variogram(centers, gamma, counts)
+                    fit_rows.append({"unit_id": unit, "section_id": section, "field_id": fid,
+                                     "component": label, **fit})
+                    status_tally[label][fit["status"]] = status_tally[label].get(fit["status"], 0) + 1
+                    if label == "raw":
+                        section_status["fields"][fid] = {"status": fit["status"], "range_pitch": (fit["range"] / pitch) if fit["range"] else None, "sill": fit["sill"]}
+                dir_res = scales.directional_variogram(score, pairs, edges)
+                for s, label in enumerate(scales.DIRECTION_LABELS):
+                    for k in range(len(edges) - 1):
+                        n = int(dir_res["counts"][s, k])
+                        dir_rows.append({"unit_id": unit, "section_id": section, "field_id": fid,
+                                         "direction_deg": label,
+                                         "lag_pitch": float(0.5 * (edges[k] + edges[k + 1]) / pitch),
+                                         "gamma": float(dir_res["gamma"][s, k]) if np.isfinite(dir_res["gamma"][s, k]) else None,
+                                         "n_pairs": n,
+                                         "measurable": bool(n >= scales.MIN_PAIRS_DIRECTION)})
+
+            field_ids = sorted(scores)
+            for a in range(len(field_ids)):
+                for b in range(a + 1, len(field_ids)):
+                    f1, f2 = field_ids[a], field_ids[b]
+                    res = scales.cross_field_curves(scores[f1], scores[f2], pairs, edges)
+                    for k in range(len(res["centers"])):
+                        cc = res["cross_corr"][k]
+                        cross_rows.append({"unit_id": unit, "section_id": section, "field_pair": f"{f1}~{f2}",
+                                           "lag_pitch": float(res["centers"][k] / pitch),
+                                           "cross_corr": float(cc) if np.isfinite(cc) else None,
+                                           "cross_gamma": float(res["cross_gamma"][k]) if np.isfinite(res["cross_gamma"][k]) else None,
+                                           "n_pairs": int(res["counts"][k]),
+                                           "measurable": bool(np.isfinite(cc) and res["counts"][k] >= scales.MIN_PAIRS_FIT)})
+            per_section.append(section_status)
+
+    assets.write_tsv(curve_rows, out / "scale_curves.tsv")
+    assets.write_tsv(fit_rows, out / "scale_fits.tsv")
+    assets.write_tsv(dir_rows, out / "direction_curves.tsv")
+    assets.write_tsv(cross_rows, out / "cross_field.tsv")
+    summary = {
+        "n_sections": len(per_section),
+        "n_curve_rows": len(curve_rows),
+        "n_fit_rows": len(fit_rows),
+        "status_counts": status_tally,
+        "sections": per_section,
+        "settings": {"max_lag_pitch": args.max_lag, "bins": args.bins, "k": args.k, "seed": args.seed,
+                     "lag_unit": "empirical_pitch", "score": "log1p CPM of field A genes, external library denominator"},
+        "notes": [
+            "residual component removes a quadratic trend only; it is a residual scale, not the field's range",
+            "NOT_IDENTIFIED_WITHIN_FOV means no plateau inside the field of view, not 'no structure'",
+            "UNIDENTIFIABLE means spatial variance is ~0, so a length parameter has no meaning",
+        ],
+    }
+    (out / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False))
+    print(json.dumps({k: summary[k] for k in ("n_sections", "n_curve_rows", "status_counts")}, indent=2, ensure_ascii=False))
+    return 0
+
+
 def cmd_geometry_smoke(args: argparse.Namespace) -> int:
     out = Path(args.out) / "geometry_smoke"
     out.mkdir(parents=True, exist_ok=True)
@@ -304,6 +401,14 @@ def build_parser() -> argparse.ArgumentParser:
     p_poison.add_argument("--k", type=int, default=6)
     p_poison.add_argument("--radius-pitch", type=float, default=6.0, dest="radius_pitch")
     p_poison.set_defaults(func=cmd_poison)
+
+    p_scales = sub.add_parser("scales", help="variogram / directional / cross-field scale curves")
+    p_scales.add_argument("--out", default="infra/field_analyzer_20261020")
+    p_scales.add_argument("--max-lag", type=float, default=12.0, dest="max_lag")
+    p_scales.add_argument("--bins", type=int, default=12)
+    p_scales.add_argument("--k", type=int, default=6)
+    p_scales.add_argument("--seed", type=int, default=0)
+    p_scales.set_defaults(func=cmd_scales)
 
     p_geo = sub.add_parser("geometry-smoke", help="synthetic geometry with a hole and a masked field")
     p_geo.add_argument("--out", default="infra/field_analyzer_20261020")

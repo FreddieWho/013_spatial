@@ -1,0 +1,422 @@
+{
+  "n_sections": 14,
+  "n_curve_rows": 1344,
+  "n_fit_rows": 112,
+  "status_counts": {
+    "raw": {
+      "NOT_IDENTIFIED_WITHIN_FOV": 26,
+      "OK": 30
+    },
+    "residual": {
+      "NOT_IDENTIFIED_WITHIN_FOV": 4,
+      "OK": 52
+    }
+  },
+  "sections": [
+    {
+      "section_id": "NCBI643",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a",
+      "pitch": 220.28500100097585,
+      "n_pairs": 454360,
+      "fields": {
+        "B_AXIS": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 26.94643822950903,
+          "sill": 0.0006476947929519392
+        },
+        "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+          "status": "OK",
+          "range_pitch": 5.896181040462021,
+          "sill": 0.0038504967991510185
+        },
+        "HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+          "status": "OK",
+          "range_pitch": 3.3424279398114165,
+          "sill": 0.0002761870256461043
+        },
+        "HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 13.344947408258701,
+          "sill": 0.0031968160128872324
+        }
+      }
+    },
+    {
+      "section_id": "NCBI642",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b",
+      "pitch": 220.5521038212963,
+      "n_pairs": 388550,
+      "fields": {
+        "B_AXIS": {
+          "status": "OK",
+          "range_pitch": 2.2734227546273837,
+          "sill": 0.00028617692578953126
+        },
+        "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+          "status": "OK",
+          "range_pitch": 2.9252330364957495,
+          "sill": 0.0016493942381523182
+        },
+        "HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+          "status": "OK",
+          "range_pitch": 4.176759272657474,
+          "sill": 0.00030231234574446464
+        },
+        "HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 75.87804731501282,
+          "sill": 0.019553089038638925
+        }
+      }
+    },
+    {
+      "section_id": "ZEN48",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 1",
+      "pitch": 217.80300066344344,
+      "n_pairs": 465106,
+      "fields": {
+        "B_AXIS": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 8.098124865164875,
+          "sill": 0.004281018351568762
+        },
+        "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+          "status": "OK",
+          "range_pitch": 6.137722965626371,
+          "sill": 0.009054256080582797
+        },
+        "HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 10.738361405410004,
+          "sill": 0.005275275699653877
+        },
+        "HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 7.371309031681973,
+          "sill": 0.009192241017660247
+        }
+      }
+    },
+    {
+      "section_id": "ZEN49",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 1",
+      "pitch": 217.56303533688816,
+      "n_pairs": 430066,
+      "fields": {
+        "B_AXIS": {
+          "status": "OK",
+          "range_pitch": 2.563901381334271,
+          "sill": 0.005849268874857487
+        },
+        "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 8.422054977271959,
+          "sill": 0.007083279357983478
+        },
+        "HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+          "status": "OK",
+          "range_pitch": 6.565796926925294,
+          "sill": 0.00277744565119627
+        },
+        "HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+          "status": "OK",
+          "range_pitch": 5.7076359141924,
+          "sill": 0.004989273753261664
+        }
+      }
+    },
+    {
+      "section_id": "ZEN46",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 2",
+      "pitch": 217.86507353405662,
+      "n_pairs": 339660,
+      "fields": {
+        "B_AXIS": {
+          "status": "OK",
+          "range_pitch": 2.376717546165484,
+          "sill": 0.00043035603615090655
+        },
+        "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+          "status": "OK",
+          "range_pitch": 2.457176858397104,
+          "sill": 0.010886408610517248
+        },
+        "HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 574.9999999999999,
+          "sill": 0.8958601881643121
+        },
+        "HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+          "status": "OK",
+          "range_pitch": 6.1262551082499375,
+          "sill": 0.013555355490344412
+        }
+      }
+    },
+    {
+      "section_id": "ZEN47",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 2",
+      "pitch": 217.58805101613436,
+      "n_pairs": 456716,
+      "fields": {
+        "B_AXIS": {
+          "status": "OK",
+          "range_pitch": 0.8418087770832885,
+          "sill": 0.0011891122095247864
+        },
+        "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+          "status": "OK",
+          "range_pitch": 5.106002504436,
+          "sill": 0.005689512697267766
+        },
+        "HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 50.79828416343143,
+          "sill": 0.06850254885630036
+        },
+        "HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 10.397770556418987,
+          "sill": 0.0199173143861938
+        }
+      }
+    },
+    {
+      "section_id": "ZEN44",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 3",
+      "pitch": 218.0813216612792,
+      "n_pairs": 179749,
+      "fields": {
+        "B_AXIS": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 79.3980423698278,
+          "sill": 0.030572471743457258
+        },
+        "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 9.50834368812896,
+          "sill": 0.09267836564382755
+        },
+        "HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+          "status": "OK",
+          "range_pitch": 6.035792909780702,
+          "sill": 0.006732042248484984
+        },
+        "HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 7.137567333842637,
+          "sill": 0.015149390181394683
+        }
+      }
+    },
+    {
+      "section_id": "ZEN45",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 3",
+      "pitch": 217.3490159537195,
+      "n_pairs": 38314,
+      "fields": {
+        "B_AXIS": {
+          "status": "OK",
+          "range_pitch": 6.387695680795302,
+          "sill": 0.004764027169967424
+        },
+        "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+          "status": "OK",
+          "range_pitch": 4.91466419739027,
+          "sill": 0.11050897596505213
+        },
+        "HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 15.83189168655887,
+          "sill": 0.025862739760425205
+        },
+        "HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+          "status": "OK",
+          "range_pitch": 7.125153860919467,
+          "sill": 0.015339724340116642
+        }
+      }
+    },
+    {
+      "section_id": "ZEN39",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 4",
+      "pitch": 217.6179766524124,
+      "n_pairs": 196785,
+      "fields": {
+        "B_AXIS": {
+          "status": "OK",
+          "range_pitch": 7.915239833343007,
+          "sill": 0.0002686707283162749
+        },
+        "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 13.213051543822557,
+          "sill": 0.02021009543274821
+        },
+        "HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+          "status": "OK",
+          "range_pitch": 2.985822636161232,
+          "sill": 0.006954696045991465
+        },
+        "HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+          "status": "OK",
+          "range_pitch": 2.793174203682296,
+          "sill": 0.00791461820908615
+        }
+      }
+    },
+    {
+      "section_id": "ZEN43",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 4",
+      "pitch": 217.5280736767782,
+      "n_pairs": 101339,
+      "fields": {
+        "B_AXIS": {
+          "status": "OK",
+          "range_pitch": 0.9248424940071862,
+          "sill": 0.0016265373130390233
+        },
+        "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 9.501533723215811,
+          "sill": 0.025271368328016575
+        },
+        "HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 7.170007161315475,
+          "sill": 0.003552422335087994
+        },
+        "HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 9.024775737752098,
+          "sill": 0.0022880493310586955
+        }
+      }
+    },
+    {
+      "section_id": "ZEN38",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5",
+      "pitch": 217.54470045694003,
+      "n_pairs": 33013,
+      "fields": {
+        "B_AXIS": {
+          "status": "OK",
+          "range_pitch": 2.517211650016992,
+          "sill": 0.025195293664284576
+        },
+        "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+          "status": "OK",
+          "range_pitch": 3.871052383965087,
+          "sill": 0.04972877908671884
+        },
+        "HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 574.9997360386678,
+          "sill": 0.14384321846585837
+        },
+        "HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+          "status": "OK",
+          "range_pitch": 3.2992800146928363,
+          "sill": 0.016704403062991747
+        }
+      }
+    },
+    {
+      "section_id": "ZEN42",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5",
+      "pitch": 218.00440457935787,
+      "n_pairs": 214367,
+      "fields": {
+        "B_AXIS": {
+          "status": "OK",
+          "range_pitch": 4.380321083075707,
+          "sill": 0.02539434583067778
+        },
+        "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+          "status": "OK",
+          "range_pitch": 6.680228793744905,
+          "sill": 0.04889193690101926
+        },
+        "HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 7.2210079195235854,
+          "sill": 0.004937744210834243
+        },
+        "HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+          "status": "OK",
+          "range_pitch": 5.265801071780336,
+          "sill": 0.011543866138997558
+        }
+      }
+    },
+    {
+      "section_id": "ZEN36",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7",
+      "pitch": 217.69230106170468,
+      "n_pairs": 326472,
+      "fields": {
+        "B_AXIS": {
+          "status": "OK",
+          "range_pitch": 2.6774068607195325,
+          "sill": 0.015365791902192998
+        },
+        "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 20.074824208409222,
+          "sill": 0.10499124323067095
+        },
+        "HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 8.363768188803652,
+          "sill": 0.005055946877247774
+        },
+        "HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 8.663584697347133,
+          "sill": 0.00928453473782544
+        }
+      }
+    },
+    {
+      "section_id": "ZEN40",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7",
+      "pitch": 217.46655812618684,
+      "n_pairs": 415009,
+      "fields": {
+        "B_AXIS": {
+          "status": "OK",
+          "range_pitch": 1.5913716491185603,
+          "sill": 0.02101512459873526
+        },
+        "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 20.889499951320882,
+          "sill": 0.11995221056944738
+        },
+        "HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 16.016015285281238,
+          "sill": 0.010708875188576864
+        },
+        "HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+          "status": "NOT_IDENTIFIED_WITHIN_FOV",
+          "range_pitch": 31.40970479865972,
+          "sill": 0.04958207657090538
+        }
+      }
+    }
+  ],
+  "settings": {
+    "max_lag_pitch": 12.0,
+    "bins": 12,
+    "k": 6,
+    "seed": 0,
+    "lag_unit": "empirical_pitch",
+    "score": "log1p CPM of field A genes, external library denominator"
+  },
+  "notes": [
+    "residual component removes a quadratic trend only; it is a residual scale, not the field's range",
+    "NOT_IDENTIFIED_WITHIN_FOV means no plateau inside the field of view, not 'no structure'",
+    "UNIDENTIFIABLE means spatial variance is ~0, so a length parameter has no meaning"
+  ]
+}
