@@ -1,0 +1,27 @@
+{
+  "base_id": "49215e91bbd4",
+  "scenario": "S4",
+  "pair_id": "s4_distractors_n4",
+  "seed": 0,
+  "role": "train",
+  "n_fields": 12,
+  "field_ids": [
+    "bridge_broken",
+    "bridge_continuous",
+    "bridge_redundant",
+    "bridge_wrong_end",
+    "bridge_y_branch",
+    "distractor_00",
+    "distractor_01",
+    "distractor_02",
+    "distractor_03",
+    "endpoint_left",
+    "endpoint_right",
+    "endpoint_wrong"
+  ],
+  "n_points": 4096,
+  "n_visible": 4096,
+  "n_genes": 272,
+  "markers_per_field": 12,
+  "background_genes": 128
+}

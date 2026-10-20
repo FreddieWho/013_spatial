@@ -17,7 +17,7 @@ from pathlib import Path
 import numpy as np
 from scipy import sparse
 
-from . import assets, geometry, poisoning, scales
+from . import assets, geometry, poisoning, scales, synthetic
 from .adapters import read_h5ad_counts
 from .observation import fingerprint_arrays, visible_mean_std
 from .pipeline import InputSpec, build_inputs
@@ -266,6 +266,90 @@ def cmd_scales(args: argparse.Namespace) -> int:
     return 0
 
 
+
+def cmd_synth(args: argparse.Namespace) -> int:
+    out = Path(args.out) / "synth"
+    out.mkdir(parents=True, exist_ok=True)
+    manifest, diagnostics = [], []
+    seeds = [int(s) for s in args.seeds.split(",") if s.strip()]
+
+    for scenario in ["S0", "S1", "S2", "S3", "S5"]:
+        builder = synthetic.SCENARIOS[scenario]
+        for seed in seeds:
+            if scenario == "S5":
+                a, b = synthetic.make_s5_pair(seed)
+                for sample in (a, b):
+                    base = synthetic.materialise(sample, out)
+                    manifest.append(_manifest_row(sample, base))
+                diagnostics.append({
+                    "base_id": f"{a.base_id}|{b.base_id}", "scenario": "S5_pair", "seed": seed,
+                    "field_id": "visible_identity", "mass": 0.0,
+                    "max": float(np.nanmax(np.abs(np.nan_to_num(a.counts) - np.nan_to_num(b.counts)))),
+                    "centroid_x": 0.0, "centroid_y": 0.0, "n_modes_above_halfmax": 0,
+                    "note": "max|visible count difference| must be 0",
+                })
+                continue
+            sample = builder(seed)
+            sample.counts = synthetic.counts_from_fields(sample, seed=seed)
+            base = synthetic.materialise(sample, out)
+            manifest.append(_manifest_row(sample, base))
+            diagnostics.extend(synthetic.pair_diagnostics([sample]))
+
+    for n_distractors in (0, 4, 16, 32):
+        sample = synthetic.build_s4(seeds[0] if seeds else 0, n_distractors=n_distractors)
+        sample.counts = synthetic.counts_from_fields(sample, seed=sample.seed)
+        base = synthetic.materialise(sample, out)
+        manifest.append(_manifest_row(sample, base))
+
+    assets.write_tsv(manifest, out / "scenario_manifest.tsv")
+    assets.write_tsv(diagnostics, out / "pair_matching_diagnostics.tsv")
+    params = {
+        "grid": synthetic.GRID,
+        "coordinate_unit": "synthetic_pitch",
+        "pitch": synthetic.PITCH,
+        "markers_per_field": synthetic.MARKERS_PER_FIELD,
+        "background_genes": synthetic.BACKGROUND_GENES,
+        "seed_roles": {k: list(v) for k, v in synthetic.SEED_ROLES.items()},
+        "seeds_run": seeds,
+        "distractor_counts": [0, 4, 16, 32],
+        "counts_model": "negative binomial, dispersion 8, lognormal depth (sd 0.25), optional shared technical gradient in S0",
+        "generators": {"G1": "analytic gaussian/ring/bezier tube", "G2": "anisotropic diffusion on grid graph (available, not used by default scenarios)"},
+        "notes": [
+            "S5 pair shares bit-identical visible counts; only the masked centre differs",
+            "S3 'broken' removes the middle third of the bridge; 'wrong_end' reconnects to a different endpoint",
+            "S4 keeps the same true bridge while adding unrelated smooth fields; budget must not grow with field count",
+        ],
+    }
+    (out / "generator_parameters.json").write_text(json.dumps(params, indent=2, ensure_ascii=False))
+    summary = {
+        "n_samples": len(manifest),
+        "n_diagnostic_rows": len(diagnostics),
+        "by_scenario": {s: sum(1 for m in manifest if m["scenario"] == s) for s in sorted({m["scenario"] for m in manifest})},
+        "roles": {r: sum(1 for m in manifest if m["role"] == r) for r in sorted({m["role"] for m in manifest})},
+        "s5_visible_identity_max_delta": [d["max"] for d in diagnostics if d["scenario"] == "S5_pair"],
+        "s1_radial_profile_max_delta": [d["max"] for d in diagnostics if d["scenario"] == "S1_pair" and d["field_id"] == "circular_vs_sided"],
+        "s1_centroid_shift_bimodal": [d["centroid_x"] for d in diagnostics if d["scenario"] == "S1_pair" and d["field_id"] == "unimodal_vs_bimodal"],
+    }
+    (out / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False))
+    print(json.dumps(summary, indent=2, ensure_ascii=False))
+    return 0
+
+
+def _manifest_row(sample, base: Path) -> dict:
+    return {
+        "base_id": sample.base_id,
+        "scenario": sample.scenario,
+        "pair_id": sample.pair_id,
+        "seed": sample.seed,
+        "role": sample.role,
+        "n_fields": len(sample.fields),
+        "field_ids": ",".join(sorted(sample.fields)),
+        "n_points": sample.n_points,
+        "n_visible": int(np.asarray(sample.visible_mask, dtype=bool).sum()),
+        "path": str(base.relative_to(base.parents[1])),
+    }
+
+
 def cmd_geometry_smoke(args: argparse.Namespace) -> int:
     out = Path(args.out) / "geometry_smoke"
     out.mkdir(parents=True, exist_ok=True)
@@ -409,6 +493,11 @@ def build_parser() -> argparse.ArgumentParser:
     p_scales.add_argument("--k", type=int, default=6)
     p_scales.add_argument("--seed", type=int, default=0)
     p_scales.set_defaults(func=cmd_scales)
+
+    p_synth = sub.add_parser("synth", help="generate synthetic kill-test samples")
+    p_synth.add_argument("--out", default="infra/field_analyzer_20261020")
+    p_synth.add_argument("--seeds", default="0,1")
+    p_synth.set_defaults(func=cmd_synth)
 
     p_geo = sub.add_parser("geometry-smoke", help="synthetic geometry with a hole and a masked field")
     p_geo.add_argument("--out", default="infra/field_analyzer_20261020")

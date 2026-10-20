@@ -1,0 +1,63 @@
+{
+  "grid": 64,
+  "coordinate_unit": "synthetic_pitch",
+  "pitch": 1.0,
+  "markers_per_field": 12,
+  "background_genes": 128,
+  "seed_roles": {
+    "train": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "development": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "evaluation": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ]
+  },
+  "seeds_run": [
+    0,
+    8
+  ],
+  "distractor_counts": [
+    0,
+    4,
+    16,
+    32
+  ],
+  "counts_model": "negative binomial, dispersion 8, lognormal depth (sd 0.25), optional shared technical gradient in S0",
+  "generators": {
+    "G1": "analytic gaussian/ring/bezier tube",
+    "G2": "anisotropic diffusion on grid graph (available, not used by default scenarios)"
+  },
+  "notes": [
+    "S5 pair shares bit-identical visible counts; only the masked centre differs",
+    "S3 'broken' removes the middle third of the bridge; 'wrong_end' reconnects to a different endpoint",
+    "S4 keeps the same true bridge while adding unrelated smooth fields; budget must not grow with field count"
+  ]
+}

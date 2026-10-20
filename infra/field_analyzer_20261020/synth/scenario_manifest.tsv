@@ -1,0 +1,17 @@
+base_id	scenario	pair_id	seed	role	n_fields	field_ids	n_points	n_visible	path
+f93aa94ea472	S0	s0_null	0	train	4	f0,f1,f2,f3	4096	4096	samples/S0_f93aa94ea472
+9a85ef7a9fcd	S0	s0_null	8	development	4	f0,f1,f2,f3	4096	4096	samples/S0_9a85ef7a9fcd
+67d083395572	S1	s1_shape	0	train	4	bimodal,circular,sided,unimodal	4096	4096	samples/S1_67d083395572
+3645adf9d874	S1	s1_shape	8	development	4	bimodal,circular,sided,unimodal	4096	4096	samples/S1_3645adf9d874
+48c6319f1ef4	S2	s2_coupling	0	train	3	anchor,partner_offset,partner_same_point	4096	4096	samples/S2_48c6319f1ef4
+46bad5888d98	S2	s2_coupling	8	development	3	anchor,partner_offset,partner_same_point	4096	4096	samples/S2_46bad5888d98
+c26a0844cd99	S3	s3_connectivity	0	train	8	bridge_broken,bridge_continuous,bridge_redundant,bridge_wrong_end,bridge_y_branch,endpoint_left,endpoint_right,endpoint_wrong	4096	4096	samples/S3_c26a0844cd99
+6e7047af8097	S3	s3_connectivity	8	development	8	bridge_broken,bridge_continuous,bridge_redundant,bridge_wrong_end,bridge_y_branch,endpoint_left,endpoint_right,endpoint_wrong	4096	4096	samples/S3_6e7047af8097
+fb2e1fb8509a	S5	s5_nonidentifiable	0	train	1	bridge	4096	3899	samples/S5_fb2e1fb8509a
+6d47edae8fe2	S5	s5_nonidentifiable	0	train	1	bridge	4096	3899	samples/S5_6d47edae8fe2
+cadea24175c9	S5	s5_nonidentifiable	8	development	1	bridge	4096	3899	samples/S5_cadea24175c9
+2793581527e5	S5	s5_nonidentifiable	8	development	1	bridge	4096	3899	samples/S5_2793581527e5
+050ceacc3a9b	S4	s4_distractors_n0	0	train	8	bridge_broken,bridge_continuous,bridge_redundant,bridge_wrong_end,bridge_y_branch,endpoint_left,endpoint_right,endpoint_wrong	4096	4096	samples/S4_050ceacc3a9b
+49215e91bbd4	S4	s4_distractors_n4	0	train	12	bridge_broken,bridge_continuous,bridge_redundant,bridge_wrong_end,bridge_y_branch,distractor_00,distractor_01,distractor_02,distractor_03,endpoint_left,endpoint_right,endpoint_wrong	4096	4096	samples/S4_49215e91bbd4
+8d8b50534d2f	S4	s4_distractors_n16	0	train	24	bridge_broken,bridge_continuous,bridge_redundant,bridge_wrong_end,bridge_y_branch,distractor_00,distractor_01,distractor_02,distractor_03,distractor_04,distractor_05,distractor_06,distractor_07,distractor_08,distractor_09,distractor_10,distractor_11,distractor_12,distractor_13,distractor_14,distractor_15,endpoint_left,endpoint_right,endpoint_wrong	4096	4096	samples/S4_8d8b50534d2f
+05dbd0c13327	S4	s4_distractors_n32	0	train	40	bridge_broken,bridge_continuous,bridge_redundant,bridge_wrong_end,bridge_y_branch,distractor_00,distractor_01,distractor_02,distractor_03,distractor_04,distractor_05,distractor_06,distractor_07,distractor_08,distractor_09,distractor_10,distractor_11,distractor_12,distractor_13,distractor_14,distractor_15,distractor_16,distractor_17,distractor_18,distractor_19,distractor_20,distractor_21,distractor_22,distractor_23,distractor_24,distractor_25,distractor_26,distractor_27,distractor_28,distractor_29,distractor_30,distractor_31,endpoint_left,endpoint_right,endpoint_wrong	4096	4096	samples/S4_05dbd0c13327

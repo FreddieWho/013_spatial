@@ -1,0 +1,19 @@
+{
+  "base_id": "9a85ef7a9fcd",
+  "scenario": "S0",
+  "pair_id": "s0_null",
+  "seed": 8,
+  "role": "development",
+  "n_fields": 4,
+  "field_ids": [
+    "f0",
+    "f1",
+    "f2",
+    "f3"
+  ],
+  "n_points": 4096,
+  "n_visible": 4096,
+  "n_genes": 176,
+  "markers_per_field": 12,
+  "background_genes": 128
+}

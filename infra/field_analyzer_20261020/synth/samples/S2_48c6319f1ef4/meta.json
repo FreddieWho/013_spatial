@@ -1,0 +1,18 @@
+{
+  "base_id": "48c6319f1ef4",
+  "scenario": "S2",
+  "pair_id": "s2_coupling",
+  "seed": 0,
+  "role": "train",
+  "n_fields": 3,
+  "field_ids": [
+    "anchor",
+    "partner_offset",
+    "partner_same_point"
+  ],
+  "n_points": 4096,
+  "n_visible": 4096,
+  "n_genes": 164,
+  "markers_per_field": 12,
+  "background_genes": 128
+}

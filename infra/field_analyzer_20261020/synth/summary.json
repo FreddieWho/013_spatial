@@ -1,0 +1,28 @@
+{
+  "n_samples": 16,
+  "n_diagnostic_rows": 46,
+  "by_scenario": {
+    "S0": 2,
+    "S1": 2,
+    "S2": 2,
+    "S3": 2,
+    "S4": 4,
+    "S5": 4
+  },
+  "roles": {
+    "development": 6,
+    "train": 10
+  },
+  "s5_visible_identity_max_delta": [
+    0.0,
+    0.0
+  ],
+  "s1_radial_profile_max_delta": [
+    0.0022284614900462962,
+    1.9861614398958976e-10
+  ],
+  "s1_centroid_shift_bimodal": [
+    -0.00010899584663093265,
+    -3.4512299151856496e-07
+  ]
+}

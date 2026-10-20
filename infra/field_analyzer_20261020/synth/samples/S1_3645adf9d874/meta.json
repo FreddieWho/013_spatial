@@ -1,0 +1,19 @@
+{
+  "base_id": "3645adf9d874",
+  "scenario": "S1",
+  "pair_id": "s1_shape",
+  "seed": 8,
+  "role": "development",
+  "n_fields": 4,
+  "field_ids": [
+    "bimodal",
+    "circular",
+    "sided",
+    "unimodal"
+  ],
+  "n_points": 4096,
+  "n_visible": 4096,
+  "n_genes": 176,
+  "markers_per_field": 12,
+  "background_genes": 128
+}

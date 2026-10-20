@@ -1,0 +1,16 @@
+{
+  "base_id": "6d47edae8fe2",
+  "scenario": "S5",
+  "pair_id": "s5_nonidentifiable",
+  "seed": 0,
+  "role": "train",
+  "n_fields": 1,
+  "field_ids": [
+    "bridge"
+  ],
+  "n_points": 4096,
+  "n_visible": 3899,
+  "n_genes": 140,
+  "markers_per_field": 12,
+  "background_genes": 128
+}
