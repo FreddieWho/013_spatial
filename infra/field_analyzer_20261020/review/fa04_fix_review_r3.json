@@ -1,0 +1,40 @@
+{
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "thinking": "xhigh",
+    "agent_id": "6fd409ab-9717-44f9-8092-5c69138287e2",
+    "cwd": "/home/huyudi/013_spatial"
+  },
+  "commit_reviewed": "fdd7e1f",
+  "node": "FA-04",
+  "scope": {
+    "read": [
+      "infra/field_analyzer_20261020/REPORT_FA04.md §2.2、§3.2",
+      "docs/roadmap.md FA-04 行",
+      "infra/field_analyzer_20261020/real_validation/cross_field_validation.tsv"
+    ],
+    "ran": [
+      "git rev-parse --short HEAD；git diff --stat 7f02d47..fdd7e1f",
+      "从 cross_field_validation.tsv 重算 B_AXIS~IFN 与 B_AXIS~OXPHOS 的单位中位、两列中位差、逐单位 |r_A−r_B| 中位"
+    ],
+    "not_checked": [
+      "未重跑 real-validation；本提交只改报告和 roadmap"
+    ]
+  },
+  "items": [
+    {
+      "id": "J3",
+      "closed": true,
+      "evidence": "列头改为「逐单位 |r_A−r_B| 的中位」。§2.2 写明它不等于表内两列中位之差，并给出 B_AXIS~OXPHOS：两列中位差 0.061，逐单位 |差| 中位 0.029，不要互相核对。TSV 复算为 0.0606 与 0.0288，四舍五入后一致。"
+    },
+    {
+      "id": "K2",
+      "closed": true,
+      "evidence": "§3.2 已删除作为结论的「弱相关对不稳定」，改为点名 |r|>0.2 的三对 8/8，以及 B_AXIS~OXPHOS、IFN-γ~OXPHOS 各 2/8 冲突；并写明 EMT~OXPHOS 同样近零但是 8/8，符号还会在单位中位与片级中位之间翻转，近零场对不作方向证据。roadmap 只把这两对写成各 6/8，没有把 EMT~OXPHOS 算进冲突。"
+    }
+  ],
+  "new_findings": [],
+  "allow_node_conclusion": true,
+  "limitations": "0.228 是 B_AXIS~IFN-γ 逐单位 |r_A−r_B| 的中位（0.2282），这一对与 abs_gap 的单位中位相同。B_AXIS~OXPHOS 的 0.029 仍不是 summary.json 里 abs_gap 的单位中位 0.046；报告已改列名并禁止与两列相减核对，故不再算未关。§3.2 的「方向稳定」仍只是分子内部同号，§2.2 已写明共享文库未做反例。未重跑拟合。"
+}

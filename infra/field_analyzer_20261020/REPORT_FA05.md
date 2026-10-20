@@ -77,6 +77,8 @@
 
 复核确认：主表的单位等权算术正确，G1 口径可保留；4 pitch 上多场仍低于最好的单场参照。
 
+**复核结论：** 共 3 轮（`fa01_06_review.json` G1 → `fa05_node_review.json` K1–K4 → `fa05_fix_review.json` → `fa05_fix_review_r2.json`），最终 `allow_node_conclusion = true`（提交 `fdd7e1f`）。
+
 ## 4. 边界（必须与结果一起读）
 
 - 只有 3 个几何中心、14 片；中心的选取与表达无关（坐标哈希），但没有覆盖"结构目标"挑战集。
