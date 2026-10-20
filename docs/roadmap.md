@@ -24,7 +24,7 @@
 
 | 节点 | 内容 | 依赖 | 服务假设 | 第一份有效交付 | 状态 |
 |---|---|---|---|---|---|
-| FA-00 | 最小资产适配、观测掩膜、单位与坐标核查 | 用户启用本包（D-282）＋[合同补充条款](FA_CONTRACT_ADDENDUM_20261020.md) | 基础设施 | `reuse_resolution.tsv` + `unit_role_assertions.tsv` + 信息入口反例 + 含被掩膜场值的小几何样本 | PROPOSED_NOT_RUN |
+| FA-00 | 最小资产适配、观测掩膜、单位与坐标核查 | 用户启用本包（D-282）＋[合同补充条款](FA_CONTRACT_ADDENDUM_20261020.md) | 基础设施 | `reuse_resolution.tsv` + `unit_role_assertions.tsv` + 信息入口反例 + 含被掩膜场值的小几何样本 | RUNNING（实现已派发 10-20，未交付） |
 | FA-01 | 原场/方向尺度及跨场关系可测性 | FA-00 | AF-01/04 | 逐场尺度曲线，不能估计的原因，不预设阳性 | PROPOSED_NOT_RUN |
 | FA-02 | 机制区分合成实验和公平参照 | 可用合成数据先行，不等真实数据 | 计算验证；服务 AF-01/02/03 | 配对真值、不可识别对、训练/验证分离；生成器本身记基础设施 | PROPOSED_NOT_RUN |
 | FA-03A | 有限可变形几何模型 A | FA-02 | AF-01/03 | 对称/非对称、偏峰、多峰的比较 | PROPOSED_NOT_RUN |
