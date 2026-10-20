@@ -18,7 +18,7 @@ from pathlib import Path
 import numpy as np
 from scipy import sparse
 
-from . import assets, geometry, poisoning, route_a, route_b, scales, synthetic
+from . import assets, geometry, poisoning, route_a, route_b, route_c, scales, synthetic
 from .adapters import read_h5ad_counts
 from .observation import fingerprint_arrays, visible_mean_std
 from .pipeline import InputSpec, build_inputs
@@ -544,6 +544,69 @@ def cmd_route_b(args: argparse.Namespace) -> int:
     return 0
 
 
+
+def cmd_route_c(args: argparse.Namespace) -> int:
+    out = Path(args.out) / "route_c"
+    out.mkdir(parents=True, exist_ok=True)
+    synth_root = Path(args.out) / "synth"
+    manifest = list(csv.DictReader(open(synth_root / "scenario_manifest.tsv"), delimiter="\t"))
+    rows = []
+    for row in sorted(manifest, key=lambda r: r["base_id"]):
+        if row["scenario"] != "S3":
+            continue
+        sample_dir = synth_root / row["path"]
+        field_ids = row["field_ids"].split(",")
+        xy, visible, scores, truths = _load_synth_sample(sample_dir, field_ids)
+        n = int(round(np.sqrt(len(xy))))
+        start = int(np.argmax(scores["endpoint_left"]))
+        goal_right = int(np.argmax(scores["endpoint_right"]))
+        truth_bridge = truths["bridge_continuous"]
+        for variant in ("bridge_continuous", "bridge_broken", "bridge_wrong_end",
+                        "bridge_y_branch", "bridge_redundant"):
+            if variant not in scores:
+                continue
+            for mode in ("support", "uniform"):
+                cost = route_c.support_cost(scores[variant]) if mode == "support" else route_c.uniform_cost(n)
+                res = route_c.dijkstra(n, cost, start, goal_right)
+                metrics = route_c.path_metrics(res.path, n, truth_bridge, support_field=scores[variant])
+                rows.append({
+                    "base_id": row["base_id"], "seed": row["seed"], "variant": variant,
+                    "cost_mode": mode, "n_nodes": res.nodes, "cost": res.cost,
+                    **metrics,
+                })
+    assets.write_tsv(rows, out / "routing_paths.tsv")
+    def agg(mode, variant, key):
+        vals = [float(r[key]) for r in rows if r["cost_mode"] == mode and r["variant"] == variant
+                and r.get(key) not in (None, "")]
+        return float(np.mean(vals)) if vals else float("nan")
+    summary = {
+        "n_paths": len(rows),
+        "fraction_on_true_bridge": {
+            v: {m: agg(m, v, "fraction_on_true_bridge") for m in ("support", "uniform")}
+            for v in ("bridge_continuous", "bridge_broken", "bridge_wrong_end", "bridge_y_branch", "bridge_redundant")
+        },
+        "fraction_in_gap_band": {
+            v: {m: agg(m, v, "fraction_in_gap_band") for m in ("support", "uniform")}
+            for v in ("bridge_continuous", "bridge_broken")
+        },
+        "refusals": sum(1 for r in rows if r.get("refused") is True),
+        "variant_support_min_along_path": {
+            v: {m: float(np.mean([float(r["variant_support_min_along_path"]) for r in rows
+                                  if r["variant"] == v and r["cost_mode"] == m]))
+                for m in ("support", "uniform")}
+            for v in ("bridge_continuous", "bridge_broken", "bridge_wrong_end")
+        },
+        "notes": [
+            "C0-style reference only: one support field, 4-neighbour Dijkstra; no C1 two-field support",
+            "Dijkstra always returns a path on a connected lattice, so 'a path exists' cannot be evidence",
+            "the gap band is |x-32| <= 4, i.e. the removed middle third of the broken bridge",
+        ],
+    }
+    (out / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False))
+    print(json.dumps(summary, indent=2, ensure_ascii=False))
+    return 0
+
+
 def cmd_geometry_smoke(args: argparse.Namespace) -> int:
     out = Path(args.out) / "geometry_smoke"
     out.mkdir(parents=True, exist_ok=True)
@@ -700,6 +763,10 @@ def build_parser() -> argparse.ArgumentParser:
     p_rb = sub.add_parser("route-b", help="displacement recovery on S2 samples")
     p_rb.add_argument("--out", default="infra/field_analyzer_20261020")
     p_rb.set_defaults(func=cmd_route_b)
+
+    p_rc = sub.add_parser("route-c", help="routing reference on S3 samples")
+    p_rc.add_argument("--out", default="infra/field_analyzer_20261020")
+    p_rc.set_defaults(func=cmd_route_c)
 
     p_geo = sub.add_parser("geometry-smoke", help="synthetic geometry with a hole and a masked field")
     p_geo.add_argument("--out", default="infra/field_analyzer_20261020")

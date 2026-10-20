@@ -1,0 +1,55 @@
+{
+  "n_paths": 20,
+  "fraction_on_true_bridge": {
+    "bridge_continuous": {
+      "support": 0.9634146341463414,
+      "uniform": 0.7439024390243902
+    },
+    "bridge_broken": {
+      "support": 0.7439024390243902,
+      "uniform": 0.7439024390243902
+    },
+    "bridge_wrong_end": {
+      "support": 0.5662416851441241,
+      "uniform": 0.7439024390243902
+    },
+    "bridge_y_branch": {
+      "support": 0.9146341463414633,
+      "uniform": 0.7439024390243902
+    },
+    "bridge_redundant": {
+      "support": 1.0,
+      "uniform": 0.7439024390243902
+    }
+  },
+  "fraction_in_gap_band": {
+    "bridge_continuous": {
+      "support": 0.21689895470383275,
+      "uniform": 0.21689895470383275
+    },
+    "bridge_broken": {
+      "support": 0.21689895470383275,
+      "uniform": 0.21689895470383275
+    }
+  },
+  "refusals": 0,
+  "variant_support_min_along_path": {
+    "bridge_continuous": {
+      "support": 4.596914086461187,
+      "uniform": 3.636286823601991
+    },
+    "bridge_broken": {
+      "support": 0.9381508710315661,
+      "uniform": 0.9381508710315661
+    },
+    "bridge_wrong_end": {
+      "support": 0.8957952716764487,
+      "uniform": 0.6537158932513525
+    }
+  },
+  "notes": [
+    "C0-style reference only: one support field, 4-neighbour Dijkstra; no C1 two-field support",
+    "Dijkstra always returns a path on a connected lattice, so 'a path exists' cannot be evidence",
+    "the gap band is |x-32| <= 4, i.e. the removed middle third of the broken bridge"
+  ]
+}
