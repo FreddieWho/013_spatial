@@ -1,0 +1,184 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Proposed field-analyzer run manifest (not an executed receipt)",
+  "type": "object",
+  "required": [
+    "run_id",
+    "status",
+    "git_commit",
+    "task",
+    "observation_contract",
+    "input_assets",
+    "training_role",
+    "models",
+    "results_scope",
+    "limitations"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "PROPOSED_NOT_RUN",
+        "RUNNING",
+        "COMPLETED",
+        "PARTIAL",
+        "FAILED"
+      ]
+    },
+    "git_commit": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "task": {
+      "enum": [
+        "ANALYZE",
+        "BLOCK_RECOVER",
+        "CHANNEL_RECOVER",
+        "TARGET_IN_BLOCK",
+        "INTEGRATION"
+      ]
+    },
+    "observation_contract": {
+      "type": "object",
+      "required": [
+        "known_coordinates",
+        "hidden_expression_available",
+        "witness_available_to_model",
+        "human_tls_used",
+        "coordinate_unit"
+      ],
+      "properties": {
+        "known_coordinates": {
+          "type": "boolean"
+        },
+        "hidden_expression_available": {
+          "const": false
+        },
+        "witness_available_to_model": {
+          "const": false
+        },
+        "human_tls_used": {
+          "const": false
+        },
+        "coordinate_unit": {
+          "enum": [
+            "um",
+            "source_pixels",
+            "empirical_pitch",
+            "synthetic_pitch",
+            "mixed_separately_reported"
+          ]
+        }
+      }
+    },
+    "input_assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "availability",
+          "reuse_decision",
+          "provenance"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "availability": {
+            "enum": [
+              "VERIFIED_LOCAL",
+              "REFERENCED_LOCAL_NOT_VERIFIED",
+              "NOT_PRESENT",
+              "TRACKED_SOURCE_ONLY"
+            ]
+          },
+          "reuse_decision": {
+            "enum": [
+              "REUSE",
+              "ADAPT",
+              "REBUILD",
+              "HISTORICAL_ONLY",
+              "SEALED"
+            ]
+          },
+          "provenance": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "training_role": {
+      "enum": [
+        "GROUPED_TRANSFER",
+        "WITHIN_TISSUE_ADAPTATION",
+        "SYNTHETIC_GROUPED",
+        "NO_FIT_ANALYSIS"
+      ]
+    },
+    "models": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "model_id",
+          "implementation_status",
+          "official_or_adapted"
+        ],
+        "properties": {
+          "model_id": {
+            "type": "string"
+          },
+          "implementation_status": {
+            "enum": [
+              "NOT_RUN",
+              "RUNNING",
+              "COMPLETED",
+              "FAILED"
+            ]
+          },
+          "official_or_adapted": {
+            "enum": [
+              "official",
+              "adapted_like",
+              "proposed",
+              "classical_baseline"
+            ]
+          }
+        }
+      }
+    },
+    "results_scope": {
+      "enum": [
+        "NO_RESULTS",
+        "ENGINEERING_ONLY",
+        "SYNTHETIC_CAPABILITY",
+        "DEVELOPMENT_MOLECULAR_SUPPORT",
+        "INDEPENDENT_STRUCTURAL_VALIDATION"
+      ]
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "metrics_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "review": {
+      "type": "object"
+    },
+    "runtime": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

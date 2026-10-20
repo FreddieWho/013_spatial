@@ -1,0 +1,48 @@
+# Referenced local paths must be checked in FA-00. No download is authorized.
+status: PROPOSED_NOT_RUN
+counts_pattern: data/other_sources/hest1k/st/{section_id}.h5ad
+identity_manifest: infra/field_discovery_review_20261018/identity_review.tsv
+historical_split_root: infra/field_source_holdout_20261018
+panel_file: infra/tls_multiscale_gobp_20261002/panel_controls.json
+selection:
+  initial_scope: confirmed_units_from_corrected_manifest
+  expected_confirmed_units_for_crosscheck: 8
+  expected_sections_for_crosscheck: 14
+  force_expected_counts: false
+  use_hidden_target_or_tls_to_select: false
+  unknown_identity_means_independent_patient: false
+  expansion_to_72_sections: after_route_specific_evidence
+fields:
+  initial_candidates:
+    - B_AXIS
+    - HALLMARK_INTERFERON_GAMMA_RESPONSE
+    - HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION
+    - HALLMARK_OXIDATIVE_PHOSPHORYLATION
+  automatic_all_GO_search: false
+  new_frc_or_T_cell_panel: local_provenance_required_not_assumed
+  initial_nmf_K_search: false
+witness:
+  split_basis: gene_names
+  preferred_A_fraction: 0.6666666667
+  minimum_measurable_genes_per_half_for_computability: 3
+  exclude_all_witness_genes_from_all_input_layers: true
+  normalization_reference: excludes_all_analyzed_A_and_B_when_using_witness_mode
+  hidden_depth_or_validity_in_model: false
+  witness_is_independent_pathology: false
+scales:
+  raw_and_detrended_separate: true
+  directional: true
+  units: verified_um_else_source_or_pitch
+  unobserved_range_state: NOT_IDENTIFIED_WITHIN_FOV
+  negligible_spatial_variance_length_state: UNIDENTIFIABLE
+masks:
+  geometry_centers_per_section_initial: 6
+  target_core_fixed_across_radii: true
+  number_of_radii_initial: 3
+  radii_selected_from: training_or_visible_geometry_only
+  structured_challenge_separate_from_geometry_sample: true
+validation:
+  initial_split: grouped_unit_holdout
+  preserve_same_unit_sections_together: true
+  adaptation_track_separate: true
+  human_tls_unsealing: not_authorized_in_initial_round

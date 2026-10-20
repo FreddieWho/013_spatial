@@ -1,0 +1,50 @@
+# Specification only. The proposed CLI must be implemented before use.
+package_version: '2026-10-20'
+status: PROPOSED_NOT_RUN
+reference_commit: 8b174e2af053aa902a705f4d37098409613c4ac9
+output_root: infra/field_analyzer_20261020
+runtime:
+  local_data_only: true
+  gpu_allowed: false
+  min_free_bytes: 200000000000
+  total_cpu_threads_initial: 16
+  max_parallel_fits_initial: 4
+  new_output_budget_bytes_initial: 8000000000
+  numerical_dtype: float64
+observation:
+  tasks: [ANALYZE, BLOCK_RECOVER]
+  fixed_query_coordinates_known: true
+  hidden_expression_and_qc_available: false
+  image_input_available: false
+  human_tls_available: false
+  witness_genes_available_to_model: false
+  missing_value: NaN
+synthetic:
+  grid_shape: [64, 64]
+  coordinate_unit: synthetic_pitch
+  base_fields: 4
+  markers_per_field: 12
+  background_genes: 128
+  generators: [G1_geometric, G2_mechanistic_misspecification]
+  scenarios: [S0_null, S1_nonuniform, S2_coupling, S3_connectivity, S4_distractors, S5_nonidentifiable]
+  training_seeds: [0, 1, 2, 3, 4, 5, 6, 7]
+  development_seeds: [8, 9, 10, 11]
+  evaluation_seeds: [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+  grouping_key: base_id
+  paired_variants_share_role: true
+  layers: [ideal_field, count_observation]
+  distractor_counts: [0, 4, 16, 32]
+  all_parameter_cartesian_product: false
+masks:
+  shapes: [circle, rectangle]
+  radii_pitch: [4, 8, 12]
+  fixed_core_radius_pitch: 2
+  same_query_across_radii: true
+  truth_selected_real_masks: false
+selection:
+  tuning_role: development
+  no_universal_percent_success_gate: true
+  route_decision_unit: capability
+  all_routes_must_win: false
+  no_structure_output_allowed: true
+  nonidentifiable_cases_expect_uncertainty: true

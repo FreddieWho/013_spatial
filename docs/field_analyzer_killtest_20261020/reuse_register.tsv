@@ -1,0 +1,19 @@
+path	component	decision	availability	condition	source_id
+scripts/field_discovery_20261018.py	strings/read_matrix/assert_grouped	ADAPT	TRACKED_SOURCE_ONLY	Explicit axes/barcodes; no silent transposition; targeted sparse tests	R06
+scripts/field_discovery_20261018.py	InputGuard	ADAPT	TRACKED_SOURCE_ONLY	No blanket large-file hashing; not an OS sandbox	R06
+scripts/field_discovery_20261018.py	feature_views/neighbor_mean	REBUILD	TRACKED_SOURCE_ONLY	Mask before feature aggregation; remove hidden self fallback and whole-slide statistics	R06
+scripts/field_candidate_subfield_20261019.py	split_genes/unit_sections	ADAPT	TRACKED_SOURCE_ONLY	All witness genes excluded globally; keep genes and units roles explicit	R07
+scripts/field_candidate_subfield_20261019.py	cache_section/load_cache	REBUILD	TRACKED_SOURCE_ONLY	Split A/B O/H; hidden valid and depth cannot affect model queries	R07
+scripts/field_biological_review_20261019.py	weighted_centroid/patch_stats	ADAPT	TRACKED_SOURCE_ONLY	Rename radius semantics; centroid not peak; empty sets not automatic absence	R08
+scripts/field_biological_review_20261019.py	describe_field/decay_half_pitch	REBUILD	TRACKED_SOURCE_ONLY	Raw versus residual scale separated; no covariance-range reuse	R08
+scripts/tls_multiscale_gobp.py	components/tissue_graph	ADAPT	TRACKED_SOURCE_ONLY	Replace hardcoded metric scale; validate platform and tissue holes	R09
+scripts/tls_multiscale_gobp.py	build_endpoints/prepare	SEALED	TRACKED_SOURCE_ONLY	Human-label endpoints not allowed in discovery	R09
+scripts/tls_multiscale_forward.py	path_coordinates/trace_path	ADAPT	TRACKED_SOURCE_ONLY	Validate curved/self-crossing/parallel/zero-length cases	R10
+scripts/tls_multiscale_forward.py	operators/corridor_weights	HISTORICAL_ONLY	TRACKED_SOURCE_ONLY	Not continuous bridge truth; label-defined endpoints; symmetric-sideband bias	R10
+infra/r16/t2p2_20260928	variogram matched null	HISTORICAL_ONLY	TRACKED_SOURCE_ONLY	Retain failure; do not import p-values or large weak-sill length claims	R11
+infra/field_source_holdout_20261018	cached predictions/features/splits	REBUILD	REFERENCED_LOCAL_NOT_VERIFIED	Check local presence; old full-channel predictions not block-recovery predictions	R16
+infra/field_discovery_review_20261018/identity_review.tsv	corrected identities	REUSE	REFERENCED_LOCAL_NOT_VERIFIED	Verify latest lineage mapping; unknown stays unknown	R08
+data/other_sources/hest1k/st/{section_id}.h5ad	raw counts coordinates	ADAPT	REFERENCED_LOCAL_NOT_VERIFIED	Targeted existence checks; allowlisted HDF5 fields; no human labels	R06
+infra/tls_multiscale_gobp_20261002/panel_controls.json	fixed field definitions	ADAPT	REFERENCED_LOCAL_NOT_VERIFIED	Program overlap and witness role checks; no existence assumed	R07
+docs/TLS_MULTISCALE_BRIDGE_CALIBRATION_20261003.md	historical calibration result	HISTORICAL_ONLY	TRACKED_SOURCE_ONLY	Negative calibration evidence; not evidence for absent biology	R12
+docs/TLS_PATIENT_VALIDATION_20261003.md	GSE patient metadata history	HISTORICAL_ONLY	TRACKED_SOURCE_ONLY	Local crosswalk/aliases separately verify; no labels or scores into selection	R13

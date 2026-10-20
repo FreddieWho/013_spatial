@@ -1,0 +1,141 @@
+# 来源与核查边界
+
+仓库固定参考提交：`8b174e2af053aa902a705f4d37098409613c4ac9`。公开文献核查日：2026-10-20。下列URL用于追溯，不表示文件已在本包或服务器。
+
+本包引用[Rxx]/[Pxx]时对应以下条目；所有新模型、测试规模和任务配置属于本包提案，不是论文已证明结果。
+
+## R01 · 仓库基线
+main提交及时间
+来源：https://github.com/FreddieWho/013_spatial/commit/8b174e2af053aa902a705f4d37098409613c4ac9
+核查：GitHub API已核查。
+
+## R02 · 仓库约束
+AGENTS.md
+来源：https://github.com/FreddieWho/013_spatial/blob/8b174e2af053aa902a705f4d37098409613c4ac9/AGENTS.md
+核查：已读取。
+
+## R03 · 执行状态
+STATUS.md；docs/roadmap.md
+来源：https://github.com/FreddieWho/013_spatial/blob/8b174e2af053aa902a705f4d37098409613c4ac9/docs/roadmap.md
+核查：已读取当前节点与限制。
+
+## R04 · 科学方案
+docs/plan.md
+来源：https://github.com/FreddieWho/013_spatial/blob/8b174e2af053aa902a705f4d37098409613c4ac9/docs/plan.md
+核查：已读取。
+
+## R05 · 真实数据与尺度结果
+docs/FIELD_BIOLOGICAL_REVIEW_RESULTS_20261019.md
+来源：https://github.com/FreddieWho/013_spatial/blob/8b174e2af053aa902a705f4d37098409613c4ac9/docs/FIELD_BIOLOGICAL_REVIEW_RESULTS_20261019.md
+核查：已读取。
+
+## R06 · 读取与旧特征
+scripts/field_discovery_20261018.py
+来源：https://github.com/FreddieWho/013_spatial/blob/8b174e2af053aa902a705f4d37098409613c4ac9/scripts/field_discovery_20261018.py
+核查：定向读取1–385行，非全代码审计。
+
+## R07 · 核验基因与缓存
+scripts/field_candidate_subfield_20261019.py
+来源：https://github.com/FreddieWho/013_spatial/blob/8b174e2af053aa902a705f4d37098409613c4ac9/scripts/field_candidate_subfield_20261019.py
+核查：定向读取1–220行。
+
+## R08 · 测量与旧几何指标
+scripts/field_biological_review_20261019.py
+来源：https://github.com/FreddieWho/013_spatial/blob/8b174e2af053aa902a705f4d37098409613c4ac9/scripts/field_biological_review_20261019.py
+核查：定向读取1–210及280–485行。
+
+## R09 · 旧桥图与标签端点
+scripts/tls_multiscale_gobp.py
+来源：https://github.com/FreddieWho/013_spatial/blob/8b174e2af053aa902a705f4d37098409613c4ac9/scripts/tls_multiscale_gobp.py
+核查：已读取。
+
+## R10 · 旧桥路径和侧带
+scripts/tls_multiscale_forward.py
+来源：https://github.com/FreddieWho/013_spatial/blob/8b174e2af053aa902a705f4d37098409613c4ac9/scripts/tls_multiscale_forward.py
+核查：定向读取1–220行。
+
+## R11 · 旧变异函数和校准
+infra/r16/t2p2_20260928/verdict.md
+来源：https://github.com/FreddieWho/013_spatial/blob/8b174e2af053aa902a705f4d37098409613c4ac9/infra/r16/t2p2_20260928/verdict.md
+核查：本次对话此前已读取；长度拟合不是新尺度证据。
+
+## R12 · 旧桥失效
+docs/TLS_MULTISCALE_BRIDGE_CALIBRATION_20261003.md
+来源：https://github.com/FreddieWho/013_spatial/blob/8b174e2af053aa902a705f4d37098409613c4ac9/docs/TLS_MULTISCALE_BRIDGE_CALIBRATION_20261003.md
+核查：已读取。
+
+## R13 · 旧患者修正
+docs/TLS_PATIENT_VALIDATION_20261003.md
+来源：https://github.com/FreddieWho/013_spatial/blob/8b174e2af053aa902a705f4d37098409613c4ac9/docs/TLS_PATIENT_VALIDATION_20261003.md
+核查：本次对话此前已读取；本地crosswalk仍须存在性检查。
+
+## R14 · 旧来源留出
+docs/FIELD_SOURCE_HOLDOUT_RESULTS_20261018.md
+来源：https://github.com/FreddieWho/013_spatial/blob/8b174e2af053aa902a705f4d37098409613c4ac9/docs/FIELD_SOURCE_HOLDOUT_RESULTS_20261018.md
+核查：本次对话此前已读取。
+
+## R15 · K=2结果
+docs/FIELD_CANDIDATE_SUBFIELD_RESULTS_20261019.md
+来源：https://github.com/FreddieWho/013_spatial/blob/8b174e2af053aa902a705f4d37098409613c4ac9/docs/FIELD_CANDIDATE_SUBFIELD_RESULTS_20261019.md
+核查：本次对话此前已读取；当前STATUS再次核实状态。
+
+## R16 · 本地引用未验证
+infra/field_source_holdout_20261018
+来源：https://api.github.com/repos/FreddieWho/013_spatial/contents/infra/field_source_holdout_20261018?ref=8b174e2af053aa902a705f4d37098409613c4ac9
+核查：本轮GitHub API 404；不代表服务器文件不存在。
+
+## P01 · 近邻一手论文
+Tanevski et al. MISTy. Genome Biology 23,97 (2022). DOI 10.1186/s13059-022-02663-5
+来源：https://link.springer.com/article/10.1186/s13059-022-02663-5
+核查：已读方法与结构/机制模拟说明。
+
+## P02 · 近邻一手论文
+Liang et al. LSGI. Genome Biology 26,238 (2025). DOI 10.1186/s13059-025-03716-1
+来源：https://link.springer.com/article/10.1186/s13059-025-03716-1
+核查：已读局部梯度、窗口/阈值及实验说明。
+
+## P03 · 经典方法基础
+Alvarez, Rosasco & Lawrence. Kernels for Vector-Valued Functions: a Review. DOI 10.1561/2200000036
+来源：https://arxiv.org/abs/1106.6251
+核查：作者论文书目/摘要已核实；LMC作为经典基线，不主张首创。
+
+## P04 · 近邻预印本
+Wang et al. STITCH. bioRxiv v1 (2026). DOI 10.64898/2026.06.03.729557
+来源：https://www.biorxiv.org/content/10.64898/2026.06.03.729557v1.full
+核查：已检索一手全文缓存；二维矩形缺口和多级缺口说明已读。
+
+## P05 · 近邻预印本
+Lin et al. CONCERT. bioRxiv v1 (2025). DOI 10.1101/2025.11.08.686890
+来源：https://www.biorxiv.org/content/10.1101/2025.11.08.686890v1.full
+核查：已检索一手方法/patch-border-niche实验说明。
+
+## P06 · 近邻一手论文
+Birk et al. NicheCompass. Nature Genetics 57,897–909 (2025). DOI 10.1038/s41588-025-02120-6
+来源：https://www.nature.com/articles/s41588-025-02120-6
+核查：一手结果及模型说明已读；未全面复核补充实验代码。
+
+## P07 · 生物学一手论文
+Onder et al. Fibroblastic reticular cells generate protective intratumoral T cell environments in lung cancer. Cell 188,430–446.e20 (2025); online 2024-11-19. DOI 10.1016/j.cell.2024.10.042
+来源：https://www.sciencedirect.com/science/article/pii/S0092867424012595
+核查：一手摘要/研究说明；未验证本地原始数据或轨道标注可用性。
+
+## P08 · 近邻一手论文
+Yu et al. TrimNN. Nature Communications 16,7737 (2025). DOI 10.1038/s41467-025-63141-7
+来源：https://www.nature.com/articles/s41467-025-63141-7
+核查：一手正文和图模型/搜索说明已读；未运行代码。
+
+## P09 · 近邻预印本书目
+Birk et al. Learning Discrete Cell and Niche Codes from Spatial Transcriptomics Using Dual Residual Vector Quantization. bioRxiv v1, posted 2026-08-13. DOI 10.64898/2026.08.07.743490
+来源：https://www.biorxiv.org/content/10.64898/2026.08.07.743490v1.article-info
+核查：书目一手确认；技术细节未充分核实，不作为本包实验合同前提。
+
+## P10 · 可选合成参考
+Li et al. scMultiSim. Nature Methods 22,982–993 (2025). DOI 10.1038/s41592-025-02651-0
+来源：https://www.nature.com/articles/s41592-025-02651-0
+核查：模拟多因素/技术噪声思想参考；未下载或运行。
+
+## 未实施工作
+未修改GitHub仓库；未执行A/B/C新代码；未解封人工标签；未运行公共方法；未查验服务器数据、软件环境和实时资源。源码片段核查不能排除未读分支中的其他缺陷。
+
+## 书目信息纠错
+MISTy发表于Genome Biology（2022）；FRC/T-cell tracks论文online于2024-11-19、卷期为2025；SQUINT v1一手页面标posted 2026-08-13。前文未经重新核实的论文技术细节和具体数字没有进入本施工合同。

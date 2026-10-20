@@ -574,3 +574,24 @@ Git0604dfc修复小探针污染正式internal_0评价的问题并重算，恢复
 - **证据：** `infra/paseo_candidate_subfield_20261019/review/preflight.json` 的S-01～S-06，特别是全基因归一化分母含待核验B基因，可能让B间接进入A；训练/测试载荷对齐、B稀疏与普通参照也需事先固定。DeepSeek的可行性检查只确认既定分组和检测覆盖，不是候选结果。
 - **处置：** D-279与Git4732584已在拟合前修订合同；审核代理按用户新指定的Grok high复核，执行代理仅在放行后拟合，不复用旧FC-03分数。
 - **解除证据：** `infra/paseo_candidate_subfield_20261019/review/implementation_and_results.json`；473项自检仅作辅助。固定K=2本轮不支持独立场或HF-01主张，数值与来源限制见 `docs/FIELD_CANDIDATE_SUBFIELD_RESULTS_20261019.md`。
+
+## I-053｜真实 pilot 资产与身份清单尚未现场核验（2026-10-20）
+
+- **状态：** OPEN；FA-00 的首要核查项，不阻塞合成路线（FA-02/FA-03A）。
+- **证据：** 施工包源码指向 `data/other_sources/hest1k/st/{section_id}.h5ad`、身份表 `infra/field_discovery_review_20261018/identity_review.tsv`、来源留出根 `infra/field_source_holdout_20261018/`、面板 `infra/tls_multiscale_gobp_20261002/panel_controls.json`。GitHub 侧 `infra/field_source_holdout_20261018` 在 8b174e2 返回 404，故该目录记为 `REFERENCED_LOCAL_NOT_VERIFIED`；“8 个已确认单位／14 片”的计数来自源码文字核查，未按修正 manifest 验收。
+- **处置：** FA-00 只做一次定向清点（相对路径、存在性、字节数、已有 manifest 版本、来源与掩膜前处理范围），优先用既有 freeze 指纹，不全盘逐字节 hash；不得据仓库文档声称本地已有。缺缓存时的降级顺序为：已有原始计数 → 最小新缓存 → 仅有可证明逐点且无监督选择的旧评分（限评分层）→ 报该真实分支不可执行。禁止自动外部下载。
+- **升级条件：** 若“已确认单位”实际少于 manifest 所述、或原始计数与 barcode/xy 无法对齐，则真实数据相关 AF 主张为硬阻塞；只能在如实报告缺失的前提下做合成与工程贯通，不得用未知身份凑独立患者，也不得把缺片补成阴性。
+
+## I-054｜近邻公共方法未运行，路线比较仅含自写简化参照（2026-10-20）
+
+- **状态：** OPEN；限制一切涉及“相对现有方法更好”的表述。
+- **证据：** 施工包 `10_NEIGHBOR_PROTOCOLS.md` 明确 MISTy（Genome Biology 2022）、LSGI（Genome Biology 2025）、NicheCompass（Nature Genetics 2025）、TrimNN（Nature Communications 2025）、STITCH/CONCERT 预印本仅作设计与任务分层借鉴，本轮未运行；代码内的 `misty_like`／`lsgi_like` 是自写简化版，不能冒称官方复现。P09（SQUINT）只有书目一手确认，未获足够方法细节。
+- **处置：** 公平参照先落实为可执行的低成本基线（同点共表达、单场各向异性、多输出 LMC/GP、可见最近邻/IDW、单场/固定聚合骨架+同一路径算法）。未运行的外部工具在结果表中写 `NOT_RUN`，并说明依赖或算力限制；不把它默认记为劣于本项目方法。
+- **升级条件：** 拟对外声称方法学新颖性或相对公共方法的优势时，必须先实际运行匹配任务的对应官方实现；若依赖不可得，则把主张收缩为“相对所列强基线”。
+
+## I-055｜施工包合同尚未经项目指定审核代理独立复核（2026-10-20）
+
+- **状态：** OPEN；FA-00/FA-03 实现开工前应完成，不阻塞文档改版本身。
+- **证据：** `12_PACKAGE_VALIDATION.md` 的 14 项自检只覆盖文档解析、种子角色互斥、核心在最小掩膜内、资源边界一致等文本性质，明确未核查服务器资产、环境、未读源码分支与旧结果重训，也不构成项目独立审核。
+- **处置：** 按 `AGENTS.md` 分工，由指定审核代理（`xai/grok-4.7`，`high`）对 `05_COMMON_PROTOCOL.md` 的观测合同、`reuse_register.tsv` 的复用裁定与 FA-00 实现范围做预审，记录 Git 提交与必要 diff；发现影响结果的缺口先改合同再实现。审核记录不承诺绝对无缺陷。
+- **升级条件：** 若预审判定存在泄漏语义、掩膜入口不完整或比较不公平且未关闭，则依赖该合同的实验不得进入科学结论；未关闭前只能产出工程贯通与诊断。

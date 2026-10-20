@@ -1,0 +1,124 @@
+{
+  "package": "013_spatial_field_analyzer_killtest_20261020",
+  "reference_commit": "8b174e2af053aa902a705f4d37098409613c4ac9",
+  "status": "DOCUMENTS_ONLY_NO_NEW_EXPERIMENTS",
+  "remote_repository_modified": false,
+  "files": [
+    {
+      "path": "00_START_HERE.md",
+      "bytes": 4573
+    },
+    {
+      "path": "01_REPO_AUDIT_AND_REUSE.md",
+      "bytes": 7406
+    },
+    {
+      "path": "02_PLAN_CHANGE_MEMO.md",
+      "bytes": 4237
+    },
+    {
+      "path": "03_PLAN_PROPOSED.md",
+      "bytes": 7549
+    },
+    {
+      "path": "04_ROADMAP_PROPOSED.md",
+      "bytes": 4436
+    },
+    {
+      "path": "05_COMMON_PROTOCOL.md",
+      "bytes": 9455
+    },
+    {
+      "path": "06_SYNTHETIC_KILL_TESTS.md",
+      "bytes": 7380
+    },
+    {
+      "path": "07_ALGORITHM_ROUTES.md",
+      "bytes": 14042
+    },
+    {
+      "path": "08_REAL_DATA_AND_SCALE.md",
+      "bytes": 6857
+    },
+    {
+      "path": "09_DECISIONS_AND_REVIEW.md",
+      "bytes": 6122
+    },
+    {
+      "path": "10_NEIGHBOR_PROTOCOLS.md",
+      "bytes": 5591
+    },
+    {
+      "path": "11_SOURCES.md",
+      "bytes": 7479
+    },
+    {
+      "path": "12_PACKAGE_VALIDATION.md",
+      "bytes": 1480
+    },
+    {
+      "path": "config/killtest_defaults.yaml",
+      "bytes": 1731
+    },
+    {
+      "path": "config/real_pilot.yaml",
+      "bytes": 1992
+    },
+    {
+      "path": "config/route_defaults.yaml",
+      "bytes": 1384
+    },
+    {
+      "path": "prompts/00_COORDINATOR.md",
+      "bytes": 3174
+    },
+    {
+      "path": "prompts/01_DATA_AND_SCALE.md",
+      "bytes": 1370
+    },
+    {
+      "path": "prompts/02_SYNTHETIC_AND_A.md",
+      "bytes": 1206
+    },
+    {
+      "path": "prompts/03_ROUTE_B.md",
+      "bytes": 1212
+    },
+    {
+      "path": "prompts/04_ROUTE_C.md",
+      "bytes": 1224
+    },
+    {
+      "path": "prompts/05_REAL_AND_REVIEW.md",
+      "bytes": 1279
+    },
+    {
+      "path": "reuse_register.tsv",
+      "bytes": 3121
+    },
+    {
+      "path": "schemas/run_manifest.schema.json",
+      "bytes": 3865
+    },
+    {
+      "path": "sources.tsv",
+      "bytes": 5979
+    }
+  ],
+  "document_validation": {
+    "yaml_documents_parse": true,
+    "proposed_not_executed": true,
+    "synthetic_seed_roles_disjoint": true,
+    "core_within_smallest_mask": true,
+    "resource_boundaries_consistent": true,
+    "no_hidden_or_human_inputs": true,
+    "json_schema_valid": true,
+    "all_source_ids_resolved": true,
+    "no_stale_chat_citation_tags": true,
+    "balanced_code_fences": true,
+    "all_main_documents_present": true,
+    "six_worker_prompts_present": true,
+    "reuse_sources_resolved": true,
+    "no_computational_project_code_bundled": true
+  }
+}

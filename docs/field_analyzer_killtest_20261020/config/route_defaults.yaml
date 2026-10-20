@@ -1,0 +1,36 @@
+# Starting specifications, not a biological threshold or executable model config.
+status: PROPOSED_NOT_RUN
+route_A:
+  variants: [A0_radial, A1_deformable]
+  max_atoms_initial: 3
+  angular_orders: [0, 1, 2]
+  curve_control_points_initial: 4
+  hidden_truth_for_anchor_or_fit: false
+route_B:
+  variants_initial: [B0_lmc, B1_directional_operator]
+  gated_extension_enabled_initially: false
+  max_context_gates_if_justified: 2
+  distance_scales_pitch: [2, 4, 8, 16]
+  angular_orders: [0, 1, 2]
+  ordinary_lmc_components_min: 2
+  output_specific_noise: true
+  precision_construction: tau_identity_plus_sum_LtWL
+  solver: sparse_or_matrix_free
+  dense_full_inverse_allowed: false
+  directional_frame: visible_data_only_or_undefined
+  uncertainty_default: empirical_stability_not_calibrated_posterior
+route_C:
+  variants_initial: [C0_single_or_fixed_aggregate, C1_multi_field_support]
+  initial_role_count: 2
+  arbitrary_layer_switching_allowed: false
+  transition_extension_enabled_initially: false
+  endpoint_pair_budget_per_roi_initial: 64
+  candidate_budget_grows_with_distractors: false
+  same_endpoint_candidates_for_comparison: true
+  allow_no_connection: true
+  hidden_edges_state: INFERRED
+  projected_crossing_default: CROSSING_UNRESOLVED
+  real_spatial_p_values_initially: null
+integration:
+  B_plus_C_enabled_initially: false
+  enable_condition: complementary_capability_evidence
