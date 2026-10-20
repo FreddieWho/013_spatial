@@ -1,0 +1,43 @@
+{
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "thinking": "xhigh",
+    "cwd": "/home/huyudi/013_spatial"
+  },
+  "commit_reviewed": "6b26f28",
+  "g1_closed": true,
+  "items": [
+    {
+      "question": 1,
+      "verdict": "是",
+      "evidence": "_unit_level 先在每个 unit_id 内对 RMSE 取中位，_skill_units 再对 8 个单位的方差解释率取中位。block-recovery 把该结果写入 skill_vs_background_units_primary。同一单位内的片、中心和场不再各算一次。"
+    },
+    {
+      "question": 2,
+      "verdict": "一致，行级已标为次要",
+      "evidence": "从 recovery_metrics.tsv 的 2500 行、8 个单位重算，kernel 为 +0.129348/−0.079719/−0.203908，idw +0.156495/−0.116276/−0.270242，kernel_bw2 +0.158826/−0.037566/−0.255706，multifield +0.137123/−0.004205/−0.082421，与 summary.json 一致。行级 kernel +0.245/+0.082/−0.142 仍在 skill_vs_background_rows_secondary，notes 首条写明行不是独立观测。"
+    },
+    {
+      "question": 3,
+      "verdict": "作为正结论的“8 pitch 可恢复”已去掉",
+      "evidence": "REPORT_FA05、REPORT_FA06、roadmap 和 TODO 现在写约 4 pitch，并把 8 pitch 的 +0.08 标成行级虚高。残留的“8 pitch”都是在说那个旧说法已被修正。"
+    },
+    {
+      "question": 4,
+      "verdict": "负结果仍成立，但有一句写强了",
+      "evidence": "4 pitch 上多场岭回归 +0.137，低于单场局部核的 +0.159，也低于 kernel 的 +0.129。AF-03 仍没有得到“其他场改善缺口”的支持。但“任何半径都不超过可见均值”不成立：4 pitch 的 +0.137 已经高于猜可见均值。"
+    }
+  ],
+  "new_findings": [
+    {
+      "id": "G2",
+      "severity": "MINOR",
+      "topic": "多场回归在 4 pitch 上高于可见均值",
+      "evidence": "REPORT_FA05 第 47 行、REPORT_FA06 的 AF-03 格、STATUS 的“从来没有超过猜平均值”，与单位等权的 +0.137 冲突。它没有超过单场平滑。",
+      "required_fix": "把这句改成“没有超过单场空间参照”。不必重跑。"
+    }
+  ],
+  "allow_phase_conclusion": true,
+  "limitations": "G1 的汇总口径已关闭。G2 只是一句写强了，不把 AF-03 改成支持。未重跑拟合，只复算了已有表。"
+}
