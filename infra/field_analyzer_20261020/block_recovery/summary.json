@@ -1,5 +1,4 @@
 {
-  "n_rows": 2500,
   "radii_pitch": [
     4.0,
     8.0,
@@ -55,7 +54,34 @@
       "12.0": 0.09210873737415275
     }
   },
-  "skill_vs_background": {
+  "skill_vs_background_units_primary": {
+    "background_mean": {
+      "4.0": 0.0,
+      "8.0": 0.0,
+      "12.0": 0.0
+    },
+    "idw_k8": {
+      "4.0": 0.1564947418513951,
+      "8.0": -0.11627625404215292,
+      "12.0": -0.27024192537851044
+    },
+    "kernel_k16": {
+      "4.0": 0.12934759173522414,
+      "8.0": -0.07971851324358803,
+      "12.0": -0.20390821459527741
+    },
+    "kernel_local_bw2": {
+      "4.0": 0.15882634385166006,
+      "8.0": -0.037565843145722866,
+      "12.0": -0.25570596219684893
+    },
+    "multifield_ridge": {
+      "4.0": 0.1371229606077186,
+      "8.0": -0.004204683200099424,
+      "12.0": -0.08242112983578731
+    }
+  },
+  "skill_vs_background_rows_secondary": {
     "background_mean": {
       "4.0": 0.0,
       "8.0": 0.0,
@@ -82,8 +108,11 @@
       "12.0": -0.04285836589573555
     }
   },
+  "n_units": 8,
+  "n_rows": 2500,
   "n_refused_or_unscored": 0,
   "notes": [
+    "PRIMARY aggregation is unit-equal (per-unit median RMSE, then median over units); rows are not independent",
     "core Q is fixed (r <= core radius) across mask radii; only the hidden disc changes",
     "classical references only: background / IDW(8) / gaussian kernel / ridge on smoothed other fields",
     "a learned cross-field operator is not included in this node"

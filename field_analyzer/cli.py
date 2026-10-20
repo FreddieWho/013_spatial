@@ -699,6 +699,11 @@ def cmd_real_validation(args: argparse.Namespace) -> int:
 
 
 def _skill(rows, predictor: str, radius: float) -> float:
+    """Row-wise skill: every (section, centre, field) row counts equally.
+
+    Kept for comparison only; the statistical unit is the unit, not the row
+    (same rule as the rest of the project).
+    """
     sel = [r for r in rows if r["predictor"] == predictor and r["radius_pitch"] == radius]
     base = [r for r in rows if r["predictor"] == "background_mean" and r["radius_pitch"] == radius]
     if not sel or not base:
@@ -706,6 +711,34 @@ def _skill(rows, predictor: str, radius: float) -> float:
     rmse = float(np.median([r["rmse"] for r in sel]))
     rmse0 = float(np.median([r["rmse"] for r in base]))
     return float(1.0 - (rmse / rmse0) ** 2) if rmse0 > 0 else float("nan")
+
+
+def _unit_level(rows, predictor: str | None, radius: float, key: str = "rmse") -> dict[str, float]:
+    """Median over rows *within* each unit; one value per unit."""
+    buckets: dict[str, list[float]] = {}
+    for r in rows:
+        if r["radius_pitch"] != radius:
+            continue
+        if predictor is not None and r["predictor"] != predictor:
+            continue
+        value = r.get(key)
+        if value is None or not np.isfinite(value):
+            continue
+        buckets.setdefault(r["unit_id"], []).append(float(value))
+    return {u: float(np.median(v)) for u, v in buckets.items()}
+
+
+def _skill_units(rows, predictor: str, radius: float) -> float:
+    """Unit-equal skill: per-unit RMSE ratio first, then median over units.
+
+    This is the primary number: centres and fields inside one unit are not
+    independent observations.
+    """
+    sel = _unit_level(rows, predictor, radius)
+    base = _unit_level(rows, "background_mean", radius)
+    common = sorted(set(sel) & set(base))
+    per_unit = [1.0 - (sel[u] / base[u]) ** 2 for u in common if base[u] > 0]
+    return float(np.median(per_unit)) if per_unit else float("nan")
 
 
 def cmd_block_recovery(args: argparse.Namespace) -> int:
@@ -739,7 +772,6 @@ def cmd_block_recovery(args: argparse.Namespace) -> int:
         vals = [r["rmse"] for r in sel]
         return float(np.median(vals)) if vals else float("nan")
     summary = {
-        "n_rows": len(rows),
         "radii_pitch": radii,
         "core_radius_pitch": args.core,
         "rmse_median": {
@@ -757,21 +789,29 @@ def cmd_block_recovery(args: argparse.Namespace) -> int:
             }
             for fid in sorted({r["target_field"] for r in rows})
         },
-        "skill_vs_background": {
-            pred: {
-                str(rad): _skill(rows, pred, rad) for rad in radii
-            }
+        "skill_vs_background_units_primary": {
+            pred: {str(rad): _skill_units(rows, pred, rad) for rad in radii}
             for pred in sorted({r["predictor"] for r in rows})
         },
+        "skill_vs_background_rows_secondary": {
+            pred: {str(rad): _skill(rows, pred, rad) for rad in radii}
+            for pred in sorted({r["predictor"] for r in rows})
+        },
+        "n_units": len({r["unit_id"] for r in rows}),
+        "n_rows": len(rows),
         "n_refused_or_unscored": 0,
         "notes": [
+            "PRIMARY aggregation is unit-equal (per-unit median RMSE, then median over units); rows are not independent",
             "core Q is fixed (r <= core radius) across mask radii; only the hidden disc changes",
             "classical references only: background / IDW(8) / gaussian kernel / ridge on smoothed other fields",
             "a learned cross-field operator is not included in this node",
         ],
     }
     (out / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False))
-    print(json.dumps(summary["rmse_median"], indent=2, ensure_ascii=False))
+    print(json.dumps({
+        "skill_units_primary": summary["skill_vs_background_units_primary"],
+        "skill_rows_secondary": summary["skill_vs_background_rows_secondary"],
+    }, indent=2, ensure_ascii=False))
     return 0
 
 

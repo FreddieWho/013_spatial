@@ -1,0 +1,59 @@
+{
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "thinking": "xhigh",
+    "cwd": "/home/huyudi/013_spatial"
+  },
+  "commit_reviewed": "9465644",
+  "scope": {
+    "read": [
+      "field_analyzer/real_validation.py half_specs",
+      "field_analyzer/synthetic.py build_s2/make_s5_pair",
+      "field_analyzer/route_a.py select_by_cv",
+      "field_analyzer/route_b.py capability_sweep",
+      "field_analyzer/route_c.py offset_aware_support",
+      "field_analyzer/block_recovery.py evaluate_section",
+      "REPORT_FA02.md 至 REPORT_FA06.md",
+      "real_validation/map_agreement.tsv",
+      "block_recovery/recovery_metrics.tsv",
+      "route_b/capability_sweep.tsv",
+      "route_b/displacement_recovery.tsv",
+      "synth/pair_matching_diagnostics.tsv"
+    ],
+    "ran": [
+      "从 TSV 重算图一致性中位、深度相关、按片与按单位的缺口方差解释率、能力扫描 15/18"
+    ],
+    "not_checked": [
+      "未重跑合成生成或真实切片拟合",
+      "未逐种子复核 FA-03A 的全部 CV 表",
+      "HEAD 6acba9f 只改状态文档，审查过的代码和产物与 9465644 无差异"
+    ]
+  },
+  "findings": [
+    {
+      "id": "G1",
+      "node": "FA-05",
+      "severity": "MAJOR",
+      "topic": "8 pitch 仍优于均值只在把中心和场当成独立行时成立",
+      "evidence": "报告的 +0.245/+0.082/−0.142 与 168/168/164 行的中位 RMSE 一致。按 8 个单位先取单位内中位再算方差解释率，kernel 相对背景在 r=4 为 +0.13，r=8 为 −0.08，r=12 为 −0.20。三个中心被放进同一个中位数，不是独立患者。",
+      "required_fix": "保留按片乘中心的表，但把“可恢复到 8 pitch”改成对汇总方式敏感。按单位等权时，8 pitch 已经不优于可见均值。这不把 AF-03 改成支持。"
+    }
+  ],
+  "answers": {
+    "1": "两套 spec 对称。A 半的 witness 是全部 B，B 半的 witness 是全部 A，外部文库默认再排除本 spec 的场基因，所以两边分母都是全体 A∪B 之外。一个基因若在一场是 A、在另一场是 B，会从两边评分都去掉，这是更严，不是泄漏。",
+    "2": "改后的 S2 是纯位移高斯加独立噪声，同点相关只靠噪声水平对齐。产物里两粒种子的同点相关为 0.58887 对 0.58887、0.58618 对 0.58618，位移记为 7 pitch。S1 径向差为 2.2e-3 和 2.0e-10。S5 两份计数逐位差为 0。",
+    "3": "5% 规则会在双峰种子 8 上选更简单的 A0。报告已经写成留出误差无法识别多峰优势，Pearson 从 0.86 掉到 0.52，没有写成 A0 更好。",
+    "4": "不矛盾。能力扫描 18 行里 15 行在干净场上恢复。S2 的四行把同点对和位移对都判成同点，位移对的权重峰仍在 [0,0]。报告把差别归因于计数观测，并有潜在真值对照，没有同时说这批观测既有能力又没能力。",
+    "5": "C0 与朴素 C1 用同一对端点。朴素 C1 取允许偏移上的最大支持，报告写明这会把平行带也算进去，所以更差是这个实现选择，不是证明多场支持不可能。FA-06 的“未获支持”与此一致，没有写成连接不存在。",
+    "6": "visible 是组织支持且不在隐藏盘内，组织外点不进入拟合。多场岭回归只在可见行上拟合，其他场特征也只由可见值平滑。核心半径固定为 2 pitch，42 个中心里 41 个在三个半径下中心坐标不变。",
+    "7": "图一致性的 0.776 与先按单位再取中位一致。场别中位 0.578/0.926 是 14 张片的中位。缺口表把每片 3 个中心、4 个场都放进同一个中位数，见 G1。没有按 spot 计数。",
+    "8": "0.776、B_AXIS 0.578、EMT 0.926、OXPHOS 深度中位 0.80（报告写 0.79）与表一致。+0.245 和 −0.142 与按行中位 RMSE 换算一致，但不是单位等权结果。",
+    "9": "“四条假设本轮未获支持”没有把已有部分支持写成否定。图一致性被写成读数可重复，不是关系已成立。AF-03 的负结果限于经典参照。AF-04 写的是只到分子内部核验。没有一条产物支持把假设改成成立。"
+  },
+  "claims_that_do_not_hold": [
+    "可恢复范围稳定到 8 pitch：按单位等权时，8 pitch 的核平滑已经不优于可见均值"
+  ],
+  "allow_phase_conclusion": true,
+  "limitations": "没有 BLOCKER。G1 改变的是 8 pitch 边界的稳定性，不改变 AF-01、AF-02、AF-03 本轮未获支持的范围。未重跑模型，也不证明这些实现没有其他缺陷。"
+}
