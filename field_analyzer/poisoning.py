@@ -40,6 +40,28 @@ FORBIDDEN_SOURCE_PATTERNS = (
 SELF_EXCLUDED = {"poisoning.py"}
 
 
+def truth_delta(t0: np.ndarray, t1: np.ndarray) -> dict[str, Any]:
+    """Finite statistics of the evaluation change; None when nothing is finite."""
+    diff = np.asarray(t0, dtype=np.float64) - np.asarray(t1, dtype=np.float64)
+    finite = np.isfinite(diff)
+    return {
+        "n_finite_hidden_truth": int(finite.sum()),
+        "truth_max_abs_delta": float(np.max(np.abs(diff[finite]))) if finite.any() else None,
+        "base_mean_hidden": float(np.nanmean(t0)) if np.isfinite(t0).any() else None,
+        "poisoned_mean_hidden": float(np.nanmean(t1)) if np.isfinite(t1).any() else None,
+    }
+
+
+def metric_change(summaries: Mapping[str, Mapping[str, Any]]) -> bool:
+    """The reverse assertion: at least one FINITE, NON-ZERO evaluation change.
+
+    An all-missing hidden truth yields ``None`` and must fail: otherwise a vacuous
+    test would pass.
+    """
+    deltas = [s.get("truth_max_abs_delta") for s in summaries.values()]
+    return any(d is not None and np.isfinite(d) and d > 0 for d in deltas)
+
+
 @dataclass
 class PoisonResult:
     scenario: str
@@ -194,20 +216,19 @@ def run_poisoning(
         t0, t1 = base_truth[fid], extreme_truth[fid]
         if len(t0) == 0:
             continue
-        diff = t0 - t1
-        finite = np.isfinite(diff)
-        metric[fid] = {
-            "base_mean_hidden": float(np.nanmean(t0)) if np.isfinite(t0).any() else None,
-            "poisoned_mean_hidden": float(np.nanmean(t1)) if np.isfinite(t1).any() else None,
-            "n_finite_hidden_truth": int(finite.sum()),
-            "truth_max_abs_delta": float(np.max(np.abs(diff[finite]))) if finite.any() else None,
-        }
-    # the reverse assertion only counts as satisfied when the evaluation quantity
-    # has a FINITE, NON-ZERO change.  An all-missing hidden truth must fail: an
-    # ``inf`` sentinel would let a vacuous test pass.
-    deltas = [v["truth_max_abs_delta"] for v in metric.values() if v["truth_max_abs_delta"] is not None]
-    metric_changed = bool(deltas) and any(np.isfinite(d) and d > 0 for d in deltas)
+        metric[fid] = truth_delta(t0, t1)
+    metric_changed = metric_change(metric)
 
+    field_genes_present = set(map(str, genes))
+    analysed = set(map(str, spec.witness_genes))
+    for members in spec.fields.values():
+        analysed.update(map(str, members))
+    library_info = {
+        "n_field_gene_union_present": int(len(analysed & field_genes_present)),
+        "n_library_genes": int(base.meta.get("n_library_genes", -1)),
+        "library_scope": base.meta.get("library_scope"),
+        "detection_scope": base.meta.get("detection_scope"),
+    }
     entry_points = {
         "library_size": "library" in base.arrays,
         "depth": "depth" in base.arrays,
@@ -235,6 +256,7 @@ def run_poisoning(
         "scenarios": [r.to_dict() for r in results],
         "input_fingerprints": fingerprint_arrays(base.arrays),
         "entry_points": entry_points,
+        "library": library_info,
         "evaluation": {
             "prediction_max_abs_delta": float(prediction_delta),
             "truth_under_poisoning": metric,

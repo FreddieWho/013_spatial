@@ -81,19 +81,19 @@ def test_static_source_check_is_clean():
 
 
 def test_all_missing_hidden_truth_cannot_satisfy_the_reverse_assertion():
-    """F1 regression: an inf/NaN sentinel must not count as 'evaluation moved'."""
-    import numpy as np
+    """N1/F1: exercise the *production* decision functions, not a copy of the rule."""
+    all_nan = np.full(5, np.nan)
+    summary = poisoning.truth_delta(all_nan, all_nan)
+    assert summary["truth_max_abs_delta"] is None
+    assert summary["n_finite_hidden_truth"] == 0
+    assert poisoning.metric_change({"f": summary}) is False
 
-    t0 = np.full(5, np.nan)
-    t1 = np.full(5, np.nan)
-    diff = t0 - t1
-    finite = np.isfinite(diff)
-    assert finite.sum() == 0
-    delta = np.max(np.abs(diff[finite])) if finite.any() else 0.0
-    # the fixed rule: no finite delta -> not changed
-    metric_changed = bool([delta]) and any(np.isfinite(d) and d > 0 for d in [delta])
-    assert metric_changed is False
+    unchanged = poisoning.truth_delta(np.array([1.0, 2.0]), np.array([1.0, 2.0]))
+    assert unchanged["truth_max_abs_delta"] == 0.0
+    assert poisoning.metric_change({"f": unchanged}) is False
 
-    t0 = np.array([1.0, 2.0]); t1 = np.array([1.0, 2.0])
-    d = t0 - t1
-    assert not any(np.isfinite(x) and x > 0 for x in [float(np.max(np.abs(d)))])
+    moved = poisoning.truth_delta(np.array([1.0, 2.0]), np.array([1.0, 2.5]))
+    assert poisoning.metric_change({"f": moved}) is True
+
+    # an inf sentinel from the old code path must not count as a change
+    assert poisoning.metric_change({"f": {"truth_max_abs_delta": float("inf")}}) is False

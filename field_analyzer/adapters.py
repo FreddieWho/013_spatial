@@ -253,7 +253,7 @@ def read_h5ad_counts(
 
     expected = (n_obs_stored, n_genes_stored)
     stored = tuple(stored_shape)
-    if axis.axis_order == OBS_BY_GENE and n_obs_stored == n_genes_stored and not axis.allow_square:
+    if n_obs_stored == n_genes_stored and not axis.allow_square:
         # both interpretations have the same shape; the shape cannot tell us which
         raise ContractError(
             "square matrix: obs and gene axes are indistinguishable from the shape "

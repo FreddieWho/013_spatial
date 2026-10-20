@@ -1,0 +1,46 @@
+{
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "thinking": "xhigh",
+    "cwd": "/home/huyudi/013_spatial"
+  },
+  "commit_reviewed": "b5f7a35",
+  "items": [
+    {
+      "id": "F1",
+      "closed": true,
+      "evidence": "poisoning.run_poisoning 在没有有限差值时把 truth_max_abs_delta 写成 null，metric_changed 只在有限且大于 0 时为真。全缺失因此失败。已交付的 ZEN36、NCBI642 仍是有限非零差，metric_changed 为真。",
+      "residual_risk": "名为回归测试的函数没有调用 run_poisoning，而是在测试里重写了一段判定。它不能锁住生产路径。"
+    },
+    {
+      "id": "F2",
+      "closed": true,
+      "evidence": "默认 obs_by_gene 下，稠密和稀疏方阵都会在 read_h5ad_counts 拒绝。我用临时方阵两条路径都跑到了 ContractError。显式 allow_square=True 时，ReadReport.notes 写入 square matrix accepted by explicit declaration 及理由。回归测试调用了真实读取函数。",
+      "residual_risk": "声明 axis_order=gene_by_obs 的方阵不会触发这道拒绝，也不会写说明。当前 14 张片不是方阵，默认读取不受影响。"
+    },
+    {
+      "id": "F3",
+      "closed": true,
+      "evidence": "NCBI642 隐藏点 130 与 JSON 一致。ZEN36 的 0.547 和 1.091 是 JSON 中 0.5468967253323072 与 1.0906855231092583 的三位四舍五入。我按 ZEN36 的基因名重算，存在的场基因并集是 634，文库是 35967，定义并集是 639。",
+      "residual_risk": "634 和 35967 不在 poisoning_report 或 reuse_resolution.tsv 里。报告说全部从 JSON 复算，对这两个数不成立。A 422 / B 212 是去重后的角色数，不是 JSON 里各场名额相加的 429 / 215。"
+    },
+    {
+      "id": "F4",
+      "closed": true,
+      "evidence": "build_inputs 的 detection 与 depth 都使用 library_mask。external_library 为真时，该掩膜排除 witness 和全部场基因。回归测试调用 build_inputs，确认 detection_scope 等于 library_scope，且 300 个基因去掉 20 个后剩 280。",
+      "residual_risk": "external_library=False 时两者仍用只排除 witness 的 feature_mask，A 会留在分母里。当前毒化命令用的是默认外部文库。场评分的分子仍是 A，这是读数本身，不是技术分母。"
+    }
+  ],
+  "new_findings": [
+    {
+      "id": "N1",
+      "severity": "MINOR",
+      "topic": "F1 回归测试没有执行生产函数",
+      "evidence": "test_all_missing_hidden_truth_cannot_satisfy_the_reverse_assertion 在本地把空差值写成 0.0 再套自己的条件。旧的 inf 哨兵不会被这个测试打到生产代码。",
+      "required_fix": "让测试调用 run_poisoning 或抽出的同一判定函数，喂入全缺失真值并断言 passed 为假。"
+    }
+  ],
+  "allow_next_node": true,
+  "limitations": "F1–F4 的生产修复可以关闭。没有重跑全量毒化。方阵检查用的是临时文件，不是 14 张真实切片。本结论不覆盖 FA-01。"
+}

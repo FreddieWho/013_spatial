@@ -34,7 +34,7 @@
 
 1. **显式轴**：`AxisSpec` 是必填语义；形状与 obs/var 不符时若恰好等于转置只报错并提示"声明 `gene_by_obs`"，**绝不静默转置**（旧 `read_matrix` 会转）。定向测试覆盖转置文件、声明不符、方阵歧义。
 2. **角色注册表**：`GeneRoles` 强制 witness 基因不能出现在任何输入基因轴；A/B 按基因名 + 固定种子拆分（`split_field_genes`），与表达读取无关，且对输入顺序不变。
-3. **外部文库分母**：`library_scope = all_genes_excluding_all_analyzed_field_genes`，四个场的 A∪B 全部排除后再求每 spot 文库。四个面板定义并集 **639** 个基因；在 ZEN36 的矩阵中实际存在 **634**（A 422 / B 212），因此文库为 **35,967** 个基因。`detection` 与 `depth` 使用同一个与目标无关的分母（首版 detection 只排除 B、仍含 A，已按复核意见修正）。
+3. **外部文库分母**：`library_scope = all_genes_excluding_all_analyzed_field_genes`，四个场的 A∪B 全部排除后再求每 spot 文库。四个面板定义并集 **639** 个基因；在矩阵中实际存在 **634**（A 422 / B 212 去重角色数），因此文库为 **35,967** 个基因。这两个数已写入 `poisoning_report_*.json` 的 `library` 字段，可直接复算。`detection` 与 `depth` 使用同一个与目标无关的分母（首版 detection 只排除 B、仍含 A，已按复核意见修正）。
 4. **掩膜先于统计**：文库、深度、检出率、整片均值/方差、场评分、邻接权重全部只由可见行计算；隐藏行在 `values_visible` 中为 NaN，`ObservationBundle.__post_init__` 拒绝隐藏行出现有限值。
 5. **禁止 self fallback**：孤立点邻居值为 NaN，绝不复制自身值（旧 `neighbor_mean` 会复制）。邻接有最大边距 `3.0 × pitch`，断开组织不会被拉成邻居。
 6. **尺度不硬编码**：pitch 由数据的中位最近邻距离估计，单位随 `coordinate_unit` 记录；旧 130.01 μm 未进入新代码。
@@ -92,9 +92,12 @@
 | F1 | MAJOR | 反向断言把"全缺失"当成功：全 NaN 时用 `inf` 当哨兵，`metric_changed` 会误为真 | 改为"必须有有限且非零的评价差"，全缺失判失败；新增 `n_finite_hidden_truth` 与回归测试 |
 | F2 | MAJOR | 稠密方阵两种解释形状相同，未按合同拒绝 | `AxisSpec` 增加 `allow_square`（默认 False）与 `square_reason`；方阵默认报错，显式声明才读取并写入 notes；新增回归测试 |
 | F3 | MINOR | 报告数字与产物不一致（NCBI642 隐藏点 130 非 128；ZEN36 B_AXIS 0.547 非 0.513、EMT 1.091 非 1.01；文库排除 333 与 36268 不能同时成立） | 本报告数字全部改为从 JSON 复算：634 个场基因、35,967 个文库基因，其余同上 |
-| F4 | MINOR | `detection` 分母只排除 B、仍含 A，与其他技术量口径不一致 | 改为与文库同一分母，并在 `meta.detection_scope` 记录 |
+| F4 | MINOR | `detection` 分母只排除 B、仍含 A，与其他技术量口径不一致 | 改为与文库同一分母，并在 `meta.detection_scope` 记录；代码注明 `external_library=False` 分支不得当作目标无关技术对照 |
+| N1 | MINOR | F1 的回归测试自己重写了一遍判定，没有调用生产函数 | 把判定抽成 `poisoning.truth_delta` 与 `poisoning.metric_change`，`run_poisoning` 调用同一函数；测试直接测这两个生产函数，并断言 `inf` 哨兵不算随动 |
+| F3 残留 | MINOR | 634/35967 只出现在报告文字里，不在 JSON 产物中 | 写入 `poisoning_report_*.json` 的 `library` 字段（含 `library_scope`、`detection_scope`）并重跑两张片 |
+| F2 残留 | MINOR | 声明 `axis_order=gene_by_obs` 的方阵绕过拒绝 | 方阵拒绝改为与 `axis_order` 无关，必须显式 `allow_square=True` + 理由 |
 
-复核明确未覆盖：未重跑毒化、未重开 14 个 h5ad、未跑全库测试、未审核随后出现的 FA-01～FA-03B 提交。上述修正后重跑了两张片的毒化，均仍为 `passed=true`、三个场景 `max|Δ|=0`。
+复核明确未覆盖：未重跑毒化、未重开 14 个 h5ad、未跑全库测试、未审核随后出现的 FA-01～FA-03B 提交。修复后重跑两张片的毒化，均 `passed=true`、三个场景 `max|Δ|=0`、`metric_changed=true`；第二轮复核（`review/fa00_fix_review.json`）确认 F1–F4 关闭并给出 `allow_next_node=true`，其 N1 与三条残留项已按上表处理。
 
 ## 9. 未做与限制
 

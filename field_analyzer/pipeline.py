@@ -119,8 +119,11 @@ def build_inputs(
     library = visible_library_size(counts, visible_mask, library_mask)
     # (2) depth and detection, visible spots only
     depth = library.copy()
-    # detection uses the same target-independent denominator as the library:
-    # using the feature axis would keep the field's own A genes in the ratio.
+    # detection uses the same denominator as the library.  With
+    # external_library=True that denominator excludes every analysed field gene;
+    # with external_library=False it excludes only witness genes, so the field's own
+    # A genes stay in the ratio -- that branch must not be used as a
+    # target-independent technical control.
     detection = visible_detection_rate(counts, visible_mask, library_mask)
 
     sub = counts[:, score_mask].tocsr()

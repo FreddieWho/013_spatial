@@ -24,7 +24,7 @@
 
 | 节点 | 内容 | 依赖 | 服务假设 | 第一份有效交付 | 状态 |
 |---|---|---|---|---|---|
-| FA-00 | 最小资产适配、观测掩膜、单位与坐标核查 | 用户启用本包（D-282）＋[合同补充条款](FA_CONTRACT_ADDENDUM_20261020.md) | 基础设施（对 AF 无直接影响） | [`REPORT_FA00`](../infra/field_analyzer_20261020/REPORT_FA00.md)：14/14 片存在且轴一致；ZEN36/NCBI642 各 22 个输入数组在三种毒化下 max\|Δ\|=0、预测 Δ=0、评价随动；32 项定向测试通过 | COMPLETE（10-20，待 Grok xhigh 节点复核） |
+| FA-00 | 最小资产适配、观测掩膜、单位与坐标核查 | 用户启用本包（D-282）＋[合同补充条款](FA_CONTRACT_ADDENDUM_20261020.md) | 基础设施（对 AF 无直接影响） | [`REPORT_FA00`](../infra/field_analyzer_20261020/REPORT_FA00.md)：14/14 片存在且轴一致；ZEN36/NCBI642 各 22 个输入数组在三种毒化下 max\|Δ\|=0、预测 Δ=0、评价随动；32 项定向测试通过 | COMPLETE（10-20；Grok xhigh 两轮复核：F1–F4 关闭、N1 已修，`allow_next_node=true`） |
 | FA-01 | 原场/方向尺度及跨场关系可测性 | FA-00 | AF-01/04 | [`REPORT_FA01`](../infra/field_analyzer_20261020/REPORT_FA01.md)：14片×4场；原场 30/56 达平台(range 2.5–5.5 pitch)、26 例视野内无平台；残差 52/56；方向可测 93.75%；2–6 pitch 轴向比中位 0.995（56 例仅 1 例>1.5×） | DELIVERED（10-20，待 FA-00 复核后确认） |
 | FA-02 | 机制区分合成实验和公平参照 | 可用合成数据先行，不等真实数据 | 计算验证；服务 AF-01/02/03 | [`REPORT_FA02`](../infra/field_analyzer_20261020/REPORT_FA02.md)：S0/S1/S2/S3/S4/S5 六场景 × 种子0/8（eval 12–27 未动）；S1 径向剖面残差 2.2e-3、S2 同点相关 0.822 精确匹配+峰位移 7 pitch、S5 可见计数逐位相同 | DELIVERED（10-20） |
 | FA-03A | 有限可变形几何模型 A | FA-02 | AF-01/03 | [`REPORT_FA03A`](../infra/field_analyzer_20261020/REPORT_FA03A.md)：A0 在环状场留出 CV 稳定胜出；A1 的多峰在斑块场有效（Pearson 0.53→0.90），环向变形不推广（CV 更差）；保留 A0+A1多峰，不保留环向变形 | DELIVERED（10-20） |

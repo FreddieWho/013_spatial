@@ -134,32 +134,38 @@
     "structural_adjacency": true,
     "query_eligibility": true
   },
+  "library": {
+    "n_field_gene_union_present": 634,
+    "n_library_genes": 35967,
+    "library_scope": "all_genes_excluding_all_analyzed_field_genes",
+    "detection_scope": "all_genes_excluding_all_analyzed_field_genes"
+  },
   "evaluation": {
     "prediction_max_abs_delta": 0.0,
     "truth_under_poisoning": {
       "B_AXIS": {
-        "base_mean_hidden": 0.4042387190772837,
-        "poisoned_mean_hidden": 0.24532220994909182,
         "n_finite_hidden_truth": 122,
-        "truth_max_abs_delta": 0.5468967253323072
+        "truth_max_abs_delta": 0.5468967253323072,
+        "base_mean_hidden": 0.4042387190772837,
+        "poisoned_mean_hidden": 0.24532220994909182
       },
       "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
-        "base_mean_hidden": 0.9908429167487978,
-        "poisoned_mean_hidden": 0.24532262502300373,
         "n_finite_hidden_truth": 122,
-        "truth_max_abs_delta": 1.0906855231092583
+        "truth_max_abs_delta": 1.0906855231092583,
+        "base_mean_hidden": 0.9908429167487978,
+        "poisoned_mean_hidden": 0.24532262502300373
       },
       "HALLMARK_INTERFERON_GAMMA_RESPONSE": {
-        "base_mean_hidden": 0.5106345773818555,
-        "poisoned_mean_hidden": 0.24532213372612957,
         "n_finite_hidden_truth": 122,
-        "truth_max_abs_delta": 0.3499081404033328
+        "truth_max_abs_delta": 0.3499081404033328,
+        "base_mean_hidden": 0.5106345773818555,
+        "poisoned_mean_hidden": 0.24532213372612957
       },
       "HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
-        "base_mean_hidden": 0.7947781514738644,
-        "poisoned_mean_hidden": 0.24532218262249753,
         "n_finite_hidden_truth": 122,
-        "truth_max_abs_delta": 0.6949151526167178
+        "truth_max_abs_delta": 0.6949151526167178,
+        "base_mean_hidden": 0.7947781514738644,
+        "poisoned_mean_hidden": 0.24532218262249753
       }
     },
     "metric_changed": true

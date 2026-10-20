@@ -134,32 +134,38 @@
     "structural_adjacency": true,
     "query_eligibility": true
   },
+  "library": {
+    "n_field_gene_union_present": 634,
+    "n_library_genes": 35967,
+    "library_scope": "all_genes_excluding_all_analyzed_field_genes",
+    "detection_scope": "all_genes_excluding_all_analyzed_field_genes"
+  },
   "evaluation": {
     "prediction_max_abs_delta": 0.0,
     "truth_under_poisoning": {
       "B_AXIS": {
-        "base_mean_hidden": 0.10708015160191744,
-        "poisoned_mean_hidden": 0.24532189733380633,
         "n_finite_hidden_truth": 130,
-        "truth_max_abs_delta": 0.18601287057731486
+        "truth_max_abs_delta": 0.18601287057731486,
+        "base_mean_hidden": 0.10708015160191744,
+        "poisoned_mean_hidden": 0.24532189733380633
       },
       "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
-        "base_mean_hidden": 0.2680048637942647,
-        "poisoned_mean_hidden": 0.24532194617000203,
         "n_finite_hidden_truth": 130,
-        "truth_max_abs_delta": 0.41577865687084775
+        "truth_max_abs_delta": 0.41577865687084775,
+        "base_mean_hidden": 0.2680048637942647,
+        "poisoned_mean_hidden": 0.24532194617000203
       },
       "HALLMARK_INTERFERON_GAMMA_RESPONSE": {
-        "base_mean_hidden": 0.3133842285857174,
-        "poisoned_mean_hidden": 0.24532199911696811,
         "n_finite_hidden_truth": 130,
-        "truth_max_abs_delta": 0.15151984243337754
+        "truth_max_abs_delta": 0.15151984243337754,
+        "base_mean_hidden": 0.3133842285857174,
+        "poisoned_mean_hidden": 0.24532199911696811
       },
       "HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
-        "base_mean_hidden": 0.7755365133476356,
-        "poisoned_mean_hidden": 0.24532208971856778,
         "n_finite_hidden_truth": 130,
-        "truth_max_abs_delta": 0.6172478484144586
+        "truth_max_abs_delta": 0.6172478484144586,
+        "base_mean_hidden": 0.7755365133476356,
+        "poisoned_mean_hidden": 0.24532208971856778
       }
     },
     "metric_changed": true

@@ -1,0 +1,87 @@
+{
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "thinking": "xhigh",
+    "cwd": "/home/huyudi/013_spatial"
+  },
+  "commit_reviewed": "cb7256c",
+  "scope": {
+    "read": [
+      "field_analyzer/pipeline.py",
+      "field_analyzer/observation.py visible_*",
+      "field_analyzer/adapters.py",
+      "field_analyzer/geometry.py",
+      "field_analyzer/roles.py",
+      "field_analyzer/poisoning.py",
+      "field_analyzer/cli.py 的 poison/units 入口",
+      "docs/FA_CONTRACT_ADDENDUM_20261020.md",
+      "infra/field_analyzer_20261020/REPORT_FA00.md",
+      "poisoning_report_ZEN36.json",
+      "poisoning_report_NCBI642.json",
+      "unit_role_assertions.tsv",
+      "section_asset_check.tsv",
+      "geometry_smoke/summary.json",
+      "identity_review.tsv 的身份列，未读人工 TLS 标签"
+    ],
+    "ran": [
+      "/opt/anaconda3/bin/python -m pytest tests/test_fa_observation.py tests/test_fa_adapters.py tests/test_fa_geometry.py tests/test_fa_roles.py tests/test_fa_poisoning.py -q"
+    ],
+    "not_checked": [
+      "未重跑 poison，避免覆盖已有报告",
+      "未重开 14 个 h5ad",
+      "未重跑全库 746 秒测试",
+      "未审核随后出现的 FA-01 提交"
+    ]
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "MAJOR",
+      "topic": "反向断言在全是缺失值时会误判为评价已随动",
+      "evidence": "poisoning.run_poisoning 在 t0-t1 没有有限值时把 truth_max_abs_delta 写成 inf，metric_changed 因而为真。已交付的 ZEN36 与 NCBI642 真值差是有限且非零的，所以这两次运行不是空测试。",
+      "required_fix": "只有有限且非零的评价差才算随动。全缺失必须失败。下一节点扩大毒化前先改这条。"
+    },
+    {
+      "id": "F2",
+      "severity": "MAJOR",
+      "topic": "稠密方阵没有按合同拒绝",
+      "evidence": "形状恰好等于转置时会报错，不静默转置。但 obs 数等于基因数时两种解释形状相同，obs_by_gene 会被接受。报告写了方阵歧义测试，tests/test_fa_adapters.py 里没有这个测试。当前 14 张片不是方阵，所以这次清点没有用到这条错路。",
+      "required_fix": "两种解释都自洽时拒绝。在使用任何方阵之前补上。"
+    },
+    {
+      "id": "F3",
+      "severity": "MINOR",
+      "topic": "报告数字与产物不一致",
+      "evidence": "NCBI642 隐藏点数产物是 130，报告写 128。ZEN36 的 B_AXIS 真值差产物是 0.547，报告写 0.513；EMT 产物是 1.091，报告写 1.01。四个面板定义基因并集是 639，报告的排除 333 个、文库 36268 与此不能同时成立。",
+      "required_fix": "以后引用以 JSON 为准，不要抄报告里的这几个数。不需要重跑。"
+    },
+    {
+      "id": "F4",
+      "severity": "MINOR",
+      "topic": "检出率分母仍含构场基因",
+      "evidence": "depth 复制的是排除全部 A∪B 的文库。detection 只用 feature_mask，只排除 witness，不排除 A。它不是与目标无关的技术量。",
+      "required_fix": "FA-01 若把 detection 当技术对照，必须改分母或明确标注它含 A。这不推翻本节点的掩膜结论。"
+    }
+  ],
+  "answers": {
+    "1": "在 build_inputs 里，隐藏行不进入文库、深度、检出、整片均值方差、场评分、表达加权邻接和查询资格。可见行的文库只加总可见行；隐藏行先被置为 NaN，邻接和再按可见邻居重归一化，孤立点为 NaN。查询资格只看组织支持和有限坐标。我按这些函数读完确认，不是只看测试名。",
+    "2": "两次产物都比较了 22 个数组，三个毒化情形 max|Δ| 都是 0，预测差也是 0。数组名覆盖文库、深度、检出、整片统计、两类邻接、查询资格和四个场评分。已交付运行的评价差有限且非零，所以这两次不是空测试。全缺失会被误判为随动，见 F1。负对照只证明 compare_inputs 能发现掩膜前的整片均值，没有把泄漏塞进 build_inputs 再看整条 harness 失败。",
+    "3": "命令行把各场 A 作为评分基因，把全部 B 的并集作为 witness。评分和文库都排除这个并集；一个基因只要在任一场是 B，就不能再当别的场的 A。置换 B 后输入不变，说明这条路径上 B 没有进入 A 的代数。接口本身不会因为原始矩阵里还有 B 列而报错，这比补充条款松，但当前入口没有因此泄漏。",
+    "4": "非方阵的转置会被拒绝，不会静默转置。xy 必须与 barcode 行数一致。当前 14 张片不是方阵。方阵稠密矩阵仍可能被当成 obs_by_gene，见 F2。单位记录为 source_pixels 或合成 pitch，没有把 130.01 微米写进新代码。",
+    "5": "孤立点邻居值是 NaN，测试已覆盖，没有自我回退。最大边距是 3 倍中位间距，局部很稀的连续组织可能被断开；几何冒烟里窄颈保留、空洞没有被边穿过，没有看到误判实例。空洞与被遮但可能有组织是两个标签。方向在共线、梯度过小或有效邻居少于 2 时不可测，掩膜内角度为 NaN。弱梯度可能被漏判为不可测，这是阈值，不是泄漏。",
+    "6": "角色表 14 行、8 个单位，与 identity_review.tsv 里 patient_confirmed_within_study 为真的集合完全相同。58 个 unknown 不在表里，没有被升级成患者。同一单位的两张片折号相同。表里没有真实的重复 mask 行，所以“重复 mask 不计额外患者”在这批数据上是空断言。",
+    "7": "外部文库排除了四个场的 A∪B，但仍含其余基因，可与组织类型相关，不能当成独立真值。检出率还含 A，见 F4。ridge_predict 只用于证明预测不随隐藏值变化，不是恢复能力。fold 0–4 只是单位分组标签，全部角色都是 grouped_holdout，不是已经完成的交叉验证，也不是旧的 72 片五折。",
+    "8": "14/14 轴一致、22 个数组、输入 max|Δ|=0、32 个定向测试，与产物和我刚跑的测试一致。隐藏点数、真值差和 333 个排除基因与产物不一致，见 F3。1.29–1.40 GB 写在 run_manifest.json，我没有重测内存。438/4 的全库测试我没有重跑。",
+    "9": "FA-01 不应从这三处起步就错：不要把 detection 当纯技术对照；不要把 fold 列当正式交叉验证；不要把全缺失的毒化结果当成评价已随动。当前 14 张片的掩膜入口本身没有隐藏值回流。"
+  },
+  "claims_that_do_not_hold": [
+    "NCBI642 隐藏点数为 128",
+    "ZEN36 的 B_AXIS 真值差为 0.513、EMT 为 1.01",
+    "文库排除 333 个基因后剩 36268",
+    "定向测试已经覆盖稠密方阵歧义"
+  ],
+  "allow_next_node": true,
+  "blocking_items": [],
+  "limitations": "没有 BLOCKER。F1 和 F2 应在依赖相应断言之前修改，但不改变本节点“隐藏值未进入已比较输入”的范围。本复核不覆盖随后的 FA-01 提交，也不证明实现绝对无缺陷。"
+}
