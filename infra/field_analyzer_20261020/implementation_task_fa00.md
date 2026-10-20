@@ -1,8 +1,8 @@
 # FA-00 实现任务（交指定执行代理 opencode-go/deepseek-v4.1-flash，max）
 
-开始前必须读：`AGENTS.md`、`docs/plan.md`、`docs/roadmap.md`（顶部 FA 节点表）、`docs/field_analyzer_killtest_20261020/05_COMMON_PROTOCOL.md`、`.../07_ALGORITHM_ROUTES.md` §0、`.../08_REAL_DATA_AND_SCALE.md` §1/§6、`.../reuse_register.tsv`、`docs/ISSUES.md` I-053/I-055，以及 `infra/field_analyzer_20261020/review/preflight_fa00.json`（Grok 预审结论，必须 `allow_fa00_implementation: true` 才能开始）。
+开始前必须读：`AGENTS.md`、`docs/plan.md`、`docs/roadmap.md`（顶部 FA 节点表）、`docs/FA_CONTRACT_ADDENDUM_20261020.md`（**权威口径，优先于包内正文**）、`docs/field_analyzer_killtest_20261020/05_COMMON_PROTOCOL.md`、`.../07_ALGORITHM_ROUTES.md` §0、`.../08_REAL_DATA_AND_SCALE.md` §1/§6、`.../reuse_register.tsv`、`docs/ISSUES.md` I-053/I-055，以及 `infra/field_analyzer_20261020/review/preflight_fa00.json`（已出：`allow_fa00_implementation: true`、无 BLOCKER、7 项 GAP）。
 
-若预审为 false 或含未关闭 BLOCKER：只做被允许的子项，其余报阻塞，不自行改合同。
+预审已放行，但 7 项 GAP 必须按下述固定断言在实现中关闭；与本简报冲突时以实现补充条款为准，并在报告中列出冲突点。
 
 ## 项目边界（不得越界）
 
@@ -20,13 +20,13 @@
 - `observation.py`：`ObservationBundle` 数据类，字段至少 `sample_id/unit_id/source_id/patient_status`、`barcodes/source_rows/xy/coordinate_unit/scale_provenance`、`tissue_support/visible_mask`、`field_ids/gene_sets/score_definition`、`values_visible`、`auxiliary_visible`、`input_provenance`。掩膜必须把不可见值置 `NaN` 并物理分离到其他文件，禁止 `0` 冒充缺失；不得在 bundle 上暴露隐藏区任何派生量（QC、深度、检出率、全片 PCA、预平滑）。
 - `adapters.py`：只读允许的原始 counts 与 metadata。**显式** barcode 轴与单位映射：读入时断言矩阵形状与 barcode 数一致，出现方向不确定就报错而不是转置。重复 gene symbol、缺失 gene、零深度样本的处理必须写明并留痕。参考 `scripts/field_discovery_20261018.py` 的 `strings/read_matrix/assert_grouped`，但必须去掉形状启发式转置。
 - `geometry.py`：单位、邻接、距离对枚举、局部方向（结构张量或可见场梯度），区分**已知组织空洞**与**被遮但可能有组织**的区域；不得把不可见区域边当成真实空洞，也不得用 ConvexHull 把缺口补成实测组织。`tissue_graph` 类实现禁止硬编码 130.01 μm。
-- 测试：`tests/test_field_analyzer_*.py`，覆盖非方阵/方阵、CSR/CSC、barcode 重排、重复 symbol、缺基因、带洞组织、近接曲线、零长度段。
+- 测试：`tests/test_field_analyzer_*.py`，覆盖非方阵/方阵、CSR/CSC、barcode 重排、重复 symbol、缺基因、带洞组织、近接曲线、零长度段；轴形状两种解释都自洽时必须**报错**而不是选一个（补充条款 §3）。
 
 ### 2. 资产复用裁定 `infra/field_analyzer_20261020/reuse_resolution.tsv`
 
 列：`path, what, availability, exists, bytes, mtime, manifest_version, reuse_decision, provenance, notes`。
 
-- `availability` 取 `VERIFIED_LOCAL / REFERENCED_LOCAL_NOT_VERIFIED / NOT_PRESENT / TRACKED_SOURCE_ONLY`；`reuse_decision` 取 `REUSE / ADAPT / REBUILD / HISTORICAL_ONLY / SEALED`，与 `reuse_register.tsv` 对齐，不一致必须写理由。
+- `availability` 取五态：`VERIFIED_LOCAL / PRESENT_BUT_INSUFFICIENT / NOT_PRESENT / REFERENCED_LOCAL_NOT_VERIFIED / TRACKED_SOURCE_ONLY`；`PRESENT_BUT_INSUFFICIENT` 必须写实测值（实际单位数/片数、缺失片 ID、barcode 对不齐行占比），不得与 `NOT_PRESENT` 混用。`reuse_decision` 取 `REUSE / ADAPT / REBUILD / HISTORICAL_ONLY / SEALED`，与 `reuse_register.tsv` 对齐，不一致必须写理由。
 - 至少覆盖：`data/other_sources/hest1k/st/{section_id}.h5ad`、`infra/field_discovery_review_20261018/identity_review.tsv`、`infra/field_source_holdout_20261018/`、`infra/tls_multiscale_gobp_20261002/panel_controls.json`、`scripts/` 中四个待适配脚本、`infra/r16/t2p2_20260928/`。
 - 清点方式：相对路径 + 存在性 + 字节数 + 已有 manifest 版本；**不做全量逐字节 hash**，必要时只用头尾摘要做快速比对并注明它不能证明物理独立。
 - 真实片数与单位数按实际 manifest 统计，不得为凑"8 单位/14 片"而放行任何片；不符就写实际值 + 原因。
@@ -36,12 +36,15 @@
 最小样本上建立断言并做成测试或可复跑脚本，输出 `infra/field_analyzer_20261020/poisoning_report.json`：
 
 - (a) 把隐藏区 H 内表达替换为极大值 / 随机置换，(b) 置换核验组 B，(c) 改动一个含人工 TLS 的历史文件路径的存在性，三者在**不改变 O 与允许 metadata** 的前提下重建全部模型输入，要求：输入指纹、资格集合、方向/端点（若已实现）、拟合参数、预测数组全部逐位不变；只有最终评价可以变。
-- 断言必须覆盖"资格/查询点选择不由 H 表达决定"和"图乘不把隐藏 0 当真实 0、不用孤立点 self fallback 复制 H 值"。
+- 断言必须覆盖**五个入口**：文库大小/归一化分母（含排除核验 B 的外部参考分母）、逐点深度与检出率、整片均值/方差/分位、按表达加权的邻接或图权重、查询点资格/`ok_rows`。只掩膜表达矩阵不算通过。
+- 反向断言也必须有：同一次改动下，评价量**确实变化**（数组差非零），否则说明评价没读到 H，测试是空的。
+- 指纹对象清单按补充条款 §5 固定（`values_visible`、`visible_mask`、`tissue_support`、`barcodes`、`xy`、`gene_role` 解析结果、`input_provenance`、特征变换参数、邻接/权重、查询点列表与资格掩膜、模型参数、预测）；报告 `max|Δ|` 或内容哈希。
 - 反例应能在小数据上秒级到分钟级跑完，不需要真实全量。
 
-### 4. 小几何样本
+### 4. 单位角色表与几何样本
 
-用合成 64×64 规则格 + 一个带洞/窄颈的变体，验证：坐标单位来源、邻接构建、距离对枚举、局部方向可测与不可测判定。输出 `infra/field_analyzer_20261020/geometry_smoke/*.tsv`（真实数值列，不要只放图），并在报告中说明哪些量在有洞组织上不可评。
+- `infra/field_analyzer_20261020/unit_role_assertions.tsv`：列至少 `unit_id, section_id, source_id, patient_status, n_points, role, mask_group, rotation_group, is_replicate_of`；断言同单位多片同角色、同 base_id 变体同角色、重复 mask 不计额外患者、统计单位是单位而非 spot。
+- 用合成 64×64 规则格 + 一个带洞/窄颈的变体，验证：坐标单位来源、邻接构建、距离对枚举、局部方向可测与不可测判定；样本中**至少一个场值被掩膜**，用于检验"可见区算统计、隐藏区不算"。输出 `infra/field_analyzer_20261020/geometry_smoke/*.tsv`（真实数值列），并在报告中说明哪些量在有洞组织上不可评。
 
 ### 5. `infra/field_analyzer_20261020/run_manifest.json`
 
@@ -61,6 +64,6 @@
 
 ## 交付后的动作
 
-交付后停在本节点：不进入 B/C 实现、不跑真实拟合、不写科学结论。由主代理交独立审核代理复核，审核未关闭前不把结果用于任何 AF 判断。若发现预审合同与本地实际冲突，写清冲突并停下，不自行降低要求。
+交付后停在当前节点：不进入 B/C 实现、不跑真实拟合、不写科学结论。提交后由主代理交独立审核代理复核，审核未关闭前不把结果用于任何 AF 判断。若发现预审合同与本地实际冲突，写清冲突并停下，不自行降低要求。
 
 提交信息用中文、说明改了什么与为什么；提交前更新 `STATUS.md`/`TODO.md`/`docs/roadmap.md` 的节点状态由主代理负责，你只提供事实清单。

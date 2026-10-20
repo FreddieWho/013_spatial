@@ -1,0 +1,105 @@
+{
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "thinking": "high",
+    "cwd": "/home/huyudi/013_spatial"
+  },
+  "scope": {
+    "read": [
+      "AGENTS.md",
+      "docs/plan.md",
+      "docs/roadmap.md",
+      "docs/field_analyzer_killtest_20261020/05_COMMON_PROTOCOL.md",
+      "docs/field_analyzer_killtest_20261020/01_REPO_AUDIT_AND_REUSE.md",
+      "docs/field_analyzer_killtest_20261020/reuse_register.tsv",
+      "docs/field_analyzer_killtest_20261020/07_ALGORITHM_ROUTES.md",
+      "docs/field_analyzer_killtest_20261020/08_REAL_DATA_AND_SCALE.md",
+      "docs/field_analyzer_killtest_20261020/04_ROADMAP_PROPOSED.md",
+      "docs/field_analyzer_killtest_20261020/config/real_pilot.yaml",
+      "docs/ISSUES.md I-053 I-054 I-055",
+      "scripts/field_discovery_20261018.py read_matrix/neighbor_graphs/neighbor_mean/feature_views",
+      "scripts/field_candidate_subfield_20261019.py split_genes/cache_section",
+      "scripts/field_biological_review_20261019.py describe_field/band_autocorr 仅作尺度口径对照"
+    ],
+    "not_checked": [
+      "未读人工 TLS 标签和旧桥端点产物",
+      "未核验本地 h5ad 是否存在、未跑掩膜反例",
+      "未审查 FA-03 的完整实现规格和公共方法论文细节",
+      "未把施工包自检当成独立审核"
+    ]
+  },
+  "commit_reviewed": "8b174e2",
+  "items": [
+    {
+      "id": 1,
+      "verdict": "GAP",
+      "reason": "05 §3 已点名可测性、方向、全片 PCA、预平滑、查询资格、隐藏 0 和孤立点自我回退。文库分母、深度/检出、整片均值方差，以及按表达加权的邻接，没有单独点名。旧 feature_views 会把整片均值和标准差广播进每一行；若先算再掩膜，隐藏值会回流。",
+      "required_fix": "FA-00 的反例必须分别指纹：可见计数、文库分母、深度、检出率、基因资格、图权重、预平滑/PCA、查询点名单。只哈希可见表达矩阵不算通过。"
+    },
+    {
+      "id": 2,
+      "verdict": "GAP",
+      "reason": "排除全部核验 B 的并集写在 05 §4 和 real_pilot.yaml，但一个布尔开关不能在接口上强制。旧 cache_section 把 A 图、B 图和全片统计放在同一个缓存里；复用裁定已标 REBUILD。若新模型整包读取该缓存，B 会进入输入。",
+      "required_fix": "模型可见包不得含 B 列或 B 文件句柄。反例要修改全部程序的 B 并集以及历史 TLS 文件，输入指纹仍不变。这是实现断言，不是文档已强制。"
+    },
+    {
+      "id": 3,
+      "verdict": "GAP",
+      "reason": "ObservationBundle 有 barcodes、source_rows、xy 和 coordinate_unit，足以记录映射，但没有失败即停的轴顺序字段。旧 read_matrix 在形状对调时会静默转置。形状碰巧匹配时，这个启发式会把点与基因表达错位。",
+      "required_fix": "适配器必须按条码相等连接，记录 axis_order，条码顺序与数值行不一致就拒绝。禁止沿用形状对调即转置。"
+    },
+    {
+      "id": 4,
+      "verdict": "GAP",
+      "reason": "同单位多片、同 base_id 的 mask/旋转不得跨外层角色，规则已写。FA-00 可核查的最小证据尚未命名。没有这张表，重复 mask 仍可能被当成额外患者。",
+      "required_fix": "交付一张角色表：训练与测试的 unit_id 交集为空；同一 unit_id 的片在同一侧；同一 base_id 的 mask/旋转角色相同；未知身份不升级。小几何样本至少含一个双片单位和一个重复 mask。"
+    },
+    {
+      "id": 5,
+      "verdict": "PASS",
+      "reason": "目标在可见区保留，避免为了拉开差距删掉基线能用的信息。多输出参照写明至少两个长度尺度和输出专属噪声，并禁止用单个可分离核充数。自写简化版必须标 *_like，不能当成已击败论文方法。旧 p 值不必先修好。",
+      "required_fix": null
+    },
+    {
+      "id": 6,
+      "verdict": "GAP",
+      "reason": "小样本反例原则上可以一次跑通，但指纹对象没有清单。只改隐藏区、可见区不变时，一个过窄的哈希会通过，同时评价结果必须允许改变，否则测试是空的。",
+      "required_fix": "最小断言：O 与允许的 metadata 不变；H 换成极大值或置换、B 与 TLS 文件被改后，第 1 条列出的输入指纹、资格、方向、端点和预测不变；隔离评价可以变。未读到的标签路径记为未访问，而不是默认为通过。"
+    },
+    {
+      "id": 7,
+      "verdict": "GAP",
+      "reason": "缺缓存时的降级顺序是清楚的：原始计数、最小新缓存、可证明逐点且无监督选择的旧评分、再报真实分支不可执行。文件存在但单位不足、条码对不齐，与文件缺失还不是两种状态。不足时不能把旧评分补成队列，也不能把缺片写成阴性。",
+      "required_fix": "清点使用三个状态：缺失、存在但不足、存在但无法对齐。8 个单位和 14 片只是交叉核对期望，force_expected_counts 为假，不得凑数。"
+    },
+    {
+      "id": 8,
+      "verdict": "GAP",
+      "reason": "右端项含 MᵀR⁻¹y_O、τμ0 和 LᵀWb，忽略 b 会把背景拉向零，这一点写对了。写出的精度 Q=τI+ΣLᵀWL 少了观测项 MᵀR⁻¹M。用这个 Q 配给出的右端项，观测噪声不会约束解。块条件化可以作为替代，但必须真的条件化可见块，不能把这项直接删掉。",
+      "required_fix": "FA-03B 求解前把精度改成 MᵀR⁻¹M+τI+ΣLᵀWL，或写出与之等价的可见块条件化。这不阻塞 FA-00。"
+    },
+    {
+      "id": 9,
+      "verdict": "PASS",
+      "reason": "FA-00 只交付复用裁定、信息入口反例和小几何样本，范围合适，不应扩成 72 片普查或能量式求解。它足以支撑后续接口；尺度曲线仍属于 FA-01，合成路线不必等真实清点。",
+      "required_fix": null
+    },
+    {
+      "id": 10,
+      "verdict": "PASS",
+      "reason": "人工 TLS、旧标签端点和未校准 p 值被标为封存或仅历史。Betti 相同、分位高值和事后分层都不能当成发现。没有要求先修好旧 p 值才开工。风险只在实现时误导入会读标签的旧模块，复用裁定已经禁止。",
+      "required_fix": null
+    }
+  ],
+  "allow_fa00_implementation": true,
+  "blockers": [],
+  "required_fixes_before_run": [
+    "FA-00 反例必须覆盖文库分母、深度/检出、整片统计、图权重和查询名单，不能只掩膜表达矩阵。",
+    "不得读取旧 cache_section 的整包缓存，也不得沿用 read_matrix 的静默转置和 neighbor_mean 的孤立点自我回退。",
+    "角色表和三个资产状态必须随 FA-00 交付。没有这些断言的产物不能进入科学结论。",
+    "能量式精度修正是 FA-03B 的前置，不是 FA-00 的前置。"
+  ],
+  "recommended_minimal_scope_change": "在现有三份交付上增加单位角色断言，并让小几何样本包含一个被掩膜的场值。不要加入能量式求解、旧 p 值修复或全库普查。",
+  "limitations": "这是文档和少量源码入口的预审，不是实现审核，也不证明合同无缺陷。掩膜反例尚未运行。本地原始文件是否存在未在本轮核验。"
+}
