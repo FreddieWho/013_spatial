@@ -1,0 +1,72 @@
+{
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "thinking": "xhigh",
+    "agent_id": "6fd409ab-9717-44f9-8092-5c69138287e2",
+    "cwd": "/home/huyudi/013_spatial"
+  },
+  "commit_reviewed": "7371407",
+  "node": "FA-04",
+  "scope": {
+    "read": [
+      "field_analyzer/real_validation.py summarise/validate_section",
+      "field_analyzer/cli.py cmd_real_validation",
+      "infra/field_analyzer_20261020/REPORT_FA04.md",
+      "infra/field_analyzer_20261020/real_validation/summary.json",
+      "infra/field_analyzer_20261020/real_validation/map_agreement.tsv",
+      "infra/field_analyzer_20261020/real_validation/cross_field_validation.tsv",
+      "infra/field_analyzer_20261020/real_validation/scale_agreement.tsv",
+      "docs/roadmap.md FA-04 行"
+    ],
+    "ran": [
+      "git rev-parse --short HEAD；git diff --stat 9feaf00..7371407",
+      "从三份 TSV 重算单位中位与片级中位：图一致、关系 r 与 |差|、符号冲突、两半都 OK 的 range 差、depth_corr_A/B",
+      "wc/行数核对 cross_field_validation.tsv 为 85 行（84 条数据）"
+    ],
+    "not_checked": [
+      "未重跑 real-validation，未重载 h5ad",
+      "未再审 A/B 文库隔离；本轮 diff 未改 half_specs"
+    ]
+  },
+  "items": [
+    {
+      "id": "J1",
+      "closed": true,
+      "evidence": "summary.json 的 sign_consistent_units 为 8/8/6/8/6/8，sign_conflict_units 只有 B_AXIS~OXPHOS（Patient b、Patient 2）和 IFN~OXPHOS（Patient 3、Patient 4）。报告表与此一致，并写明不是 6 对全部 8/8，也写明不能称方向重复性很好或独立重复。TSV 复算同为这 4 对 8/8、2 对 6/8。"
+    },
+    {
+      "id": "J2",
+      "closed": true,
+      "evidence": "range_gap_pitch_median_by_unit_both_ok 只在两半 status 都是 OK 时计算。与 scale_agreement.tsv 一致：OXPHOS 0.464（5 片）、EMT 0.530（8）、IFN 0.753（3）、B_AXIS 1.675（9）。未识别计数 3/6/9/8 与 4/5/8/9 也一致。报告写明 0.72–4.44 作废，并说明 575 是上界、ZEN46 差为 0 是两次未识别。summary.json 已不再输出旧的 range 差。"
+    },
+    {
+      "id": "J3",
+      "closed": false,
+      "evidence": "2.1 的图一致已标对：单位中位 0.894/0.790/0.682/0.565，片级 0.926/0.793/0.738/0.578，56 个片级值中位 0.786，32 个单位值中位 0.776。2.2 仍错。表头写单位中位，但 r_A/r_B 与 |差| 仍是片级中位：EMT~IFN 写成 +0.559/+0.532、差 0.049，单位中位实际是 +0.499/+0.516、差 0.041。EMT~OXPHOS 写成 +0.031/+0.029，单位中位是 −0.038/−0.045。|单位中位差| 六个数 0.049/0.109/0.161/0.220/0.040/0.022 对的是片级 |差| 中位，不是 summary.json 的 relation_gap_median_by_unit（0.041/0.112/0.168/0.228/0.046/0.036）。注记说该列与两列同一口径、又说不能相减，两者互相矛盾。结论第 2 条仍引用 0.220。"
+    },
+    {
+      "id": "J4",
+      "closed": true,
+      "evidence": "map_agreement.tsv 有 depth_corr_A 与 depth_corr_B。单位中位与 summary.json 一致，报告写为 A/B：OXPHOS 0.79/0.72、IFN-γ 0.44/0.27、EMT 0.10/0.08、B_AXIS −0.06/−0.07。代码对 B 半单独用 B 的文库做 Pearson。"
+    }
+  ],
+  "new_findings": [
+    {
+      "id": "K1",
+      "severity": "MINOR",
+      "topic": "产物清单仍写 168 行",
+      "evidence": "REPORT_FA04.md 第 5 节仍写 cross_field_validation.tsv 168 行。文件是 84 条数据（14×6）。第 4b 节说已改成 84，正文清单没改。",
+      "required_fix": "把第 5 节改成 84 行。"
+    },
+    {
+      "id": "K2",
+      "severity": "MINOR",
+      "topic": "冲突幅度和“弱相关不稳定”仍偏强",
+      "evidence": "报告写冲突都在 |r| 约 0.03–0.12。NCBI642 的 B_AXIS~OXPHOS 是 +0.124 对 −0.199。EMT~OXPHOS 是弱相关且 8/8 同号，所以“弱相关不稳定”不能覆盖全部弱相关对。roadmap 的“弱相关对 6/8”同样过宽。",
+      "required_fix": "改成点名那 2 对、并给出实际 |r| 范围；不要把 EMT~OXPHOS 算进 6/8。"
+    }
+  ],
+  "allow_node_conclusion": false,
+  "limitations": "J1、J2、J4 已关闭。J3 的图一致表已修好，关系表没有。在 2.2 改成与 summary.json 同一口径之前，不能引用那张关系表的 r 或 |差|。K1/K2 不单独构成另一套科学结论，但 168 行和 |r| 上界仍是错的。本轮没有重跑拟合。代码单位内用的是平均；这批数据每单位最多 2 片，与单位内中位数值相同，因此不另开一项。"
+}

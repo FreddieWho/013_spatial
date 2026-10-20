@@ -1,0 +1,94 @@
+{
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "thinking": "xhigh",
+    "cwd": "/home/huyudi/013_spatial"
+  },
+  "node": "FA-05",
+  "commit_reviewed": "7371407",
+  "scope": {
+    "read": [
+      "field_analyzer/cli.py 的 cmd_block_recovery 与 skill_vs_background_units_by_field",
+      "field_analyzer/block_recovery.py 的 evaluate_section 返回 skipped",
+      "infra/field_analyzer_20261020/REPORT_FA05.md",
+      "infra/field_analyzer_20261020/REPORT_FA06.md 的 AF-03 与第 81 行",
+      "infra/field_analyzer_20261020/block_recovery/summary.json",
+      "infra/field_analyzer_20261020/block_recovery/recovery_metrics.tsv",
+      "TODO.md 的 FA-05 条目",
+      "STATUS.md 的补洞段",
+      "docs/roadmap.md 的 FA-05 行",
+      "infra/field_analyzer_20261020/review/fa05_node_review.json 的 K1–K4"
+    ],
+    "ran": [
+      "从 recovery_metrics.tsv 复算四个场的单位等权技能，与 summary.json 的 skill_vs_background_units_by_field 逐格比较，最大绝对差为 0",
+      "复算 EMT 在 8/12 pitch 的单位正号数，以及 4 pitch 上多场超过该单位最好单场参照的单位数",
+      "比较混合中位里多场与该半径最好单场参照在 4/8/12 pitch 的高低",
+      "核对 skipped 记录与 n_rows_expected"
+    ],
+    "not_checked": [
+      "未重跑 block-recovery，也未重跑测试",
+      "未重开 14 张 h5ad"
+    ]
+  },
+  "items": [
+    {
+      "id": "K1",
+      "closed": true,
+      "verdict": "数一致，报告正文已去掉共同截止",
+      "evidence": "summary.json 的按场单位等权与 TSV 复算最大绝对差为 0。报告表 EMT +0.472/+0.278/+0.117、B_AXIS +0.225/+0.109/−0.095、IFN +0.397/+0.014/−0.164、OXPHOS +0.105/−0.233/−0.140，与 0.471541/0.277819/0.117206 等未舍入值一致。EMT 在 8 pitch 为 6/8 单位为正、12 pitch 为 5/8，与报告一致。报告写明没有共同截止、网格没有 5–7 pitch、4 不是拟合阈值。roadmap 与 REPORT_FA06 的 AF-03 格也写了无共同截止。",
+      "residual_risk": "STATUS 补洞段和 REPORT_FA06 第 81 行仍把边界压成约 4 pitch，见 K6。这不推翻报告正文的按场表。"
+    },
+    {
+      "id": "K2",
+      "closed": true,
+      "verdict": "4 pitch 的相对位置写对了",
+      "evidence": "报告第 56 行的顺序与单位等权一致：固定带宽核 +0.158826、IDW +0.156495、多场 +0.137123、自适应核 +0.129348。4 pitch 上 3/8 个单位的多场超过该单位最好的单场参照，中位不超过。这正是 K2 要求改的那一句。",
+      "residual_risk": "同段末句把比较扩成任何半径，见 K5。K2 本身可以关闭。"
+    },
+    {
+      "id": "K3",
+      "closed": false,
+      "verdict": "没有同步",
+      "evidence": "TODO.md 第 51 行仍是「任何半径都不超过可见均值」。7371407 的 diff 没有改这一行，只在上面加了按场条目，并在变更记录里写成 K3 已处理。4 pitch 的 +0.137 已经高于可见均值，这句仍然为假。报告第 72 行写「已改」，与文件不符。",
+      "residual_risk": "共读 TODO 仍会把多场写成从不超过均值。"
+    },
+    {
+      "id": "K4",
+      "closed": true,
+      "verdict": "跳过已记录，不再写死 0",
+      "evidence": "summary.json 的 n_skipped_groups 为 1。skipped 一条：ZEN45、中心 2、半径 12、可见点 49、隐藏点 279，原因是可见点少于 50。报告写明 2500/2520 与同一原因。evaluate_section 现在把跳过原因返回给 CLI，不再静默丢掉。",
+      "residual_risk": "n_rows_expected 写成 1440。公式用了 8 个单位而不是 14 张片，也把半径档数写死为 3。报告里的 2520 是对的，这个字段本身是错的。不影响已记录的跳过。"
+    }
+  ],
+  "answers": {
+    "1": "一致。按场单位等权与 summary.json 逐格相同，报告舍入也对。报告正文已写「没有四个场的共同截止」，不再把约 4 pitch 当成共同截止。STATUS 和 FA06 末段还有压缩，见 K6。",
+    "2": "4 pitch 写对了：多场高于自适应核，低于固定带宽核和 IDW，中位不超过最好的单场参照。后一句「任何半径都不超过」写错了，见 K5。",
+    "3": "没有。清单第 51 行仍是旧句。变更记录说已改，文件没改。",
+    "4": "是。skipped 记下了 ZEN45 中心 2、半径 12、可见点 49，不再写死 0。另有一个预期行数写成 1440，见 K4 的残留。",
+    "5": "「更大缺口没有立足点」已从 FA-05 报告去掉。FA06 改成不能当全局结论。仍过强的是：报告第 58 行「任何半径上多场都不超过最好的单场参照」；STATUS 仍写到 8 个间距就全体不如猜均值；FA06 第 81 行仍写边界收紧为约 4 pitch。"
+  },
+  "new_findings": [
+    {
+      "id": "K5",
+      "severity": "MINOR",
+      "topic": "多场在 8 和 12 pitch 上高于该半径最好的单场参照",
+      "evidence": "混合单位等权：4 pitch 多场 +0.137 低于固定带宽核 +0.159。8 pitch 多场 −0.004，高于该半径最好的单场参照 −0.038。12 pitch 多场 −0.082，高于自适应核 −0.204。按场也有：B_AXIS 与 IFN 在 12 pitch、OXPHOS 在 8 和 12 pitch，多场高于该场该半径最好的单场平滑。这些半径上单场平滑已经不优于可见均值，所以这不是「多场恢复得更好」，但也不是「任何半径都不超过」。",
+      "required_fix": "把这句限定在 4 pitch。8 和 12 pitch 写成多场没那么差，但单场平滑当时已经不优于均值。不必重跑。"
+    },
+    {
+      "id": "K6",
+      "severity": "MINOR",
+      "topic": "STATUS 和 FA06 末段仍把截止压成约 4 pitch",
+      "evidence": "STATUS 补洞段仍写到 8 个间距就等于或不如猜平均值，没有 EMT 例外。REPORT_FA06 第 32 行已经写了无统一上限，第 81 行又写可恢复边界由 8 pitch 收紧为约 4 pitch。这与报告正文的按场表冲突。",
+      "required_fix": "STATUS 和 FA06 第 81 行改成混合中位约 4 pitch、EMT 到 12 pitch 仍为正。不必重跑。"
+    }
+  ],
+  "claims_that_do_not_hold": [
+    "任何半径都不超过可见均值",
+    "没有任何半径上多场超过最好的单场参照",
+    "可恢复边界已收紧为约 4 pitch，可作为全体场的截止"
+  ],
+  "allow_node_conclusion": false,
+  "limitations": "K1 的按场表和 K4 的跳过记录可以用。K2 的 4 pitch 排序可以用。K3 没关，K5 和 K6 是新的措辞问题，都不需要重跑。未关之前不要引用「约 4 pitch 是全体截止」或「任何半径多场都不超过最好的单场参照」。本复核不证明实现没有其他缺陷。"
+}
