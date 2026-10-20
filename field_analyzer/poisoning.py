@@ -194,16 +194,19 @@ def run_poisoning(
         t0, t1 = base_truth[fid], extreme_truth[fid]
         if len(t0) == 0:
             continue
+        diff = t0 - t1
+        finite = np.isfinite(diff)
         metric[fid] = {
             "base_mean_hidden": float(np.nanmean(t0)) if np.isfinite(t0).any() else None,
             "poisoned_mean_hidden": float(np.nanmean(t1)) if np.isfinite(t1).any() else None,
-            "truth_max_abs_delta": (
-                float(np.nanmax(np.abs(t0 - t1))) if np.isfinite(t0 - t1).any() else float("inf")
-            ),
+            "n_finite_hidden_truth": int(finite.sum()),
+            "truth_max_abs_delta": float(np.max(np.abs(diff[finite]))) if finite.any() else None,
         }
-    metric_changed = any(
-        v["truth_max_abs_delta"] not in (0.0, None) for v in metric.values()
-    )
+    # the reverse assertion only counts as satisfied when the evaluation quantity
+    # has a FINITE, NON-ZERO change.  An all-missing hidden truth must fail: an
+    # ``inf`` sentinel would let a vacuous test pass.
+    deltas = [v["truth_max_abs_delta"] for v in metric.values() if v["truth_max_abs_delta"] is not None]
+    metric_changed = bool(deltas) and any(np.isfinite(d) and d > 0 for d in deltas)
 
     entry_points = {
         "library_size": "library" in base.arrays,

@@ -104,7 +104,7 @@
   "input_fingerprints": {
     "degree": "73763498732c35f53b55e1e29758db24a20fc8e9b3d05f45477e73539326dfd5",
     "depth": "f856132df15cb6a7bcd4b483a8e5f08c23b38fd99a9910b687d6faa1de44b840",
-    "detection": "4c6ae3c7bc89f43d14fa7e719edd085e4fae4b02c38d8bd9f5b9abbd642efb48",
+    "detection": "0330582a5d13e5181b75cae88ad6cecd12336f913f80e398c1542854ba562f00",
     "field::B_AXIS": "b127aafc54b014633540085a9d00ed34b576670f1514765161a39b7289753afa",
     "field::HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": "2a938688a191b2d307f2f40e0c8e6033f9494381ae632063da72b70fd96e0616",
     "field::HALLMARK_INTERFERON_GAMMA_RESPONSE": "aba6b742edcda4874e14e847c8ab6a5e034019a5d37b25551268c283d5803b06",
@@ -140,21 +140,25 @@
       "B_AXIS": {
         "base_mean_hidden": 0.4042387190772837,
         "poisoned_mean_hidden": 0.24532220994909182,
+        "n_finite_hidden_truth": 122,
         "truth_max_abs_delta": 0.5468967253323072
       },
       "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
         "base_mean_hidden": 0.9908429167487978,
         "poisoned_mean_hidden": 0.24532262502300373,
+        "n_finite_hidden_truth": 122,
         "truth_max_abs_delta": 1.0906855231092583
       },
       "HALLMARK_INTERFERON_GAMMA_RESPONSE": {
         "base_mean_hidden": 0.5106345773818555,
         "poisoned_mean_hidden": 0.24532213372612957,
+        "n_finite_hidden_truth": 122,
         "truth_max_abs_delta": 0.3499081404033328
       },
       "HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
         "base_mean_hidden": 0.7947781514738644,
         "poisoned_mean_hidden": 0.24532218262249753,
+        "n_finite_hidden_truth": 122,
         "truth_max_abs_delta": 0.6949151526167178
       }
     },

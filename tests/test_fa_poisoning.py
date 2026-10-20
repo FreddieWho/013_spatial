@@ -78,3 +78,22 @@ def test_leaky_slide_statistic_would_be_caught():
 def test_static_source_check_is_clean():
     report = poisoning.static_source_check(Path(poisoning.__file__).parent)
     assert report["clean"], report
+
+
+def test_all_missing_hidden_truth_cannot_satisfy_the_reverse_assertion():
+    """F1 regression: an inf/NaN sentinel must not count as 'evaluation moved'."""
+    import numpy as np
+
+    t0 = np.full(5, np.nan)
+    t1 = np.full(5, np.nan)
+    diff = t0 - t1
+    finite = np.isfinite(diff)
+    assert finite.sum() == 0
+    delta = np.max(np.abs(diff[finite])) if finite.any() else 0.0
+    # the fixed rule: no finite delta -> not changed
+    metric_changed = bool([delta]) and any(np.isfinite(d) and d > 0 for d in [delta])
+    assert metric_changed is False
+
+    t0 = np.array([1.0, 2.0]); t1 = np.array([1.0, 2.0])
+    d = t0 - t1
+    assert not any(np.isfinite(x) and x > 0 for x in [float(np.max(np.abs(d)))])

@@ -125,3 +125,38 @@ def test_header_scan_matches_full_read(simple):
     assert header["shape"] == table.counts.shape
     assert header["n_barcodes"] == table.n_obs
     assert header["declared_axis_consistent"] is True
+
+
+def test_square_matrix_is_rejected_without_explicit_declaration(tmp_path):
+    """F2 regression: a square matrix has two equally valid shapes."""
+    path = tmp_path / "sq.h5ad"
+    counts = np.array([[1.0, 0.0], [0.0, 2.0]])
+    write_h5ad(path, counts, ["g1", "g2"], ["b1", "b2"], [[0, 0], [1, 1]])
+    with pytest.raises(ContractError) as err:
+        read_h5ad_counts(path)
+    assert "square" in str(err.value)
+
+    table = read_h5ad_counts(
+        path, axis=AxisSpec(allow_square=True, square_reason="synthetic square test")
+    )
+    assert table.counts.shape == (2, 2)
+    assert any("square matrix accepted" in n for n in table.report.notes)
+
+
+def test_detection_denominator_excludes_field_genes():
+    import numpy as np
+    from scipy import sparse
+
+    from field_analyzer.pipeline import InputSpec, build_inputs
+
+    rng = np.random.default_rng(0)
+    n, g = 40, 300
+    counts = sparse.csr_matrix(rng.poisson(3.0, size=(n, g)).astype(float))
+    genes = np.array([f"g{i}" for i in range(g)])
+    xy = np.column_stack([np.repeat(np.arange(8), 5), np.tile(np.arange(5), 8)]).astype(float)
+    mask = np.ones(n, dtype=bool)
+    fields = {"f1": [f"g{i}" for i in range(10)]}
+    spec = InputSpec(fields=fields, witness_genes=frozenset({f"g{i}" for i in range(10, 20)}), k_neighbors=4)
+    inputs = build_inputs(counts, genes, xy, mask, mask, spec)
+    assert inputs.meta["detection_scope"] == inputs.meta["library_scope"]
+    assert inputs.meta["n_library_genes"] == g - 20

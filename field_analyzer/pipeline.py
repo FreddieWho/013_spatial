@@ -119,7 +119,9 @@ def build_inputs(
     library = visible_library_size(counts, visible_mask, library_mask)
     # (2) depth and detection, visible spots only
     depth = library.copy()
-    detection = visible_detection_rate(counts, visible_mask, feature_mask)
+    # detection uses the same target-independent denominator as the library:
+    # using the feature axis would keep the field's own A genes in the ratio.
+    detection = visible_detection_rate(counts, visible_mask, library_mask)
 
     sub = counts[:, score_mask].tocsr()
     dense = np.asarray(sub.todense(), dtype=np.float64)
@@ -191,6 +193,7 @@ def build_inputs(
         "n_edges": int(adjacency.notes["n_edges"]),
         "slide_stats_scope": "scored_genes",
         "library_scope": library_scope,
+        "detection_scope": library_scope,
         "n_library_genes": int(library_mask.sum()),
     }
     return InputBundle(arrays=arrays, meta=meta)
