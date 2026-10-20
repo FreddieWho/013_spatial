@@ -18,7 +18,7 @@ from pathlib import Path
 import numpy as np
 from scipy import sparse
 
-from . import assets, geometry, poisoning, route_a, route_b, route_c, scales, synthetic
+from . import assets, geometry, poisoning, real_validation, route_a, route_b, route_c, scales, synthetic
 from .adapters import read_h5ad_counts
 from .observation import fingerprint_arrays, visible_mean_std
 from .pipeline import InputSpec, build_inputs
@@ -647,6 +647,56 @@ def cmd_route_c(args: argparse.Namespace) -> int:
     return 0
 
 
+
+def cmd_real_validation(args: argparse.Namespace) -> int:
+    repo, out = Path(args.repo), Path(args.out) / "real_validation"
+    out.mkdir(parents=True, exist_ok=True)
+    panel = load_panel(repo)
+    fields = {fid: panel[fid] for fid in PILOT_FIELDS if fid in panel}
+    identity = assets.read_identity(repo / "infra/field_discovery_review_20261018/identity_review.tsv")
+
+    results = []
+    map_rows, rel_rows, range_rows = [], [], []
+    for unit in sorted(identity.units):
+        for section in sorted(identity.units[unit]):
+            table = read_h5ad_counts(repo / "data/other_sources/hest1k/st" / f"{section}.h5ad")
+            splits = build_field_splits(fields, table.genes, seed=args.seed)
+            res = real_validation.validate_section(
+                table, fields, splits, unit_id=unit, section_id=section, max_lag_pitch=args.max_lag
+            )
+            results.append(res)
+            for fid, value in res.map_agreement.items():
+                map_rows.append({"unit_id": unit, "section_id": section, "field_id": fid,
+                                 "map_agreement_pearson": value, "depth_corr": res.depth_corr[fid],
+                                 "n_visible": res.n_visible})
+            for pair in sorted(res.relation_a):
+                rel_rows.append({"unit_id": unit, "section_id": section,
+                                 "field_pair": "~".join(pair),
+                                 "r_A": res.relation_a[pair], "r_B": res.relation_b[pair],
+                                 "abs_gap": abs(res.relation_a[pair] - res.relation_b[pair])
+                                 if np.isfinite(res.relation_a[pair]) and np.isfinite(res.relation_b[pair]) else None})
+            for fid in sorted(res.range_a):
+                ra, rb = res.range_a[fid], res.range_b[fid]
+                range_rows.append({
+                    "unit_id": unit, "section_id": section, "field_id": fid,
+                    "status_A": ra["status"], "range_pitch_A": ra.get("range_pitch"),
+                    "status_B": rb["status"], "range_pitch_B": rb.get("range_pitch"),
+                    "abs_gap_pitch": abs(ra["range_pitch"] - rb["range_pitch"])
+                    if ra.get("range_pitch") and rb.get("range_pitch") else None,
+                })
+
+    assets.write_tsv(map_rows, out / "map_agreement.tsv")
+    assets.write_tsv(rel_rows, out / "cross_field_validation.tsv")
+    assets.write_tsv(range_rows, out / "scale_agreement.tsv")
+    summary = real_validation.summarise(results)
+    summary["settings"] = {"seed": args.seed, "max_lag_pitch": args.max_lag, "fields": list(fields)}
+    (out / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False))
+    print(json.dumps({k: summary[k] for k in (
+        "n_sections", "n_units", "map_agreement_median_overall",
+        "relation_gap_median", "relation_sign_agreement_median", "range_gap_pitch_median", "depth_corr_median")}, indent=2, ensure_ascii=False))
+    return 0
+
+
 def cmd_geometry_smoke(args: argparse.Namespace) -> int:
     out = Path(args.out) / "geometry_smoke"
     out.mkdir(parents=True, exist_ok=True)
@@ -807,6 +857,12 @@ def build_parser() -> argparse.ArgumentParser:
     p_rc = sub.add_parser("route-c", help="routing reference on S3 samples")
     p_rc.add_argument("--out", default="infra/field_analyzer_20261020")
     p_rc.set_defaults(func=cmd_route_c)
+
+    p_rv = sub.add_parser("real-validation", help="A/B molecular validation on the confirmed sections")
+    p_rv.add_argument("--out", default="infra/field_analyzer_20261020")
+    p_rv.add_argument("--seed", type=int, default=0)
+    p_rv.add_argument("--max-lag", type=float, default=12.0, dest="max_lag")
+    p_rv.set_defaults(func=cmd_real_validation)
 
     p_geo = sub.add_parser("geometry-smoke", help="synthetic geometry with a hole and a masked field")
     p_geo.add_argument("--out", default="infra/field_analyzer_20261020")
