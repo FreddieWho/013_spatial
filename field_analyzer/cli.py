@@ -18,7 +18,7 @@ from pathlib import Path
 import numpy as np
 from scipy import sparse
 
-from . import assets, geometry, poisoning, real_validation, route_a, route_b, route_c, scales, synthetic
+from . import assets, block_recovery, geometry, poisoning, real_validation, route_a, route_b, route_c, scales, synthetic
 from .adapters import read_h5ad_counts
 from .observation import fingerprint_arrays, visible_mean_std
 from .pipeline import InputSpec, build_inputs
@@ -697,6 +697,84 @@ def cmd_real_validation(args: argparse.Namespace) -> int:
     return 0
 
 
+
+def _skill(rows, predictor: str, radius: float) -> float:
+    sel = [r for r in rows if r["predictor"] == predictor and r["radius_pitch"] == radius]
+    base = [r for r in rows if r["predictor"] == "background_mean" and r["radius_pitch"] == radius]
+    if not sel or not base:
+        return float("nan")
+    rmse = float(np.median([r["rmse"] for r in sel]))
+    rmse0 = float(np.median([r["rmse"] for r in base]))
+    return float(1.0 - (rmse / rmse0) ** 2) if rmse0 > 0 else float("nan")
+
+
+def cmd_block_recovery(args: argparse.Namespace) -> int:
+    repo, out = Path(args.repo), Path(args.out) / "block_recovery"
+    out.mkdir(parents=True, exist_ok=True)
+    panel = load_panel(repo)
+    fields = {fid: panel[fid] for fid in PILOT_FIELDS if fid in panel}
+    identity = assets.read_identity(repo / "infra/field_discovery_review_20261018/identity_review.tsv")
+    radii = [float(r) for r in args.radii.split(",")]
+    rows = []
+    for unit in sorted(identity.units):
+        for section in sorted(identity.units[unit]):
+            table = read_h5ad_counts(repo / "data/other_sources/hest1k/st" / f"{section}.h5ad")
+            support = np.ones(table.n_obs, dtype=bool)
+            if "in_tissue" in table.aux:
+                support = np.asarray(table.aux["in_tissue"]).astype(bool)
+            splits = build_field_splits(fields, table.genes, seed=args.seed)
+            roles = build_gene_roles(splits, table.genes)
+            spec = InputSpec(fields={f: list(splits[f].a_genes) for f in splits},
+                             witness_genes=frozenset(roles.witness_genes), k_neighbors=args.k)
+            inputs = build_inputs(table.counts, table.genes, table.xy, support, support, spec)
+            scores = {fid: inputs.arrays[f"field::{fid}"] for fid in spec.fields}
+            centers = block_recovery.geometric_centers(table.xy, support, args.centers, seed=args.seed)
+            for row in block_recovery.evaluate_section(
+                table.xy, support, scores, centers=centers, radii_pitch=radii,
+                core_radius_pitch=args.core, bandwidth_pitch=args.bandwidth,
+            ):
+                rows.append({"unit_id": unit, "section_id": section, **row})
+    assets.write_tsv(rows, out / "recovery_metrics.tsv")
+    def med(sel):
+        vals = [r["rmse"] for r in sel]
+        return float(np.median(vals)) if vals else float("nan")
+    summary = {
+        "n_rows": len(rows),
+        "radii_pitch": radii,
+        "core_radius_pitch": args.core,
+        "rmse_median": {
+            pred: {
+                str(rad): med([r for r in rows if r["predictor"] == pred and r["radius_pitch"] == rad])
+                for rad in radii
+            }
+            for pred in sorted({r["predictor"] for r in rows})
+        },
+        "rmse_by_field_and_radius": {
+            fid: {
+                str(rad): med([r for r in rows if r["target_field"] == fid and r["radius_pitch"] == rad
+                               and r["predictor"] == "kernel_k16"])
+                for rad in radii
+            }
+            for fid in sorted({r["target_field"] for r in rows})
+        },
+        "skill_vs_background": {
+            pred: {
+                str(rad): _skill(rows, pred, rad) for rad in radii
+            }
+            for pred in sorted({r["predictor"] for r in rows})
+        },
+        "n_refused_or_unscored": 0,
+        "notes": [
+            "core Q is fixed (r <= core radius) across mask radii; only the hidden disc changes",
+            "classical references only: background / IDW(8) / gaussian kernel / ridge on smoothed other fields",
+            "a learned cross-field operator is not included in this node",
+        ],
+    }
+    (out / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False))
+    print(json.dumps(summary["rmse_median"], indent=2, ensure_ascii=False))
+    return 0
+
+
 def cmd_geometry_smoke(args: argparse.Namespace) -> int:
     out = Path(args.out) / "geometry_smoke"
     out.mkdir(parents=True, exist_ok=True)
@@ -863,6 +941,16 @@ def build_parser() -> argparse.ArgumentParser:
     p_rv.add_argument("--seed", type=int, default=0)
     p_rv.add_argument("--max-lag", type=float, default=12.0, dest="max_lag")
     p_rv.set_defaults(func=cmd_real_validation)
+
+    p_br = sub.add_parser("block-recovery", help="masked-disc recovery with classical references")
+    p_br.add_argument("--out", default="infra/field_analyzer_20261020")
+    p_br.add_argument("--radii", default="4,8,12")
+    p_br.add_argument("--core", type=float, default=2.0)
+    p_br.add_argument("--bandwidth", type=float, default=2.0)
+    p_br.add_argument("--centers", type=int, default=3)
+    p_br.add_argument("--k", type=int, default=6)
+    p_br.add_argument("--seed", type=int, default=0)
+    p_br.set_defaults(func=cmd_block_recovery)
 
     p_geo = sub.add_parser("geometry-smoke", help="synthetic geometry with a hole and a masked field")
     p_geo.add_argument("--out", default="infra/field_analyzer_20261020")
