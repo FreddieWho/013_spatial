@@ -1,0 +1,33 @@
+{
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "thinking": "xhigh",
+    "cwd": "/home/huyudi/013_spatial"
+  },
+  "node": "FA-11",
+  "commit_reviewed": "3139db2",
+  "scope": {
+    "read": [
+      "field_analyzer/niche_graph.py 的 argmax_niches",
+      "field_analyzer/cli.py 的 cmd_niche_replicate",
+      "infra/field_analyzer_20261020/REPORT_FA11.md §3 与 §4b",
+      "infra/field_analyzer_20261020/niche_replicate/section_stats.tsv",
+      "infra/field_analyzer_20261020/niche_replicate/enrichment_by_section.tsv",
+      "infra/field_analyzer_20261020/niche_replicate/summary.json"
+    ],
+    "ran": [
+      "从 enrichment_by_section.tsv 的非对角元复算 log 富集相关和符号一致数",
+      "去掉 MIXED 相关的配对后再算一次"
+    ],
+    "not_checked": [
+      "未重跑 niche-replicate",
+      "未打开两套 Xenium 原始矩阵核对共有基因名单"
+    ]
+  },
+  "p1_closed": true,
+  "findings": [],
+  "claims_that_do_not_hold": [],
+  "allow_cross_section_claim": true,
+  "limitations": "跨片相关可以保留，但只是同一病例的连续切片重复。未重跑抽样。4.022/4.022 是 4.02189 与 4.02180 的三位四舍五入，不是同一次计算被复制。"
+}

@@ -1,0 +1,59 @@
+{
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "thinking": "xhigh",
+    "cwd": "/home/huyudi/013_spatial"
+  },
+  "nodes": ["FA-10", "FA-11"],
+  "commit_reviewed": "fdf8eac",
+  "scope": {
+    "read": [
+      "field_analyzer/factor_model.py",
+      "field_analyzer/cli.py 的 cmd_factor_model",
+      "field_analyzer/niche_graph.py",
+      "infra/field_analyzer_20261020/REPORT_FA10.md",
+      "infra/field_analyzer_20261020/REPORT_FA11.md",
+      "infra/field_analyzer_20261020/factor_model/spot_holdout.tsv",
+      "infra/field_analyzer_20261020/factor_model/louo_spot_holdout.tsv",
+      "infra/field_analyzer_20261020/niche/summary.json"
+    ],
+    "ran": [
+      "从 spot_holdout.tsv 复算中位 deviance、相对降幅和每片最优",
+      "从 louo_spot_holdout.tsv 复算留一单位中位",
+      "核对 niche/summary.json 的对称误差、两个 z 和半区相关"
+    ],
+    "not_checked": [
+      "未重跑因子拟合或 Xenium 图",
+      "HEAD 在复核期间新增的 Base 与 Addon 跨片 0.998 未复算"
+    ]
+  },
+  "findings": [
+    {
+      "id": "P1",
+      "node": "FA-11",
+      "severity": "MINOR",
+      "topic": "旋转零对照低于观测被写成已证明的原因",
+      "evidence": "代码确实把标签绕质心旋转后再贴回同一轮廓。观测统计量 2.711，旋转均值 3.074，z 为 −2.42。没有另一个去掉贴边伪影的对照来证明这就是原因。",
+      "required_fix": "保留“不能把 z=−2.42 读成真实结构更弱”。不要把边界伪影写成已经单独证实的原因。"
+    }
+  ],
+  "answers": {
+    "1": "depth 由建模基因之外的列加总，再除以正值中位。同一张片的五个变体共用这组基因、同一批留出点和同一 depth。留出点数在变体间没有变化。",
+    "2": "是设计，不是 bug。0 步平滑时留出点因子保持 0，预测退化为训练点上的基因均值乘 depth。14 张片与 depth_only 的 deviance 差的绝对值最大为 0。",
+    "3": "逐基因 kNN 只用训练点的对数速率，基因之间不共享参数，k=6。因子图也是 k=6。图的构造不完全相同：kNN 只在训练点里找邻居，因子图是全片对称后再把因子传出去。这不使因子模型占便宜。",
+    "4": "共享载荷只在其他单位上拟合。留出单位自己的非留出点用来拟合该片因子，留出点计数只用于评分。留一掩膜是数组前 10%，不是片内那次随机 10%。中位 445,427 与随机留出的 depth-only 445,340 只差 0.02%，没有把 15% 的增益藏回来。",
+    "5": "与表一致。2 步平滑中位降 15.0%，5 步降 15.7%，逐基因 kNN 降 27.0%。12/14 片的最优是 gene_knn，其余两片分别是 2 步和 5 步平滑。",
+    "6": "拟合是对数速率上的交替最小二乘，评估才是 Poisson deviance。报告已写明不是完整 Poisson MLE。14% 的差距会不会被更好的拟合抹平，没有重拟合，不能从这次复核确认。",
+    "7": "成立。对称化以后每条边双向都在，计数矩阵必然对称。产物里的对称误差是 0。据此不能在这张图上主张方向。报告没有排除用外部轴或有向边的其他定义。",
+    "8": "旋转再贴回同一轮廓，确实会制造新的标签边界。z=−2.42 与这个过程相符，但没有对照证明它是唯一原因。不能把它读成真实结构更弱，这一点可以保留。",
+    "9": "置换 z 约 +220 只说明标签不是随机撒在图上，也就是空间自相关。报告把它写成共定位下限，没有写成连接证据。",
+    "10": "与 summary.json 一致：log 富集相关 0.986，符号一致 20/20。半区按 x 中位切开，细胞数相近，但生态位组成不必相同。组成差异更可能降低相关，不能解释这个高相关是被夸大出来的。",
+    "11": "k-means 只用 6 个程序分数，不用坐标，标签定义没有空间循环。报告和 summary 都写了缺间质和血管标记。"
+  },
+  "claims_that_do_not_hold": [
+    "旋转零对照的 z=−2.42 已被证明只由贴边伪影造成"
+  ],
+  "allow_node_conclusion": true,
+  "limitations": "没有 BLOCKER。因子模型没有超过逐基因邻域平滑，对称图不能识别方向，这两个范围可以保留。跨片 0.998 不在本次通过范围内。"
+}
