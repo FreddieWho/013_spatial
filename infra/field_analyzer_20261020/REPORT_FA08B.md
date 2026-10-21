@@ -51,3 +51,5 @@ infra/field_analyzer_20261020/real_holdout/
 ```
 
 `/opt/anaconda3/bin/python -m field_analyzer.cli real-holdout`（9 s，CPU）。
+
+**复核结论：** 共 3 轮（含留出与两次修复），最终 `allow_node_conclusion = true`（`review/fa08_review.json` + `review/fa08_fix_review.json`，提交 `fbd3824`；N1–N3 全部关闭，无新增发现）。

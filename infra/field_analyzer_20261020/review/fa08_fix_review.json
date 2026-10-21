@@ -1,0 +1,51 @@
+{
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "thinking": "xhigh",
+    "cwd": "/home/huyudi/013_spatial"
+  },
+  "nodes": ["FA-08A", "FA-08B"],
+  "commit_reviewed": "fbd3824",
+  "scope": {
+    "read": [
+      "field_analyzer/real_relations.py 的留出拟合",
+      "infra/field_analyzer_20261020/REPORT_FA08A.md",
+      "infra/field_analyzer_20261020/REPORT_FA08B.md",
+      "infra/field_analyzer_20261020/real_displacement/displacement.tsv",
+      "infra/field_analyzer_20261020/real_displacement/summary.json",
+      "infra/field_analyzer_20261020/real_holdout/louo.tsv"
+    ],
+    "ran": [
+      "按 null 与 conditioned 列点算 504 行的三套划分",
+      "按 |dx| 或 |dy| ≥ 11.9 复算原始和条件化贴边片数",
+      "从 louo.tsv 复算同特征片内上限与 74%–99% 比值"
+    ],
+    "not_checked": [
+      "未重跑位移搜索或留一拟合"
+    ]
+  },
+  "items": [
+    {
+      "id": "N1",
+      "closed": true,
+      "evidence": "displacement.tsv 有 504 行数据，null 列为 False 336 行、True 168 行。原始、条件化、零对照各 168 行。summary.json 三套都是 14 片。报告已改成 504 行。",
+      "residual_risk": "无。"
+    },
+    {
+      "id": "N2",
+      "closed": true,
+      "evidence": "点名的计数与表一致：原始 B_AXIS~OXPHOS 为 3/14 与 9/14，EMT~OXPHOS 为 4/14 与 3/14。条件化为 7/14、7/14、4/14、8/14、8/14、6/14。NCBI642 与 ZEN36 的原始坐标、ZEN48 的条件化坐标都能在表里对上。",
+      "residual_risk": "若把“1–9/14”理解成所有场对，IFN~OXPHOS 的原始 A 半是 0/14。点名的例子没有错。"
+    },
+    {
+      "id": "N3",
+      "closed": true,
+      "evidence": "片内上限现在用留出单位的 B 半特征拟合，再评估同一 B 半。中位是 0.230、0.358、0.226、0.033，与报告一致。三对比值是 0.999、0.742、0.845，对应 74%–99%。报告写明这是乐观上界，不是同一任务的成功线。",
+      "residual_risk": "训练仍用 A 半、评估用 B 半。这已被写成边界，不是未披露的泄漏。"
+    }
+  ],
+  "new_findings": [],
+  "allow_node_conclusion": true,
+  "limitations": "N1–N3 已关闭。未重跑计算，只核对了现有表和当前代码。"
+}
