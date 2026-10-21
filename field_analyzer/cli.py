@@ -1267,6 +1267,73 @@ def cmd_niche(args: argparse.Namespace) -> int:
     return 0
 
 
+
+def cmd_niche_replicate(args: argparse.Namespace) -> int:
+    out = Path(args.out) / "niche_replicate"
+    out.mkdir(parents=True, exist_ok=True)
+    dirs = [d.strip() for d in args.sections.split(",")]
+    slices = [niche_graph.read_xenium(Path(d)) for d in dirs]
+    # restrict programs to genes present in every panel so scores are comparable
+    common = set(map(str, slices[0].genes))
+    for s in slices[1:]:
+        common &= set(map(str, s.genes))
+    programs = {k: [g for g in v if g in common] for k, v in niche_graph.PROGRAMS.items()}
+    programs = {k: v for k, v in programs.items() if v}
+
+    rng = np.random.default_rng(args.seed)
+    results, enrich, labels_all = [], {}, {}
+    for directory, sl in zip(dirs, slices):
+        if args.subsample and args.subsample < sl.n_cells:
+            keep = np.sort(rng.choice(sl.n_cells, size=args.subsample, replace=False))
+            sl = niche_graph.XeniumSlice(counts=sl.counts[keep], genes=sl.genes, xy=sl.xy[keep], cell_ids=sl.cell_ids[keep])
+        scores, names = niche_graph.program_scores(sl, programs)
+        labels, niche_names = niche_graph.argmax_niches(scores, names, mix_threshold=args.mix_threshold)
+        graph = niche_graph.knn_adjacency(sl.xy, k=args.neighbours)
+        k = len(niche_names)
+        obs = niche_graph.contact_enrichment(labels, graph, k)
+        perm = [niche_graph.contact_enrichment(niche_graph.permutation_null_labels(labels, seed=args.seed + i), graph, k)["statistic"]
+                for i in range(args.null)]
+        enrich[directory] = obs["enrichment"]
+        labels_all[directory] = labels
+        results.append({
+            "section": directory, "n_cells": int(sl.n_cells), "k": k,
+            "niche_names": ",".join(niche_names),
+            "sizes": {niche_names[j]: int((labels == j).sum()) for j in range(k)},
+            "statistic": obs["statistic"],
+            "permutation_null_mean": float(np.mean(perm)),
+            "permutation_z": float((obs["statistic"] - np.mean(perm)) / max(np.std(perm), 1e-12)),
+        })
+
+    off = ~np.eye(results[0]["k"], dtype=bool)
+    a = np.log(np.clip(enrich[dirs[0]][off], 1e-6, None))
+    b = np.log(np.clip(enrich[dirs[1]][off], 1e-6, None)) if len(dirs) > 1 else None
+    comparison = {
+        "corr_of_log_enrichment": float(np.corrcoef(a, b)[0, 1]) if b is not None and np.std(a) > 0 and np.std(b) > 0 else None,
+        "sign_agreement": float(np.mean(np.sign(a) == np.sign(b))) if b is not None else None,
+        "n_pairs": int(off.sum()),
+        "niche_names": results[0]["niche_names"].split(","),
+    }
+    assets.write_tsv(results, out / "section_stats.tsv")
+    assets.write_tsv(
+        [{"i": i, "j": j,
+          "enrichment_section1": float(enrich[dirs[0]][i, j]) if np.isfinite(enrich[dirs[0]][i, j]) else None,
+          "enrichment_section2": float(enrich[dirs[1]][i, j]) if len(dirs) > 1 and np.isfinite(enrich[dirs[1]][i, j]) else None}
+         for i in range(results[0]["k"]) for j in range(i, results[0]["k"])],
+        out / "enrichment_by_section.tsv",
+    )
+    summary = {"sections": results, "comparison": comparison,
+               "programs_used": {k: v for k, v in programs.items()},
+               "mix_threshold": args.mix_threshold, "neighbours": args.neighbours,
+               "notes": [
+                   "niches are arg-max program labels (plus MIXED), so they are comparable across sections",
+                   "only genes present in every panel are used",
+                   "permutation null destroys space but keeps composition",
+               ]}
+    (out / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False))
+    print(json.dumps({"sections": results, "comparison": comparison}, indent=2, ensure_ascii=False))
+    return 0
+
+
 def cmd_geometry_smoke(args: argparse.Namespace) -> int:
     out = Path(args.out) / "geometry_smoke"
     out.mkdir(parents=True, exist_ok=True)
@@ -1500,6 +1567,16 @@ def build_parser() -> argparse.ArgumentParser:
     p_nc.add_argument("--subsample", type=int, default=150000)
     p_nc.add_argument("--seed", type=int, default=0)
     p_nc.set_defaults(func=cmd_niche)
+
+    p_nr = sub.add_parser("niche-replicate", help="cross-section niche co-localisation replication")
+    p_nr.add_argument("--sections", default="data/derived/xenium_colon_base,data/derived/xenium_colon_addon")
+    p_nr.add_argument("--out", default="infra/field_analyzer_20261020")
+    p_nr.add_argument("--neighbours", type=int, default=8)
+    p_nr.add_argument("--null", type=int, default=30)
+    p_nr.add_argument("--subsample", type=int, default=100000)
+    p_nr.add_argument("--mix-threshold", type=float, default=0.5, dest="mix_threshold")
+    p_nr.add_argument("--seed", type=int, default=0)
+    p_nr.set_defaults(func=cmd_niche_replicate)
 
     p_geo = sub.add_parser("geometry-smoke", help="synthetic geometry with a hole and a masked field")
     p_geo.add_argument("--out", default="infra/field_analyzer_20261020")

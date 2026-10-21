@@ -124,6 +124,22 @@ def kmeans_niches(scores: np.ndarray, k: int = 5, *, seed: int = 0, iters: int =
     return labels
 
 
+def argmax_niches(
+    scores: np.ndarray, names: Sequence[str], *, mix_threshold: float = 0.5
+) -> tuple[np.ndarray, list[str]]:
+    """Label-consistent niches: the arg-max program, or ``MIXED`` when nothing is high.
+
+    k-means labels cannot be aligned across sections (cluster ids are arbitrary), so
+    cross-section comparison needs a rule that does not depend on a fit.
+    """
+    x = np.asarray(scores, dtype=np.float64)
+    labels = np.argmax(x, axis=1).astype(int)
+    top = np.max(x, axis=1)
+    mixed_id = len(names)
+    labels = np.where(top < mix_threshold, mixed_id, labels)
+    return labels, list(names) + ["MIXED"]
+
+
 def knn_adjacency(xy: np.ndarray, k: int = 8) -> sparse.csr_matrix:
     xy = np.asarray(xy, dtype=np.float64)
     n = len(xy)

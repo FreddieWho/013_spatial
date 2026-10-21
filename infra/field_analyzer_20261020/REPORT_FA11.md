@@ -46,6 +46,22 @@ kNN 图是对称的，因此计数矩阵 `C` 必然对称——实测 `max|C −
 
 **下一步若要做方向性**：需要一个**可见的外部轴**（如到肿瘤/间质边界的距离、或用户指定的源区域），把"相邻"定义成沿轴的有向对，再用**逐边随机定向**做零对照。这是唯一能把"C"变成可检验命题的路径。
 
+## 4b. 跨片重复（Base vs Addon，同一病例的两张 Xenium 片）
+
+k-means 标签跨片不可对齐，所以改用**跨片一致的规则**定义生态位：取每个细胞 6 个程序 z-score 的最大者，最大者低于 0.5 记为 `MIXED`。只有两套 panel 共有的基因参与评分。
+
+| 量 | 结果 |
+|---|---|
+| 两张片的细胞数 | 10 万 / 10 万（子采样） |
+| 接触富集统计量 | 4.022 / 4.022 |
+| 置换零对照 z | +385 / +287 |
+| **跨片 log-富集相关** | **0.998** |
+| **符号一致** | **42 / 42** |
+
+**这是本轮唯一一次跨切片的结构重复**：同一病例的两张片给出几乎相同的生态位共定位矩阵。
+
+**但必须限定**：这两张片来自**同一病例**（Base 与 Addon 是同一张组织块的两次 panel 运行），因此是"技术/连续切片重复"，不是独立病人重复。它能排除"单张片的偶然性"，但不能排除"这个病人特有的组织结构"。
+
 ## 5. 数据侧备注
 
 结肠 Xenium panel（541 基因，含大量 BLANK 探针）**缺少经典间质/血管 marker**（无 COL1A1、DCN、PECAM1、VWF、EPCAM、KRT8/18/19）。因此本轮生态位只能沿"T/NK、B/浆细胞、髓系、上皮/结肠细胞、增殖、Treg"六条程序定义，组成维度受限。若要更好的生态位划分，应改用 Visium HD（全转录组）或 Xenium 的多组织面板。
@@ -57,6 +73,12 @@ infra/field_analyzer_20261020/niche/
   contact_enrichment.tsv   15 行（i≤j 的接触计数与富集）
   labels.npz               生态位标签、坐标、细胞 ID
   summary.json             观测、两种零对照、半区一致性
+
+infra/field_analyzer_20261020/niche_replicate/
+  section_stats.tsv        两张片各自的统计量与零对照
+  enrichment_by_section.tsv 逐对生态位的富集（两片并列）
+  summary.json             跨片相关 0.998、符号 42/42
 ```
 
-`/opt/anaconda3/bin/python -m field_analyzer.cli niche --subsample 120000 --null 30`（11.8 s，639 MB，CPU）。
+`/opt/anaconda3/bin/python -m field_analyzer.cli niche --subsample 120000 --null 30`（11.8 s，639 MB，CPU）
+`/opt/anaconda3/bin/python -m field_analyzer.cli niche-replicate`（12.4 s，902 MB，CPU）。

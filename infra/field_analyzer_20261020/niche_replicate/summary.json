@@ -1,0 +1,107 @@
+{
+  "sections": [
+    {
+      "section": "data/derived/xenium_colon_base",
+      "n_cells": 100000,
+      "k": 7,
+      "niche_names": "T_NK,B_plasma,myeloid,epithelial,proliferative,Treg,MIXED",
+      "sizes": {
+        "T_NK": 9142,
+        "B_plasma": 10548,
+        "myeloid": 15129,
+        "epithelial": 18201,
+        "proliferative": 21901,
+        "Treg": 3632,
+        "MIXED": 21447
+      },
+      "statistic": 4.02188867933194,
+      "permutation_null_mean": 0.053899909682107665,
+      "permutation_z": 384.9426750337972
+    },
+    {
+      "section": "data/derived/xenium_colon_addon",
+      "n_cells": 100000,
+      "k": 7,
+      "niche_names": "T_NK,B_plasma,myeloid,epithelial,proliferative,Treg,MIXED",
+      "sizes": {
+        "T_NK": 8782,
+        "B_plasma": 9651,
+        "myeloid": 14214,
+        "epithelial": 18937,
+        "proliferative": 22052,
+        "Treg": 3312,
+        "MIXED": 23052
+      },
+      "statistic": 4.021803128034258,
+      "permutation_null_mean": 0.058067350877386896,
+      "permutation_z": 287.2068054156729
+    }
+  ],
+  "comparison": {
+    "corr_of_log_enrichment": 0.9980486122751477,
+    "sign_agreement": 1.0,
+    "n_pairs": 42,
+    "niche_names": [
+      "T_NK",
+      "B_plasma",
+      "myeloid",
+      "epithelial",
+      "proliferative",
+      "Treg",
+      "MIXED"
+    ]
+  },
+  "programs_used": {
+    "T_NK": [
+      "CD3D",
+      "CD3E",
+      "CD3G",
+      "CD2",
+      "CD5",
+      "CD6",
+      "CD7",
+      "CD8A",
+      "CD8B"
+    ],
+    "B_plasma": [
+      "MS4A1",
+      "CD79A",
+      "CD79B",
+      "BANK1"
+    ],
+    "myeloid": [
+      "CD14",
+      "CD163",
+      "CD177",
+      "MS4A7"
+    ],
+    "epithelial": [
+      "CEACAM5",
+      "CEACAM6",
+      "CEACAM7",
+      "MUC12",
+      "TFF1",
+      "OLFM4",
+      "AQP8",
+      "ANXA13",
+      "CDHR5",
+      "MS4A12",
+      "EPHB3",
+      "SOX9",
+      "ASCL2"
+    ],
+    "proliferative": [
+      "MKI67"
+    ],
+    "Treg": [
+      "FOXP3"
+    ]
+  },
+  "mix_threshold": 0.5,
+  "neighbours": 8,
+  "notes": [
+    "niches are arg-max program labels (plus MIXED), so they are comparable across sections",
+    "only genes present in every panel are used",
+    "permutation null destroys space but keeps composition"
+  ]
+}

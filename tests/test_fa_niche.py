@@ -48,3 +48,17 @@ def test_kmeans_returns_requested_number_of_labels():
     x = np.vstack([rng.normal(0, 0.1, (30, 3)), rng.normal(5, 0.1, (30, 3))])
     labels = ng.kmeans_niches(x, k=2, seed=0)
     assert len(set(labels.tolist())) == 2
+
+
+def test_argmax_niches_is_label_consistent_across_sections():
+    from field_analyzer.niche_graph import argmax_niches
+
+    names = ["A", "B"]
+    s1 = np.array([[2.0, 0.0], [0.0, 2.0], [0.1, 0.1]])
+    s2 = np.array([[1.0, 0.2], [0.2, 1.0], [0.0, 0.0]])
+    l1, n1 = argmax_niches(s1, names, mix_threshold=0.5)
+    l2, n2 = argmax_niches(s2, names, mix_threshold=0.5)
+    assert n1 == n2
+    assert l1[0] == l2[0] == 0      # both call the first row "A"
+    assert l1[1] == l2[1] == 1
+    assert l1[2] == n1.index("MIXED") and l2[2] == n2.index("MIXED")
