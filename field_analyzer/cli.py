@@ -18,7 +18,7 @@ from pathlib import Path
 import numpy as np
 from scipy import sparse
 
-from . import assets, block_recovery, depth_conditioning as depth_cond, geometry, poisoning, real_validation, route_a, route_b, route_c, scales, signal_power, synthetic
+from . import assets, block_recovery, depth_conditioning as depth_cond, geometry, poisoning, real_relations, real_validation, route_a, route_b, route_c, scales, signal_power, synthetic
 from .adapters import read_h5ad_counts
 from .observation import fingerprint_arrays, visible_mean_std
 from .pipeline import InputSpec, build_inputs
@@ -917,6 +917,132 @@ def cmd_signal_sweep(args: argparse.Namespace) -> int:
     return 0
 
 
+
+def _load_section_scores(repo: Path, fields: dict, seed: int):
+    identity = assets.read_identity(repo / "infra/field_discovery_review_20261018/identity_review.tsv")
+    out = []
+    for unit in sorted(identity.units):
+        for section in sorted(identity.units[unit]):
+            table = read_h5ad_counts(repo / "data/other_sources/hest1k/st" / f"{section}.h5ad")
+            splits = build_field_splits(fields, table.genes, seed=seed)
+            out.append(real_relations.section_scores(table, fields, splits, unit_id=unit, section_id=section))
+    return out
+
+
+def cmd_real_displacement(args: argparse.Namespace) -> int:
+    repo, out = Path(args.repo), Path(args.out) / "real_displacement"
+    out.mkdir(parents=True, exist_ok=True)
+    panel = load_panel(repo)
+    fields = {fid: panel[fid] for fid in PILOT_FIELDS if fid in panel}
+    sections = _load_section_scores(repo, fields, args.seed)
+    rows = []
+    for sec in sections:
+        for conditioned in (False, True):
+            rows.extend(real_relations.displacement_rows(
+                sec, conditioned=conditioned,
+                max_lag_pitch=args.max_lag, step_pitch=args.step, tolerance_pitch=args.tolerance,
+            ))
+            if not conditioned:
+                null_rows = real_relations.displacement_rows(
+                    sec, conditioned=False,
+                    max_lag_pitch=args.max_lag, step_pitch=args.step, tolerance_pitch=args.tolerance,
+                )
+                # rerun with rotated target for the null (same estimator, no relation)
+                pitch = null_rows[0]["pitch"] if null_rows else float("nan")
+                fields = sorted(sec.a)
+                for i in range(len(fields)):
+                    for j in range(i + 1, len(fields)):
+                        for half, sc in (("A", sec.a), ("B", sec.b)):
+                            res = real_relations.displacement_curve(
+                                sec.xy, sc[fields[i]], sc[fields[j]],
+                                pitch=pitch, max_lag_pitch=args.max_lag, step_pitch=args.step,
+                                tolerance_pitch=args.tolerance, null_rotate_deg=137.0,
+                            )
+                            row = {"unit_id": sec.unit_id, "section_id": sec.section_id,
+                                   "field_pair": f"{fields[i]}~{fields[j]}", "half": half,
+                                   "conditioned": False, "pitch": pitch, "null": True}
+                            row.update({k: v for k, v in res.items() if k != "grid"})
+                            rows.append(row)
+    assets.write_tsv(rows, out / "displacement.tsv")
+    summary = {
+        "n_rows": len(rows),
+        "settings": {"max_lag_pitch": args.max_lag, "step_pitch": args.step,
+                     "tolerance_pitch": args.tolerance, "seed": args.seed},
+        "summaries": {
+            "raw": real_relations.summarise_displacement(
+                [r for r in rows if r["conditioned"] is False and not r.get("null")]
+            ),
+            "conditioned": real_relations.summarise_displacement(
+                [r for r in rows if r["conditioned"] is True and not r.get("null")]
+            ),
+            "null_rotated": real_relations.summarise_displacement(
+                [r for r in rows if r.get("null")]
+            ),
+        },
+        "notes": [
+            "displacement is measured on irregular spots by nearest-neighbour matching (no rasterisation)",
+            "contrast_vs_zero = peak correlation minus correlation at zero displacement",
+            "unit-equal medians: per-unit median first, then median over units",
+        ],
+    }
+    (out / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False))
+    for cond in ("raw", "conditioned", "null_rotated"):
+        print("==", cond)
+        for pair, entry in summary["summaries"][cond]["by_pair"].items():
+            a = entry.get("A", {})
+            print(f"  {pair.split('~')[0][:14]:14s}~{pair.split('~')[1][:14]:14s} "
+                  f"A mag={a.get('peak_magnitude_pitch', float('nan')):.2f} contrast={a.get('contrast_vs_zero', float('nan')):+.3f} "
+                  f"pos_sections={a.get('contrast_positive_sections', 0)}/{a.get('n_sections', 0)}")
+    return 0
+
+
+def cmd_real_holdout(args: argparse.Namespace) -> int:
+    repo, out = Path(args.repo), Path(args.out) / "real_holdout"
+    out.mkdir(parents=True, exist_ok=True)
+    panel = load_panel(repo)
+    fields = {fid: panel[fid] for fid in PILOT_FIELDS if fid in panel}
+    sections = _load_section_scores(repo, fields, args.seed)
+    short = {"HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": "EMT",
+             "HALLMARK_INTERFERON_GAMMA_RESPONSE": "IFNG",
+             "HALLMARK_OXIDATIVE_PHOSPHORYLATION": "OXPHOS",
+             "B_AXIS": "B_AXIS"}
+    pairs = [tuple(p.split("->")) for p in args.pairs.split(",")]
+    results = real_relations.louo_holdout(sections, pairs=pairs, conditioned=not args.no_condition,
+                                          alpha=args.alpha)
+    rows = [r.to_dict() for r in results]
+    assets.write_tsv(rows, out / "louo.tsv")
+    def per_pair(target: str, predictor: str, key: str) -> float:
+        vals = [float(getattr(r, key)) for r in results
+                if r.target == target and r.predictor == predictor
+                and np.isfinite(getattr(r, key))]
+        return float(np.median(vals)) if vals else float("nan")
+    summary = {
+        "n_rows": len(rows),
+        "conditioned": not args.no_condition,
+        "alpha": args.alpha,
+        "by_pair": {
+            f"{short.get(t, t)}->{short.get(p, p)}": {
+                "r2_test_median": per_pair(t, p, "r2_test"),
+                "r2_within_median": per_pair(t, p, "r2_within"),
+                "r_half_agreement_median": per_pair(t, p, "r_half_agreement"),
+                "slope_median": per_pair(t, p, "slope"),
+                "n_held_units": sum(1 for r in results if r.target == t and r.predictor == p),
+                "units_with_positive_r2": sum(1 for r in results
+                                              if r.target == t and r.predictor == p and r.r2_test > 0),
+            }
+            for t, p in pairs
+        },
+        "notes": [
+            "scores z-scored within section; the trivial predictor is the section mean (R2 = 0)",
+            "rows use the B half for testing and the A half for fitting, so the two halves are independent gene sets",
+            "leave-one-unit-out over 8 within-study units; not an independent-patient validation",
+        ],
+    }
+    (out / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False))
+    print(json.dumps(summary["by_pair"], indent=2, ensure_ascii=False))
+    return 0
+
+
 def cmd_geometry_smoke(args: argparse.Namespace) -> int:
     out = Path(args.out) / "geometry_smoke"
     out.mkdir(parents=True, exist_ok=True)
@@ -1107,6 +1233,26 @@ def build_parser() -> argparse.ArgumentParser:
     p_ss.add_argument("--depths", default="1,3")
     p_ss.add_argument("--sigmas", default="9,4")
     p_ss.set_defaults(func=cmd_signal_sweep)
+
+    p_rd = sub.add_parser("real-displacement", help="displacement between field pairs on real sections")
+    p_rd.add_argument("--out", default="infra/field_analyzer_20261020")
+    p_rd.add_argument("--seed", type=int, default=0)
+    p_rd.add_argument("--max-lag", type=float, default=12.0, dest="max_lag")
+    p_rd.add_argument("--step", type=float, default=2.0)
+    p_rd.add_argument("--tolerance", type=float, default=0.6)
+    p_rd.set_defaults(func=cmd_real_displacement)
+
+    p_rh = sub.add_parser("real-holdout", help="leave-one-unit-out relation holdout")
+    p_rh.add_argument("--out", default="infra/field_analyzer_20261020")
+    p_rh.add_argument("--seed", type=int, default=0)
+    p_rh.add_argument("--alpha", type=float, default=1.0)
+    p_rh.add_argument("--no-condition", action="store_true")
+    p_rh.add_argument("--pairs", default=(
+        "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION->HALLMARK_INTERFERON_GAMMA_RESPONSE,"
+        "B_AXIS->HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,"
+        "B_AXIS->HALLMARK_INTERFERON_GAMMA_RESPONSE,"
+        "HALLMARK_INTERFERON_GAMMA_RESPONSE->HALLMARK_OXIDATIVE_PHOSPHORYLATION"))
+    p_rh.set_defaults(func=cmd_real_holdout)
 
     p_geo = sub.add_parser("geometry-smoke", help="synthetic geometry with a hole and a masked field")
     p_geo.add_argument("--out", default="infra/field_analyzer_20261020")

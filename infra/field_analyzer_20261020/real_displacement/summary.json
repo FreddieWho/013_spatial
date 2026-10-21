@@ -1,0 +1,316 @@
+{
+  "n_rows": 504,
+  "settings": {
+    "max_lag_pitch": 12.0,
+    "step_pitch": 2.0,
+    "tolerance_pitch": 0.6,
+    "seed": 0
+  },
+  "summaries": {
+    "raw": {
+      "by_pair": {
+        "B_AXIS~HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+          "A": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 4.434223307853514e-15,
+            "contrast_vs_zero": 0.0,
+            "corr_at_zero": 0.30307115949867636,
+            "contrast_positive_sections": 1
+          },
+          "B": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 4.434223307853514e-15,
+            "contrast_vs_zero": 0.0,
+            "corr_at_zero": 0.44267040968161253,
+            "contrast_positive_sections": 1
+          }
+        },
+        "B_AXIS~HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+          "A": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 5.870250954883977e-15,
+            "contrast_vs_zero": 0.0,
+            "corr_at_zero": 0.26127783324657633,
+            "contrast_positive_sections": 2
+          },
+          "B": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 4.433871406629501e-15,
+            "contrast_vs_zero": 0.0,
+            "corr_at_zero": 0.5500681463543395,
+            "contrast_positive_sections": 0
+          }
+        },
+        "B_AXIS~HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+          "A": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 8.77491159273157,
+            "contrast_vs_zero": 0.3027829809343626,
+            "corr_at_zero": -0.10404684243038245,
+            "contrast_positive_sections": 12
+          },
+          "B": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 10.578356387767265,
+            "contrast_vs_zero": 0.3132599942747426,
+            "corr_at_zero": -0.1646103355983189,
+            "contrast_positive_sections": 13
+          }
+        },
+        "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION~HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+          "A": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 4.434223307853514e-15,
+            "contrast_vs_zero": 0.0,
+            "corr_at_zero": 0.4992148654344152,
+            "contrast_positive_sections": 1
+          },
+          "B": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 4.434223307853514e-15,
+            "contrast_vs_zero": 0.0,
+            "corr_at_zero": 0.5158378212585804,
+            "contrast_positive_sections": 1
+          }
+        },
+        "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION~HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+          "A": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 9.561146102986193,
+            "contrast_vs_zero": 0.262698443915526,
+            "corr_at_zero": -0.03825690547256811,
+            "contrast_positive_sections": 11
+          },
+          "B": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 9.264966529362994,
+            "contrast_vs_zero": 0.26287244048802416,
+            "corr_at_zero": -0.04496781543947863,
+            "contrast_positive_sections": 11
+          }
+        },
+        "HALLMARK_INTERFERON_GAMMA_RESPONSE~HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+          "A": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 1.500000000000003,
+            "contrast_vs_zero": 0.018502078798901075,
+            "corr_at_zero": 0.2869353538340028,
+            "contrast_positive_sections": 5
+          },
+          "B": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 5.081757307919384,
+            "contrast_vs_zero": 0.07560095017643233,
+            "corr_at_zero": 0.14449271935856908,
+            "contrast_positive_sections": 8
+          }
+        }
+      }
+    },
+    "conditioned": {
+      "by_pair": {
+        "B_AXIS~HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+          "A": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 5.1331036374264035e-15,
+            "contrast_vs_zero": 0.0,
+            "corr_at_zero": 0.3098221576744614,
+            "contrast_positive_sections": 1
+          },
+          "B": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 4.434223307853514e-15,
+            "contrast_vs_zero": 0.0,
+            "corr_at_zero": 0.47460364157527823,
+            "contrast_positive_sections": 2
+          }
+        },
+        "B_AXIS~HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+          "A": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 5.1331036374264035e-15,
+            "contrast_vs_zero": 0.0,
+            "corr_at_zero": 0.3045156660264405,
+            "contrast_positive_sections": 1
+          },
+          "B": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 4.433871406629501e-15,
+            "contrast_vs_zero": 0.0,
+            "corr_at_zero": 0.6023079275273163,
+            "contrast_positive_sections": 1
+          }
+        },
+        "B_AXIS~HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+          "A": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 10.591814943501507,
+            "contrast_vs_zero": 0.18598747030697454,
+            "corr_at_zero": -0.042328457410434214,
+            "contrast_positive_sections": 13
+          },
+          "B": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 11.36593658548587,
+            "contrast_vs_zero": 0.22440269286778813,
+            "corr_at_zero": -0.08539933886291541,
+            "contrast_positive_sections": 14
+          }
+        },
+        "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION~HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+          "A": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 4.434223307853514e-15,
+            "contrast_vs_zero": 0.0,
+            "corr_at_zero": 0.48910102676212797,
+            "contrast_positive_sections": 2
+          },
+          "B": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 4.434223307853514e-15,
+            "contrast_vs_zero": 0.0,
+            "corr_at_zero": 0.47876138645590116,
+            "contrast_positive_sections": 2
+          }
+        },
+        "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION~HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+          "A": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 10.859319071978177,
+            "contrast_vs_zero": 0.36010877828871235,
+            "corr_at_zero": -0.1798292039583902,
+            "contrast_positive_sections": 13
+          },
+          "B": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 11.138899721651363,
+            "contrast_vs_zero": 0.265321046414448,
+            "corr_at_zero": -0.12229028219883013,
+            "contrast_positive_sections": 13
+          }
+        },
+        "HALLMARK_INTERFERON_GAMMA_RESPONSE~HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+          "A": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 11.178657286586443,
+            "contrast_vs_zero": 0.25194406422007576,
+            "corr_at_zero": -0.14907621445480151,
+            "contrast_positive_sections": 13
+          },
+          "B": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 12.53915582734467,
+            "contrast_vs_zero": 0.22499743119272433,
+            "corr_at_zero": -0.12340745451281135,
+            "contrast_positive_sections": 13
+          }
+        }
+      }
+    },
+    "null_rotated": {
+      "by_pair": {
+        "B_AXIS~HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+          "A": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 9.887611902422229,
+            "contrast_vs_zero": -0.2353348276113112,
+            "corr_at_zero": 0.30307115949867636,
+            "contrast_positive_sections": 1
+          },
+          "B": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 8.927730782521785,
+            "contrast_vs_zero": -0.3549508460081907,
+            "corr_at_zero": 0.44267040968161253,
+            "contrast_positive_sections": 0
+          }
+        },
+        "B_AXIS~HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+          "A": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 12.563063996235002,
+            "contrast_vs_zero": -0.16020106071318885,
+            "corr_at_zero": 0.26127783324657633,
+            "contrast_positive_sections": 2
+          },
+          "B": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 8.72358526421388,
+            "contrast_vs_zero": -0.4738063245995296,
+            "corr_at_zero": 0.5500681463543395,
+            "contrast_positive_sections": 0
+          }
+        },
+        "B_AXIS~HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+          "A": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 12.194467600536885,
+            "contrast_vs_zero": 0.15389619398519955,
+            "corr_at_zero": -0.10404684243038245,
+            "contrast_positive_sections": 9
+          },
+          "B": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 12.837102637643024,
+            "contrast_vs_zero": 0.3046099810431747,
+            "corr_at_zero": -0.1646103355983189,
+            "contrast_positive_sections": 12
+          }
+        },
+        "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION~HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+          "A": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 10.759226804203012,
+            "contrast_vs_zero": -0.3151804500250602,
+            "corr_at_zero": 0.4992148654344152,
+            "contrast_positive_sections": 0
+          },
+          "B": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 11.619134872740139,
+            "contrast_vs_zero": -0.38333314164540844,
+            "corr_at_zero": 0.5158378212585804,
+            "contrast_positive_sections": 0
+          }
+        },
+        "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION~HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+          "A": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 12.797939430889107,
+            "contrast_vs_zero": 0.13572725693851645,
+            "corr_at_zero": -0.03825690547256811,
+            "contrast_positive_sections": 10
+          },
+          "B": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 11.654731412048772,
+            "contrast_vs_zero": 0.07354786942595147,
+            "corr_at_zero": -0.04496781543947863,
+            "contrast_positive_sections": 9
+          }
+        },
+        "HALLMARK_INTERFERON_GAMMA_RESPONSE~HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+          "A": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 12.257757917413656,
+            "contrast_vs_zero": -0.12906669437983498,
+            "corr_at_zero": 0.2869353538340028,
+            "contrast_positive_sections": 4
+          },
+          "B": {
+            "n_sections": 14,
+            "peak_magnitude_pitch": 11.959653241713674,
+            "contrast_vs_zero": 0.025141032382918628,
+            "corr_at_zero": 0.14449271935856908,
+            "contrast_positive_sections": 7
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "displacement is measured on irregular spots by nearest-neighbour matching (no rasterisation)",
+    "contrast_vs_zero = peak correlation minus correlation at zero displacement",
+    "unit-equal medians: per-unit median first, then median over units"
+  ]
+}
