@@ -35,7 +35,7 @@
 | FA-06 | 比较、选择和最小科学结论 | 至少 A 与一个主路线有有效结果 | 全部相关 AF | [`REPORT_FA06`](../infra/field_analyzer_20261020/REPORT_FA06.md)：四条 AF 假设本轮均未获支持；A 保留简单版本、B 保留算子但否证位移主张、C 否证朴素多场支持；保留观测合同与量化边界 | DELIVERED（10-20） |
 | FA-07 | 选中路线的扩展、独立结构验证 | 有真实候选且验证入口就绪 | AF-04 及生物解释 | 相应独立证据；外部获取另按现行授权 | PROPOSED_NOT_RUN |
 | FA-07A | 深度条件化（定向跟进） | FA-04 | AF-01/03 | [`REPORT_FA07A`](../infra/field_analyzer_20261020/REPORT_FA07A.md)：三对关系去深度后存活；IFN~OXPHOS 符号翻转（+0.29→−0.15）；EMT~OXPHOS 抑制为 −0.18；OXPHOS A/B 一致性 0.79→0.37 | DELIVERED（10-20） |
-| FA-07B | 观察信号提升与估计器更正（定向跟进） | FA-03B/FA-02 | AF-02 | [`REPORT_FA07B`](../infra/field_analyzer_20261020/REPORT_FA07B.md)：marker 12→96、深度×3、σ9→4 均不改变 ridge 的 lag-0 失败；**互相关估计器 12/12 恢复 6–8 pitch**；更正 FA-03B 归因 | DELIVERED（10-20） |
+| FA-07B | 观察信号提升与估计器更正（定向跟进） | FA-03B/FA-02 | AF-02 | [`REPORT_FA07B`](../infra/field_analyzer_20261020/REPORT_FA07B.md)：marker 12→96、深度×3、σ9→4 均不改变 ridge 的 lag-0 失败；**互相关估计器 12/12 恢复 6–8 pitch**；只更正 FA-03B 的位移归因，不改变 AF-02（连接）判定 | DELIVERED（10-20） |
 
 ## 任务分组与并行
 
