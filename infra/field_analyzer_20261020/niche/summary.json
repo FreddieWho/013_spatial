@@ -1,0 +1,92 @@
+{
+  "xenium_dir": "data/derived/xenium_colon_base",
+  "n_cells": 120000,
+  "n_genes_panel": 541,
+  "programs": [
+    "T_NK",
+    "B_plasma",
+    "myeloid",
+    "epithelial",
+    "proliferative",
+    "Treg"
+  ],
+  "k": 5,
+  "neighbours": 8,
+  "niche_sizes": {
+    "0": 48036,
+    "1": 14079,
+    "2": 4444,
+    "3": 39776,
+    "4": 13665
+  },
+  "observed": {
+    "statistic": 2.7105815278532592,
+    "max_enrichment": 1.5799009941575572,
+    "min_enrichment": 0.20229644957367962,
+    "counts_symmetry_error": 0.0
+  },
+  "nulls": {
+    "observed_statistic": 2.7105815278532592,
+    "observed_max_enrichment": 1.5799009941575572,
+    "observed_min_enrichment": 0.20229644957367962,
+    "counts_symmetry_error": 0.0,
+    "rotation_null_mean": 3.073929362411786,
+    "rotation_null_p95": 3.287495641179508,
+    "rotation_z": -2.416339672412768,
+    "permutation_null_mean": 0.03288782603486015,
+    "permutation_null_p95": 0.05262608528547548,
+    "permutation_z": 219.56595874763093,
+    "n_rotation": 30.0,
+    "n_permutation": 30.0
+  },
+  "enrichment_matrix": [
+    [
+      1.2195192672467385,
+      0.8784930680605266,
+      0.8998437676500146,
+      0.796313215146211,
+      0.9760739969566102
+    ],
+    [
+      0.8784930680605266,
+      3.259233617457814,
+      1.5799009941575572,
+      0.20229644957367962,
+      1.2206161933206894
+    ],
+    [
+      0.8998437676500146,
+      1.5799009941575572,
+      1.9887223396893123,
+      0.6377819064320687,
+      1.4870483442407514
+    ],
+    [
+      0.796313215146211,
+      0.20229644957367962,
+      0.6377819064320687,
+      1.736680159535223,
+      0.5186913598499863
+    ],
+    [
+      0.9760739969566102,
+      1.2206161933206894,
+      1.4870483442407514,
+      0.5186913598499863,
+      2.10108804183399
+    ]
+  ],
+  "half_consistency": {
+    "corr_of_log_enrichment": 0.9861643765045726,
+    "sign_agreement": 1.0,
+    "n_pairs": 20
+  },
+  "notes": [
+    "a symmetric graph gives a symmetric contact matrix, so no direction can be inferred; this node reports co-localisation only",
+    "labels: k-means on fixed marker-program scores (no spatial information used)",
+    "graph: symmetric kNN on cell centroids",
+    "rotation null keeps the label field's autocorrelation and breaks the adjacency",
+    "permutation null keeps composition and destroys space",
+    "the colon panel has no canonical stroma/vessel markers; niches are composition-limited"
+  ]
+}

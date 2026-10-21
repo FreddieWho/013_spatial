@@ -18,7 +18,7 @@ from pathlib import Path
 import numpy as np
 from scipy import sparse
 
-from . import assets, block_recovery, depth_conditioning as depth_cond, factor_model, geometry, poisoning, real_relations, real_validation, route_a, route_b, route_c, scales, signal_power, synthetic
+from . import assets, block_recovery, depth_conditioning as depth_cond, factor_model, geometry, niche_graph, poisoning, real_relations, real_validation, route_a, route_b, route_c, scales, signal_power, synthetic
 from .adapters import read_h5ad_counts
 from .observation import fingerprint_arrays, visible_mean_std
 from .pipeline import InputSpec, build_inputs
@@ -1211,6 +1211,62 @@ def cmd_factor_model(args: argparse.Namespace) -> int:
     return 0
 
 
+
+def cmd_niche(args: argparse.Namespace) -> int:
+    out = Path(args.out) / "niche"
+    out.mkdir(parents=True, exist_ok=True)
+    sl = niche_graph.read_xenium(Path(args.xenium))
+    rng = np.random.default_rng(args.seed)
+    n = sl.n_cells
+    if args.subsample and args.subsample < n:
+        keep = np.sort(rng.choice(n, size=args.subsample, replace=False))
+        sl = niche_graph.XeniumSlice(counts=sl.counts[keep], genes=sl.genes, xy=sl.xy[keep], cell_ids=sl.cell_ids[keep])
+    scores, program_names = niche_graph.program_scores(sl)
+    labels = niche_graph.kmeans_niches(scores, k=args.k, seed=args.seed)
+    graph = niche_graph.knn_adjacency(sl.xy, k=args.neighbours)
+    obs = niche_graph.contact_enrichment(labels, graph, args.k)
+    nulls = niche_graph.null_distribution(sl.xy, labels, graph, args.k,
+                                          n_rot=args.null, n_perm=args.null, seed=args.seed)
+    half = niche_graph.half_consistency(sl.xy, labels, graph, args.k)
+
+    E = obs["enrichment"]
+    assets.write_tsv(
+        [{"i": i, "j": j, "counts": float(obs["counts"][i, j]),
+          "enrichment": float(E[i, j]) if np.isfinite(E[i, j]) else None}
+         for i in range(args.k) for j in range(args.k) if i <= j],
+        out / "contact_enrichment.tsv",
+    )
+    summary = {
+        "xenium_dir": args.xenium,
+        "n_cells": int(sl.n_cells),
+        "n_genes_panel": int(len(sl.genes)),
+        "programs": program_names,
+        "k": args.k,
+        "neighbours": args.neighbours,
+        "niche_sizes": {int(j): int((labels == j).sum()) for j in range(args.k)},
+        "observed": {"statistic": obs["statistic"], "max_enrichment": obs["max_enrichment"],
+                     "min_enrichment": obs["min_enrichment"],
+                     "counts_symmetry_error": obs["counts_symmetry_error"]},
+        "nulls": {k: (float(v) if isinstance(v, (int, float, np.floating)) else None)
+                  for k, v in nulls.items() if np.isscalar(v)},
+        "enrichment_matrix": [[float(x) if np.isfinite(x) else None for x in row] for row in obs["enrichment"]],
+        "half_consistency": half,
+        "notes": [
+            "a symmetric graph gives a symmetric contact matrix, so no direction can be inferred; this node reports co-localisation only",
+            "labels: k-means on fixed marker-program scores (no spatial information used)",
+            "graph: symmetric kNN on cell centroids",
+            "rotation null keeps the label field's autocorrelation and breaks the adjacency",
+            "permutation null keeps composition and destroys space",
+            "the colon panel has no canonical stroma/vessel markers; niches are composition-limited",
+        ],
+    }
+    (out / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False))
+    np.savez_compressed(out / "labels.npz", labels=labels, xy=sl.xy, cell_ids=sl.cell_ids.astype(str))
+    print(json.dumps({k: summary[k] for k in ("n_cells", "programs", "niche_sizes", "observed", "nulls", "half_consistency")},
+                     indent=2, ensure_ascii=False))
+    return 0
+
+
 def cmd_geometry_smoke(args: argparse.Namespace) -> int:
     out = Path(args.out) / "geometry_smoke"
     out.mkdir(parents=True, exist_ok=True)
@@ -1434,6 +1490,16 @@ def build_parser() -> argparse.ArgumentParser:
     p_fm.add_argument("--steps", default="0,2,5,10")
     p_fm.add_argument("--seed", type=int, default=0)
     p_fm.set_defaults(func=cmd_factor_model)
+
+    p_nc = sub.add_parser("niche", help="niche transition matrix with rotation/permutation nulls")
+    p_nc.add_argument("--xenium", default="data/derived/xenium_colon_base")
+    p_nc.add_argument("--out", default="infra/field_analyzer_20261020")
+    p_nc.add_argument("--k", type=int, default=5)
+    p_nc.add_argument("--neighbours", type=int, default=8)
+    p_nc.add_argument("--null", type=int, default=40)
+    p_nc.add_argument("--subsample", type=int, default=150000)
+    p_nc.add_argument("--seed", type=int, default=0)
+    p_nc.set_defaults(func=cmd_niche)
 
     p_geo = sub.add_parser("geometry-smoke", help="synthetic geometry with a hole and a masked field")
     p_geo.add_argument("--out", default="infra/field_analyzer_20261020")
