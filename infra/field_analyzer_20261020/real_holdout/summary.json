@@ -5,7 +5,7 @@
   "by_pair": {
     "EMT->IFNG": {
       "r2_test_median": 0.22935959673884793,
-      "r2_within_median": 0.22812313465684775,
+      "r2_within_median": 0.22960211786518608,
       "r_half_agreement_median": 0.8599190169803661,
       "slope_median": 0.4680359493270294,
       "n_held_units": 8,
@@ -13,7 +13,7 @@
     },
     "B_AXIS->EMT": {
       "r2_test_median": 0.19077569179753012,
-      "r2_within_median": 0.2435011847855772,
+      "r2_within_median": 0.22580357073349683,
       "r_half_agreement_median": 0.5046241086279557,
       "slope_median": 0.29756619975124776,
       "n_held_units": 8,
@@ -21,7 +21,7 @@
     },
     "B_AXIS->IFNG": {
       "r2_test_median": 0.26569633876475,
-      "r2_within_median": 0.2704320110911718,
+      "r2_within_median": 0.35829001442881236,
       "r_half_agreement_median": 0.5046241086279557,
       "slope_median": 0.29349448539833645,
       "n_held_units": 8,
@@ -29,7 +29,7 @@
     },
     "IFNG->OXPHOS": {
       "r2_test_median": 0.012294189470718198,
-      "r2_within_median": 0.026824495901479062,
+      "r2_within_median": 0.03252629777607646,
       "r_half_agreement_median": 0.6743117399115783,
       "slope_median": -0.11502652330510628,
       "n_held_units": 8,

@@ -938,10 +938,12 @@ def cmd_real_displacement(args: argparse.Namespace) -> int:
     rows = []
     for sec in sections:
         for conditioned in (False, True):
-            rows.extend(real_relations.displacement_rows(
+            for row in real_relations.displacement_rows(
                 sec, conditioned=conditioned,
                 max_lag_pitch=args.max_lag, step_pitch=args.step, tolerance_pitch=args.tolerance,
-            ))
+            ):
+                row["null"] = False
+                rows.append(row)
             if not conditioned:
                 null_rows = real_relations.displacement_rows(
                     sec, conditioned=False,

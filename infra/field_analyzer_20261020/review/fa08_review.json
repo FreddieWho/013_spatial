@@ -1,0 +1,78 @@
+{
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "thinking": "xhigh",
+    "cwd": "/home/huyudi/013_spatial"
+  },
+  "nodes": ["FA-08A", "FA-08B"],
+  "commit_reviewed": "4b512fb",
+  "scope": {
+    "read": [
+      "field_analyzer/real_relations.py",
+      "field_analyzer/cli.py 的 cmd_real_displacement 与 _load_section_scores",
+      "field_analyzer/assets.py write_tsv",
+      "infra/field_analyzer_20261020/REPORT_FA08A.md",
+      "infra/field_analyzer_20261020/REPORT_FA08B.md",
+      "infra/field_analyzer_20261020/real_displacement/displacement.tsv",
+      "infra/field_analyzer_20261020/real_displacement/summary.json",
+      "infra/field_analyzer_20261020/real_holdout/louo.tsv"
+    ],
+    "ran": [
+      "按代码顺序把 displacement.tsv 的每片 24 行拆成原始 12 行和零对照 12 行后复算边界片数",
+      "从 summary.json 核对单位等权峰幅和 contrast",
+      "从 louo.tsv 复算 8 个单位的中位 R²、正单位数和与片内 R² 的比值"
+    ],
+    "not_checked": [
+      "未重跑 14 张切片的位移搜索或留一拟合",
+      "未从原始评分重算 r_half_agreement"
+    ]
+  },
+  "findings": [
+    {
+      "id": "N1",
+      "node": "FA-08A",
+      "severity": "MINOR",
+      "topic": "位移表丢掉了零对照标记",
+      "evidence": "write_tsv 只保留第一行的列。零对照行后加的 null 字段没有写入。文件是 504 行，不是报告写的 756 行。summary.json 仍分开保存了原始和零对照。",
+      "required_fix": "写出 null 列。不必重跑就能从现有 summary.json 读主表。"
+    },
+    {
+      "id": "N2",
+      "node": "FA-08A",
+      "severity": "MINOR",
+      "topic": "边界片数和 ZEN48 例子不是原始 A 半",
+      "evidence": "原始 A 半贴边片数是 3/14、4/14、0/14，不是三对都是 7–8/14。报告里的 ZEN48 坐标与深度条件化行一致：B_AXIS~OXPHOS 为 (−12,+8) 和 (−8,0)，IFN~OXPHOS 为 (+10,+12) 和 (−12,+10)。",
+      "required_fix": "把例子标明是条件化结果。原始两半不一致要另举能在表里对上的片。"
+    },
+    {
+      "id": "N3",
+      "node": "FA-08B",
+      "severity": "MINOR",
+      "topic": "片内上限用的不是同一套特征",
+      "evidence": "留出 R² 用训练 A 半拟合、留出 B 半评估。片内 R² 用留出单位的 A 半预测 B 半。IFN←EMT 的留出中位 0.229 高于片内 0.228，所以“达到上限 78%–99%”不是同一任务的比例。",
+      "required_fix": "不要把这个比值写成同一任务的达成率。0.19–0.27 和 7–8/8 为正仍然成立。"
+    }
+  ],
+  "answers": {
+    "1": "容差 0.6 pitch、最少 200 对、搜索 ±12、步长 2，零对照与真实工况相同。137° 旋转保持目标点之间的距离，不改变点密度。它改变与源格点的重叠，峰值处的匹配对数中位从 1270 降到 1055，所以零对照略难而不是更容易出稳定高峰。报告已写明旋转可能留下大尺度各向异性。",
+    "2": "11.9 对应步长 2 的外圈 ±12，作为贴边阈值合理。7–8/14 不能当作三对原始结果的统一计数，见 N2。",
+    "3": "两半方向不一致有表可查，但报告举的 ZEN48 是条件化行，不是原始行。原始 B_AXIS~OXPHOS 在 ZEN48 是 (10,10) 与 (12,10)，方向接近。",
+    "4": "summary.json 的单位等权中位与这句一致：三对幅值约为 0、contrast 为 0.000，正对比只有 1/14 或 2/14。这支持“没有位移信号时中位给 0”。它不证明估计器对所有宽梯度场都有鉴别力；OXPHOS 相关对的零对照也会给出大正 contrast。",
+    "5": "代码把搜索到的源点平移取负后写入 peak_dx_pitch，注释与报告的“伙伴相对参考场”一致。表中的坐标就是这个约定下的数。",
+    "6": "“不能把 8–12 pitch 叫成位移”有充分证据：零对照幅值 9.9–12.8，与真实大幅值重叠，且不少贴边。contrast 仍被报告保留为梯度信息，没有被说成位移。",
+    "7": "斜率只在非留出单位的 A 半上拟合。片内 z-score 用各片自己的均值和方差，测试片的亮度没有进入训练，但测试评估用了测试片自己的尺度。这去掉绝对亮度，报告已说明。没有把留出单位的配对关系用于拟合。",
+    "8": "按 unit_id 留出。训练片数是 12 或 13，对应留出 2 片或 1 片，同单位的片没有拆开。",
+    "9": "片内拟合只用留出单位。当前代码的 r_half_agreement 是 Pearson，不是 2r−1。表中的 0.505 和 0.860 与报告一致。我没有从评分重算这个相关。",
+    "10": "三对留出中位是 0.229、0.266、0.191，正单位数 7/8、8/8、7/8，与 louo.tsv 一致。78% 和 99% 大约是 0.191/0.244 与 0.266/0.270，但第三对比片内 R² 略高，见 N3。",
+    "11": "没有越界成空间关系成立。报告写明是同点耦合、8 个研究内单位、同平台，并且不支持定位或补洞。“有限正面证据”与这个范围相符。"
+  },
+  "claims_that_do_not_hold": [
+    "位移表有 756 行",
+    "与 OXPHOS 相关的三对都有 7–8/14 片贴边",
+    "ZEN48 的那组方向例子是原始结果",
+    "三对留出都达到片内同一任务上限的 78%–99%"
+  ],
+  "allow_node_conclusion": true,
+  "limitations": "没有 BLOCKER。真实位移不可用、同点耦合可在单位间迁移，这两个范围可以保留。未重跑搜索。"
+}

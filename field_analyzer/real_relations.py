@@ -305,8 +305,8 @@ def louo_holdout(
                 continue
             pred = np.concatenate([intercept + slope * z[s]["B"][predictor] for s in test])
             truth = np.concatenate([z[s]["B"][target] for s in test])
-            # oracle upper bound: slope fitted *inside* the held-out unit
-            x_test = np.concatenate([z[s]["A"][predictor] for s in test])
+            # oracle upper bound: SAME feature half (B) and same unit, fitted in-sample
+            x_test = np.concatenate([z[s]["B"][predictor] for s in test])
             inter_w, slope_w = _fit_linear(x_test, truth, alpha=alpha)
             within = inter_w + slope_w * x_test
             # how well the two gene halves agree on the target itself
