@@ -1,0 +1,60 @@
+{
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "thinking": "xhigh",
+    "cwd": "/home/huyudi/013_spatial"
+  },
+  "nodes": ["FA-07A", "FA-07B"],
+  "commit_reviewed": "9098cfd",
+  "scope": {
+    "read": [
+      "field_analyzer/depth_conditioning.py",
+      "field_analyzer/signal_power.py",
+      "field_analyzer/route_b.py fit_lag_operator 与 cross_correlation_peak",
+      "field_analyzer/synthetic.py build_s2",
+      "infra/field_analyzer_20261020/depth_conditioning/relations_before_after.tsv",
+      "infra/field_analyzer_20261020/depth_conditioning/map_agreement_before_after.tsv",
+      "infra/field_analyzer_20261020/signal_sweep/sweep.tsv",
+      "REPORT_FA07A.md",
+      "REPORT_FA07B.md",
+      "REPORT_FA03B.md 更正框",
+      "REPORT_FA06.md AF 表与 FA-07 行"
+    ],
+    "ran": [
+      "从 relations_before_after.tsv 和 map_agreement_before_after.tsv 按单位中位复算",
+      "从 signal_sweep/sweep.tsv 点算 12/12 峰位置与误差"
+    ],
+    "not_checked": [
+      "未重跑深度回归或互相关扫描",
+      "未计算岭回归设计矩阵的条件数"
+    ]
+  },
+  "findings": [
+    {
+      "id": "M1",
+      "node": "FA-07B",
+      "severity": "MINOR",
+      "topic": "AF-02 的否定范围并没有被这次扫描收窄",
+      "evidence": "12/12 互相关恢复的是合成位移，不是连接或断桥。REPORT_FA06 的假设表仍以 C0/C1 判 AF-02 未获支持，但跟进行写了否定范围收窄。",
+      "required_fix": "把收窄限制在 FA-03B 的位移归因。不要写成 AF-02 因此变弱。"
+    }
+  ],
+  "answers": {
+    "1": "只用有限点，实际是组织支持内的点。两半都走外部文库，分母都排除全部 A∪B。残差只回归 1、标准化深度和它的平方，没有空间项。它仍可能去掉与深度一起变化的结构，报告边界写了这一点。",
+    "2": "与单位中位一致。EMT~IFN 0.499→0.489，B~EMT 0.303→0.310，B~IFN 0.261→0.305。IFN~OXPHOS 从 +0.287/+0.144 到 −0.149/−0.123，条件化后 6/8 个单位两半同号。EMT~OXPHOS 从约 −0.04 到 −0.180/−0.122。",
+    "3": "0.790→0.369 与表一致。两半使用同一个外部文库，相关只在两边都有限的点上计算。这支持“两半一致性里有很大一块与深度同向”，不能单独证明空间图就是深度造成的。",
+    "4": "边界写了不是因果校正。结论里的“深度驱动”“共享伪影”比方法更强，但没有把它写成已经完成的因果识别。",
+    "5": "score_fields 只从计数和基因名评分，没有把 latent 场或 structures 交给估计器。marker 和深度只改变计数。σ 会改变潜在场宽度，不是纯观测变化；报告把它单列了。",
+    "6": "峰不在 ±12 边界。12 个位移组合的 dx 在 −8 到 −6，dy 在 −1 到 2，幅度 6.08–8.25。真值是 x 方向 +7，负号是对齐约定，不是另一个位置。64×64 上 lag 12 的重叠仍远大于 500，这次没有靠边界阈值占便宜。",
+    "7": "岭回归 12/12 的权重峰在 [0,0]、误差 7，这是表上的事实。共线性没有条件数。报告已写零填充、α=1 和步长 4 可能是原因，并未穷尽改进。",
+    "8": "sweep.tsv 有 12 行位移、12 行同点。位移的互相关全部 recovered_by_cc，同点幅度 12/12 为 0。",
+    "9": "对通过与否成立：marker 12→96、深度 ×3、σ 9→4 都没有让岭回归离开 lag 0，也没有让互相关掉出 ±2 pitch。估计幅度本身在 6.1–8.2 之间变动，不是每个数都不变。",
+    "10": "把“观测抹掉信号”改成“这个岭回归估计器定位不到”有产物支持，峰在内部而不是搜索边界。宽场对比度弱的观察仍留在 FA-07B。AF-02 的收窄过头，见 M1。"
+  },
+  "claims_that_do_not_hold": [
+    "FA-07B 收窄了 AF-02 的否定范围"
+  ],
+  "allow_node_conclusion": true,
+  "limitations": "没有 BLOCKER。位移可检出的更正可以保留。未重跑扫描，也没有证明互相关在真实切片上可用。"
+}
