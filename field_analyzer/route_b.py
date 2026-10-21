@@ -221,3 +221,30 @@ def capability_sweep(
                     }
                 )
     return rows
+
+
+def cross_correlation_peak(
+    anchor: np.ndarray, partner: np.ndarray, n: int, *, max_lag: int = 14, min_overlap: int = 500
+) -> dict[str, Any]:
+    """Direct 2-D cross-correlation peak: the displacement, without any lag regression.
+
+    This is the simplest estimator that can see a shift when the fields are broad and
+    heavily overlapping.  It is reported alongside the ridge/NNLS operators because
+    those can put their largest weight at lag 0 even when this peak is non-zero.
+    """
+    a = np.asarray(anchor, dtype=float).reshape(n, n)
+    b = np.asarray(partner, dtype=float).reshape(n, n)
+    best = {"corr": -2.0, "dy": 0, "dx": 0}
+    for dy in range(-max_lag, max_lag + 1):
+        for dx in range(-max_lag, max_lag + 1):
+            a_sub = a[max(0, dy):n + min(0, dy), max(0, dx):n + min(0, dx)]
+            b_sub = b[max(0, -dy):n + min(0, -dy), max(0, -dx):n + min(0, -dx)]
+            if a_sub.size < min_overlap:
+                continue
+            if np.std(a_sub) == 0 or np.std(b_sub) == 0:
+                continue
+            c = float(np.corrcoef(a_sub.ravel(), b_sub.ravel())[0, 1])
+            if c > best["corr"]:
+                best = {"corr": c, "dy": dy, "dx": dx}
+    best["magnitude"] = float(np.hypot(best["dy"], best["dx"]))
+    return best

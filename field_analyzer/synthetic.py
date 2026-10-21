@@ -200,18 +200,22 @@ class SyntheticSample:
     visible_mask: np.ndarray
     structures: dict[str, Any] = field(default_factory=dict)
     meta: dict[str, Any] = field(default_factory=dict)
+    markers_per_field: int = MARKERS_PER_FIELD
 
     @property
     def n_points(self) -> int:
         return int(self.counts.shape[0])
 
     def gene_names(self) -> list[str]:
-        names = [f"{fid}_m{k}" for fid in sorted(self.fields) for k in range(MARKERS_PER_FIELD)]
+        names = [f"{fid}_m{k}" for fid in sorted(self.fields) for k in range(self.markers_per_field)]
         names += [f"bg_{k}" for k in range(BACKGROUND_GENES)]
         return names
 
     def field_gene_sets(self) -> dict[str, list[str]]:
-        return {fid: [f"{fid}_m{k}" for k in range(MARKERS_PER_FIELD)] for fid in sorted(self.fields)}
+        return {
+            fid: [f"{fid}_m{k}" for k in range(self.markers_per_field)]
+            for fid in sorted(self.fields)
+        }
 
 
 def counts_from_fields(
@@ -228,15 +232,14 @@ def counts_from_fields(
     rng = np.random.default_rng(seed + 991)
     n = sample.n_points
     n_fields = len(sample.fields)
-    n_markers = n_fields * MARKERS_PER_FIELD
+    m = int(sample.markers_per_field)
+    n_markers = n_fields * m
     mean = np.zeros((n, n_markers + BACKGROUND_GENES), dtype=np.float64)
 
     for k, fid in enumerate(sorted(sample.fields)):
         f = np.clip(np.asarray(sample.fields[fid], dtype=float), 0.0, None)
-        loadings = 1.0 + 0.6 * np.linspace(-1, 1, MARKERS_PER_FIELD)
-        mean[:, k * MARKERS_PER_FIELD:(k + 1) * MARKERS_PER_FIELD] = (
-            np.outer(f, loadings) * 6.0 + 0.5
-        )
+        loadings = 1.0 + 0.6 * np.linspace(-1, 1, m)
+        mean[:, k * m:(k + 1) * m] = np.outer(f, loadings) * 6.0 + 0.5
     bg = rng.gamma(2.0, 0.25, size=BACKGROUND_GENES)
     mean[:, n_markers:] = bg[None, :]
 
@@ -312,7 +315,7 @@ def build_s1(seed: int, pair_id: str = "s1_shape") -> SyntheticSample:
     return sample
 
 
-def build_s2(seed: int, pair_id: str = "s2_coupling") -> SyntheticSample:
+def build_s2(seed: int, pair_id: str = "s2_coupling", *, sigma: float = 9.0) -> SyntheticSample:
     """Same-point correlation matched by *noise level*, with a pure spatial offset.
 
     Matching the correlation by mixing in the anchor would create a spurious lag-0
@@ -325,8 +328,8 @@ def build_s2(seed: int, pair_id: str = "s2_coupling") -> SyntheticSample:
     xy = grid_xy()
     c = np.array([GRID / 2, GRID / 2]) + rng.uniform(-5, 5, 2)
     shift = np.array([7.0, 0.0])
-    base = gaussian(xy, c, 9.0)
-    shifted = gaussian(xy, c + shift, 9.0)
+    base = gaussian(xy, c, sigma)
+    shifted = gaussian(xy, c + shift, sigma)
     noise = rng.normal(size=base.shape)
     noise /= np.std(noise)
 

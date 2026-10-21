@@ -18,7 +18,7 @@ from pathlib import Path
 import numpy as np
 from scipy import sparse
 
-from . import assets, block_recovery, geometry, poisoning, real_validation, route_a, route_b, route_c, scales, synthetic
+from . import assets, block_recovery, depth_conditioning as depth_cond, geometry, poisoning, real_validation, route_a, route_b, route_c, scales, signal_power, synthetic
 from .adapters import read_h5ad_counts
 from .observation import fingerprint_arrays, visible_mean_std
 from .pipeline import InputSpec, build_inputs
@@ -832,6 +832,91 @@ def cmd_block_recovery(args: argparse.Namespace) -> int:
     return 0
 
 
+
+def cmd_depth_conditioned(args: argparse.Namespace) -> int:
+    repo, out = Path(args.repo), Path(args.out) / "depth_conditioning"
+    out.mkdir(parents=True, exist_ok=True)
+    panel = load_panel(repo)
+    fields = {fid: panel[fid] for fid in PILOT_FIELDS if fid in panel}
+    identity = assets.read_identity(repo / "infra/field_discovery_review_20261018/identity_review.tsv")
+
+    results, map_rows, rel_rows = [], [], []
+    for unit in sorted(identity.units):
+        for section in sorted(identity.units[unit]):
+            table = read_h5ad_counts(repo / "data/other_sources/hest1k/st" / f"{section}.h5ad")
+            splits = build_field_splits(fields, table.genes, seed=args.seed)
+            res = depth_cond.condition_section(
+                table, fields, splits, unit_id=unit, section_id=section, degree=args.degree
+            )
+            results.append(res)
+            for fid in sorted(res.map_before):
+                map_rows.append({
+                    "unit_id": unit, "section_id": section, "field_id": fid,
+                    "map_before": res.map_before[fid], "map_after": res.map_after[fid],
+                    "delta": (res.map_after[fid] - res.map_before[fid])
+                    if np.isfinite(res.map_after[fid]) and np.isfinite(res.map_before[fid]) else None,
+                    "depth_r2_A": res.depth_r2_a[fid], "depth_r2_B": res.depth_r2_b[fid],
+                })
+            for pair in sorted(res.relation_before_a):
+                rel_rows.append({
+                    "unit_id": unit, "section_id": section, "field_pair": "~".join(pair),
+                    "before_A": res.relation_before_a[pair], "after_A": res.relation_after_a[pair],
+                    "before_B": res.relation_before_b[pair], "after_B": res.relation_after_b[pair],
+                })
+    assets.write_tsv(map_rows, out / "map_agreement_before_after.tsv")
+    assets.write_tsv(rel_rows, out / "relations_before_after.tsv")
+    summary = depth_cond.summarise(results)
+    summary["settings"] = {"seed": args.seed, "degree": args.degree, "fields": list(fields)}
+    (out / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False))
+    print(json.dumps({
+        "depth_r2_median_A": {k: round(v, 3) for k, v in summary["depth_r2_median_A"].items()},
+        "map_agreement_before": {k: round(v, 3) for k, v in summary["map_agreement_before"].items()},
+        "map_agreement_after": {k: round(v, 3) for k, v in summary["map_agreement_after"].items()},
+        "relations": {k: {kk: (round(vv, 3) if isinstance(vv, float) else vv) for kk, vv in v.items()}
+                      for k, v in summary["relation_by_pair"].items()},
+    }, indent=2, ensure_ascii=False))
+    return 0
+
+
+
+def cmd_signal_sweep(args: argparse.Namespace) -> int:
+    out = Path(args.out) / "signal_sweep"
+    out.mkdir(parents=True, exist_ok=True)
+    rows = signal_power.sweep(
+        seed=args.seed,
+        markers=[int(m) for m in args.markers.split(",")],
+        depths=[float(d) for d in args.depths.split(",")],
+        sigmas=[float(s) for s in args.sigmas.split(",")],
+    )
+    assets.write_tsv(rows, out / "sweep.tsv")
+    summary = {
+        "n_rows": len(rows),
+        "recovered": sum(1 for r in rows if r["recovered"]),
+        "by_partner": {
+            p: {
+                "recovered": sum(1 for r in rows if r["partner"] == p and r["recovered"]),
+                "total": sum(1 for r in rows if r["partner"] == p),
+            }
+            for p in sorted({r["partner"] for r in rows})
+        },
+        "recovered_by_correlation": sum(1 for r in rows if r["recovered_by_cc"]),
+        "rows": rows,
+        "notes": [
+            "same S2 latent fields and the same B1 operator; only markers per field and depth change",
+            "success = B1 weight peak within 2 pitch of the true shift (7)",
+            "identical CV folds (4 spatial quadrants) for B0 and B1",
+        ],
+    }
+    (out / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False))
+    print(json.dumps({"recovered": summary["recovered"], "by_partner": summary["by_partner"]}, indent=2))
+    for r in rows:
+        print(f"  sigma={r['sigma_pitch']:.0f} m={r['markers_per_field']:>3d} depth={r['depth_mu']:.0f} {r['partner']:20s} "
+              f"exp={r['expected_shift_pitch']:.0f} ridge={r['peak_lag']} err={r['peak_error_pitch']:.1f} | "
+              f"corr=({r['cc_dy']},{r['cc_dx']}) mag={r['cc_magnitude']:.1f} err={r['cc_error_pitch']:.1f} | "
+              f"cv_ratio={r['cv_ratio']:.2f}")
+    return 0
+
+
 def cmd_geometry_smoke(args: argparse.Namespace) -> int:
     out = Path(args.out) / "geometry_smoke"
     out.mkdir(parents=True, exist_ok=True)
@@ -1008,6 +1093,20 @@ def build_parser() -> argparse.ArgumentParser:
     p_br.add_argument("--k", type=int, default=6)
     p_br.add_argument("--seed", type=int, default=0)
     p_br.set_defaults(func=cmd_block_recovery)
+
+    p_dc = sub.add_parser("depth-conditioned", help="depth-conditioned A/B agreement and relations")
+    p_dc.add_argument("--out", default="infra/field_analyzer_20261020")
+    p_dc.add_argument("--seed", type=int, default=0)
+    p_dc.add_argument("--degree", type=int, default=2)
+    p_dc.set_defaults(func=cmd_depth_conditioned)
+
+    p_ss = sub.add_parser("signal-sweep", help="how many markers make the displacement identifiable")
+    p_ss.add_argument("--out", default="infra/field_analyzer_20261020")
+    p_ss.add_argument("--seed", type=int, default=0)
+    p_ss.add_argument("--markers", default="12,36,96")
+    p_ss.add_argument("--depths", default="1,3")
+    p_ss.add_argument("--sigmas", default="9,4")
+    p_ss.set_defaults(func=cmd_signal_sweep)
 
     p_geo = sub.add_parser("geometry-smoke", help="synthetic geometry with a hole and a masked field")
     p_geo.add_argument("--out", default="infra/field_analyzer_20261020")
