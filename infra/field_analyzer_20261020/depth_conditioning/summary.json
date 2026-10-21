@@ -1,0 +1,81 @@
+{
+  "n_sections": 14,
+  "n_units": 8,
+  "depth_r2_median_A": {
+    "B_AXIS": 0.05295612601927738,
+    "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": 0.1143212425968208,
+    "HALLMARK_INTERFERON_GAMMA_RESPONSE": 0.2515524196757345,
+    "HALLMARK_OXIDATIVE_PHOSPHORYLATION": 0.6496787804020691
+  },
+  "map_agreement_before": {
+    "B_AXIS": 0.5651267131449846,
+    "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": 0.8939272568816732,
+    "HALLMARK_INTERFERON_GAMMA_RESPONSE": 0.6815864043650328,
+    "HALLMARK_OXIDATIVE_PHOSPHORYLATION": 0.7897846474558561
+  },
+  "map_agreement_after": {
+    "B_AXIS": 0.5077953145322529,
+    "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": 0.8715780221008781,
+    "HALLMARK_INTERFERON_GAMMA_RESPONSE": 0.6540177633871342,
+    "HALLMARK_OXIDATIVE_PHOSPHORYLATION": 0.36864777193946086
+  },
+  "relation_by_pair": {
+    "B_AXIS~HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+      "before_A": 0.30307115949867636,
+      "after_A": 0.3098221576744614,
+      "before_B": 0.44267040968161253,
+      "after_B": 0.47460364157527823,
+      "sign_consistent_units_after": 8
+    },
+    "B_AXIS~HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "before_A": 0.26127783324657633,
+      "after_A": 0.3045156660264405,
+      "before_B": 0.5500681463543395,
+      "after_B": 0.6023079275273163,
+      "sign_consistent_units_after": 8
+    },
+    "B_AXIS~HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "before_A": -0.10404684243038245,
+      "after_A": -0.042328457410434214,
+      "before_B": -0.1646103355983189,
+      "after_B": -0.08539933886291541,
+      "sign_consistent_units_after": 8
+    },
+    "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION~HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+      "before_A": 0.4992148654344152,
+      "after_A": 0.48910102676212797,
+      "before_B": 0.5158378212585804,
+      "after_B": 0.47876138645590116,
+      "sign_consistent_units_after": 8
+    },
+    "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION~HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "before_A": -0.03825690547256811,
+      "after_A": -0.1798292039583902,
+      "before_B": -0.04496781543947863,
+      "after_B": -0.12229028219883013,
+      "sign_consistent_units_after": 8
+    },
+    "HALLMARK_INTERFERON_GAMMA_RESPONSE~HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+      "before_A": 0.2869353538340028,
+      "after_A": -0.14907621445480151,
+      "before_B": 0.14449271935856908,
+      "after_B": -0.12340745451281135,
+      "sign_consistent_units_after": 6
+    }
+  },
+  "notes": [
+    "depth proxy is log1p(library) with the target-independent denominator; residual = score - quadratic(depth)",
+    "conditioning is descriptive: it can also remove biology that tracks depth",
+    "unit medians: per-unit median first, then median over units"
+  ],
+  "settings": {
+    "seed": 0,
+    "degree": 2,
+    "fields": [
+      "B_AXIS",
+      "HALLMARK_INTERFERON_GAMMA_RESPONSE",
+      "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION",
+      "HALLMARK_OXIDATIVE_PHOSPHORYLATION"
+    ]
+  }
+}
