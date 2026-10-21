@@ -1,0 +1,111 @@
+{
+  "n_sections": 14,
+  "n_units": 8,
+  "n_genes_modelled": 1200,
+  "k": 5,
+  "ridge": 0.01,
+  "holdout_fraction": 0.1,
+  "smoothing_steps": [
+    0,
+    2,
+    5
+  ],
+  "median_holdout_deviance": {
+    "depth_only": 445340.4057130376,
+    "gene_knn": 325161.2738553235,
+    "smooth_0": 445340.4057130376,
+    "smooth_2": 378317.95270287205,
+    "smooth_5": 375568.00119156647
+  },
+  "sections_better_than_depth_only": {
+    "depth_only": 0,
+    "gene_knn": 12,
+    "smooth_0": 0,
+    "smooth_2": 1,
+    "smooth_5": 1
+  },
+  "per_section_best": {
+    "NCBI643": {
+      "best_variant": "gene_knn",
+      "best_deviance": 506123.73646315356,
+      "depth_only_deviance": 630728.3633051177
+    },
+    "NCBI642": {
+      "best_variant": "gene_knn",
+      "best_deviance": 338124.5630785149,
+      "depth_only_deviance": 454795.6795179788
+    },
+    "ZEN48": {
+      "best_variant": "gene_knn",
+      "best_deviance": 494966.0473615432,
+      "depth_only_deviance": 726188.9818459079
+    },
+    "ZEN49": {
+      "best_variant": "gene_knn",
+      "best_deviance": 413714.9463782482,
+      "depth_only_deviance": 652048.4005652021
+    },
+    "ZEN46": {
+      "best_variant": "gene_knn",
+      "best_deviance": 312197.9846321321,
+      "depth_only_deviance": 405810.16087142495
+    },
+    "ZEN47": {
+      "best_variant": "smooth_5",
+      "best_deviance": 385456.3628493524,
+      "depth_only_deviance": 435885.1319080964
+    },
+    "ZEN44": {
+      "best_variant": "gene_knn",
+      "best_deviance": 203154.3601960881,
+      "depth_only_deviance": 271465.14785536646
+    },
+    "ZEN45": {
+      "best_variant": "gene_knn",
+      "best_deviance": 54473.0129010625,
+      "depth_only_deviance": 87494.29159456231
+    },
+    "ZEN39": {
+      "best_variant": "smooth_2",
+      "best_deviance": 176167.46064862507,
+      "depth_only_deviance": 178017.09978488804
+    },
+    "ZEN43": {
+      "best_variant": "gene_knn",
+      "best_deviance": 125480.98278126348,
+      "depth_only_deviance": 129729.59347273385
+    },
+    "ZEN38": {
+      "best_variant": "gene_knn",
+      "best_deviance": 61734.10622061335,
+      "depth_only_deviance": 98919.7975262678
+    },
+    "ZEN42": {
+      "best_variant": "gene_knn",
+      "best_deviance": 289471.4880271632,
+      "depth_only_deviance": 560593.9623453659
+    },
+    "ZEN36": {
+      "best_variant": "gene_knn",
+      "best_deviance": 420408.17426822253,
+      "depth_only_deviance": 779325.9948671272
+    },
+    "ZEN40": {
+      "best_variant": "gene_knn",
+      "best_deviance": 391484.70542432775,
+      "depth_only_deviance": 584644.7873903988
+    }
+  },
+  "louo": {
+    "n_rows": 14,
+    "median_deviance": 445426.81099792966,
+    "n_better_than_depth_only": 8
+  },
+  "notes": [
+    "counts modelled as Poisson; depth offset estimated from genes outside the modelled set",
+    "fitting is least squares on the log-rate scale; every reported number is a Poisson deviance on counts",
+    "spatial prior = iterative kNN graph smoothing of the factor maps (steps x alpha=0.5); 0 steps = no space",
+    "held-out factors are propagated from training spots along the same graph (harmonic extension)",
+    "holdout spots identical across variants (same seed)"
+  ]
+}

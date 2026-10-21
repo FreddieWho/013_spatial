@@ -18,7 +18,7 @@ from pathlib import Path
 import numpy as np
 from scipy import sparse
 
-from . import assets, block_recovery, depth_conditioning as depth_cond, geometry, poisoning, real_relations, real_validation, route_a, route_b, route_c, scales, signal_power, synthetic
+from . import assets, block_recovery, depth_conditioning as depth_cond, factor_model, geometry, poisoning, real_relations, real_validation, route_a, route_b, route_c, scales, signal_power, synthetic
 from .adapters import read_h5ad_counts
 from .observation import fingerprint_arrays, visible_mean_std
 from .pipeline import InputSpec, build_inputs
@@ -1045,6 +1045,172 @@ def cmd_real_holdout(args: argparse.Namespace) -> int:
     return 0
 
 
+
+def _select_hvg(tables, n_top: int = 2000) -> tuple[np.ndarray, np.ndarray]:
+    """Top-variance genes by mean rank of per-section log-normalised variance."""
+    common = None
+    ranks = None
+    for t in tables:
+        counts = t.counts
+        lib = np.maximum(np.asarray(counts.sum(axis=1)).ravel(), 1.0)
+        norm = counts.multiply(1e4 / lib[:, None]).tocsr()
+        mean = np.asarray(norm.mean(axis=0)).ravel()
+        sq = np.asarray(norm.multiply(norm).mean(axis=0)).ravel()
+        var = np.maximum(sq - mean ** 2, 0.0)
+        order = np.argsort(-var)
+        r = np.empty(len(var), dtype=np.float64)
+        r[order] = np.arange(len(var))
+        genes = np.asarray(t.genes).astype(str)
+        if common is None:
+            common = genes.copy()
+            ranks = r.copy()
+        else:
+            shared, ia, ib = np.intersect1d(common, genes, return_indices=True)
+            ranks = ranks[ia] + r[ib]
+            common = shared
+    keep = np.argsort(ranks)[: min(n_top, len(common))]
+    return common[keep], common
+
+
+def _build_section_data(tables, hvg: np.ndarray, unit_of: dict) -> list:
+    out = []
+    for t in tables:
+        genes = np.asarray(t.genes).astype(str)
+        mask = np.isin(genes, hvg)
+        counts = t.counts[:, mask].tocsr()
+        depth = factor_model.estimate_depth(t.counts, mask)
+        support = np.ones(t.n_obs, dtype=bool)
+        if "in_tissue" in t.aux:
+            support = np.asarray(t.aux["in_tissue"]).astype(bool)
+        out.append(factor_model.SectionData(
+            section_id=t.report.path.split("/")[-1].replace(".h5ad", ""),
+            unit_id=unit_of.get(t.report.path, "unknown"),
+            counts=counts, genes=genes[mask], depth=depth, xy=np.asarray(t.xy, dtype=float),
+            visible=support,
+        ))
+    return out
+
+
+def cmd_factor_model(args: argparse.Namespace) -> int:
+    repo, out = Path(args.repo), Path(args.out) / "factor_model"
+    out.mkdir(parents=True, exist_ok=True)
+    identity = assets.read_identity(repo / "infra/field_discovery_review_20261018/identity_review.tsv")
+    unit_of, paths = {}, []
+    for unit in sorted(identity.units):
+        for section in sorted(identity.units[unit]):
+            path = str(repo / "data/other_sources/hest1k/st" / f"{section}.h5ad")
+            unit_of[path] = unit
+            paths.append(path)
+    tables = [read_h5ad_counts(p) for p in paths]
+    hvg, _ = _select_hvg(tables, n_top=args.genes)
+    data = _build_section_data(tables, hvg, unit_of)
+    rng = np.random.default_rng(args.seed)
+    holdouts = [rng.random(len(d.depth)) < args.holdout for d in data]
+    steps_list = [int(s) for s in args.steps.split(",")]
+
+    rows = []
+    for d, h in zip(data, holdouts):
+        rows.append({"variant": "depth_only", **factor_model.depth_only_loglik(d, holdout=h)})
+        rows.append({"variant": "gene_knn", **factor_model.local_gene_knn_loglik(d, holdout=h)})
+        for steps in steps_list:
+            lam, _ = factor_model.fit_shared_loadings(
+                [d], n_factors=args.k, ridge=args.ridge, n_outer=1,
+                n_iter=args.inner, spatial=(steps > 0), seed=args.seed,
+            ) if steps == 0 else factor_model.fit_shared_loadings(
+                [d], n_factors=args.k, ridge=args.ridge, n_outer=1,
+                n_iter=args.inner, spatial=True, n_smooth=steps, seed=args.seed,
+            )
+            res = factor_model.heldout_spot_loglik(
+                d, lam, holdout=h, n_factors=args.k, ridge=args.ridge,
+                spatial=(steps > 0), n_smooth=steps, n_iter=args.inner, seed=args.seed,
+            )
+            res["variant"] = f"smooth_{steps}"
+            rows.append(res)
+
+    units = sorted({d.unit_id for d in data})
+    best_steps = int(args.steps.split(",")[-1])
+    louo_rows = []
+    for held in units:
+        train = [d for d in data if d.unit_id != held]
+        test = [d for d in data if d.unit_id == held]
+        if len(train) < 3:
+            continue
+        lam, _ = factor_model.fit_shared_loadings(
+            train, n_factors=args.k, ridge=args.ridge, n_outer=args.outer,
+            n_iter=args.inner, spatial=True, n_smooth=best_steps, seed=args.seed,
+        )
+        for d in test:
+            h = np.zeros(len(d.depth), dtype=bool)
+            h[: max(1, int(args.holdout * len(h)))] = True
+            res = factor_model.heldout_spot_loglik(
+                d, lam, holdout=h, n_factors=args.k, ridge=args.ridge,
+                spatial=True, n_smooth=best_steps, n_iter=args.inner, seed=args.seed,
+            )
+            louo_rows.append({"held_unit": held, "steps": best_steps, **res})
+
+    assets.write_tsv(rows, out / "spot_holdout.tsv")
+    assets.write_tsv(louo_rows, out / "louo_spot_holdout.tsv")
+    np.savez_compressed(out / "loadings.npz", loadings=lam, genes=hvg)
+
+    def agg(variant: str, key: str) -> float:
+        vals = [float(r[key]) for r in rows if r["variant"] == variant]
+        return float(np.median(vals)) if vals else float("nan")
+
+    variants = sorted({r["variant"] for r in rows})
+    per_section = {}
+    for d in data:
+        sub = [r for r in rows if r["section_id"] == d.section_id]
+        depth_row = next((r for r in sub if r["variant"] == "depth_only"), None)
+        best = min(sub, key=lambda r: r["deviance"])
+        per_section[d.section_id] = {
+            "best_variant": best["variant"],
+            "best_deviance": float(best["deviance"]),
+            "depth_only_deviance": float(depth_row["deviance"]) if depth_row else None,
+        }
+    summary = {
+        "n_sections": len(data),
+        "n_units": len(units),
+        "n_genes_modelled": int(len(hvg)),
+        "k": args.k,
+        "ridge": args.ridge,
+        "holdout_fraction": args.holdout,
+        "smoothing_steps": steps_list,
+        "median_holdout_deviance": {v: agg(v, "deviance") for v in variants},
+        "sections_better_than_depth_only": {
+            v: int(sum(1 for s in per_section.values()
+                       if s["best_variant"] == v
+                       and s["depth_only_deviance"] is not None
+                       and s["best_deviance"] < s["depth_only_deviance"]))
+            for v in variants
+        },
+        "per_section_best": per_section,
+        "louo": {
+            "n_rows": len(louo_rows),
+            "median_deviance": float(np.median([r["deviance"] for r in louo_rows])) if louo_rows else float("nan"),
+            "n_better_than_depth_only": int(sum(
+                1 for r in louo_rows
+                if any(d["variant"] == "depth_only" and d["section_id"] == r["section_id"]
+                       and r["deviance"] < d["deviance"] for d in rows)
+            )),
+        },
+        "notes": [
+            "counts modelled as Poisson; depth offset estimated from genes outside the modelled set",
+            "fitting is least squares on the log-rate scale; every reported number is a Poisson deviance on counts",
+            "spatial prior = iterative kNN graph smoothing of the factor maps (steps x alpha=0.5); 0 steps = no space",
+            "held-out factors are propagated from training spots along the same graph (harmonic extension)",
+            "holdout spots identical across variants (same seed)",
+        ],
+    }
+    (out / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False))
+    print(json.dumps({
+        "n_sections": summary["n_sections"],
+        "median_holdout_deviance": {k: round(v) for k, v in summary["median_holdout_deviance"].items()},
+        "sections_better_than_depth_only": summary["sections_better_than_depth_only"],
+        "louo": summary["louo"],
+    }, indent=2, ensure_ascii=False))
+    return 0
+
+
 def cmd_geometry_smoke(args: argparse.Namespace) -> int:
     out = Path(args.out) / "geometry_smoke"
     out.mkdir(parents=True, exist_ok=True)
@@ -1255,6 +1421,19 @@ def build_parser() -> argparse.ArgumentParser:
         "B_AXIS->HALLMARK_INTERFERON_GAMMA_RESPONSE,"
         "HALLMARK_INTERFERON_GAMMA_RESPONSE->HALLMARK_OXIDATIVE_PHOSPHORYLATION"))
     p_rh.set_defaults(func=cmd_real_holdout)
+
+    p_fm = sub.add_parser("factor-model", help="count-likelihood hierarchical spatial factor model")
+    p_fm.add_argument("--out", default="infra/field_analyzer_20261020")
+    p_fm.add_argument("--genes", type=int, default=2000)
+    p_fm.add_argument("--k", type=int, default=5)
+    p_fm.add_argument("--centres", type=int, default=60)
+    p_fm.add_argument("--ridge", type=float, default=1e-2)
+    p_fm.add_argument("--outer", type=int, default=4)
+    p_fm.add_argument("--inner", type=int, default=20)
+    p_fm.add_argument("--holdout", type=float, default=0.1)
+    p_fm.add_argument("--steps", default="0,2,5,10")
+    p_fm.add_argument("--seed", type=int, default=0)
+    p_fm.set_defaults(func=cmd_factor_model)
 
     p_geo = sub.add_parser("geometry-smoke", help="synthetic geometry with a hole and a masked field")
     p_geo.add_argument("--out", default="infra/field_analyzer_20261020")

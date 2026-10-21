@@ -1,0 +1,15 @@
+held_unit	steps	section_id	unit_id	n_holdout	loglik	deviance
+https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	5	NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	226	14672662.935513299	663507.7852588831
+https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	5	NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	198	7449287.119023805	497307.2411787011
+https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 1	5	ZEN48	https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 1	238	2463783.093859821	694197.2954963334
+https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 1	5	ZEN49	https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 1	220	2627524.550424707	582544.9380910099
+https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 2	5	ZEN46	https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 2	180	3285090.3506033104	410654.5337947478
+https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 2	5	ZEN47	https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 2	231	2519176.1260640016	428025.4267382117
+https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 3	5	ZEN44	https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 3	104	612587.0990671013	231313.3303832367
+https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 3	5	ZEN45	https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 3	32	398491.65978067205	85754.04817008699
+https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 4	5	ZEN39	https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 4	121	-62922.64772965701	172203.50085019856
+https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 4	5	ZEN43	https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 4	69	533712.6401573301	135676.81980084837
+https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5	5	ZEN38	https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5	38	484309.39283428236	125404.40444087583
+https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5	5	ZEN42	https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5	119	1938759.721414975	462828.19525764766
+https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7	5	ZEN36	https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7	169	4256276.161207734	1005674.7292737223
+https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7	5	ZEN40	https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7	212	1461266.19140599	527368.8651082617

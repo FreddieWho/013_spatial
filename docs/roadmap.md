@@ -38,6 +38,7 @@
 | FA-07B | 观察信号提升与估计器更正（定向跟进） | FA-03B/FA-02 | AF-02 | [`REPORT_FA07B`](../infra/field_analyzer_20261020/REPORT_FA07B.md)：marker 12→96、深度×3、σ9→4 均不改变 ridge 的 lag-0 失败；**互相关估计器 12/12 恢复 6–8 pitch**；只更正 FA-03B 的位移归因，不改变 AF-02（连接）判定 | DELIVERED（10-20） |
 | FA-08A | 真实材料跨场位移（定向跟进） | FA-07B/FA-04 | AF-01/02 | [`REPORT_FA08A`](../infra/field_analyzer_20261020/REPORT_FA08A.md)：零对照自身给出 9.9–12.8 pitch 峰；真实大位移贴边界（7–8/14）且 A/B 不一致 → **真实位移不可用**；仅 OXPHOS 相关对 contrast 高于零对照（共享梯度） | DELIVERED（10-20，复核通过） |
 | FA-08B | 存活关系的跨单位留出（定向跟进） | FA-07A/FA-04 | AF-01/04 | [`REPORT_FA08B`](../infra/field_analyzer_20261020/REPORT_FA08B.md)：留一单位 8 折；IFN←B_AXIS R²=0.266（8/8 单位正）、IFN←EMT 0.229、EMT←B_AXIS 0.191（同特征片内 in-sample 上限的 74–99%）；IFN→OXPHOS 0.012 不迁移 | DELIVERED（10-20，复核通过；首次单位级迁移正面证据） |
+| FA-10 | 路线 A：计数似然分层空间因子模型 | FA-09 数据、FA-08B | AF-01/03 | [`REPORT_FA10`](../infra/field_analyzer_20261020/REPORT_FA10.md)：14片留出10% spot的 Poisson deviance——depth-only 445,340；因子+2步平滑 378,318（−15%）；**逐基因kNN 325,161（−27%，12/14片最优）**；留一单位后增益消失（445,427） | DELIVERED（10-20，结论：未超过局部平滑） |
 
 ## 任务分组与并行
 
