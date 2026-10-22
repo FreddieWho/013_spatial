@@ -1,0 +1,50 @@
+{
+  "synthetic_positive": {
+    "n_units": 6,
+    "n_positive": 6,
+    "median_delta_r2": 0.4435090265760705,
+    "median_r2_m0": 0.5309750797394404,
+    "median_r2_m1": 0.9754104880045751,
+    "passes": true
+  },
+  "synthetic_negative": {
+    "n_units": 6,
+    "n_positive": 4,
+    "median_delta_r2": 0.00010470428446568425,
+    "passes": true
+  },
+  "separate_models": {
+    "same_only_median_r2": 0.5309750797394404,
+    "cross_only_median_r2": 0.46538521571317626,
+    "joint_median_r2": 0.9754104880045751,
+    "cross_weaker_than_same": true,
+    "joint_beats_same": true
+  },
+  "poison": {
+    "features_identical": true,
+    "truth_changed": true,
+    "calibration_params_identical": true,
+    "coefficients_identical": true,
+    "predictions_identical": true,
+    "n_hidden": 37,
+    "n_q": 37,
+    "n_fit": 363
+  },
+  "real_section_poison": {
+    "section_id": "NCBI643",
+    "n_points": 2261,
+    "n_q": 240,
+    "n_hidden": 240,
+    "features_identical": true,
+    "calibration_identical": true,
+    "coefficients_identical": true,
+    "predictions_identical": true,
+    "truth_changed": true
+  },
+  "verdict": {
+    "positive_has_increment": true,
+    "negative_has_no_increment": true,
+    "hidden_poison_leaves_inputs_unchanged": true,
+    "hidden_poison_changes_truth": true
+  }
+}

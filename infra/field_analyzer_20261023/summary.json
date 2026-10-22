@@ -1,0 +1,572 @@
+{
+  "units": [
+    "https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a",
+    "https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b",
+    "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 1",
+    "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 2",
+    "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 3",
+    "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 4",
+    "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5",
+    "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7"
+  ],
+  "sections": [
+    {
+      "section_id": "NCBI643",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a",
+      "n_points": 2261,
+      "n_in_tissue": 2261,
+      "n_q": 240,
+      "n_observed": 2021,
+      "n_genes": 36601,
+      "genes_a": {
+        "EMT": 133,
+        "IFNG": 131,
+        "OXPHOS": 133
+      },
+      "genes_b": {
+        "EMT": 67,
+        "IFNG": 65,
+        "OXPHOS": 67
+      },
+      "n_background": 36011
+    },
+    {
+      "section_id": "NCBI642",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b",
+      "n_points": 1987,
+      "n_in_tissue": 1987,
+      "n_q": 200,
+      "n_observed": 1787,
+      "n_genes": 36601,
+      "genes_a": {
+        "EMT": 133,
+        "IFNG": 131,
+        "OXPHOS": 133
+      },
+      "genes_b": {
+        "EMT": 67,
+        "IFNG": 65,
+        "OXPHOS": 67
+      },
+      "n_background": 36011
+    },
+    {
+      "section_id": "ZEN48",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 1",
+      "n_points": 2385,
+      "n_in_tissue": 2385,
+      "n_q": 273,
+      "n_observed": 2112,
+      "n_genes": 36601,
+      "genes_a": {
+        "EMT": 133,
+        "IFNG": 131,
+        "OXPHOS": 133
+      },
+      "genes_b": {
+        "EMT": 67,
+        "IFNG": 65,
+        "OXPHOS": 67
+      },
+      "n_background": 36011
+    },
+    {
+      "section_id": "ZEN49",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 1",
+      "n_points": 2203,
+      "n_in_tissue": 2203,
+      "n_q": 209,
+      "n_observed": 1994,
+      "n_genes": 36601,
+      "genes_a": {
+        "EMT": 133,
+        "IFNG": 131,
+        "OXPHOS": 133
+      },
+      "genes_b": {
+        "EMT": 67,
+        "IFNG": 65,
+        "OXPHOS": 67
+      },
+      "n_background": 36011
+    },
+    {
+      "section_id": "ZEN46",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 2",
+      "n_points": 1803,
+      "n_in_tissue": 1803,
+      "n_q": 165,
+      "n_observed": 1638,
+      "n_genes": 36601,
+      "genes_a": {
+        "EMT": 133,
+        "IFNG": 131,
+        "OXPHOS": 133
+      },
+      "genes_b": {
+        "EMT": 67,
+        "IFNG": 65,
+        "OXPHOS": 67
+      },
+      "n_background": 36011
+    },
+    {
+      "section_id": "ZEN47",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 2",
+      "n_points": 2317,
+      "n_in_tissue": 2317,
+      "n_q": 214,
+      "n_observed": 2103,
+      "n_genes": 36601,
+      "genes_a": {
+        "EMT": 133,
+        "IFNG": 131,
+        "OXPHOS": 133
+      },
+      "genes_b": {
+        "EMT": 67,
+        "IFNG": 65,
+        "OXPHOS": 67
+      },
+      "n_background": 36011
+    },
+    {
+      "section_id": "ZEN44",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 3",
+      "n_points": 1048,
+      "n_in_tissue": 1048,
+      "n_q": 103,
+      "n_observed": 945,
+      "n_genes": 36601,
+      "genes_a": {
+        "EMT": 133,
+        "IFNG": 131,
+        "OXPHOS": 133
+      },
+      "genes_b": {
+        "EMT": 67,
+        "IFNG": 65,
+        "OXPHOS": 67
+      },
+      "n_background": 36011
+    },
+    {
+      "section_id": "ZEN45",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 3",
+      "n_points": 328,
+      "n_in_tissue": 328,
+      "n_q": 32,
+      "n_observed": 296,
+      "n_genes": 36601,
+      "genes_a": {
+        "EMT": 133,
+        "IFNG": 131,
+        "OXPHOS": 133
+      },
+      "genes_b": {
+        "EMT": 67,
+        "IFNG": 65,
+        "OXPHOS": 67
+      },
+      "n_background": 36011
+    },
+    {
+      "section_id": "ZEN39",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 4",
+      "n_points": 1219,
+      "n_in_tissue": 1219,
+      "n_q": 138,
+      "n_observed": 1081,
+      "n_genes": 36601,
+      "genes_a": {
+        "EMT": 133,
+        "IFNG": 131,
+        "OXPHOS": 133
+      },
+      "genes_b": {
+        "EMT": 67,
+        "IFNG": 65,
+        "OXPHOS": 67
+      },
+      "n_background": 36011
+    },
+    {
+      "section_id": "ZEN43",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 4",
+      "n_points": 691,
+      "n_in_tissue": 691,
+      "n_q": 75,
+      "n_observed": 616,
+      "n_genes": 36601,
+      "genes_a": {
+        "EMT": 133,
+        "IFNG": 131,
+        "OXPHOS": 133
+      },
+      "genes_b": {
+        "EMT": 67,
+        "IFNG": 65,
+        "OXPHOS": 67
+      },
+      "n_background": 36011
+    },
+    {
+      "section_id": "ZEN38",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5",
+      "n_points": 387,
+      "n_in_tissue": 387,
+      "n_q": 41,
+      "n_observed": 346,
+      "n_genes": 36601,
+      "genes_a": {
+        "EMT": 133,
+        "IFNG": 131,
+        "OXPHOS": 133
+      },
+      "genes_b": {
+        "EMT": 67,
+        "IFNG": 65,
+        "OXPHOS": 67
+      },
+      "n_background": 36011
+    },
+    {
+      "section_id": "ZEN42",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5",
+      "n_points": 1192,
+      "n_in_tissue": 1192,
+      "n_q": 115,
+      "n_observed": 1077,
+      "n_genes": 36601,
+      "genes_a": {
+        "EMT": 133,
+        "IFNG": 131,
+        "OXPHOS": 133
+      },
+      "genes_b": {
+        "EMT": 67,
+        "IFNG": 65,
+        "OXPHOS": 67
+      },
+      "n_background": 36011
+    },
+    {
+      "section_id": "ZEN36",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7",
+      "n_points": 1691,
+      "n_in_tissue": 1691,
+      "n_q": 177,
+      "n_observed": 1514,
+      "n_genes": 36601,
+      "genes_a": {
+        "EMT": 133,
+        "IFNG": 131,
+        "OXPHOS": 133
+      },
+      "genes_b": {
+        "EMT": 67,
+        "IFNG": 65,
+        "OXPHOS": 67
+      },
+      "n_background": 36011
+    },
+    {
+      "section_id": "ZEN40",
+      "unit_id": "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7",
+      "n_points": 2128,
+      "n_in_tissue": 2128,
+      "n_q": 216,
+      "n_observed": 1912,
+      "n_genes": 36601,
+      "genes_a": {
+        "EMT": 133,
+        "IFNG": 131,
+        "OXPHOS": 133
+      },
+      "genes_b": {
+        "EMT": 67,
+        "IFNG": 65,
+        "OXPHOS": 67
+      },
+      "n_background": 36011
+    }
+  ],
+  "settings": {
+    "k": 8,
+    "alpha": 1.0,
+    "q_fraction": 0.1,
+    "seed": 0,
+    "rules": [
+      [
+        "EMT",
+        "IFNG"
+      ],
+      [
+        "IFNG",
+        "OXPHOS"
+      ]
+    ],
+    "stable_units": 6,
+    "fields": [
+      "EMT",
+      "IFNG",
+      "OXPHOS"
+    ],
+    "panel_path": "infra/tls_multiscale_gobp_20261002/panel_controls.json"
+  },
+  "single_feature_references": {
+    "EMT<-IFNG|A/B|conditioned": {
+      "same_only_median_r2": 0.4988541090242126,
+      "cross_only_median_r2": 0.16531118469739442,
+      "n_units": 8
+    },
+    "EMT<-IFNG|A/B|unconditioned": {
+      "same_only_median_r2": 0.5199689645510706,
+      "cross_only_median_r2": 0.18146651968293015,
+      "n_units": 8
+    },
+    "EMT<-IFNG|B/A|conditioned": {
+      "same_only_median_r2": 0.5236193349632312,
+      "cross_only_median_r2": 0.16720546917642787,
+      "n_units": 8
+    },
+    "EMT<-IFNG|B/A|unconditioned": {
+      "same_only_median_r2": 0.5684527307308618,
+      "cross_only_median_r2": 0.19622558505740756,
+      "n_units": 8
+    },
+    "IFNG<-OXPHOS|A/B|conditioned": {
+      "same_only_median_r2": 0.3723438863954182,
+      "cross_only_median_r2": 0.033732263695239295,
+      "n_units": 8
+    },
+    "IFNG<-OXPHOS|A/B|unconditioned": {
+      "same_only_median_r2": 0.36116904295181174,
+      "cross_only_median_r2": 0.01170914460201472,
+      "n_units": 8
+    },
+    "IFNG<-OXPHOS|B/A|conditioned": {
+      "same_only_median_r2": 0.3136356612254179,
+      "cross_only_median_r2": 0.012681721420159442,
+      "n_units": 8
+    },
+    "IFNG<-OXPHOS|B/A|unconditioned": {
+      "same_only_median_r2": 0.3640614891025174,
+      "cross_only_median_r2": 0.032438928751704454,
+      "n_units": 8
+    }
+  },
+  "summary": {
+    "EMT<-IFNG|A/B|conditioned": {
+      "target": "EMT",
+      "predictor": "IFNG",
+      "feature_half": "A",
+      "truth_half": "B",
+      "protocol": "conditioned",
+      "n_units": 8,
+      "n_positive": 2,
+      "median_delta_r2": -0.0018730296239617972,
+      "mean_delta_r2": -0.00435681251361722,
+      "median_r2_m0": 0.4988541090242126,
+      "median_r2_m1": 0.4893093309063752,
+      "unit_delta_r2": {
+        "https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a": 0.000747625629011095,
+        "https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b": -0.004628244596201592,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 1": -0.007478902776082763,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 2": -0.01983718186468597,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 3": -0.0019964680222406272,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 4": -0.001749591225682967,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5": 0.00028910901199785677,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7": -0.0002008462650527898
+      },
+      "stable": false,
+      "decision_rule": "stable = >= 6 of >= 6 units with delta_r2 > 0 (descriptive consistency, no magnitude threshold)",
+      "n_not_testable": 0
+    },
+    "EMT<-IFNG|A/B|unconditioned": {
+      "target": "EMT",
+      "predictor": "IFNG",
+      "feature_half": "A",
+      "truth_half": "B",
+      "protocol": "unconditioned",
+      "n_units": 8,
+      "n_positive": 2,
+      "median_delta_r2": -0.0006278237063884751,
+      "mean_delta_r2": -0.003275085320596463,
+      "median_r2_m0": 0.5199689645510706,
+      "median_r2_m1": 0.5128270928978131,
+      "unit_delta_r2": {
+        "https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a": 0.00039805283489335874,
+        "https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b": -0.006571498629463379,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 1": -0.005032929961988897,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 2": -0.014172527572177684,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 3": 0.0005450839110792138,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 4": -0.0010853514694074695,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5": -0.00011121573433736653,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7": -0.00017029594336948062
+      },
+      "stable": false,
+      "decision_rule": "stable = >= 6 of >= 6 units with delta_r2 > 0 (descriptive consistency, no magnitude threshold)",
+      "n_not_testable": 0
+    },
+    "EMT<-IFNG|B/A|conditioned": {
+      "target": "EMT",
+      "predictor": "IFNG",
+      "feature_half": "B",
+      "truth_half": "A",
+      "protocol": "conditioned",
+      "n_units": 8,
+      "n_positive": 5,
+      "median_delta_r2": 0.0014826764316698826,
+      "mean_delta_r2": 0.00018373201301737085,
+      "median_r2_m0": 0.5236193349632312,
+      "median_r2_m1": 0.5265957026460979,
+      "unit_delta_r2": {
+        "https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a": 0.0021804585037829005,
+        "https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b": -0.0025708492620779566,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 1": -0.004817898273346555,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 2": 0.0037722768619505853,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 3": 0.002132281393148694,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 4": 0.0008330714701910713,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5": -0.0036893421950013883,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7": 0.0036298576054916154
+      },
+      "stable": false,
+      "decision_rule": "stable = >= 6 of >= 6 units with delta_r2 > 0 (descriptive consistency, no magnitude threshold)",
+      "n_not_testable": 0
+    },
+    "EMT<-IFNG|B/A|unconditioned": {
+      "target": "EMT",
+      "predictor": "IFNG",
+      "feature_half": "B",
+      "truth_half": "A",
+      "protocol": "unconditioned",
+      "n_units": 8,
+      "n_positive": 4,
+      "median_delta_r2": -2.679318086939997e-05,
+      "mean_delta_r2": -0.00013474540937345736,
+      "median_r2_m0": 0.5684527307308618,
+      "median_r2_m1": 0.5683605045065538,
+      "unit_delta_r2": {
+        "https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a": 0.0017976452824240985,
+        "https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b": -0.0024734189121328187,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 1": -0.004539920705942557,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 2": 0.0029877684319967734,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 3": -0.0001513871703903158,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 4": 9.780080865151586e-05,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5": -0.0031722208806124197,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7": 0.004375769871018065
+      },
+      "stable": false,
+      "decision_rule": "stable = >= 6 of >= 6 units with delta_r2 > 0 (descriptive consistency, no magnitude threshold)",
+      "n_not_testable": 0
+    },
+    "IFNG<-OXPHOS|A/B|conditioned": {
+      "target": "IFNG",
+      "predictor": "OXPHOS",
+      "feature_half": "A",
+      "truth_half": "B",
+      "protocol": "conditioned",
+      "n_units": 8,
+      "n_positive": 5,
+      "median_delta_r2": 0.0021246800777424135,
+      "mean_delta_r2": 0.00145933742803607,
+      "median_r2_m0": 0.3723438863954182,
+      "median_r2_m1": 0.37128191164696317,
+      "unit_delta_r2": {
+        "https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a": -0.0013608333988751609,
+        "https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b": 0.011913702258586123,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 1": -0.0007631160980349216,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 2": 0.0011610607234739945,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 3": 0.004188329327304285,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 4": 0.004089629318181576,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5": -0.01064237213835817,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7": 0.0030882994320108326
+      },
+      "stable": false,
+      "decision_rule": "stable = >= 6 of >= 6 units with delta_r2 > 0 (descriptive consistency, no magnitude threshold)",
+      "n_not_testable": 0
+    },
+    "IFNG<-OXPHOS|A/B|unconditioned": {
+      "target": "IFNG",
+      "predictor": "OXPHOS",
+      "feature_half": "A",
+      "truth_half": "B",
+      "protocol": "unconditioned",
+      "n_units": 8,
+      "n_positive": 7,
+      "median_delta_r2": 0.01024473596474662,
+      "mean_delta_r2": 0.012992784280350667,
+      "median_r2_m0": 0.36116904295181174,
+      "median_r2_m1": 0.3760486361889077,
+      "unit_delta_r2": {
+        "https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a": 0.018148817881516455,
+        "https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b": 0.0027189461019394567,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 1": 0.011610368592675502,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 2": -0.00933710959717704,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 3": 0.043732835049781316,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 4": 0.00887910333681774,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5": 0.006467622043602517,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7": 0.021721690833649387
+      },
+      "stable": true,
+      "decision_rule": "stable = >= 6 of >= 6 units with delta_r2 > 0 (descriptive consistency, no magnitude threshold)",
+      "n_not_testable": 0
+    },
+    "IFNG<-OXPHOS|B/A|conditioned": {
+      "target": "IFNG",
+      "predictor": "OXPHOS",
+      "feature_half": "B",
+      "truth_half": "A",
+      "protocol": "conditioned",
+      "n_units": 8,
+      "n_positive": 3,
+      "median_delta_r2": -0.0005663182402269595,
+      "mean_delta_r2": -0.000978521806813154,
+      "median_r2_m0": 0.3136356612254179,
+      "median_r2_m1": 0.31754658721799023,
+      "unit_delta_r2": {
+        "https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a": 0.007817143028584606,
+        "https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b": -0.02248270770729699,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 1": -0.0005374534045752277,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 2": -0.0012849523308872124,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 3": -0.0005951830758786913,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 4": -0.0018585576097426282,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5": 0.008359305389719851,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7": 0.00275423125557106
+      },
+      "stable": false,
+      "decision_rule": "stable = >= 6 of >= 6 units with delta_r2 > 0 (descriptive consistency, no magnitude threshold)",
+      "n_not_testable": 0
+    },
+    "IFNG<-OXPHOS|B/A|unconditioned": {
+      "target": "IFNG",
+      "predictor": "OXPHOS",
+      "feature_half": "B",
+      "truth_half": "A",
+      "protocol": "unconditioned",
+      "n_units": 8,
+      "n_positive": 7,
+      "median_delta_r2": 0.0077825043522882775,
+      "mean_delta_r2": 0.011213338916201271,
+      "median_r2_m0": 0.3640614891025174,
+      "median_r2_m1": 0.37891291918171366,
+      "unit_delta_r2": {
+        "https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a": -0.00925256506252825,
+        "https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b": 0.050163264604783375,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 1": 0.014704881875379439,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 2": 0.009536171842780883,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 3": 0.006028836861795672,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 4": 0.014089029667752828,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5": 0.0038367853046551437,
+        "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7": 0.000600306234991077
+      },
+      "stable": true,
+      "decision_rule": "stable = >= 6 of >= 6 units with delta_r2 > 0 (descriptive consistency, no magnitude threshold)",
+      "n_not_testable": 0
+    }
+  },
+  "n_unit_rows": 64,
+  "n_section_rows": 112,
+  "wall_seconds": 17.8
+}

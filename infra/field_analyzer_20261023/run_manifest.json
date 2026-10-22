@@ -1,0 +1,67 @@
+{
+  "run_id": "fa13_conditional_relations_20261023",
+  "status": "PARTIAL",
+  "git_commit": null,
+  "task": "ANALYZE",
+  "observation_contract": {
+    "known_coordinates": true,
+    "hidden_expression_available": false,
+    "witness_available_to_model": false,
+    "human_tls_used": false,
+    "coordinate_unit": "source_pixels",
+    "note": "邻域用 k=8 最近观测点，未使用任何以微米为单位的半径；坐标保持原始 HEST 像素，未断言像素到微米换算。"
+  },
+  "input_assets": [
+    {
+      "path": "data/other_sources/hest1k/st/{section_id}.h5ad",
+      "availability": "VERIFIED_LOCAL",
+      "reuse_decision": "ADAPT",
+      "provenance": "14 pilot sections read via field_analyzer.adapters.read_h5ad_counts (allowlisted X/var/_index/obs/_index/obs/in_tissue/obsm/spatial)"
+    },
+    {
+      "path": "infra/field_discovery_review_20261018/identity_review.tsv",
+      "availability": "VERIFIED_LOCAL",
+      "reuse_decision": "REUSE",
+      "provenance": "8 within-study units / 14 sections; unknown identities stay unknown"
+    },
+    {
+      "path": "infra/tls_multiscale_gobp_20261002/panel_controls.json",
+      "availability": "VERIFIED_LOCAL",
+      "reuse_decision": "ADAPT",
+      "provenance": "EMT/IFNG/OXPHOS definitions; gene halves by field_analyzer.roles (seed 0)"
+    },
+    {
+      "path": "data/other_sources/10x_genomics",
+      "availability": "VERIFIED_LOCAL",
+      "reuse_decision": "HISTORICAL_ONLY",
+      "provenance": "read-only archive inventory in local_asset_fit.tsv; not used by FA-13 models"
+    }
+  ],
+  "training_role": "GROUPED_TRANSFER",
+  "models": [
+    {
+      "model_id": "M0_own_neighbourhood_ridge",
+      "implementation_status": "COMPLETED",
+      "official_or_adapted": "classical_baseline"
+    },
+    {
+      "model_id": "M1_own_plus_cross_neighbourhood_ridge",
+      "implementation_status": "COMPLETED",
+      "official_or_adapted": "classical_baseline"
+    },
+    {
+      "model_id": "single_feature_references_same_cross",
+      "implementation_status": "COMPLETED",
+      "official_or_adapted": "classical_baseline"
+    }
+  ],
+  "results_scope": "ENGINEERING_ONLY",
+  "limitations": [
+    "DELIVERED_PENDING_REVIEW: independent Grok review not closed",
+    "exploratory follow-up after seeing historical results; not a confirmatory test on unseen data",
+    "no matching spatial null distribution or independent structural evidence; no mechanism claim",
+    "OXPHOS depth-sensitive control shows a positive increment only without depth conditioning; that variant is sensitivity, not the decision variant",
+    "14 sections / 8 within-study units only; section counts are not patient counts",
+    "10x Xenium/Visium HD archives: gene axes only partially read (bounded scan); Visium HD gene axes not read"
+  ]
+}

@@ -1,0 +1,15 @@
+section_id	unit_id	n_points	n_in_tissue	n_q	n_observed	n_genes	genes_a	genes_b	n_background
+NCBI643	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient a	2261	2261	240	2021	36601	{"EMT": 133, "IFNG": 131, "OXPHOS": 133}	{"EMT": 67, "IFNG": 65, "OXPHOS": 67}	36011
+NCBI642	https-www-biorxiv-org-content-10-1101-2022-11-09-515839v1-full::Patient b	1987	1987	200	1787	36601	{"EMT": 133, "IFNG": 131, "OXPHOS": 133}	{"EMT": 67, "IFNG": 65, "OXPHOS": 67}	36011
+ZEN48	https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 1	2385	2385	273	2112	36601	{"EMT": 133, "IFNG": 131, "OXPHOS": 133}	{"EMT": 67, "IFNG": 65, "OXPHOS": 67}	36011
+ZEN49	https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 1	2203	2203	209	1994	36601	{"EMT": 133, "IFNG": 131, "OXPHOS": 133}	{"EMT": 67, "IFNG": 65, "OXPHOS": 67}	36011
+ZEN46	https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 2	1803	1803	165	1638	36601	{"EMT": 133, "IFNG": 131, "OXPHOS": 133}	{"EMT": 67, "IFNG": 65, "OXPHOS": 67}	36011
+ZEN47	https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 2	2317	2317	214	2103	36601	{"EMT": 133, "IFNG": 131, "OXPHOS": 133}	{"EMT": 67, "IFNG": 65, "OXPHOS": 67}	36011
+ZEN44	https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 3	1048	1048	103	945	36601	{"EMT": 133, "IFNG": 131, "OXPHOS": 133}	{"EMT": 67, "IFNG": 65, "OXPHOS": 67}	36011
+ZEN45	https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 3	328	328	32	296	36601	{"EMT": 133, "IFNG": 131, "OXPHOS": 133}	{"EMT": 67, "IFNG": 65, "OXPHOS": 67}	36011
+ZEN39	https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 4	1219	1219	138	1081	36601	{"EMT": 133, "IFNG": 131, "OXPHOS": 133}	{"EMT": 67, "IFNG": 65, "OXPHOS": 67}	36011
+ZEN43	https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 4	691	691	75	616	36601	{"EMT": 133, "IFNG": 131, "OXPHOS": 133}	{"EMT": 67, "IFNG": 65, "OXPHOS": 67}	36011
+ZEN38	https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5	387	387	41	346	36601	{"EMT": 133, "IFNG": 131, "OXPHOS": 133}	{"EMT": 67, "IFNG": 65, "OXPHOS": 67}	36011
+ZEN42	https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5	1192	1192	115	1077	36601	{"EMT": 133, "IFNG": 131, "OXPHOS": 133}	{"EMT": 67, "IFNG": 65, "OXPHOS": 67}	36011
+ZEN36	https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7	1691	1691	177	1514	36601	{"EMT": 133, "IFNG": 131, "OXPHOS": 133}	{"EMT": 67, "IFNG": 65, "OXPHOS": 67}	36011
+ZEN40	https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7	2128	2128	216	1912	36601	{"EMT": 133, "IFNG": 131, "OXPHOS": 133}	{"EMT": 67, "IFNG": 65, "OXPHOS": 67}	36011

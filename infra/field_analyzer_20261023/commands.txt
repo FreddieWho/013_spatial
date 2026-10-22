@@ -1,0 +1,8 @@
+# FA-13 真实运行命令（CPU，8 线程，CUDA_VISIBLE_DEVICES=-1）
+cd /home/huyudi/013_spatial
+PYTHONNOUSERSITE=1 OMP_NUM_THREADS=8 CUDA_VISIBLE_DEVICES=-1 python scripts/field_analyzer_conditional_20261023.py smoke
+PYTHONNOUSERSITE=1 OMP_NUM_THREADS=8 CUDA_VISIBLE_DEVICES=-1 python scripts/field_analyzer_conditional_20261023.py run
+PYTHONNOUSERSITE=1 OMP_NUM_THREADS=4 CUDA_VISIBLE_DEVICES=-1 python scripts/field_analyzer_conditional_20261023.py assets
+PYTHONNOUSERSITE=1 OMP_NUM_THREADS=4 CUDA_VISIBLE_DEVICES=-1 python -m pytest tests/test_fa_conditional_relations.py -q
+# 单特征参照（写入 summary.json -> single_feature_references）用同一模块：
+#   cr.run_single_feature(designs, target, predictor, feature='same'|'cross', feature_half, truth_half, conditioned)
