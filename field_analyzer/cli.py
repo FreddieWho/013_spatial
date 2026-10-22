@@ -18,7 +18,7 @@ from pathlib import Path
 import numpy as np
 from scipy import sparse
 
-from . import assets, block_recovery, depth_conditioning as depth_cond, factor_model, geometry, niche_graph, poisoning, real_relations, real_validation, route_a, route_b, route_c, scales, signal_power, synthetic
+from . import assets, block_recovery, depth_conditioning as depth_cond, factor_model, geometry, niche_graph, poisoning, real_relations, real_validation, route_a, route_b, route_c, scales, signal_power, spatial_lag, synthetic
 from .adapters import read_h5ad_counts
 from .observation import fingerprint_arrays, visible_mean_std
 from .pipeline import InputSpec, build_inputs
@@ -998,6 +998,29 @@ def cmd_real_displacement(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_spatial_lag(args: argparse.Namespace) -> int:
+    repo, out = Path(args.repo), Path(args.out) / "spatial_lag"
+    out.mkdir(parents=True, exist_ok=True)
+    panel = load_panel(repo)
+    fields = {fid: panel[fid] for fid in PILOT_FIELDS if fid in panel}
+    sections = _load_section_scores(repo, fields, args.seed)
+    pairs = [tuple(p.split("->")) for p in args.pairs.split(",")]
+    rows = []
+    rows.extend(spatial_lag.compare_pairs(
+        sections, pairs, conditioned=not args.no_condition, holdout_fraction=args.holdout,
+        seed=args.seed, k=args.k, alpha=args.alpha, protocol="masked",
+    ))
+    rows.extend(spatial_lag.compare_pairs(
+        sections, pairs, conditioned=not args.no_condition, holdout_fraction=0.0,
+        seed=args.seed, k=args.k, alpha=args.alpha, protocol="full",
+    ))
+    summary = spatial_lag.summarise(rows)
+    assets.write_tsv(rows, out / "unit_results.tsv")
+    (out / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False))
+    print(json.dumps(summary, indent=2, ensure_ascii=False))
+    return 0
+
+
 def cmd_real_holdout(args: argparse.Namespace) -> int:
     repo, out = Path(args.repo), Path(args.out) / "real_holdout"
     out.mkdir(parents=True, exist_ok=True)
@@ -1532,6 +1555,20 @@ def build_parser() -> argparse.ArgumentParser:
     p_rd.add_argument("--step", type=float, default=2.0)
     p_rd.add_argument("--tolerance", type=float, default=0.6)
     p_rd.set_defaults(func=cmd_real_displacement)
+
+    p_sl = sub.add_parser("spatial-lag", help="cross-field neighbour versus same-field neighbour")
+    p_sl.add_argument("--out", default="infra/field_analyzer_20261020")
+    p_sl.add_argument("--seed", type=int, default=0)
+    p_sl.add_argument("--alpha", type=float, default=1.0)
+    p_sl.add_argument("--k", type=int, default=6)
+    p_sl.add_argument("--holdout", type=float, default=0.1)
+    p_sl.add_argument("--no-condition", action="store_true")
+    p_sl.add_argument("--pairs", default=(
+        "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION->HALLMARK_INTERFERON_GAMMA_RESPONSE,"
+        "B_AXIS->HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION,"
+        "B_AXIS->HALLMARK_INTERFERON_GAMMA_RESPONSE,"
+        "HALLMARK_INTERFERON_GAMMA_RESPONSE->HALLMARK_OXIDATIVE_PHOSPHORYLATION"))
+    p_sl.set_defaults(func=cmd_spatial_lag)
 
     p_rh = sub.add_parser("real-holdout", help="leave-one-unit-out relation holdout")
     p_rh.add_argument("--out", default="infra/field_analyzer_20261020")

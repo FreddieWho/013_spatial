@@ -1,0 +1,115 @@
+{
+  "by_protocol": {
+    "full": {
+      "B_AXIS<-HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+        "n_units": 8,
+        "n_pass": 0,
+        "n_beat_same": 0,
+        "n_beat_null": 7,
+        "n_beat_same_spot": 3,
+        "median_r2_cross": 0.16320246725429133,
+        "median_r2_same": 0.4900288082473132,
+        "median_r2_same_spot": 0.23688840472120193,
+        "median_r2_rot_137": 0.0014685797505187836,
+        "median_r2_rot_90": -0.001677733293056538,
+        "upgrades": false
+      },
+      "B_AXIS<-HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+        "n_units": 8,
+        "n_pass": 0,
+        "n_beat_same": 0,
+        "n_beat_null": 7,
+        "n_beat_same_spot": 6,
+        "median_r2_cross": 0.25305412812066547,
+        "median_r2_same": 0.4900288082473132,
+        "median_r2_same_spot": 0.2696724189847083,
+        "median_r2_rot_137": 0.0014933210038619027,
+        "median_r2_rot_90": -0.0002602373630661292,
+        "upgrades": false
+      },
+      "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION<-HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+        "n_units": 8,
+        "n_pass": 0,
+        "n_beat_same": 0,
+        "n_beat_null": 7,
+        "n_beat_same_spot": 4,
+        "median_r2_cross": 0.21578551069907315,
+        "median_r2_same": 0.48236842335148294,
+        "median_r2_same_spot": 0.2246223899095543,
+        "median_r2_rot_137": 0.002463767376441439,
+        "median_r2_rot_90": -0.0003614983250143089,
+        "upgrades": false
+      },
+      "HALLMARK_INTERFERON_GAMMA_RESPONSE<-HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+        "n_units": 8,
+        "n_pass": 0,
+        "n_beat_same": 0,
+        "n_beat_null": 4,
+        "n_beat_same_spot": 5,
+        "median_r2_cross": 0.02238734361436817,
+        "median_r2_same": 0.4328660618860063,
+        "median_r2_same_spot": 0.014676032234570646,
+        "median_r2_rot_137": 0.003857239558847536,
+        "median_r2_rot_90": 0.0013140130088624136,
+        "upgrades": false
+      }
+    },
+    "masked": {
+      "B_AXIS<-HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+        "n_units": 8,
+        "n_pass": 0,
+        "n_beat_same": 0,
+        "n_beat_null": 8,
+        "n_beat_same_spot": 3,
+        "median_r2_cross": 0.13298658320856488,
+        "median_r2_same": 0.4643504168107437,
+        "median_r2_same_spot": 0.2547067144913516,
+        "median_r2_rot_137": -0.0036313658039581753,
+        "median_r2_rot_90": -0.006002365280263655,
+        "upgrades": false
+      },
+      "B_AXIS<-HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+        "n_units": 8,
+        "n_pass": 0,
+        "n_beat_same": 0,
+        "n_beat_null": 6,
+        "n_beat_same_spot": 4,
+        "median_r2_cross": 0.2809986820185198,
+        "median_r2_same": 0.4643504168107437,
+        "median_r2_same_spot": 0.272153605408213,
+        "median_r2_rot_137": -0.004261119085244847,
+        "median_r2_rot_90": -0.0047300872798825555,
+        "upgrades": false
+      },
+      "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION<-HALLMARK_INTERFERON_GAMMA_RESPONSE": {
+        "n_units": 8,
+        "n_pass": 0,
+        "n_beat_same": 0,
+        "n_beat_null": 7,
+        "n_beat_same_spot": 2,
+        "median_r2_cross": 0.1795141747217004,
+        "median_r2_same": 0.49527563699029054,
+        "median_r2_same_spot": 0.2478678881358054,
+        "median_r2_rot_137": -0.0047852759995993255,
+        "median_r2_rot_90": -0.00366296610804262,
+        "upgrades": false
+      },
+      "HALLMARK_INTERFERON_GAMMA_RESPONSE<-HALLMARK_OXIDATIVE_PHOSPHORYLATION": {
+        "n_units": 8,
+        "n_pass": 0,
+        "n_beat_same": 0,
+        "n_beat_null": 5,
+        "n_beat_same_spot": 5,
+        "median_r2_cross": 0.031121421204625188,
+        "median_r2_same": 0.3905967100181241,
+        "median_r2_same_spot": -0.0048519596064118264,
+        "median_r2_rot_137": -0.004939874169200387,
+        "median_r2_rot_90": -0.009847238851833917,
+        "upgrades": false
+      }
+    }
+  },
+  "upgrade_af01": false,
+  "passing_pairs": [],
+  "decision_rule": "upgrade only if the same pair passes on >=6 units in both the masked protocol and the full-spot sensitivity protocol"
+}
