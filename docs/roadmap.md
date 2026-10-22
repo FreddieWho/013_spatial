@@ -41,7 +41,7 @@
 | FA-10 | 路线 A：计数似然分层空间因子模型 | FA-09 数据、FA-08B | AF-01/03 | [`REPORT_FA10`](../infra/field_analyzer_20261020/REPORT_FA10.md)：14片留出10% spot的 Poisson deviance——depth-only 445,340；因子+2步平滑 378,318（−15%）；**逐基因kNN 325,161（−27%，12/14片最优）**。留一单位 445,427 与随机留出不可比，不证明载荷不迁移（I-057） | DELIVERED（10-20；片内未超过局部平滑） |
 | FA-11 | 路线 C：生态位共定位（Xenium 单细胞） | FA-09 数据 | AF-02 | [`REPORT_FA11`](../infra/field_analyzer_20261020/REPORT_FA11.md)：12万细胞、K=5；置换零对照 z=+220（强共定位），半区一致 r=0.986；**但对称图使接触矩阵天然对称（max\|C−Cᵀ\|=0），方向不可识别**。Base/Addon 0.998 是同一实验的两个 ROI，不是连接（I-057） | DELIVERED（10-20；只证明区室共定位） |
 | FA-12 | 跨场邻居对同场邻居 | FA-08B | AF-01 | [`REPORT_FA12`](../infra/field_analyzer_20261020/REPORT_FA12.md)：掩膜与全点两个口径，四对关系全部 0/8 单位超过同场邻居。最近一次仍差 0.039。`upgrade_af01=false` | DELIVERED（10-22，复核通过；AF-01 不升级） |
-| FA-13 | 目标自身邻域之外的跨场条件增量与本地资产适用性 | FA-12、D-284 | AF-01 的证据辨析 / AF-03 | [计算前冻结合同](FA13_CONDITIONAL_RELATION_20261023.md)：先核对旧联合比较；固定 EMT←IFN，同预算 M0 vs M0+跨场邻域，双半分子重复、隐藏点毒化及独立复核 | DELIVERED_PENDING_REVIEW（10-23，Pi DeepSeek max 已交付；结果与资产清单待 Grok xhigh 复核） |
+| FA-13 | 目标自身邻域之外的跨场条件增量与本地资产适用性 | FA-12、D-284 | AF-01 的证据辨析 / AF-03 | [计算前冻结合同](FA13_CONDITIONAL_RELATION_20261023.md)：DeepSeek 已交付，执行者继续核清判定来源和资产基因轴；独立审核尝试见 review_attempt.json | BLOCKED_REVIEW（10-23，指定 Grok xhigh 返回 xAI 403：额度/订阅不足；I-059；不得用于科学结论） |
 
 ## 任务分组与并行
 
