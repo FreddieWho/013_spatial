@@ -53,4 +53,4 @@ infra/field_analyzer_20261020/spatial_lag/
 
 `/opt/anaconda3/bin/python -m field_analyzer.cli spatial-lag`（10.2 s，468 MB，CPU）。
 
-复核尚未完成。在复核关闭前，本页数字可以复算，但不作为已关闭的节点结论对外使用。
+**复核结论：** `allow_node_conclusion = true`（`review/fa12_review.json`，`xai/grok-4.7`，`xhigh`，agent `a5bcb012`，提交 `06e5d59`）。无发现。复核指出一个未改的限制：片内标准化用了全片有限值的均值和方差，包括后来被掩住的点；这些点的数值没有进入邻居特征。按复核判断，这个尺度泄漏不足以把 0/8 翻成 6/8。未重跑。

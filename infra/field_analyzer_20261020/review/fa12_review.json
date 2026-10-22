@@ -1,0 +1,31 @@
+{
+  "reviewer": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "thinking": "xhigh",
+    "cwd": "/home/huyudi/013_spatial"
+  },
+  "node": "FA-12",
+  "commit_reviewed": "06e5d59",
+  "scope": {
+    "read": [
+      "field_analyzer/spatial_lag.py",
+      "field_analyzer/cli.py 中留一单位汇总键的写法",
+      "infra/field_analyzer_20261020/REPORT_FA12.md",
+      "infra/field_analyzer_20261020/spatial_lag/unit_results.tsv",
+      "infra/field_analyzer_20261020/spatial_lag/summary.json",
+      "infra/field_analyzer_20261020/real_holdout/summary.json"
+    ],
+    "ran": [
+      "从 unit_results.tsv 点算两个口径、四对关系的 beats_same，并找出最小差距"
+    ],
+    "not_checked": [
+      "未重跑留一单位拟合",
+      "未从原始计数重算邻居特征"
+    ]
+  },
+  "findings": [],
+  "claims_that_do_not_hold": [],
+  "allow_node_conclusion": true,
+  "limitations": "否定可以保留。片内标准化用了全片有限值的均值和方差，包括后来被掩住的点；这些点的数值没有进入邻居特征。最近差距是 0.039，这个尺度泄漏不足以把 0/8 翻过来。未重跑。"
+}
