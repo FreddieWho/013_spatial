@@ -47,8 +47,11 @@ K_NEIGHBOURS = 8
 RIDGE_ALPHA = 1.0
 Q_FRACTION = 0.1
 Q_SEED = 0
-#: pre-fixed descriptive stability rule (no magnitude threshold, no p-value claim)
-STABLE_UNITS = 6
+#: executor-added descriptive majority count.  It is NOT part of the frozen contract
+#: (docs/FA13_CONDITIONAL_RELATION_20261023.md, commit 3a07f06), is not a pre-registered rule,
+#: and is not an AF pass criterion.  The frozen contract only says "report effect size and
+#: unit consistency" and "freeze the branch if there is no stable increment".
+DESCRIPTIVE_MAJORITY_UNITS = 6
 MIN_FIT_ROWS = 50
 MIN_EVAL_ROWS = 10
 
@@ -382,8 +385,12 @@ def run_single_feature(sections: Sequence[SectionDesign], target: str, predictor
     return rows
 
 
-def summarise(unit_rows: Sequence[Mapping], *, stable_units: int = STABLE_UNITS) -> dict:
-    """Descriptive summary per rule/direction/protocol; no magnitude threshold."""
+def summarise(unit_rows: Sequence[Mapping], *, majority_units: int = DESCRIPTIVE_MAJORITY_UNITS) -> dict:
+    """Descriptive summary per rule/direction/protocol; no magnitude threshold.
+
+    ``descriptive_majority_positive`` is an executor-added count (``majority_units`` of units
+    with delta_r2 > 0).  It is not in the frozen contract and is not an AF pass criterion.
+    """
     out: dict[str, dict] = {}
     keys = sorted({(r['target'], r['predictor'], r['feature_half'], r['truth_half'],
                     r['protocol']) for r in unit_rows})
@@ -405,9 +412,12 @@ def summarise(unit_rows: Sequence[Mapping], *, stable_units: int = STABLE_UNITS)
             median_r2_m1=float(np.median(r2m1)) if r2m1 else float('nan'),
             unit_delta_r2={r['held_unit']: float(r['delta_r2']) for r in rows
                            if np.isfinite(r['delta_r2'])},
-            stable=(n >= stable_units and positive >= stable_units),
-            decision_rule=f'stable = >= {stable_units} of >= {stable_units} units with delta_r2 > 0 '
-                          '(descriptive consistency, no magnitude threshold)',
+            descriptive_majority_positive=bool(n >= majority_units
+                                               and positive >= majority_units),
+            descriptive_note=(f'executor-added descriptive count: {positive}/{n} units with '
+                              'delta_r2 > 0; NOT in the frozen contract; NOT a pre-registered '
+                              'rule; NOT an AF pass criterion'),
+            majority_units=majority_units,
             n_not_testable=int(sum(1 for r in unit_rows
                                    if (r['target'], r['predictor'], r['feature_half'],
                                        r['truth_half'], r['protocol']) == key

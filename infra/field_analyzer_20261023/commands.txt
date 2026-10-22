@@ -6,3 +6,12 @@ PYTHONNOUSERSITE=1 OMP_NUM_THREADS=4 CUDA_VISIBLE_DEVICES=-1 python scripts/fiel
 PYTHONNOUSERSITE=1 OMP_NUM_THREADS=4 CUDA_VISIBLE_DEVICES=-1 python -m pytest tests/test_fa_conditional_relations.py -q
 # 单特征参照（写入 summary.json -> single_feature_references）用同一模块：
 #   cr.run_single_feature(designs, target, predictor, feature='same'|'cross', feature_half, truth_half, conditioned)
+
+# 2026-10-23 修正：资产表按“检测轴”纠正后重生成（同一有界范围）
+PYTHONNOUSERSITE=1 OMP_NUM_THREADS=4 CUDA_VISIBLE_DEVICES=-1 python scripts/field_analyzer_conditional_20261023.py assets
+# 已解包 Xenium 检测轴交验（只读 matrix/features/name，不载入矩阵）：
+#   data/derived/xenium_colon_base/cell_feature_matrix.h5 -> 541 genes == base design 325 (base+addon run)
+#   data/derived/xenium_colon_addon/cell_feature_matrix.h5 -> 541 genes == addon design 425 (325+100 custom)
+# 措辞修正后同参数重跑（数值逐位一致）：run / smoke
+PYTHONNOUSERSITE=1 OMP_NUM_THREADS=8 CUDA_VISIBLE_DEVICES=-1 python scripts/field_analyzer_conditional_20261023.py run
+PYTHONNOUSERSITE=1 OMP_NUM_THREADS=8 CUDA_VISIBLE_DEVICES=-1 python scripts/field_analyzer_conditional_20261023.py smoke

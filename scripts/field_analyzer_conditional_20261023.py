@@ -270,7 +270,7 @@ def run_real(out: Path) -> dict:
     units = sorted({d.unit_id for d in designs})
     results = dict(units=units, sections=meta, settings=dict(
         k=cr.K_NEIGHBOURS, alpha=cr.RIDGE_ALPHA, q_fraction=cr.Q_FRACTION, seed=cr.Q_SEED,
-        rules=[list(r) for r in cr.RULES], stable_units=cr.STABLE_UNITS,
+        rules=[list(r) for r in cr.RULES], majority_units=cr.DESCRIPTIVE_MAJORITY_UNITS,
         fields=list(cr.FIELDS), panel_path=cr.PANEL_PATH))
     unit_rows: list[dict] = []
     section_rows: list[dict] = []
@@ -358,15 +358,49 @@ def _zip_tail_has_eocd(path: Path, window: int = 1_000_000) -> bool:
     return tail.rfind(b'PK\x05\x06') != -1
 
 
-def _read_zip_feature_axis(path: Path, budget_members: int = 120,
-                           budget_bytes: int = 200_000_000) -> dict:
-    """Sequential local-header scan (works even when the central directory is missing).
+def _h5_feature_names(path: Path) -> list[str] | None:
+    """Read only ``matrix/features/name`` from an unpacked H5 (never the expression matrix)."""
+    try:
+        import h5py
+        with h5py.File(path, 'r') as handle:
+            names = handle['matrix/features/name'][:]
+        return [x.decode() if isinstance(x, bytes) else str(x) for x in names]
+    except Exception:
+        return None
 
-    Members may be written with a data descriptor (sizes unknown up front); those are read by
-    feeding chunks to a decompressor until the stream ends or the byte budget is exhausted.
+
+def _design_genes(panel_json: dict) -> tuple[list[str], int, int]:
+    """Gene symbols of the *panel design*: ``payload.targets[*].type.data.name`` (descriptor gene)."""
+    genes: list[str] = []
+    payload = panel_json.get('payload', {}) if isinstance(panel_json, dict) else {}
+    targets = payload.get('targets') or []
+    for target in targets:
+        if not isinstance(target, dict):
+            continue
+        kind = (target.get('type') or {}).get('descriptor')
+        data = (target.get('type') or {}).get('data') or {}
+        name = data.get('name')
+        if kind == 'gene' and isinstance(name, str) and name:
+            genes.append(name)
+    declared = (payload.get('panel') or {}).get('num_gene_targets')
+    return genes, len(targets), int(declared) if isinstance(declared, (int, float)) else -1
+
+
+def _read_zip_panel_metadata(path: Path, budget_members: int = 120,
+                             budget_bytes: int = 200_000_000) -> dict:
+    """Sequential local-header scan for small metadata members (no detected-axis claim).
+
+    Xenium archives are often incomplete (no central directory); this reads only
+    ``experiment.xenium``, ``gene_panel.json``, ``metrics_summary.csv`` and ``cells.csv.gz`` and
+    reports the *panel design* target count.  The detected (run) axis lives in
+    ``cell_feature_matrix.h5`` and cannot be verified from an archive here, so it is marked
+    ``UNVERIFIED_DETECTED_AXIS`` rather than being guessed from JSON strings.
     """
-    info = dict(members_scanned=0, gene_axis_n=None, gene_symbols=[], features_member=None,
-                experiment={}, scan='sequential_local_headers', scan_error='')
+    info = dict(members_scanned=0, panel_design_gene_targets_n=None, panel_declared_targets_n=None,
+                design_panel_hits=None, design_gene_symbols=[], features_member=None,
+                experiment={}, coord_range=None, metrics_summary='',
+                detected_axis='UNVERIFIED_DETECTED_AXIS', scan='sequential_local_headers',
+                scan_error='')
     consumed = 0
     try:
         with path.open('rb') as handle:
@@ -384,7 +418,7 @@ def _read_zip_feature_axis(path: Path, budget_members: int = 120,
                 info['members_scanned'] += 1
                 is_dir = name.endswith('/')
                 streamed = bool(flag & 0x08) and not is_dir
-                wanted = name.endswith(('features.tsv.gz', 'gene_panel.json', 'experiment.xenium',
+                wanted = name.endswith(('gene_panel.json', 'experiment.xenium',
                                        'metrics_summary.csv', 'cells.csv.gz'))
                 if is_dir:
                     continue
@@ -398,15 +432,13 @@ def _read_zip_feature_axis(path: Path, budget_members: int = 120,
                     handle.seek(comp_size, 1)
                     continue
                 raw = b''
-                remaining = budget_bytes - consumed
                 if streamed:
                     decomp = zlib.decompressobj(-zlib.MAX_WBITS) if method == 8 else None
-                    while len(raw) < 40_000_000 and remaining > 0:
+                    while len(raw) < 40_000_000 and consumed < budget_bytes:
                         chunk = handle.read(1_000_000)
                         if not chunk:
                             break
                         consumed += len(chunk)
-                        remaining -= len(chunk)
                         if decomp is None:
                             raw += chunk
                         else:
@@ -424,25 +456,22 @@ def _read_zip_feature_axis(path: Path, budget_members: int = 120,
                 if name.endswith('gene_panel.json') and raw:
                     try:
                         panel = json.loads(raw.decode('utf-8', 'replace'))
-                        genes = _collect_gene_symbols(panel)
+                        genes, n_targets, declared = _design_genes(panel)
                         hits = {k: len(set(genes) & v) for k, v in _panel_genes().items()}
-                        info.update(gene_axis_n=len(genes), gene_symbols=genes[:5],
-                                    features_member=name, panel_hits=hits,
-                                    panel_name=panel.get('panel_name', ''),
-                                    panel_n_targets=panel.get('n_targets', ''))
+                        info.update(panel_design_gene_targets_n=len(genes),
+                                    panel_declared_targets_n=declared,
+                                    design_panel_hits=hits,
+                                    design_gene_symbols=genes[:5], features_member=name,
+                                    n_target_entries=n_targets)
                     except Exception as exc:
                         info['scan_error'] = f'gene_panel:{type(exc).__name__}'
-                elif name.endswith('features.tsv.gz') and raw:
-                    text = raw.decode('utf-8', 'replace')
-                    genes = [line.split('\t')[1] for line in text.splitlines() if '\t' in line]
-                    hits = {k: len(set(genes) & v) for k, v in _panel_genes().items()}
-                    info.update(gene_axis_n=len(genes), gene_symbols=genes[:5],
-                                features_member=name, panel_hits=hits)
                 elif name.endswith('experiment.xenium') and raw:
                     try:
                         info['experiment'] = json.loads(raw.decode('utf-8', 'replace'))
                     except Exception:
                         info['experiment'] = {}
+                elif name.endswith('metrics_summary.csv') and raw:
+                    info['metrics_summary'] = raw.decode('utf-8', 'replace')[:600]
                 elif name.endswith('cells.csv.gz') and raw:
                     lines = raw.decode('utf-8', 'replace').splitlines()
                     if lines:
@@ -458,51 +487,12 @@ def _read_zip_feature_axis(path: Path, budget_members: int = 120,
                                                        y=[float(ys.min()), float(ys.max())])
                         except (ValueError, IndexError):
                             pass
-                elif name.endswith('metrics_summary.csv') and raw:
-                    info['metrics_summary'] = raw.decode('utf-8', 'replace')[:600]
-                if info.get('gene_axis_n') and info.get('experiment') and info.get('coord_range'):
+                if info.get('experiment') and info.get('panel_design_gene_targets_n') is not None \
+                        and info.get('coord_range'):
                     break
-    except Exception as exc:  # truncated or unsupported archive
+    except Exception as exc:
         info['scan_error'] = f'{type(exc).__name__}: {exc}'[:160]
     return info
-
-
-def _collect_gene_symbols(node, depth: int = 0, out=None):
-    """Collect every ``gene_name`` / ``name`` leaf from a Xenium gene_panel.json."""
-    out = [] if out is None else out
-    if depth > 8:
-        return out
-    if isinstance(node, dict):
-        for key, value in node.items():
-            if key in ('gene_name', 'gene', 'name') and isinstance(value, str) and value:
-                out.append(value)
-            elif isinstance(value, (dict, list)):
-                _collect_gene_symbols(value, depth + 1, out)
-    elif isinstance(node, list):
-        for item in node:
-            _collect_gene_symbols(item, depth + 1, out)
-    return out
-
-
-def _find_targets(node, depth: int = 0):
-    """Locate the target list in a Xenium gene_panel.json (payload nested several levels)."""
-    if depth > 4:
-        return []
-    if isinstance(node, list):
-        if node and all(isinstance(x, (dict, str)) for x in node) and any(
-                isinstance(x, dict) and (x.get('gene_name') or x.get('name')) for x in node):
-            return node
-        for item in node:
-            found = _find_targets(item, depth + 1)
-            if found:
-                return found
-    elif isinstance(node, dict):
-        for key in ('targets', 'genes', 'panel', 'payload'):
-            if key in node:
-                found = _find_targets(node[key], depth + 1)
-                if found:
-                    return found
-    return []
 
 
 def _scan_spatial_tar(path: Path, budget_bytes: int = 400_000_000, budget_seconds: float = 25.0
@@ -535,8 +525,55 @@ def _scan_spatial_tar(path: Path, budget_bytes: int = 400_000_000, budget_second
     return info
 
 
+def _verified_unpacked_rows() -> list[dict]:
+    """Cross-check rows for unpacked Xenium outputs (detected axis readable from H5 features)."""
+    rows = []
+    for name in ('xenium_colon_base', 'xenium_colon_addon'):
+        directory = ROOT / 'data/derived' / name
+        h5 = directory / 'cell_feature_matrix.h5'
+        panel_json = directory / 'gene_panel.json'
+        if not h5.exists():
+            rows.append(dict(dataset=f'data/derived/{name}', platform='xenium_unpacked',
+                             archive=h5.name, detected_axis='NOT_PRESENT', note='no H5 on disk'))
+            continue
+        names = _h5_feature_names(h5)
+        design_genes, n_entries, declared = [], 0, -1
+        if panel_json.exists():
+            try:
+                design_genes, n_entries, declared = _design_genes(json.loads(panel_json.read_text()))
+            except Exception:
+                pass
+        experiment = {}
+        exp_path = directory / 'experiment.xenium'
+        if exp_path.exists():
+            try:
+                experiment = json.loads(exp_path.read_text())
+            except Exception:
+                experiment = {}
+        detected_hits = {k: len(set(names or []) & v) for k, v in _panel_genes().items()}
+        rows.append(dict(
+            dataset=f'data/derived/{name}', platform='xenium_unpacked', archive=h5.name,
+            bytes=h5.stat().st_size, scan='h5_features_only',
+            detected_axis='VERIFIED_H5_FEATURES' if names else 'NOT_READ',
+            detected_axis_n=len(names or []),
+            detected_panel_hits=json.dumps(detected_hits),
+            detected_gene_symbols=' '.join((names or [])[:5]),
+            panel_design_gene_targets_n=len(design_genes),
+            panel_declared_targets_n=declared, n_target_entries=n_entries,
+            design_panel_hits=json.dumps({k: len(set(design_genes) & v)
+                                         for k, v in _panel_genes().items()}),
+            experiment_run_name=experiment.get('run_name', ''),
+            experiment_panel_name=experiment.get('panel_name', ''),
+            experiment_num_cells=experiment.get('num_cells', ''),
+            experiment_targets_predesigned=experiment.get('panel_num_targets_predesigned', ''),
+            experiment_targets_custom=experiment.get('panel_num_targets_custom', ''),
+            note=('detected axis read from matrix/features/name only; unpenetrated archive rows '
+                  'cannot verify the detected axis')))
+    return rows
+
+
 def scan_assets(out: Path) -> list[dict]:
-    rows: list[dict] = []
+    rows: list[dict] = _verified_unpacked_rows()
     for directory in sorted(ZIP_DATASETS.iterdir()):
         if not directory.is_dir():
             continue
@@ -553,22 +590,24 @@ def scan_assets(out: Path) -> list[dict]:
                     row['zip_has_central_directory'] = _zip_tail_has_eocd(archive)
                 except Exception as exc:
                     row['zip_has_central_directory'] = f'ERROR:{type(exc).__name__}'
-                info = _read_zip_feature_axis(archive)
-                row.update({k: v for k, v in info.items() if k != 'experiment'})
+                info = _read_zip_panel_metadata(archive)
+                row.update({k: v for k, v in info.items() if k not in ('experiment',)})
                 experiment = info.get('experiment') or {}
-                for key in ('run_name', 'sample_id', 'panel_name', 'region_name', 'run_start_time',
-                            'experiment_uuid'):
+                for key in ('run_name', 'sample_id', 'panel_name', 'panel_design_id',
+                            'region_name', 'panel_num_targets_predesigned',
+                            'panel_num_targets_custom', 'num_cells'):
                     row[f'experiment_{key}'] = experiment.get(key, '')
-                row['gene_axis'] = ('READ_SEQUENTIAL' if info.get('gene_axis_n')
-                                    else 'NOT_READ')
+                row['note'] = ('panel design targets from gene_panel.json; detected run axis is '
+                               'not verifiable inside the archive')
             else:
                 spatial = 'spatial' in archive.name
                 info = _scan_spatial_tar(archive) if spatial else dict(members=[], scan='skip_big')
                 row.update({k: v for k, v in info.items() if k != 'members'})
                 row['n_members_listed'] = len(info.get('members', []))
-                row['gene_axis'] = 'NOT_READ_BIG_ARCHIVE' if not spatial else 'NOT_IN_SPATIAL_TAR'
-                row['coord_range'] = json.dumps(info.get('coord_range')) if info.get('coord_range') \
-                    else ''
+                row['detected_axis'] = 'NOT_CHECKED'
+                row['note'] = ('gene axis lives in the binned outputs archive; not read within the '
+                               'bounded policy' if not spatial else
+                               'spatial tarball has images/scalefactors only')
             rows.append(row)
     write_tsv(rows, out / 'local_asset_fit.tsv')
     return rows

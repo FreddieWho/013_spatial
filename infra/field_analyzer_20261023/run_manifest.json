@@ -57,11 +57,15 @@
   ],
   "results_scope": "ENGINEERING_ONLY",
   "limitations": [
-    "DELIVERED_PENDING_REVIEW: independent Grok review not closed",
+    "DELIVERED_PENDING_REVIEW / BLOCKED_REVIEW: independent Grok xhigh review did not run (xAI 403 for the assigned reviewer); nothing here is an independent review",
+    "the frozen contract (3a07f06) contains no numeric pass rule; the report's six-of-eight count is executor-added descriptive statistics, not pre-registered and not an AF pass criterion",
     "exploratory follow-up after seeing historical results; not a confirmatory test on unseen data",
     "no matching spatial null distribution or independent structural evidence; no mechanism claim",
-    "OXPHOS depth-sensitive control shows a positive increment only without depth conditioning; that variant is sensitivity, not the decision variant",
+    "FA-12's same_neighbour used the target witness half in O; this round uses the feature half for gene-internal verification, so the joint result cannot be framed as beating / not beating FA-12's strongest same-budget reference",
+    "random whole-spot 10% hold-out is not continuous-region recovery; no AF-03 upgrade",
+    "OXPHOS depth-sensitive control shows an increment only without depth conditioning; that variant is sensitivity, not a decision variant",
     "14 sections / 8 within-study units only; section counts are not patient counts",
-    "10x Xenium/Visium HD archives: gene axes only partially read (bounded scan); Visium HD gene axes not read"
+    "local 10x Xenium archives: only panel-design target counts and metadata were read; detected run axes are UNVERIFIED_DETECTED_AXIS inside archives; the two unpacked Xenium outputs show 541 detected genes with EMT/IFNG/OXPHOS coverage in single digits",
+    "local Visium HD: gene axis NOT_CHECKED (only packed 6-26 GB archives; no unpacked features found within the bounded search)"
   ]
 }

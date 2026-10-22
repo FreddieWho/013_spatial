@@ -306,7 +306,7 @@
         "OXPHOS"
       ]
     ],
-    "stable_units": 6,
+    "majority_units": 6,
     "fields": [
       "EMT",
       "IFNG",
@@ -379,8 +379,9 @@
         "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5": 0.00028910901199785677,
         "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7": -0.0002008462650527898
       },
-      "stable": false,
-      "decision_rule": "stable = >= 6 of >= 6 units with delta_r2 > 0 (descriptive consistency, no magnitude threshold)",
+      "descriptive_majority_positive": false,
+      "descriptive_note": "executor-added descriptive count: 2/8 units with delta_r2 > 0; NOT in the frozen contract; NOT a pre-registered rule; NOT an AF pass criterion",
+      "majority_units": 6,
       "n_not_testable": 0
     },
     "EMT<-IFNG|A/B|unconditioned": {
@@ -405,8 +406,9 @@
         "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5": -0.00011121573433736653,
         "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7": -0.00017029594336948062
       },
-      "stable": false,
-      "decision_rule": "stable = >= 6 of >= 6 units with delta_r2 > 0 (descriptive consistency, no magnitude threshold)",
+      "descriptive_majority_positive": false,
+      "descriptive_note": "executor-added descriptive count: 2/8 units with delta_r2 > 0; NOT in the frozen contract; NOT a pre-registered rule; NOT an AF pass criterion",
+      "majority_units": 6,
       "n_not_testable": 0
     },
     "EMT<-IFNG|B/A|conditioned": {
@@ -431,8 +433,9 @@
         "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5": -0.0036893421950013883,
         "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7": 0.0036298576054916154
       },
-      "stable": false,
-      "decision_rule": "stable = >= 6 of >= 6 units with delta_r2 > 0 (descriptive consistency, no magnitude threshold)",
+      "descriptive_majority_positive": false,
+      "descriptive_note": "executor-added descriptive count: 5/8 units with delta_r2 > 0; NOT in the frozen contract; NOT a pre-registered rule; NOT an AF pass criterion",
+      "majority_units": 6,
       "n_not_testable": 0
     },
     "EMT<-IFNG|B/A|unconditioned": {
@@ -457,8 +460,9 @@
         "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5": -0.0031722208806124197,
         "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7": 0.004375769871018065
       },
-      "stable": false,
-      "decision_rule": "stable = >= 6 of >= 6 units with delta_r2 > 0 (descriptive consistency, no magnitude threshold)",
+      "descriptive_majority_positive": false,
+      "descriptive_note": "executor-added descriptive count: 4/8 units with delta_r2 > 0; NOT in the frozen contract; NOT a pre-registered rule; NOT an AF pass criterion",
+      "majority_units": 6,
       "n_not_testable": 0
     },
     "IFNG<-OXPHOS|A/B|conditioned": {
@@ -483,8 +487,9 @@
         "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5": -0.01064237213835817,
         "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7": 0.0030882994320108326
       },
-      "stable": false,
-      "decision_rule": "stable = >= 6 of >= 6 units with delta_r2 > 0 (descriptive consistency, no magnitude threshold)",
+      "descriptive_majority_positive": false,
+      "descriptive_note": "executor-added descriptive count: 5/8 units with delta_r2 > 0; NOT in the frozen contract; NOT a pre-registered rule; NOT an AF pass criterion",
+      "majority_units": 6,
       "n_not_testable": 0
     },
     "IFNG<-OXPHOS|A/B|unconditioned": {
@@ -509,8 +514,9 @@
         "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5": 0.006467622043602517,
         "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7": 0.021721690833649387
       },
-      "stable": true,
-      "decision_rule": "stable = >= 6 of >= 6 units with delta_r2 > 0 (descriptive consistency, no magnitude threshold)",
+      "descriptive_majority_positive": true,
+      "descriptive_note": "executor-added descriptive count: 7/8 units with delta_r2 > 0; NOT in the frozen contract; NOT a pre-registered rule; NOT an AF pass criterion",
+      "majority_units": 6,
       "n_not_testable": 0
     },
     "IFNG<-OXPHOS|B/A|conditioned": {
@@ -535,8 +541,9 @@
         "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5": 0.008359305389719851,
         "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7": 0.00275423125557106
       },
-      "stable": false,
-      "decision_rule": "stable = >= 6 of >= 6 units with delta_r2 > 0 (descriptive consistency, no magnitude threshold)",
+      "descriptive_majority_positive": false,
+      "descriptive_note": "executor-added descriptive count: 3/8 units with delta_r2 > 0; NOT in the frozen contract; NOT a pre-registered rule; NOT an AF pass criterion",
+      "majority_units": 6,
       "n_not_testable": 0
     },
     "IFNG<-OXPHOS|B/A|unconditioned": {
@@ -561,12 +568,13 @@
         "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 5": 0.0038367853046551437,
         "https-www-biorxiv-org-content-10-1101-2023-01-23-525135v2::Patient 7": 0.000600306234991077
       },
-      "stable": true,
-      "decision_rule": "stable = >= 6 of >= 6 units with delta_r2 > 0 (descriptive consistency, no magnitude threshold)",
+      "descriptive_majority_positive": true,
+      "descriptive_note": "executor-added descriptive count: 7/8 units with delta_r2 > 0; NOT in the frozen contract; NOT a pre-registered rule; NOT an AF pass criterion",
+      "majority_units": 6,
       "n_not_testable": 0
     }
   },
   "n_unit_rows": 64,
   "n_section_rows": 112,
-  "wall_seconds": 17.8
+  "wall_seconds": 18.5
 }
