@@ -55,9 +55,9 @@
       "official_or_adapted": "classical_baseline"
     }
   ],
-  "results_scope": "ENGINEERING_ONLY",
+  "results_scope": "DESCRIPTIVE_EXPLORATORY",
   "limitations": [
-    "DELIVERED_PENDING_REVIEW / BLOCKED_REVIEW: independent Grok xhigh review did not run (xAI 403 for the assigned reviewer); nothing here is an independent review",
+    "User cancelled independent review under D-285; the previous Grok attempt failed with xAI 403 and did not complete. No independent-review claim is made.",
     "the frozen contract (3a07f06) contains no numeric pass rule; the report's six-of-eight count is executor-added descriptive statistics, not pre-registered and not an AF pass criterion",
     "exploratory follow-up after seeing historical results; not a confirmatory test on unseen data",
     "no matching spatial null distribution or independent structural evidence; no mechanism claim",
@@ -65,7 +65,14 @@
     "random whole-spot 10% hold-out is not continuous-region recovery; no AF-03 upgrade",
     "OXPHOS depth-sensitive control shows an increment only without depth conditioning; that variant is sensitivity, not a decision variant",
     "14 sections / 8 within-study units only; section counts are not patient counts",
-    "local 10x Xenium archives: only panel-design target counts and metadata were read; detected run axes are UNVERIFIED_DETECTED_AXIS inside archives; the two unpacked Xenium outputs show 541 detected genes with EMT/IFNG/OXPHOS coverage in single digits",
+    "local Xenium archives: detected run axes remain unverified; only two unpacked outputs have 541 feature-name entries checked, with gene/control classification still unresolved; do not generalize their coverage to all archives",
     "local Visium HD: gene axis NOT_CHECKED (only packed 6-26 GB archives; no unpacked features found within the bounded search)"
-  ]
+  ],
+  "review_requirement": {
+    "required": false,
+    "decision": "D-285",
+    "cancelled_by_user": true,
+    "independent_review_completed": false,
+    "previous_attempt": "review_attempt.json"
+  }
 }
